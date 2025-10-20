@@ -261,7 +261,7 @@ mdb.Job(name='BakeCubeTransient', model='Model-1', description='',
     modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
     scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
 
-job=mdb.jobs['BakeCubeTransient22222222222222']
+job=mdb.jobs['BakeCubeTransient']
 
 # delete lock file, which for some reason tends to hang around, if it exists
 if os.access('%s.lck'%ModelName,os.F_OK):
