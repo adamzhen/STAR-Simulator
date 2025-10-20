@@ -250,7 +250,7 @@ a.regenerate()
 #####################################
 ### Creation/Execution of the Job ###
 #####################################
-print('Creating/Running Job')
+print('Creating Job')
 
 ModelName='Model-1'
 
@@ -267,6 +267,8 @@ job=mdb.jobs['BakeCubeTransient']
 if os.access('%s.lck'%ModelName,os.F_OK):
     os.remove('%s.lck'%ModelName)
     
+
+print('Running Job')
 # Run the job, then process the results.        
 job.submit()
 job.waitForCompletion()
