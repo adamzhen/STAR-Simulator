@@ -53,9 +53,9 @@ session.journalOptions.setValues(replayGeometry=COORDINATE,recoverGeometry=COORD
 
 
 ### Write data file column headings
-DataFile = open('PostData.txt','w')
-DataFile.write('Col1 Col2 Col3')
-DataFile.close()
+# DataFile = open('PostData.txt','w')
+# DataFile.write('Col1 Col2 Col3')
+# DataFile.close()
   
 #####################################
 ### Generation of SOLID FEA Model ###
@@ -68,10 +68,12 @@ DataFile.close()
 
 Mdb()   
 
+# Set Physical Constants
+mdb.models['Model-1'].setValues(absoluteZero=0, stefanBoltzmann=5.67E-08)
+
 # Recreate the model using the current parameter values
     
 # Sketch Geometry and Create Parts
-
 print('Sketching/Creating the Baffle')
 s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
     sheetSize=200.0)
@@ -94,15 +96,15 @@ mdb.models['Model-1'].materials['Aluminum'].Elastic(table=((70000000000.0,
     0.3), ))
 mdb.models['Model-1'].materials['Aluminum'].Conductivity(table=((237.0, ), ))
 mdb.models['Model-1'].materials['Aluminum'].SpecificHeat(table=((900.0, ), ))
+mdb.models['Model-1'].materials['Aluminum'].Density(table=((2300.0, ), ))
+mdb.models['Model-1'].materials['Aluminum'].Expansion(table=((5e-06, ), ))
     
 #Create/Assign Section
 print('Creating the Sections')
-mdb.models['Model-1'].HomogeneousSolidSection(name='AlSection', 
+mdb.models['Model-1'].HomogeneousSolidSection(name='Aluminum-Section', 
     material='Aluminum', thickness=None)
 
 print('Assigning the Sections')
-mdb.models['Model-1'].HomogeneousSolidSection(name='Aluminum-Section', 
-    material='Aluminum', thickness=None)
 p = mdb.models['Model-1'].parts['Cube']
 c = p.cells
 cells = c.getSequenceFromMask(mask=('[#1 ]', ), )
@@ -134,6 +136,30 @@ print('Defining Sets')
 
 a.regenerate()
 
+# Define Predefined Fields
+print('Defining all Predefined Fields')
+a = mdb.models['Model-1'].rootAssembly
+c1 = a.instances['Cube-1'].cells
+cells1 = c1.findAt(((-0.5, -0.166667, 0.666667), ))
+f1 = a.instances['Cube-1'].faces
+faces1 = f1.findAt(((0.5, 0.166667, 0.666667), ), ((0.166667, -0.5, 0.666667), 
+    ), ((-0.5, -0.166667, 0.666667), ), ((-0.166667, 0.5, 0.666667), ), ((
+    0.166667, 0.166667, 1.0), ), ((-0.166667, 0.166667, 0.0), ))
+e1 = a.instances['Cube-1'].edges
+edges1 = e1.findAt(((0.5, 0.25, 1.0), ), ((0.5, -0.5, 0.25), ), ((0.5, 0.25, 
+    0.0), ), ((0.5, 0.5, 0.25), ), ((0.25, -0.5, 1.0), ), ((-0.5, -0.5, 0.25), 
+    ), ((0.25, -0.5, 0.0), ), ((-0.5, -0.25, 1.0), ), ((-0.5, 0.5, 0.25), ), ((
+    -0.5, -0.25, 0.0), ), ((-0.25, 0.5, 1.0), ), ((-0.25, 0.5, 0.0), ))
+v1 = a.instances['Cube-1'].vertices
+verts1 = v1.findAt(((0.5, 0.5, 1.0), ), ((0.5, -0.5, 1.0), ), ((0.5, -0.5, 
+    0.0), ), ((0.5, 0.5, 0.0), ), ((-0.5, -0.5, 1.0), ), ((-0.5, -0.5, 0.0), ), 
+    ((-0.5, 0.5, 1.0), ), ((-0.5, 0.5, 0.0), ))
+region = a.Set(vertices=verts1, edges=edges1, faces=faces1, cells=cells1, 
+    name='All-Surfaces')
+mdb.models['Model-1'].Temperature(name='Temp0', createStepName='Initial', 
+    region=region, distributionType=UNIFORM, 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, magnitudes=(4.0, ))
+
 # Define BCs
 print('Defining all BCs')
 a = mdb.models['Model-1'].rootAssembly
@@ -143,14 +169,81 @@ region = a.Set(faces=faces1, name='Set-1')
 mdb.models['Model-1'].EncastreBC(name='FixFace', createStepName='Bake', 
     region=region, localCsys=None)
 
+# Define Amplitudes
+print('Defining all Amplitudes')
+mdb.models['Model-1'].TabularAmplitude(name='InstantVacuum', timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 1.0), (4.0, 1.0)))
+mdb.models['Model-1'].TabularAmplitude(name='Bake1', timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 1.0), (1.0, 0.0), (2.0, 0.0), (3.0, 
+    0.0), (4.0, 1.0)))
+mdb.models['Model-1'].TabularAmplitude(name='Bake2', timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 0.0), (1.0, 1.0), (2.0, 0.0), (3.0, 
+    0.0), (4.0, 0.0)))
+mdb.models['Model-1'].TabularAmplitude(name='Bake3', timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 0.0), (1.0, 0.0), (2.0, 1.0), (3.0, 
+    0.0), (4.0, 0.0)))
+mdb.models['Model-1'].TabularAmplitude(name='Bake4', timeSpan=STEP, 
+    smooth=SOLVER_DEFAULT, data=((0.0, 0.0), (1.0, 0.0), (2.0, 0.0), (3.0, 
+    1.0), (4.0, 0.0)))
+
+# Define Interactions
+print('Defining all Interactions')
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['Cube-1'].faces
+side1Faces1 = s1.findAt(((0.5, 0.166667, 0.666667), ), ((0.166667, -0.5, 
+    0.666667), ), ((-0.5, -0.166667, 0.666667), ), ((-0.166667, 0.5, 0.666667), 
+    ), ((0.166667, 0.166667, 1.0), ), ((-0.166667, 0.166667, 0.0), ))
+region=a.Surface(side1Faces=side1Faces1, name='All-Surfaces')
+mdb.models['Model-1'].RadiationToAmbient(name='ToVacuum', 
+    createStepName='Bake', surface=region, radiationType=AMBIENT, 
+    distributionType=UNIFORM, field='', emissivity=1.0, ambientTemperature=4.0, 
+    ambientTemperatureAmp='InstantVacuum')
+
 # Define Loads
 print('Defining all Loads')
-
-a = mdb.models['Model-2121212121'].rootAssembly
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['Cube-1'].faces
+side1Faces1 = s1.findAt(((-0.166667, 0.5, 0.666667), ))
+region = a.Surface(side1Faces=side1Faces1, name='Surf-1')
+mdb.models['Model-1'].SurfaceHeatFlux(name='Bake1', createStepName='Bake', 
+    region=region, magnitude=1360.0, amplitude='Bake1')
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['Cube-1'].faces
+side1Faces1 = s1.findAt(((-0.5, -0.166667, 0.666667), ))
+region = a.Surface(side1Faces=side1Faces1, name='Surf-2')
+mdb.models['Model-1'].SurfaceHeatFlux(name='Bake2', createStepName='Bake', 
+    region=region, magnitude=1360.0, amplitude='Bake2')
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['Cube-1'].faces
+side1Faces1 = s1.findAt(((0.166667, -0.5, 0.666667), ))
+region = a.Surface(side1Faces=side1Faces1, name='Surf-3')
+mdb.models['Model-1'].SurfaceHeatFlux(name='Bake3', createStepName='Bake', 
+    region=region, magnitude=1360.0, amplitude='Bake3')
+a = mdb.models['Model-1'].rootAssembly
+s1 = a.instances['Cube-1'].faces
+side1Faces1 = s1.findAt(((0.5, 0.166667, 0.666667), ))
+region = a.Surface(side1Faces=side1Faces1, name='Surf-4')
+mdb.models['Model-1'].SurfaceHeatFlux(name='Bake4', createStepName='Bake', 
+    region=region, magnitude=1360.0, amplitude='Bake4')
 
 #Mesh Parts
 print('Meshing the Baffle')
+p = mdb.models['Model-1'].parts['Cube']
+elemType1 = mesh.ElemType(elemCode=C3D8T, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, distortionControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=C3D6T, elemLibrary=STANDARD)
+elemType3 = mesh.ElemType(elemCode=C3D4T, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['Cube']
+c = p.cells
+cells = c.findAt(((-0.5, -0.166667, 0.666667), ))
+pickedRegions =(cells, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2, 
+    elemType3))
+p = mdb.models['Model-1'].parts['Cube']
+p.seedPart(size=0.1, deviationFactor=0.1, minSizeFactor=0.1)
 
+p = mdb.models['Model-1'].parts['Cube']
+p.generateMesh()
 
 a.regenerate()
 
@@ -161,15 +254,14 @@ print('Creating/Running Job')
 
 ModelName='Model-1'
 
-mdb.Job(name=ModelName, model=ModelName, description='', 
-        type=ANALYSIS, atTime=None, waitMinutes=0, waitHours=0, queue=None, 
-        memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
-        explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
-        modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, 
-        userSubroutine='sma_um_BRT_et0.for', 
-        scratch='', multiprocessingMode=DEFAULT, numCpus=4, numDomains=4)
+mdb.Job(name='BakeCubeTransient', model='Model-1', description='', 
+    type=ANALYSIS, atTime=None, waitMinutes=0, waitHours=0, queue=None, 
+    memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
 
-job=mdb.jobs['Model-1']
+job=mdb.jobs['BakeCubeTransient']
 
 # delete lock file, which for some reason tends to hang around, if it exists
 if os.access('%s.lck'%ModelName,os.F_OK):
@@ -183,15 +275,15 @@ print('Completed job')
 ##########################################
 ### Using Post-P Script to Get Results ###
 ##########################################
-print('Pulling data from ODB')
+# print('Pulling data from ODB')
 
-var1,var2,var3 = getResults(ModelName)
+# var1,var2,var3 = getResults(ModelName)
 
-#Calculations (if needed)
+# #Calculations (if needed)
 
-DataFile = open('PostData.txt','a')
-DataFile.write('%10f %10f  %10f\n' % (var1,var2,var3))
-DataFile.close()
+# DataFile = open('PostData.txt','a')
+# DataFile.write('%10f %10f  %10f\n' % (var1,var2,var3))
+# DataFile.close()
 
 ###END LOOP (i.e., end indentation)
 
