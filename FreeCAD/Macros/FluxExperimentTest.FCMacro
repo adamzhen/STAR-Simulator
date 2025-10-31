@@ -1,0 +1,164 @@
+import sys
+sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\site-packages\python3.10")
+import FreeCAD
+import otsun
+import os
+
+# ============================================================================
+# CLEAR MATERIAL REGISTRY
+# ============================================================================
+from otsun.materials import Material
+
+# Clear any existing "Aluminum" material
+if "Aluminum" in Material.by_name:
+    print("Removing old Aluminum material definition...")
+    del Material.by_name["Aluminum"]
+
+# ============================================================================
+# FACE EXTRACTION FUNCTION
+# ============================================================================
+
+def extract_faces_from_solid(doc, solid_obj_label, material_name):
+    solid = doc.getObjectsByLabel(solid_obj_label)[0]
+    print(f"Extracting {len(solid.Shape.Faces)} faces from '{solid_obj_label}'...")
+    
+    face_objects = []
+    for i, face in enumerate(solid.Shape.Faces):
+        face_obj = doc.addObject("Part::Feature", f"{solid.Name}_Face{i}")
+        face_obj.Shape = face
+        face_obj.Label = f"{solid.Label}_Face{i}Mat{material_name}"
+        face_objects.append(face_obj)
+    
+    doc.removeObject(solid.Name)
+    doc.recompute()
+    print(f"Extracted {len(face_objects)} faces")
+    return face_objects
+
+
+# ============================================================================
+# MAIN SIMULATION SCRIPT
+# ============================================================================
+
+FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/Cube.FCStd'
+
+# --- Create Working Copy ---
+temp_path = FCSTD_PATH.replace('.FCStd', '_otsun_working.FCStd')
+original_doc = FreeCAD.open(FCSTD_PATH)
+original_doc.saveAs(temp_path)
+FreeCAD.closeDocument(original_doc.Name)
+doc = FreeCAD.open(temp_path)
+
+# --- Extract Faces from Solid ---
+extract_faces_from_solid(doc, "Cube(Aluminum)", "Aluminum")
+
+# --- Define Surface Material (FRESH) ---
+from otsun.materials import SurfaceMaterial
+
+SurfaceMaterial.create("Aluminum", {
+    "probability_of_reflection": lambda wl: 0.9,
+    "probability_of_absorption": lambda wl: 0.1,
+    "probability_of_transmittance": lambda wl: 0.0,
+    'thermal_material': True
+})
+
+# --- VERIFY Material Properties ---
+print("\n=== Material Verification ===")
+aluminum_mat = Material.by_name["Aluminum"]
+print(f"  Material type: {type(aluminum_mat).__name__}")
+print(f"  Properties: {aluminum_mat.properties}")
+
+# --- Build Scene ---
+scene = otsun.Scene.from_freecad_document(doc)
+
+print(f"\n=== Scene ===")
+print(f"  Faces in scene: {len(scene.faces)}")
+
+# --- Define Sun/Light Source ---
+from otsun.source import SunWindow, LightSource
+
+main_direction = FreeCAD.Base.Vector(0, 0, -1)
+sun_window = SunWindow(scene, main_direction)
+
+sun = LightSource(
+    scene=scene,
+    emitting_region=sun_window,
+    light_spectrum=550.0,
+    initial_energy=1.0,
+    direction_distribution=None,
+    polarization_vector=None
+)
+
+# --- Run Experiment ---
+num_rays = 1000
+experiment = otsun.Experiment(
+    scene=scene,
+    light_source=sun,
+    number_of_rays=num_rays,
+    document_to_show=doc
+)
+
+print(f"\n=== Running simulation with {num_rays} rays ===")
+experiment.run()
+
+# ============================================================================
+# COLOR ABSORBED RAYS RED
+# ============================================================================
+
+print("\n=== Coloring absorbed rays ===")
+
+# Get all ray objects from the document (they have "Ray" in the name)
+ray_objects = [obj for obj in doc.Objects if "Ray" in obj.Name or "ray" in obj.Name.lower()]
+
+print(f"Found {len(ray_objects)} ray objects in document")
+
+# Create a set of absorbed ray endpoints for fast lookup
+absorbed_endpoints = set()
+for entry in experiment.points_absorber_Th:
+    energy, x1, y1, z1, x2, y2, z2, nx, ny, nz, wavelength = entry
+    # Store absorption point coordinates (rounded for floating point comparison)
+    absorbed_endpoints.add((round(x1, 2), round(y1, 2), round(z1, 2)))
+
+print(f"Found {len(absorbed_endpoints)} absorption points")
+
+# Color rays based on whether they were absorbed
+colored_count = 0
+for ray_obj in ray_objects:
+    if hasattr(ray_obj, 'Shape') and hasattr(ray_obj.Shape, 'Vertexes'):
+        # Get the ray's endpoint (last vertex)
+        if len(ray_obj.Shape.Vertexes) > 0:
+            endpoint = ray_obj.Shape.Vertexes[-1].Point
+            endpoint_rounded = (round(endpoint.x, 2), round(endpoint.y, 2), round(endpoint.z, 2))
+            
+            # Check if this ray was absorbed
+            if endpoint_rounded in absorbed_endpoints:
+                # Color it red
+                ray_obj.ViewObject.LineColor = (1.0, 0.0, 0.0)  # RGB: Red
+                ray_obj.ViewObject.LineWidth = 2.0  # Make it thicker too
+                colored_count += 1
+            else:
+                # Keep reflected/escaped rays default color (or make them gray)
+                ray_obj.ViewObject.LineColor = (0.7, 0.7, 0.7)  # Gray
+                ray_obj.ViewObject.LineWidth = 1.0
+
+print(f"Colored {colored_count} absorbed rays red")
+
+# --- Results ---
+print(f"\n=== RESULTS ===")
+print(f"Total absorbed energy: {experiment.captured_energy_Th} J")
+print(f"Number of absorption points: {len(experiment.points_absorber_Th)}")
+
+# Save flux data
+import csv
+DATA_FILEPATH = 'H:/STAR-Simulator/FreeCAD/flux_data.csv'
+with open(DATA_FILEPATH, 'w', newline='') as f:
+    writer = csv.writer(f)
+    writer.writerow(['Energy', 'X', 'Y', 'Z', 'Normal_X', 'Normal_Y', 'Normal_Z', 'Wavelength'])
+    
+    for entry in experiment.points_absorber_Th:
+        energy, x1, y1, z1, x2, y2, z2, nx, ny, nz, wavelength = entry
+        writer.writerow([energy, x1, y1, z1, nx, ny, nz, wavelength])
+
+print(f"\nFlux data saved: {len(experiment.points_absorber_Th)} points")
+
+doc.save()
+doc.recompute()
