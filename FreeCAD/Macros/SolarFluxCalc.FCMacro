@@ -3,6 +3,10 @@ sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\s
 import FreeCAD
 import otsun
 import os
+import time  # TIMING
+
+# start timer
+_start_time = time.perf_counter()  # TIMING
 
 # ============================================================================
 # CLEAR MATERIAL REGISTRY
@@ -41,8 +45,20 @@ def extract_faces_from_solid(doc, solid_obj_label, material_name):
 
 FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/Cube.FCStd'
 
-# --- Create Working Copy ---
-temp_path = FCSTD_PATH.replace('.FCStd', '_otsun_working.FCStd')
+# --- Create Working Copy (avoid name collisions by appending a counter) ---
+dirpath = os.path.dirname(FCSTD_PATH)
+basename, ext = os.path.splitext(os.path.basename(FCSTD_PATH))
+counter = 0
+while True:
+    if counter == 0:
+        candidate = f"{basename}_otsun_working{ext}"
+    else:
+        candidate = f"{basename}_otsun_working_{counter}{ext}"
+    temp_path = os.path.join(dirpath, candidate)
+    if not os.path.exists(temp_path):
+        break
+    counter += 1
+
 original_doc = FreeCAD.open(FCSTD_PATH)
 original_doc.saveAs(temp_path)
 FreeCAD.closeDocument(original_doc.Name)
@@ -93,12 +109,12 @@ sun = LightSource(
 )
 
 # --- Run Experiment ---
-num_rays = 1000
+num_rays = 3000
 experiment = otsun.Experiment(
     scene=scene,
     light_source=sun,
     number_of_rays=num_rays,
-    document_to_show=doc
+    #document_to_show=doc
 )
 
 print(f"\n=== Running simulation with {num_rays} rays ===")
@@ -122,5 +138,44 @@ with open(DATA_FILEPATH, 'w', newline='') as f:
 
 print(f"\nFlux data saved: {len(experiment.points_absorber_Th)} points")
 
+# Plot absorption points on 2D graph if PLOT2D is True
+PLOT2D = False
+
+if (PLOT2D):
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    points = getattr(experiment, "points_absorber_Th", None)
+    if not points:
+        print("No absorption points to plot.")
+    else:
+        # Fast path: try to convert to a numeric array and slice columns 1 and 2
+        try:
+            arr = np.asarray(points, dtype=float)  # expects consistent-length records
+            xs = arr[:, 1]
+            ys = arr[:, 2]
+        except Exception:
+            # Fallback: minimal Python-level extraction
+            xs = [p[1] for p in points if len(p) > 2]
+            ys = [p[2] for p in points if len(p) > 2]
+            xs = np.array(xs, dtype=float)
+            ys = np.array(ys, dtype=float)
+
+        if xs.size == 0:
+            print("No valid absorption coordinates found.")
+        else:
+            plt.figure(figsize=(6, 6))
+            plt.scatter(xs, ys, s=0.5, c='k', marker='.')
+            plt.xlabel("X")
+            plt.ylabel("Y")
+            plt.title(f"Absorption points (N={xs.size})")
+            plt.gca().set_aspect("equal", adjustable="box")
+            plt.tight_layout()
+            plt.show()
+
 doc.save()
 doc.recompute()
+
+# stop timer and report elapsed time
+_elapsed = time.perf_counter() - _start_time  # TIMING
+print(f"\nTotal script elapsed time: {_elapsed:.3f} seconds")  # TIMING

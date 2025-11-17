@@ -1,0 +1,157 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-08.00.46 RELr427 198590
+# Run by adzheng on Mon Nov  3 13:47:19 2025
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=1217.0, 
+    height=725.0)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile('H:/STAR-Simulator/Abaqus/Thermal-Script.py', __main__.__dict__)
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: Sketching/Creating the Baffle
+#: Creating the Materials
+#: Creating the Sections
+#: Assigning the Sections
+#: Placing Parts in Space
+#: Defining the Steps
+#: Defining Sets
+#: Defining all Predefined Fields
+#: Defining all BCs
+#: Defining all Amplitudes
+#: Defining all Interactions
+#: The interaction "ToVacuum" has been created.
+#: Defining all Loads
+#: Meshing the Baffle
+#: Creating Job
+#: Running Job
+#: Job BakeCubeTransient: Analysis Input File Processor completed successfully.
+#: Job BakeCubeTransient: Abaqus/Standard completed successfully.
+#: Job BakeCubeTransient completed successfully. 
+#: Completed job
+#: DONE!!
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+o3 = session.openOdb(name='H:/STAR-Simulator/Abaqus/BakeCubeTransient.odb')
+#: Model: H:/STAR-Simulator/Abaqus/BakeCubeTransient.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['H:/STAR-Simulator/Abaqus/BakeCubeTransient.odb'])
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=0)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='NT11', outputPosition=NODAL, )
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=20)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2.63463, 
+    farPlane=4.62499, width=2.68135, height=1.41348, viewOffsetX=-0.0842152, 
+    viewOffsetY=0.0444402)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2.76573, 
+    farPlane=4.36143, width=2.81478, height=1.48381, cameraPosition=(3.38346, 
+    0.92951, -0.0770938), cameraUpVector=(-0.555732, 0.82025, 0.135466), 
+    cameraTarget=(-0.101117, -0.0364703, 0.479276), viewOffsetX=-0.0884058, 
+    viewOffsetY=0.0466516)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2.66166, 
+    farPlane=4.50933, width=2.70887, height=1.42798, cameraPosition=(3.08121, 
+    1.37411, 1.76772), cameraUpVector=(-0.743813, 0.649687, 0.157002), 
+    cameraTarget=(-0.0364609, 0.00527011, 0.429321), viewOffsetX=-0.0850793, 
+    viewOffsetY=0.0448962)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=20)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=20)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Bake')
+mdb.models['Model-1'].boundaryConditions['FixFace'].suppress()
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['BakeCubeTransient'].submit(consistencyChecking=OFF)
+#: The job input file "BakeCubeTransient.inp" has been submitted for analysis.
+#: Job BakeCubeTransient: Analysis Input File Processor completed successfully.
+#: Job BakeCubeTransient: Abaqus/Standard completed successfully.
+#: Job BakeCubeTransient completed successfully. 
+o3 = session.openOdb(name='H:/STAR-Simulator/Abaqus/BakeCubeTransient.odb')
+#: Model: H:/STAR-Simulator/Abaqus/BakeCubeTransient.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=20)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='NT11', outputPosition=NODAL, )
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=20)
+session.graphicsOptions.setValues(backgroundStyle=SOLID, 
+    backgroundColor='#FFFFFF')
+session.viewports['Viewport: 1'].view.setValues(nearPlane=2.59348, 
+    farPlane=4.71298, width=3.44047, height=1.46526, viewOffsetX=0.0115805, 
+    viewOffsetY=-0.0182217)
+session.viewports['Viewport: 1'].odbDisplay.basicOptions.setValues(
+    otherSymbolSize=26)
+session.viewports['Viewport: 1'].odbDisplay.basicOptions.setValues(
+    otherSymbolSize=12)
+session.viewports['Viewport: 1'].view.setValues(width=3.22807, height=1.37481, 
+    viewOffsetX=-0.0616977, viewOffsetY=0.00184965)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=19)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=20)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=0)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Bake', 
+    frame=20)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='NT11', outputPosition=NODAL, )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
