@@ -3,7 +3,7 @@ sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\s
 import FreeCAD
 import otsun
 import os
-import time  # TIMING
+import time
 
 # start timer
 _start_time = time.perf_counter()  # TIMING
@@ -30,7 +30,7 @@ def extract_faces_from_solid(doc, solid_obj_label, material_name):
     for i, face in enumerate(solid.Shape.Faces):
         face_obj = doc.addObject("Part::Feature", f"{solid.Name}_Face{i}")
         face_obj.Shape = face
-        face_obj.Label = f"{solid.Label}_Face{i}Mat{material_name}"
+        face_obj.Label = f"{solid.Label}_Face{i}"
         face_objects.append(face_obj)
     
     doc.removeObject(solid.Name)
@@ -43,7 +43,13 @@ def extract_faces_from_solid(doc, solid_obj_label, material_name):
 # MAIN SIMULATION SCRIPT
 # ============================================================================
 
-FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/Cube.FCStd'
+FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/TestScenario1.FCStd'
+OBJECT_NAME = 'Cylinder (Aluminum)'
+
+#FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/Cube.FCStd'
+#OBJECT_NAME = 'Cube(Aluminum)'
+
+
 
 # --- Create Working Copy (avoid name collisions by appending a counter) ---
 dirpath = os.path.dirname(FCSTD_PATH)
@@ -65,11 +71,11 @@ FreeCAD.closeDocument(original_doc.Name)
 doc = FreeCAD.open(temp_path)
 
 # --- Rotate Cube  ---
-cube = doc.getObjectsByLabel("Cube(Aluminum)")[0]  # Get by display label
-cube.Placement.Rotation = FreeCAD.Rotation(FreeCAD.Base.Vector(1, 0, 0), 30)
+#cube = doc.getObjectsByLabel(OBJECT_NAME)[0]  # Get by display label
+#cube.Placement.Rotation = FreeCAD.Rotation(FreeCAD.Base.Vector(1, 0, 0), 30)
 
 # --- Extract Faces from Solid ---
-extract_faces_from_solid(doc, "Cube(Aluminum)", "Aluminum")
+target_faces = extract_faces_from_solid(doc, OBJECT_NAME, "Aluminum")
 
 # --- Define Surface Material (FRESH) ---
 from otsun.materials import SurfaceMaterial
@@ -81,11 +87,12 @@ SurfaceMaterial.create("Aluminum", {
     'thermal_material': True
 })
 
-# --- VERIFY Material Properties ---
-print("\n=== Material Verification ===")
-aluminum_mat = Material.by_name["Aluminum"]
-print(f"  Material type: {type(aluminum_mat).__name__}")
-print(f"  Properties: {aluminum_mat.properties}")
+SurfaceMaterial.create("Blocker", {
+    "probability_of_reflection":   lambda wl: 0.0,
+    "probability_of_absorption":   lambda wl: 1.0,
+    "probability_of_transmittance":lambda wl: 0.0,
+    "thermal_material":            False,  
+})
 
 # --- Build Scene ---
 scene = otsun.Scene.from_freecad_document(doc)
@@ -93,12 +100,61 @@ scene = otsun.Scene.from_freecad_document(doc)
 print(f"\n=== Scene ===")
 print(f"  Faces in scene: {len(scene.faces)}")
 
-# --- Define Sun/Light Source ---
-from otsun.source import SunWindow, LightSource
+# ============================================================================
+# SUN WINDOW ONLY OVER THE TARGET OBJECT
+# ============================================================================
 
-main_direction = FreeCAD.Base.Vector(0, 0, -1)
+from otsun.source import SunWindow, LightSource
+import itertools
+from FreeCAD import Base
+
+main_direction = FreeCAD.Base.Vector(0, 0, -1)  # or whatever direction you want
+
+# Create a normal SunWindow first (so we get all methods/attributes)
 sun_window = SunWindow(scene, main_direction)
 
+# --- Recompute rectangle using ONLY the target object's faces ---
+
+# Collect bounding boxes of the target faces
+bbs = [face_obj.Shape.BoundBox for face_obj in target_faces]
+
+# Reproduce the logic from SunWindow.__init__, but with those BBs only
+projected_points = []
+
+# Same plane definition as in SunWindow.__init__
+point_of_plane = (scene.boundbox.Center -
+                  main_direction * 0.5 * scene.boundbox.DiagonalLength)
+
+for bb in bbs:
+    xs = [bb.XMin, bb.XMax]
+    ys = [bb.YMin, bb.YMax]
+    zs = [bb.ZMin, bb.ZMax]
+    coords = itertools.product(xs, ys, zs)
+    points = [Base.Vector(c) for c in coords]
+
+    projected_points.extend([
+        p.projectToPlane(point_of_plane, main_direction)
+        for p in points
+    ])
+
+# Use the library helper to get the minimum rectangle
+origin, v1, v2, length1, length2 = SunWindow.find_min_rectangle(
+    projected_points, main_direction
+)
+
+# Overwrite the default (whole-scene) rectangle with the target-only one
+sun_window.origin = origin
+sun_window.v1 = v1
+sun_window.v2 = v2
+sun_window.length1 = length1
+sun_window.length2 = length2
+sun_window.aperture = length1 * length2
+
+# Optional: visualize to confirm it only spans the cylinder
+sun_window.add_to_document(doc)
+doc.recompute()
+
+# --- Define Light Source using this custom SunWindow ---
 sun = LightSource(
     scene=scene,
     emitting_region=sun_window,
@@ -109,13 +165,14 @@ sun = LightSource(
 )
 
 # --- Run Experiment ---
-num_rays = 3000
+num_rays = 10000
 experiment = otsun.Experiment(
     scene=scene,
     light_source=sun,
     number_of_rays=num_rays,
     #document_to_show=doc
 )
+
 
 print(f"\n=== Running simulation with {num_rays} rays ===")
 experiment.run()
@@ -139,7 +196,7 @@ with open(DATA_FILEPATH, 'w', newline='') as f:
 print(f"\nFlux data saved: {len(experiment.points_absorber_Th)} points")
 
 # Plot absorption points on 2D graph if PLOT2D is True
-PLOT2D = False
+PLOT2D = True
 
 if (PLOT2D):
     import numpy as np
