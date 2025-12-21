@@ -1,0 +1,440 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].setValues(absoluteZero=0, stefanBoltzmann=5.67e-08)
+mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=200.0)
+mdb.models['Model-1'].sketches['__profile__'].rectangle(point1=(0.5, 0.5), 
+    point2=(-0.5, -0.5))
+mdb.models['Model-1'].Part(dimensionality=THREE_D, name='Cube', type=
+    DEFORMABLE_BODY)
+mdb.models['Model-1'].parts['Cube'].BaseSolidExtrude(depth=1.0, sketch=
+    mdb.models['Model-1'].sketches['__profile__'])
+del mdb.models['Model-1'].sketches['__profile__']
+mdb.models['Model-1'].Material(name='Aluminum')
+mdb.models['Model-1'].materials['Aluminum'].Elastic(table=((70000000000.0, 
+    0.3), ))
+mdb.models['Model-1'].materials['Aluminum'].Conductivity(table=((237.0, ), ))
+mdb.models['Model-1'].materials['Aluminum'].SpecificHeat(table=((900.0, ), ))
+mdb.models['Model-1'].materials['Aluminum'].Density(table=((2300.0, ), ))
+mdb.models['Model-1'].materials['Aluminum'].Expansion(table=((5e-06, ), ))
+mdb.models['Model-1'].HomogeneousSolidSection(material='Aluminum', name=
+    'Aluminum-Section', thickness=None)
+mdb.models['Model-1'].parts['Cube'].Set(cells=
+    mdb.models['Model-1'].parts['Cube'].cells.findAt(((-0.5, -0.166667, 
+    0.666667), ), ), name='Set-1')
+mdb.models['Model-1'].parts['Cube'].SectionAssignment(offset=0.0, offsetField=
+    '', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['Model-1'].parts['Cube'].sets['Set-1'], sectionName=
+    'Aluminum-Section', thicknessAssignment=FROM_SECTION)
+mdb.models['Model-1'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['Model-1'].rootAssembly.Instance(dependent=ON, name='Cube-1', part=
+    mdb.models['Model-1'].parts['Cube'])
+mdb.models['Model-1'].CoupledTempDisplacementStep(amplitude=STEP, cetol=None, 
+    creepIntegration=None, deltmx=5.0, initialInc=0.2, maxInc=0.2, minInc=4e-05
+    , name='Bake', previous='Initial', timePeriod=4.0)
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.models['Model-1'].rootAssembly.Set(cells=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].cells.findAt(((-0.5, 
+    -0.166667, 0.666667), )), edges=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].edges.findAt(((0.5, 
+    0.25, 1.0), ), ((0.5, -0.5, 0.25), ), ((0.5, 0.25, 0.0), ), ((0.5, 0.5, 
+    0.25), ), ((0.25, -0.5, 1.0), ), ((-0.5, -0.5, 0.25), ), ((0.25, -0.5, 
+    0.0), ), ((-0.5, -0.25, 1.0), ), ((-0.5, 0.5, 0.25), ), ((-0.5, -0.25, 
+    0.0), ), ((-0.25, 0.5, 1.0), ), ((-0.25, 0.5, 0.0), ), ), faces=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(((0.5, 
+    0.166667, 0.666667), ), ((0.166667, -0.5, 0.666667), ), ((-0.5, -0.166667, 
+    0.666667), ), ((-0.166667, 0.5, 0.666667), ), ((0.166667, 0.166667, 1.0), 
+    ), ((-0.166667, 0.166667, 0.0), ), ), name='All-Surfaces', vertices=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].vertices.findAt(((
+    0.5, 0.5, 1.0), ), ((0.5, -0.5, 1.0), ), ((0.5, -0.5, 0.0), ), ((0.5, 0.5, 
+    0.0), ), ((-0.5, -0.5, 1.0), ), ((-0.5, -0.5, 0.0), ), ((-0.5, 0.5, 1.0), 
+    ), ((-0.5, 0.5, 0.0), ), ))
+mdb.models['Model-1'].Temperature(createStepName='Initial', 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, distributionType=
+    UNIFORM, magnitudes=(4.0, ), name='Temp0', region=
+    mdb.models['Model-1'].rootAssembly.sets['All-Surfaces'])
+mdb.models['Model-1'].rootAssembly.Set(faces=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(((
+    -0.166667, 0.166667, 0.0), )), name='Set-1')
+mdb.models['Model-1'].EncastreBC(createStepName='Bake', localCsys=None, name=
+    'FixFace', region=mdb.models['Model-1'].rootAssembly.sets['Set-1'])
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 1.0), (4.0, 1.0)), name=
+    'InstantVacuum', smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 1.0), (1.0, 0.0), (2.0, 
+    0.0), (3.0, 0.0), (4.0, 1.0)), name='Bake1', smooth=SOLVER_DEFAULT, 
+    timeSpan=STEP)
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 0.0), (1.0, 1.0), (2.0, 
+    0.0), (3.0, 0.0), (4.0, 0.0)), name='Bake2', smooth=SOLVER_DEFAULT, 
+    timeSpan=STEP)
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 0.0), (1.0, 0.0), (2.0, 
+    1.0), (3.0, 0.0), (4.0, 0.0)), name='Bake3', smooth=SOLVER_DEFAULT, 
+    timeSpan=STEP)
+mdb.models['Model-1'].TabularAmplitude(data=((0.0, 0.0), (1.0, 0.0), (2.0, 
+    0.0), (3.0, 1.0), (4.0, 0.0)), name='Bake4', smooth=SOLVER_DEFAULT, 
+    timeSpan=STEP)
+mdb.models['Model-1'].rootAssembly.Surface(name='All-Surfaces', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(((0.5, 
+    0.166667, 0.666667), ), ((0.166667, -0.5, 0.666667), ), ((-0.5, -0.166667, 
+    0.666667), ), ((-0.166667, 0.5, 0.666667), ), ((0.166667, 0.166667, 1.0), 
+    ), ((-0.166667, 0.166667, 0.0), ), ))
+mdb.models['Model-1'].RadiationToAmbient(ambientTemperature=4.0, 
+    ambientTemperatureAmp='InstantVacuum', createStepName='Bake', 
+    distributionType=UNIFORM, emissivity=1.0, field='', name='ToVacuum', 
+    radiationType=AMBIENT, surface=
+    mdb.models['Model-1'].rootAssembly.surfaces['All-Surfaces'])
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-1', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(((
+    -0.166667, 0.5, 0.666667), )))
+mdb.models['Model-1'].SurfaceHeatFlux(amplitude='Bake1', createStepName='Bake', 
+    magnitude=1360.0, name='Bake1', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-1'])
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-2', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(((-0.5, 
+    -0.166667, 0.666667), )))
+mdb.models['Model-1'].SurfaceHeatFlux(amplitude='Bake2', createStepName='Bake', 
+    magnitude=1360.0, name='Bake2', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-2'])
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-3', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(((
+    0.166667, -0.5, 0.666667), )))
+mdb.models['Model-1'].SurfaceHeatFlux(amplitude='Bake3', createStepName='Bake', 
+    magnitude=1360.0, name='Bake3', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-3'])
+mdb.models['Model-1'].rootAssembly.Surface(name='Surf-4', side1Faces=
+    mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(((0.5, 
+    0.166667, 0.666667), )))
+mdb.models['Model-1'].SurfaceHeatFlux(amplitude='Bake4', createStepName='Bake', 
+    magnitude=1360.0, name='Bake4', region=
+    mdb.models['Model-1'].rootAssembly.surfaces['Surf-4'])
+mdb.models['Model-1'].parts['Cube'].setElementType(elemTypes=(ElemType(
+    elemCode=C3D8T, elemLibrary=STANDARD, secondOrderAccuracy=OFF, 
+    distortionControl=DEFAULT), ElemType(elemCode=C3D6T, elemLibrary=STANDARD), 
+    ElemType(elemCode=C3D4T, elemLibrary=STANDARD)), regions=(
+    mdb.models['Model-1'].parts['Cube'].cells.findAt(((-0.5, -0.166667, 
+    0.666667), )), ))
+mdb.models['Model-1'].parts['Cube'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=0.1)
+mdb.models['Model-1'].parts['Cube'].generateMesh()
+mdb.models['Model-1'].rootAssembly.regenerate()
+mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF, 
+    explicitPrecision=SINGLE, getMemoryFromAnalysis=True, historyPrint=OFF, 
+    memory=90, memoryUnits=PERCENTAGE, model='Model-1', modelPrint=OFF, name=
+    'BakeCubeTransient', nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, 
+    queue=None, resultsFormat=ODB, scratch='', type=ANALYSIS, userSubroutine=''
+    , waitHours=0, waitMinutes=0)
+mdb.jobs['BakeCubeTransient'].submit()
+mdb.jobs['BakeCubeTransient'].waitForCompletion()
+# Save by adzheng on 2025_11_25-13.30.52; build 2025 2024_09_20-08.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.models['Model-1'].loads['Bake1'].suppress()
+mdb.models['Model-1'].loads['Bake2'].suppress()
+mdb.models['Model-1'].loads['Bake3'].suppress()
+mdb.models['Model-1'].loads['Bake4'].suppress()
+mdb.models['Model-1'].MappedField(description='', fieldDataType=SCALAR, 
+    localCsys=None, name='AnalyticalField-1', partLevelData=False, 
+    pointDataFormat=XYZ, regionType=POINT, xyzPointData=((-0.431030449, 
+    -0.363654201, 0.429880193, 0.169355902), (-0.012971228, -0.363110214, 
+    0.35986719, 0.37913299), (0.27476499, 0.261130391, 0.624155053, 
+    0.164155607), (-0.288118423, -0.484339852, 0.141961885, 0.823128894), (
+    0.025543025, 0.183806098, 0.326766463, 0.576508121), (-0.044990365, 
+    0.067222103, 0.643456205, 0.24484514), (-0.134464402, -0.172149664, 
+    0.325847265, 0.97682468), (-0.195833332, -0.002190839, 0.291526925, 
+    0.550650489), (0.234929453, -0.14885244, 0.152818622, 0.845371348), (
+    0.284041384, 0.20344874, 0.747041505, 0.151775186), (0.135366081, 
+    -0.311855832, 0.480581264, 0.33165352), (0.125998583, 0.025397041, 
+    0.182068295, 0.144928893), (-0.330669555, -0.250641657, 0.683542149, 
+    0.408150932), (0.374747949, 0.465139594, 0.741354967, 0.416998255), (
+    -0.041372795, 0.077490323, 0.920374226, 0.046096728), (-0.388858815, 
+    0.206331183, 0.014869799, 0.72185204), (0.191767657, -0.054962267, 
+    0.746208659, 0.348223484), (0.213719818, 0.232338885, 0.350255008, 
+    0.385959442), (0.44801773, 0.025800952, 0.643566516, 0.484922884), (
+    0.146791682, -0.394247993, 0.561527426, 0.382904851), (-0.089434173, 
+    0.131214841, 0.931321633, 0.22427997), (-0.198316782, -0.489694502, 
+    0.692248212, 0.903977945), (0.220100802, 0.206383576, 0.573837823, 
+    0.541410745), (-0.311659522, 0.083573822, 0.413108453, 0.024147498), (
+    0.016989587, 0.15543938, 0.120120838, 0.65325265), (-0.293526198, 
+    0.385059744, 0.879298806, 0.85205921), (-0.375465581, -0.167801992, 
+    0.202389718, 0.741526477), (-0.304951076, 0.288328344, 0.758949702, 
+    0.405910664), (-0.24268924, 0.334045901, 0.827747561, 0.112615333), (
+    0.116427077, -0.112019089, 0.159413903, 0.330880559), (0.032871768, 
+    -0.149245079, 0.188931791, 0.395841223), (0.104282077, 0.390157433, 
+    0.127634191, 0.852295259), (-0.051148967, -0.333596043, 0.53996328, 
+    0.684528729), (0.25628865, -0.213358737, 0.274444548, 0.256416841), (
+    0.353448819, 0.475783108, 0.425326307, 0.100683584), (-0.113438702, 
+    0.165165257, 0.489273075, 0.873164815), (-0.084119782, 0.277445785, 
+    0.595281148, 0.704361388), (-0.265320358, -0.358178075, 0.142226762, 
+    0.054193549), (0.137490676, 0.034512674, 0.569992162, 0.51379942), (
+    0.41771989, -0.322949837, 0.34728247, 0.920547573), (0.319095042, 
+    -0.005384858, 0.246321501, 0.630134149), (-0.143676641, 0.107810904, 
+    0.088536883, 0.181332934), (-0.448764902, -0.207143861, 0.57734991, 
+    0.674516962), (0.274552443, -0.003569068, 0.634494827, 0.58958234), (
+    -0.204541659, -0.44084951, 0.370407527, 0.623337381), (0.233557066, 
+    -0.008337232, 0.99616613, 0.552142665), (-0.00123258, 0.45375457, 
+    0.729066559, 0.558022685), (0.431684375, 0.015546593, 0.61405936, 
+    0.655232382), (-0.019835242, -0.174938618, 0.547797806, 0.014697828), (
+    0.06726107, 0.359531214, 0.809865562, 0.522082735), (-0.159031085, 
+    0.219180009, 0.92686195, 0.298890724), (-0.112559727, -0.432299655, 
+    0.651467609, 0.116444394), (0.324697938, 0.224095289, 0.015974669, 
+    0.00362833), (0.178812324, -0.112029267, 0.348926121, 0.054275223), (
+    -0.207523969, -0.293267152, 0.751210171, 0.104216946), (-0.441346274, 
+    -0.164204568, 0.38702464, 0.793079528), (-0.023210499, 0.266460538, 
+    0.751300273, 0.412721019), (-0.183423424, -0.420970918, 0.47728292, 
+    0.410093232), (-0.023391025, -0.355145588, 0.830263041, 0.418333788), (
+    0.128482498, -0.201558655, 0.547660594, 0.642978178), (0.18448389, 
+    -0.44670312, 0.487621918, 0.515577745), (-0.372689563, -0.374077114, 
+    0.632375603, 0.100301072), (0.044914198, -0.362852688, 0.591635769, 
+    0.250304648)))
+mdb.models['Model-1'].SurfaceHeatFlux(createStepName='Bake', distributionType=
+    USER_DEFINED, magnitude=1.0, name='Load-5', region=Region(
+    side1Faces=mdb.models['Model-1'].rootAssembly.instances['Cube-1'].faces.findAt(
+    ((0.5, 0.166667, 0.666667), ), ((0.166667, -0.5, 0.666667), ), ((-0.5, 
+    -0.166667, 0.666667), ), ((-0.166667, 0.5, 0.666667), ), ((0.166667, 
+    0.166667, 1.0), ), ((-0.166667, 0.166667, 0.0), ), )))
+mdb.jobs['BakeCubeTransient'].submit(consistencyChecking=OFF)
+mdb.jobs['BakeCubeTransient']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeCubeTransient', 'clientHost': 'VDI-ENGR-058', 'handle': 0})
+mdb.jobs['BakeCubeTransient']._Message(WARNING, {
+    'message': 'THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT AMPLITUDE PARAMETER INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FILE, {
+    'file': 'H:\\STAR-Simulator\\Abaqus\\BakeCubeTransient.odb', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'jobName': 'BakeCubeTransient', 'clientHost': 'VDI-ENGR-058', 
+    'handle': 24976})
+mdb.jobs['BakeCubeTransient']._Message(STEP, {'stepId': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ERROR, {
+    'message': 'USER SUBROUTINE DFLUX IS MISSING', 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ABORTED, {
+    'message': 'Analysis phase failed due to errors', 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'BakeCubeTransient'})
+mdb.models['Model-1'].loads['Load-5'].setValues(distributionType=FIELD, field=
+    'AnalyticalField-1')
+mdb.models['Model-1'].analyticalFields['AnalyticalField-1'].setValues(
+    xyzPointData=((-0.43103, -0.363654, 0.42988, 0.169356), (-0.0129712, 
+    -0.36311, 0.359867, 0.379133), (0.274765, 0.26113, 0.624155, 0.164156), (
+    -0.288118, -0.48434, 0.141962, 0.823129), (0.025543, 0.183806, 0.326766, 
+    0.576508), (-0.0449904, 0.0672221, 0.643456, 0.244845), (-0.134464, 
+    -0.17215, 0.325847, 0.976825), (-0.195833, -0.00219084, 0.291527, 0.55065), 
+    (0.234929, -0.148852, 0.152819, 0.845371), (0.284041, 0.203449, 0.747042, 
+    0.151775), (0.135366, -0.311856, 0.480581, 0.331654), (0.125999, 0.025397, 
+    0.182068, 0.144929), (-0.33067, -0.250642, 0.683542, 0.408151), (0.374748, 
+    0.46514, 0.741355, 0.416998), (-0.0413728, 0.0774903, 0.920374, 0.0460967), 
+    (-0.388859, 0.206331, 0.0148698, 0.721852), (0.191768, -0.0549623, 
+    0.746209, 0.348223), (0.21372, 0.232339, 0.350255, 0.385959), (0.448018, 
+    0.025801, 0.643567, 0.484923), (0.146792, -0.394248, 0.561527, 0.382905), (
+    -0.0894342, 0.131215, 0.931322, 0.22428), (-0.198317, -0.489695, 0.692248, 
+    0.903978), (0.220101, 0.206384, 0.573838, 0.541411), (-0.31166, 0.0835738, 
+    0.413108, 0.0241475), (0.0169896, 0.155439, 0.120121, 0.653253), (
+    -0.293526, 0.38506, 0.879299, 0.852059), (-0.375466, -0.167802, 0.20239, 
+    0.741526), (-0.304951, 0.288328, 0.75895, 0.405911), (-0.242689, 0.334046, 
+    0.827748, 0.112615), (0.116427, -0.112019, 0.159414, 0.330881), (0.0328718, 
+    -0.149245, 0.188932, 0.395841), (0.104282, 0.390157, 0.127634, 0.852295), (
+    -0.051149, -0.333596, 0.539963, 0.684529), (0.256289, -0.213359, 0.274445, 
+    0.256417), (0.353449, 0.475783, 0.425326, 0.100684), (-0.113439, 0.165165, 
+    0.489273, 0.873165), (-0.0841198, 0.277446, 0.595281, 0.704361), (-0.26532, 
+    -0.358178, 0.142227, 0.0541935), (0.137491, 0.0345127, 0.569992, 0.513799), 
+    (0.41772, -0.32295, 0.347282, 0.920548), (0.319095, -0.00538486, 0.246322, 
+    0.630134), (-0.143677, 0.107811, 0.0885369, 0.181333), (-0.448765, 
+    -0.207144, 0.57735, 0.674517), (0.274552, -0.00356907, 0.634495, 0.589582), 
+    (-0.204542, -0.44085, 0.370408, 0.623337), (0.233557, -0.00833723, 
+    0.996166, 0.552143), (-0.00123258, 0.453755, 0.729067, 0.558023), (
+    0.431684, 0.0155466, 0.614059, 0.655232), (-0.0198352, -0.174939, 0.547798, 
+    0.0146978), (0.0672611, 0.359531, 0.809866, 0.522083), (-0.159031, 0.21918, 
+    0.926862, 0.298891), (-0.11256, -0.4323, 0.651468, 0.116444), (0.324698, 
+    0.224095, 0.0159747, 0.00362833), (0.178812, -0.112029, 0.348926, 
+    0.0542752), (-0.207524, -0.293267, 0.75121, 0.104217), (-0.441346, 
+    -0.164205, 0.387025, 0.79308), (-0.0232105, 0.266461, 0.7513, 0.412721), (
+    -0.183423, -0.420971, 0.477283, 0.410093), (-0.023391, -0.355146, 0.830263, 
+    0.418334), (0.128482, -0.201559, 0.547661, 0.642978), (0.184484, -0.446703, 
+    0.487622, 0.515578), (-0.37269, -0.374077, 0.632376, 0.100301), (0.0449142, 
+    -0.362853, 0.591636, 0.250305), (0.5, 0.5, 0.0, 1.0), (0.5, 0.5, 1.0, 
+    1.0)))
+mdb.jobs['BakeCubeTransient'].submit(consistencyChecking=OFF)
+mdb.jobs['BakeCubeTransient']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeCubeTransient', 'clientHost': 'VDI-ENGR-058', 'handle': 0})
+mdb.jobs['BakeCubeTransient']._Message(WARNING, {
+    'message': 'THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT AMPLITUDE PARAMETER INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FILE, {
+    'file': 'H:\\STAR-Simulator\\Abaqus\\BakeCubeTransient.odb', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'jobName': 'BakeCubeTransient', 'clientHost': 'VDI-ENGR-058', 
+    'handle': 19468})
+mdb.jobs['BakeCubeTransient']._Message(STEP, {'stepId': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(MEMORY_ESTIMATE, {'memory': 67.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(PHYSICAL_MEMORY, {
+    'physical_memory': 12288.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(MINIMUM_MEMORY, {'minimum_memory': 20.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 1, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.2, 'stepTime': 0.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 2, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.4, 'stepTime': 0.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 3, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.6, 'stepTime': 0.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 4, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.8, 'stepTime': 0.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 5, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.0, 'stepTime': 1.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 6, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 6, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.2, 'stepTime': 1.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 7, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 7, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.4, 'stepTime': 1.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 8, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 8, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.6, 'stepTime': 1.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 9, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 9, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.8, 'stepTime': 1.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 10, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 10, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.0, 'stepTime': 2.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 11, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 11, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.2, 'stepTime': 2.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 12, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 12, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.4, 'stepTime': 2.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 13, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 13, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.6, 'stepTime': 2.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 14, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 14, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.8, 'stepTime': 2.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 15, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 15, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.0, 'stepTime': 3.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 16, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 16, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.2, 'stepTime': 3.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 17, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 17, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.4, 'stepTime': 3.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 18, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 18, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.6, 'stepTime': 3.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 19, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 19, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.8, 'stepTime': 3.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 20, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(STATUS, {'step': 1, 'increment': 20, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 4.0, 'stepTime': 4.0, 'timeIncrement': 0.199999999999999, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(END_STEP, {'stepId': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeCubeTransient'})
+mdb.jobs['BakeCubeTransient']._Message(JOB_COMPLETED, {
+    'time': 'Tue Nov 25 13:54:34 2025', 'jobName': 'BakeCubeTransient'})
+# Save by adzheng on 2025_11_25-14.01.58; build 2025 2024_09_20-08.00.46 RELr427 198590

@@ -1,0 +1,2 @@
+FCSTD_PATH, H:/STAR-Simulator/FreeCAD/SMAScenario1.FCStd
+OBJECT_PATH, H:/STAR-Simulator/FreeCAD/SMAStripDeformed.stp

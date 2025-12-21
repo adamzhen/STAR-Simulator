@@ -1,0 +1,36 @@
+import FreeCAD as App
+import Part
+import Import
+import os
+
+# Path to your scenario file and STEP folder
+FCSTD_PATH = r"H:/STAR-Simulator/FreeCAD/SMAScenario1_Sequence.FCStd"
+STEP_DIR   = r"H:/STAR-Simulator/FreeCAD/DeformedCAD"
+
+# Open existing scenario, or create new
+if os.path.exists(FCSTD_PATH):
+    doc = App.open(FCSTD_PATH)
+else:
+    doc = App.newDocument("SMAScenario1_Sequence")
+
+# Import all STEP files, sorted by name (so 01, 02, 03...)
+step_files = sorted(f for f in os.listdir(STEP_DIR)
+                    if f.lower().endswith((".stp", ".step")))
+
+for fname in step_files:
+    path = os.path.join(STEP_DIR, fname)
+    base, _ = os.path.splitext(fname)
+    print("Importing STEP:", path)
+
+    # Method 1: high-level import that creates objects in the document
+    # Import.insert(path, doc.Name)
+
+    # Method 2: manual Part::Feature (console-safe, single solid)
+    shape = Part.Shape()
+    shape.read(path)
+    obj = doc.addObject("Part::Feature", base)
+    obj.Shape = shape
+
+doc.recompute()
+doc.saveAs(FCSTD_PATH)
+print("Imported %d STEP files into %s" % (len(step_files), FCSTD_PATH))

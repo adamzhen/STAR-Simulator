@@ -1,0 +1,252 @@
+12/21/2025
+
+=== Building base model for iteration 1 ===
+A new model database has been created.
+The model "Model-1" has been created.
+The model "Model_01" has been created.
+Creating materials
+Creating composite shell section
+Creating assembly
+Defining first step
+Defining initial temperature
+Defining BC
+Defining amplitude and radiation
+The interaction "ToVacuum" has been created.
+Meshing the strip
+Global seeds have been assigned.
+250 elements have been generated on part: SMAStrip (Nitinol)
+
+========================================
+ Iteration 1 of 6  (job SMAHeatTransient_01)
+========================================
+
+=== Running FreeCAD macro ===
+FreeCAD macro finished.
+Loaded 2775 flux points from H:/STAR-Simulator/FreeCAD/flux_data.csv
+Creating job SMAHeatTransient_01
+Running job SMAHeatTransient_01
+Warning: 
+The following warning was detected while evaluating the load "Load_01"
+from analytical field "AnalyticalField-1": 
+The mapper has mapped the field values using distance weighting 
+algorithm for some of the target nodes.
+Job SMAHeatTransient_01: Analysis Input File Processor completed successfully.
+Job SMAHeatTransient_01: Abaqus/Standard completed successfully.
+Job SMAHeatTransient_01 completed successfully. 
+Completed job SMAHeatTransient_01
+Waiting for ODB to be released: SMAHeatTransient_01.odb
+Exporting deformed geometry from SMAHeatTransient_01.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/FreeCAD/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_01.stp
+Exporting OBJ from ODB: SMAHeatTransient_01.odb
+Wrote OBJ to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_01.obj
+Iteration 1 elapsed time: 34.661 seconds
+
+========================================
+ Iteration 2 of 6  (job SMAHeatTransient_02)
+========================================
+Copying model Model_01 -> Model_02
+The model "Model_02" has been created.
+Adding step Heat_02 after Heat_01
+
+=== Running FreeCAD macro ===
+FreeCAD macro finished.
+Loaded 2771 flux points from H:/STAR-Simulator/FreeCAD/flux_data.csv
+Creating job SMAHeatTransient_02
+Running job SMAHeatTransient_02
+Warning: 
+The following warning was detected while evaluating the load "Load_01"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_02"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Job SMAHeatTransient_02: Analysis Input File Processor completed successfully.
+Job SMAHeatTransient_02: Abaqus/Standard completed successfully.
+Job SMAHeatTransient_02 completed successfully. 
+Completed job SMAHeatTransient_02
+Waiting for ODB to be released: SMAHeatTransient_02.odb
+Exporting deformed geometry from SMAHeatTransient_02.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/FreeCAD/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_02.stp
+Exporting OBJ from ODB: SMAHeatTransient_02.odb
+Wrote OBJ to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_02.obj
+Iteration 2 elapsed time: 33.420 seconds
+
+========================================
+ Iteration 3 of 6  (job SMAHeatTransient_03)
+========================================
+Copying model Model_02 -> Model_03
+The model "Model_03" has been created.
+Adding step Heat_03 after Heat_02
+
+=== Running FreeCAD macro ===
+FreeCAD macro finished.
+Loaded 2785 flux points from H:/STAR-Simulator/FreeCAD/flux_data.csv
+Creating job SMAHeatTransient_03
+Running job SMAHeatTransient_03
+Warning: 
+The following warning was detected while evaluating the load "Load_01"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_02"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_03"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Job SMAHeatTransient_03: Analysis Input File Processor completed successfully.
+Job SMAHeatTransient_03: Abaqus/Standard completed successfully.
+Job SMAHeatTransient_03 completed successfully. 
+Completed job SMAHeatTransient_03
+Waiting for ODB to be released: SMAHeatTransient_03.odb
+Exporting deformed geometry from SMAHeatTransient_03.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/FreeCAD/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_03.stp
+Exporting OBJ from ODB: SMAHeatTransient_03.odb
+Wrote OBJ to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_03.obj
+Iteration 3 elapsed time: 34.811 seconds
+
+========================================
+ Iteration 4 of 6  (job SMAHeatTransient_04)
+========================================
+Copying model Model_03 -> Model_04
+The model "Model_04" has been created.
+Adding step Heat_04 after Heat_03
+
+=== Running FreeCAD macro ===
+FreeCAD macro finished.
+Loaded 115 flux points from H:/STAR-Simulator/FreeCAD/flux_data.csv
+Creating job SMAHeatTransient_04
+Running job SMAHeatTransient_04
+Warning: The validity of the geometry may have changed due to the new feature Face from mesh-1
+Use the Geometry Diagnostics query to check the part.
+Warning: 
+The following warning was detected while evaluating the load "Load_01"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249The mapper has mapped the field values using distance weighting 
+algorithm for some of the target nodes.
+Warning: 
+The following warning was detected while evaluating the load "Load_02"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249The mapper has mapped the field values using distance weighting 
+algorithm for some of the target nodes.
+Warning: 
+The following warning was detected while evaluating the load "Load_03"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249The mapper has mapped the field values using distance weighting 
+algorithm for some of the target nodes.
+Warning: 
+The following warning was detected while evaluating the load "Load_04"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,200,201,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249The mapper has mapped the field values using distance weighting 
+algorithm for some of the target nodes.
+Job SMAHeatTransient_04: Analysis Input File Processor completed successfully.
+Job SMAHeatTransient_04: Abaqus/Standard completed successfully.
+Job SMAHeatTransient_04 completed successfully. 
+Completed job SMAHeatTransient_04
+Waiting for ODB to be released: SMAHeatTransient_04.odb
+Exporting deformed geometry from SMAHeatTransient_04.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/FreeCAD/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_04.stp
+Exporting OBJ from ODB: SMAHeatTransient_04.odb
+Wrote OBJ to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_04.obj
+Iteration 4 elapsed time: 35.148 seconds
+
+========================================
+ Iteration 5 of 6  (job SMAHeatTransient_05)
+========================================
+Copying model Model_04 -> Model_05
+The model "Model_05" has been created.
+Adding step Heat_05 after Heat_04
+
+=== Running FreeCAD macro ===
+FreeCAD macro finished.
+Loaded 526 flux points from H:/STAR-Simulator/FreeCAD/flux_data.csv
+Creating job SMAHeatTransient_05
+Running job SMAHeatTransient_05
+Warning: 
+The following warning was detected while evaluating the load "Load_01"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_02"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_03"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_04"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_05"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Job SMAHeatTransient_05: Analysis Input File Processor completed successfully.
+Job SMAHeatTransient_05: Abaqus/Standard completed successfully.
+Job SMAHeatTransient_05 completed successfully. 
+Completed job SMAHeatTransient_05
+Waiting for ODB to be released: SMAHeatTransient_05.odb
+Exporting deformed geometry from SMAHeatTransient_05.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/FreeCAD/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_05.stp
+Exporting OBJ from ODB: SMAHeatTransient_05.odb
+Wrote OBJ to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_05.obj
+Iteration 5 elapsed time: 44.304 seconds
+
+========================================
+ Iteration 6 of 6  (job SMAHeatTransient_06)
+========================================
+Copying model Model_05 -> Model_06
+The model "Model_06" has been created.
+Adding step Heat_06 after Heat_05
+
+=== Running FreeCAD macro ===
+FreeCAD macro finished.
+Loaded 327 flux points from H:/STAR-Simulator/FreeCAD/flux_data.csv
+Creating job SMAHeatTransient_06
+Running job SMAHeatTransient_06
+Warning: 
+The following warning was detected while evaluating the load "Load_01"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_02"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_03"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_04"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_05"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Warning: 
+The following warning was detected while evaluating the load "Load_06"
+from analytical field "AnalyticalField-1": 
+search failed for the following target elements: 5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194,195,196,197,198,199,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249
+Job SMAHeatTransient_06: Analysis Input File Processor completed successfully.
+Job SMAHeatTransient_06: Abaqus/Standard completed successfully.
+Job SMAHeatTransient_06 completed successfully. 
+Completed job SMAHeatTransient_06
+Waiting for ODB to be released: SMAHeatTransient_06.odb
+Exporting deformed geometry from SMAHeatTransient_06.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/FreeCAD/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_06.stp
+Exporting OBJ from ODB: SMAHeatTransient_06.odb
+Wrote OBJ to: H:/STAR-Simulator/FreeCAD/DeformedCAD\SMAStripDeformed_06.obj
+Iteration 6 elapsed time: 65.564 seconds
+
+DONE with all iterations.
+Total script elapsed time: 248.208 seconds
