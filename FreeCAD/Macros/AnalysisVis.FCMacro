@@ -1,36 +1,55 @@
 import FreeCAD as App
 import Part
+import Mesh
 import Import
 import os
 
-# Path to your scenario file and STEP folder
-FCSTD_PATH = r"H:/STAR-Simulator/FreeCAD/SMAScenario1_Sequence.FCStd"
-STEP_DIR   = r"H:/STAR-Simulator/FreeCAD/DeformedCAD"
+RUN_NO = 0.4
+SCENARIO_NAME = "SMAScenario1"
+
+# Path to your scenario file and geometry folder
+DOC_NAME = "SMAScenario1_Sequence%s" % RUN_NO
+DOCUMENTATION_DIR = "H:/STAR-Simulator/Scenarios/%s/run_documentation/iterative_analysis_%s" % (SCENARIO_NAME, RUN_NO)
+FCSTD_PATH = "%s/%s.FCStd" % (DOCUMENTATION_DIR, DOC_NAME)
+GEOMETRY_DIR = "%s/deformed_cad" % DOCUMENTATION_DIR
 
 # Open existing scenario, or create new
 if os.path.exists(FCSTD_PATH):
     doc = App.open(FCSTD_PATH)
 else:
-    doc = App.newDocument("SMAScenario1_Sequence")
+    doc = App.newDocument(DOC_NAME)
 
-# Import all STEP files, sorted by name (so 01, 02, 03...)
-step_files = sorted(f for f in os.listdir(STEP_DIR)
+# Get all STEP files
+step_files = sorted(f for f in os.listdir(GEOMETRY_DIR)
                     if f.lower().endswith((".stp", ".step")))
 
+# Get all OBJ files
+obj_files = sorted(f for f in os.listdir(GEOMETRY_DIR)
+                   if f.lower().endswith(".obj"))
+
+# Import STEP files
 for fname in step_files:
-    path = os.path.join(STEP_DIR, fname)
+    path = os.path.join(GEOMETRY_DIR, fname)
     base, _ = os.path.splitext(fname)
     print("Importing STEP:", path)
 
-    # Method 1: high-level import that creates objects in the document
-    # Import.insert(path, doc.Name)
-
-    # Method 2: manual Part::Feature (console-safe, single solid)
     shape = Part.Shape()
     shape.read(path)
     obj = doc.addObject("Part::Feature", base)
     obj.Shape = shape
 
+# Import OBJ files (mesh format)
+for fname in obj_files:
+    path = os.path.join(GEOMETRY_DIR, fname)
+    base, _ = os.path.splitext(fname)
+    print("Importing OBJ:", path)
+
+    mesh = Mesh.Mesh(path)
+    obj = doc.addObject("Mesh::Feature", base)
+    obj.Mesh = mesh
+
 doc.recompute()
 doc.saveAs(FCSTD_PATH)
-print("Imported %d STEP files into %s" % (len(step_files), FCSTD_PATH))
+print("Imported %d STEP files and %d OBJ files into %s" % 
+      (len(step_files), len(obj_files), FCSTD_PATH))
+

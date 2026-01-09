@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 21-Dec-2025   Time 15:31:19
+   Abaqus 2025                                  Date 08-Jan-2026   Time 22:09:46
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
  Iteration 1                                                                     
@@ -15,7 +15,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.500    
-          AND A TOTAL TIME PERIOD OF                            10.0    
+          AND A TOTAL TIME PERIOD OF                            5.00    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -111,17 +111,13 @@
 
           PRINT OF INCREMENT NUMBER, TIME, ETC., EVERY    1  INCREMENTS
 
-     RESTART FILE WILL BE WRITTEN EVERY     1  INCREMENTS
-
-     ONLY THE LATEST INCREMENT WILL BE RETAINED
-
      THE MAXIMUM NUMBER OF INCREMENTS IN THIS STEP IS                     200
 
           UNSYMMETRIC MATRIX STORAGE AND SOLUTION WILL BE USED
 
      LINEAR EXTRAPOLATION WILL BE USED
 
-     CHARACTERISTIC ELEMENT LENGTH     2.000E-02
+     CHARACTERISTIC ELEMENT LENGTH     1.000E-02
 
      DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
 
@@ -138,367 +134,341 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  3366
+        NUMBER OF EQUATIONS:  12221
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      9.487e+07
-        SOLVER ELAPSED TIME:  24ms
+        NUMBER OF FLOPS:      9.165e+08
+        SOLVER ELAPSED TIME:  104ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       1.63       TIME AVG. FORCE        1.63    
- LARGEST SCALED RESIDUAL FORCE      1.280E-09   AT NODE        247   DOF  3
+ AVERAGE FORCE                      0.812       TIME AVG. FORCE       0.812    
+ LARGEST SCALED RESIDUAL FORCE      2.439E-09   AT NODE        799   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL FORCE      1.280E-09
- LARGEST INCREMENT OF DISP.        -1.242E-02   AT NODE         51   DOF  3
+  CORRESPONDING RESIDUAL FORCE      2.439E-09
+ LARGEST INCREMENT OF DISP.        -1.242E-02   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO DISP.       -1.242E-02   AT NODE         51   DOF  3
+ LARGEST CORRECTION TO DISP.       -1.242E-02   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE MOMENT                     5.300E-03   TIME AVG. MOMENT      5.300E-03
- LARGEST SCALED RESIDUAL MOMENT    -7.693E-12   AT NODE        196   DOF  4
+ AVERAGE MOMENT                     2.473E-03   TIME AVG. MOMENT      2.473E-03
+ LARGEST SCALED RESIDUAL MOMENT     6.608E-12   AT NODE        902   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL MOMENT    -7.693E-12
- LARGEST INCREMENT OF ROTATION      2.455E-02   AT NODE        102   DOF  5
+  CORRESPONDING RESIDUAL MOMENT     6.608E-12
+ LARGEST INCREMENT OF ROTATION      2.452E-02   AT NODE       1111   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO ROTATION     2.455E-02   AT NODE        102   DOF  5
+ LARGEST CORRECTION TO ROTATION     2.452E-02   AT NODE       1111   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE HEAT FLUX                  6.787E-02   TIME AVG. HEAT FLUX   6.787E-02
- LARGEST RESIDUAL HEAT FLUX        -4.376E-12   AT NODE        198   DOF 15
+ AVERAGE HEAT FLUX                  7.313E-03   TIME AVG. HEAT FLUX   7.313E-03
+ LARGEST RESIDUAL HEAT FLUX        -1.118E-12   AT NODE        177   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST INCREMENT OF TEMP.         4.466E-02   AT NODE        287   DOF 15
+ LARGEST INCREMENT OF TEMP.         7.191E-02   AT NODE         72   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO TEMP.        4.466E-02   AT NODE        287   DOF 15
+ LARGEST CORRECTION TO TEMP.        7.191E-02   AT NODE         72   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   4.466E-02
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   7.191E-02
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.500    ,  FRACTION OF STEP COMPLETED  5.000E-02
+ TIME INCREMENT COMPLETED  0.500    ,  FRACTION OF STEP COMPLETED  0.100    
  STEP TIME COMPLETED       0.500    ,  TOTAL TIME COMPLETED        0.500    
-
-     RESTART INFORMATION WRITTEN IN STEP   1  AFTER INCREMENT     1
 
 
   INCREMENT     2 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.500    
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  3366
+        NUMBER OF EQUATIONS:  12221
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      9.487e+07
-        SOLVER ELAPSED TIME:  3ms
+        NUMBER OF FLOPS:      9.165e+08
+        SOLVER ELAPSED TIME:  10ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       5.05       TIME AVG. FORCE        3.34    
- LARGEST SCALED RESIDUAL FORCE      1.356E-09   AT NODE        252   DOF  3
+ AVERAGE FORCE                       2.21       TIME AVG. FORCE        1.51    
+ LARGEST SCALED RESIDUAL FORCE      1.373E-09   AT NODE        604   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL FORCE      1.356E-09
- LARGEST INCREMENT OF DISP.        -8.537E-03   AT NODE        306   DOF  3
+  CORRESPONDING RESIDUAL FORCE      1.373E-09
+ LARGEST INCREMENT OF DISP.        -8.533E-03   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO DISP.        3.886E-03   AT NODE         51   DOF  3
+ LARGEST CORRECTION TO DISP.        3.884E-03   AT NODE        101   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE MOMENT                     1.280E-02   TIME AVG. MOMENT      9.049E-03
- LARGEST SCALED RESIDUAL MOMENT    -7.768E-12   AT NODE        201   DOF  4
+ AVERAGE MOMENT                     5.642E-03   TIME AVG. MOMENT      4.057E-03
+ LARGEST SCALED RESIDUAL MOMENT    -5.343E-12   AT NODE        899   DOF  4
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL MOMENT    -7.768E-12
- LARGEST INCREMENT OF ROTATION      1.687E-02   AT NODE        255   DOF  5
+  CORRESPONDING RESIDUAL MOMENT    -5.343E-12
+ LARGEST INCREMENT OF ROTATION      1.685E-02   AT NODE       1111   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO ROTATION    -7.678E-03   AT NODE        102   DOF  5
+ LARGEST CORRECTION TO ROTATION    -7.671E-03   AT NODE        101   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE HEAT FLUX                  0.102       TIME AVG. HEAT FLUX   8.497E-02
- LARGEST RESIDUAL HEAT FLUX         7.335E-12   AT NODE        187   DOF 15
+ AVERAGE HEAT FLUX                  1.564E-02   TIME AVG. HEAT FLUX   1.148E-02
+ LARGEST RESIDUAL HEAT FLUX        -7.343E-04   AT NODE         72   DOF 14
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST INCREMENT OF TEMP.         2.381E-02   AT NODE          1   DOF 15
+ LARGEST INCREMENT OF TEMP.         3.490E-02   AT NODE         72   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO TEMP.       -2.085E-02   AT NODE         73   DOF 15
+ LARGEST CORRECTION TO TEMP.       -3.701E-02   AT NODE         75   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
-          THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
+          HEAT FLUX EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  12221
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      9.165e+08
+        SOLVER ELAPSED TIME:  104ms
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   2.381E-02
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.500    ,  FRACTION OF STEP COMPLETED  0.100    
+ AVERAGE FORCE                       2.23       TIME AVG. FORCE        1.52    
+ LARGEST SCALED RESIDUAL FORCE      1.792E-09   AT NODE        400   DOF  3
+   INSTANCE: SMAStrip (Nitinol)                                                              
+  CORRESPONDING RESIDUAL FORCE      1.792E-09
+ LARGEST INCREMENT OF DISP.        -8.533E-03   AT NODE       1111   DOF  3
+   INSTANCE: SMAStrip (Nitinol)                                                              
+ LARGEST CORRECTION TO DISP.        1.588E-08   AT NODE         74   DOF  1
+   INSTANCE: SMAStrip (Nitinol)                                                              
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     5.742E-03   TIME AVG. MOMENT      4.108E-03
+ LARGEST SCALED RESIDUAL MOMENT    -5.131E-12   AT NODE        901   DOF  4
+   INSTANCE: SMAStrip (Nitinol)                                                              
+  CORRESPONDING RESIDUAL MOMENT    -5.131E-12
+ LARGEST INCREMENT OF ROTATION      1.685E-02   AT NODE       1111   DOF  5
+   INSTANCE: SMAStrip (Nitinol)                                                              
+ LARGEST CORRECTION TO ROTATION    -7.116E-06   AT NODE         73   DOF  5
+   INSTANCE: SMAStrip (Nitinol)                                                              
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  1.699E-02   TIME AVG. HEAT FLUX   1.215E-02
+ LARGEST RESIDUAL HEAT FLUX         2.846E-14   AT NODE        198   DOF 12
+   INSTANCE: SMAStrip (Nitinol)                                                              
+ LARGEST INCREMENT OF TEMP.         2.671E-02   AT NODE         72   DOF 15
+   INSTANCE: SMAStrip (Nitinol)                                                              
+ LARGEST CORRECTION TO TEMP.       -8.184E-03   AT NODE         75   DOF 15
+   INSTANCE: SMAStrip (Nitinol)                                                              
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   2.671E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.500    ,  FRACTION OF STEP COMPLETED  0.200    
  STEP TIME COMPLETED        1.00    ,  TOTAL TIME COMPLETED         1.00    
-
-     RESTART INFORMATION WRITTEN IN STEP   1  AFTER INCREMENT     2
 
 
   INCREMENT     3 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.500    
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  3366
+        NUMBER OF EQUATIONS:  12221
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      9.487e+07
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      9.165e+08
+        SOLVER ELAPSED TIME:  98ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       7.09       TIME AVG. FORCE        4.59    
- LARGEST SCALED RESIDUAL FORCE     -1.603E-09   AT NODE        146   DOF  3
+ AVERAGE FORCE                       3.11       TIME AVG. FORCE        2.05    
+ LARGEST SCALED RESIDUAL FORCE      1.573E-09   AT NODE        196   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL FORCE     -1.603E-09
- LARGEST INCREMENT OF DISP.        -7.531E-03   AT NODE         51   DOF  3
+  CORRESPONDING RESIDUAL FORCE      1.573E-09
+ LARGEST INCREMENT OF DISP.        -7.527E-03   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO DISP.        1.006E-03   AT NODE        306   DOF  3
+ LARGEST CORRECTION TO DISP.        1.006E-03   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE MOMENT                     1.741E-02   TIME AVG. MOMENT      1.184E-02
- LARGEST SCALED RESIDUAL MOMENT    -6.285E-12   AT NODE        298   DOF  4
+ AVERAGE MOMENT                     7.820E-03   TIME AVG. MOMENT      5.345E-03
+ LARGEST SCALED RESIDUAL MOMENT    -5.483E-12   AT NODE        280   DOF  4
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL MOMENT    -6.285E-12
- LARGEST INCREMENT OF ROTATION      1.488E-02   AT NODE        102   DOF  5
+  CORRESPONDING RESIDUAL MOMENT    -5.483E-12
+ LARGEST INCREMENT OF ROTATION      1.487E-02   AT NODE       1111   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO ROTATION    -1.989E-03   AT NODE        255   DOF  5
+ LARGEST CORRECTION TO ROTATION    -1.987E-03   AT NODE        202   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE HEAT FLUX                  0.102       TIME AVG. HEAT FLUX   9.067E-02
- LARGEST RESIDUAL HEAT FLUX         1.560E-12   AT NODE        155   DOF 15
+ AVERAGE HEAT FLUX                  1.700E-02   TIME AVG. HEAT FLUX   1.377E-02
+ LARGEST RESIDUAL HEAT FLUX        -2.540E-14   AT NODE        701   DOF 12
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST INCREMENT OF TEMP.         1.999E-02   AT NODE        293   DOF 15
+ LARGEST INCREMENT OF TEMP.         2.082E-02   AT NODE         71   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO TEMP.       -3.818E-03   AT NODE        205   DOF 15
+ LARGEST CORRECTION TO TEMP.       -7.328E-03   AT NODE         72   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   1.999E-02
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   2.082E-02
           TIME INCREMENT MAY NOW INCREASE TO     1.00    
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.500    ,  FRACTION OF STEP COMPLETED  0.150    
+ TIME INCREMENT COMPLETED  0.500    ,  FRACTION OF STEP COMPLETED  0.300    
  STEP TIME COMPLETED        1.50    ,  TOTAL TIME COMPLETED         1.50    
-
-     RESTART INFORMATION WRITTEN IN STEP   1  AFTER INCREMENT     3
 
 
   INCREMENT     4 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   1.00    
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  3366
+        NUMBER OF EQUATIONS:  12221
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      9.487e+07
-        SOLVER ELAPSED TIME:  20ms
+        NUMBER OF FLOPS:      9.165e+08
+        SOLVER ELAPSED TIME:  98ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       10.8       TIME AVG. FORCE        6.15    
- LARGEST SCALED RESIDUAL FORCE      2.560E-09   AT NODE        149   DOF  3
+ AVERAGE FORCE                       4.65       TIME AVG. FORCE        2.70    
+ LARGEST SCALED RESIDUAL FORCE     -3.557E-09   AT NODE        191   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL FORCE      2.560E-09
- LARGEST INCREMENT OF DISP.        -1.438E-02   AT NODE         51   DOF  3
+  CORRESPONDING RESIDUAL FORCE     -3.557E-09
+ LARGEST INCREMENT OF DISP.        -1.438E-02   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO DISP.        6.775E-04   AT NODE         51   DOF  3
+ LARGEST CORRECTION TO DISP.        6.771E-04   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE MOMENT                     2.565E-02   TIME AVG. MOMENT      1.529E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.404E-11   AT NODE        200   DOF  5
+ AVERAGE MOMENT                     1.142E-02   TIME AVG. MOMENT      6.864E-03
+ LARGEST SCALED RESIDUAL MOMENT     1.152E-11   AT NODE        294   DOF  4
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL MOMENT    -1.404E-11
- LARGEST INCREMENT OF ROTATION      2.842E-02   AT NODE        102   DOF  5
+  CORRESPONDING RESIDUAL MOMENT     1.152E-11
+ LARGEST INCREMENT OF ROTATION      2.839E-02   AT NODE       1111   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO ROTATION    -1.339E-03   AT NODE        102   DOF  5
+ LARGEST CORRECTION TO ROTATION    -1.337E-03   AT NODE        505   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE HEAT FLUX                  0.102       TIME AVG. HEAT FLUX   9.352E-02
- LARGEST RESIDUAL HEAT FLUX        -1.064E-13   AT NODE        243   DOF 12
+ AVERAGE HEAT FLUX                  1.701E-02   TIME AVG. HEAT FLUX   1.458E-02
+ LARGEST RESIDUAL HEAT FLUX        -2.779E-14   AT NODE        621   DOF 12
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST INCREMENT OF TEMP.         3.770E-02   AT NODE         27   DOF 15
+ LARGEST INCREMENT OF TEMP.         3.853E-02   AT NODE         71   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO TEMP.       -2.281E-03   AT NODE         21   DOF 15
+ LARGEST CORRECTION TO TEMP.        4.915E-03   AT NODE         74   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   3.770E-02
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   3.853E-02
           TIME INCREMENT MAY NOW INCREASE TO     2.00    
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   1.00    ,  FRACTION OF STEP COMPLETED  0.250    
+ TIME INCREMENT COMPLETED   1.00    ,  FRACTION OF STEP COMPLETED  0.500    
  STEP TIME COMPLETED        2.50    ,  TOTAL TIME COMPLETED         2.50    
-
-     RESTART INFORMATION WRITTEN IN STEP   1  AFTER INCREMENT     4
 
 
   INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   2.00    
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  3366
+        NUMBER OF EQUATIONS:  12221
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      9.487e+07
-        SOLVER ELAPSED TIME:  21ms
+        NUMBER OF FLOPS:      9.165e+08
+        SOLVER ELAPSED TIME:  99ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       17.8       TIME AVG. FORCE        8.48    
- LARGEST SCALED RESIDUAL FORCE      4.266E-09   AT NODE        150   DOF  3
+ AVERAGE FORCE                       7.59       TIME AVG. FORCE        3.68    
+ LARGEST SCALED RESIDUAL FORCE      4.294E-09   AT NODE        500   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL FORCE      4.266E-09
- LARGEST INCREMENT OF DISP.        -2.851E-02   AT NODE         51   DOF  3
+  CORRESPONDING RESIDUAL FORCE      4.294E-09
+ LARGEST INCREMENT OF DISP.        -2.850E-02   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO DISP.        2.575E-04   AT NODE         51   DOF  3
+ LARGEST CORRECTION TO DISP.        2.574E-04   AT NODE        101   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE MOMENT                     4.199E-02   TIME AVG. MOMENT      2.063E-02
- LARGEST SCALED RESIDUAL MOMENT     1.888E-11   AT NODE        304   DOF  4
+ AVERAGE MOMENT                     1.841E-02   TIME AVG. MOMENT      9.172E-03
+ LARGEST SCALED RESIDUAL MOMENT    -1.523E-11   AT NODE       1007   DOF  4
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL MOMENT     1.888E-11
- LARGEST INCREMENT OF ROTATION      5.633E-02   AT NODE        102   DOF  5
+  CORRESPONDING RESIDUAL MOMENT    -1.523E-11
+ LARGEST INCREMENT OF ROTATION      5.628E-02   AT NODE       1111   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO ROTATION    -5.088E-04   AT NODE        102   DOF  5
+ LARGEST CORRECTION TO ROTATION    -5.083E-04   AT NODE        606   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE HEAT FLUX                  0.102       TIME AVG. HEAT FLUX   9.523E-02
- LARGEST RESIDUAL HEAT FLUX        -1.234E-13   AT NODE        234   DOF 12
+ AVERAGE HEAT FLUX                  1.702E-02   TIME AVG. HEAT FLUX   1.507E-02
+ LARGEST RESIDUAL HEAT FLUX         2.553E-14   AT NODE        422   DOF 12
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST INCREMENT OF TEMP.         7.456E-02   AT NODE          7   DOF 15
+ LARGEST INCREMENT OF TEMP.         7.486E-02   AT NODE         70   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO TEMP.       -8.438E-04   AT NODE         27   DOF 15
+ LARGEST CORRECTION TO TEMP.        8.480E-03   AT NODE         74   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   7.456E-02
-          TIME INCREMENT MAY NOW INCREASE TO     4.00    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   7.486E-02
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   2.00    ,  FRACTION OF STEP COMPLETED  0.450    
+ TIME INCREMENT COMPLETED   2.00    ,  FRACTION OF STEP COMPLETED  0.900    
  STEP TIME COMPLETED        4.50    ,  TOTAL TIME COMPLETED         4.50    
 
-     RESTART INFORMATION WRITTEN IN STEP   1  AFTER INCREMENT     5
 
-
-  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   4.00    
+  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.500    
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  3366
+        NUMBER OF EQUATIONS:  12221
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      9.487e+07
-        SOLVER ELAPSED TIME:  20ms
+        NUMBER OF FLOPS:      9.165e+08
+        SOLVER ELAPSED TIME:  98ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       32.0       TIME AVG. FORCE        12.4    
- LARGEST SCALED RESIDUAL FORCE     -6.417E-09   AT NODE        145   DOF  3
+ AVERAGE FORCE                       8.60       TIME AVG. FORCE        4.50    
+ LARGEST SCALED RESIDUAL FORCE     -5.179E-09   AT NODE        701   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL FORCE     -6.417E-09
- LARGEST INCREMENT OF DISP.        -5.697E-02   AT NODE         51   DOF  3
+  CORRESPONDING RESIDUAL FORCE     -5.179E-09
+ LARGEST INCREMENT OF DISP.        -7.119E-03   AT NODE       1111   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO DISP.        5.176E-05   AT NODE         51   DOF  3
+ LARGEST CORRECTION TO DISP.        4.782E-06   AT NODE        101   DOF  3
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE MOMENT                     7.355E-02   TIME AVG. MOMENT      2.945E-02
- LARGEST SCALED RESIDUAL MOMENT     4.396E-11   AT NODE        101   DOF  4
+ AVERAGE MOMENT                     2.069E-02   TIME AVG. MOMENT      1.109E-02
+ LARGEST SCALED RESIDUAL MOMENT    -2.326E-11   AT NODE        908   DOF  4
    INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL MOMENT     4.396E-11
- LARGEST INCREMENT OF ROTATION      0.113       AT NODE        255   DOF  5
+  CORRESPONDING RESIDUAL MOMENT    -2.326E-11
+ LARGEST INCREMENT OF ROTATION      1.406E-02   AT NODE       1111   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO ROTATION    -1.023E-04   AT NODE        102   DOF  5
+ LARGEST CORRECTION TO ROTATION    -9.444E-06   AT NODE        606   DOF  5
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- AVERAGE HEAT FLUX                  0.102       TIME AVG. HEAT FLUX   9.637E-02
- LARGEST RESIDUAL HEAT FLUX         1.010E-13   AT NODE        166   DOF 12
+ AVERAGE HEAT FLUX                  1.701E-02   TIME AVG. HEAT FLUX   1.539E-02
+ LARGEST RESIDUAL HEAT FLUX        -2.717E-14   AT NODE        308   DOF 12
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST INCREMENT OF TEMP.         0.149       AT NODE        291   DOF 15
+ LARGEST INCREMENT OF TEMP.         1.869E-02   AT NODE         70   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO TEMP.       -1.687E-04   AT NODE        292   DOF 15
+ LARGEST CORRECTION TO TEMP.        4.172E-04   AT NODE         74   DOF 15
    INSTANCE: SMAStrip (Nitinol)                                                              
           THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.149    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   1.869E-02
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   4.00    ,  FRACTION OF STEP COMPLETED  0.850    
- STEP TIME COMPLETED        8.50    ,  TOTAL TIME COMPLETED         8.50    
-
-     RESTART INFORMATION WRITTEN IN STEP   1  AFTER INCREMENT     6
-
-
-  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   1.50    
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  3366
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      9.487e+07
-        SOLVER ELAPSED TIME:  20ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                       38.0       TIME AVG. FORCE        16.0    
- LARGEST SCALED RESIDUAL FORCE      1.112E-08   AT NODE        150   DOF  3
-   INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL FORCE      1.112E-08
- LARGEST INCREMENT OF DISP.        -2.136E-02   AT NODE         51   DOF  3
-   INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO DISP.        9.011E-07   AT NODE         51   DOF  3
-   INSTANCE: SMAStrip (Nitinol)                                                              
-          THE FORCE     EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
-
- AVERAGE MOMENT                     8.735E-02   TIME AVG. MOMENT      3.772E-02
- LARGEST SCALED RESIDUAL MOMENT     6.336E-11   AT NODE        202   DOF  4
-   INSTANCE: SMAStrip (Nitinol)                                                              
-  CORRESPONDING RESIDUAL MOMENT     6.336E-11
- LARGEST INCREMENT OF ROTATION      4.221E-02   AT NODE        255   DOF  5
-   INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO ROTATION    -1.781E-06   AT NODE        102   DOF  5
-   INSTANCE: SMAStrip (Nitinol)                                                              
-          THE MOMENT    EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
-
- AVERAGE HEAT FLUX                  0.102       TIME AVG. HEAT FLUX   9.719E-02
- LARGEST RESIDUAL HEAT FLUX         8.606E-14   AT NODE        221   DOF 12
-   INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST INCREMENT OF TEMP.         5.586E-02   AT NODE         25   DOF 15
-   INSTANCE: SMAStrip (Nitinol)                                                              
- LARGEST CORRECTION TO TEMP.       -2.935E-06   AT NODE        291   DOF 15
-   INSTANCE: SMAStrip (Nitinol)                                                              
-          THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
-
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   5.586E-02
-
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
-
- TIME INCREMENT COMPLETED   1.50    ,  FRACTION OF STEP COMPLETED   1.00    
- STEP TIME COMPLETED        10.0    ,  TOTAL TIME COMPLETED         10.0    
-
-     RESTART INFORMATION WRITTEN IN STEP   1  AFTER INCREMENT     7
+ TIME INCREMENT COMPLETED  0.500    ,  FRACTION OF STEP COMPLETED   1.00    
+ STEP TIME COMPLETED        5.00    ,  TOTAL TIME COMPLETED         5.00    
 
 
           THE ANALYSIS HAS BEEN COMPLETED
@@ -506,11 +476,11 @@
 
 
      ANALYSIS SUMMARY:
-     TOTAL OF          7  INCREMENTS
+     TOTAL OF          6  INCREMENTS
                        0  CUTBACKS IN AUTOMATIC INCREMENTATION
                        7  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
                        7  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
-                       5  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+                       6  INVOLVE MATRIX DECOMPOSITION, INCLUDING
                        0  DECOMPOSITION(S) OF THE MASS MATRIX
                        1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
                        0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
@@ -524,8 +494,8 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.30    
-       SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.40    
-       WALLCLOCK TIME (SEC) =            1
+       USER TIME (SEC)      =      1.2    
+       SYSTEM TIME (SEC)    =     0.20    
+       TOTAL CPU TIME (SEC) =      1.4    
+       WALLCLOCK TIME (SEC) =            5
        MEMORY PEAK (GB)     =            0

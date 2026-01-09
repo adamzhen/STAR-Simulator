@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 21-Dec-2025   Time 15:33:00
+   Abaqus 2025                                  Date 08-Jan-2026   Time 22:11:43
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-020 
+                          On machine VDI-ENGR-018 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -77,17 +77,44 @@
    ***************************
 
 
-
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  21-Dec-2025     TIME  15:32:25
+  *Element, type=S4RT
+  *Elset, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1"
+  *Elset, elset=ASSEMBLY_FIXED-SET
+  *Elset, elset=ASSEMBLY_SET-TEMP
+  *Elset, elset=ASSEMBLY__ALL-SURFACES_SPOS
+  *physicalconstants, absolutezero=0, stefanboltzmann=5.67e-08
   *heading
           Iteration 4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
   *coupledtemperature-displacement, creep=NONE, deltmx=2
-
-          STEP    3  INCREMENT    7  HAS BEEN FOUND ON THE RESTART FILE
-
- ***NOTE: RESTART IS BEING MADE FROM THE END OF A STEP.  THE ENDSTEP PARAMETER 
-          IS NOW SET. THE USE OF THE ENDSTEP PARAMETER REQUIRES FURTHER STEP 
-          DEFINITIONS TO DEFINE HOW THE ANALYSIS WILL CONTINUE.
+  *material, name=ALUMINUM
+  *conductivity
+  *density
+  *elastic
+  *expansion
+  *specificheat
+  *material, name=FAKESMA
+  *conductivity
+  *density
+  *elastic
+  *expansion
+  *specificheat
+  *initialconditions, type=TEMPERATURE
+  *shellsection, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1", composite
+  *shellsection, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1", composite
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
+  *initialconditions, type=TEMPERATURE
+  *boundary
+  *boundary
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *initialconditions, type=TEMPERATURE
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *initialconditions, type=TEMPERATURE
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
   *step, name=Heat_04, nlgeom=NO, inc=200
   *step, name=Heat_04, nlgeom=NO, inc=200
   *output, field, variable=PRESELECT
@@ -95,16 +122,32 @@
   *step, name=Heat_04, nlgeom=NO, inc=200
   *step, name=Heat_04, nlgeom=NO, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=2
-  *dflux, op=NEW
-  *dflux, op=NEW
-  *dflux, op=NEW
-  *dflux, op=NEW
+  *boundary
+  *dflux
+  *sradiate, amplitude=INSTANTVACUUM
+
+ ***WARNING: THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND 
+             WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT 
+             AMPLITUDE PARAMETER INSTEAD.
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *endstep
   *step, name=Heat_04, nlgeom=NO, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=2
+  *boundary
   *endstep
+
+
+
+                            P R O B L E M   S I Z E
+
+
+          NUMBER OF ELEMENTS IS                                  1010
+          NUMBER OF NODES IS                                     1122
+          NUMBER OF NODES DEFINED BY THE USER                    1122
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                12342
+          (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
+           VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
 
 
@@ -113,27 +156,27 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.10    
+       USER TIME (SEC)      =      0.0    
        SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.10    
+       TOTAL CPU TIME (SEC) =      0.0    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 21-Dec-2025   Time 15:33:03
+   Abaqus 2025                                  Date 08-Jan-2026   Time 22:11:45
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
-     Iteration 4                                                                               STEP    4  INCREMENT    1
+     Iteration 4                                                                               STEP    1  INCREMENT    1
                                                                                           TIME COMPLETED IN THIS STEP   0.00    
 
 
-                        S T E P       4     C O U P L E D - T E M P E R A T U R E - D I S P L A C E M E N T   A N A L Y S I S
+                        S T E P       1     C O U P L E D - T E M P E R A T U R E - D I S P L A C E M E N T   A N A L Y S I S
 
 
                                                                                           
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.500    
-          AND A TOTAL TIME PERIOD OF                            10.0    
+          AND A TOTAL TIME PERIOD OF                            5.00    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -153,7 +196,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          9.49E+07               23                 40
+     1          9.16E+08               23                 83
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -191,11 +234,12 @@
 
 
                               ANALYSIS COMPLETE
+                              WITH      1 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.40    
-       SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =     0.60    
-       WALLCLOCK TIME (SEC) =            1
+       USER TIME (SEC)      =      1.3    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =      1.4    
+       WALLCLOCK TIME (SEC) =            5

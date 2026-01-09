@@ -10,6 +10,97 @@ import time
 # start timer
 _start_time = time.perf_counter()  # TIMING
 
+
+# ============================================================================
+# Read in Config Parameters
+# ============================================================================
+
+# Input config file from Abaqus
+config_file = r"H:/STAR-Simulator/FreeCAD/abaqus_to_freecad.txt"
+
+# Initialize parameters
+FCSTD_PATH = None
+OBJECT_PATH = None
+ITER_ID = None
+RUN_NO = None
+SCENARIO_NAME = None
+OBJECT_NAME = None
+NUM_RAYS = None
+SUN_DIR = None
+
+with open(config_file, 'r') as f:
+    for line in f:
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        parts = [p.strip() for p in line.split(',', 1)]
+        if len(parts) != 2:
+            continue
+        key, value = parts
+        if key == 'FCSTD_PATH':
+            FCSTD_PATH = value
+        elif key == 'OBJECT_PATH':
+            OBJECT_PATH = value
+        elif key == 'ITER_ID':
+            ITER_ID = value
+        elif key == 'RUN_NO':
+            RUN_NO = value
+        elif key == 'SCENARIO_NAME':
+            SCENARIO_NAME = value
+        elif key == 'OBJECT_NAME':
+            OBJECT_NAME = value
+        elif key == 'NUM_RAYS':
+            NUM_RAYS = int(value)
+        elif key == 'SUN_DIR':
+            # Parse three comma-separated floats
+            sun_parts = [p.strip() for p in value.split(',')]
+            if len(sun_parts) == 3:
+                SUN_DIR = tuple(float(p) for p in sun_parts)
+            else:
+                raise ValueError("SUN_DIR must have 3 values, got: %s" % value)
+
+# Validation
+if FCSTD_PATH is None or OBJECT_PATH is None:
+    raise RuntimeError("FCSTD_PATH or OBJECT_PATH not found in %s" % config_file)
+
+if ITER_ID is None:
+    raise RuntimeError("ITER_ID not found in %s" % config_file)
+
+if RUN_NO is None:
+    raise RuntimeError("RUN_NO not found in %s" % config_file)
+
+if SCENARIO_NAME is None:
+    raise RuntimeError("SCENARIO_NAME not found in %s" % config_file)
+
+if OBJECT_NAME is None:
+    raise RuntimeError("OBJECT_NAME not found in %s" % config_file)
+
+if NUM_RAYS is None:
+    raise RuntimeError("NUM_RAYS not found in %s" % config_file)
+
+if SUN_DIR is None:
+    raise RuntimeError("SUN_DIR not found in %s" % config_file)
+
+# Set parameters based on inputs
+EXPERIMENT_DATA_FILEPATH = "H:/STAR-Simulator/Scenarios/%s/experiment_data.csv" % SCENARIO_NAME
+FLUX_DATA_FILEPATH       = "H:/STAR-Simulator/Scenarios/%s/flux_data.csv" % SCENARIO_NAME
+ABSORPTION_PLOT_DIR = "H:/STAR-Simulator/Scenarios/%s/run_documentation/iterative_analysis_%s/plots" % (SCENARIO_NAME, RUN_NO)
+os.makedirs(ABSORPTION_PLOT_DIR, exist_ok=True)
+
+PLOT2D = True  # Plot absorption points on 2D graph if PLOT2D is True
+
+print("Running with config:")
+print("  FCSTD_PATH:", FCSTD_PATH)
+print("  OBJECT_PATH:", OBJECT_PATH)
+print("  RUN_NO:", RUN_NO)
+print("  SCENARIO_NAME:", SCENARIO_NAME)
+print("  OBJECT_NAME:", OBJECT_NAME)
+print("  NUM_RAYS:", NUM_RAYS)
+print("  SUN_DIR:", SUN_DIR)
+print("  FLUX_DATA_FILEPATH:", FLUX_DATA_FILEPATH)
+print("  ABSORPTION_PLOT_DIR:", ABSORPTION_PLOT_DIR)
+
+
 # ============================================================================
 # FACE EXTRACTION FUNCTION
 # ============================================================================
@@ -30,37 +121,10 @@ def extract_faces_from_solid(doc, solid_obj_label, material_name):
     print(f"Extracted {len(face_objects)} faces")
     return face_objects
 
-
 # ============================================================================
-# MAIN SIMULATION SCRIPT
+# Create Working Copy of FCSTD Document
 # ============================================================================
 
-# Initialize filepaths with default values
-FCSTD_PATH  = None
-OBJECT_PATH = None
-
-config_file = r"H:/STAR-Simulator/FreeCAD/abaqus_to_freecad.txt"
-
-with open(config_file, 'r') as f:
-    for line in f:
-        line = line.strip()
-        if not line or line.startswith('#'):
-            continue
-        parts = [p.strip() for p in line.split(',', 1)]
-        if len(parts) != 2:
-            continue
-        key, value = parts
-        if key == 'FCSTD_PATH':
-            FCSTD_PATH = value
-        elif key == 'OBJECT_PATH':
-            OBJECT_PATH = value
-
-if FCSTD_PATH is None or OBJECT_PATH is None:
-    raise RuntimeError("FCSTD_PATH or OBJECT_PATH not found in %s" % config_file)
-
-OBJECT_NAME = 'SMAStrip (Nitinol)'
-
-# --- Create Working Copy ---
 dirpath = os.path.dirname(FCSTD_PATH)
 basename, ext = os.path.splitext(os.path.basename(FCSTD_PATH))
 counter = 0
@@ -83,6 +147,10 @@ doc = FreeCAD.open(temp_path)
 for obj in list(doc.Objects):
     doc.removeObject(obj.Name)     # remove everything in the scene
 doc.recompute()                    # update document after deletion [web:176]
+
+# ============================================================================
+# MAIN SIMULATION SCRIPT
+# ============================================================================
 
 # --- Import STEP geometry into this document (console-safe) ---
 import Import  # non-GUI import module
@@ -133,7 +201,7 @@ import itertools
 from FreeCAD import Base
 
 # Direction of rays from sun window
-main_direction = FreeCAD.Base.Vector(0, 0, -1) 
+main_direction = FreeCAD.Base.Vector(*SUN_DIR)
 
 # Create a normal SunWindow first (so we get all methods/attributes)
 sun_window = SunWindow(scene, main_direction)
@@ -190,7 +258,7 @@ sun = LightSource(
 )
 
 # --- Run Experiment ---
-num_rays = 3000
+num_rays = NUM_RAYS
 experiment = otsun.Experiment(
     scene=scene,
     light_source=sun,
@@ -213,9 +281,6 @@ def absorbed_flux(irradiance, absorptivity, angle_deg):
     """Flux absorbed on a surface for given incidence angle."""
     theta_rad = math.radians(angle_deg)
     return irradiance * absorptivity * math.cos(theta_rad)
-
-EXPERIMENT_DATA_FILEPATH = 'H:/STAR-Simulator/FreeCAD/experiment_data.csv'
-FLUX_DATA_FILEPATH       = 'H:/STAR-Simulator/FreeCAD/flux_data.csv'
 
 with open(EXPERIMENT_DATA_FILEPATH, 'w', newline='') as f_exp, \
      open(FLUX_DATA_FILEPATH, 'w', newline='') as f_flux:
@@ -271,14 +336,12 @@ with open(EXPERIMENT_DATA_FILEPATH, 'w', newline='') as f_exp, \
 print(f"\nExperiment data saved: {len(experiment.points_absorber_Th)} points")
 print(f"Flux data saved: {len(experiment.points_absorber_Th)} points")
 
-# Plot absorption points on 2D graph if PLOT2D is True
-PLOT2D = True
 
 if PLOT2D:
     import os
     import numpy as np
     import matplotlib
-    matplotlib.use('Agg')   # non-GUI backend, safe in FreeCADCmd [web:478]
+    matplotlib.use('Agg')   # non-GUI backend, safe in FreeCADCmd
     import matplotlib.pyplot as plt
 
     points = getattr(experiment, "points_absorber_Th", None)
@@ -306,15 +369,7 @@ if PLOT2D:
             plt.gca().set_aspect("equal", adjustable="box")
             plt.tight_layout()
 
-            # Directory and auto-incremented filename so old plots are not overwritten
-            plot_dir = r'H:/STAR-Simulator/FreeCAD/plots'
-            if not os.path.isdir(plot_dir):
-                os.makedirs(plot_dir)
-
-            existing = [f for f in os.listdir(plot_dir)
-                        if f.startswith('absorption_plot_') and f.endswith('.png')]
-            idx = len(existing) + 1
-            plot_path = os.path.join(plot_dir, f'absorption_plot_{idx:02d}.png')
+            plot_path = os.path.join(ABSORPTION_PLOT_DIR, f'absorption_plot_{ITER_ID}.png')
 
             plt.savefig(plot_path, dpi=300, bbox_inches='tight')  # no plt.show() [web:478][web:479]
             plt.close()
