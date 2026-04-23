@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 08-Jan-2026   Time 22:14:18
+   Abaqus 2025                                  Date 23-Apr-2026   Time 04:34:06
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-018 
+                          On machine VDI-ENGR-009 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -42,7 +42,7 @@
                 *                                                         * 
                 *                       Abaqus 2025                       * 
                 *                                                         * 
-                *       BUILD ID: 2024_09_20-09.00.46 RELr427 198590      * 
+                *       BUILD ID: 2024_09_20-08.00.46 RELr427 198590      * 
                 *                                                         * 
                 *                                                         * 
                 *  Please make sure you are using                         * 
@@ -77,6 +77,10 @@
    ***************************
 
 
+  *Element, type=S3T
+
+ ***NOTE: ELEMENT TYPES S3T AND S3RT ARE IDENTICAL. ELEMENT TYPE S3T WILL BE 
+          REFERRED TO AS S3RT FROM HERE ON
   *Element, type=S4RT
   *Elset, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1"
   *Elset, elset=ASSEMBLY_FIXED-SET
@@ -85,7 +89,7 @@
   *physicalconstants, absolutezero=0, stefanboltzmann=5.67e-08
   *heading
           Iteration 8                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
-  *coupledtemperature-displacement, creep=NONE, deltmx=2
+  *coupledtemperature-displacement, creep=NONE, deltmx=5
   *material, name=ALUMINUM
   *conductivity
   *density
@@ -107,21 +111,80 @@
   *boundary
   *boundary
   *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
+  *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
+  *elementoutput, directions=YES
   *initialconditions, type=TEMPERATURE
+  *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
+  *elementoutput, directions=YES
   *initialconditions, type=TEMPERATURE
+  *output, field
+  *output, field, variable=PRESELECT
+  *output, history, variable=PRESELECT
+  *elementoutput, directions=YES
+  
+                               E L E M E N T   Q U A L I T Y  C H E C K S        
+  
+  
+ ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
+           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
+  
+           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
+           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
+           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
+           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
+           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
+           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
+  
+           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
+           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
+           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
+           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
+  
+           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
+           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
+           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
+           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
+           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
+           THAN 160 DEGREES. 
+  
+           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
+           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
+           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
+
+ ***WARNING: 10 elements are curved/warped. The angle subtended between the 
+             average element normal and a nodal normal exceeds 10 degrees. Mesh 
+             refinement is recommended. The elements have been identified in 
+             element set WarnElemWarped.
+  
+ --------------------------------------------------------------------------------
+ Warped elements
+  
+           Element            Adjusted nodes 
+ ---------------------------- -------------- 
+        SMAStrip (Nitinol).36       NO       
+        SMAStrip (Nitinol).37       NO       
+       SMAStrip (Nitinol).133       NO       
+       SMAStrip (Nitinol).135       NO       
+       SMAStrip (Nitinol).481       NO       
+       SMAStrip (Nitinol).667       NO       
+       SMAStrip (Nitinol).882       NO       
+      SMAStrip (Nitinol).1118       NO       
+      SMAStrip (Nitinol).1123       NO       
+      SMAStrip (Nitinol).1132       NO       
+  
+  
+  *step, name=Heat_08, nlgeom=NO, inc=200
+  *step, name=Heat_08, nlgeom=NO, inc=200
+  *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *step, name=Heat_08, nlgeom=NO, inc=200
   *step, name=Heat_08, nlgeom=NO, inc=200
-  *output, field, variable=PRESELECT
-  *output, history, variable=PRESELECT
-  *step, name=Heat_08, nlgeom=NO, inc=200
-  *step, name=Heat_08, nlgeom=NO, inc=200
-  *coupledtemperature-displacement, creep=NONE, deltmx=2
+  *coupledtemperature-displacement, creep=NONE, deltmx=5
   *boundary
   *dflux
   *sradiate, amplitude=INSTANTVACUUM
@@ -129,11 +192,13 @@
  ***WARNING: THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND 
              WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT 
              AMPLITUDE PARAMETER INSTEAD.
+  *output, field
+  *elementoutput, directions=YES
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *endstep
   *step, name=Heat_08, nlgeom=NO, inc=200
-  *coupledtemperature-displacement, creep=NONE, deltmx=2
+  *coupledtemperature-displacement, creep=NONE, deltmx=5
   *boundary
   *endstep
 
@@ -142,10 +207,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  1030
-          NUMBER OF NODES IS                                     1144
-          NUMBER OF NODES DEFINED BY THE USER                    1144
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                12584
+          NUMBER OF ELEMENTS IS                                  1180
+          NUMBER OF NODES IS                                     1278
+          NUMBER OF NODES DEFINED BY THE USER                    1278
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                14058
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -162,7 +227,7 @@
        WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 08-Jan-2026   Time 22:14:20
+   Abaqus 2025                                  Date 23-Apr-2026   Time 04:34:08
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 8                                                                               STEP    1  INCREMENT    1
@@ -175,15 +240,15 @@
                                                                                           
 
      AUTOMATIC TIME CONTROL WITH -
-          A SUGGESTED INITIAL TIME INCREMENT OF                0.500    
-          AND A TOTAL TIME PERIOD OF                            5.00    
+          A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
+          AND A TOTAL TIME PERIOD OF                            20.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
           CREEP AND SWELLING EFFECTS ARE OMITTED IN THIS STEP
 
      THE SIZE OF THE TIME INCREMENT IS CONTROLLED BY -
-          THE TEMPERATURE CHANGE PER INCREMENT NOT EXCEEDING            2.00    
+          THE TEMPERATURE CHANGE PER INCREMENT NOT EXCEEDING            5.00    
           THE RATE DEPENDENCY WILL BE CONSIDERED IN THIS STEP
 
           CREEP AND SWELLING EFFECTS WILL BE IGNORED.
@@ -196,7 +261,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          9.40E+08               23                 84
+     1          1.06E+09               23                 91
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -234,12 +299,12 @@
 
 
                               ANALYSIS COMPLETE
-                              WITH      1 WARNING MESSAGES ON THE DAT FILE
+                              WITH      2 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      1.5    
+       USER TIME (SEC)      =      2.9    
        SYSTEM TIME (SEC)    =     0.30    
-       TOTAL CPU TIME (SEC) =      1.8    
-       WALLCLOCK TIME (SEC) =            4
+       TOTAL CPU TIME (SEC) =      3.2    
+       WALLCLOCK TIME (SEC) =            7

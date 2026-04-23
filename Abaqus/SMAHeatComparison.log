@@ -3,20 +3,20 @@ Abaqus JOB SMAHeatComparison
 Abaqus 2025
 Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
-<315 out of 320 licenses remain available>.
+<310 out of 320 licenses remain available>.
 Begin Analysis Input File Processor
-1/8/2026 10:17:20 PM
+4/23/2026 4:36:51 AM
 Run pre.exe
-1/8/2026 10:17:23 PM
+4/23/2026 4:36:53 AM
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-1/8/2026 10:17:23 PM
+4/23/2026 4:36:53 AM
 Run standard.exe
-1/8/2026 10:17:38 PM
+4/23/2026 4:37:05 AM
 End Abaqus/Standard Analysis
 Begin SIM Wrap-up
-1/8/2026 10:17:38 PM
+4/23/2026 4:37:05 AM
 Run SMASimUtility.exe
-1/8/2026 10:17:39 PM
+4/23/2026 4:37:06 AM
 End SIM Wrap-up
 Abaqus JOB SMAHeatComparison COMPLETED

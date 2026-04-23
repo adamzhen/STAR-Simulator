@@ -1,0 +1,218 @@
+????????
+*** Warning (spaacis/src:UNITS_NOT_EQUAL)
+    save units not equal to the restored units
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+entid  179718952: Error: overlapping tolerant vertex
+ at -0.000000000000 0.090009160340 -0.000000000000
+	other vertex is 179718312
+	the distance is 0.010804483731
+	the tolerances are 0.011232485615 and 0.007198173073
+????????
+*** Warning (spaacis/src:PENDING_FP_EXCEPTION_CLEARED)
+    An fp-exception was pending upon entering the API block; it was cleared.
+????????
+entid  193652568: Error: overlapping tolerant vertex
+ at 0.806924164295 0.099657505751 -0.596254706383
+	other vertex is 193652888
+	the distance is 0.013161113478
+	the tolerances are 0.005458078916 and 0.013863695443
+entid  193651528: Error: overlapping tolerant vertex
+ at 0.813849866390 0.009737620130 -0.591315686703
+	other vertex is 193651608
+	the distance is 0.012681474639
+	the tolerances are 0.013946949091 and 0.006324136187
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+entid  152648408: Error: overlapping tolerant vertex
+ at -0.000000000000 0.090009160340 -0.000000000000
+	other vertex is 152648568
+	the distance is 0.010807726537
+	the tolerances are 0.011745308208 and 0.007717373874
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:PENDING_FP_EXCEPTION_CLEARED)
+    An fp-exception was pending upon entering the API block; it was cleared.
+????????
+????????
+*** Warning (spaacis/src:PENDING_FP_EXCEPTION_CLEARED)
+    An fp-exception was pending upon entering the API block; it was cleared.
+????????
+entid  192391144: Error: overlapping tolerant vertex
+ at 0.815330982208 0.009803871624 -0.589722216129
+	other vertex is 192393224
+	the distance is 0.012680069690
+	the tolerances are 0.014492324302 and 0.006983078106
+entid  192392664: Error: overlapping tolerant vertex
+ at 0.809013366699 0.099715270102 -0.594300210476
+	other vertex is 192390984
+	the distance is 0.012646832295
+	the tolerances are 0.005734263385 and 0.013447430025
+entid  192391064: Error: overlapping tolerant vertex
+ at 0.001325921854 -0.000075904478 0.011751469225
+	other vertex is 192393304
+	the distance is 0.015530434926
+	the tolerances are 0.004230569041 and 0.015814738406
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+entid  196149760: Error: overlapping tolerant vertex
+ at -0.000000000000 0.090009160340 -0.000000000000
+	other vertex is 196148152
+	the distance is 0.010807703096
+	the tolerances are 0.011735922136 and 0.007707772397
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:PENDING_FP_EXCEPTION_CLEARED)
+    An fp-exception was pending upon entering the API block; it was cleared.
+????????
+????????
+*** Warning (spaacis/src:PENDING_FP_EXCEPTION_CLEARED)
+    An fp-exception was pending upon entering the API block; it was cleared.
+????????
+entid  191908648: Error: overlapping tolerant vertex
+ at 0.815379261971 0.010133028030 -0.589860320091
+	other vertex is 191907368
+	the distance is 0.012704214768
+	the tolerances are 0.014383460055 and 0.006803550947
+entid  192391384: Error: overlapping tolerant vertex
+ at 0.809038519859 0.100047782063 -0.594392240047
+	other vertex is 191910008
+	the distance is 0.012572923887
+	the tolerances are 0.005830971302 and 0.013404745650
+entid  191910248: Error: overlapping tolerant vertex
+ at -0.000000000000 0.009990838356 -0.000000000000
+	other vertex is 163764328
+	the distance is 0.015516240276
+	the tolerances are 0.015672271330 and 0.004070602817
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set too low
+????????
+????????
+*** Warning (spaacis/src:MAX_GRID_LINES_EXCEEDED_ON_EDGE)
+    Edge tolerances not met because max_grid_lines is set to

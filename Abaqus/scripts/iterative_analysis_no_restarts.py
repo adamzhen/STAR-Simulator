@@ -12,23 +12,74 @@ import os, subprocess, math, csv, time, shutil
 import sys
 from datetime import datetime
 
-# ----------------- USER PATHS / CONSTANTS -----------------
+# ----------------------------------------------------------
+# Helper functions
+# ----------------------------------------------------------
+
+def run_freecad_macro():
+    printlog("Running FreeCAD macro...")
+    t0 = time.perf_counter()
+    try:
+        result = subprocess.run(
+            [FREECAD_CMD, FREECAD_MACRO],
+            timeout=FREECAD_TIMEOUT
+        )
+        elapsed = time.perf_counter() - t0
+        if result.returncode != 0:
+            raise RuntimeError(
+                "FreeCAD macro exited with code %d after %.1fs" % (result.returncode, elapsed)
+            )
+        printlog("FreeCAD macro finished in %.1f s" % elapsed)
+    except subprocess.TimeoutExpired:
+        elapsed = time.perf_counter() - t0
+        raise RuntimeError(
+            "FreeCAD macro timed out after %.0f s (FREECAD_TIMEOUT=%d). "
+            "Increase FREECAD_TIMEOUT or reduce NUM_RAYS/tessellation for late iterations."
+            % (elapsed, FREECAD_TIMEOUT)
+        )
+
+def printlog(msg):
+    """Print to console and write to log file."""
+    print(msg)
+    log_file.write(msg + '\n')
+
+def log(msg):
+    """Write to log file only."""
+    log_file.write(msg + '\n')
+
+def make_sun_dir(tilt_deg, tilt_axis='y'):
+    """
+    Returns a sun direction vector tilted from straight-on (-Z).
+    tilt_axis: rotating sun direction about this axis
+    """
+    theta = math.radians(tilt_deg)
+    if tilt_axis == 'y':
+        return (math.sin(theta), 0.0, -math.cos(theta))
+    elif tilt_axis == 'x':
+        return (0.0, math.sin(theta), -math.cos(theta))
+    
+# ----------------------------------------------------------
+# Define parameters / constants
+# ----------------------------------------------------------
 
 SCENARIO_NAME = 'SMAScenario1'
 OBJECT_NAME   = 'SMAStrip (Nitinol)'
 DEFORMED_NAME = 'SMAStripDeformed'
 JOB_BASENAME  = 'SMAHeatTransient'
+MODEL_BASENAME = "Model"
 
-RUN_NO     = 0.4
-N_ITER     = 12
-CHUNK_TIME = 5.0 # seconds per iteration
+RUN_NO     = 0.52
+N_ITER     = 9
+CHUNK_TIME = 20.0 # seconds per iteration
 MESHSIZE   = 0.01 # mesh size in meters
-N_RAYS     = 3000 # Number of rays for OTSun ray tracing
-SUN_DIR    = (0, 0, -1)  # Direction of sunlight in FreeCAD coords
+N_RAYS     = 2500 # Number of rays for OTSun ray tracing
 STITCH_TOLERANCE = 0.001
-ANALYTIC_FIT_TOLERANCE = 0.01
+ANALYTIC_FIT_TOLERANCE = 0.02
 BC_FIXPOINT = (0.0, 50E-3, 0.0) # Point on edge to fix
 RUN_COMPARISON = True  # Set to False to skip the uncoupled comparison run
+SUN_ANGLE = 60
+SUN_DIR = make_sun_dir(SUN_ANGLE, tilt_axis='y') # Direction of sunlight in FreeCAD coords
+FREECAD_TIMEOUT = 300  # seconds 
 
 IMPORT_OBJECT_FILEPATH = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAStrip (Nitinol).stp"
 EXPORT_OBJECT_FILEPATH = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAStripDeformed.stp"
@@ -47,6 +98,10 @@ FREECAD_MACRO      = r"H:/STAR-Simulator/FreeCAD/Macros/SolarFluxCalc.FCMacro"
 os.makedirs(DOCUMENTATION_DIR, exist_ok=True)
 os.makedirs(DEFORMED_DEBUG_DIR, exist_ok=True)
 
+# Create flux data archive directory 
+flux_dir = os.path.join(DOCUMENTATION_DIR, 'flux_data')
+os.makedirs(flux_dir, exist_ok=True)
+
 # ----------------------------------------------------------
 _start_time = time.perf_counter()
 
@@ -59,18 +114,10 @@ if 'Viewport: 1' in session.viewports.keys():
     )
 # ----------------------------------------------------------
 
+
 # Capture print output to log file
 LOG_FILE = f"{DOCUMENTATION_DIR}/analysis_log_{RUN_NO}.txt"
 log_file = open(LOG_FILE, 'w')
-
-def printlog(msg):
-    """Print to console and write to log file."""
-    print(msg)
-    log_file.write(msg + '\n')
-
-def log(msg):
-    """Write to log file only."""
-    log_file.write(msg + '\n')
 
 # Log parameters
 print("\n################")
@@ -98,7 +145,7 @@ log(f"FCSTD_PATH = {FCSTD_PATH}")
 log("")
 
 # ----------------------------------------------------------
-# Helper functions
+# Main functions
 # ----------------------------------------------------------
 
 def transfer_data_to_freecad(fcstd_path, object_path, iter_id, run_no = RUN_NO, scenario_name=SCENARIO_NAME, object_name=OBJECT_NAME, num_rays=N_RAYS, sun_dir=SUN_DIR):
@@ -110,14 +157,8 @@ def transfer_data_to_freecad(fcstd_path, object_path, iter_id, run_no = RUN_NO, 
         f.write(f"SCENARIO_NAME, {scenario_name}\n")
         f.write(f"OBJECT_NAME, {object_name}\n")
         f.write(f"NUM_RAYS, {num_rays}\n")
-        f.write("SUN_DIR, %.6f, %.6f, %.6f\n" % sun_dir)
+        f.write("SUN_DIR, %.5f, %.5f, %.5f\n" % sun_dir)
     printlog(f"Wrote FreeCAD input file: {ABAQUS_TO_FREECAD_TXT}")
-
-
-def run_freecad_macro():
-    printlog("\n=== Running FreeCAD macro ===")
-    subprocess.check_call([FREECAD_CMD, FREECAD_MACRO])
-    printlog("FreeCAD macro finished.")
 
 def read_flux_data():
     xyz_data = []
@@ -148,7 +189,11 @@ def update_flux_field_and_load(model, xyz_data, surface_name,
             localCsys=None,
             pointDataFormat=XYZ,
             fieldDataType=SCALAR,
-            xyzPointData=xyz_data
+            xyzPointData=xyz_data,
+            positiveNormalSearchTol=0.5,    # was 0.5 default
+            negativeNormalSearchTol=0.5,    # was 0.5 default
+            neighborhoodSearchTol=0.5,      # was 0.1 default 
+            interpolationTol=0.5            # was 0.5 default
         )
 
     # surface heat flux
@@ -407,14 +452,21 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None)
         previous='Initial',
         maxNumInc=200,
         timePeriod=CHUNK_TIME,
-        initialInc=0.5,
+        initialInc=0.1,
         minInc=4e-5,
         maxInc=5.0,
-        deltmx=2.0,
+        deltmx=5.0,
         amplitude=STEP
     )
-
     a.regenerate()
+
+    # Request HFL so actual mapped flux can be extracted post-run
+    model.FieldOutputRequest(
+        name='F-Output-HFL',
+        createStepName=step_name,
+        variables=('HFL',),
+        frequency=1
+    )
 
     printlog('Defining initial temperature')
     # Initial temperature
@@ -502,6 +554,165 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None)
 
     return model
 
+def parse_failed_elements_from_msg(job_name):
+    msg_path = job_name + '.msg'
+    failed = set()
+    if not os.path.exists(msg_path):
+        return failed
+    with open(msg_path, 'r') as f:
+        for line in f:
+            if 'search failed for the following target elements:' in line.lower():
+                for tok in line.split(':')[-1].replace(',', ' ').split():
+                    try:
+                        failed.add(int(tok))
+                    except ValueError:
+                        pass
+    printlog("Parsed %d failed elements from %s" % (len(failed), msg_path))
+    return failed
+
+
+def plot_mapped_flux_on_mesh(job_names, output_dir, run_no,
+                             instance_name=OBJECT_NAME,
+                             frame_index=1):
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    import matplotlib.cm as cm
+    import matplotlib.colors as mcolors
+    import numpy as np
+
+    all_data = []
+
+    for job_name in job_names:
+        odb_path = job_name + '.odb'
+        try:
+            if odb_path in session.odbs:
+                odb = session.odbs[odb_path]
+            else:
+                odb = session.openOdb(odb_path, readOnly=True)
+
+            last_step_key = odb.steps.keys()[-1]
+            step  = odb.steps[last_step_key]
+            f_idx = min(frame_index, len(step.frames) - 1)
+            frame = step.frames[f_idx]
+
+            inst_keys = odb.rootAssembly.instances.keys()
+            inst_key  = inst_keys[0]
+            for k in inst_keys:
+                if instance_name.upper() in k.upper():
+                    inst_key = k
+                    break
+            inst = odb.rootAssembly.instances[inst_key]
+
+            if 'HFL' not in frame.fieldOutputs.keys():
+                printlog("HFL not in %s frame %d" % (odb_path, f_idx))
+                all_data.append(None)
+                continue
+
+            node_coords = {}
+            for nd in inst.nodes:
+                node_coords[nd.label] = nd.coordinates
+            elem_dict = {}
+            for el in inst.elements:
+                elem_dict[el.label] = el
+
+            xs, ys, mags = [], [], []
+            for val in frame.fieldOutputs['HFL'].values:
+                mag      = val.magnitude
+                nl       = getattr(val, 'nodeLabel', None)
+                if nl is not None and nl in node_coords:
+                    coord = node_coords[nl]
+                    xs.append(coord[0]); ys.append(coord[1]); mags.append(mag)
+                    continue
+                el_label = getattr(val, 'elementLabel', None)
+                if el_label is not None and el_label in elem_dict:
+                    conn = elem_dict[el_label].connectivity
+                    xs.append(sum([node_coords[nn][0] for nn in conn]) / len(conn))
+                    ys.append(sum([node_coords[nn][1] for nn in conn]) / len(conn))
+                    mags.append(mag)
+
+            failed_labels = parse_failed_elements_from_msg(job_name)
+            fail_xs, fail_ys = [], []
+            for lbl in failed_labels:
+                if lbl in elem_dict:
+                    conn = elem_dict[lbl].connectivity
+                    fail_xs.append(sum([node_coords[nn][0] for nn in conn]) / len(conn))
+                    fail_ys.append(sum([node_coords[nn][1] for nn in conn]) / len(conn))
+
+            if mags:
+                all_data.append((xs, ys, mags, fail_xs, fail_ys, len(failed_labels)))
+                printlog("Read %d HFL values, %d failed for %s" % (
+                    len(mags), len(failed_labels), job_name))
+            else:
+                all_data.append(None)
+
+        except Exception as e:
+            printlog("Error reading HFL from %s: %s" % (odb_path, str(e)))
+            all_data.append(None)
+
+    # Build colorscale from 95th percentile to ignore outliers
+    all_mags = []
+    for entry in all_data:
+        if entry is not None:
+            all_mags.extend(entry[2])
+    if not all_mags:
+        printlog("No HFL data found — aborting flux plot.")
+        return
+
+    global_min = 0.0
+    global_max = float(np.percentile(np.array(all_mags, dtype=float), 95))
+    printlog("HFL colorscale: 0 to %.1f W/m2 (95th pct)" % global_max)
+
+    norm = mcolors.Normalize(vmin=global_min, vmax=global_max)
+    cmap = cm.get_cmap('jet')
+    n    = len(job_names)
+
+    fig, axes = plt.subplots(n, 1, figsize=(14, 2.4 * n + 0.8), squeeze=False)
+    last_sc = None
+
+    for idx in range(n):
+        ax    = axes[idx][0]
+        entry = all_data[idx]
+        if entry is None:
+            ax.set_title('Iteration %d  (no data)' % (idx + 1))
+            ax.axis('off')
+            continue
+
+        xs, ys, mags, fail_xs, fail_ys, n_failed = entry
+        last_sc = ax.scatter(xs, ys, c=mags, cmap=cmap, norm=norm,
+                              s=8, linewidths=0, marker='s')
+
+        if fail_xs:
+            ax.scatter(fail_xs, fail_ys, c='white', marker='x',
+                       s=20, linewidths=0.9, zorder=5,
+                       label='Search failed (%d)' % n_failed)
+            ax.legend(fontsize=7, loc='upper right', framealpha=0.7)
+
+        title = 'Iteration %d' % (idx + 1)
+        if n_failed:
+            title += '  |  %d search-failed elements' % n_failed
+        ax.set_title(title, fontsize=10, pad=3)
+        ax.set_xlabel('X (m)', fontsize=9)
+        ax.set_ylabel('Y (m)', fontsize=9)
+        ax.tick_params(labelsize=8)
+        ax.set_xlim(min(xs) - 0.01, max(xs) + 0.01)
+        ax.set_ylim(min(ys) - 0.005, max(ys) + 0.005)
+
+    if last_sc is not None:
+        fig.subplots_adjust(right=0.84, hspace=0.65)
+        cbar_ax = fig.add_axes([0.87, 0.08, 0.022, 0.84])
+        cb = fig.colorbar(last_sc, cax=cbar_ax)
+        cb.set_label('HFL Magnitude (W/m²)', fontsize=10)
+        cb.ax.tick_params(labelsize=8)
+
+    fig.suptitle('Actual Flux at Mesh (HFL, frame %d)  —  Run %s' % (frame_index, run_no),
+                 fontsize=12, y=1.005)
+
+    out_path = os.path.join(output_dir, 'mapped_flux_on_mesh_%s.png' % run_no)
+    plt.savefig(out_path, dpi=250, bbox_inches='tight')
+    plt.close(fig)
+    printlog("Saved: %s" % out_path)
+
 # ----------------------------------------------------------
 # Iterative loop: rebuild model each iteration (no restart)
 # ----------------------------------------------------------
@@ -512,7 +723,7 @@ Mdb()
 for it in range(1, N_ITER + 1):
     iter_id   = it
     job_name  = '%s_%02d' % (JOB_BASENAME, iter_id)
-    model_name = 'Model_%02d' % iter_id
+    model_name = '%s_%02d' % (MODEL_BASENAME, iter_id)
     step_name  = 'Heat_%02d'  % iter_id
     load_name  = 'Load_%02d'  % iter_id
 
@@ -549,6 +760,11 @@ for it in range(1, N_ITER + 1):
                                surface_name='All-Surfaces',
                                step_name=step_name,
                                load_name=load_name)
+    
+    # Save a copy of this iteration's flux data
+    shutil.copy(FLUXDATA_FILEPATH,
+                os.path.join(flux_dir, 'flux_data_%02d.csv' % iter_id))
+    printlog("Saved flux data copy for iteration %d" % iter_id)
 
     # 3) Create and submit the job (always ANALYSIS, no restart)
     printlog(f'Creating job {job_name}')
@@ -610,6 +826,17 @@ for it in range(1, N_ITER + 1):
 printlog("\nDONE with all iterations.")
 _elapsed = time.perf_counter() - _start_time
 printlog(f"Total iterative analysis time: {_elapsed:.3f} seconds")
+
+# Plot the mapped thermal flux from Abaqus
+# iter_model_names = ['%s_%02d' % (MODEL_BASENAME, i) for i in range(1, N_ITER + 1)]
+# plot_mapped_flux_on_mesh(iter_model_names, DOCUMENTATION_DIR, RUN_NO,
+#                          instance_name=OBJECT_NAME,
+#                          field_name='AnalyticalField-1')
+iter_job_names = ['%s_%02d' % (JOB_BASENAME, i) for i in range(1, N_ITER + 1)]
+plot_mapped_flux_on_mesh(iter_job_names, DOCUMENTATION_DIR, RUN_NO,
+                         instance_name=OBJECT_NAME,
+                         frame_index=1)
+
 # ----------------------------------------------------------
 # Optional: Run comparison model (single analysis, no iteration)
 # ----------------------------------------------------------

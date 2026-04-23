@@ -4,7 +4,7 @@ import Mesh
 import Import
 import os
 
-RUN_NO = 0.4
+RUN_NO = 0.52
 SCENARIO_NAME = "SMAScenario1"
 
 # Path to your scenario file and geometry folder
