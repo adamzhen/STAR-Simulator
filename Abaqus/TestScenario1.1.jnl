@@ -8358,3 +8358,483 @@ mdb.Job(atTime=None, contactPrint=OFF, description='', echoPrint=OFF,
 mdb.jobs['BakeTransient'].submit()
 mdb.jobs['BakeTransient'].waitForCompletion()
 # Save by adzheng on 2025_12_07-22.46.46; build 2025 2024_09_20-08.00.46 RELr427 198590
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.jobs['BakeTransient'].submit(consistencyChecking=OFF)
+mdb.jobs['BakeTransient']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeTransient', 'clientHost': 'VDI-ENGR-047', 'handle': 0})
+mdb.jobs['BakeTransient']._Message(WARNING, {
+    'message': 'THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT AMPLITUDE PARAMETER INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FILE, {
+    'file': 'H:\\STAR-Simulator\\Abaqus\\BakeTransient.odb', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient', 'clientHost': 'VDI-ENGR-047', 'handle': 16312})
+mdb.jobs['BakeTransient']._Message(STEP, {'stepId': 1, 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(MEMORY_ESTIMATE, {'memory': 734.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(PHYSICAL_MEMORY, {
+    'physical_memory': 12288.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(MINIMUM_MEMORY, {'minimum_memory': 88.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 1, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 2, 'iterations': 2, 
+    'totalTime': 0.2, 'stepTime': 0.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 2, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.4, 'stepTime': 0.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 3, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.6, 'stepTime': 0.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 4, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.8, 'stepTime': 0.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 5, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.0, 'stepTime': 1.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 6, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 6, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.2, 'stepTime': 1.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 7, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 7, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.4, 'stepTime': 1.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 8, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 8, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.6, 'stepTime': 1.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 9, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 9, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.8, 'stepTime': 1.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 10, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 10, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.0, 'stepTime': 2.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 11, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 11, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.2, 'stepTime': 2.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 12, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 12, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.4, 'stepTime': 2.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 13, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 13, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.6, 'stepTime': 2.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 14, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 14, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.8, 'stepTime': 2.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 15, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 15, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.0, 'stepTime': 3.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 16, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 16, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.2, 'stepTime': 3.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 17, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 17, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.4, 'stepTime': 3.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 18, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 18, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.6, 'stepTime': 3.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 19, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 19, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.8, 'stepTime': 3.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 20, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 20, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 4.0, 'stepTime': 4.0, 'timeIncrement': 0.199999999999999, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(END_STEP, {'stepId': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(JOB_COMPLETED, {
+    'time': 'Tue Apr 28 18:43:57 2026', 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient'].submit(consistencyChecking=OFF)
+mdb.jobs['BakeTransient']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeTransient', 'clientHost': 'VDI-ENGR-047', 'handle': 0})
+mdb.jobs['BakeTransient']._Message(WARNING, {
+    'message': 'THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT AMPLITUDE PARAMETER INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FILE, {
+    'file': 'H:\\STAR-Simulator\\Abaqus\\BakeTransient.odb', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient', 'clientHost': 'VDI-ENGR-047', 'handle': 14260})
+mdb.jobs['BakeTransient']._Message(STEP, {'stepId': 1, 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(MEMORY_ESTIMATE, {'memory': 734.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(PHYSICAL_MEMORY, {
+    'physical_memory': 12288.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(MINIMUM_MEMORY, {'minimum_memory': 88.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 1, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 2, 'iterations': 2, 
+    'totalTime': 0.2, 'stepTime': 0.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 2, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.4, 'stepTime': 0.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 3, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.6, 'stepTime': 0.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 4, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.8, 'stepTime': 0.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 5, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.0, 'stepTime': 1.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 6, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 6, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.2, 'stepTime': 1.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 7, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 7, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.4, 'stepTime': 1.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 8, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 8, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.6, 'stepTime': 1.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 9, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 9, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.8, 'stepTime': 1.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 10, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 10, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.0, 'stepTime': 2.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 11, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 11, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.2, 'stepTime': 2.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 12, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 12, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.4, 'stepTime': 2.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 13, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 13, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.6, 'stepTime': 2.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 14, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 14, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.8, 'stepTime': 2.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 15, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 15, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.0, 'stepTime': 3.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 16, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 16, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.2, 'stepTime': 3.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 17, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 17, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.4, 'stepTime': 3.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 18, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 18, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.6, 'stepTime': 3.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 19, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 19, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.8, 'stepTime': 3.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 20, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 20, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 4.0, 'stepTime': 4.0, 'timeIncrement': 0.199999999999999, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(END_STEP, {'stepId': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(JOB_COMPLETED, {
+    'time': 'Tue Apr 28 18:47:01 2026', 'jobName': 'BakeTransient'})
+mdb.models['Model-1'].analyticalFields['AnalyticalField-1'].setValues(
+    xyzPointData=
+    'C:\\Users\\LOCAL_~1\\Temp\\AbqTempFilea09200_AnalyticalField-1.txt')
+mdb.models['Model-1'].steps['Bake'].setValues(minInc=0.0006, timePeriod=60.0)
+mdb.jobs['BakeTransient'].submit(consistencyChecking=OFF)
+mdb.jobs['BakeTransient']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeTransient', 'clientHost': 'VDI-ENGR-047', 'handle': 0})
+mdb.jobs['BakeTransient']._Message(WARNING, {
+    'message': 'THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT AMPLITUDE PARAMETER INSTEAD.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FILE, {
+    'file': 'H:\\STAR-Simulator\\Abaqus\\BakeTransient.odb', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(COMPLETED, {
+    'message': 'Analysis phase complete', 'phase': BATCHPRE_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient', 'clientHost': 'VDI-ENGR-047', 'handle': 9144})
+mdb.jobs['BakeTransient']._Message(STEP, {'stepId': 1, 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(MEMORY_ESTIMATE, {'memory': 734.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(PHYSICAL_MEMORY, {
+    'physical_memory': 12288.0, 'phase': STANDARD_PHASE, 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(MINIMUM_MEMORY, {'minimum_memory': 88.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 1, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 2, 'iterations': 2, 
+    'totalTime': 0.2, 'stepTime': 0.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 2, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.4, 'stepTime': 0.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 3, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.6, 'stepTime': 0.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 4, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 0.8, 'stepTime': 0.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 5, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.0, 'stepTime': 1.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 6, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 6, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.2, 'stepTime': 1.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 7, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 7, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.4, 'stepTime': 1.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 8, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 8, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.6, 'stepTime': 1.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 9, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 9, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 1.8, 'stepTime': 1.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 10, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 10, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.0, 'stepTime': 2.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 11, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 11, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.2, 'stepTime': 2.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 12, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 12, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.4, 'stepTime': 2.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 13, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 13, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.6, 'stepTime': 2.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 14, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 14, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.8, 'stepTime': 2.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 15, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 15, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.0, 'stepTime': 3.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 16, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 16, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.2, 'stepTime': 3.2, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 17, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 17, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.4, 'stepTime': 3.4, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 18, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 18, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.6, 'stepTime': 3.6, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 19, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 19, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.8, 'stepTime': 3.8, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ODB_FRAME, {'step': 0, 'frame': 20, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(STATUS, {'step': 1, 'increment': 20, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 4.0, 'stepTime': 4.0, 'timeIncrement': 0.2, 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ERROR, {
+    'message': 'Process terminated by external request (SIGTERM or SIGINT received).', 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(INTERRUPTED, {
+    'message': 'Analysis interrupted by external signal', 
+    'phase': STANDARD_PHASE, 'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(ERROR, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'BakeTransient'})
+mdb.jobs['BakeTransient']._Message(JOB_ABORTED, {
+    'message': 'Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.', 
+    'jobName': 'BakeTransient'})
+mdb.models['Model-1'].steps['Bake'].setValues(minInc=4e-05, timePeriod=4.0)
+# Save by adzheng on 2026_04_28-18.51.23; build 2025 2024_09_20-08.00.46 RELr427 198590

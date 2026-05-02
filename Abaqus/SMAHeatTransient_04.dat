@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 23-Apr-2026   Time 04:29:26
+   Abaqus 2025                                  Date 01-May-2026   Time 18:18:28
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-009 
+                          On machine VDI-ENGR-001 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -151,7 +151,7 @@
            CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
            TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
 
- ***WARNING: 3 elements are curved/warped. The angle subtended between the 
+ ***WARNING: 2 elements are curved/warped. The angle subtended between the 
              average element normal and a nodal normal exceeds 10 degrees. Mesh 
              refinement is recommended. The elements have been identified in 
              element set WarnElemWarped.
@@ -163,7 +163,6 @@
  ---------------------------- -------------- 
          SMAStrip (Nitinol).1       NO       
         SMAStrip (Nitinol).10       NO       
-      SMAStrip (Nitinol).1021       NO       
   
   
   *step, name=Heat_04, nlgeom=NO, inc=200
@@ -196,10 +195,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  1030
-          NUMBER OF NODES IS                                     1144
-          NUMBER OF NODES DEFINED BY THE USER                    1144
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                12584
+          NUMBER OF ELEMENTS IS                                  1020
+          NUMBER OF NODES IS                                     1133
+          NUMBER OF NODES DEFINED BY THE USER                    1133
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                12463
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -210,13 +209,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.10    
-       SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.10    
+       USER TIME (SEC)      =     0.20    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.30    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 23-Apr-2026   Time 04:29:28
+   Abaqus 2025                                  Date 01-May-2026   Time 18:18:30
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 4                                                                               STEP    1  INCREMENT    1
@@ -230,7 +229,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            20.0    
+          AND A TOTAL TIME PERIOD OF                            15.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -250,7 +249,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          9.40E+08               23                 84
+     1          9.23E+08               23                 83
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -293,7 +292,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      2.5    
-       SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =      2.7    
+       USER TIME (SEC)      =      2.1    
+       SYSTEM TIME (SEC)    =     0.40    
+       TOTAL CPU TIME (SEC) =      2.5    
        WALLCLOCK TIME (SEC) =            8

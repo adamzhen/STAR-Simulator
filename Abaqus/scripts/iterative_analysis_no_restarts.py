@@ -68,15 +68,15 @@ DEFORMED_NAME = 'SMAStripDeformed'
 JOB_BASENAME  = 'SMAHeatTransient'
 MODEL_BASENAME = "Model"
 
-RUN_NO     = 0.52
-N_ITER     = 9
-CHUNK_TIME = 20.0 # seconds per iteration
+RUN_NO     = 0.53
+N_ITER     = 12
+CHUNK_TIME = 15.0 # seconds per iteration
 MESHSIZE   = 0.01 # mesh size in meters
-N_RAYS     = 2500 # Number of rays for OTSun ray tracing
+N_RAYS     = 2000 # Number of rays for OTSun ray tracing
 STITCH_TOLERANCE = 0.001
 ANALYTIC_FIT_TOLERANCE = 0.02
 BC_FIXPOINT = (0.0, 50E-3, 0.0) # Point on edge to fix
-RUN_COMPARISON = True  # Set to False to skip the uncoupled comparison run
+RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
 SUN_ANGLE = 60
 SUN_DIR = make_sun_dir(SUN_ANGLE, tilt_axis='y') # Direction of sunlight in FreeCAD coords
 FREECAD_TIMEOUT = 300  # seconds 
@@ -133,6 +133,7 @@ log(f"N_ITER = {N_ITER}")
 log(f"CHUNK_TIME = {CHUNK_TIME}")
 log(f"MESHSIZE = {MESHSIZE}")
 log(f"N_RAYS = {N_RAYS}")
+log(f"SUN_ANGLE = {SUN_ANGLE}")
 log(f"SUN_DIR = {SUN_DIR}")
 log(f"STITCH_TOLERANCE = {STITCH_TOLERANCE}")
 log(f"ANALYTIC_FIT_TOLERANCE = {ANALYTIC_FIT_TOLERANCE}")
@@ -384,7 +385,6 @@ def read_temperature_from_odb(job_name, instance_name=OBJECT_NAME,
     
     printlog(f"Read {len(temp_data)} nodal temperatures with deformed coordinates")
     return temp_data
-
 
 def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None):
     """Build a fresh model for one iteration, importing given STEP.
@@ -713,6 +713,144 @@ def plot_mapped_flux_on_mesh(job_names, output_dir, run_no,
     plt.close(fig)
     printlog("Saved: %s" % out_path)
 
+def read_tip_data_from_odb(job_name, tip_label_hint=None, instance_name=OBJECT_NAME,
+                            fixed_point=BC_FIXPOINT, step_index=-1, frame_index=-1):
+    """
+    Reads displacement and temperature of the tip node from a single ODB.
+
+    Tip identification strategy:
+      - If tip_label_hint is None (first iteration): use farthest-from-fixed-point
+        in undeformed coords as a reasonable initial guess.
+      - If tip_label_hint is a (x, y, z) tuple: find the node whose UNDEFORMED
+        coordinates are closest to that position (i.e. the deformed tip from the
+        previous iteration, which is the new reference for this one).
+
+    Returns:
+        ux, uy, uz         -- displacement of tip node (relative to this iter's reference)
+        tip_def_pos        -- (x, y, z) deformed position of tip = undeformed + U
+        tip_label          -- node label found (for debugging)
+        t_max, t_min       -- max and min nodal temperatures across entire instance
+    """
+    odb_path = job_name + '.odb'
+    odb = session.openOdb(odb_path, readOnly=True)
+    try:
+        step  = odb.steps.values()[step_index]
+        frame = step.frames[frame_index]
+
+        # Find instance
+        instances = odb.rootAssembly.instances
+        inst = instances[instances.keys()[0]]
+        for key in instances.keys():
+            if instance_name.upper() in key.upper():
+                inst = instances[key]
+                break
+
+        # Build undeformed coord lookup: label -> (x, y, z)
+        node_coords = {n.label: n.coordinates for n in inst.nodes}
+
+        # --- Identify tip node ---
+        if tip_label_hint is None:
+            # First iteration: Define tip as farthest point from fixed BC point in undeformed config
+            fx, fy, fz = fixed_point
+            tip_label, max_dist = None, -1.0
+            for label, (x, y, z) in node_coords.items():
+                d = math.sqrt((x-fx)**2 + (y-fy)**2 + (z-fz)**2)
+                if d > max_dist:
+                    max_dist = d
+                    tip_label = label
+        else:
+            # Subsequent iterations: nearest undeformed node to previous deformed tip
+            hx, hy, hz = tip_label_hint
+            tip_label, min_dist = None, float('inf')
+            for label, (x, y, z) in node_coords.items():
+                d = math.sqrt((x-hx)**2 + (y-hy)**2 + (z-hz)**2)
+                if d < min_dist:
+                    min_dist = d
+                    tip_label = label
+
+        # --- Read displacement field ---
+        u_field  = frame.fieldOutputs['U']
+        u_subset = u_field.getSubset(region=inst)
+        u_dict   = {v.nodeLabel: v.data for v in u_subset.values}
+
+        ux, uy, uz = u_dict.get(tip_label, (0.0, 0.0, 0.0))
+        rx, ry, rz = node_coords[tip_label]
+        tip_def_pos = (rx + ux, ry + uy, rz + uz)
+
+        # --- Read temperature field (NT11) ---
+        t_max, t_min = None, None
+        if 'NT11' in frame.fieldOutputs:
+            t_field  = frame.fieldOutputs['NT11']
+            t_subset = t_field.getSubset(region=inst)
+            temps    = [v.data for v in t_subset.values]
+            if temps:
+                t_max = max(temps)
+                t_min = min(temps)
+
+        return ux, uy, uz, tip_def_pos, tip_label, t_max, t_min
+
+    finally:
+        odb.close()
+
+
+def compute_cumulative_tip_displacement(job_names):
+    """
+    Tracks the tip node across all iterations using deformed-position
+    chaining, then sums incremental displacements to give cumulative
+    displacement relative to the original geometry.
+
+    Returns list of dicts, one per iteration:
+        iterid, ux_cum, uy_cum, uz_cum, u_mag_cum,
+        tip_label, tip_def_x, tip_def_y, tip_def_z,
+        t_max, t_min
+    """
+    cum        = [0.0, 0.0, 0.0]
+    results    = []
+    tip_hint   = None   # None on first call -> farthest-from-fixed heuristic
+
+    for idx, job_name in enumerate(job_names):
+        try:
+            ux, uy, uz, tip_def_pos, tip_label, t_max, t_min = \
+                read_tip_data_from_odb(job_name, tip_label_hint=tip_hint)
+
+            cum[0] += ux
+            cum[1] += uy
+            cum[2] += uz
+            mag = math.sqrt(cum[0]**2 + cum[1]**2 + cum[2]**2)
+
+            results.append({
+                'iterid':      idx + 1,
+                'ux_cum':      cum[0],
+                'uy_cum':      cum[1],
+                'uz_cum':      cum[2],
+                'u_mag_cum':   mag,
+                'tip_label':   tip_label,
+                'tip_def_x':   tip_def_pos[0],
+                'tip_def_y':   tip_def_pos[1],
+                'tip_def_z':   tip_def_pos[2],
+                't_max':       t_max,
+                't_min':       t_min,
+            })
+
+            printlog(
+                "Iter %d: dU=(%.4f, %.4f, %.4f) m  cum|U|=%.4f m  "
+                "tip_node=%d  T=[%.1f, %.1f] K" % (
+                    idx + 1, ux, uy, uz, mag,
+                    tip_label,
+                    t_min if t_min is not None else float('nan'),
+                    t_max if t_max is not None else float('nan'),
+                )
+            )
+
+            # Pass this iteration's deformed tip as the search hint for next iteration
+            tip_hint = tip_def_pos
+
+        except Exception as e:
+            printlog("Warning: could not read tip data for %s: %s" % (job_name, str(e)))
+            # Don't update tip_hint — reuse last known position
+    
+    return results
+
 # ----------------------------------------------------------
 # Iterative loop: rebuild model each iteration (no restart)
 # ----------------------------------------------------------
@@ -836,6 +974,23 @@ iter_job_names = ['%s_%02d' % (JOB_BASENAME, i) for i in range(1, N_ITER + 1)]
 plot_mapped_flux_on_mesh(iter_job_names, DOCUMENTATION_DIR, RUN_NO,
                          instance_name=OBJECT_NAME,
                          frame_index=1)
+
+# Write displacement and temperature data to csv
+tip_data = compute_cumulative_tip_displacement(iter_job_names)
+tip_csv = os.path.join(DOCUMENTATION_DIR, "tip_displacement_%s.csv" % RUN_NO)
+with open(tip_csv, 'w') as f:
+    f.write("iteration,ux_cum,uy_cum,uz_cum,u_mag_cum,"
+            "tip_def_x,tip_def_y,tip_def_z,tip_label,t_max_K,t_min_K\n")
+    for r in tip_data:
+        f.write("%d,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%d,%.2f,%.2f\n" % (
+            r['iterid'],
+            r['ux_cum'], r['uy_cum'], r['uz_cum'], r['u_mag_cum'],
+            r['tip_def_x'], r['tip_def_y'], r['tip_def_z'],
+            r['tip_label'],
+            r['t_max'] if r['t_max'] is not None else float('nan'),
+            r['t_min'] if r['t_min'] is not None else float('nan'),
+        ))
+printlog("Saved cumulative tip displacement to %s" % tip_csv)
 
 # ----------------------------------------------------------
 # Optional: Run comparison model (single analysis, no iteration)

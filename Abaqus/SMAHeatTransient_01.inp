@@ -2194,7 +2194,7 @@ Set-Temp, 4., 4., 4., 4., 4.
 ** 
 *Step, name=Heat_01, nlgeom=NO, inc=200
 *Coupled Temperature-displacement, creep=none, deltmx=5.
-0.1, 20., 4e-05, 5.
+0.1, 15., 4e-05, 5.
 ** 
 ** BOUNDARY CONDITIONS
 ** 

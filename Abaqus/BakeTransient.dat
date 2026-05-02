@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 07-Dec-2025   Time 22:22:54
+   Abaqus 2025                                  Date 28-Apr-2026   Time 18:49:00
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,9 +18,9 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-046 
+                          On machine VDI-ENGR-047 
                           you are authorized to run
-                          Abaqus/Standard until 30-Oct-2025
+                          Abaqus/Standard until 30-Oct-2026
 
                           Your site id is: 200000000002185 
 
@@ -153,13 +153,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.90    
-       SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =      1.1    
-       WALLCLOCK TIME (SEC) =            5
+       USER TIME (SEC)      =     0.60    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.70    
+       WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 07-Dec-2025   Time 22:23:05
+   Abaqus 2025                                  Date 28-Apr-2026   Time 18:49:03
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -173,8 +173,8 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.200    
-          AND A TOTAL TIME PERIOD OF                            4.00    
-          THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
+          AND A TOTAL TIME PERIOD OF                            60.0    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                6.000E-04
           THE MAXIMUM TIME INCREMENT ALLOWED IS                0.200    
 
           CREEP AND SWELLING EFFECTS ARE OMITTED IN THIS STEP
@@ -226,17 +226,19 @@
       (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
 
 
-          THE ANALYSIS HAS BEEN COMPLETED
+          THE ANALYSIS IS ENDED BECAUSE OF THE PROBLEMS ENCOUNTERED
+          LOOK AT THE MSG FILE FOR THE CAUSE OF THE TERMINATION
 
 
 
-                              ANALYSIS COMPLETE
-                              WITH      1 WARNING MESSAGES ON THE DAT FILE
+                              ANALYSIS IS ENDED
+                              WITH      1 ERROR MESSAGES ON THE MSG FILE
+                              AND       1 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     1.12E+02
-       SYSTEM TIME (SEC)    =      11.    
-       TOTAL CPU TIME (SEC) =     1.23E+02
-       WALLCLOCK TIME (SEC) =          224
+       USER TIME (SEC)      =      76.    
+       SYSTEM TIME (SEC)    =      5.6    
+       TOTAL CPU TIME (SEC) =      81.    
+       WALLCLOCK TIME (SEC) =          121

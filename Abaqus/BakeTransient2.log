@@ -1,0 +1,22 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB BakeTransient2
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
+<315 out of 320 licenses remain available>.
+Begin Analysis Input File Processor
+4/27/2026 10:42:28 PM
+Run pre.exe
+4/27/2026 10:42:30 PM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+4/27/2026 10:42:30 PM
+Run standard.exe
+4/27/2026 10:44:32 PM
+End Abaqus/Standard Analysis
+Begin SIM Wrap-up
+4/27/2026 10:44:32 PM
+Run SMASimUtility.exe
+4/27/2026 10:44:32 PM
+End SIM Wrap-up
+Abaqus JOB BakeTransient2 COMPLETED

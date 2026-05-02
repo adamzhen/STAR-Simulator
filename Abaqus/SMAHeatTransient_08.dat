@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 23-Apr-2026   Time 04:34:06
+   Abaqus 2025                                  Date 01-May-2026   Time 18:22:41
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-009 
+                          On machine VDI-ENGR-001 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -77,10 +77,6 @@
    ***************************
 
 
-  *Element, type=S3T
-
- ***NOTE: ELEMENT TYPES S3T AND S3RT ARE IDENTICAL. ELEMENT TYPE S3T WILL BE 
-          REFERRED TO AS S3RT FROM HERE ON
   *Element, type=S4RT
   *Elset, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1"
   *Elset, elset=ASSEMBLY_FIXED-SET
@@ -155,7 +151,7 @@
            CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
            TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
 
- ***WARNING: 10 elements are curved/warped. The angle subtended between the 
+ ***WARNING: 4 elements are curved/warped. The angle subtended between the 
              average element normal and a nodal normal exceeds 10 degrees. Mesh 
              refinement is recommended. The elements have been identified in 
              element set WarnElemWarped.
@@ -165,16 +161,10 @@
   
            Element            Adjusted nodes 
  ---------------------------- -------------- 
-        SMAStrip (Nitinol).36       NO       
-        SMAStrip (Nitinol).37       NO       
-       SMAStrip (Nitinol).133       NO       
-       SMAStrip (Nitinol).135       NO       
-       SMAStrip (Nitinol).481       NO       
-       SMAStrip (Nitinol).667       NO       
-       SMAStrip (Nitinol).882       NO       
-      SMAStrip (Nitinol).1118       NO       
-      SMAStrip (Nitinol).1123       NO       
-      SMAStrip (Nitinol).1132       NO       
+         SMAStrip (Nitinol).1       NO       
+        SMAStrip (Nitinol).10       NO       
+      SMAStrip (Nitinol).1021       NO       
+      SMAStrip (Nitinol).1030       NO       
   
   
   *step, name=Heat_08, nlgeom=NO, inc=200
@@ -207,10 +197,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  1180
-          NUMBER OF NODES IS                                     1278
-          NUMBER OF NODES DEFINED BY THE USER                    1278
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                14058
+          NUMBER OF ELEMENTS IS                                  1030
+          NUMBER OF NODES IS                                     1144
+          NUMBER OF NODES DEFINED BY THE USER                    1144
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                12584
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -221,13 +211,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.20    
-       WALLCLOCK TIME (SEC) =            0
+       USER TIME (SEC)      =     0.10    
+       SYSTEM TIME (SEC)    =     0.20    
+       TOTAL CPU TIME (SEC) =     0.30    
+       WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 23-Apr-2026   Time 04:34:08
+   Abaqus 2025                                  Date 01-May-2026   Time 18:22:44
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 8                                                                               STEP    1  INCREMENT    1
@@ -241,7 +231,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            20.0    
+          AND A TOTAL TIME PERIOD OF                            15.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -261,7 +251,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          1.06E+09               23                 91
+     1          9.40E+08               23                 84
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -304,7 +294,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      2.9    
+       USER TIME (SEC)      =      2.0    
        SYSTEM TIME (SEC)    =     0.30    
-       TOTAL CPU TIME (SEC) =      3.2    
-       WALLCLOCK TIME (SEC) =            7
+       TOTAL CPU TIME (SEC) =      2.3    
+       WALLCLOCK TIME (SEC) =            8

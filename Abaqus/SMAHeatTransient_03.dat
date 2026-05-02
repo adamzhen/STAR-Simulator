@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 23-Apr-2026   Time 04:28:20
+   Abaqus 2025                                  Date 01-May-2026   Time 18:17:36
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-009 
+                          On machine VDI-ENGR-001 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -151,10 +151,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  1020
-          NUMBER OF NODES IS                                     1133
-          NUMBER OF NODES DEFINED BY THE USER                    1133
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                12463
+          NUMBER OF ELEMENTS IS                                  1010
+          NUMBER OF NODES IS                                     1122
+          NUMBER OF NODES DEFINED BY THE USER                    1122
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                12342
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -166,12 +166,12 @@
 
      JOB TIME SUMMARY
        USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.20    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.30    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 23-Apr-2026   Time 04:28:23
+   Abaqus 2025                                  Date 01-May-2026   Time 18:17:39
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 3                                                                               STEP    1  INCREMENT    1
@@ -185,7 +185,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            20.0    
+          AND A TOTAL TIME PERIOD OF                            15.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -205,7 +205,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          9.23E+08               23                 84
+     1          9.20E+08               23                 84
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -248,7 +248,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      2.5    
+       USER TIME (SEC)      =      1.5    
        SYSTEM TIME (SEC)    =     0.40    
-       TOTAL CPU TIME (SEC) =      2.9    
+       TOTAL CPU TIME (SEC) =      1.9    
        WALLCLOCK TIME (SEC) =            7

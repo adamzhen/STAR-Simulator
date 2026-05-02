@@ -87,7 +87,8 @@ FLUX_DATA_FILEPATH       = "H:/STAR-Simulator/Scenarios/%s/flux_data.csv" % SCEN
 ABSORPTION_PLOT_DIR = "H:/STAR-Simulator/Scenarios/%s/run_documentation/iterative_analysis_%s/plots" % (SCENARIO_NAME, RUN_NO)
 os.makedirs(ABSORPTION_PLOT_DIR, exist_ok=True)
 
-PLOT2D = True  # Plot absorption points on 2D graph if PLOT2D is True
+PLOT2D = True       # Plot absorption points on 2D graph if PLOT2D is True
+DISP3D = False      # Display rays in FreeCAD if True
 
 print("Running with config:")
 print("  FCSTD_PATH:", FCSTD_PATH)
@@ -294,12 +295,19 @@ print(f"\nTIME: {time.perf_counter() - _start_time:.3f} seconds")
 
 # --- Run Experiment ---
 num_rays = NUM_RAYS
-experiment = otsun.Experiment(
-    scene=scene,
-    light_source=sun,
-    number_of_rays=num_rays,
-    #document_to_show=doc
-)
+if DISP3D:
+    experiment = otsun.Experiment(
+        scene=scene,
+        light_source=sun,
+        number_of_rays=num_rays,
+        document_to_show=doc
+    )
+else:
+    experiment = otsun.Experiment(
+        scene=scene,
+        light_source=sun,
+        number_of_rays=num_rays
+    )
 
 print(f"\n=== Running simulation with {num_rays} rays ===")
 experiment.run()

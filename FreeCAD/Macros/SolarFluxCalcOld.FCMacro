@@ -14,13 +14,16 @@ _start_time = time.perf_counter()  # TIMING
 # MAIN SIMULATION SCRIPT (NO FACE EXTRACTION)
 # ============================================================================
 
-FCSTD_PATH = "H:/STAR-Simulator/FreeCAD/SMAScenario1.FCStd"
-OBJECT_NAME = 'SMAStrip (Nitinol)'
+#FCSTD_PATH = "H:/STAR-Simulator/FreeCAD/SMAScenario1.FCStd"
+#OBJECT_NAME = 'SMAStrip (Nitinol)'
 
-#FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/TestScenario1.FCStd'
-#OBJECT_NAME = 'Cylinder (Aluminum)'
+FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/TestScenario1.FCStd'
+OBJECT_NAME = 'Cylinder (Aluminum)'
 #FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/Cube.FCStd'
 #OBJECT_NAME = 'Cube(Aluminum)'
+
+PLOT2D = True
+DISP3D = False
 
 # --- Create Working Copy ---
 dirpath = os.path.dirname(FCSTD_PATH)
@@ -140,13 +143,20 @@ sun = LightSource(
 )
 
 # --- Run Experiment ---
-num_rays = 10
-experiment = otsun.Experiment(
-    scene=scene,
-    light_source=sun,
-    number_of_rays=num_rays,
-    #document_to_show=doc
-)
+num_rays = 3000
+if DISP3D:
+    experiment = otsun.Experiment(
+        scene=scene,
+        light_source=sun,
+        number_of_rays=num_rays,
+        document_to_show=doc
+    )
+else:
+    experiment = otsun.Experiment(
+        scene=scene,
+        light_source=sun,
+        number_of_rays=num_rays
+    )
 
 print(f"\n=== Running simulation with {num_rays} rays ===")
 experiment.run()
@@ -215,9 +225,6 @@ with open(EXPERIMENT_DATA_FILEPATH, 'w', newline='') as f_exp, \
 
 print(f"\nExperiment data saved: {len(experiment.points_absorber_Th)} points")
 print(f"Flux data saved: {len(experiment.points_absorber_Th)} points")
-
-# Plot absorption points on 2D graph if PLOT2D is True
-PLOT2D = True
 
 if (PLOT2D):
     import numpy as np

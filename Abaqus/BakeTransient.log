@@ -3,20 +3,21 @@ Abaqus JOB BakeTransient
 Abaqus 2025
 Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
-<121 out of 160 licenses remain available>.
+<310 out of 320 licenses remain available>.
 Begin Analysis Input File Processor
-12/7/2025 10:22:50 PM
+4/28/2026 6:48:59 PM
 Run pre.exe
-12/7/2025 10:22:59 PM
+4/28/2026 6:49:02 PM
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-12/7/2025 10:22:59 PM
+4/28/2026 6:49:02 PM
 Run standard.exe
-12/7/2025 10:26:51 PM
-End Abaqus/Standard Analysis
+4/28/2026 6:51:09 PM
+Abaqus Error: Abaqus/Standard Analysis exited with an error - Please see the 
+message file for possible error messages if the file exists.
 Begin SIM Wrap-up
-12/7/2025 10:26:52 PM
+4/28/2026 6:51:12 PM
 Run SMASimUtility.exe
-12/7/2025 10:26:53 PM
+4/28/2026 6:51:12 PM
 End SIM Wrap-up
-Abaqus JOB BakeTransient COMPLETED
+Abaqus/Analysis exited with errors
