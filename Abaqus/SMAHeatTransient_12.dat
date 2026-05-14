@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 01-May-2026   Time 18:27:50
+   Abaqus 2025                                  Date 05-May-2026   Time 10:57:11
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-001 
+                          On machine VDI-ENGR-013 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -155,7 +155,7 @@
            CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
            TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
 
- ***WARNING: 10 elements are curved/warped. The angle subtended between the 
+ ***WARNING: 5 elements are curved/warped. The angle subtended between the 
              average element normal and a nodal normal exceeds 10 degrees. Mesh 
              refinement is recommended. The elements have been identified in 
              element set WarnElemWarped.
@@ -165,25 +165,20 @@
   
            Element            Adjusted nodes 
  ---------------------------- -------------- 
-        SMAStrip (Nitinol).29       NO       
-        SMAStrip (Nitinol).31       NO       
-       SMAStrip (Nitinol).297       NO       
-       SMAStrip (Nitinol).298       NO       
-       SMAStrip (Nitinol).299       NO       
-       SMAStrip (Nitinol).490       NO       
-       SMAStrip (Nitinol).581       NO       
-       SMAStrip (Nitinol).702       NO       
-      SMAStrip (Nitinol).1071       NO       
-      SMAStrip (Nitinol).1102       NO       
+        SMAStrip (Nitinol).75       NO       
+        SMAStrip (Nitinol).77       NO       
+       SMAStrip (Nitinol).819       NO       
+      SMAStrip (Nitinol).1108       NO       
+      SMAStrip (Nitinol).1116       NO       
   
   
-  *step, name=Heat_12, nlgeom=NO, inc=200
-  *step, name=Heat_12, nlgeom=NO, inc=200
+  *step, name=Heat_12, nlgeom=YES, inc=200
+  *step, name=Heat_12, nlgeom=YES, inc=200
   *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
-  *step, name=Heat_12, nlgeom=NO, inc=200
-  *step, name=Heat_12, nlgeom=NO, inc=200
+  *step, name=Heat_12, nlgeom=YES, inc=200
+  *step, name=Heat_12, nlgeom=YES, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=5
   *boundary
   *dflux
@@ -197,7 +192,7 @@
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *endstep
-  *step, name=Heat_12, nlgeom=NO, inc=200
+  *step, name=Heat_12, nlgeom=YES, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=5
   *boundary
   *endstep
@@ -207,10 +202,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  1135
-          NUMBER OF NODES IS                                     1234
-          NUMBER OF NODES DEFINED BY THE USER                    1234
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                13574
+          NUMBER OF ELEMENTS IS                                  1144
+          NUMBER OF NODES IS                                     1243
+          NUMBER OF NODES DEFINED BY THE USER                    1243
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                13673
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -221,13 +216,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.40    
-       SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.40    
+       USER TIME (SEC)      =     0.10    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.20    
        WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 01-May-2026   Time 18:27:52
+   Abaqus 2025                                  Date 05-May-2026   Time 10:57:13
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 12                                                                              STEP    1  INCREMENT    1
@@ -253,6 +248,8 @@
 
           CREEP AND SWELLING EFFECTS WILL BE IGNORED.
 
+          LARGE DISPLACEMENT THEORY WILL BE USED
+
           UNSYMMETRIC MATRIX STORAGE AND SOLUTION WILL BE USED
   
                    M E M O R Y   E S T I M A T E
@@ -261,7 +258,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          1.03E+09               23                 89
+     1          1.06E+09               23                 89
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -304,7 +301,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      3.1    
-       SYSTEM TIME (SEC)    =     0.50    
-       TOTAL CPU TIME (SEC) =      3.6    
-       WALLCLOCK TIME (SEC) =            5
+       USER TIME (SEC)      =      4.7    
+       SYSTEM TIME (SEC)    =     0.60    
+       TOTAL CPU TIME (SEC) =      5.3    
+       WALLCLOCK TIME (SEC) =            9

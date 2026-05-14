@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 27-Apr-2026   Time 22:42:29
+   Abaqus 2025                                  Date 03-May-2026   Time 02:23:13
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-020 
+                          On machine VDI-ENGR-044 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -78,7 +78,7 @@
 
 
   *Element, type=C3D8T
-  *Elset, elset=ASSEMBLY_CYLINDER-(ALUMINUM)_SET-1
+  *Elset, elset=ASSEMBLY_CYLINDER-(ALUMINUM)_SET-3
   *Elset, elset=ASSEMBLY_FIXED-SET
   *Elset, elset=ASSEMBLY_SET-1
   *Elset, elset=ASSEMBLY__ALL-SURFACES_S1
@@ -96,8 +96,8 @@
   *expansion
   *specificheat
   *initialconditions, type=TEMPERATURE
-  *solidsection, elset=ASSEMBLY_CYLINDER-(ALUMINUM)_SET-1, material=ALUMINUM
-  *solidsection, elset=ASSEMBLY_CYLINDER-(ALUMINUM)_SET-1, material=ALUMINUM
+  *solidsection, elset=ASSEMBLY_CYLINDER-(ALUMINUM)_SET-3, material=ALUMINUM
+  *solidsection, elset=ASSEMBLY_CYLINDER-(ALUMINUM)_SET-3, material=ALUMINUM
   *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
   *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
   *initialconditions, type=TEMPERATURE
@@ -139,10 +139,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  9120
-          NUMBER OF NODES IS                                    10269
-          NUMBER OF NODES DEFINED BY THE USER                   10269
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                41076
+          NUMBER OF ELEMENTS IS                                  9000
+          NUMBER OF NODES IS                                    10143
+          NUMBER OF NODES DEFINED BY THE USER                   10143
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                40572
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -153,13 +153,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.30    
+       USER TIME (SEC)      =     0.50    
        SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.40    
+       TOTAL CPU TIME (SEC) =     0.60    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 27-Apr-2026   Time 22:42:31
+   Abaqus 2025                                  Date 03-May-2026   Time 02:23:15
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
                                                                                                STEP    1  INCREMENT    1
@@ -193,7 +193,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          9.02E+10               88                734
+     1          8.08E+10               82                697
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -236,7 +236,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      62.    
-       SYSTEM TIME (SEC)    =      4.7    
-       TOTAL CPU TIME (SEC) =      67.    
-       WALLCLOCK TIME (SEC) =          119
+       USER TIME (SEC)      =      90.    
+       SYSTEM TIME (SEC)    =      6.9    
+       TOTAL CPU TIME (SEC) =      97.    
+       WALLCLOCK TIME (SEC) =          177

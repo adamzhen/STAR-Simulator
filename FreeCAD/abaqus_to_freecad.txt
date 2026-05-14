@@ -1,7 +1,7 @@
 FCSTD_PATH, H:/STAR-Simulator/Scenarios/SMAScenario1/SMAScenario1.FCStd
-OBJECT_PATH, H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
-ITER_ID, 12
-RUN_NO, 0.53
+OBJECT_PATH, H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStrip (Nitinol).stp
+ITER_ID, comparison
+RUN_NO, 0.69
 SCENARIO_NAME, SMAScenario1
 OBJECT_NAME, SMAStrip (Nitinol)
 NUM_RAYS, 2000

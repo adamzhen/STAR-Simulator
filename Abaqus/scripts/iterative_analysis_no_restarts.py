@@ -12,6 +12,13 @@ import os, subprocess, math, csv, time, shutil
 import sys
 from datetime import datetime
 
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+import matplotlib.colors as mcolors
+import numpy as np
+
 # ----------------------------------------------------------
 # Helper functions
 # ----------------------------------------------------------
@@ -68,18 +75,19 @@ DEFORMED_NAME = 'SMAStripDeformed'
 JOB_BASENAME  = 'SMAHeatTransient'
 MODEL_BASENAME = "Model"
 
-RUN_NO     = 0.53
+RUN_NO     = 0.62
 N_ITER     = 12
-CHUNK_TIME = 15.0 # seconds per iteration
+CHUNK_TIME = 15.0 # seconds per iterations
 MESHSIZE   = 0.01 # mesh size in meters
 N_RAYS     = 2000 # Number of rays for OTSun ray tracing
 STITCH_TOLERANCE = 0.001
 ANALYTIC_FIT_TOLERANCE = 0.02
-BC_FIXPOINT = (0.0, 50E-3, 0.0) # Point on edge to fix
-RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
+BC_EDGE = [(0, 0, 0), (0, 0.1, 0)] # Edge to fix defined by endpoints
+BC_FIXPOINT = tuple((np.array(BC_EDGE[0]) + np.array(BC_EDGE[1])) / 2.0)
+RUN_COMPARISON = True  # Set to False to skip the uncoupled comparison runs
 SUN_ANGLE = 60
 SUN_DIR = make_sun_dir(SUN_ANGLE, tilt_axis='y') # Direction of sunlight in FreeCAD coords
-FREECAD_TIMEOUT = 300  # seconds 
+FREECAD_TIMEOUT = 600  # seconds 
 
 IMPORT_OBJECT_FILEPATH = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAStrip (Nitinol).stp"
 EXPORT_OBJECT_FILEPATH = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAStripDeformed.stp"
@@ -137,7 +145,7 @@ log(f"SUN_ANGLE = {SUN_ANGLE}")
 log(f"SUN_DIR = {SUN_DIR}")
 log(f"STITCH_TOLERANCE = {STITCH_TOLERANCE}")
 log(f"ANALYTIC_FIT_TOLERANCE = {ANALYTIC_FIT_TOLERANCE}")
-log(f"BC_FIXPOINT = {BC_FIXPOINT}")
+log(f"BC_EDGE = {BC_EDGE}")
 log(f"IMPORT_OBJECT_FILEPATH = {IMPORT_OBJECT_FILEPATH}")
 log(f"EXPORT_OBJECT_FILEPATH = {EXPORT_OBJECT_FILEPATH}")
 log(f"FLUXDATA_FILEPATH = {FLUXDATA_FILEPATH}")
@@ -251,6 +259,7 @@ def export_obj_from_odb(job_name, obj_path):
     printlog(f"Set to step '{last_step_name}' (index {step_index}), frame {last_frame_index}")
     
     # Set deformation scale factor to 1.0 (true scale, no exaggeration)
+    vp.odbDisplay.commonOptions.setValues(deformationScaling=UNIFORM)
     vp.odbDisplay.commonOptions.setValues(uniformScaleFactor=1.0)
     printlog("Set uniformScaleFactor=1.0 (true deformation scale)")
     
@@ -386,7 +395,46 @@ def read_temperature_from_odb(job_name, instance_name=OBJECT_NAME,
     printlog(f"Read {len(temp_data)} nodal temperatures with deformed coordinates")
     return temp_data
 
-def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None):
+def define_encastre_bc(model, a, step_name, pt1, pt2,
+                       tol=0.001, instance_name=OBJECT_NAME):
+    """
+    Finds ALL edges between two endpoint coordinates and applies an Encastre BC.
+    Robust against edge fragmentation from CAD import errors.
+
+    Parameters
+    ----------
+    pt1, pt2 : (x, y, z) tuples — the two endpoints of the fixed edge
+    tol      : search tolerance in all directions (default 0.1 mm)
+    """
+    x1, y1, z1 = pt1
+    x2, y2, z2 = pt2
+
+    fix_edges = a.instances[instance_name].edges.getByBoundingBox(
+        xMin = min(x1, x2) - tol,
+        yMin = min(y1, y2) - tol,
+        zMin = min(z1, z2) - tol,
+        xMax = max(x1, x2) + tol,
+        yMax = max(y1, y2) + tol,
+        zMax = max(z1, z2) + tol
+    )
+
+    if len(fix_edges) == 0:
+        raise RuntimeError(
+            "No edges found between pt1=%s and pt2=%s (tol=%.2e). "
+            "Check coordinates or increase tol." % (pt1, pt2, tol)
+        )
+
+    printlog("Fixed BC: found %d edge(s) between %s and %s" % (len(fix_edges), pt1, pt2))
+
+    region_fix = a.Set(edges=fix_edges, name='Fixed-Set')
+    model.EncastreBC(
+        name='FixEdge',
+        createStepName=step_name,
+        region=region_fix,
+        localCsys=None
+    )
+
+def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None, mesh_size=MESHSIZE):
     """Build a fresh model for one iteration, importing given STEP.
     If prev_temp_data is provided, use it as initial temperature instead of uniform."""
     mdb.Model(name=model_name)
@@ -456,7 +504,8 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None)
         minInc=4e-5,
         maxInc=5.0,
         deltmx=5.0,
-        amplitude=STEP
+        amplitude=STEP,
+        nlgeom=ON
     )
     a.regenerate()
 
@@ -514,11 +563,9 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None)
         )
 
     printlog('Defining BC')
-    e1 = a.instances[OBJECT_NAME].edges
-    edges1 = e1.findAt((BC_FIXPOINT,)) 
-    region_fix = a.Set(edges=edges1, name='Fixed-Set')
-    model.EncastreBC(name='FixEdge', createStepName=step_name,
-                     region=region_fix, localCsys=None)
+    define_encastre_bc(model, a, step_name, tol=0.1,
+                    pt1=BC_EDGE[0],
+                    pt2=BC_EDGE[1])
 
     printlog('Defining amplitude and radiation')
     model.TabularAmplitude(name='InstantVacuum', timeSpan=STEP,
@@ -548,7 +595,7 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None)
     region_mesh = regionToolset.Region(faces=f)
     p.setElementType(regions=region_mesh,
                      elemTypes=(elemType1, elemType2))
-    p.seedPart(size=MESHSIZE, deviationFactor=0.1, minSizeFactor=0.1)
+    p.seedPart(size=mesh_size, deviationFactor=0.1, minSizeFactor=0.1)
     p.generateMesh()
     a.regenerate()
 
@@ -570,16 +617,9 @@ def parse_failed_elements_from_msg(job_name):
     printlog("Parsed %d failed elements from %s" % (len(failed), msg_path))
     return failed
 
-
 def plot_mapped_flux_on_mesh(job_names, output_dir, run_no,
                              instance_name=OBJECT_NAME,
                              frame_index=1):
-    import matplotlib
-    matplotlib.use('Agg')
-    import matplotlib.pyplot as plt
-    import matplotlib.cm as cm
-    import matplotlib.colors as mcolors
-    import numpy as np
 
     all_data = []
 
@@ -667,6 +707,7 @@ def plot_mapped_flux_on_mesh(job_names, output_dir, run_no,
     cmap = cm.get_cmap('jet')
     n    = len(job_names)
 
+    plt.rcParams.update({'font.size': 12})
     fig, axes = plt.subplots(n, 1, figsize=(14, 2.4 * n + 0.8), squeeze=False)
     last_sc = None
 
@@ -686,27 +727,26 @@ def plot_mapped_flux_on_mesh(job_names, output_dir, run_no,
             ax.scatter(fail_xs, fail_ys, c='white', marker='x',
                        s=20, linewidths=0.9, zorder=5,
                        label='Search failed (%d)' % n_failed)
-            ax.legend(fontsize=7, loc='upper right', framealpha=0.7)
+            ax.legend(fontsize=13, loc='upper right', framealpha=0.7)
 
         title = 'Iteration %d' % (idx + 1)
         if n_failed:
             title += '  |  %d search-failed elements' % n_failed
-        ax.set_title(title, fontsize=10, pad=3)
-        ax.set_xlabel('X (m)', fontsize=9)
-        ax.set_ylabel('Y (m)', fontsize=9)
-        ax.tick_params(labelsize=8)
+        ax.set_title(title, fontsize=16, pad=2)
+        ax.set_xlabel('X (m)', fontsize=14)
+        ax.set_ylabel('Y (m)', fontsize=14)
+        ax.tick_params(labelsize=12)
         ax.set_xlim(min(xs) - 0.01, max(xs) + 0.01)
         ax.set_ylim(min(ys) - 0.005, max(ys) + 0.005)
 
     if last_sc is not None:
-        fig.subplots_adjust(right=0.84, hspace=0.65)
+        fig.subplots_adjust(right=0.84, hspace=0.65, top=0.94)
         cbar_ax = fig.add_axes([0.87, 0.08, 0.022, 0.84])
         cb = fig.colorbar(last_sc, cax=cbar_ax)
-        cb.set_label('HFL Magnitude (W/m²)', fontsize=10)
+        cb.set_label('HFL Magnitude (W/m²)', fontsize=14)
         cb.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Actual Flux at Mesh (HFL, frame %d)  —  Run %s' % (frame_index, run_no),
-                 fontsize=12, y=1.005)
+    #fig.suptitle('Actual Flux at Mesh (HFL, frame %d)  —  Run %s' % (frame_index, run_no), fontsize=12, y=0.98)
 
     out_path = os.path.join(output_dir, 'mapped_flux_on_mesh_%s.png' % run_no)
     plt.savefig(out_path, dpi=250, bbox_inches='tight')
@@ -1015,7 +1055,7 @@ if RUN_COMPARISON:
     # 2) Build model from original STEP
     printlog("Building comparison model from original geometry")
     comp_model = build_model_from_step(comp_model_name, comp_step_name, 
-                                       IMPORT_OBJECT_FILEPATH)
+                                       IMPORT_OBJECT_FILEPATH, mesh_size = 0.02)
     
     # 3) Override step to use total time instead of chunk time
     del comp_model.steps[comp_step_name]
@@ -1023,13 +1063,14 @@ if RUN_COMPARISON:
     comp_model.CoupledTempDisplacementStep(
         name=comp_step_name,
         previous='Initial',
-        maxNumInc=1000,
+        maxNumInc=2000,
         timePeriod=total_time,  # full duration
         initialInc=0.5,
-        minInc=4e-5,
-        maxInc=5.0,
+        minInc=0.5,
+        maxInc=10.0,
         deltmx=2.0,
-        amplitude=STEP
+        amplitude=STEP,
+        nlgeom=ON
     )
     
     # Recreate BCs and loads (they were tied to old step name)

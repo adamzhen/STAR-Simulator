@@ -4,12 +4,13 @@ import Mesh
 import Import
 import os
 
-RUN_NO = 0.53
+RUN_NO = 0.63
 SCENARIO_NAME = "SMAScenario1"
 
 # Path to your scenario file and geometry folder
 DOC_NAME = "SMAScenario1_Sequence%s" % RUN_NO
 DOCUMENTATION_DIR = "H:/STAR-Simulator/Scenarios/%s/run_documentation/iterative_analysis_%s" % (SCENARIO_NAME, RUN_NO)
+IMPORT_OBJECT_FILEPATH = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAStrip (Nitinol).stp"
 FCSTD_PATH = "%s/%s.FCStd" % (DOCUMENTATION_DIR, DOC_NAME)
 GEOMETRY_DIR = "%s/deformed_cad" % DOCUMENTATION_DIR
 
@@ -48,8 +49,25 @@ for fname in obj_files:
     obj = doc.addObject("Mesh::Feature", base)
     obj.Mesh = mesh
 
+# Import the fixed SMA strip STEP file
+if os.path.exists(IMPORT_OBJECT_FILEPATH):
+    import_base = os.path.splitext(os.path.basename(IMPORT_OBJECT_FILEPATH))[0]
+    print("Importing fixed STEP:", IMPORT_OBJECT_FILEPATH)
+
+    # Remove existing object with same label/name to avoid duplicates on rerun
+    for existing in list(doc.Objects):
+        if existing.Label == import_base or existing.Name == import_base:
+            doc.removeObject(existing.Name)
+
+    shape = Part.Shape()
+    shape.read(IMPORT_OBJECT_FILEPATH)
+    sma_obj = doc.addObject("Part::Feature", import_base)
+    sma_obj.Label = import_base
+    sma_obj.Shape = shape
+else:
+    print("Fixed STEP file not found:", IMPORT_OBJECT_FILEPATH)
+
 doc.recompute()
 doc.saveAs(FCSTD_PATH)
-print("Imported %d STEP files and %d OBJ files into %s" % 
+print("Imported %d STEP files, %d OBJ files, and fixed SMA strip into %s" %
       (len(step_files), len(obj_files), FCSTD_PATH))
-

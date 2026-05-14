@@ -143,7 +143,7 @@ sun = LightSource(
 )
 
 # --- Run Experiment ---
-num_rays = 3000
+num_rays = 10000
 if DISP3D:
     experiment = otsun.Experiment(
         scene=scene,
@@ -158,8 +158,69 @@ else:
         number_of_rays=num_rays
     )
 
+import Part
+import numpy as np
+
 print(f"\n=== Running simulation with {num_rays} rays ===")
-experiment.run()
+
+# Run rays manually so we can color absorbed ones red
+for n in np.arange(0, num_rays, 1):
+    ray = sun.emit_ray()
+    ray.run()
+
+    experiment.wavelengths.append(ray.wavelength)
+
+    if ray.Th_absorbed:
+        experiment.captured_energy_Th += ray.energy
+        experiment.Th_energy.append(ray.energy)
+        experiment.Th_wavelength.append(ray.wavelength)
+        experiment.points_absorber_Th.append((
+            ray.energy,
+            ray.points[-1].x, ray.points[-1].y, ray.points[-1].z,
+            ray.points[-2].x, ray.points[-2].y, ray.points[-2].z,
+            ray.last_normal.x, ray.last_normal.y, ray.last_normal.z,
+            ray.wavelength
+        ))
+    else:
+        experiment.Th_energy.append(0.0)
+        experiment.Th_wavelength.append(ray.wavelength)
+
+    if ray.PV_absorbed:
+        PV_energy_absorbed = np.sum(ray.PV_absorbed)
+        experiment.captured_energy_PV += PV_energy_absorbed
+        experiment.PV_energy.append(PV_energy_absorbed)
+        experiment.PV_wavelength.append(ray.wavelength)
+        for z in np.arange(0, len(ray.PV_values), 1):
+            experiment.PV_values.append(ray.PV_values[z])
+    else:
+        experiment.PV_energy.append(0.0)
+        experiment.PV_wavelength.append(ray.wavelength)
+
+    # 3D visualization with coloring
+    if DISP3D:
+        pts = ray.points
+        color = (1.0, 0.0, 0.0) if ray.Th_absorbed else (0.6, 0.6, 0.6)
+        for j in range(len(pts) - 1):
+            p1, p2 = pts[j], pts[j + 1]
+            try:
+                edge = Part.makeLine(
+                    (p1.x, p1.y, p1.z),
+                    (p2.x, p2.y, p2.z)
+                )
+                obj = doc.addObject("Part::Feature", f"Ray_{int(n)}_{j}")
+                obj.Shape = Part.Wire([edge])
+                obj.ViewObject.LineColor = color
+                obj.ViewObject.LineWidth = 1.0
+            except Exception:
+                pass
+
+experiment.has_run = True
+
+if DISP3D:
+    doc.recompute()
+
+print(f"\n=== RESULTS ===")
+print(f"Number of absorption points: {len(experiment.points_absorber_Th)}")
 
 # --- Results ---
 print(f"\n=== RESULTS ===")

@@ -2192,7 +2192,7 @@ Set-Temp, 4., 4., 4., 4., 4.
 ** 
 ** STEP: Heat_01
 ** 
-*Step, name=Heat_01, nlgeom=NO, inc=200
+*Step, name=Heat_01, nlgeom=YES, inc=200
 *Coupled Temperature-displacement, creep=none, deltmx=5.
 0.1, 15., 4e-05, 5.
 ** 

@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 01-May-2026   Time 18:16:28
+   Abaqus 2025                                  Date 05-May-2026   Time 10:44:59
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-001 
+                          On machine VDI-ENGR-013 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -121,13 +121,13 @@
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *elementoutput, directions=YES
-  *step, name=Heat_01, nlgeom=NO, inc=200
-  *step, name=Heat_01, nlgeom=NO, inc=200
+  *step, name=Heat_01, nlgeom=YES, inc=200
+  *step, name=Heat_01, nlgeom=YES, inc=200
   *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
-  *step, name=Heat_01, nlgeom=NO, inc=200
-  *step, name=Heat_01, nlgeom=NO, inc=200
+  *step, name=Heat_01, nlgeom=YES, inc=200
+  *step, name=Heat_01, nlgeom=YES, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=5
   *boundary
   *dflux
@@ -141,7 +141,7 @@
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *endstep
-  *step, name=Heat_01, nlgeom=NO, inc=200
+  *step, name=Heat_01, nlgeom=YES, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=5
   *boundary
   *endstep
@@ -166,12 +166,12 @@
 
      JOB TIME SUMMARY
        USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.30    
-       WALLCLOCK TIME (SEC) =            1
+       SYSTEM TIME (SEC)    =     0.20    
+       TOTAL CPU TIME (SEC) =     0.40    
+       WALLCLOCK TIME (SEC) =            2
 1
 
-   Abaqus 2025                                  Date 01-May-2026   Time 18:16:31
+   Abaqus 2025                                  Date 05-May-2026   Time 10:45:06
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 1                                                                               STEP    1  INCREMENT    1
@@ -196,6 +196,8 @@
           THE RATE DEPENDENCY WILL BE CONSIDERED IN THIS STEP
 
           CREEP AND SWELLING EFFECTS WILL BE IGNORED.
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
 
           UNSYMMETRIC MATRIX STORAGE AND SOLUTION WILL BE USED
   
@@ -248,7 +250,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      1.1    
-       SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =      1.3    
-       WALLCLOCK TIME (SEC) =            6
+       USER TIME (SEC)      =      5.4    
+       SYSTEM TIME (SEC)    =     0.90    
+       TOTAL CPU TIME (SEC) =      6.3    
+       WALLCLOCK TIME (SEC) =           16

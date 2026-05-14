@@ -44,7 +44,7 @@ session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
 # (e.g., mesh seeds, step times, etc)
 ##########################
 
-MESHSIZE = 5.0
+MESHSIZE = 0.05
 
 ####################################
 ### Calculated Properties/Values ###
