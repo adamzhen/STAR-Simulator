@@ -5,18 +5,18 @@ Abaqus License Manager checked out the following licenses:
 Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
 <315 out of 320 licenses remain available>.
 Begin Analysis Input File Processor
-5/5/2026 10:45:47 AM
+5/20/2026 12:13:42 AM
 Run pre.exe
-5/5/2026 10:45:50 AM
+5/20/2026 12:13:45 AM
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-5/5/2026 10:45:50 AM
+5/20/2026 12:13:45 AM
 Run standard.exe
-5/5/2026 10:46:07 AM
+5/20/2026 12:14:00 AM
 End Abaqus/Standard Analysis
 Begin SIM Wrap-up
-5/5/2026 10:46:08 AM
+5/20/2026 12:14:01 AM
 Run SMASimUtility.exe
-5/5/2026 10:46:08 AM
+5/20/2026 12:14:01 AM
 End SIM Wrap-up
 Abaqus JOB SMAHeatTransient_02 COMPLETED

@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 05-May-2026   Time 10:46:31
+   Abaqus 2025                                  Date 20-May-2026   Time 00:14:28
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -42,7 +42,7 @@
                 *                                                         * 
                 *                       Abaqus 2025                       * 
                 *                                                         * 
-                *       BUILD ID: 2024_09_20-08.00.46 RELr427 198590      * 
+                *       BUILD ID: 2024_09_20-09.00.46 RELr427 198590      * 
                 *                                                         * 
                 *                                                         * 
                 *  Please make sure you are using                         * 
@@ -165,13 +165,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.10    
-       SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.10    
+       USER TIME (SEC)      =     0.30    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.40    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 05-May-2026   Time 10:46:34
+   Abaqus 2025                                  Date 20-May-2026   Time 00:14:31
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 3                                                                               STEP    1  INCREMENT    1
@@ -185,7 +185,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            15.0    
+          AND A TOTAL TIME PERIOD OF                            20.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -250,7 +250,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      4.1    
-       SYSTEM TIME (SEC)    =     0.70    
-       TOTAL CPU TIME (SEC) =      4.8    
+       USER TIME (SEC)      =      8.0    
+       SYSTEM TIME (SEC)    =      1.0    
+       TOTAL CPU TIME (SEC) =      9.0    
        WALLCLOCK TIME (SEC) =           11

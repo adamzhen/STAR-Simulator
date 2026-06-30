@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 05-May-2026   Time 10:51:57
+   Abaqus 2025                                  Date 20-May-2026   Time 00:20:55
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -42,7 +42,7 @@
                 *                                                         * 
                 *                       Abaqus 2025                       * 
                 *                                                         * 
-                *       BUILD ID: 2024_09_20-08.00.46 RELr427 198590      * 
+                *       BUILD ID: 2024_09_20-09.00.46 RELr427 198590      * 
                 *                                                         * 
                 *                                                         * 
                 *  Please make sure you are using                         * 
@@ -151,7 +151,7 @@
            CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
            TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
 
- ***WARNING: 3 elements are curved/warped. The angle subtended between the 
+ ***WARNING: 4 elements are curved/warped. The angle subtended between the 
              average element normal and a nodal normal exceeds 10 degrees. Mesh 
              refinement is recommended. The elements have been identified in 
              element set WarnElemWarped.
@@ -162,8 +162,9 @@
            Element            Adjusted nodes 
  ---------------------------- -------------- 
          SMAStrip (Nitinol).1       NO       
-        SMAStrip (Nitinol).10       NO       
-       SMAStrip (Nitinol).991       NO       
+         SMAStrip (Nitinol).2       NO       
+        SMAStrip (Nitinol).11       NO       
+      SMAStrip (Nitinol).1090       NO       
   
   
   *step, name=Heat_08, nlgeom=YES, inc=200
@@ -196,10 +197,10 @@
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                  1000
-          NUMBER OF NODES IS                                     1111
-          NUMBER OF NODES DEFINED BY THE USER                    1111
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                12221
+          NUMBER OF ELEMENTS IS                                  1100
+          NUMBER OF NODES IS                                     1212
+          NUMBER OF NODES DEFINED BY THE USER                    1212
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                13332
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -211,12 +212,12 @@
 
      JOB TIME SUMMARY
        USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.20    
-       WALLCLOCK TIME (SEC) =            1
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.30    
+       WALLCLOCK TIME (SEC) =            2
 1
 
-   Abaqus 2025                                  Date 05-May-2026   Time 10:51:59
+   Abaqus 2025                                  Date 20-May-2026   Time 00:20:58
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 8                                                                               STEP    1  INCREMENT    1
@@ -230,7 +231,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            15.0    
+          AND A TOTAL TIME PERIOD OF                            20.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -252,7 +253,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          9.09E+08               23                 82
+     1          1.14E+09               23                 90
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -295,7 +296,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      4.6    
-       SYSTEM TIME (SEC)    =     0.60    
-       TOTAL CPU TIME (SEC) =      5.2    
-       WALLCLOCK TIME (SEC) =           10
+       USER TIME (SEC)      =      5.6    
+       SYSTEM TIME (SEC)    =      1.0    
+       TOTAL CPU TIME (SEC) =      6.6    
+       WALLCLOCK TIME (SEC) =           14

@@ -76,8 +76,8 @@ JOB_BASENAME  = 'SMAHeatTransient'
 MODEL_BASENAME = "Model"
 
 RUN_NO     = 0.62
-N_ITER     = 12
-CHUNK_TIME = 15.0 # seconds per iterations
+N_ITER     = 9
+CHUNK_TIME = 20.0 # seconds per iterations
 MESHSIZE   = 0.01 # mesh size in meters
 N_RAYS     = 2000 # Number of rays for OTSun ray tracing
 STITCH_TOLERANCE = 0.001
@@ -120,6 +120,8 @@ if 'Viewport: 1' in session.viewports.keys():
     session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
         legendFont='-*-verdana-medium-r-normal-*-*-720-*-*-p-*-*-*'
     )
+    session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
+    legendNumberFormat=FIXED)
 # ----------------------------------------------------------
 
 

@@ -1,0 +1,51 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-09.00.46 RELr427 198590
+# Run by adzheng on Tue May 19 23:04:19 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=1614.0, 
+    height=936.0)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+o1 = session.openOdb(name='H:/STAR-Simulator/Abaqus/SMAHeatTransient_12.odb')
+session.viewports['Viewport: 1'].setValues(displayedObject=o1)
+#: Model: H:/STAR-Simulator/Abaqus/SMAHeatTransient_12.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       5
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='GRADT', outputPosition=INTEGRATION_POINT, refinement=(
+    INVARIANT, 'Magnitude'), )
+cliCommand("""session.journalOptions.setValues(replayGeometry=COORDINATE,
+                                 recoverGeometry=COORDINATE)""")
+cliCommand("""if 'Viewport: 1' in session.viewports.keys():
+    session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
+        legendFont='-*-verdana-medium-r-normal-*-*-720-*-*-p-*-*-*'
+    )
+""")
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='NT11', outputPosition=NODAL, )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='NT12', outputPosition=NODAL, )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='NT13', outputPosition=NODAL, )
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='NT11', outputPosition=NODAL, )
