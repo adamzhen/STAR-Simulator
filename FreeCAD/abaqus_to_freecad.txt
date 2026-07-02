@@ -1,8 +1,9 @@
-FCSTD_PATH, H:/STAR-Simulator/Scenarios/SMAScenario1/SMAScenario1.FCStd
-OBJECT_PATH, H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStrip (Nitinol).stp
+WORKING_DIR, C:/Users/adzheng/STAR-Simulator/Scenarios/
+FCSTD_FILE, SMAScenario1.FCStd
+OBJECT_FILE, SMAStrip (Nitinol).stp
+OBJECT_NAME, SMAStrip (Nitinol)
 ITER_ID, comparison
 RUN_NO, 0.62
 SCENARIO_NAME, SMAScenario1
-OBJECT_NAME, SMAStrip (Nitinol)
 NUM_RAYS, 2000
 SUN_DIR, 0.86603, 0.00000, -0.50000

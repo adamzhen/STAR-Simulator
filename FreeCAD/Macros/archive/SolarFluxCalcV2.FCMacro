@@ -1,80 +1,106 @@
-#################################
-##### SolarFluxCalc.FCMacro #####
-#################################
-
-# ============================================================================
-# IMPORT LIBRARIES
-# ============================================================================
-
-import os
 import sys
+sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\site-packages\python3.10")
 import FreeCAD
+import otsun
+import os
 import csv
 import math
-import json
 import time
-
-#sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\site-packages\python3.10")
-import otsun
 
 # start timer
 _start_time = time.perf_counter()  # TIMING
 
+
 # ============================================================================
-# Read in Parameters
+# Read in Config Parameters
 # ============================================================================
 
-try:
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-except NameError:
-    script_dir = r"C:\Users\adzheng\STAR-Simulator\FreeCAD\Macros"
+# Input config file from Abaqus
+config_file = r"H:/STAR-Simulator/FreeCAD/abaqus_to_freecad.txt"
 
-config_file = os.path.normpath(os.path.join(script_dir, "..", "abaqus_to_freecad.json"))
-if not os.path.isfile(config_file):
-    raise FileNotFoundError(f"Config file not found at: {config_file}")
-
-REQUIRED_KEYS = ['WORKING_DIR', 'FCSTD_PATH', 'OBJECT_PATH', 'OBJECT_NAME',
-                 'ITER_ID', 'RUN_NO', 'SCENARIO_NAME', 'NUM_RAYS', 'SUN_DIR']
+# Initialize parameters
+FCSTD_PATH = None
+OBJECT_PATH = None
+ITER_ID = None
+RUN_NO = None
+SCENARIO_NAME = None
+OBJECT_NAME = None
+NUM_RAYS = None
+SUN_DIR = None
 
 with open(config_file, 'r') as f:
-    cfg = json.load(f)
+    for line in f:
+        line = line.strip()
+        if not line or line.startswith('#'):
+            continue
+        parts = [p.strip() for p in line.split(',', 1)]
+        if len(parts) != 2:
+            continue
+        key, value = parts
+        if key == 'FCSTD_PATH':
+            FCSTD_PATH = value
+        elif key == 'OBJECT_PATH':
+            OBJECT_PATH = value
+        elif key == 'ITER_ID':
+            ITER_ID = value
+        elif key == 'RUN_NO':
+            RUN_NO = value
+        elif key == 'SCENARIO_NAME':
+            SCENARIO_NAME = value
+        elif key == 'OBJECT_NAME':
+            OBJECT_NAME = value
+        elif key == 'NUM_RAYS':
+            NUM_RAYS = int(value)
+        elif key == 'SUN_DIR':
+            # Parse three comma-separated floats
+            sun_parts = [p.strip() for p in value.split(',')]
+            if len(sun_parts) == 3:
+                SUN_DIR = tuple(float(p) for p in sun_parts)
+            else:
+                raise ValueError("SUN_DIR must have 3 values, got: %s" % value)
 
-missing = [k for k in REQUIRED_KEYS if k not in cfg]
-if missing:
-    raise RuntimeError(f"Missing required keys {missing} in {config_file}")
+# Validation
+if FCSTD_PATH is None or OBJECT_PATH is None:
+    raise RuntimeError("FCSTD_PATH or OBJECT_PATH not found in %s" % config_file)
 
-cfg['SUN_DIR'] = tuple(cfg['SUN_DIR'])
+if ITER_ID is None:
+    raise RuntimeError("ITER_ID not found in %s" % config_file)
 
-WORKING_DIR = cfg['WORKING_DIR']
-FCSTD_PATH = cfg['FCSTD_PATH']
-OBJECT_PATH = cfg['OBJECT_PATH']
-OBJECT_NAME = cfg['OBJECT_NAME']
-ITER_ID = cfg['ITER_ID']
-RUN_NO = cfg['RUN_NO']
-SCENARIO_NAME = cfg['SCENARIO_NAME']
-NUM_RAYS = cfg['NUM_RAYS']
-SUN_DIR = cfg['SUN_DIR']
+if RUN_NO is None:
+    raise RuntimeError("RUN_NO not found in %s" % config_file)
 
-# ============================================================================
-# Set Parameters
-# ============================================================================
+if SCENARIO_NAME is None:
+    raise RuntimeError("SCENARIO_NAME not found in %s" % config_file)
 
-EXPERIMENT_DATA_FILEPATH = f"{WORKING_DIR}/experiment_data.csv"
-FLUX_DATA_FILEPATH = f"{WORKING_DIR}/flux_data.csv"
-ABSORPTION_PLOT_DIR = f"{WORKING_DIR}/run_documentation/iterative_analysis_{RUN_NO}/plots"
+if OBJECT_NAME is None:
+    raise RuntimeError("OBJECT_NAME not found in %s" % config_file)
+
+if NUM_RAYS is None:
+    raise RuntimeError("NUM_RAYS not found in %s" % config_file)
+
+if SUN_DIR is None:
+    raise RuntimeError("SUN_DIR not found in %s" % config_file)
+
+# Set parameters based on inputs
+EXPERIMENT_DATA_FILEPATH = "H:/STAR-Simulator/Scenarios/%s/experiment_data.csv" % SCENARIO_NAME
+FLUX_DATA_FILEPATH       = "H:/STAR-Simulator/Scenarios/%s/flux_data.csv" % SCENARIO_NAME
+ABSORPTION_PLOT_DIR = "H:/STAR-Simulator/Scenarios/%s/run_documentation/iterative_analysis_%s/plots" % (SCENARIO_NAME, RUN_NO)
 os.makedirs(ABSORPTION_PLOT_DIR, exist_ok=True)
 
-PLOT2D = True # Plot absorption points on 2D graph if PLOT2D is True
-DISP3D = False # Display rays in FreeCAD if True
-
-SOLAR_IRRADIANCE = 1361.0 # W/m^2
-ABSORPTIVITY = 0.75 # dimensionless surface absorptivity
+PLOT2D = True       # Plot absorption points on 2D graph if PLOT2D is True
+DISP3D = False      # Display rays in FreeCAD if True
 
 print("Running with config:")
-for key in REQUIRED_KEYS:
-    print(f" {key}:", cfg[key])
-print(" FLUX_DATA_FILEPATH:", FLUX_DATA_FILEPATH)
-print(" ABSORPTION_PLOT_DIR:", ABSORPTION_PLOT_DIR)
+print("  FCSTD_PATH:", FCSTD_PATH)
+print("  OBJECT_PATH:", OBJECT_PATH)
+print("  RUN_NO:", RUN_NO)
+print("  SCENARIO_NAME:", SCENARIO_NAME)
+print("  OBJECT_NAME:", OBJECT_NAME)
+print("  NUM_RAYS:", NUM_RAYS)
+print("  SUN_DIR:", SUN_DIR)
+print("  FLUX_DATA_FILEPATH:", FLUX_DATA_FILEPATH)
+print("  ABSORPTION_PLOT_DIR:", ABSORPTION_PLOT_DIR)
+
 
 # ============================================================================
 # HELPER FUNCTIONS
@@ -291,6 +317,9 @@ print(f"\nTIME: {time.perf_counter() - _start_time:.3f} seconds")
 # --- Results ---
 print(f"\n=== RESULTS ===")
 print(f"Number of absorption points: {len(experiment.points_absorber_Th)}")
+
+SOLAR_IRRADIANCE = 1361.0  # W/m^2
+ABSORPTIVITY     = 0.75    # dimensionless surface absorptivity
 
 def absorbed_flux(irradiance, absorptivity, angle_deg):
     """Flux absorbed on a surface for given incidence angle."""

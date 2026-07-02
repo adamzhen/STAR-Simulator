@@ -10,6 +10,7 @@ import displayGroupOdbToolset as dgo
 
 import os, subprocess, math, csv, time, shutil
 import sys
+import json
 from datetime import datetime
 
 import matplotlib
@@ -71,6 +72,8 @@ def make_sun_dir(tilt_deg, tilt_axis='y'):
 
 SCENARIO_NAME = 'SMAScenario1'
 OBJECT_NAME   = 'SMAStrip (Nitinol)'
+OBJECT_FILE   = 'SMAStrip (Nitinol).stp'
+FCSTD_FILE    = 'SMAScenario1.FCStd'
 DEFORMED_NAME = 'SMAStripDeformed'
 JOB_BASENAME  = 'SMAHeatTransient'
 MODEL_BASENAME = "Model"
@@ -89,18 +92,20 @@ SUN_ANGLE = 60
 SUN_DIR = make_sun_dir(SUN_ANGLE, tilt_axis='y') # Direction of sunlight in FreeCAD coords
 FREECAD_TIMEOUT = 600  # seconds 
 
-IMPORT_OBJECT_FILEPATH = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAStrip (Nitinol).stp"
-EXPORT_OBJECT_FILEPATH = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAStripDeformed.stp"
+STAR_DIR = r"H:/STAR-Simulator"
+FREECAD_CMD = r"H:/Programs/FreeCAD 1.0/bin/FreeCADCmd.exe"
 
-FLUXDATA_FILEPATH     = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/flux_data.csv"
-FCSTD_PATH            = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/SMAScenario1.FCStd"
+WORKING_DIR = f"{STAR_DIR}/Scenarios/{SCENARIO_NAME}"
+IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/{OBJECT_FILE}"
+EXPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/{DEFORMED_NAME}.stp"
+FCSTD_PATH            = f"{WORKING_DIR}/{FCSTD_FILE}"
+FLUXDATA_FILEPATH     = f"{WORKING_DIR}/flux_data.csv"
 
-DOCUMENTATION_DIR = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}/run_documentation/iterative_analysis_{RUN_NO}"
+DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/iterative_analysis_{RUN_NO}"
 DEFORMED_DEBUG_DIR = f"{DOCUMENTATION_DIR}/deformed_cad"
-ABAQUS_TO_FREECAD_TXT = r"H:/STAR-Simulator/FreeCAD/abaqus_to_freecad.txt"
 
-FREECAD_CMD        = r"H:/Programs/FreeCAD 1.0/bin/FreeCADCmd.exe"
-FREECAD_MACRO      = r"H:/STAR-Simulator/FreeCAD/Macros/SolarFluxCalc.FCMacro"
+ABAQUS_TO_FREECAD_JSON = f"{STAR_DIR}/FreeCAD/abaqus_to_freecad.json"
+FREECAD_MACRO      = f"{STAR_DIR}/FreeCAD/Macros/SolarFluxCalc.FCMacro"
 
 # Create documentation directories if they don't exist
 os.makedirs(DOCUMENTATION_DIR, exist_ok=True)
@@ -151,7 +156,7 @@ log(f"BC_EDGE = {BC_EDGE}")
 log(f"IMPORT_OBJECT_FILEPATH = {IMPORT_OBJECT_FILEPATH}")
 log(f"EXPORT_OBJECT_FILEPATH = {EXPORT_OBJECT_FILEPATH}")
 log(f"FLUXDATA_FILEPATH = {FLUXDATA_FILEPATH}")
-log(f"ABAQUS_TO_FREECAD_TXT = {ABAQUS_TO_FREECAD_TXT}")
+log(f"ABAQUS_TO_FREECAD_JSON = {ABAQUS_TO_FREECAD_JSON}")
 log(f"FCSTD_PATH = {FCSTD_PATH}")
 log("")
 
@@ -159,17 +164,23 @@ log("")
 # Main functions
 # ----------------------------------------------------------
 
-def transfer_data_to_freecad(fcstd_path, object_path, iter_id, run_no = RUN_NO, scenario_name=SCENARIO_NAME, object_name=OBJECT_NAME, num_rays=N_RAYS, sun_dir=SUN_DIR):
-    with open(ABAQUS_TO_FREECAD_TXT, 'w') as f:
-        f.write("FCSTD_PATH, %s\n" % fcstd_path)
-        f.write("OBJECT_PATH, %s\n" % object_path)
-        f.write(f"ITER_ID, {iter_id}\n")
-        f.write(f"RUN_NO, {run_no}\n")
-        f.write(f"SCENARIO_NAME, {scenario_name}\n")
-        f.write(f"OBJECT_NAME, {object_name}\n")
-        f.write(f"NUM_RAYS, {num_rays}\n")
-        f.write("SUN_DIR, %.5f, %.5f, %.5f\n" % sun_dir)
-    printlog(f"Wrote FreeCAD input file: {ABAQUS_TO_FREECAD_TXT}")
+def transfer_data_to_freecad(working_dir, fcstd_path, object_path, iter_id, run_no=RUN_NO,
+                              scenario_name=SCENARIO_NAME, object_name=OBJECT_NAME,
+                              num_rays=N_RAYS, sun_dir=SUN_DIR):
+    data = {
+        "WORKING_DIR": working_dir,
+        "FCSTD_PATH": fcstd_path,
+        "OBJECT_PATH": object_path,
+        "OBJECT_NAME": object_name,
+        "ITER_ID": iter_id,
+        "RUN_NO": run_no,
+        "SCENARIO_NAME": scenario_name,
+        "NUM_RAYS": num_rays,
+        "SUN_DIR": list(sun_dir),
+    }
+    with open(ABAQUS_TO_FREECAD_JSON, 'w') as f:
+        json.dump(data, f, indent=2)
+    printlog(f"Wrote FreeCAD input file: {ABAQUS_TO_FREECAD_JSON}")
 
 def read_flux_data():
     xyz_data = []
@@ -915,12 +926,17 @@ for it in range(1, N_ITER + 1):
 
     # Geometry for this iteration
     if iter_id == 1:
-        step_source = IMPORT_OBJECT_FILEPATH
+        object_source = IMPORT_OBJECT_FILEPATH
     else:
-        step_source = EXPORT_OBJECT_FILEPATH
+        object_source = EXPORT_OBJECT_FILEPATH
 
     # 0) Tell FreeCAD which geometry to use and run macro
-    transfer_data_to_freecad(FCSTD_PATH, step_source, iter_id)
+    transfer_data_to_freecad(
+        working_dir=WORKING_DIR,
+        fcstd_path=FCSTD_PATH,
+        object_path=object_source,
+        iter_id=iter_id
+    )
     run_freecad_macro()
 
     # 1) Build fresh model from current STEP with temperature from previous iteration if not first
@@ -931,7 +947,7 @@ for it in range(1, N_ITER + 1):
         prev_temp_data = read_temperature_from_odb(prev_job,
                                                     instance_name=OBJECT_NAME)
         
-    model = build_model_from_step(model_name, step_name, step_source,
+    model = build_model_from_step(model_name, step_name, object_source,
                                   prev_temp_data=prev_temp_data)
 
     # 2) Read flux and update mapped field + load
@@ -1050,7 +1066,12 @@ if RUN_COMPARISON:
     comp_job_name   = 'SMAHeatComparison'
     
     # 1) Run FreeCAD on original geometry to get initial flux
-    transfer_data_to_freecad(FCSTD_PATH, IMPORT_OBJECT_FILEPATH, "comparison")
+    transfer_data_to_freecad(
+        working_dir=WORKING_DIR,
+        fcstd_path=FCSTD_PATH,
+        object_path=IMPORT_OBJECT_FILEPATH,
+        iter_id="comparison"
+    )
     run_freecad_macro()
     xyz_data = read_flux_data()
     
