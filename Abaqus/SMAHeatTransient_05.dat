@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 20-May-2026   Time 00:16:45
+   Abaqus 2025                                  Date 03-Jul-2026   Time 12:51:45
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-013 
+                          On machine VDI-ENGR-027 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -42,7 +42,7 @@
                 *                                                         * 
                 *                       Abaqus 2025                       * 
                 *                                                         * 
-                *       BUILD ID: 2024_09_20-09.00.46 RELr427 198590      * 
+                *       BUILD ID: 2024_09_20-08.00.46 RELr427 198590      * 
                 *                                                         * 
                 *                                                         * 
                 *  Please make sure you are using                         * 
@@ -151,7 +151,7 @@
            CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
            TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
 
- ***WARNING: 3 elements are curved/warped. The angle subtended between the 
+ ***WARNING: 2 elements are curved/warped. The angle subtended between the 
              average element normal and a nodal normal exceeds 10 degrees. Mesh 
              refinement is recommended. The elements have been identified in 
              element set WarnElemWarped.
@@ -163,7 +163,6 @@
  ---------------------------- -------------- 
          SMAStrip (Nitinol).1       NO       
        SMAStrip (Nitinol).901       NO       
-      SMAStrip (Nitinol).1000       NO       
   
   
   *step, name=Heat_05, nlgeom=YES, inc=200
@@ -210,13 +209,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =     0.40    
+       USER TIME (SEC)      =     0.10    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.20    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 20-May-2026   Time 00:16:48
+   Abaqus 2025                                  Date 03-Jul-2026   Time 12:51:48
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 5                                                                               STEP    1  INCREMENT    1
@@ -295,7 +294,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      6.9    
-       SYSTEM TIME (SEC)    =     0.80    
-       TOTAL CPU TIME (SEC) =      7.7    
+       USER TIME (SEC)      =      3.5    
+       SYSTEM TIME (SEC)    =     0.40    
+       TOTAL CPU TIME (SEC) =      3.9    
        WALLCLOCK TIME (SEC) =            9

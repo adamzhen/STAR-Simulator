@@ -1,0 +1,23 @@
+{
+  "WORKING_DIR": "H:/STAR-Simulator/Scenarios/SMAScenario1",
+  "FCSTD_PATH": "H:/STAR-Simulator/Scenarios/SMAScenario1/inputs/SMAScenario1.FCStd",
+  "OBJECT_PATH": "H:/STAR-Simulator/Scenarios/SMAScenario1/inputs/SMAStrip (Nitinol).stp",
+  "OBJECT_NAME": "SMAStrip (Nitinol)",
+  "ITER_ID": "comparison",
+  "RUN_NO": 0.72,
+  "SCENARIO_NAME": "SMAScenario1",
+  "NUM_RAYS": 2000,
+  "SUN_DIR": [
+    0.8660254037844386,
+    0.0,
+    -0.5000000000000001
+  ],
+  "SOLAR_IRRADIANCE": 1361.0,
+  "OBJECT_MATERIAL": "Nitinol",
+  "ABSORPTION_ONLY": true,
+  "ABSORPTIVITY_DICT": {
+    "Nitinol": 0.75,
+    "Aluminum": 0.2,
+    "Blocker": 1.0
+  }
+}

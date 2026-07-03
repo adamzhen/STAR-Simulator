@@ -1,9 +1,9 @@
-<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatComparison</jobName><clientHost type="string">VDI-ENGR-013</clientHost><handle type="integer">0</handle></Started>
+<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatComparison</jobName><clientHost type="string">VDI-ENGR-027</clientHost><handle type="integer">0</handle></Started>
 <Heading><heading type="string">Comparison run (no iteration)</heading><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Heading>
 <Warning><message type="string">THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT AMPLITUDE PARAMETER INSTEAD.</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Warning>
 <Odb_File><file type="string">H:\STAR-Simulator\Abaqus\SMAHeatComparison.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Odb_File>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Completed>
-<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName><clientHost type="string">VDI-ENGR-013</clientHost><handle type="integer">13300</handle></Started>
+<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName><clientHost type="string">VDI-ENGR-027</clientHost><handle type="integer">16712</handle></Started>
 <Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Step>
 <Odb_Frame><step type="integer">0</step><frame type="integer">0</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Odb_Frame>
 <MEMORY_ESTIMATE><memory type="float">34</memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></MEMORY_ESTIMATE>
@@ -149,4 +149,4 @@
 <Status><step type="integer">1</step><increment type="integer">53</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">3</equilibrium><iterations type="integer">3</iterations><totalTime type="float">180</totalTime><stepTime type="float">180</stepTime><timeIncrement type="float">3.8282670164881</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Status>
 <End_Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></End_Step>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatComparison</jobName></Completed>
-<JOB_COMPLETED><time type="string">Wed May 20 00:23:50 2026</time><jobName type="string">SMAHeatComparison</jobName></JOB_COMPLETED></msgwrapper>
+<JOB_COMPLETED><time type="string">Fri Jul  3 12:59:04 2026</time><jobName type="string">SMAHeatComparison</jobName></JOB_COMPLETED></msgwrapper>

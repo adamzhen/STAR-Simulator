@@ -1,0 +1,112 @@
+##### AnalysisVis.FCMacro #####
+
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+import Mesh
+import Import
+import os
+
+###############################
+####### EDIT PARAMETERS #######
+###############################
+
+RUN_NO = 0.7
+SCENARIO_NAME = "SMAScenario1"
+WORKING_DIR = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}"
+
+###############################
+###############################
+
+# Path to your scenario file and geometry folder
+DOC_NAME = "SMAScenario1_Sequence%s" % RUN_NO
+DOCUMENTATION_DIR = "%s/run_documentation/iterative_analysis_%s" % (WORKING_DIR, RUN_NO)
+IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/inputs/SMAStrip (Nitinol).stp"
+FCSTD_PATH = "%s/%s.FCStd" % (DOCUMENTATION_DIR, DOC_NAME)
+GEOMETRY_DIR = "%s/deformed_cad" % DOCUMENTATION_DIR
+
+# Open existing scenario, or create new
+if os.path.exists(FCSTD_PATH):
+    doc = App.open(FCSTD_PATH)
+else:
+    doc = App.newDocument(DOC_NAME)
+
+# Get all STEP files
+step_files = sorted(f for f in os.listdir(GEOMETRY_DIR)
+                    if f.lower().endswith((".stp", ".step")))
+
+# Get all OBJ files
+obj_files = sorted(f for f in os.listdir(GEOMETRY_DIR)
+                   if f.lower().endswith(".obj"))
+
+GREEN = (0.0, 1.0, 0.0)
+RED = (1.0, 0.0, 0.0)
+TRANSPARENCY = 80  # percent transparent for intermediate iterations
+
+# Find the last coupled analysis CAD file
+ind = -1
+last_step_file = step_files[ind] if step_files else None
+while "comparison" in last_step_file.lower():
+    ind -= 1
+    last_step_file = step_files[ind]
+
+comparison_file = next((f for f in step_files if "comparison" in f.lower()), None)
+
+# Import STP files 
+for fname in step_files:
+    path = os.path.join(GEOMETRY_DIR, fname)
+    base, _ = os.path.splitext(fname)
+    print("Importing STEP:", path)
+
+    shape = Part.Shape()
+    shape.read(path)
+    obj = doc.addObject("Part::Feature", base)
+    obj.Shape = shape
+    doc.recompute()
+
+    if fname == comparison_file:
+        obj.ViewObject.ShapeColor = RED
+        obj.ViewObject.Transparency = 0
+        print(f"  Colored '{base}' RED, opaque (uncoupled comparison)")
+    elif fname == last_step_file:
+        obj.ViewObject.ShapeColor = GREEN
+        obj.ViewObject.Transparency = 0
+        print(f"  Colored '{base}' GREEN, opaque (final coupled geometry)")
+    else:
+        obj.ViewObject.Transparency = TRANSPARENCY
+        print(f"  Set '{base}' transparency to {TRANSPARENCY}% (intermediate iteration)")
+
+# Import OBJ files (mesh format)
+for fname in obj_files:
+    path = os.path.join(GEOMETRY_DIR, fname)
+    base, _ = os.path.splitext(fname)
+    print("Importing OBJ:", path)
+
+    mesh = Mesh.Mesh(path)
+    obj = doc.addObject("Mesh::Feature", base)
+    obj.Mesh = mesh
+    obj.ViewObject.Visibility = False
+    print(f"  Hidden mesh '{base}'")
+
+# Import the fixed SMA strip STEP file
+if os.path.exists(IMPORT_OBJECT_FILEPATH):
+    import_base = os.path.splitext(os.path.basename(IMPORT_OBJECT_FILEPATH))[0]
+    print("Importing fixed STEP:", IMPORT_OBJECT_FILEPATH)
+
+    # Remove existing object with same label/name to avoid duplicates on rerun
+    for existing in list(doc.Objects):
+        if existing.Label == import_base or existing.Name == import_base:
+            doc.removeObject(existing.Name)
+
+    shape = Part.Shape()
+    shape.read(IMPORT_OBJECT_FILEPATH)
+    sma_obj = doc.addObject("Part::Feature", import_base)
+    sma_obj.Label = import_base
+    sma_obj.Shape = shape
+else:
+    print("Fixed STEP file not found:", IMPORT_OBJECT_FILEPATH)
+
+doc.recompute()
+doc.saveAs(FCSTD_PATH)
+print("Imported %d STEP files, %d OBJ files, and fixed SMA strip into %s" %
+      (len(step_files), len(obj_files), FCSTD_PATH))

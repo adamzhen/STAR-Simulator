@@ -20,32 +20,8 @@ import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 import numpy as np
 
-# ----------------------------------------------------------
+
 # Helper functions
-# ----------------------------------------------------------
-
-def run_freecad_macro():
-    printlog("Running FreeCAD macro...")
-    t0 = time.perf_counter()
-    try:
-        result = subprocess.run(
-            [FREECAD_CMD, FREECAD_MACRO],
-            timeout=FREECAD_TIMEOUT
-        )
-        elapsed = time.perf_counter() - t0
-        if result.returncode != 0:
-            raise RuntimeError(
-                "FreeCAD macro exited with code %d after %.1fs" % (result.returncode, elapsed)
-            )
-        printlog("FreeCAD macro finished in %.1f s" % elapsed)
-    except subprocess.TimeoutExpired:
-        elapsed = time.perf_counter() - t0
-        raise RuntimeError(
-            "FreeCAD macro timed out after %.0f s (FREECAD_TIMEOUT=%d). "
-            "Increase FREECAD_TIMEOUT or reduce NUM_RAYS/tessellation for late iterations."
-            % (elapsed, FREECAD_TIMEOUT)
-        )
-
 def printlog(msg):
     """Print to console and write to log file."""
     print(msg)
@@ -66,9 +42,9 @@ def make_sun_dir(tilt_deg, tilt_axis='y'):
     elif tilt_axis == 'x':
         return (0.0, math.sin(theta), -math.cos(theta))
     
-# ----------------------------------------------------------
-# Define parameters / constants
-# ----------------------------------------------------------
+#########################################################
+#################### EDIT PARAMETERS ####################
+#########################################################
 
 SCENARIO_NAME = 'SMAScenario1'
 OBJECT_NAME   = 'SMAStrip (Nitinol)'
@@ -78,7 +54,12 @@ DEFORMED_NAME = 'SMAStripDeformed'
 JOB_BASENAME  = 'SMAHeatTransient'
 MODEL_BASENAME = "Model"
 
-RUN_NO     = 0.62
+SOLAR_IRRADIANCE = 1361.0  # W/m^2
+OBJECT_MATERIAL = "Nitinol"
+ABSORPTION_ONLY = True  # If True, ray tracing ignores reflections and only accounts for absorption for computational efficiency 
+ABSORPTIVITY_DICT = {"Nitinol": 0.75, "Aluminum": 0.20, "Blocker": 1.0}
+
+RUN_NO     = 0.72
 N_ITER     = 9
 CHUNK_TIME = 20.0 # seconds per iterations
 MESHSIZE   = 0.01 # mesh size in meters
@@ -91,21 +72,29 @@ RUN_COMPARISON = True  # Set to False to skip the uncoupled comparison runs
 SUN_ANGLE = 60
 SUN_DIR = make_sun_dir(SUN_ANGLE, tilt_axis='y') # Direction of sunlight in FreeCAD coords
 FREECAD_TIMEOUT = 600  # seconds 
+INITIAL_TEMP = 4.0  # Kelvin (K)
+AMBIENT_TEMP = 4.0  # Kelvin (K)
 
 STAR_DIR = r"H:/STAR-Simulator"
 FREECAD_CMD = r"H:/Programs/FreeCAD 1.0/bin/FreeCADCmd.exe"
-
 WORKING_DIR = f"{STAR_DIR}/Scenarios/{SCENARIO_NAME}"
-IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/{OBJECT_FILE}"
+
+#########################################################
+#########################################################
+#########################################################
+
+# Derived Parameters
+IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/inputs/{OBJECT_FILE}"
+FCSTD_PATH            = f"{WORKING_DIR}/inputs/{FCSTD_FILE}"
 EXPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/{DEFORMED_NAME}.stp"
-FCSTD_PATH            = f"{WORKING_DIR}/{FCSTD_FILE}"
 FLUXDATA_FILEPATH     = f"{WORKING_DIR}/flux_data.csv"
 
 DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/iterative_analysis_{RUN_NO}"
 DEFORMED_DEBUG_DIR = f"{DOCUMENTATION_DIR}/deformed_cad"
 
-ABAQUS_TO_FREECAD_JSON = f"{STAR_DIR}/FreeCAD/abaqus_to_freecad.json"
-FREECAD_MACRO      = f"{STAR_DIR}/FreeCAD/Macros/SolarFluxCalc.FCMacro"
+ABAQUS_TO_FREECAD_JSON = f"{WORKING_DIR}/abaqus_to_freecad.json"
+FREECAD_TO_ABAQUS_JSON = f"{WORKING_DIR}/freecad_to_abaqus.json"
+FREECAD_MACRO      = f"{WORKING_DIR}/scripts/SolarFluxCalc.FCMacro"
 
 # Create documentation directories if they don't exist
 os.makedirs(DOCUMENTATION_DIR, exist_ok=True)
@@ -164,9 +153,55 @@ log("")
 # Main functions
 # ----------------------------------------------------------
 
+def run_freecad_macro():
+    printlog("Running FreeCAD macro...")
+    t0 = time.perf_counter()
+    try:
+        result = subprocess.run(
+            [FREECAD_CMD, FREECAD_MACRO],
+            timeout=FREECAD_TIMEOUT
+        )
+        elapsed = time.perf_counter() - t0
+        if result.returncode != 0:
+            raise RuntimeError(
+                "FreeCAD macro exited with code %d after %.1fs" % (result.returncode, elapsed)
+            )
+        printlog("FreeCAD macro finished in %.1f s" % elapsed)
+    except subprocess.TimeoutExpired:
+        elapsed = time.perf_counter() - t0
+        raise RuntimeError(
+            "FreeCAD macro timed out after %.0f s (FREECAD_TIMEOUT=%d). "
+            "Increase FREECAD_TIMEOUT or reduce NUM_RAYS/tessellation for late iterations."
+            % (elapsed, FREECAD_TIMEOUT)
+        )
+
+def read_freecad_result():
+    if not os.path.isfile(FREECAD_TO_ABAQUS_JSON):
+        raise RuntimeError(
+            f"FreeCAD result file not found at: {FREECAD_TO_ABAQUS_JSON}\n"
+            f"FreeCAD macro may have crashed before writing output."
+        )
+
+    with open(FREECAD_TO_ABAQUS_JSON, 'r') as f:
+        result = json.load(f)
+
+    if not result.get("SUCCESS", False):
+        error_msg = result.get("ERROR_MESSAGE", "Unknown error")
+        raise RuntimeError(f"FreeCAD ray tracing failed: {error_msg}")
+
+    FLUXDATA_FILEPATH = result.get('FLUX_DATA_PATH')
+    printlog(f"FreeCAD ray tracing succeeded: {result.get('NUM_FACES')} faces, "
+              f"flux data at {FLUXDATA_FILEPATH}")
+
+    return result
+
 def transfer_data_to_freecad(working_dir, fcstd_path, object_path, iter_id, run_no=RUN_NO,
                               scenario_name=SCENARIO_NAME, object_name=OBJECT_NAME,
-                              num_rays=N_RAYS, sun_dir=SUN_DIR):
+                              num_rays=N_RAYS, sun_dir=SUN_DIR,
+                              solar_irradiance=SOLAR_IRRADIANCE,
+                              object_material=OBJECT_MATERIAL,
+                              absorption_only=ABSORPTION_ONLY,
+                              absorptivity_dict=ABSORPTIVITY_DICT):
     data = {
         "WORKING_DIR": working_dir,
         "FCSTD_PATH": fcstd_path,
@@ -177,6 +212,10 @@ def transfer_data_to_freecad(working_dir, fcstd_path, object_path, iter_id, run_
         "SCENARIO_NAME": scenario_name,
         "NUM_RAYS": num_rays,
         "SUN_DIR": list(sun_dir),
+        "SOLAR_IRRADIANCE": solar_irradiance,
+        "OBJECT_MATERIAL": object_material,
+        "ABSORPTION_ONLY": absorption_only,
+        "ABSORPTIVITY_DICT": absorptivity_dict,
     }
     with open(ABAQUS_TO_FREECAD_JSON, 'w') as f:
         json.dump(data, f, indent=2)
@@ -543,7 +582,7 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
             region=region_T,
             distributionType=UNIFORM,
             crossSectionDistribution=CONSTANT_THROUGH_THICKNESS,
-            magnitudes=(4.0,)
+            magnitudes=(INITIAL_TEMP,)
         )
     else:
         # Subsequent iterations: mapped from previous ODB
@@ -595,8 +634,8 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
         radiationType=AMBIENT,
         distributionType=UNIFORM,
         field='',
-        emissivity=1.0,
-        ambientTemperature=4.0,
+        emissivity=0.75,
+        ambientTemperature=AMBIENT_TEMP,
         ambientTemperatureAmp='InstantVacuum'
     )
 
@@ -939,6 +978,9 @@ for it in range(1, N_ITER + 1):
     )
     run_freecad_macro()
 
+    # 0b) Check that ray tracing actually succeeded before proceeding
+    freecad_result = read_freecad_result()
+
     # 1) Build fresh model from current STEP with temperature from previous iteration if not first
     if iter_id == 1:
         prev_temp_data = None
@@ -946,7 +988,7 @@ for it in range(1, N_ITER + 1):
         prev_job = '%s_%02d' % (JOB_BASENAME, iter_id - 1)
         prev_temp_data = read_temperature_from_odb(prev_job,
                                                     instance_name=OBJECT_NAME)
-        
+
     model = build_model_from_step(model_name, step_name, object_source,
                                   prev_temp_data=prev_temp_data)
 
@@ -956,7 +998,7 @@ for it in range(1, N_ITER + 1):
                                surface_name='All-Surfaces',
                                step_name=step_name,
                                load_name=load_name)
-    
+
     # Save a copy of this iteration's flux data
     shutil.copy(FLUXDATA_FILEPATH,
                 os.path.join(flux_dir, 'flux_data_%02d.csv' % iter_id))
@@ -1117,7 +1159,7 @@ if RUN_COMPARISON:
         distributionType=UNIFORM,
         field='',
         emissivity=1.0,
-        ambientTemperature=4.0,
+        ambientTemperature=AMBIENT_TEMP,
         ambientTemperatureAmp='InstantVacuum'
     )
     

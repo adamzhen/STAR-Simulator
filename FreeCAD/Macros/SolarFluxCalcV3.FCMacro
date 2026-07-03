@@ -14,7 +14,7 @@ import math
 import json
 import time
 
-#sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\site-packages\python3.10")
+sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\site-packages\python3.10")
 import otsun
 
 # start timer
@@ -26,6 +26,7 @@ _start_time = time.perf_counter()  # TIMING
 
 try:
     script_dir = os.path.dirname(os.path.abspath(__file__))
+    print(f"script_dir = {script_dir}")
 except NameError:
     script_dir = r"C:\Users\adzheng\STAR-Simulator\FreeCAD\Macros"
 
