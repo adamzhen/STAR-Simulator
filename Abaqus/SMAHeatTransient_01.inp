@@ -2204,7 +2204,7 @@ Fixed-Set, ENCASTRE
 ** 
 ** LOADS
 ** 
-** Name: Load_01   Type: Surface heat flux Using Field: AnalyticalField-1
+** Name: Load_01   Type: Surface heat flux Using Field: Flux_Field_1
 *Dflux
 "SMAStrip (Nitinol)".1, SPOS, 510.375
 "SMAStrip (Nitinol)".2, SPOS, 510.375

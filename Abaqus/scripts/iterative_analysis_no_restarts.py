@@ -12,7 +12,7 @@ import os, subprocess, math, csv, time, shutil
 import sys
 import json
 from datetime import datetime
-
+   
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -59,8 +59,8 @@ OBJECT_MATERIAL = "Nitinol"
 ABSORPTION_ONLY = True  # If True, ray tracing ignores reflections and only accounts for absorption for computational efficiency 
 ABSORPTIVITY_DICT = {"Nitinol": 0.75, "Aluminum": 0.20, "Blocker": 1.0}
 
-RUN_NO     = 0.72
-N_ITER     = 9
+RUN_NO     = 0.7
+N_ITER     = 2
 CHUNK_TIME = 20.0 # seconds per iterations
 MESHSIZE   = 0.01 # mesh size in meters
 N_RAYS     = 2000 # Number of rays for OTSun ray tracing
@@ -68,7 +68,7 @@ STITCH_TOLERANCE = 0.001
 ANALYTIC_FIT_TOLERANCE = 0.02
 BC_EDGE = [(0, 0, 0), (0, 0.1, 0)] # Edge to fix defined by endpoints
 BC_FIXPOINT = tuple((np.array(BC_EDGE[0]) + np.array(BC_EDGE[1])) / 2.0)
-RUN_COMPARISON = True  # Set to False to skip the uncoupled comparison runs
+RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
 SUN_ANGLE = 60
 SUN_DIR = make_sun_dir(SUN_ANGLE, tilt_axis='y') # Direction of sunlight in FreeCAD coords
 FREECAD_TIMEOUT = 600  # seconds 

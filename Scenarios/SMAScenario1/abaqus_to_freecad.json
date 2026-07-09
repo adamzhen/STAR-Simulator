@@ -1,10 +1,10 @@
 {
   "WORKING_DIR": "H:/STAR-Simulator/Scenarios/SMAScenario1",
   "FCSTD_PATH": "H:/STAR-Simulator/Scenarios/SMAScenario1/inputs/SMAScenario1.FCStd",
-  "OBJECT_PATH": "H:/STAR-Simulator/Scenarios/SMAScenario1/inputs/SMAStrip (Nitinol).stp",
+  "OBJECT_PATH": "H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp",
   "OBJECT_NAME": "SMAStrip (Nitinol)",
-  "ITER_ID": "comparison",
-  "RUN_NO": 0.72,
+  "ITER_ID": 2,
+  "RUN_NO": 0.7,
   "SCENARIO_NAME": "SMAScenario1",
   "NUM_RAYS": 2000,
   "SUN_DIR": [

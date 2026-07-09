@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 03-Jul-2026   Time 12:50:31
+   Abaqus 2025                                  Date 08-Jul-2026   Time 15:04:10
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-027 
+                          On machine VDI-ENGR-026 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -121,51 +121,6 @@
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
   *elementoutput, directions=YES
-  
-                               E L E M E N T   Q U A L I T Y  C H E C K S        
-  
-  
- ***NOTES: DISTORTED ISOPARAMETRIC ELEMENTS: ANGLE BETWEEN ISOPARAMETRIC LINES 
-           IS LESS THAN 45 DEGREES OR GREATER THAN 135 DEGREES.
-  
-           TETRAHEDRAL QUALITY MEASURE: VOLUME OF TETRAHEDRON DIVIDED BY THE 
-           VOLUME OF EQUILATERAL TETRAHEDRON WITH SAME CIRCUMSPHERE RADIUS; 
-           0 FOR DEGENERATE TETRAHEDRON AND 1 FOR EQUILATERIAL TETRAHEDRON. IT 
-           IS RECOMMENDED THAT THE TETRAHEDRAL QUALITY MEASURE BE GREATER THAN 
-           0.02, THE MIN INTERIOR (DIHEDRAL) ANGLE BE GREATER THAN 10 DEGREES, 
-           AND THE MAX INTERIOR (DIHEDRAL) ANGLE BE LESS THAN 160 DEGREES. 
-  
-           MODIFIED TETRAHEDRAL QUALITY MEASURE: ANGLES BETWEEN THE TWO LINE 
-           SEGMENTS ON EACH EDGE; THE EDGES OF MODIFIED TETRAHEDRAL SHOULD BE 
-           AS STRAIGHT AS POSSIBLE. IT IS RECOMMENDED THAT THE ANGLE BETWEEN 
-           THE TWO LINE SEGMENTS ON EACH EDGE IS BETWEEN 160 AND 180 DEGREES. 
-  
-           TRIANGULAR QUALITY MEASURE: AREA OF TRIANGLE DIVIDED BY THE AREA OF 
-           EQUILATERAL TRIANGLE WITH SAME CIRCUMCIRCLE RADIUS; 0 FOR DEGENERATE 
-           TRIANGLE AND 1 FOR EQUILATERAL TRIANGLE. IT IS RECOMMENDED THAT THE
-           TRIANGULAR QUALITY MEASURE BE GREATER THAN 0.01, THE MIN INTERIOR 
-           ANGLE BE GREATER THAN 10 DEGREES, AND THE MAX INTERIOR ANGLE BE LESS 
-           THAN 160 DEGREES. 
-  
-           NODAL ADJUSTMENTS ARISING FROM CONTACT INTERACTIONS AND/OR TIE 
-           CONSTRAINTS CAN CAUSE SEVERE ELEMENT DISTORTION. IT MAY BE NECESSARY 
-           TO REMESH IN ORDER TO REDUCE THE AMOUNT OF ADJUSTMENT. 
-
- ***WARNING: 3 elements are curved/warped. The angle subtended between the 
-             average element normal and a nodal normal exceeds 10 degrees. Mesh 
-             refinement is recommended. The elements have been identified in 
-             element set WarnElemWarped.
-  
- --------------------------------------------------------------------------------
- Warped elements
-  
-           Element            Adjusted nodes 
- ---------------------------- -------------- 
-         SMAStrip (Nitinol).1       NO       
-        SMAStrip (Nitinol).10       NO       
-       SMAStrip (Nitinol).991       NO       
-  
-  
   *step, name=Heat_04, nlgeom=YES, inc=200
   *step, name=Heat_04, nlgeom=YES, inc=200
   *output, field
@@ -216,7 +171,7 @@
        WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 03-Jul-2026   Time 12:50:33
+   Abaqus 2025                                  Date 08-Jul-2026   Time 15:04:12
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 4                                                                               STEP    1  INCREMENT    1
@@ -230,7 +185,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            20.0    
+          AND A TOTAL TIME PERIOD OF                            15.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -290,12 +245,12 @@
 
 
                               ANALYSIS COMPLETE
-                              WITH      2 WARNING MESSAGES ON THE DAT FILE
+                              WITH      1 WARNING MESSAGES ON THE DAT FILE
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      3.4    
-       SYSTEM TIME (SEC)    =     0.60    
-       TOTAL CPU TIME (SEC) =      4.0    
+       USER TIME (SEC)      =      4.6    
+       SYSTEM TIME (SEC)    =     0.50    
+       TOTAL CPU TIME (SEC) =      5.1    
        WALLCLOCK TIME (SEC) =           10

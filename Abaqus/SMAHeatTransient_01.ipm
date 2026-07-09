@@ -1,9 +1,9 @@
-<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName><clientHost type="string">VDI-ENGR-027</clientHost><handle type="integer">0</handle></Started>
+<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName><clientHost type="string">VDI-ENGR-026</clientHost><handle type="integer">0</handle></Started>
 <Heading><heading type="string">Iteration 1</heading><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Heading>
 <Warning><message type="string">THE AMPLITUDE PARAMETER IS DEPRECATED FOR THE *SRADIATE OPTION AND WILL BE REMOVED IN FUTURE RELEASES. PLEASE USE THE AMBIENT AMPLITUDE PARAMETER INSTEAD.</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Warning>
 <Odb_File><file type="string">H:\STAR-Simulator\Abaqus\SMAHeatTransient_01.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Odb_File>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Completed>
-<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName><clientHost type="string">VDI-ENGR-027</clientHost><handle type="integer">9348</handle></Started>
+<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName><clientHost type="string">VDI-ENGR-026</clientHost><handle type="integer">16092</handle></Started>
 <Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Step>
 <Odb_Frame><step type="integer">0</step><frame type="integer">0</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Odb_Frame>
 <MEMORY_ESTIMATE><memory type="float">82</memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></MEMORY_ESTIMATE>
@@ -41,4 +41,4 @@
 <Status><step type="integer">1</step><increment type="integer">15</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">2</equilibrium><iterations type="integer">2</iterations><totalTime type="float">20</totalTime><stepTime type="float">20</stepTime><timeIncrement type="float">0.7783203125</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Status>
 <End_Step><stepId type="integer">1</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></End_Step>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_01</jobName></Completed>
-<JOB_COMPLETED><time type="string">Fri Jul  3 12:48:33 2026</time><jobName type="string">SMAHeatTransient_01</jobName></JOB_COMPLETED></msgwrapper>
+<JOB_COMPLETED><time type="string">Wed Jul  8 15:44:08 2026</time><jobName type="string">SMAHeatTransient_01</jobName></JOB_COMPLETED></msgwrapper>

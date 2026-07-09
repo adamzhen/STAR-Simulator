@@ -1,5 +1,5 @@
 RUN NO: 0.7
-Date: 2026-07-03
+Date: 2026-07-08
 
 === Parameters ===
 SCENARIO_NAME = SMAScenario1
@@ -29,4 +29,79 @@ FCSTD_PATH = H:/STAR-Simulator/Scenarios/SMAScenario1/inputs/SMAScenario1.FCStd
 ========================================
 Wrote FreeCAD input file: H:/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
 Running FreeCAD macro...
-FreeCAD macro finished in 6.4 s
+FreeCAD macro finished in 15.4 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Creating materials
+Creating composite shell section
+Creating assembly
+Defining step
+Defining initial temperature
+Defining uniform initial temperature
+Defining BC
+Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+Defining amplitude and radiation
+Meshing the strip
+Loaded 1511 flux points from H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Saved flux data copy for iteration 1
+Creating job SMAHeatTransient_01
+Running job SMAHeatTransient_01
+Completed job SMAHeatTransient_01
+Exporting OBJ from ODB: SMAHeatTransient_01.odb
+Set to step 'Heat_01' (index 0), frame 15
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformedMesh_01.obj
+Waiting for ODB to be released: SMAHeatTransient_01.odb
+Exporting deformed geometry from SMAHeatTransient_01.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformed_01.stp
+Iteration 1 elapsed time: 43.681 seconds
+
+========================================
+ Iteration 2 of 2  (job SMAHeatTransient_02)
+========================================
+Wrote FreeCAD input file: H:/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 14.5 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Reading temperature from ODB: SMAHeatTransient_01.odb
+Using first instance: SMAStrip (Nitinol)
+Read 1111 nodal temperatures with deformed coordinates
+Creating materials
+Creating composite shell section
+Creating assembly
+Defining step
+Defining initial temperature
+Defining mapped initial temperature from previous iteration
+Defining BC
+Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+Defining amplitude and radiation
+Meshing the strip
+Loaded 1532 flux points from H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Saved flux data copy for iteration 2
+Creating job SMAHeatTransient_02
+Running job SMAHeatTransient_02
+Completed job SMAHeatTransient_02
+Exporting OBJ from ODB: SMAHeatTransient_02.odb
+Set to step 'Heat_02' (index 0), frame 14
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformedMesh_02.obj
+Waiting for ODB to be released: SMAHeatTransient_02.odb
+Exporting deformed geometry from SMAHeatTransient_02.odb
+Wrote main STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformed_02.stp
+Iteration 2 elapsed time: 40.708 seconds
+
+DONE with all iterations.
+Total iterative analysis time: 84.397 seconds
+Read 2000 HFL values for SMAHeatTransient_01
+Read 2000 HFL values for SMAHeatTransient_02
+HFL colorscale: 0 to 364.0 (95th pct)
+Saved: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7\mapped_hfl_on_mesh_0.7.png
+Iter 1: dU=(-0.0135, 0.0000, -0.1447) m  cum|U|=0.1453 m  node=1111  T=[4.4, 4.4] K
+Iter 2: dU=(-0.0307, 0.0000, -0.1156) m  cum|U|=0.2640 m  node=11  T=[4.5, 4.7] K
+Saved cumulative tip displacement to H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7\tip_displacements_0.7.csv
+
+DONE with all analyses.
+Total script elapsed time: 86.234 seconds
+
+

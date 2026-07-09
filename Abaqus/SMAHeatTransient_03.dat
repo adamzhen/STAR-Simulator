@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 03-Jul-2026   Time 12:49:34
+   Abaqus 2025                                  Date 08-Jul-2026   Time 15:03:24
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-027 
+                          On machine VDI-ENGR-026 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -168,10 +168,10 @@
        USER TIME (SEC)      =     0.20    
        SYSTEM TIME (SEC)    =      0.0    
        TOTAL CPU TIME (SEC) =     0.20    
-       WALLCLOCK TIME (SEC) =            0
+       WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 03-Jul-2026   Time 12:49:36
+   Abaqus 2025                                  Date 08-Jul-2026   Time 15:03:26
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 3                                                                               STEP    1  INCREMENT    1
@@ -185,7 +185,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            20.0    
+          AND A TOTAL TIME PERIOD OF                            15.0    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -250,7 +250,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      4.0    
-       SYSTEM TIME (SEC)    =     0.70    
-       TOTAL CPU TIME (SEC) =      4.7    
+       USER TIME (SEC)      =      4.8    
+       SYSTEM TIME (SEC)    =     0.60    
+       TOTAL CPU TIME (SEC) =      5.4    
        WALLCLOCK TIME (SEC) =           11

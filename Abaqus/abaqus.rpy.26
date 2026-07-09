@@ -1,0 +1,165 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-08.00.46 RELr427 198590
+# Run by adzheng on Wed Jul  8 15:21:40 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=1614.0, 
+    height=936.0)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile('H:/STAR-Simulator/Abaqus/scripts/starsim.py', __main__.__dict__)
+#: 
+#: ################
+#: RUN NO: 0.7
+#: Date: 2026-07-08
+#: 
+#: === Starting iterative loop with rebuild each iteration ===
+#: 
+#: ========================================
+#:  Iteration 1 of 2  (job SMAHeatTransient_01)
+#: ========================================
+#: Wrote FreeCAD input file: H:/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+#: Running FreeCAD macro...
+#: FreeCAD macro finished in 15.4 s
+#: FreeCAD ray tracing succeeded: 1 faces, flux data at H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: The model "Model_01" has been created.
+#: Creating materials
+#: Creating composite shell section
+#: Creating assembly
+#: Defining step
+#: Defining initial temperature
+#: Defining uniform initial temperature
+#: Defining BC
+#: Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+#: Defining amplitude and radiation
+#: The interaction "ToVacuum" has been created.
+#: Meshing the strip
+#: Loaded 1523 flux points from H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: Saved flux data copy for iteration 1
+#: Creating job SMAHeatTransient_01
+#: Running job SMAHeatTransient_01
+#: Warning: 
+#: The following warning was detected while evaluating the load "Load_01"
+#: from analytical field "Flux_Field_1": 
+#: The mapper has mapped the field values using distance weighting 
+#: algorithm for some of the target nodes.
+#: Job SMAHeatTransient_01: Analysis Input File Processor completed successfully.
+#: Job SMAHeatTransient_01: Abaqus/Standard completed successfully.
+#: Job SMAHeatTransient_01 completed successfully. 
+#: Completed job SMAHeatTransient_01
+#: Exporting OBJ from ODB: SMAHeatTransient_01.odb
+#: Model: H:/STAR-Simulator/Abaqus/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: Set to step 'Heat_01' (index 0), frame 13
+#: Set uniformScaleFactor=1.0 (true deformation scale)
+#: Wrote OBJ to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformedMesh_01.obj
+#: Waiting for ODB to be released: SMAHeatTransient_01.odb
+#: Exporting deformed geometry from SMAHeatTransient_01.odb
+#: Wrote main STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+#: Wrote debug STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformed_01.stp
+#: Iteration 1 elapsed time: 41.578 seconds
+#: 
+#: ========================================
+#:  Iteration 2 of 2  (job SMAHeatTransient_02)
+#: ========================================
+#: Wrote FreeCAD input file: H:/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+#: Running FreeCAD macro...
+#: FreeCAD macro finished in 14.0 s
+#: FreeCAD ray tracing succeeded: 1 faces, flux data at H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: Reading temperature from ODB: SMAHeatTransient_01.odb
+#: Model: H:/STAR-Simulator/Abaqus/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: Using first instance: SMAStrip (Nitinol)
+#: Read 1111 nodal temperatures with deformed coordinates
+#: The model "Model_02" has been created.
+#: Creating materials
+#: Creating composite shell section
+#: Creating assembly
+#: Defining step
+#: Defining initial temperature
+#: Defining mapped initial temperature from previous iteration
+#: Defining BC
+#: Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+#: Defining amplitude and radiation
+#: The interaction "ToVacuum" has been created.
+#: Meshing the strip
+#: Loaded 1517 flux points from H:/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: Saved flux data copy for iteration 2
+#: Creating job SMAHeatTransient_02
+#: Running job SMAHeatTransient_02
+#: Warning: 
+#: Following warning detected while evaluating the temperature ""
+#: from analytical field "TempField_Initial",
+#: The mapper has mapped the field values using distance weighting 
+#: algorithm for some of the target nodes.
+#: Warning: 
+#: The following warning was detected while evaluating the load "Load_02"
+#: from analytical field "Flux_Field_2": 
+#: The mapper has mapped the field values using distance weighting 
+#: algorithm for some of the target nodes.
+#: Job SMAHeatTransient_02: Analysis Input File Processor completed successfully.
+#: Job SMAHeatTransient_02: Abaqus/Standard completed successfully.
+#: Job SMAHeatTransient_02 completed successfully. 
+#: Completed job SMAHeatTransient_02
+#: Exporting OBJ from ODB: SMAHeatTransient_02.odb
+#: Model: H:/STAR-Simulator/Abaqus/SMAHeatTransient_02.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: Set to step 'Heat_02' (index 0), frame 13
+#: Set uniformScaleFactor=1.0 (true deformation scale)
+#: Wrote OBJ to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformedMesh_02.obj
+#: Waiting for ODB to be released: SMAHeatTransient_02.odb
+#: Exporting deformed geometry from SMAHeatTransient_02.odb
+#: Wrote main STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+#: Wrote debug STEP geometry to: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7/deformed_cad\SMAStripDeformed_02.stp
+#: Iteration 2 elapsed time: 38.173 seconds
+#: 
+#: DONE with all iterations.
+#: Total iterative analysis time: 79.758 seconds
+#: Read 2000 HFL values for SMAHeatTransient_01
+#: Model: H:/STAR-Simulator/Abaqus/SMAHeatTransient_02.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: Read 2000 HFL values for SMAHeatTransient_02
+#: HFL colorscale: 0 to 364.0 (95th pct)
+#: Saved: H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7\mapped_hfl_on_mesh_0.7.png
+#: Iter 1: dU=(-0.0077, 0.0000, -0.1099) m  cum|U|=0.1102 m  tip_node=1111  T=[4.3, 4.3] K
+#: Iter 2: dU=(-0.0191, 0.0000, -0.0936) m  cum|U|=0.2052 m  tip_node=11  T=[4.4, 4.5] K
+#: Saved cumulative tip displacement to H:/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.7\tip_displacement_0.7.csv
+#: 
+#: DONE with all analyses.
+#: Total script elapsed time: 81.599 seconds
