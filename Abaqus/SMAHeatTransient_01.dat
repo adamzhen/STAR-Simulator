@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 08-Jul-2026   Time 15:43:48
+   Abaqus 2025                                  Date 13-Jul-2026   Time 13:13:01
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -18,7 +18,7 @@
                    used or reproduced only in accordance with the terms
                    of such license.
  
-                          On machine VDI-ENGR-026 
+                          On machine AERO-MJ0JAKC7 
                           you are authorized to run
                           Abaqus/Standard until 30-Oct-2026
 
@@ -78,13 +78,13 @@
 
 
   *Element, type=S4RT
-  *Elset, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1"
+  *Elset, elset=ASSEMBLY_SMASTRIP_(NITINOL)_SET-1
   *Elset, elset=ASSEMBLY_FIXED-SET
   *Elset, elset=ASSEMBLY_SET-TEMP
   *Elset, elset=ASSEMBLY__ALL-SURFACES_SPOS
   *physicalconstants, absolutezero=0, stefanboltzmann=5.67e-08
   *heading
-          Iteration 1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+          Iteration 1 (base build)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
   *coupledtemperature-displacement, creep=NONE, deltmx=5
   *material, name=ALUMINUM
   *conductivity
@@ -99,8 +99,8 @@
   *expansion
   *specificheat
   *initialconditions, type=TEMPERATURE
-  *shellsection, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1", composite
-  *shellsection, elset="ASSEMBLY_SMAStrip (Nitinol)_SET-1", composite
+  *shellsection, elset=ASSEMBLY_SMASTRIP_(NITINOL)_SET-1, composite
+  *shellsection, elset=ASSEMBLY_SMASTRIP_(NITINOL)_SET-1, composite
   *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
   *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
   *initialconditions, type=TEMPERATURE
@@ -165,16 +165,16 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.20    
-       SYSTEM TIME (SEC)    =      0.0    
+       USER TIME (SEC)      =     0.10    
+       SYSTEM TIME (SEC)    =     0.10    
        TOTAL CPU TIME (SEC) =     0.20    
-       WALLCLOCK TIME (SEC) =            1
+       WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 08-Jul-2026   Time 15:43:50
+   Abaqus 2025                                  Date 13-Jul-2026   Time 13:13:04
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
-     Iteration 1                                                                               STEP    1  INCREMENT    1
+     Iteration 1 (base build)                                                                  STEP    1  INCREMENT    1
                                                                                           TIME COMPLETED IN THIS STEP   0.00    
 
 
@@ -250,7 +250,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      8.3    
+       USER TIME (SEC)      =      9.0    
        SYSTEM TIME (SEC)    =      1.0    
-       TOTAL CPU TIME (SEC) =      9.3    
-       WALLCLOCK TIME (SEC) =           16
+       TOTAL CPU TIME (SEC) =      10.    
+       WALLCLOCK TIME (SEC) =           10

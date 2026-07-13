@@ -1,10 +1,12 @@
-########################################
-###### STAR Simulator Main Script ######
-########################################
+##############################################################
+################# STAR Simulator Main Script #################
+##############################################################
 
-# Set key directories
-STAR_DIR = r"H:/STAR-Simulator"
-FREECAD_CMD = r"H:/Programs/FreeCAD 1.0/bin/FreeCADCmd.exe"
+### Set key directories ###
+STAR_DIR = r"C:/Users/adzheng/STAR-Simulator"
+FREECAD_CMD = r"C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe"
+# STAR_DIR = r"H:/STAR-Simulator"
+# FREECAD_CMD = r"H:/Programs/FreeCAD 1.0/bin/FreeCADCmd.exe"
 
 from abaqus import *
 from abaqusConstants import *
@@ -32,46 +34,55 @@ import numpy as np
 sys.path.append(f"{STAR_DIR}/Abaqus/scripts")
 from starlib import *
     
-#########################################################
-#################### EDIT PARAMETERS ####################
-#########################################################
+#######################################
+########### EDIT PARAMETERS ###########
+#######################################
 
+# RUN PARAMETERS
+RUN_NO     = 0.72
+N_ITER     = 9
+CHUNK_TIME = 20.0 # seconds per iterations
+
+# FILE NAMES AND PARAMETERS
 SCENARIO_NAME = 'SMAScenario1'
-OBJECT_NAME   = 'SMAStrip (Nitinol)'
-OBJECT_FILE   = 'SMAStrip (Nitinol).stp'
+OBJECT_NAME   = 'SMAStrip_(Nitinol)'
+OBJECT_FILE   = 'SMAStrip_(Nitinol).stp'
 FCSTD_FILE    = 'SMAScenario1.FCStd'
 DEFORMED_NAME = 'SMAStripDeformed'
 JOB_BASENAME  = 'SMAHeatTransient'
 MODEL_BASENAME = "Model"
 
+# RAY TRACING PARAMETERS
+N_RAYS = 3000 # Number of rays for OTSun ray tracing
 SOLAR_IRRADIANCE = 1361.0  # W/m^2
 OBJECT_MATERIAL = "Nitinol"
 ABSORPTION_ONLY = True  # If True, ray tracing ignores reflections and only accounts for absorption for computational efficiency 
 ABSORPTIVITY_DICT = {"Nitinol": 0.75, "Aluminum": 0.20, "Blocker": 1.0}
+SUN_ZENITH = 60 # degrees from the +Z ("straight overhead") axis.
+SUN_AZIMUTH = 0 # degrees from the +X axis in the XY plane (0 = +X, 90 = +Y, 180 = -X, 270 = -Y)
+FREECAD_TIMEOUT = 600  # seconds 
+EMISSIVITY = 0.75
 
-RUN_NO     = 0.7
-N_ITER     = 2
-CHUNK_TIME = 20.0 # seconds per iterations
+# ABAQUS PARAMETERS
 MESHSIZE   = 0.01 # mesh size in meters
-N_RAYS     = 2000 # Number of rays for OTSun ray tracing
+ANALYTIC_FIT_TOLERANCE = 0.012
 STITCH_TOLERANCE = 0.001
-ANALYTIC_FIT_TOLERANCE = 0.02
 BC_EDGE = [(0, 0, 0), (0, 0.1, 0)] # Edge to fix defined by endpoints
 BC_FIXPOINT = tuple((np.array(BC_EDGE[0]) + np.array(BC_EDGE[1])) / 2.0)
-RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
-SUN_ANGLE = 60
-SUN_DIR = make_sun_dir(SUN_ANGLE, tilt_axis='y') # Direction of sunlight in FreeCAD coords
-FREECAD_TIMEOUT = 600  # seconds 
+BC_TOLERANCE = 0.1 # Tolerance for finding edges to fix
 INITIAL_TEMP = 4.0  # Kelvin (K)
 AMBIENT_TEMP = 4.0  # Kelvin (K)
+RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
 
 WORKING_DIR = f"{STAR_DIR}/Scenarios/{SCENARIO_NAME}"
 
-#########################################################
-#########################################################
-#########################################################
+#######################################
+#######################################
+#######################################
 
 # Derived Parameters
+SUN_DIR = make_sun_dir(zenith_deg=SUN_ZENITH, azimuth_deg=SUN_AZIMUTH) # Direction of sunlight in FreeCAD coords
+
 IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/inputs/{OBJECT_FILE}"
 FCSTD_PATH            = f"{WORKING_DIR}/inputs/{FCSTD_FILE}"
 EXPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/{DEFORMED_NAME}.stp"
@@ -100,7 +111,7 @@ session.journalOptions.setValues(replayGeometry=COORDINATE,
 
 if 'Viewport: 1' in session.viewports.keys():
     session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
-        legendFont='-*-verdana-medium-r-normal-*-*-720-*-*-p-*-*-*'
+        legendFont='-*-verdana-medium-r-normal-*-*-120-*-*-p-*-*-*'
     )
     session.viewports['Viewport: 1'].viewportAnnotationOptions.setValues(
     legendNumberFormat=FIXED)
@@ -125,24 +136,25 @@ log(f"N_ITER = {N_ITER}")
 log(f"CHUNK_TIME = {CHUNK_TIME}")
 log(f"MESHSIZE = {MESHSIZE}")
 log(f"N_RAYS = {N_RAYS}")
-log(f"SUN_ANGLE = {SUN_ANGLE}")
+log(f"SUN_ZENITH = {SUN_ZENITH}")
+log(f"SUN_AZIMUTH = {SUN_AZIMUTH}")
 log(f"SUN_DIR = {SUN_DIR}")
 log(f"STITCH_TOLERANCE = {STITCH_TOLERANCE}")
 log(f"ANALYTIC_FIT_TOLERANCE = {ANALYTIC_FIT_TOLERANCE}")
 log(f"BC_EDGE = {BC_EDGE}")
-log(f"IMPORT_OBJECT_FILEPATH = {IMPORT_OBJECT_FILEPATH}")
-log(f"EXPORT_OBJECT_FILEPATH = {EXPORT_OBJECT_FILEPATH}")
-log(f"FLUXDATA_FILEPATH = {FLUXDATA_FILEPATH}")
-log(f"ABAQUS_TO_FREECAD_JSON = {ABAQUS_TO_FREECAD_JSON}")
-log(f"FCSTD_PATH = {FCSTD_PATH}")
+log(f"BC_FIXPOINT = {BC_FIXPOINT}")
+log(f"BC_TOLERANCE = {BC_TOLERANCE}")
+log(f"INITIAL_TEMP = {INITIAL_TEMP}")
+log(f"AMBIENT_TEMP = {AMBIENT_TEMP}")
+log(f"EMISSIVITY = {EMISSIVITY}")
+log(f"RUN_COMPARISON = {RUN_COMPARISON}")
 log("")
 
 # ----------------------------------------------------------
 # Main functions
 # ----------------------------------------------------------
 
-def define_encastre_bc(model, a, step_name, pt1, pt2,
-                       tol=0.001, instance_name=OBJECT_NAME):
+def define_encastre_bc(model, a, step_name, pt1, pt2, instance_name, tol=0.001):
     """
     Finds ALL edges between two endpoint coordinates and applies an Encastre BC.
     Robust against edge fragmentation from CAD import errors.
@@ -180,19 +192,33 @@ def define_encastre_bc(model, a, step_name, pt1, pt2,
         localCsys=None
     )
 
-def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None, mesh_size=MESHSIZE):
-    """Build a fresh model for one iteration, importing given STEP.
-    If prev_temp_data is provided, use it as initial temperature instead of uniform."""
+def build_model_from_step(model_name, step_name, step_path,
+                          object_name, bc_edge, mesh_size,
+                          step_time_period,
+                          initial_temp, ambient_temp,
+                          prev_temp_data=None,
+                          max_num_inc=200, initial_inc=0.1,
+                          min_inc=4e-5, max_inc=5.0, deltmx=5.0,
+                          emissivity=0.75,
+                          bc_tol=0.1):
+    """Build a fresh model for one iteration (or a full comparison run),
+    importing given STEP. If prev_temp_data is provided, use it as initial
+    temperature instead of uniform.
+
+    step_time_period: total duration of the CoupledTempDisplacementStep.
+        Pass CHUNK_TIME for a single iteration, or N_ITER * CHUNK_TIME for
+        a comparison run covering the full simulated duration in one step.
+    """
     mdb.Model(name=model_name)
     model = mdb.models[model_name]
 
     model.setValues(absoluteZero=0.0, stefanBoltzmann=5.67e-8)
 
     stp = mdb.openStep(step_path, scaleFromFile=OFF)
-    model.PartFromGeometryFile(name=OBJECT_NAME, geometryFile=stp,
+    model.PartFromGeometryFile(name=object_name, geometryFile=stp,
                                combine=False, dimensionality=THREE_D,
                                type=DEFORMABLE_BODY)
-    p = model.parts[OBJECT_NAME]
+    p = model.parts[object_name]
 
     printlog('Creating materials')
     model.Material(name='Aluminum')
@@ -238,18 +264,18 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
     printlog('Creating assembly')
     a = model.rootAssembly
     a.DatumCsysByDefault(CARTESIAN)
-    a.Instance(name=OBJECT_NAME, part=p, dependent=ON)
+    a.Instance(name=object_name, part=p, dependent=ON)
 
     printlog('Defining step')
     model.CoupledTempDisplacementStep(
         name=step_name,
         previous='Initial',
-        maxNumInc=200,
-        timePeriod=CHUNK_TIME,
-        initialInc=0.1,
-        minInc=4e-5,
-        maxInc=5.0,
-        deltmx=5.0,
+        maxNumInc=max_num_inc,
+        timePeriod=step_time_period,
+        initialInc=initial_inc,
+        minInc=min_inc,
+        maxInc=max_inc,
+        deltmx=deltmx,
         amplitude=STEP,
         nlgeom=ON
     )
@@ -264,11 +290,9 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
     )
 
     printlog('Defining initial temperature')
-    # Initial temperature
     if prev_temp_data is None:
-        # First iteration: uniform temperature
         printlog('Defining uniform initial temperature')
-        faces_all = a.instances[OBJECT_NAME].faces[:]
+        faces_all = a.instances[object_name].faces[:]
         region_T = a.Set(faces=faces_all, name='Set-Temp')
         model.Temperature(
             name='Temp0',
@@ -276,13 +300,10 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
             region=region_T,
             distributionType=UNIFORM,
             crossSectionDistribution=CONSTANT_THROUGH_THICKNESS,
-            magnitudes=(INITIAL_TEMP,)
+            magnitudes=(initial_temp,)
         )
     else:
-        # Subsequent iterations: mapped from previous ODB
         printlog('Defining mapped initial temperature from previous iteration')
-        
-        # Create mapped field for temperature
         temp_field_name = 'TempField_Initial'
         model.MappedField(
             name=temp_field_name,
@@ -294,9 +315,7 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
             fieldDataType=SCALAR,
             xyzPointData=prev_temp_data
         )
-        
-        # Apply as initial temperature
-        faces_all = a.instances[OBJECT_NAME].faces[:]
+        faces_all = a.instances[object_name].faces[:]
         region_T = a.Set(faces=faces_all, name='Set-Temp')
         model.Temperature(
             name='Temp0',
@@ -305,22 +324,22 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
             distributionType=FIELD,
             crossSectionDistribution=CONSTANT_THROUGH_THICKNESS,
             field=temp_field_name,
-            magnitudes=(1.0,) 
+            magnitudes=(1.0,)
         )
 
     printlog('Defining BC')
-    define_encastre_bc(model, a, step_name, tol=0.1,
-                    pt1=BC_EDGE[0],
-                    pt2=BC_EDGE[1])
+    define_encastre_bc(model, a, step_name, tol=bc_tol,
+                       pt1=bc_edge[0],
+                       pt2=bc_edge[1],
+                       instance_name=object_name)
 
     printlog('Defining amplitude and radiation')
     model.TabularAmplitude(name='InstantVacuum', timeSpan=STEP,
                            smooth=SOLVER_DEFAULT,
                            data=((0.0, 1.0), (4.0, 1.0)))
 
-    s1 = a.instances[OBJECT_NAME].faces
-    side1Faces1 = s1
-    surf_all = a.Surface(side1Faces=side1Faces1, name='All-Surfaces')
+    s1 = a.instances[object_name].faces
+    surf_all = a.Surface(side1Faces=s1, name='All-Surfaces')
     model.RadiationToAmbient(
         name='ToVacuum',
         createStepName=step_name,
@@ -328,8 +347,8 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
         radiationType=AMBIENT,
         distributionType=UNIFORM,
         field='',
-        emissivity=0.75,
-        ambientTemperature=AMBIENT_TEMP,
+        emissivity=emissivity,
+        ambientTemperature=ambient_temp,
         ambientTemperatureAmp='InstantVacuum'
     )
 
@@ -346,6 +365,106 @@ def build_model_from_step(model_name, step_name, step_path, prev_temp_data=None,
     a.regenerate()
 
     return model
+
+def run_comparison_model(model_name='Model_Comparison',
+                         step_name='Heat_Comparison',
+                         job_name='Job_Comparison',
+                         mesh_size=0.02):
+    """
+    Runs a single-shot 'comparison' model: no iteration, full time period
+    (N_ITER * CHUNK_TIME) in one step, using the initial (undeformed)
+    geometry and the initial flux from FreeCAD.
+    """
+    _start_time = time.perf_counter()
+
+    printlog("\n=================================================")
+    printlog("Running optional comparison model (no iteration)")
+    printlog("=================================================")
+
+    # 1) Run FreeCAD on original geometry to get initial flux
+    transfer_data_to_freecad(
+        working_dir=WORKING_DIR,
+        fcstd_path=FCSTD_PATH,
+        object_path=IMPORT_OBJECT_FILEPATH,
+        iter_id="comparison"
+    )
+    run_freecad_macro()
+    xyz_data = read_flux_data()
+
+    # 2) Build model from original STEP (full duration in a single step)
+    printlog("Building comparison model from original geometry")
+    comp_model = build_model_from_step(
+        model_name, step_name, IMPORT_OBJECT_FILEPATH,
+        object_name=OBJECT_NAME,
+        bc_edge=BC_EDGE,
+        mesh_size=mesh_size,
+        step_time_period=N_ITER * CHUNK_TIME,
+        initial_temp=INITIAL_TEMP,
+        ambient_temp=AMBIENT_TEMP,
+        emissivity=EMISSIVITY,
+        bc_tol=BC_TOLERANCE
+    )
+
+    # 3) Apply initial flux as the load
+    update_flux_field(comp_model, xyz_data, field_name='Flux_Field_Comparison')
+    apply_surface_heat_flux(comp_model,
+                            surface_name='All-Surfaces',
+                            step_name=step_name,
+                            load_name='Load_Comparison',
+                            field_name='Flux_Field_Comparison')
+
+    # 4) Create and run job
+    printlog(f'Creating comparison job {job_name}')
+    mdb.Job(
+        name=job_name,
+        model=model_name,
+        description='Comparison run (no iteration)',
+        type=ANALYSIS,
+        atTime=None,
+        waitMinutes=0,
+        waitHours=0,
+        queue=None,
+        memory=90,
+        memoryUnits=PERCENTAGE,
+        getMemoryFromAnalysis=True,
+        explicitPrecision=SINGLE,
+        nodalOutputPrecision=SINGLE,
+        echoPrint=OFF,
+        modelPrint=OFF,
+        contactPrint=OFF,
+        historyPrint=OFF,
+        userSubroutine='',
+        scratch='',
+        resultsFormat=ODB,
+        numCpus=1,
+        numGPUs=0
+    )
+
+    if os.access(job_name + '.lck', os.F_OK):
+        os.remove(job_name + '.lck')
+
+    printlog(f'Running comparison job {job_name}')
+    mdb.jobs[job_name].submit()
+    mdb.jobs[job_name].waitForCompletion()
+    printlog('Completed comparison job')
+
+    _elapsed = time.perf_counter() - _start_time
+    printlog(f"Comparison job elapsed time: {_elapsed:.3f} seconds")
+
+    # 5) Export deformed geometry to STEP for debugging
+    debug_step_path = os.path.join(
+        DEFORMED_DEBUG_DIR,
+        f"{DEFORMED_NAME}_Comparison.stp"
+    )
+    export_deformed_to_step(job_name,
+                            main_step_path=debug_step_path,
+                            instance_name=OBJECT_NAME,
+                            model_name=model_name,
+                            stitch_tolerance=STITCH_TOLERANCE,
+                            analytic_fit_tolerance=ANALYTIC_FIT_TOLERANCE,
+                            debug_step_path=None)
+
+    return job_name, comp_model
 
 # ----------------------------------------------------------
 # Iterative loop: rebuild model each iteration (no restart)
@@ -401,8 +520,16 @@ for it in range(1, N_ITER + 1):
         prev_job = '%s_%02d' % (JOB_BASENAME, iter_id - 1)
         prev_temp_data = read_temperature_from_odb(prev_job, instance_name=OBJECT_NAME)
 
-    model = build_model_from_step(model_name, step_name, object_source,
-                                  prev_temp_data=prev_temp_data)
+    model = build_model_from_step(
+        model_name, step_name, object_source,
+        object_name=OBJECT_NAME,
+        bc_edge=BC_EDGE,
+        mesh_size=MESHSIZE,
+        step_time_period=CHUNK_TIME,
+        initial_temp=INITIAL_TEMP,
+        ambient_temp=AMBIENT_TEMP,
+        prev_temp_data=prev_temp_data
+    )
 
     # 2) Read flux and update mapped field + load
     xyz_data = read_flux_data(FLUXDATA_FILEPATH)
@@ -448,7 +575,6 @@ for it in range(1, N_ITER + 1):
 
     printlog(f'Running job {job_name}')
     mdb.jobs[job_name].submit()
-    #sys.stdout.flush()
     mdb.jobs[job_name].waitForCompletion()
     printlog(f'Completed job {job_name}')
 
@@ -479,6 +605,10 @@ for it in range(1, N_ITER + 1):
 printlog("\nDONE with all iterations.")
 _elapsed = time.perf_counter() - _start_time
 printlog(f"Total iterative analysis time: {_elapsed:.3f} seconds")
+
+# ----------------------------------------------------------
+# Post-processing and plotting
+# ----------------------------------------------------------
 
 # Plot the mapped thermal flux from Abaqus
 iter_job_names = ['%s_%02d' % (JOB_BASENAME, i) for i in range(1, N_ITER + 1)]
@@ -512,142 +642,12 @@ printlog("Saved cumulative tip displacement to %s" % tip_csv)
 # ----------------------------------------------------------
 
 if RUN_COMPARISON:
-    printlog("\n=================================================")
-    printlog("Running optional comparison model (no iteration)")
-    printlog("=================================================")
-    
-    _comp_start_time = time.perf_counter()
-    
-    comp_model_name = 'Model_Comparison'
-    comp_step_name  = 'Heat_Comparison'
-    comp_job_name   = 'SMAHeatComparison'
-    
-    # 1) Run FreeCAD on original geometry to get initial flux
-    transfer_data_to_freecad(
-        abaqus_to_freecad_json=ABAQUS_TO_FREECAD_JSON,
-        working_dir=WORKING_DIR,
-        fcstd_path=FCSTD_PATH,
-        object_path=IMPORT_OBJECT_FILEPATH,
-        iter_id="comparison",
-        run_no=RUN_NO,
-        scenario_name=SCENARIO_NAME,
-        object_name=OBJECT_NAME,
-        num_rays=N_RAYS,
-        sun_dir=SUN_DIR,
-        solar_irradiance=SOLAR_IRRADIANCE,
-        object_material=OBJECT_MATERIAL,
-        absorption_only=ABSORPTION_ONLY,
-        absorptivity_dict=ABSORPTIVITY_DICT
+    comp_job_name, comp_model = run_comparison_model(
+        model_name='Model_Comparison',
+        step_name='Heat_Comparison',
+        job_name=f'{JOB_BASENAME}_Comparison',
+        mesh_size=MESHSIZE
     )
-    run_freecad_macro(FREECAD_CMD, FREECAD_MACRO, FREECAD_TIMEOUT)
-    xyz_data = read_flux_data(FLUX_DATA_FILEPATH)
-    
-    # 2) Build model from original STEP
-    printlog("Building comparison model from original geometry")
-    comp_model = build_model_from_step(comp_model_name, comp_step_name, 
-                                       IMPORT_OBJECT_FILEPATH, mesh_size = 0.02)
-    
-    # 3) Override step to use total time instead of chunk time
-    del comp_model.steps[comp_step_name]
-    total_time = N_ITER * CHUNK_TIME
-    comp_model.CoupledTempDisplacementStep(
-        name=comp_step_name,
-        previous='Initial',
-        maxNumInc=2000,
-        timePeriod=total_time,  # full duration
-        initialInc=0.5,
-        minInc=0.5,
-        maxInc=10.0,
-        deltmx=2.0,
-        amplitude=STEP,
-        nlgeom=ON
-    )
-    
-    # Recreate BCs and loads (they were tied to old step name)
-    a = comp_model.rootAssembly
-    
-    # BC
-    e1 = a.instances[OBJECT_NAME].edges
-    edges1 = e1.findAt((BC_FIXPOINT,))
-    region_fix = a.Set(edges=edges1, name='Fixed-Set-Comp')
-    comp_model.EncastreBC(name='FixEdge', createStepName=comp_step_name,
-                         region=region_fix, localCsys=None)
-    
-    # Radiation
-    s1 = a.instances[OBJECT_NAME].faces
-    surf_all = a.Surface(side1Faces=s1, name='All-Surfaces-Comp')
-    comp_model.RadiationToAmbient(
-        name='ToVacuum',
-        createStepName=comp_step_name,
-        surface=surf_all,
-        radiationType=AMBIENT,
-        distributionType=UNIFORM,
-        field='',
-        emissivity=1.0,
-        ambientTemperature=AMBIENT_TEMP,
-        ambientTemperatureAmp='InstantVacuum'
-    )
-    
-    # Load with initial flux -- update_flux_field_and_load was split into two calls
-    update_flux_field(comp_model, xyz_data, field_name='Flux_Field_Comparison')
-    apply_surface_heat_flux(comp_model,
-                            surface_name='All-Surfaces-Comp',
-                            step_name=comp_step_name,
-                            load_name='Load_Comparison',
-                            field_name='Flux_Field_Comparison')
-    
-    # 4) Create and run job
-    printlog(f'Creating comparison job {comp_job_name}')
-    mdb.Job(
-        name=comp_job_name,
-        model=comp_model_name,
-        description='Comparison run (no iteration)',
-        type=ANALYSIS,
-        atTime=None,
-        waitMinutes=0,
-        waitHours=0,
-        queue=None,
-        memory=90,
-        memoryUnits=PERCENTAGE,
-        getMemoryFromAnalysis=True,
-        explicitPrecision=SINGLE,
-        nodalOutputPrecision=SINGLE,
-        echoPrint=OFF,
-        modelPrint=OFF,
-        contactPrint=OFF,
-        historyPrint=OFF,
-        userSubroutine='',
-        scratch='',
-        resultsFormat=ODB,
-        numCpus=1,
-        numGPUs=0
-    )
-    
-    if os.access(comp_job_name + '.lck', os.F_OK):
-        os.remove(comp_job_name + '.lck')
-    
-    printlog(f'Running comparison job {comp_job_name}')
-    mdb.jobs[comp_job_name].submit()
-    mdb.jobs[comp_job_name].waitForCompletion()
-    printlog('Completed comparison job')
-    
-    _comp_elapsed = time.perf_counter() - _comp_start_time
-    printlog(f"Comparison job elapsed time: {_comp_elapsed:.3f} seconds")
-
-
-    # Export stp file of comparison result to debug directory
-    debug_step_path = os.path.join(
-        DEFORMED_DEBUG_DIR,
-        f"{DEFORMED_NAME}_Comparison.stp"
-    )
-    export_deformed_to_step(comp_job_name,
-                            main_step_path=debug_step_path,
-                            instance_name=OBJECT_NAME,
-                            model_name=comp_model_name,
-                            stitch_tolerance=STITCH_TOLERANCE,
-                            analytic_fit_tolerance=ANALYTIC_FIT_TOLERANCE,
-                            debug_step_path=None)
-    
 
 
 printlog("\nDONE with all analyses.")

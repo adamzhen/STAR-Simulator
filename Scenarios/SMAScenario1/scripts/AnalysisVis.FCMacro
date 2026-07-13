@@ -11,9 +11,9 @@ import os
 ####### EDIT PARAMETERS #######
 ###############################
 
-RUN_NO = 0.7
+RUN_NO = 0.82
 SCENARIO_NAME = "SMAScenario1"
-WORKING_DIR = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}"
+WORKING_DIR = f"C:/Users/adzheng/STAR-Simulator/Scenarios/{SCENARIO_NAME}"
 
 ###############################
 ###############################
@@ -21,7 +21,7 @@ WORKING_DIR = f"H:/STAR-Simulator/Scenarios/{SCENARIO_NAME}"
 # Path to your scenario file and geometry folder
 DOC_NAME = "SMAScenario1_Sequence%s" % RUN_NO
 DOCUMENTATION_DIR = "%s/run_documentation/iterative_analysis_%s" % (WORKING_DIR, RUN_NO)
-IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/inputs/SMAStrip (Nitinol).stp"
+IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/inputs/SMAStrip_(Nitinol).stp"
 FCSTD_PATH = "%s/%s.FCStd" % (DOCUMENTATION_DIR, DOC_NAME)
 GEOMETRY_DIR = "%s/deformed_cad" % DOCUMENTATION_DIR
 

@@ -1,0 +1,96 @@
+RUN NO: 0.8
+Date: 2026-07-10
+
+=== Parameters ===
+SCENARIO_NAME = SMAScenario1
+OBJECT_NAME = SMAStrip_(Nitinol)
+DEFORMED_NAME = SMAStripDeformed
+JOB_BASENAME = SMAHeatTransient
+N_ITER = 2
+CHUNK_TIME = 20.0
+MESHSIZE = 0.01
+N_RAYS = 2000
+SUN_ZENITH = 60
+SUN_AZIMUTH = 0
+SUN_DIR = (0.866025403784439, 0.0, -0.5)
+STITCH_TOLERANCE = 0.001
+ANALYTIC_FIT_TOLERANCE = 0.02
+BC_EDGE = [(0, 0, 0), (0, 0.1, 0)]
+BC_FIXPOINT = (0.0, 0.05, 0.0)
+BC_TOLERANCE = 0.1
+INITIAL_TEMP = 4.0
+AMBIENT_TEMP = 4.0
+EMISSIVITY = 0.75
+RUN_COMPARISON = False
+
+
+=== Starting iterative loop with restart-based steps ===
+
+========================================
+ Iteration 1 of 2 (job SMAHeatTransient_01)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 3.2 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 1525 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Creating materials
+Creating composite shell section
+Creating assembly
+Defining step
+Defining initial temperature
+Defining uniform initial temperature
+Defining BC
+Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+Defining amplitude and radiation
+Meshing the strip
+Creating job SMAHeatTransient_01
+Running job SMAHeatTransient_01
+Completed job SMAHeatTransient_01
+Exporting OBJ from ODB: SMAHeatTransient_01.odb
+Set to step 'Heat_01' (index 0), frame 15
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.8/deformed_cad\SMAStripDeformedMesh_01.obj
+Waiting for ODB to be released: SMAHeatTransient_01.odb
+Exporting deformed geometry from SMAHeatTransient_01.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.8/deformed_cad\SMAStripDeformed_01.stp
+Iteration 1 elapsed time: 27.634 seconds
+
+========================================
+ Iteration 2 of 2 (job SMAHeatTransient_02)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 3.8 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 1523 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_01.odb
+Patched *Dflux (1000 elements) into step Heat_02
+Creating restart job SMAHeatTransient_02 from patched SMAHeatTransient_02_template.inp
+Running job SMAHeatTransient_02
+Completed job SMAHeatTransient_02
+Exporting OBJ from ODB: SMAHeatTransient_02.odb
+Set to step 'Heat_02' (index 1), frame 12
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.8/deformed_cad\SMAStripDeformedMesh_02.obj
+Waiting for ODB to be released: SMAHeatTransient_02.odb
+Exporting deformed geometry from SMAHeatTransient_02.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.8/deformed_cad\SMAStripDeformed_02.stp
+Iteration 2 elapsed time: 34.309 seconds
+
+DONE with all iterations.
+Total iterative analysis time: 61.983 seconds
+Read 2000 HFL values for SMAHeatTransient_01
+Read 2000 HFL values for SMAHeatTransient_02
+HFL colorscale: 0 to 471.7 (95th pct)
+Saved: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.8\mapped_hfl_on_mesh_0.8.png
+Iter 1: dU=(-0.0135, 0.0000, -0.1447) m  cum|U|=0.1453 m  node=1111  T=[4.4, 4.4] K
+Iter 2: dU=(-0.0414, 0.0000, -0.2509) m  cum|U|=0.3994 m  node=1110  T=[4.5, 4.7] K
+Saved cumulative tip displacement to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.8\tip_displacements_0.8.csv
+
+DONE with all analyses.
+Total script elapsed time: 63.197 seconds
+
+

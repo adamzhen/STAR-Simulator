@@ -1,0 +1,34 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB HartlCase2
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
+<279 out of 443 licenses remain available>.
+Begin Compiling Abaqus/Standard User Subroutines
+7/9/2026 11:51:39 AM
+Intel(R) Fortran Compiler for applications running on Intel(R) 64, Version 2026.1.0 Build 20260617
+Copyright (C) 1985-2026 Intel Corporation. All rights reserved.
+
+End Compiling Abaqus/Standard User Subroutines
+Begin Linking Abaqus/Standard User Subroutines
+   Creating library standardU.lib and object standardU.exp
+Hartl_UMAT_Changed.obj : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+libircmt.lib(fast_mem_ops.c.obj) : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+End Linking Abaqus/Standard User Subroutines
+7/9/2026 11:51:41 AM
+Begin Analysis Input File Processor
+7/9/2026 11:51:41 AM
+Run pre.exe
+7/9/2026 11:51:44 AM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+7/9/2026 11:51:44 AM
+Run standard.exe
+7/9/2026 11:52:03 AM
+End Abaqus/Standard Analysis
+Begin SIM Wrap-up
+7/9/2026 11:52:04 AM
+Run SMASimUtility.exe
+7/9/2026 11:52:04 AM
+End SIM Wrap-up
+Abaqus JOB HartlCase2 COMPLETED

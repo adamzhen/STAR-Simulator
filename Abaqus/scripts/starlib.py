@@ -27,12 +27,15 @@ import numpy as np
 # Global variables
 _log_file = None
 
+# ---------------------------------------------
+# Logging functions
+# ---------------------------------------------
+
 def init_logging(log_file_path, mode='w', capture_stdout=True):
     """Call once from the main script to set up logging for this module."""
     global _log_file
     _log_file = open(log_file_path, mode)
     return _log_file
-
 
 def close_logging():
     global _log_file
@@ -55,16 +58,30 @@ def log(msg):
     else:
         raise RuntimeError("Logging not initialized. Call init_logging(log_file_path) first.")
 
-def make_sun_dir(tilt_deg, tilt_axis='y'):
+# ---------------------------------------------
+# Ray tracing helper functions
+# ---------------------------------------------
+
+def make_sun_dir(zenith_deg=0.0, azimuth_deg=0.0):
     """
-    Returns a sun direction vector tilted from straight-on (-Z).
-    tilt_axis: rotating sun direction about this axis
+    Returns the unit sun direction vector (direction sunlight travels) in
+    FreeCAD coords, using the standard solar zenith/azimuth convention.
+
+    zenith_deg: angle from the +Z ("straight overhead") axis.
+        0 deg  = sun directly overhead (beam travels straight down, -Z)
+        90 deg = sun at the horizon
+    azimuth_deg: compass direction of the sun in the horizontal (X-Y) plane,
+        measured from the +X axis, increasing toward +Y.
+        0 deg  = tilts the beam in the X-Z plane (equivalent to old tilt_axis='y')
+        90 deg = tilts the beam in the Y-Z plane (equivalent to old tilt_axis='x')
     """
-    theta = math.radians(tilt_deg)
-    if tilt_axis == 'y':
-        return (math.sin(theta), 0.0, -math.cos(theta))
-    elif tilt_axis == 'x':
-        return (0.0, math.sin(theta), -math.cos(theta))
+    theta = math.radians(zenith_deg)
+    phi   = math.radians(azimuth_deg)
+    return (
+        math.sin(theta) * math.cos(phi),
+        math.sin(theta) * math.sin(phi),
+        -math.cos(theta)
+    )
     
 def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
                               object_path, iter_id, run_no, scenario_name,
@@ -132,152 +149,9 @@ def read_freecad_result(freecad_to_abaqus_json):
 
     return result, flux_data_path
 
-def read_flux_data(fluxdata_filepath):
-    xyz_data = []
-    with open(fluxdata_filepath, 'r') as f:
-        reader = csv.reader(f)
-        for row in reader:
-            if len(row) < 4:
-                continue
-            x, y, z, flux = map(float, row[:4])
-            xyz_data.append((x, y, z, flux))
-    printlog(f"Loaded {len(xyz_data)} flux points from {fluxdata_filepath}")
-    return xyz_data
-
-
-def update_flux_field(model, xyz_data,
-                      field_name='AnalyticalField-1',
-                      positive_normal_search_tol=0.5,
-                      negative_normal_search_tol=0.5,
-                      neighborhood_search_tol=0.5,
-                      interpolation_tol=0.5):
-    if field_name in model.analyticalFields.keys():
-        af = model.analyticalFields[field_name]
-        af.setValues(xyzPointData=xyz_data)
-    else:
-        model.MappedField(
-            name=field_name,
-            description='Flux from OTSun',
-            regionType=POINT,
-            partLevelData=False,
-            localCsys=None,
-            pointDataFormat=XYZ,
-            fieldDataType=SCALAR,
-            xyzPointData=xyz_data,
-            positiveNormalSearchTol=positive_normal_search_tol,
-            negativeNormalSearchTol=negative_normal_search_tol,
-            neighborhoodSearchTol=neighborhood_search_tol,
-            interpolationTol=interpolation_tol
-        )
-        
-def apply_surface_heat_flux(model, surface_name, step_name, load_name,
-                            field_name, magnitude=1.0):
-    a = model.rootAssembly
-    region = a.surfaces[surface_name]
-    if load_name in model.loads.keys():
-        model.loads[load_name].setValues(
-            region=region,
-            magnitude=magnitude,
-            distributionType=FIELD,
-            field=field_name
-        )
-    else:
-        model.SurfaceHeatFlux(
-            name=load_name,
-            createStepName=step_name,
-            region=region,
-            magnitude=magnitude,
-            distributionType=FIELD,
-            field=field_name
-        )
-
-def export_obj_from_odb(job_name, obj_path):
-    """Export final deformed geometry to OBJ at true scale."""
-    odb_path = job_name + '.odb'
-    printlog(f"Exporting OBJ from ODB: {odb_path}")
-
-    if odb_path in session.odbs:
-        odb = session.odbs[odb_path]
-    else:
-        odb = session.openOdb(odb_path)
-
-    vp_name = 'Viewport: 1'
-    if vp_name not in session.viewports.keys():
-        session.Viewport(name=vp_name)
-    vp = session.viewports[vp_name]
-
-    vp.setValues(displayedObject=odb)
-
-    last_step_name = odb.steps.keys()[-1]
-    last_step = odb.steps[last_step_name]
-    num_frames = len(last_step.frames)
-    last_frame_index = num_frames - 1
-
-    step_index = last_step.number - 1
-
-    vp.odbDisplay.setFrame(step=step_index, frame=last_frame_index)
-    printlog(f"Set to step '{last_step_name}' (index {step_index}), frame {last_frame_index}")
-
-    vp.odbDisplay.commonOptions.setValues(deformationScaling=UNIFORM)
-    vp.odbDisplay.commonOptions.setValues(uniformScaleFactor=1.0)
-    printlog("Set uniformScaleFactor=1.0 (true deformation scale)")
-
-    vp.odbDisplay.display.setValues(plotState=(CONTOURS_ON_DEF, ))
-
-    session.writeOBJFile(fileName=obj_path, canvasObjects=(vp, ))
-    printlog(f"Wrote OBJ to: {obj_path}")
-
-
-def export_deformed_to_step(job_name,
-                            main_step_path,
-                            instance_name,
-                            model_name,
-                            stitch_tolerance,
-                            analytic_fit_tolerance,
-                            debug_step_path=None,
-                            step_index=-1,
-                            frame_index=-1,
-                            odb_wait_timeout=600.0):
-    """Extract deformed geometry from ODB into STEP."""
-    odb_path = job_name + '.odb'
-    lck_path = odb_path + '.lck'
-
-    printlog(f"Waiting for ODB to be released: {odb_path}")
-    t0 = time.time()
-    while (not os.path.exists(odb_path)) or os.path.exists(lck_path):
-        if time.time() - t0 > odb_wait_timeout:
-            raise RuntimeError("Timed out waiting for ODB %s" % odb_path)
-        time.sleep(2.0)
-
-    printlog(f"Exporting deformed geometry from {odb_path}")
-    odb = session.openOdb(odb_path)
-
-    tmp_part_name = 'DEFORMED_' + instance_name.replace(' ', '_')
-    p_tmp = mdb.models[model_name].PartFromOdb(
-        name=tmp_part_name,
-        instance=instance_name,
-        odb=odb,
-        shape=DEFORMED,
-        step=step_index,
-        frame=frame_index
-    )
-
-    elems = p_tmp.elements
-    reg_e = regionToolset.Region(side1Elements=elems)
-    p_tmp.FaceFromElementFaces(
-        elementFaces=reg_e,
-        stitchTolerance=stitch_tolerance,
-        analyticFitTolerance=analytic_fit_tolerance
-    )
-
-    p_tmp.writeStepFile(main_step_path)
-    printlog(f"Wrote main STEP geometry to: {main_step_path}")
-
-    if debug_step_path is not None and debug_step_path != main_step_path:
-        p_tmp.writeStepFile(debug_step_path)
-        printlog(f"Wrote debug STEP geometry to: {debug_step_path}")
-    odb.close()
-
+# ---------------------------------------------
+# Abaqus helper functions
+# ---------------------------------------------
 
 def read_temperature_from_odb(job_name, instance_name,
                               step_index=-1, frame_index=-1):
@@ -346,6 +220,159 @@ def read_temperature_from_odb(job_name, instance_name,
 
     printlog(f"Read {len(temp_data)} nodal temperatures with deformed coordinates")
     return temp_data
+
+def read_flux_data(fluxdata_filepath):
+    xyz_data = []
+    with open(fluxdata_filepath, 'r') as f:
+        reader = csv.reader(f)
+        for row in reader:
+            if len(row) < 4:
+                continue
+            x, y, z, flux = map(float, row[:4])
+            xyz_data.append((x, y, z, flux))
+    printlog(f"Loaded {len(xyz_data)} flux points from {fluxdata_filepath}")
+    return xyz_data
+
+def update_flux_field(model, xyz_data,
+                      field_name='AnalyticalField-1',
+                      positive_normal_search_tol=0.5,
+                      negative_normal_search_tol=0.5,
+                      neighborhood_search_tol=0.5,
+                      interpolation_tol=0.5):
+    if field_name in model.analyticalFields.keys():
+        af = model.analyticalFields[field_name]
+        af.setValues(xyzPointData=xyz_data)
+    else:
+        model.MappedField(
+            name=field_name,
+            description='Flux from OTSun',
+            regionType=POINT,
+            partLevelData=False,
+            localCsys=None,
+            pointDataFormat=XYZ,
+            fieldDataType=SCALAR,
+            xyzPointData=xyz_data,
+            positiveNormalSearchTol=positive_normal_search_tol,
+            negativeNormalSearchTol=negative_normal_search_tol,
+            neighborhoodSearchTol=neighborhood_search_tol,
+            interpolationTol=interpolation_tol
+        )
+        
+def apply_surface_heat_flux(model, surface_name, step_name, load_name,
+                            field_name, magnitude=1.0):
+    a = model.rootAssembly
+    region = a.surfaces[surface_name]
+    if load_name in model.loads.keys():
+        model.loads[load_name].setValues(
+            region=region,
+            magnitude=magnitude,
+            distributionType=FIELD,
+            field=field_name
+        )
+    else:
+        model.SurfaceHeatFlux(
+            name=load_name,
+            createStepName=step_name,
+            region=region,
+            magnitude=magnitude,
+            distributionType=FIELD,
+            field=field_name
+        )
+
+# ---------------------------------------------
+# Post-processing functions
+# ---------------------------------------------
+
+def export_obj_from_odb(job_name, obj_path):
+    """Export final deformed geometry to OBJ at true scale."""
+    odb_path = job_name + '.odb'
+    printlog(f"Exporting OBJ from ODB: {odb_path}")
+
+    if odb_path in session.odbs:
+        odb = session.odbs[odb_path]
+    else:
+        odb = session.openOdb(odb_path)
+
+    vp_name = 'Viewport: 1'
+    if vp_name not in session.viewports.keys():
+        session.Viewport(name=vp_name)
+    vp = session.viewports[vp_name]
+
+    vp.setValues(displayedObject=odb)
+
+    last_step_name = odb.steps.keys()[-1]
+    last_step = odb.steps[last_step_name]
+    num_frames = len(last_step.frames)
+    last_frame_index = num_frames - 1
+
+    step_index = last_step.number - 1
+
+    vp.odbDisplay.setFrame(step=step_index, frame=last_frame_index)
+    printlog(f"Set to step '{last_step_name}' (index {step_index}), frame {last_frame_index}")
+
+    vp.odbDisplay.commonOptions.setValues(deformationScaling=UNIFORM)
+    vp.odbDisplay.commonOptions.setValues(uniformScaleFactor=1.0)
+    printlog("Set uniformScaleFactor=1.0 (true deformation scale)")
+
+    vp.odbDisplay.display.setValues(plotState=(CONTOURS_ON_DEF, ))
+
+    session.writeOBJFile(fileName=obj_path, canvasObjects=(vp, ))
+    printlog(f"Wrote OBJ to: {obj_path}")
+
+def export_deformed_to_step(job_name, main_step_path, instance_name, model_name,
+                            stitch_tolerance, analytic_fit_tolerance,
+                            debug_step_path=None, step_index=-1, frame_index=-1,
+                            odb_wait_timeout=600.0):
+    """Extract deformed geometry from ODB into STEP."""
+    odb_path = job_name + '.odb'
+    lck_path = odb_path + '.lck'
+
+    printlog("Waiting for ODB to be released: %s" % odb_path)
+    t0 = time.time()
+    while not os.path.exists(odb_path) or os.path.exists(lck_path):
+        if time.time() - t0 > odb_wait_timeout:
+            raise RuntimeError("Timed out waiting for ODB %s" % odb_path)
+        time.sleep(2.0)
+
+    printlog("Exporting deformed geometry from %s" % odb_path)
+    odb = session.openOdb(odb_path)
+
+    # --- Resolve the actual instance key in the ODB (case-insensitive) ---
+    instances = odb.rootAssembly.instances
+    resolved_instance_name = None
+    key_upper = instance_name.upper()
+    if key_upper in instances.keys():
+        resolved_instance_name = key_upper
+    else:
+        base_name = instance_name.split('.')[0].strip().upper()
+        for key in instances.keys():
+            if base_name in key:
+                resolved_instance_name = key
+                printlog("Found instance with key %s" % key)
+                break
+    if resolved_instance_name is None:
+        resolved_instance_name = list(instances.keys())[0]
+        printlog("Warning: could not match '%s'; using first instance '%s'" % (
+            instance_name, resolved_instance_name))
+
+    tmp_part_name = "DEFORMED" + instance_name.replace(' ', '_')
+    ptmp = mdb.models[model_name].PartFromOdb(
+        name=tmp_part_name, instance=resolved_instance_name, odb=odb,
+        shape=DEFORMED, step=step_index, frame=frame_index)
+
+    elems = ptmp.elements
+    reg = regionToolset.Region(side1Elements=elems)
+    ptmp.FaceFromElementFaces(elementFaces=reg,
+                              stitchTolerance=stitch_tolerance,
+                              analyticFitTolerance=analytic_fit_tolerance)
+    ptmp.writeStepFile(main_step_path)
+    printlog("Wrote main STEP geometry to %s" % main_step_path)
+
+    if debug_step_path is not None and debug_step_path != main_step_path:
+        ptmp.writeStepFile(debug_step_path)
+        printlog("Wrote debug STEP geometry to %s" % debug_step_path)
+
+    odb.close()
 
 def plot_mapped_field_on_mesh(job_names, output_dir, run_no,
                               instance_name,
@@ -494,7 +521,6 @@ def plot_mapped_field_on_mesh(job_names, output_dir, run_no,
     plt.close(fig)
     printlog("Saved: %s" % out_path)
 
-
 def read_node_data_from_odb(job_name, instance_name, target_position,
                             selection_mode='nearest',
                             step_index=-1, frame_index=-1):
@@ -618,3 +644,6 @@ def compute_cumulative_node_displacement(job_names, instance_name, initial_targe
             printlog("Warning: could not read node data for %s: %s" % (job_name, str(e)))
 
     return results
+
+
+
