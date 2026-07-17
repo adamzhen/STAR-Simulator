@@ -1,5 +1,6 @@
 ####################################
 ###### STAR Simulator Library ######
+###### Version 1.0            ######
 ####################################
 
 from abaqus import *
@@ -23,6 +24,9 @@ import matplotlib.pyplot as plt
 import matplotlib.cm as cm
 import matplotlib.colors as mcolors
 import numpy as np
+
+from scipy.spatial import cKDTree
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 (needed for 3d projection)
 
 # Global variables
 _log_file = None
@@ -150,76 +154,8 @@ def read_freecad_result(freecad_to_abaqus_json):
     return result, flux_data_path
 
 # ---------------------------------------------
-# Abaqus helper functions
+# Abaqus general helper functions
 # ---------------------------------------------
-
-def read_temperature_from_odb(job_name, instance_name,
-                              step_index=-1, frame_index=-1):
-    """Read nodal temperatures from the last frame of a job's ODB.
-    Uses DEFORMED coordinates so they match the exported STEP geometry.
-    Returns list of (x, y, z, temp) tuples."""
-
-    odb_path = job_name + '.odb'
-    printlog(f"Reading temperature from ODB: {odb_path}")
-
-    if odb_path in session.odbs:
-        odb = session.odbs[odb_path]
-    else:
-        odb = session.openOdb(odb_path)
-
-    step = odb.steps.values()[step_index]
-    frame = step.frames[frame_index]
-
-    temp_field = frame.fieldOutputs['NT11']
-    disp_field = frame.fieldOutputs['U']
-
-    instances = odb.rootAssembly.instances
-    instance = None
-
-    instance_key_upper = instance_name.upper()
-    if instance_key_upper in instances.keys():
-        instance = instances[instance_key_upper]
-    else:
-        base_name = instance_name.split('(')[0].strip().upper()
-        for key in instances.keys():
-            if base_name in key:
-                instance = instances[key]
-                printlog(f"Found instance with key: {key}")
-                break
-
-    if instance is None:
-        instance = instances.values()[0]
-        printlog(f"Using first instance: {instances.keys()[0]}")
-
-    temp_subset = temp_field.getSubset(region=instance)
-    disp_subset = disp_field.getSubset(region=instance)
-
-    disp_dict = {}
-    for value in disp_subset.values:
-        node_label = value.nodeLabel
-        ux, uy, uz = value.data
-        disp_dict[node_label] = (ux, uy, uz)
-
-    temp_data = []
-    for value in temp_subset.values:
-        node_label = value.nodeLabel
-        temp = value.data
-
-        node_obj = instance.nodes[node_label - 1]
-        x0, y0, z0 = node_obj.coordinates
-
-        if node_label in disp_dict:
-            ux, uy, uz = disp_dict[node_label]
-            x_def = x0 + ux
-            y_def = y0 + uy
-            z_def = z0 + uz
-        else:
-            x_def, y_def, z_def = x0, y0, z0
-
-        temp_data.append((x_def, y_def, z_def, temp))
-
-    printlog(f"Read {len(temp_data)} nodal temperatures with deformed coordinates")
-    return temp_data
 
 def read_flux_data(fluxdata_filepath):
     xyz_data = []
@@ -232,6 +168,311 @@ def read_flux_data(fluxdata_filepath):
             xyz_data.append((x, y, z, flux))
     printlog(f"Loaded {len(xyz_data)} flux points from {fluxdata_filepath}")
     return xyz_data
+
+# ---------------------------------------------
+# Abaqus helper functions (for restart analyses)
+# ---------------------------------------------
+
+def get_deformed_element_centroids(job_name, instance_name,
+                                    step_index=-1, frame_index=-1):
+    """Return dict of element_label -> (x, y, z) deformed centroid
+    for all elements in instance_name, from the given job's ODB."""
+
+    odb_path = job_name + '.odb'
+    if odb_path in session.odbs:
+        odb = session.odbs[odb_path]
+    else:
+        odb = session.openOdb(odb_path)
+
+    instances = odb.rootAssembly.instances
+    instance = None
+
+    instance_key_upper = instance_name.upper()
+    if instance_key_upper in instances.keys():
+        instance = instances[instance_key_upper]
+    else:
+        base_name = instance_name.split('(')[0].strip().upper()
+        for key in instances.keys():
+            if base_name in key.upper():
+                instance = instances[key]
+                printlog("Found instance with key: %s" % key)
+                break
+
+    if instance is None:
+        instance = instances.values()[0]
+        printlog("Using first instance: %s" % instances.keys()[0])
+
+    step = odb.steps.values()[step_index]
+    frame = step.frames[frame_index]
+    disp_field = frame.fieldOutputs['U']
+    disp_subset = disp_field.getSubset(region=instance)
+
+    disp_dict = {}
+    for value in disp_subset.values:
+        disp_dict[value.nodeLabel] = value.data
+
+    node_coords = {n.label: n.coordinates for n in instance.nodes}
+
+    elem_centroids = {}
+    for el in instance.elements:
+        conn = el.connectivity
+        xs, ys, zs = [], [], []
+        for nl in conn:
+            x0, y0, z0 = node_coords[nl]
+            if nl in disp_dict:
+                ux, uy, uz = disp_dict[nl]
+            else:
+                ux, uy, uz = 0.0, 0.0, 0.0
+            xs.append(x0 + ux)
+            ys.append(y0 + uy)
+            zs.append(z0 + uz)
+        n = len(conn)
+        elem_centroids[el.label] = (sum(xs) / n, sum(ys) / n, sum(zs) / n)
+
+    printlog("Computed %d deformed element centroids from %s"
+              % (len(elem_centroids), odb_path))
+    return elem_centroids
+
+def map_flux_to_elements(xyz_data, elem_centroids, max_distance=0.02):
+    """Nearest-neighbor mapping of ray-traced flux points onto element
+    centroids via a KD-tree. Elements with no ray-traced point within
+    max_distance are assigned 0.0 flux."""
+
+    pts = np.array([(x, y, z) for x, y, z, f in xyz_data])
+    vals = np.array([f for x, y, z, f in xyz_data])
+    tree = cKDTree(pts)
+
+    centroid_labels = list(elem_centroids.keys())
+    centroid_coords = np.array([elem_centroids[l] for l in centroid_labels])
+
+    dists, idxs = tree.query(centroid_coords, distance_upper_bound=max_distance)
+
+    elem_fluxes = {}
+    n_zeroed = 0
+    for label, dist, idx in zip(centroid_labels, dists, idxs):
+        if np.isinf(dist):
+            elem_fluxes[label] = 0.0
+            n_zeroed += 1
+        else:
+            elem_fluxes[label] = float(vals[idx])
+
+    printlog("map_flux_to_elements (kd-tree): %d of %d elements zeroed" %
+              (n_zeroed, len(elem_centroids)))
+    return elem_fluxes
+
+def create_restart_step(model, prev_job, prev_step_name, step_name,
+                          job_name, step_time_period, initial_inc,
+                          min_inc, max_inc, deltmx=5.0,
+                          max_num_inc=200, restart_freq=1):
+    """Create a new CoupledTempDisplacementStep that restarts from
+    prev_job/prev_step_name. Does NOT recreate interactions (e.g. radiation
+    to ambient) -- those carry over unchanged per Abaqus restart rules;
+    redefining them here would create duplicate/additive interactions."""
+
+    model.setValues(restartJob=prev_job, restartStep=prev_step_name)
+
+    model.CoupledTempDisplacementStep(
+        name=step_name, previous=prev_step_name,
+        maxNumInc=max_num_inc, timePeriod=step_time_period,
+        initialInc=initial_inc, minInc=min_inc, maxInc=max_inc,
+        deltmx=deltmx, amplitude=STEP, nlgeom=ON)
+    model.steps[step_name].Restart(frequency=restart_freq, numberIntervals=0,
+                                    overlay=ON)
+
+    return job_name
+
+def get_undeformed_element_centroids(model, instance_name):
+    """Return dict of element_label -> (x, y, z) UNDEFORMED centroid for
+    all elements in instance_name, using the reference-configuration node
+    coordinates stored directly on the assembly instance.
+
+    NOTE: In the mesh/assembly API (unlike the ODB API), MeshElement.connectivity
+    returns 0-based INDICES into instance.nodes, not node labels. So nodes
+    must be looked up by position in instance.nodes, not by a label dict.
+    """
+    a = model.rootAssembly
+    instance = a.instances[instance_name]
+
+    nodes = instance.nodes  # indexable sequence, position == connectivity index
+
+    elem_centroids = {}
+    for el in instance.elements:
+        conn = el.connectivity
+        xs, ys, zs = [], [], []
+        for node_idx in conn:
+            x0, y0, z0 = nodes[node_idx].coordinates
+            xs.append(x0)
+            ys.append(y0)
+            zs.append(z0)
+        n = len(conn)
+        elem_centroids[el.label] = (sum(xs) / n, sum(ys) / n, sum(zs) / n)
+
+    printlog("Computed %d undeformed element centroids for instance %s"
+              % (len(elem_centroids), instance_name))
+    return elem_centroids
+
+def apply_mapped_dflux(model, surface_name, step_name, load_name,
+                        instance_name, elem_fluxes, field_name):
+    """Apply per-element flux as a real SurfaceHeatFlux load using a
+    MappedField, keyed by each element's UNDEFORMED centroid (required
+    since MappedField/POINT data is matched against the mesh's reference
+    configuration, not deformed geometry).
+
+    Deletes and recreates the load/field under load_name/field_name if
+    they already exist, so calling this repeatedly with a FIXED load_name
+    across iterations redefines (rather than stacks) the flux load --
+    critical for avoiding additive flux loads across restart steps.
+    """
+    if load_name in model.loads:
+        del model.loads[load_name]
+    if field_name in model.analyticalFields:
+        del model.analyticalFields[field_name]
+
+    undeformed_centroids = get_undeformed_element_centroids(model, instance_name)
+
+    xyz_flux_data = []
+    n_missing = 0
+    for label, flux_val in elem_fluxes.items():
+        if label not in undeformed_centroids:
+            n_missing += 1
+            continue
+        x, y, z = undeformed_centroids[label]
+        xyz_flux_data.append((x, y, z, flux_val))
+
+    if n_missing:
+        printlog("apply_mapped_dflux: %d element labels from elem_fluxes "
+                  "not found in undeformed_centroids -- skipped" % n_missing)
+
+    model.MappedField(
+        name=field_name,
+        description='Per-element flux from ray tracing, keyed by undeformed centroid',
+        regionType=POINT, partLevelData=False, localCsys=None,
+        pointDataFormat=XYZ, fieldDataType=SCALAR,
+        xyzPointData=xyz_flux_data)
+
+    a = model.rootAssembly
+    surf = a.surfaces[surface_name]
+    model.SurfaceHeatFlux(
+        name=load_name, createStepName=step_name,
+        region=surf, magnitude=1.0, distributionType=FIELD,
+        field=field_name)
+
+    printlog("Redefined SurfaceHeatFlux '%s' (field=%s) for step %s"
+              % (load_name, field_name, step_name))
+
+def debug_plot_flux_on_centroids(xyz_data, elem_fluxes, elem_centroids, iterid,
+                                  output_dir, run_no,
+                                  title_prefix='Flux Mapping',
+                                  colorbar_label='Flux (W/m2)',
+                                  pct_clip=100,
+                                  elev=30, azim=-45):
+    """
+    Debugging plot: 3D isometric view showing BOTH the raw ray-traced flux
+    points AND the mapped element-centroid flux values, colored by flux
+    magnitude on a shared colorscale. Useful for visually confirming whether
+    flux mapping is bridging across shadowed/unilluminated regions.
+
+    Parameters
+    ----------
+    xyz_data : list of (x, y, z, flux) tuples
+        Raw ray-traced flux points from FreeCAD (readfluxdata() output).
+    elem_fluxes : dict {element_label: flux}
+        Mapped flux per element, from map_flux_to_elements().
+    elem_centroids : dict {element_label: (x, y, z)}
+        Deformed element centroids, from get_deformed_element_centroids().
+    iterid : int
+        Iteration number, used in the title and filename.
+    output_dir : str
+        Directory to save the PNG into.
+    run_no : str or float
+        Run identifier, used in the filename.
+    title_prefix : str
+        Text prefixed to the plot title.
+    colorbar_label : str
+        Label for the colorbar.
+    pct_clip : float
+        Percentile (0-100) used to clip the colorscale to ignore outliers.
+    elev, azim : float
+        Isometric viewing angles (defaults give a standard iso view).
+    """
+    if not xyz_data and not elem_fluxes:
+        printlog("debug_plot_flux_on_centroids: no data for iteration %d -- skipping" % iterid)
+        return
+
+    ray_xs = [pt[0] for pt in xyz_data]
+    ray_ys = [pt[1] for pt in xyz_data]
+    ray_zs = [pt[2] for pt in xyz_data]
+    ray_fluxes = [pt[3] for pt in xyz_data]
+
+    elem_labels = list(elem_centroids.keys())
+    elem_xs = [elem_centroids[l][0] for l in elem_labels]
+    elem_ys = [elem_centroids[l][1] for l in elem_labels]
+    elem_zs = [elem_centroids[l][2] for l in elem_labels]
+    elem_flux_vals = [elem_fluxes.get(l, 0.0) for l in elem_labels]
+
+    all_fluxes = np.array(list(ray_fluxes) + list(elem_flux_vals), dtype=float)
+    if all_fluxes.size == 0:
+        printlog("debug_plot_flux_on_centroids: no flux values for iteration %d -- skipping" % iterid)
+        return
+
+    vmax = float(np.percentile(all_fluxes, pct_clip))
+    vmin = 0.0
+    norm = mcolors.Normalize(vmin=vmin, vmax=vmax)
+    cmap = cm.get_cmap('jet')
+
+    plt.rcParams.update({'font.size': 12})
+    fig = plt.figure(figsize=(11, 8))
+    ax = fig.add_subplot(111, projection='3d')
+
+    sc_ray = ax.scatter(ray_xs, ray_ys, ray_zs, c=ray_fluxes, cmap=cmap, norm=norm,
+                         s=2, marker='o', linewidths=0, depthshade=False,
+                         label='Ray-traced points (%d)' % len(ray_xs))
+
+    sc_elem = ax.scatter(elem_xs, elem_ys, elem_zs, c=elem_flux_vals, cmap=cmap, norm=norm,
+                          s=30, marker='^', linewidths=0.4, edgecolors='k', alpha=0.6,
+                          depthshade=False,
+                          label='Mapped element centroids (%d)' % len(elem_xs))
+
+    ax.view_init(elev=elev, azim=azim)
+    ax.set_box_aspect((1, 1, 1))
+
+    ax.set_title('%s -- Iteration %d' % (title_prefix, iterid), fontsize=14)
+    ax.set_xlabel('X (m)')
+    ax.set_ylabel('Y (m)')
+    ax.set_zlabel('Z (m)')
+
+    all_xs = ray_xs + elem_xs
+    all_ys = ray_ys + elem_ys
+    all_zs = ray_zs + elem_zs
+    if all_xs:
+        x_min, x_max = min(all_xs), max(all_xs)
+        y_min, y_max = min(all_ys), max(all_ys)
+        z_min, z_max = min(all_zs), max(all_zs)
+
+        x_mean = sum(all_xs) / float(len(all_xs))
+        y_mean = sum(all_ys) / float(len(all_ys))
+        z_mean = sum(all_zs) / float(len(all_zs))
+
+        max_range = max(x_max - x_min, y_max - y_min, z_max - z_min)
+        half_range = 0.5 * max_range + 0.01
+
+        ax.set_xlim(x_mean - half_range, x_mean + half_range)
+        ax.set_ylim(y_mean - half_range, y_mean + half_range)
+        ax.set_zlim(z_mean - half_range, z_mean + half_range)
+
+    ax.legend(loc='upper left', fontsize=10, framealpha=0.7)
+
+    cb = fig.colorbar(sc_elem, ax=ax, shrink=0.7, pad=0.1)
+    cb.set_label(colorbar_label)
+
+    out_path = os.path.join(output_dir, 'flux_mapping_%s_%02d.png' % (run_no, iterid))
+    plt.savefig(out_path, dpi=300, bbox_inches='tight')
+    plt.close(fig)
+    printlog("Saved 3D flux mapping plot: %s" % out_path)
+
+# ---------------------------------------------
+# Abaqus helper functions (no restart / pre-restart analyses)
+# ---------------------------------------------
 
 def update_flux_field(model, xyz_data,
                       field_name='AnalyticalField-1',
@@ -284,7 +525,14 @@ def apply_surface_heat_flux(model, surface_name, step_name, load_name,
 # ---------------------------------------------
 
 def export_obj_from_odb(job_name, obj_path):
-    """Export final deformed geometry to OBJ at true scale."""
+    """Export final deformed geometry to OBJ at true scale.
+
+    Works for both ANALYSIS jobs (ODB may contain multiple stacked steps)
+    and RESTART jobs (ODB contains only the new step(s) from this run).
+    Always uses the LAST step actually present in this ODB, indexed by
+    its position in odb.steps rather than its (possibly restart-inherited)
+    global step number.
+    """
     odb_path = job_name + '.odb'
     printlog(f"Exporting OBJ from ODB: {odb_path}")
 
@@ -300,26 +548,37 @@ def export_obj_from_odb(job_name, obj_path):
 
     vp.setValues(displayedObject=odb)
 
-    last_step_name = odb.steps.keys()[-1]
+    step_names = odb.steps.keys()
+    if not step_names:
+        raise RuntimeError(f"No steps found in ODB: {odb_path}")
+
+    last_step_name = step_names[-1]
     last_step = odb.steps[last_step_name]
+
+    # Index by position in THIS odb's steps, not by last_step.number,
+    # since restart jobs carry over global step numbering from the
+    # original analysis even though only the new step is stored here.
+    step_index = len(step_names) - 1
+
     num_frames = len(last_step.frames)
+    if num_frames == 0:
+        raise RuntimeError(f"Step '{last_step_name}' has no frames in ODB: {odb_path}")
     last_frame_index = num_frames - 1
 
-    step_index = last_step.number - 1
-
     vp.odbDisplay.setFrame(step=step_index, frame=last_frame_index)
-    printlog(f"Set to step '{last_step_name}' (index {step_index}), frame {last_frame_index}")
+    printlog(f"Set to step '{last_step_name}' (position index {step_index}, "
+             f"global step number {last_step.number}), frame {last_frame_index}")
 
     vp.odbDisplay.commonOptions.setValues(deformationScaling=UNIFORM)
     vp.odbDisplay.commonOptions.setValues(uniformScaleFactor=1.0)
     printlog("Set uniformScaleFactor=1.0 (true deformation scale)")
 
-    vp.odbDisplay.display.setValues(plotState=(CONTOURS_ON_DEF, ))
+    vp.odbDisplay.display.setValues(plotState=(CONTOURS_ON_DEF,))
 
-    session.writeOBJFile(fileName=obj_path, canvasObjects=(vp, ))
+    session.writeOBJFile(fileName=obj_path, canvasObjects=(vp,))
     printlog(f"Wrote OBJ to: {obj_path}")
 
-def export_deformed_to_step(job_name, main_step_path, instance_name, model_name,
+def export_deformed_to_step(job_name, deformed_step_name, main_step_path, instance_name, model_name,
                             stitch_tolerance, analytic_fit_tolerance,
                             debug_step_path=None, step_index=-1, frame_index=-1,
                             odb_wait_timeout=600.0):
@@ -355,9 +614,8 @@ def export_deformed_to_step(job_name, main_step_path, instance_name, model_name,
         printlog("Warning: could not match '%s'; using first instance '%s'" % (
             instance_name, resolved_instance_name))
 
-    tmp_part_name = "DEFORMED" + instance_name.replace(' ', '_')
     ptmp = mdb.models[model_name].PartFromOdb(
-        name=tmp_part_name, instance=resolved_instance_name, odb=odb,
+        name=deformed_step_name, instance=resolved_instance_name, odb=odb,
         shape=DEFORMED, step=step_index, frame=frame_index)
 
     elems = ptmp.elements

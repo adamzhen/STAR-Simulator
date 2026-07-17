@@ -1,6 +1,7 @@
-##############################################################
-################# STAR Simulator Main Script #################
-##############################################################
+########################################################
+############## STAR Simulator Main Script ##############
+############## Version 1.0                ##############
+########################################################
 
 ### Set key directories ###
 STAR_DIR = r"C:/Users/adzheng/STAR-Simulator"
@@ -39,21 +40,22 @@ from starlib import *
 #######################################
 
 # RUN PARAMETERS
-RUN_NO     = 0.72
+RUN_NO     = 0.83
 N_ITER     = 9
 CHUNK_TIME = 20.0 # seconds per iterations
 
 # FILE NAMES AND PARAMETERS
 SCENARIO_NAME = 'SMAScenario1'
-OBJECT_NAME   = 'SMAStrip_(Nitinol)'
+OBJECT_NAME   = 'SMAStrip_(Nitinol)'  # ENFORCE NO SPACES 
 OBJECT_FILE   = 'SMAStrip_(Nitinol).stp'
 FCSTD_FILE    = 'SMAScenario1.FCStd'
 DEFORMED_NAME = 'SMAStripDeformed'
+LOAD_NAME = 'SolarFlux' 
 JOB_BASENAME  = 'SMAHeatTransient'
-MODEL_BASENAME = "Model"
+MODEL_BASENAME = f"{SCENARIO_NAME}_Model"
 
 # RAY TRACING PARAMETERS
-N_RAYS = 3000 # Number of rays for OTSun ray tracing
+N_RAYS = 4000 # Number of rays for OTSun ray tracing
 SOLAR_IRRADIANCE = 1361.0  # W/m^2
 OBJECT_MATERIAL = "Nitinol"
 ABSORPTION_ONLY = True  # If True, ray tracing ignores reflections and only accounts for absorption for computational efficiency 
@@ -65,12 +67,12 @@ EMISSIVITY = 0.75
 
 # ABAQUS PARAMETERS
 MESHSIZE   = 0.01 # mesh size in meters
-ANALYTIC_FIT_TOLERANCE = 0.012
+ANALYTIC_FIT_TOLERANCE = 0.02
 STITCH_TOLERANCE = 0.001
 BC_EDGE = [(0, 0, 0), (0, 0.1, 0)] # Edge to fix defined by endpoints
 BC_FIXPOINT = tuple((np.array(BC_EDGE[0]) + np.array(BC_EDGE[1])) / 2.0)
 BC_TOLERANCE = 0.1 # Tolerance for finding edges to fix
-INITIAL_TEMP = 4.0  # Kelvin (K)
+INITIAL_TEMP = 300.0  # Kelvin (K)
 AMBIENT_TEMP = 4.0  # Kelvin (K)
 RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
 
@@ -150,9 +152,9 @@ log(f"EMISSIVITY = {EMISSIVITY}")
 log(f"RUN_COMPARISON = {RUN_COMPARISON}")
 log("")
 
-# ----------------------------------------------------------
+# --------------------------------------------------
 # Main functions
-# ----------------------------------------------------------
+# --------------------------------------------------
 
 def define_encastre_bc(model, a, step_name, pt1, pt2, instance_name, tol=0.001):
     """
@@ -383,13 +385,24 @@ def run_comparison_model(model_name='Model_Comparison',
 
     # 1) Run FreeCAD on original geometry to get initial flux
     transfer_data_to_freecad(
+        abaqus_to_freecad_json=ABAQUS_TO_FREECAD_JSON,
         working_dir=WORKING_DIR,
         fcstd_path=FCSTD_PATH,
         object_path=IMPORT_OBJECT_FILEPATH,
-        iter_id="comparison"
+        iter_id="comparison",
+        run_no=RUN_NO,
+        scenario_name=SCENARIO_NAME,
+        object_name=OBJECT_NAME,
+        num_rays=N_RAYS,
+        sun_dir=SUN_DIR,
+        solar_irradiance=SOLAR_IRRADIANCE,
+        object_material=OBJECT_MATERIAL,
+        absorption_only=ABSORPTION_ONLY,
+        absorptivity_dict=ABSORPTIVITY_DICT
     )
-    run_freecad_macro()
-    xyz_data = read_flux_data()
+    run_freecad_macro(FREECAD_CMD, FREECAD_MACRO, FREECAD_TIMEOUT)
+    freecad_result, FLUXDATA_FILEPATH_local = read_freecad_result(FREECAD_TO_ABAQUS_JSON)
+    xyz_data = read_flux_data(FLUXDATA_FILEPATH_local)
 
     # 2) Build model from original STEP (full duration in a single step)
     printlog("Building comparison model from original geometry")
@@ -456,7 +469,7 @@ def run_comparison_model(model_name='Model_Comparison',
         DEFORMED_DEBUG_DIR,
         f"{DEFORMED_NAME}_Comparison.stp"
     )
-    export_deformed_to_step(job_name,
+    export_deformed_to_step(job_name, deformed_step_name=f"{DEFORMED_NAME}_Comparison",
                             main_step_path=debug_step_path,
                             instance_name=OBJECT_NAME,
                             model_name=model_name,
@@ -467,108 +480,96 @@ def run_comparison_model(model_name='Model_Comparison',
     return job_name, comp_model
 
 # ----------------------------------------------------------
-# Iterative loop: rebuild model each iteration (no restart)
+# Iterative loop: build once (iter 1), restart thereafter
 # ----------------------------------------------------------
 
-printlog("\n=== Starting iterative loop with rebuild each iteration ===")
+printlog("\n=== Starting iterative loop with restart-based steps ===")
+Mdb()
 
 for it in range(1, N_ITER + 1):
-    iter_id   = it
-    job_name  = '%s_%02d' % (JOB_BASENAME, iter_id)
-    model_name = '%s_%02d' % (MODEL_BASENAME, iter_id)
-    step_name  = 'Heat_%02d'  % iter_id
-    load_name  = 'Load_%02d'  % iter_id
-
+    iter_id = it
+    job_name = '%s_%02d' % (JOB_BASENAME, iter_id)
+    step_name = 'Heat_%02d' % iter_id
     _iter_start_time = time.perf_counter()
 
     printlog("\n========================================")
-    printlog(f" Iteration {iter_id} of {N_ITER}  (job {job_name})")
+    printlog(f" Iteration {iter_id} of {N_ITER} (job {job_name})")
     printlog("========================================")
 
-    # Geometry for this iteration
-    if iter_id == 1:
-        object_source = IMPORT_OBJECT_FILEPATH
-    else:
-        object_source = EXPORT_OBJECT_FILEPATH
+    # Geometry fed to FreeCAD ray tracing -- Abaqus mesh itself is frozen
+    # after iteration 1; this is purely for updating the incident-flux calc.
+    object_source = IMPORT_OBJECT_FILEPATH if iter_id == 1 else EXPORT_OBJECT_FILEPATH
 
-    # 0) Tell FreeCAD which geometry to use and run macro
     transfer_data_to_freecad(
         abaqus_to_freecad_json=ABAQUS_TO_FREECAD_JSON,
-        working_dir=WORKING_DIR,
-        fcstd_path=FCSTD_PATH,
-        object_path=object_source,
-        iter_id=iter_id,
-        run_no=RUN_NO,
-        scenario_name=SCENARIO_NAME,
-        object_name=OBJECT_NAME,
-        num_rays=N_RAYS,
-        sun_dir=SUN_DIR,
-        solar_irradiance=SOLAR_IRRADIANCE,
-        object_material=OBJECT_MATERIAL,
-        absorption_only=ABSORPTION_ONLY,
+        working_dir=WORKING_DIR, fcstd_path=FCSTD_PATH,
+        object_path=object_source, iter_id=iter_id, run_no=RUN_NO,
+        scenario_name=SCENARIO_NAME, object_name=OBJECT_NAME,
+        num_rays=N_RAYS, sun_dir=SUN_DIR, solar_irradiance=SOLAR_IRRADIANCE,
+        object_material=OBJECT_MATERIAL, absorption_only=ABSORPTION_ONLY,
         absorptivity_dict=ABSORPTIVITY_DICT
     )
     run_freecad_macro(FREECAD_CMD, FREECAD_MACRO, FREECAD_TIMEOUT)
-
-    # 0b) Check that ray tracing actually succeeded before proceeding
     freecad_result, FLUXDATA_FILEPATH = read_freecad_result(FREECAD_TO_ABAQUS_JSON)
-
-    # 1) Build fresh model from current STEP with temperature from previous iteration if not first
-    if iter_id == 1:
-        prev_temp_data = None
-    else:
-        prev_job = '%s_%02d' % (JOB_BASENAME, iter_id - 1)
-        prev_temp_data = read_temperature_from_odb(prev_job, instance_name=OBJECT_NAME)
-
-    model = build_model_from_step(
-        model_name, step_name, object_source,
-        object_name=OBJECT_NAME,
-        bc_edge=BC_EDGE,
-        mesh_size=MESHSIZE,
-        step_time_period=CHUNK_TIME,
-        initial_temp=INITIAL_TEMP,
-        ambient_temp=AMBIENT_TEMP,
-        prev_temp_data=prev_temp_data
-    )
-
-    # 2) Read flux and update mapped field + load
     xyz_data = read_flux_data(FLUXDATA_FILEPATH)
-    update_flux_field(model, xyz_data, field_name=f"Flux_Field_{iter_id}")
 
-    apply_surface_heat_flux(model, surface_name='All-Surfaces',
-                            step_name=step_name, load_name=load_name, field_name=f"Flux_Field_{iter_id}")
-
-    # Save a copy of this iteration's flux data
     shutil.copy(FLUXDATA_FILEPATH,
                 os.path.join(flux_dir, 'flux_data_%02d.csv' % iter_id))
-    printlog("Saved flux data copy for iteration %d" % iter_id)
 
-    # 3) Create and submit the job (always ANALYSIS, no restart)
-    printlog(f'Creating job {job_name}')
-    mdb.Job(
-        name=job_name,
-        model=model_name,
-        description='Iteration %d' % iter_id,
-        type=ANALYSIS,
-        atTime=None,
-        waitMinutes=0,
-        waitHours=0,
-        queue=None,
-        memory=90,
-        memoryUnits=PERCENTAGE,
-        getMemoryFromAnalysis=True,
-        explicitPrecision=SINGLE,
-        nodalOutputPrecision=SINGLE,
-        echoPrint=OFF,
-        modelPrint=OFF,
-        contactPrint=OFF,
-        historyPrint=OFF,
-        userSubroutine='',
-        scratch='',
-        resultsFormat=ODB,
-        numCpus=1,
-        numGPUs=0
-    )
+    if iter_id == 1:
+        # ---- Build the ONE-TIME base model; mesh generated here only ----
+        model = build_model_from_step(
+            MODEL_BASENAME, step_name, object_source,
+            object_name=OBJECT_NAME, bc_edge=BC_EDGE, mesh_size=MESHSIZE,
+            step_time_period=CHUNK_TIME, initial_temp=INITIAL_TEMP,
+            ambient_temp=AMBIENT_TEMP, emissivity=EMISSIVITY,
+            bc_tol=BC_TOLERANCE
+        )
+        model.steps[step_name].Restart(frequency=1, numberIntervals=0, overlay=ON)
+
+        field_name = 'FluxField_%02d' % iter_id
+        update_flux_field(model, xyz_data, field_name=field_name)
+        apply_surface_heat_flux(model, surface_name='All-Surfaces',
+                                 step_name=step_name,
+                                 load_name=LOAD_NAME, 
+                                 field_name=field_name)
+
+        printlog(f'Creating job {job_name}')
+        mdb.Job(name=job_name, model=MODEL_BASENAME,
+               description='Iteration 1 (base build)', type=ANALYSIS,
+               memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True,
+               explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE,
+               echoPrint=OFF, modelPrint=OFF, contactPrint=OFF,
+               historyPrint=OFF, userSubroutine='', scratch='',
+               resultsFormat=ODB, numCpus=1, numGPUs=0)
+
+    else:
+        prev_job = '%s_%02d' % (JOB_BASENAME, iter_id - 1)
+        prev_step_name = 'Heat_%02d' % (iter_id - 1)
+
+        elem_centroids = get_deformed_element_centroids(prev_job, instance_name=OBJECT_NAME)
+        elem_fluxes = map_flux_to_elements(xyz_data, elem_centroids,
+                                   max_distance=1.2 * MESHSIZE)
+
+        create_restart_step(
+            model, prev_job=prev_job, prev_step_name=prev_step_name,
+            step_name=step_name, job_name=job_name,
+            step_time_period=CHUNK_TIME, initial_inc=0.1, min_inc=4e-5,
+            max_inc=5.0, deltmx=5.0, max_num_inc=200, restart_freq=1)
+
+        field_name = 'FluxField_%02d' % iter_id
+        apply_mapped_dflux(
+            model, surface_name='All-Surfaces', step_name=step_name,
+            load_name=LOAD_NAME, instance_name=OBJECT_NAME,
+            elem_fluxes=elem_fluxes, field_name=field_name)
+
+        mdb.Job(
+            name=job_name, model=model.name, type=RESTART,
+            memory=90, memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True,
+            explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE,
+            echoPrint=OFF, modelPrint=OFF, contactPrint=OFF, historyPrint=OFF,
+            userSubroutine='', scratch='', resultsFormat=ODB,
+            numCpus=1, numGPUs=0)
 
     if os.access(job_name + '.lck', os.F_OK):
         os.remove(job_name + '.lck')
@@ -578,26 +579,23 @@ for it in range(1, N_ITER + 1):
     mdb.jobs[job_name].waitForCompletion()
     printlog(f'Completed job {job_name}')
 
-    # 4) Export current deformed geometry to STEP (and debug copies)
-
-    debug_step_path = os.path.join(
-        DEFORMED_DEBUG_DIR,
-        f"{DEFORMED_NAME}_%02d.stp" % iter_id
-    )
-    debug_obj_path = os.path.join(
-        DEFORMED_DEBUG_DIR,
-        f"{DEFORMED_NAME}Mesh_%02d.obj" % iter_id
-    )
+    # Export current deformed geometry for next FreeCAD ray-tracing pass
+    debug_step_path = os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}_%02d.stp" % iter_id)
+    debug_obj_path = os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}Mesh_%02d.obj" % iter_id)
 
     export_obj_from_odb(job_name, debug_obj_path)
-
-    export_deformed_to_step(job_name,
-                            main_step_path=EXPORT_OBJECT_FILEPATH,
+    export_deformed_to_step(job_name, deformed_step_name=f"{DEFORMED_NAME}_{iter_id}", main_step_path=EXPORT_OBJECT_FILEPATH,
                             debug_step_path=debug_step_path,
-                            model_name=model_name,
+                            model_name=MODEL_BASENAME,
                             instance_name=OBJECT_NAME,
                             stitch_tolerance=STITCH_TOLERANCE,
                             analytic_fit_tolerance=ANALYTIC_FIT_TOLERANCE)
+    
+    # Plot the mapped flux from Abaqus
+    debug_plot_flux_on_centroids(xyz_data,
+                                elem_fluxes if iter_id > 1 else {},
+                                elem_centroids if iter_id > 1 else {},
+                                iter_id, f"{DOCUMENTATION_DIR}/plots", RUN_NO)
 
     iter_elapsed = time.perf_counter() - _iter_start_time
     printlog(f"Iteration {iter_id} elapsed time: {iter_elapsed:.3f} seconds")
@@ -610,7 +608,7 @@ printlog(f"Total iterative analysis time: {_elapsed:.3f} seconds")
 # Post-processing and plotting
 # ----------------------------------------------------------
 
-# Plot the mapped thermal flux from Abaqus
+# Plot the HFL (Heat Flux) from Abaqus
 iter_job_names = ['%s_%02d' % (JOB_BASENAME, i) for i in range(1, N_ITER + 1)]
 plot_mapped_field_on_mesh(iter_job_names, DOCUMENTATION_DIR, RUN_NO,
                           instance_name=OBJECT_NAME,
@@ -625,17 +623,20 @@ tip_data = compute_cumulative_node_displacement(
 )
 
 tip_csv = os.path.join(DOCUMENTATION_DIR, 'tip_displacements_%s.csv' % RUN_NO)
-with open(tip_csv, 'w') as f:
-    f.write("iteration,ux_cum,uy_cum,uz_cum,u_mag_cum,"
-            "tip_def_x,tip_def_y,tip_def_z,tip_label,tmax_K,tmin_K\n")
-    for r in tip_data:
-        f.write("%d,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%d,%.2f,%.2f\n" % (
-            r['iterid'], r['ux_cum'], r['uy_cum'], r['uz_cum'], r['u_mag_cum'],
-            r['def_x'], r['def_y'], r['def_z'], r['node_label'],
-            r['t_max'] if r['t_max'] is not None else float('nan'),
-            r['t_min'] if r['t_min'] is not None else float('nan'),
-        ))
-printlog("Saved cumulative tip displacement to %s" % tip_csv)
+try:
+    with open(tip_csv, 'w') as f:
+        f.write("iteration,ux_cum,uy_cum,uz_cum,u_mag_cum,"
+                "tip_def_x,tip_def_y,tip_def_z,tip_label,tmax_K,tmin_K\n")
+        for r in tip_data:
+            f.write("%d,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%d,%.2f,%.2f\n" % (
+                r['iterid'], r['ux_cum'], r['uy_cum'], r['uz_cum'], r['u_mag_cum'],
+                r['def_x'], r['def_y'], r['def_z'], r['node_label'],
+                r['t_max'] if r['t_max'] is not None else float('nan'),
+                r['t_min'] if r['t_min'] is not None else float('nan'),
+            ))
+    printlog("Saved cumulative tip displacement to %s" % tip_csv)
+except Exception as e:
+    printlog("Failed to save cumulative tip displacement to %s: %s" % (tip_csv, e))
 
 # ----------------------------------------------------------
 # Optional: Run comparison model (single analysis, no iteration)

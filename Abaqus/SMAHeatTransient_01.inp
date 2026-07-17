@@ -2187,7 +2187,7 @@ _All-Surfaces_SPOS, SPOS
 ** 
 ** Name: Temp0   Type: Temperature
 *Initial Conditions, type=TEMPERATURE
-Set-Temp, 4., 4., 4., 4., 4.
+Set-Temp, 300., 300., 300., 300., 300.
 ** ----------------------------------------------------------------
 ** 
 ** STEP: Heat_01
@@ -2204,7 +2204,7 @@ Fixed-Set, ENCASTRE
 ** 
 ** LOADS
 ** 
-** Name: Load_01   Type: Surface heat flux Using Field: Flux_Field_01
+** Name: SolarFlux   Type: Surface heat flux Using Field: FluxField_01
 *Dflux
 SMAStrip_(Nitinol).1, SPOS, 510.375
 SMAStrip_(Nitinol).2, SPOS, 510.375

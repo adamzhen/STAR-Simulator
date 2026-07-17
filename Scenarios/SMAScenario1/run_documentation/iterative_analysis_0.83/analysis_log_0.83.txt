@@ -1,0 +1,288 @@
+RUN NO: 0.83
+Date: 2026-07-17
+
+=== Parameters ===
+SCENARIO_NAME = SMAScenario1
+OBJECT_NAME = SMAStrip_(Nitinol)
+DEFORMED_NAME = SMAStripDeformed
+JOB_BASENAME = SMAHeatTransient
+N_ITER = 9
+CHUNK_TIME = 20.0
+MESHSIZE = 0.01
+N_RAYS = 4000
+SUN_ZENITH = 60
+SUN_AZIMUTH = 0
+SUN_DIR = (0.866025403784439, 0.0, -0.5)
+STITCH_TOLERANCE = 0.001
+ANALYTIC_FIT_TOLERANCE = 0.018
+BC_EDGE = [(0, 0, 0), (0, 0.1, 0)]
+BC_FIXPOINT = (0.0, 0.05, 0.0)
+BC_TOLERANCE = 0.1
+INITIAL_TEMP = 300.0
+AMBIENT_TEMP = 4.0
+EMISSIVITY = 0.75
+RUN_COMPARISON = False
+
+
+=== Starting iterative loop with restart-based steps ===
+
+========================================
+ Iteration 1 of 9 (job SMAHeatTransient_01)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 4.2 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2736 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Creating materials
+Creating composite shell section
+Creating assembly
+Defining step
+Defining initial temperature
+Defining uniform initial temperature
+Defining BC
+Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+Defining amplitude and radiation
+Meshing the strip
+Creating job SMAHeatTransient_01
+Running job SMAHeatTransient_01
+Completed job SMAHeatTransient_01
+Exporting OBJ from ODB: SMAHeatTransient_01.odb
+Set to step 'Heat_01' (position index 0, global step number 1), frame 14
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_01.obj
+Waiting for ODB to be released: SMAHeatTransient_01.odb
+Exporting deformed geometry from SMAHeatTransient_01.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_01.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_01.png
+Iteration 1 elapsed time: 24.933 seconds
+
+========================================
+ Iteration 2 of 9 (job SMAHeatTransient_02)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 4.8 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2762 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_01.odb
+map_flux_to_elements (kd-tree): 52 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_02) for step Heat_02
+Running job SMAHeatTransient_02
+Completed job SMAHeatTransient_02
+Exporting OBJ from ODB: SMAHeatTransient_02.odb
+Set to step 'Heat_02' (position index 0, global step number 2), frame 11
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_02.obj
+Waiting for ODB to be released: SMAHeatTransient_02.odb
+Exporting deformed geometry from SMAHeatTransient_02.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_02.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_02.png
+Iteration 2 elapsed time: 23.861 seconds
+
+========================================
+ Iteration 3 of 9 (job SMAHeatTransient_03)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 4.1 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2748 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_02.odb
+map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_03) for step Heat_03
+Running job SMAHeatTransient_03
+Completed job SMAHeatTransient_03
+Exporting OBJ from ODB: SMAHeatTransient_03.odb
+Set to step 'Heat_03' (position index 0, global step number 3), frame 11
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_03.obj
+Waiting for ODB to be released: SMAHeatTransient_03.odb
+Exporting deformed geometry from SMAHeatTransient_03.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_03.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_03.png
+Iteration 3 elapsed time: 23.218 seconds
+
+========================================
+ Iteration 4 of 9 (job SMAHeatTransient_04)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 4.1 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2728 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_03.odb
+map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_04) for step Heat_04
+Running job SMAHeatTransient_04
+Completed job SMAHeatTransient_04
+Exporting OBJ from ODB: SMAHeatTransient_04.odb
+Set to step 'Heat_04' (position index 0, global step number 4), frame 12
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_04.obj
+Waiting for ODB to be released: SMAHeatTransient_04.odb
+Exporting deformed geometry from SMAHeatTransient_04.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_04.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_04.png
+Iteration 4 elapsed time: 23.142 seconds
+
+========================================
+ Iteration 5 of 9 (job SMAHeatTransient_05)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 36.1 s
+FreeCAD ray tracing succeeded: 2 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2866 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_04.odb
+map_flux_to_elements (kd-tree): 12 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_05) for step Heat_05
+Running job SMAHeatTransient_05
+Completed job SMAHeatTransient_05
+Exporting OBJ from ODB: SMAHeatTransient_05.odb
+Set to step 'Heat_05' (position index 0, global step number 5), frame 11
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_05.obj
+Waiting for ODB to be released: SMAHeatTransient_05.odb
+Exporting deformed geometry from SMAHeatTransient_05.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_05.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_05.png
+Iteration 5 elapsed time: 55.377 seconds
+
+========================================
+ Iteration 6 of 9 (job SMAHeatTransient_06)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 5.9 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2810 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_05.odb
+map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_06) for step Heat_06
+Running job SMAHeatTransient_06
+Completed job SMAHeatTransient_06
+Exporting OBJ from ODB: SMAHeatTransient_06.odb
+Set to step 'Heat_06' (position index 0, global step number 6), frame 12
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_06.obj
+Waiting for ODB to be released: SMAHeatTransient_06.odb
+Exporting deformed geometry from SMAHeatTransient_06.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_06.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_06.png
+Iteration 6 elapsed time: 27.157 seconds
+
+========================================
+ Iteration 7 of 9 (job SMAHeatTransient_07)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 5.4 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2802 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_06.odb
+map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_07) for step Heat_07
+Running job SMAHeatTransient_07
+Completed job SMAHeatTransient_07
+Exporting OBJ from ODB: SMAHeatTransient_07.odb
+Set to step 'Heat_07' (position index 0, global step number 7), frame 12
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_07.obj
+Waiting for ODB to be released: SMAHeatTransient_07.odb
+Exporting deformed geometry from SMAHeatTransient_07.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_07.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_07.png
+Iteration 7 elapsed time: 24.565 seconds
+
+========================================
+ Iteration 8 of 9 (job SMAHeatTransient_08)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 5.5 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2810 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_07.odb
+map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_08) for step Heat_08
+Running job SMAHeatTransient_08
+Completed job SMAHeatTransient_08
+Exporting OBJ from ODB: SMAHeatTransient_08.odb
+Set to step 'Heat_08' (position index 0, global step number 8), frame 12
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_08.obj
+Waiting for ODB to be released: SMAHeatTransient_08.odb
+Exporting deformed geometry from SMAHeatTransient_08.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_08.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_08.png
+Iteration 8 elapsed time: 24.668 seconds
+
+========================================
+ Iteration 9 of 9 (job SMAHeatTransient_09)
+========================================
+Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+Running FreeCAD macro...
+FreeCAD macro finished in 5.9 s
+FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Loaded 2878 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+Computed 1000 deformed element centroids from SMAHeatTransient_08.odb
+map_flux_to_elements (kd-tree): 1 of 1000 elements zeroed
+Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_09) for step Heat_09
+Running job SMAHeatTransient_09
+Completed job SMAHeatTransient_09
+Exporting OBJ from ODB: SMAHeatTransient_09.odb
+Set to step 'Heat_09' (position index 0, global step number 9), frame 12
+Set uniformScaleFactor=1.0 (true deformation scale)
+Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformedMesh_09.obj
+Waiting for ODB to be released: SMAHeatTransient_09.odb
+Exporting deformed geometry from SMAHeatTransient_09.odb
+Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/deformed_cad\SMAStripDeformed_09.stp
+Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83/plots\flux_mapping_0.83_09.png
+Iteration 9 elapsed time: 25.138 seconds
+
+DONE with all iterations.
+Total iterative analysis time: 252.106 seconds
+Read 2000 HFL values for SMAHeatTransient_01
+Read 2000 HFL values for SMAHeatTransient_02
+Read 2000 HFL values for SMAHeatTransient_03
+Read 2000 HFL values for SMAHeatTransient_04
+Read 2000 HFL values for SMAHeatTransient_05
+Read 2000 HFL values for SMAHeatTransient_06
+Read 2000 HFL values for SMAHeatTransient_07
+Read 2000 HFL values for SMAHeatTransient_08
+Read 2000 HFL values for SMAHeatTransient_09
+HFL colorscale: 0 to 136.2 (95th pct)
+Saved: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83\mapped_hfl_on_mesh_0.83.png
+Iter 1: dU=(-0.0013, 0.0000, -0.0473) m  cum|U|=0.0474 m  node=1111  T=[300.1, 300.1] K
+Iter 2: dU=(-0.0042, 0.0000, -0.0817) m  cum|U|=0.1292 m  node=1111  T=[300.2, 300.2] K
+Iter 3: dU=(-0.0080, 0.0000, -0.1136) m  cum|U|=0.2430 m  node=1111  T=[300.2, 300.3] K
+Iter 4: dU=(-0.0114, 0.0000, -0.1363) m  cum|U|=0.3797 m  node=1110  T=[300.2, 300.4] K
+Iter 5: dU=(-0.0142, 0.0000, -0.1521) m  cum|U|=0.5324 m  node=1109  T=[300.2, 300.6] K
+Iter 6: dU=(-0.0164, 0.0000, -0.1639) m  cum|U|=0.6971 m  node=1108  T=[300.1, 300.6] K
+Iter 7: dU=(-0.0176, 0.0000, -0.1691) m  cum|U|=0.8671 m  node=1106  T=[300.0, 300.7] K
+Iter 8: dU=(-0.0183, -0.0000, -0.1712) m  cum|U|=1.0392 m  node=1104  T=[299.9, 300.8] K
+Iter 9: dU=(-0.0185, -0.0000, -0.1710) m  cum|U|=1.2112 m  node=1102  T=[299.8, 300.9] K
+Saved cumulative tip displacement to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/iterative_analysis_0.83\tip_displacements_0.83.csv
+
+DONE with all analyses.
+Total script elapsed time: 256.671 seconds
+
+
