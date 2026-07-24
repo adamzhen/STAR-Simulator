@@ -48,17 +48,20 @@ def close_logging():
         _log_file = None
 
 def printlog(msg):
-    """Print to console and write to log file."""
-    print(msg)
+    """Print to console and write to log file, each line prefixed with
+    a timestamp."""
+    timestamped = "[%s] %s" % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), msg)
+    print(timestamped)
     if _log_file is not None:
-        _log_file.write(msg + '\n')
+        _log_file.write(timestamped + '\n')
     else:
         raise RuntimeError("Logging not initialized. Call init_logging(log_file_path) first.")
 
 def log(msg):
-    """Write to log file only."""
+    """Write to log file only, prefixed with a timestamp."""
+    timestamped = "[%s] %s" % (datetime.now().strftime('%Y-%m-%d %H:%M:%S'), msg)
     if _log_file is not None:
-        _log_file.write(msg + '\n')
+        _log_file.write(timestamped + '\n')
     else:
         raise RuntimeError("Logging not initialized. Call init_logging(log_file_path) first.")
 
@@ -66,32 +69,47 @@ def log(msg):
 # Ray tracing helper functions
 # ---------------------------------------------
 
-def make_sun_dir(zenith_deg=0.0, azimuth_deg=0.0):
+def make_sun_dir(zenith_deg=0.0, azimuth_deg=0.0, up_axis='z'):
     """
     Returns the unit sun direction vector (direction sunlight travels) in
     FreeCAD coords, using the standard solar zenith/azimuth convention.
 
-    zenith_deg: angle from the +Z ("straight overhead") axis.
-        0 deg  = sun directly overhead (beam travels straight down, -Z)
+    zenith_deg: angle from the "up" axis ("straight overhead").
+        0 deg  = sun directly overhead (beam travels straight down, toward -up_axis)
         90 deg = sun at the horizon
-    azimuth_deg: compass direction of the sun in the horizontal (X-Y) plane,
-        measured from the +X axis, increasing toward +Y.
-        0 deg  = tilts the beam in the X-Z plane (equivalent to old tilt_axis='y')
-        90 deg = tilts the beam in the Y-Z plane (equivalent to old tilt_axis='x')
+    azimuth_deg: compass direction of the sun in the plane perpendicular to
+        the up axis, measured from the first in-plane axis, increasing
+        toward the second in-plane axis.
+        0 deg  = tilts the beam in the (first_axis, up_axis) plane
+        90 deg = tilts the beam in the (second_axis, up_axis) plane
+    up_axis: which axis is "up" / vertical. One of 'x', 'y', 'z' (default 'z',
+        matching the original behavior).
+
+    Returns a 3-tuple (x, y, z) representing the beam direction in
+    standard FreeCAD/global coordinates.
     """
     theta = math.radians(zenith_deg)
-    phi   = math.radians(azimuth_deg)
-    return (
-        math.sin(theta) * math.cos(phi),
-        math.sin(theta) * math.sin(phi),
-        -math.cos(theta)
-    )
+    phi = math.radians(azimuth_deg)
+
+    horiz1 = math.sin(theta) * math.cos(phi)
+    horiz2 = math.sin(theta) * math.sin(phi)
+    vert = -math.cos(theta)
+
+    up_axis = up_axis.lower()
+    if up_axis == 'z':
+        return (horiz1, horiz2, vert)
+    elif up_axis == 'y':
+        return (horiz1, vert, horiz2)
+    elif up_axis == 'x':
+        return (vert, horiz1, horiz2)
+    else:
+        raise ValueError("up_axis must be one of 'x', 'y', 'z', got: %r" % up_axis)
     
 def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
                               object_path, iter_id, run_no, scenario_name,
                               object_name, num_rays, sun_dir,
                               solar_irradiance, object_material,
-                              absorption_only, absorptivity_dict):
+                              absorption_only, absorptivity_dict, object_type, geometry_import, node_data = None):
     data = {
         "WORKING_DIR": working_dir,
         "FCSTD_PATH": fcstd_path,
@@ -106,6 +124,9 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
         "OBJECT_MATERIAL": object_material,
         "ABSORPTION_ONLY": absorption_only,
         "ABSORPTIVITY_DICT": absorptivity_dict,
+        "OBJECT_TYPE": object_type,
+        "GEOMETRY_IMPORT": geometry_import,
+        "NODE_DATA": node_data,
     }
     with open(abaqus_to_freecad_json, 'w') as f:
         json.dump(data, f, indent=2)
@@ -258,6 +279,41 @@ def map_flux_to_elements(xyz_data, elem_centroids, max_distance=0.02):
 
     printlog("map_flux_to_elements (kd-tree): %d of %d elements zeroed" %
               (n_zeroed, len(elem_centroids)))
+    return elem_fluxes
+
+def map_flux_to_wire_elements(xyz_data, elem_centroids, wire_radius):
+    """
+    xyz_data: array of (x, y, z, flux) ray-hit points (flux = absorbed
+              power density at that point's local surface patch, W/m^2)
+    elem_centroids: dict {element_label: (x, y, z)} from
+                    get_deformed_element_centroids / get_undeformed_element_centroids
+    wire_radius: physical wire radius (m)
+
+    Assigns each hit point to its nearest element centroid (by axial
+    position along the wire), sums total absorbed power in that bin,
+    and redistributes it uniformly around the full circumference.
+    """
+    import numpy as np
+
+    labels = list(elem_centroids.keys())
+    centroids = np.array([elem_centroids[l] for l in labels])
+    xyz_data = np.asarray(xyz_data)
+    pts = xyz_data[:, :3]
+    flux_vals = xyz_data[:, 3]
+
+    dists = np.linalg.norm(pts[:, None, :] - centroids[None, :, :], axis=2)
+    nearest_idx = np.argmin(dists, axis=1)
+
+    elem_fluxes = {}
+    for i, label in enumerate(labels):
+        mask = nearest_idx == i
+        if not np.any(mask):
+            elem_fluxes[label] = 0.0
+            continue
+        elem_fluxes[label] = np.average(flux_vals[mask])  # placeholder, see note
+
+    printlog("map_flux_to_wire_elements: mapped flux to %d wire elements" % len(elem_fluxes))
+
     return elem_fluxes
 
 def create_restart_step(model, prev_job, prev_step_name, step_name,
@@ -465,7 +521,7 @@ def debug_plot_flux_on_centroids(xyz_data, elem_fluxes, elem_centroids, iterid,
     cb = fig.colorbar(sc_elem, ax=ax, shrink=0.7, pad=0.1)
     cb.set_label(colorbar_label)
 
-    out_path = os.path.join(output_dir, 'flux_mapping_%s_%02d.png' % (run_no, iterid))
+    out_path = os.path.join(output_dir, 'flux_3d_mapping_%02d_%s.png' % (iterid, run_no))
     plt.savefig(out_path, dpi=300, bbox_inches='tight')
     plt.close(fig)
     printlog("Saved 3D flux mapping plot: %s" % out_path)
@@ -499,10 +555,34 @@ def update_flux_field(model, xyz_data,
             interpolationTol=interpolation_tol
         )
         
-def apply_surface_heat_flux(model, surface_name, step_name, load_name,
-                            field_name, magnitude=1.0):
+def apply_surface_heat_flux(model, step_name, load_name, field_name,
+                              magnitude=1.0, surface_name=None,
+                              instance_name=None, part_surface_name=None):
+    """
+    Applies (or updates, if already defined) a mapped SurfaceHeatFlux load.
+    Works for both shell and wire objects:
+      - Shell pipeline: pass surface_name (assembly-level surface, e.g.
+        'All-Surfaces', created via a.Surface(...) in build_model_from_step).
+      - Wire pipeline: pass instance_name + part_surface_name (e.g.
+        instance_name=OBJECT_NAME, part_surface_name=LOAD_SURFACE), which
+        resolves to a.instances[instance_name].surfaces[part_surface_name].
+
+    If load_name already exists on the model (e.g. across restart
+    iterations), its region/magnitude/field are updated in place rather
+    than creating a duplicate load.
+    """
     a = model.rootAssembly
-    region = a.surfaces[surface_name]
+
+    if surface_name is not None:
+        region = a.surfaces[surface_name]
+    elif instance_name is not None and part_surface_name is not None:
+        region = a.instances[instance_name].surfaces[part_surface_name]
+    else:
+        raise ValueError(
+            "Must provide either surface_name (assembly-level) or "
+            "instance_name + part_surface_name (part-level, wire pipeline)."
+        )
+
     if load_name in model.loads.keys():
         model.loads[load_name].setValues(
             region=region,
@@ -519,6 +599,8 @@ def apply_surface_heat_flux(model, surface_name, step_name, load_name,
             distributionType=FIELD,
             field=field_name
         )
+
+    return load_name
 
 # ---------------------------------------------
 # Post-processing functions
@@ -632,7 +714,7 @@ def export_deformed_to_step(job_name, deformed_step_name, main_step_path, instan
 
     odb.close()
 
-def plot_mapped_field_on_mesh(job_names, output_dir, run_no,
+def plot_field_output(job_names, output_dir, run_no,
                               instance_name,
                               field_name,
                               frame_index=1,
@@ -643,7 +725,7 @@ def plot_mapped_field_on_mesh(job_names, output_dir, run_no,
     if colorbar_label is None:
         colorbar_label = '%s Magnitude' % field_name
     if output_basename is None:
-        output_basename = 'mapped_%s_on_mesh' % field_name.lower()
+        output_basename = '%s_field_output' % field_name.lower()
 
 
     all_data = []
@@ -779,19 +861,112 @@ def plot_mapped_field_on_mesh(job_names, output_dir, run_no,
     plt.close(fig)
     printlog("Saved: %s" % out_path)
 
-def read_node_data_from_odb(job_name, instance_name, target_position,
-                            selection_mode='nearest',
-                            step_index=-1, frame_index=-1):
+def plot_mapped_flux_input(elem_fluxes_list, elem_centroids_list, output_dir, run_no,
+                             colorbar_label='Solar Flux Magnitude (W/m2)',
+                             output_basename='solar_flux_mapped_input'):
     """
-    Reads displacement and temperature of a single node from an ODB,
+    Plots the INPUT flux applied to each element via apply_mapped_dflux,
+    for each iteration -- NOT solved ODB output. Same stacked-subplot
+    style as plot_mapped_field_on_mesh, but sourced directly from the
+    elem_fluxes dict (element_label -> flux) and elem_centroids dict
+    (element_label -> (x, y, z)) built BEFORE the job is submitted.
+
+    elem_fluxes_list: list of dicts {element_label: flux}, one per iteration
+        (as passed into apply_mapped_dflux each iteration).
+    elem_centroids_list: list of dicts {element_label: (x, y, z)}, one per
+        iteration, matching elem_fluxes_list (e.g. from
+        get_undeformed_element_centroids or get_deformed_element_centroids).
+    """
+    all_data = []
+
+    for idx, (elem_fluxes, elem_centroids) in enumerate(zip(elem_fluxes_list, elem_centroids_list)):
+        if not elem_fluxes or not elem_centroids:
+            printlog("plot_mapped_flux_input: no data for iteration %d" % (idx + 1))
+            all_data.append(None)
+            continue
+
+        xs, ys, mags = [], [], []
+        for label, flux_val in elem_fluxes.items():
+            if label not in elem_centroids:
+                continue
+            x, y, z = elem_centroids[label]
+            xs.append(x)
+            ys.append(y)
+            mags.append(abs(flux_val))
+
+        if mags:
+            all_data.append((xs, ys, mags))
+            printlog("Read %d mapped flux input values for iteration %d" % (len(mags), idx + 1))
+        else:
+            all_data.append(None)
+
+    all_mags = []
+    for entry in all_data:
+        if entry is not None:
+            all_mags.extend(entry[2])
+    if not all_mags:
+        printlog("No mapped flux input data found -- aborting plot.")
+        return
+
+    global_min = 0.0
+    global_max = float(np.percentile(np.array(all_mags, dtype=float), 95))
+    printlog("Mapped flux input colorscale: 0 to %.1f (95th pct)" % global_max)
+
+    norm = mcolors.Normalize(vmin=global_min, vmax=global_max)
+    cmap = cm.get_cmap('jet')
+    n = len(all_data)
+
+    plt.rcParams.update({'font.size': 12})
+    fig, axes = plt.subplots(n, 1, figsize=(14, 2.4 * n + 0.8), squeeze=False)
+    last_sc = None
+
+    for idx in range(n):
+        ax = axes[idx][0]
+        entry = all_data[idx]
+        if entry is None:
+            ax.set_title('Iteration %d  (no data)' % (idx + 1))
+            ax.axis('off')
+            continue
+
+        xs, ys, mags = entry
+        last_sc = ax.scatter(xs, ys, c=mags, cmap=cmap, norm=norm,
+                              s=8, linewidths=0, marker='s')
+
+        title = 'Iteration %d' % (idx + 1)
+        ax.set_title(title, fontsize=16, pad=2)
+        ax.set_xlabel('X (m)', fontsize=14)
+        ax.set_ylabel('Y (m)', fontsize=14)
+        ax.tick_params(labelsize=12)
+        ax.set_xlim(min(xs) - 0.01, max(xs) + 0.01)
+        ax.set_ylim(min(ys) - 0.005, max(ys) + 0.005)
+
+    if last_sc is not None:
+        fig.subplots_adjust(right=0.84, hspace=0.65, top=0.94)
+        cbar_ax = fig.add_axes([0.87, 0.08, 0.022, 0.84])
+        cb = fig.colorbar(last_sc, cax=cbar_ax)
+        cb.set_label(colorbar_label, fontsize=14)
+        cb.ax.tick_params(labelsize=8)
+
+    out_path = os.path.join(output_dir, '%s_%s.png' % (output_basename, run_no))
+    plt.savefig(out_path, dpi=250, bbox_inches='tight')
+    plt.close(fig)
+    printlog("Saved: %s" % out_path)
+
+def find_tracked_node_label(job_name, instance_name, target_position,
+                              selection_mode='nearest',
+                              step_index=0, frame_index=0):
+    """
+    Identify a node label ONCE from the reference (first) job's mesh,
     selected by its UNDEFORMED position relative to target_position.
+
+    Since restart jobs reuse the same mesh (no remeshing between
+    iterations), this label stays valid for every later job in the
+    restart chain -- so this only needs to be called a single time,
+    against the very first job, not per-iteration.
     """
     odb_path = job_name + '.odb'
     odb = session.openOdb(odb_path, readOnly=True)
     try:
-        step  = odb.steps.values()[step_index]
-        frame = step.frames[frame_index]
-
         instances = odb.rootAssembly.instances
         inst = instances[instances.keys()[0]]
         for key in instances.keys():
@@ -804,7 +979,7 @@ def read_node_data_from_odb(job_name, instance_name, target_position,
         tx, ty, tz = target_position
         node_label, best_dist = None, None
         for label, (x, y, z) in node_coords.items():
-            d = math.sqrt((x-tx)**2 + (y-ty)**2 + (z-tz)**2)
+            d = math.sqrt((x - tx) ** 2 + (y - ty) ** 2 + (z - tz) ** 2)
             if best_dist is None:
                 node_label, best_dist = label, d
             elif selection_mode == 'nearest' and d < best_dist:
@@ -812,80 +987,108 @@ def read_node_data_from_odb(job_name, instance_name, target_position,
             elif selection_mode == 'farthest' and d > best_dist:
                 node_label, best_dist = label, d
 
-        u_field  = frame.fieldOutputs['U']
-        u_subset = u_field.getSubset(region=inst)
-        u_dict   = {v.nodeLabel: v.data for v in u_subset.values}
+        printlog("Tracked node label %d selected (%s) from %s"
+                  % (node_label, selection_mode, odb_path))
+        return node_label, node_coords[node_label]
 
+    finally:
+        odb.close()
+
+def read_tracked_node_displacement(job_name, instance_name, node_label,
+                                    step_index=-1, frame_index=-1):
+    """
+    Reads U (total displacement from the ORIGINAL undeformed mesh
+    coordinates) and temperature for a FIXED node_label from the given
+    job's ODB. Because restarts reuse the same mesh/coordinates, U here
+    is already the true cumulative displacement -- no summing across
+    iterations required.
+    """
+    odb_path = job_name + '.odb'
+    odb = session.openOdb(odb_path, readOnly=True)
+    try:
+        step = odb.steps.values()[step_index]
+        frame = step.frames[frame_index]
+
+        instances = odb.rootAssembly.instances
+        inst = instances[instances.keys()[0]]
+        for key in instances.keys():
+            if instance_name.upper() in key.upper():
+                inst = instances[key]
+                break
+
+        rx, ry, rz = [n.coordinates for n in inst.nodes if n.label == node_label][0]
+
+        u_field = frame.fieldOutputs['U']
+        u_subset = u_field.getSubset(region=inst)
+        u_dict = {v.nodeLabel: v.data for v in u_subset.values}
         ux, uy, uz = u_dict.get(node_label, (0.0, 0.0, 0.0))
-        rx, ry, rz = node_coords[node_label]
+
         def_pos = (rx + ux, ry + uy, rz + uz)
 
         t_max, t_min = None, None
         if 'NT11' in frame.fieldOutputs:
-            t_field  = frame.fieldOutputs['NT11']
+            t_field = frame.fieldOutputs['NT11']
             t_subset = t_field.getSubset(region=inst)
-            temps    = [v.data for v in t_subset.values]
+            temps = [v.data for v in t_subset.values]
             if temps:
                 t_max = max(temps)
                 t_min = min(temps)
 
-        return ux, uy, uz, def_pos, node_label, t_max, t_min
+        return ux, uy, uz, def_pos, t_max, t_min
 
     except Exception as e:
-        printlog("Error reading node data from %s: %s" % (odb_path, str(e)))
+        printlog("Error reading node %d from %s: %s" % (node_label, odb_path, str(e)))
         raise
 
     finally:
         odb.close()
 
 def compute_cumulative_node_displacement(job_names, instance_name, initial_target,
-                                         initial_selection_mode='farthest'):
+                                          initial_selection_mode='farthest'):
     """
-    Tracks a node across all iterations using deformed-position chaining,
-    then sums incremental displacements to give cumulative displacement
-    relative to the original geometry.
+    Tracks ONE node label (identified once from the first job) across
+    the full restart chain and reads its TRUE cumulative displacement
+    directly from each job's U field -- no incremental summing, since
+    restart jobs report U relative to the original undeformed mesh.
 
-    initial_target: (x, y, z) reference position used on the FIRST iteration
-    initial_selection_mode: 'farthest' or 'nearest' -- how the first-iteration
-        node is selected relative to initial_target. All subsequent iterations
-        use 'nearest' to the previous iteration's deformed position.
+    initial_target: (x, y, z) reference position used to select the
+        tracked node in job_names[0].
+    initial_selection_mode: 'farthest' or 'nearest' relative to
+        initial_target.
 
     Returns list of dicts, one per iteration:
         iterid, ux_cum, uy_cum, uz_cum, u_mag_cum,
         node_label, def_x, def_y, def_z, t_max, t_min
     """
-    cum      = [0.0, 0.0, 0.0]
-    results  = []
-    target   = initial_target
-    mode     = initial_selection_mode
+    results = []
+
+    node_label, ref_pos = find_tracked_node_label(
+        job_names[0], instance_name, initial_target,
+        selection_mode=initial_selection_mode)
 
     for idx, job_name in enumerate(job_names):
         try:
-            ux, uy, uz, def_pos, node_label, t_max, t_min = \
-                read_node_data_from_odb(job_name, instance_name, target,
-                                        selection_mode=mode)
+            ux, uy, uz, def_pos, t_max, t_min = \
+                read_tracked_node_displacement(job_name, instance_name, node_label)
 
-            cum[0] += ux
-            cum[1] += uy
-            cum[2] += uz
-            mag = math.sqrt(cum[0]**2 + cum[1]**2 + cum[2]**2)
+            mag = math.sqrt(ux ** 2 + uy ** 2 + uz ** 2)
 
             results.append({
-                'iterid':    idx + 1,
-                'ux_cum':    cum[0],
-                'uy_cum':    cum[1],
-                'uz_cum':    cum[2],
+                'iterid': idx + 1,
+                'ux_cum': ux,
+                'uy_cum': uy,
+                'uz_cum': uz,
                 'u_mag_cum': mag,
                 'node_label': node_label,
-                'def_x':     def_pos[0],
-                'def_y':     def_pos[1],
-                'def_z':     def_pos[2],
-                't_max':     t_max,
-                't_min':     t_min,
+                'def_x': def_pos[0],
+                'def_y': def_pos[1],
+                'def_z': def_pos[2],
+                't_max': t_max,
+                't_min': t_min,
             })
 
             printlog(
-                "Iter %d: dU=(%.4f, %.4f, %.4f) m  cum|U|=%.4f m  "
+                "Iter %d: cumU=(%.4f, %.4f, %.4f) m  |U|=%.4f m  "
                 "node=%d  T=[%.1f, %.1f] K" % (
                     idx + 1, ux, uy, uz, mag,
                     node_label,
@@ -894,14 +1097,8 @@ def compute_cumulative_node_displacement(job_names, instance_name, initial_targe
                 )
             )
 
-            # Subsequent iterations track the previous deformed position
-            target = def_pos
-            mode = 'nearest'
-
         except Exception as e:
             printlog("Warning: could not read node data for %s: %s" % (job_name, str(e)))
 
     return results
-
-
 

@@ -1,0 +1,708 @@
+##### SolarFluxCalcWire.FCMacro #####
+
+# ============================================================================
+# IMPORT LIBRARIES
+# ============================================================================
+
+import os
+import sys
+import FreeCAD
+import Part
+import csv
+import math
+import json
+import time
+
+sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\site-packages\python3.10")
+import otsun
+
+# start timer
+_start_time = time.perf_counter()  # TIMING
+
+# ============================================================================
+# Read in Parameters
+# ============================================================================
+
+try:
+	script_dir = os.path.dirname(os.path.abspath(__file__))
+except NameError: # Change this manually to the correct directory if os.path fails
+	script_dir = r"C:\Users\adzheng\STAR-Simulator\Scenarios\SMAScenario1\scripts"
+	print("WARNING: Script directory path detection failed. Manual directory setting used.")
+
+config_file = os.path.normpath(os.path.join(script_dir, "..", "abaqus_to_freecad.json"))
+if not os.path.isfile(config_file):
+	raise FileNotFoundError(f"Config file not found at: {config_file}")
+
+REQUIRED_KEYS = ['WORKING_DIR', 'FCSTD_PATH', 'OBJECT_PATH', 'OBJECT_NAME', 'OBJECT_TYPE',
+                 'ITER_ID', 'RUN_NO', 'SCENARIO_NAME', 'NUM_RAYS', 'SUN_DIR',
+                 'SOLAR_IRRADIANCE', 'OBJECT_MATERIAL', 'ABSORPTION_ONLY', 'ABSORPTIVITY_DICT', 'GEOMETRY_IMPORT']
+
+with open(config_file, 'r') as f:
+    cfg = json.load(f)
+
+missing = [k for k in REQUIRED_KEYS if k not in cfg]
+if missing:
+    raise RuntimeError(f"Missing required keys {missing} in {config_file}")
+
+cfg['SUN_DIR'] = tuple(cfg['SUN_DIR'])
+
+WORKING_DIR = cfg['WORKING_DIR']
+FCSTD_PATH = cfg['FCSTD_PATH']
+OBJECT_PATH = cfg['OBJECT_PATH']
+OBJECT_NAME = cfg['OBJECT_NAME']
+ITER_ID = cfg['ITER_ID']
+RUN_NO = cfg['RUN_NO']
+SCENARIO_NAME = cfg['SCENARIO_NAME']
+NUM_RAYS = cfg['NUM_RAYS']
+SUN_DIR = cfg['SUN_DIR']
+SOLAR_IRRADIANCE = cfg['SOLAR_IRRADIANCE']
+OBJECT_MATERIAL = cfg['OBJECT_MATERIAL']
+ABSORPTION_ONLY = cfg['ABSORPTION_ONLY']
+ABSORPTIVITY_DICT = cfg['ABSORPTIVITY_DICT']
+OBJECT_TYPE = cfg.get('OBJECT_TYPE')          # 'shell' or 'wire'
+GEOMETRY_IMPORT = cfg.get('GEOMETRY_IMPORT')     # 'stp' or 'nodes'
+NODE_DATA = cfg.get('NODE_DATA', None)
+
+# ============================================================================
+# Set Parameters
+# ============================================================================
+
+EXPERIMENT_DATA_FILEPATH = f"{WORKING_DIR}/experiment_data.csv"
+FLUX_DATA_FILEPATH = f"{WORKING_DIR}/flux_data.csv"
+DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/run_{RUN_NO}"
+ABSORPTION_PLOT_DIR = f"{DOCUMENTATION_DIR}/plots"
+os.makedirs(ABSORPTION_PLOT_DIR, exist_ok=True)
+
+PLOT2D = True # Plot absorption points on 2D graph if PLOT2D is True
+DISP3D = True # Display rays in FreeCAD if True
+KEEP_WORKING_COPY = True  # Keeps working copy of .Fcstd doc used for ray tracing
+
+SOLAR_IRRADIANCE = 1361.0 # W/m^2
+OBJECT_ABSORPTIVITY = ABSORPTIVITY_DICT[OBJECT_MATERIAL]
+
+print("Running with config:")
+for key in REQUIRED_KEYS:
+	print(f" {key}:", cfg[key])
+print(" FLUX_DATA_FILEPATH:", FLUX_DATA_FILEPATH)
+print(" ABSORPTION_PLOT_DIR:", ABSORPTION_PLOT_DIR)
+
+
+
+### Set Output Path for FreeCAD -> Abaqus Data Transfer ###
+FREECAD_TO_ABAQUS_JSON = os.path.normpath(os.path.join(script_dir, "..", "freecad_to_abaqus.json"))
+
+# ============================================================================
+# HELPER FUNCTIONS
+# ============================================================================
+
+def build_wire_pipefuse(nodes, elements, radius=0.02):
+    """
+    Build individual swept-pipe solids for straight truss segments and fuse them.
+
+    nodes: dict {node_id: App.Vector(x, y, z)}
+    elements: list of (node1_id, node2_id) tuples
+    radius: cross-section radius (m), from Abaqus Property module
+    """
+    solids = []
+    for n1, n2 in elements:
+        p1, p2 = nodes[n1], nodes[n2]
+        direction = p2.sub(p1)
+        if direction.Length < 1e-9:
+            continue
+
+        edge = Part.LineSegment(p1, p2).toShape()
+        path = Part.Wire([edge])
+
+        circle = Part.Circle(p1, direction, radius)
+        profile = Part.Wire([circle.toShape()])
+
+        pipe = path.makePipeShell([profile], True, True)
+        solids.append(pipe)
+
+    if not solids:
+        raise ValueError("No valid elements to build geometry from.")
+
+    fused = solids[0].fuse(solids[1:]) if len(solids) > 1 else solids[0]
+    return fused
+
+
+def remove_existing_target(doc, object_name):
+    """
+    Remove only a previous instance of the target object (by label),
+    leaving every other object in the scene untouched.
+    """
+    existing = doc.getObjectsByLabel(object_name)
+    for obj in existing:
+        doc.removeObject(obj.Name)
+    if existing:
+        doc.recompute()
+        print(f"Removed {len(existing)} pre-existing object(s) labeled '{object_name}'")
+
+
+def import_target_from_stp(doc, object_path, object_name):
+    """Import target geometry from a STEP file (console-safe)."""
+    import Import  # non-GUI import module
+    n_before = len(doc.Objects)
+    Import.insert(object_path, doc.Name)  # works in FreeCADCmd
+    new_objs = doc.Objects[n_before:]
+    if not new_objs:
+        raise RuntimeError(f"STEP import produced no new objects from {object_path}")
+    imported_obj = new_objs[0]
+    imported_obj.Label = object_name
+    doc.recompute()
+    return imported_obj
+
+
+def build_target_from_nodes(doc, object_type, node_data, object_name):
+    """
+    Reconstruct target geometry in FreeCAD directly from Abaqus node/element
+    data, without importing a STEP file. Supports 'wire' (swept-pipe truss)
+    and 'shell' (flat/faceted plate from node coordinates) object types.
+    """
+    if node_data is None:
+        raise ValueError("GEOMETRY_IMPORT is 'nodes' but NODE_DATA was not provided.")
+
+    raw_nodes = node_data['nodes']
+    nodes = {int(nid): FreeCAD.Vector(*coords) for nid, coords in raw_nodes.items()}
+    elements = [tuple(e) for e in node_data['elements']]
+
+    if object_type == 'wire':
+        radius = node_data.get('radius', 0.02)
+        shape = build_wire_pipefuse(nodes, elements, radius=radius)
+
+    elif object_type == 'shell':
+        # Build shell faces directly from element connectivity (assumes each
+        # 'element' entry lists the ordered node IDs of one shell face, e.g.
+        # a triangle [1, 2, 3] or quad [1, 2, 3, 4]).
+        faces = []
+        for elem in elements:
+            pts = [nodes[nid] for nid in elem] + [nodes[elem[0]]]
+            wire = Part.makePolygon(pts)
+            faces.append(Part.Face(wire))
+        shape = Part.Shell(faces) if len(faces) > 1 else faces[0]
+
+    else:
+        raise ValueError(f"Unknown OBJECT_TYPE: {object_type!r}. Must be 'shell' or 'wire'.")
+
+    target_obj = doc.addObject("Part::Feature", object_name)
+    target_obj.Shape = shape
+    target_obj.Label = object_name
+    doc.recompute()
+    return target_obj
+    
+def extract_faces_from_solid(doc, solid_obj_label):
+	solid = doc.getObjectsByLabel(solid_obj_label)[0]
+	print(f"Extracting {len(solid.Shape.Faces)} faces from '{solid_obj_label}'...")
+	
+	face_objects = []
+	for i, face in enumerate(solid.Shape.Faces):
+		face_obj = doc.addObject("Part::Feature", f"{solid.Name}_Face{i}")
+		face_obj.Shape = face
+		face_obj.Label = f"{solid.Label}_Face{i}"
+		face_objects.append(face_obj)
+	
+	doc.removeObject(solid.Name)
+	doc.recompute()
+	print(f"Extracted {len(face_objects)} faces")
+	return face_objects
+
+
+def compute_geometry_complexity(target_faces, verbose=True):
+    """Score each face by analytical surface/curve type to estimate
+    ray-intersection cost. Closed-form surfaces (plane, cylinder, cone,
+    sphere, torus) are cheap; Bezier/B-spline surfaces require iterative
+    root-finding per ray and are much more expensive. Trimming curve
+    type on each edge adds secondary cost since OCC must also evaluate
+    the 2D trimming boundary during intersection.
+
+    Returns dict with per-face breakdown and aggregate scores.
+    """
+    import Part
+
+    SURFACE_WEIGHTS = {
+        'Plane': 1.0,
+        'Cylinder': 2.5,
+        'Cone': 3.0,
+        'Sphere': 3.0,
+        'Toroid': 4.0,
+        'SurfaceOfRevolution': 8.0,
+        'SurfaceOfExtrusion': 8.0,
+        'OffsetSurface': 10.0,
+        'BezierSurface': 20.0,
+        'BSplineSurface': 40.0,
+    }
+    CURVE_WEIGHTS = {
+        'Line': 1.0,
+        'Circle': 1.5,
+        'Ellipse': 2.0,
+        'Parabola': 2.0,
+        'Hyperbola': 2.0,
+        'BezierCurve': 5.0,
+        'BSplineCurve': 8.0,
+        'OffsetCurve': 8.0,
+    }
+
+    per_face = []
+    surf_type_counts = {}
+    curve_type_counts = {}
+    total_score = 0.0
+
+    for face_obj in target_faces:
+        for face in face_obj.Shape.Faces:
+            surf = face.Surface
+            surf_type = type(surf).__name__
+            surf_type_counts[surf_type] = surf_type_counts.get(surf_type, 0) + 1
+            base_weight = SURFACE_WEIGHTS.get(surf_type, 15.0)  # unknown -> assume moderately costly
+
+            pole_factor = 1.0
+            degree_info = ''
+            if surf_type == 'BSplineSurface':
+                try:
+                    nu = surf.NbUPoles
+                    nv = surf.NbVPoles
+                    du = surf.UDegree
+                    dv = surf.VDegree
+                    pole_factor = 1.0 + 0.02 * (nu * nv)
+                    degree_info = 'deg=(%d,%d) poles=(%d,%d)' % (du, dv, nu, nv)
+                except Exception:
+                    pass
+
+            edge_score = 0.0
+            edge_count = 0
+            for edge in face.Edges:
+                curve_type = type(edge.Curve).__name__
+                curve_type_counts[curve_type] = curve_type_counts.get(curve_type, 0) + 1
+                edge_score += CURVE_WEIGHTS.get(curve_type, 6.0)
+                edge_count += 1
+            edge_score_avg = edge_score / edge_count if edge_count else 0.0
+
+            face_score = base_weight * pole_factor + edge_score_avg
+            total_score += face_score
+
+            per_face.append({
+                'label': face_obj.Label,
+                'surface_type': surf_type,
+                'degree_info': degree_info,
+                'num_edges': edge_count,
+                'area': face.Area,
+                'score': face_score,
+            })
+
+    result = {
+        'num_faces': len(per_face),
+        'total_complexity_score': total_score,
+        'mean_complexity_per_face': total_score / len(per_face) if per_face else 0.0,
+        'surface_type_counts': surf_type_counts,
+        'curve_type_counts': curve_type_counts,
+        'per_face': per_face,
+    }
+
+    if verbose:
+        print("\n=== Geometry Complexity Report ===")
+        print("Total faces: %d" % result['num_faces'])
+        print("Surface type breakdown:")
+        for stype, count in sorted(surf_type_counts.items(), key=lambda x: -x[1]):
+            print("  %-22s %d" % (stype, count))
+        print("Edge curve type breakdown:")
+        for ctype, count in sorted(curve_type_counts.items(), key=lambda x: -x[1]):
+            print("  %-22s %d" % (ctype, count))
+        print("Total complexity score: %.2f" % result['total_complexity_score'])
+        print("Mean complexity/face:   %.2f" % result['mean_complexity_per_face'])
+        top5 = sorted(per_face, key=lambda f: -f['score'])[:5]
+        print("Top 5 most complex faces:")
+        for f in top5:
+            print("  %-30s %-16s score=%.2f  %s" %
+                  (f['label'], f['surface_type'], f['score'], f['degree_info']))
+        print("===================================\n")
+
+    return result
+    
+    
+def absorbed_flux(irradiance, absorptivity, angle_deg):
+	"""Flux absorbed on a surface for given incidence angle."""
+	theta_rad = math.radians(angle_deg)
+	return irradiance * absorptivity * math.cos(theta_rad)
+
+def get_tessellation_tolerance(target_faces, ratio=0.002):
+	"""
+	Compute tessellation deflection tolerance as a fraction of the
+	bounding box diagonal of the combined target faces.
+	ratio=0.002 (0.2%) is the industry standard for silhouette capture.
+	"""
+	import math
+	combined_bb = target_faces[0].Shape.BoundBox
+	for face_obj in target_faces[1:]:
+		combined_bb.add(face_obj.Shape.BoundBox)
+	diag = math.sqrt(
+		combined_bb.XLength ** 2 +
+		combined_bb.YLength ** 2 +
+		combined_bb.ZLength ** 2
+	)
+	return diag * ratio
+	
+def write_result_json(success, num_faces=None, flux_data_path=None, error_message=None):
+	result = {
+		"SUCCESS": success,
+		"NUM_FACES": num_faces,
+		"FLUX_DATA_PATH": flux_data_path,
+		"ERROR_MESSAGE": error_message,
+	}
+	with open(FREECAD_TO_ABAQUS_JSON, 'w') as f:
+		json.dump(result, f, indent=2)
+	print(f"Wrote FreeCAD result file: {FREECAD_TO_ABAQUS_JSON}")
+
+
+# ============================================================================
+# MAIN SIMULATION SCRIPT
+# ============================================================================
+
+success = False
+num_faces = None
+error_message = None
+
+try:
+
+    # ----------------------------------------------------------
+    # Set Up FCSTD Document
+    # ----------------------------------------------------------
+    
+    # --- Create working copy of the FCSTD document (unchanged) ---
+    dirpath = os.path.dirname(FCSTD_PATH)
+    basename, ext = os.path.splitext(os.path.basename(FCSTD_PATH))
+    counter = 0
+    while True:
+        if counter == 0:
+            candidate = f"{basename}_otsun_working{ext}"
+        else:
+            candidate = f"{basename}_otsun_working_{counter}{ext}"
+        temp_path = os.path.join(dirpath, candidate)
+        if not os.path.exists(temp_path):
+            break
+        counter += 1
+    
+    original_doc = FreeCAD.open(FCSTD_PATH)
+    original_doc.saveAs(temp_path)
+    FreeCAD.closeDocument(original_doc.Name)
+    doc = FreeCAD.open(temp_path)
+    
+    # --- Remove only a stale copy of the target object, keep everything else ---
+    remove_existing_target(doc, OBJECT_NAME)
+    
+    # --- Import or reconstruct target geometry, depending on config ---
+    if GEOMETRY_IMPORT == 'stp':
+        print("Importing STEP File")
+        imported_obj = import_target_from_stp(doc, OBJECT_PATH, OBJECT_NAME)
+    
+    elif GEOMETRY_IMPORT == 'nodes':
+        print(f"Reconstructing '{OBJECT_TYPE}' geometry from node data")
+        imported_obj = build_target_from_nodes(doc, OBJECT_TYPE, NODE_DATA, OBJECT_NAME)
+    
+    else:
+        raise ValueError(f"Unknown GEOMETRY_IMPORT: {GEOMETRY_IMPORT!r}. Must be 'stp' or 'nodes'.")
+    
+    doc.recompute()
+    
+    # --- Extract Faces from Solid/Shell ---
+    print("Extracting Faces")
+    target_faces = extract_faces_from_solid(doc, OBJECT_NAME)
+    print("Done extracting faces")
+    
+    # Evaluate complexity of geometry in the FCSTD document
+    geometry_complexity = compute_geometry_complexity(target_faces)
+    
+    # ----------------------------------------------------------
+    # Define Surface Materials
+    # ----------------------------------------------------------
+    
+    from otsun.materials import SurfaceMaterial
+    
+    if ABSORPTION_ONLY:
+    	for material_name, absorptivity in ABSORPTIVITY_DICT.items():
+    		SurfaceMaterial.create(material_name, {
+    			"probability_of_reflection": lambda wl: 0.0,
+    			"probability_of_absorption": lambda wl: 1.0,
+    			"probability_of_transmittance": lambda wl: 0.0,
+    			'thermal_material': material_name != "Blocker",
+    		})
+    else:
+    	raise NotImplementedError(
+    		"Please set ABSORPTION_ONLY=True. ABSORPTION_ONLY=False has not yet been implemented."
+    	)
+    print(f"Created {len(ABSORPTIVITY_DICT)} surface materials (ABSORPTION_ONLY={ABSORPTION_ONLY}): {', '.join(ABSORPTIVITY_DICT.keys())}")
+    
+    # ----------------------------------------------------------
+    # Build OTSun Scene
+    # ----------------------------------------------------------
+       
+    scene = otsun.Scene.from_freecad_document(doc)
+    
+    print(f"\n=== Scene ===")
+    num_faces = len(scene.faces)
+    print(f"  Faces in scene: {num_faces}")
+    
+    # ----------------------------------------------------------
+    # Create Sun Window & Define LightSource
+    # ----------------------------------------------------------
+    
+    ## SUN WINDOW ONLY OVER THE TARGET OBJECT
+    from otsun.source import SunWindow, LightSource
+    import itertools
+    from FreeCAD import Base
+    
+    # Direction of rays from sun window
+    main_direction = FreeCAD.Base.Vector(*SUN_DIR)
+    
+    # Create a normal SunWindow first (so we get all methods/attributes)
+    sun_window = SunWindow(scene, main_direction)
+    
+    # --- Recompute rectangle using ONLY the target object's faces ---
+    
+    # Collect bounding boxes of the target faces
+    bbs = [face_obj.Shape.BoundBox for face_obj in target_faces]
+    
+    MARGIN = 0.05  # 5% padding on each side to avoid clipping edge rays
+    
+    projected_points = []
+    point_of_plane = (scene.boundbox.Center -
+    				main_direction * 0.5 * scene.boundbox.DiagonalLength)
+    
+    for face_obj in target_faces:
+    	try:
+    		pts, _ = face_obj.Shape.tessellate(get_tessellation_tolerance(target_faces, ratio=0.002))
+    		for pt in pts:
+    			projected_points.append(
+    				FreeCAD.Base.Vector(pt).projectToPlane(point_of_plane, main_direction)
+    			)
+    	except Exception:
+    		for vertex in face_obj.Shape.Vertexes:
+    			projected_points.append(
+    				FreeCAD.Base.Vector(vertex.Point).projectToPlane(point_of_plane, main_direction)
+    			)
+    
+    # Cap point count — find_min_rectangle scales poorly above ~1000 pts,
+    MAX_SUN_WINDOW_POINTS = 800
+    if len(projected_points) > MAX_SUN_WINDOW_POINTS:
+    	import random
+    	# Keep every Nth point (deterministic, preserves spatial distribution)
+    	step = len(projected_points) // MAX_SUN_WINDOW_POINTS
+    	projected_points = projected_points[::step]
+    if not projected_points:
+    	raise RuntimeError("No projected points found for sun window calculation")
+    
+    print("Sun window computed from %d tessellation points" % len(projected_points)) 
+    
+    origin, v1, v2, length1, length2 = SunWindow.find_min_rectangle(
+    	projected_points, main_direction
+    )
+    
+    MARGIN = 0.08  # Padding on each side of sun window
+    length1_padded = length1 * (1.0 + 2.0 * MARGIN)
+    length2_padded = length2 * (1.0 + 2.0 * MARGIN)
+    origin_padded  = origin - v1 * (length1 * MARGIN) - v2 * (length2 * MARGIN)
+    
+    sun_window.origin   = origin_padded
+    sun_window.v1       = v1
+    sun_window.v2       = v2
+    sun_window.length1  = length1_padded
+    sun_window.length2  = length2_padded
+    sun_window.aperture = length1_padded * length2_padded
+    
+    print("Sun window size: %.4f m x %.4f m (with %.0f%% margin)" % (
+    	length1_padded, length2_padded, MARGIN * 100))
+    
+    # Optional: visualize sun window
+    sun_window.add_to_document(doc)
+    doc.recompute()
+    
+    # --- Define Light Source using this custom SunWindow ---
+    sun = LightSource(
+    	scene=scene,
+    	emitting_region=sun_window,
+    	light_spectrum=550.0,
+    	initial_energy=1.0,
+    	direction_distribution=None,
+    	polarization_vector=None
+    )
+    
+    print(f"\nTIME: {time.perf_counter() - _start_time:.3f} seconds")
+    
+    # ----------------------------------------------------------
+    # Run Experiment
+    # ----------------------------------------------------------
+    
+    num_rays = NUM_RAYS
+    if DISP3D:
+    	experiment = otsun.Experiment(
+    		scene=scene,
+    		light_source=sun,
+    		number_of_rays=num_rays,
+    		document_to_show=doc
+    	)
+    else:
+    	experiment = otsun.Experiment(
+    		scene=scene,
+    		light_source=sun,
+    		number_of_rays=num_rays
+    	)
+    
+    print(f"\n=== Running simulation with {num_rays} rays ===")
+    experiment.run()
+    
+    print(f"\nTIME: {time.perf_counter() - _start_time:.3f} seconds")
+    
+    if not hasattr(experiment, "points_absorber_Th") or len(experiment.points_absorber_Th) == 0:
+    	raise RuntimeError("Ray tracing completed but produced zero absorption points")
+    
+    doc.save()
+    doc.recompute()
+    
+    success = True
+    
+    # ----------------------------------------------------------
+    # Print and Output Results
+    # ----------------------------------------------------------
+    
+    print(f"\n=== RESULTS ===")
+    print(f"Number of absorption points: {len(experiment.points_absorber_Th)}")
+    
+    with open(EXPERIMENT_DATA_FILEPATH, 'w', newline='') as f_exp, \
+    		open(FLUX_DATA_FILEPATH, 'w', newline='') as f_flux:
+    
+    	writer_exp  = csv.writer(f_exp)
+    	writer_flux = csv.writer(f_flux)
+    
+    	# Header for full experiment data (+ Flux column added)
+    	writer_exp.writerow([
+    		'Energy', 'X', 'Y', 'Z',
+    		'Normal_X', 'Normal_Y', 'Normal_Z',
+    		'Wavelength', 'Flux'
+    	])
+    
+    	# Ray direction (unit vector).
+    	# For SunWindow with direction_distribution=None, rays follow main_direction. [web:34][web:36]
+    	ray_dir = main_direction.normalize()
+    
+    	for entry in experiment.points_absorber_Th:
+    		energy, x1, y1, z1, x2, y2, z2, nx, ny, nz, wavelength = entry
+    
+    		# Surface normal at hit
+    		n = FreeCAD.Base.Vector(nx, ny, nz)
+    		try:
+    			n = n.normalize()
+    		except Exception:
+    			continue  # skip degenerate normals
+    
+    		# Angle between ray direction and surface normal (0° = normal incidence).
+    		# If ray travels along main_direction, normal incidence means n == -ray_dir,
+    		# so cos(theta) = - ray_dir · n. [web:36]
+    		cos_theta = - (ray_dir.x * n.x + ray_dir.y * n.y + ray_dir.z * n.z)
+    		cos_theta = max(-1.0, min(1.0, cos_theta))  # clamp
+    		angle_deg = math.degrees(math.acos(cos_theta))
+    
+    		flux = absorbed_flux(SOLAR_IRRADIANCE, OBJECT_ABSORPTIVITY, angle_deg)
+    
+    		# Full data row (including Flux) -> experiment_data.csv
+    		writer_exp.writerow([
+    			f"{energy:.6f}",
+    			f"{x1:.6f}", f"{y1:.6f}", f"{z1:.6f}",
+    			f"{nx:.6f}", f"{ny:.6f}", f"{nz:.6f}",
+    			f"{wavelength:.6f}",
+    			f"{flux:.6f}",
+    		])
+    
+    		# Reduced data row: X, Y, Z, Flux (no header) -> flux_data.csv
+    		writer_flux.writerow([
+    			f"{x1:.6f}", f"{y1:.6f}", f"{z1:.6f}", f"{flux:.6f}",
+    		])
+    
+    
+    print(f"\nExperiment data saved: {len(experiment.points_absorber_Th)} points")
+    print(f"Flux data saved: {len(experiment.points_absorber_Th)} points")
+    
+    # ============================================================================
+    # Create 2D Absorption Plots
+    # ============================================================================
+    
+    if PLOT2D:
+    	import os
+    	import numpy as np
+    	import matplotlib
+    	matplotlib.use('Agg')   # non-GUI backend, safe in FreeCADCmd
+    	import matplotlib.pyplot as plt
+    
+    	points = getattr(experiment, "points_absorber_Th", None)
+    	if not points:
+    		print("No absorption points to plot.")
+    	else:
+    		try:
+    			arr = np.asarray(points, dtype=float)
+    			xs = arr[:, 1]
+    			ys = arr[:, 2]
+    		except Exception:
+    			xs = [p[1] for p in points if len(p) > 2]
+    			ys = [p[2] for p in points if len(p) > 2]
+    			xs = np.array(xs, dtype=float)
+    			ys = np.array(ys, dtype=float)
+    
+    		if xs.size == 0:
+    			print("No valid absorption coordinates found.")
+    		else:
+    			plt.figure(figsize=(6, 6))
+    			plt.scatter(xs, ys, s=0.5, c='k', marker='.')
+    			plt.xlabel("X")
+    			plt.ylabel("Y")
+    			plt.title(f"Absorption points (N={xs.size})")
+    			plt.gca().set_aspect("equal", adjustable="box")
+    			plt.tight_layout()
+    
+    			plot_path = os.path.join(ABSORPTION_PLOT_DIR, f'absorption_plot_{ITER_ID}.png')
+    
+    			plt.savefig(plot_path, dpi=300, bbox_inches='tight')  # no plt.show() [web:478][web:479]
+    			plt.close()
+    			print(f"Plot saved: {plot_path}")
+    
+    # ============================================================================
+    # Log Complexity and Runtime
+    # ============================================================================
+    
+    complexity_log_path = f"{DOCUMENTATION_DIR}/complexity_vs_runtime.csv"
+    log_header = not os.path.exists(complexity_log_path)
+    with open(complexity_log_path, 'a', newline='') as f_log:
+        writer = csv.writer(f_log)
+        if log_header:
+            writer.writerow(['iter_id', 'num_faces', 'total_complexity_score',
+                              'mean_complexity_per_face', 'num_rays', 'elapsed_seconds'])
+        writer.writerow([ITER_ID, geometry_complexity['num_faces'],
+                          geometry_complexity['total_complexity_score'],
+                          geometry_complexity['mean_complexity_per_face'],
+                          NUM_RAYS, time.perf_counter() - _start_time])
+
+except Exception as e:
+	error_message = str(e)
+	print(f"ERROR: Simulation failed: {error_message}")
+
+finally:
+    if not KEEP_WORKING_COPY: # Delete working copy if not keeping
+        try:
+            FreeCAD.closeDocument(doc.Name)
+        except Exception:
+            pass
+        try:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+                print(f"Deleted working copy: {temp_path}")
+        except OSError as e:
+            print(f"WARNING: Could not delete working copy {temp_path}: {e}")
+	
+    # Write FreeCAD to Abaqus json 
+    write_result_json(
+        success=success,
+        num_faces=num_faces,
+        flux_data_path=FLUX_DATA_FILEPATH if success else None,
+        error_message=error_message
+    )
+	
+	
+### stop timer and report elapsed time
+_elapsed = time.perf_counter() - _start_time  # TIMING
+print(f"\nTotal script elapsed time: {_elapsed:.3f} seconds")  # TIMING

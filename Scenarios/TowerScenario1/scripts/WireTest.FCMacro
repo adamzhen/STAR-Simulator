@@ -1,0 +1,132 @@
+
+"""
+Truss Wire-to-Geometry Builder for STAR Simulator
+Converts Abaqus wire/truss node coordinates into smooth swept solids
+for OTSun ray tracing. Run inside FreeCAD's Python console or as .FCMacro.
+"""
+
+import FreeCAD as App
+import Part
+import math
+
+
+def build_wire_pipefuse(nodes, elements, radius=0.02):
+    """
+    Build individual swept-pipe solids for straight truss segments and fuse them.
+
+    nodes: dict {node_id: App.Vector(x, y, z)}
+    elements: list of (node1_id, node2_id) tuples
+    radius: cross-section radius (m), from Abaqus Property module
+    """
+    solids = []
+    for n1, n2 in elements:
+        p1, p2 = nodes[n1], nodes[n2]
+        direction = p2.sub(p1)
+        if direction.Length < 1e-9:
+            continue
+
+        edge = Part.LineSegment(p1, p2).toShape()
+        path = Part.Wire([edge])
+
+        circle = Part.Circle(p1, direction, radius)
+        profile = Part.Wire([circle.toShape()])
+
+        pipe = path.makePipeShell([profile], True, True)
+        solids.append(pipe)
+
+    if not solids:
+        raise ValueError("No valid elements to build geometry from.")
+
+    fused = solids[0].fuse(solids[1:]) if len(solids) > 1 else solids[0]
+    return fused
+
+def build_wire_bspline(node_points, radius=0.02, use_frenet=False):
+    if len(node_points) < 3:
+        raise ValueError("Need at least 3 points to build a stable spline.")
+
+    spline = Part.BSplineCurve()
+    spline.interpolate(node_points)
+    path_edge = spline.toShape()
+    path = Part.Wire([path_edge])
+
+    # FIX 1: finite-difference tangent instead of spline.tangent(0)
+    start_point = node_points[0]
+    fd_tangent = node_points[1].sub(node_points[0])
+    if fd_tangent.Length < 1e-9:
+        raise ValueError("First two points are coincident; cannot define tangent.")
+    fd_tangent.normalize()
+
+    circle = Part.Circle(start_point, fd_tangent, radius)
+    profile = Part.Wire([circle.toShape()])
+
+    # FIX 2: Frenet=False by default
+    pipe = path.makePipeShell([profile], True, use_frenet)
+
+    # FIX 3: rebuild as clean solid, strip redundant faces
+    solid = Part.Solid(pipe)
+    solid = solid.removeSplitter()
+
+    return solid
+
+
+def diagnose_geometry(shape, expected_max_faces=4):
+    n_faces = len(shape.Faces)
+    is_valid = shape.isValid()
+    volume = shape.Volume
+    area = shape.Area
+
+    print("Is solid valid: %s" % is_valid)
+    print("Number of faces: %d" % n_faces)
+    print("Volume: %.6f m^3" % volume)
+    print("Surface area: %.6f m^2" % area)
+
+    flagged = (not is_valid) or (n_faces > expected_max_faces)
+    if flagged:
+        print("WARNING: possible artifact faces or invalid geometry.")
+    else:
+        print("Geometry looks clean.")
+    return flagged
+
+
+def export_geometry(shape, filepath):
+    shape.exportStep(filepath)
+    print("Exported geometry to: %s" % filepath)
+
+# Main Code
+
+doc = App.newDocument("WireTest")
+
+nodes = {
+    1: App.Vector(0.0675251, 0.27, -0.00597487),
+    2: App.Vector(0.0675251, 0.81, -0.00597487)
+}
+elements = [(1, 2)]
+
+radius = 0.00157 / 2
+
+fused_solid = build_wire_pipefuse(nodes, elements, radius=radius)
+Part.show(fused_solid, "WireTestPart")
+doc.recompute()
+
+diagnose_geometry(fused_solid)
+export_geometry(fused_solid, "wiretest.stp")
+
+
+#doc = App.newDocument("CurvedMemberTestFixed")
+#
+#n_points = 3
+#curve_points = []
+#for i in range(n_points):
+#    x = 5*i
+#    z = 2*i
+#    y = 0.0
+#    curve_points.append(App.Vector(x, y, z))
+#
+#radius = 0.0015
+#
+#curved_solid = build_wire_bspline(curve_points, radius=radius, use_frenet=False)
+#Part.show(curved_solid, "CurvedMemberSolidFixed")
+#doc.recompute()
+#
+#diagnose_geometry(curved_solid)
+#export_geometry(curved_solid, "curved_member_test_fixed.stp")

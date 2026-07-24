@@ -1,0 +1,46 @@
+{
+  "WORKING_DIR": "C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1",
+  "FCSTD_PATH": "C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/inputs/TowerScenario1.FCStd",
+  "OBJECT_PATH": "C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/inputs/SMAWire_(Nitinol).stp",
+  "OBJECT_NAME": "SMAWire_(Nitinol)",
+  "ITER_ID": 1,
+  "RUN_NO": 0.1,
+  "SCENARIO_NAME": "TowerScenario1",
+  "NUM_RAYS": 2000,
+  "SUN_DIR": [
+    0.49999999999999994,
+    -0.8660254037844387,
+    0.0
+  ],
+  "SOLAR_IRRADIANCE": 1361.0,
+  "OBJECT_MATERIAL": "Nitinol",
+  "ABSORPTION_ONLY": true,
+  "ABSORPTIVITY_DICT": {
+    "Nitinol": 0.75,
+    "Aluminum": 0.2,
+    "Blocker": 1.0
+  },
+  "OBJECT_TYPE": "wire",
+  "GEOMETRY_IMPORT": "nodes",
+  "NODE_DATA": {
+    "nodes": {
+      "1": [
+        0.0675251,
+        0.27,
+        -0.00597487
+      ],
+      "2": [
+        0.0675251,
+        0.81,
+        -0.00597487
+      ]
+    },
+    "elements": [
+      [
+        1,
+        2
+      ]
+    ],
+    "radius": 0.000785
+  }
+}

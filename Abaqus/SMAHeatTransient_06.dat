@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 17-Jul-2026   Time 15:20:44
+   Abaqus 2025                                  Date 21-Jul-2026   Time 10:39:53
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -78,11 +78,11 @@
 
 
 
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  17-Jul-2026     TIME  15:20:19
+          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  21-Jul-2026     TIME  10:39:28
   *heading
   *coupledtemperature-displacement, creep=NONE, deltmx=5
 
-          STEP    5  INCREMENT   11  HAS BEEN FOUND ON THE RESTART FILE
+          STEP    5  INCREMENT   12  HAS BEEN FOUND ON THE RESTART FILE
 
  ***NOTE: RESTART IS BEING MADE FROM THE END OF A STEP.  THE ENDSTEP PARAMETER 
           IS NOW SET. THE USE OF THE ENDSTEP PARAMETER REQUIRES FURTHER STEP 
@@ -112,13 +112,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.20    
+       USER TIME (SEC)      =     0.30    
        SYSTEM TIME (SEC)    =      0.0    
-       TOTAL CPU TIME (SEC) =     0.20    
-       WALLCLOCK TIME (SEC) =            1
+       TOTAL CPU TIME (SEC) =     0.30    
+       WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 17-Jul-2026   Time 15:20:48
+   Abaqus 2025                                  Date 21-Jul-2026   Time 10:39:57
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 1 (base build)                                                                  STEP    6  INCREMENT    1
@@ -196,7 +196,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      4.6    
+       USER TIME (SEC)      =      4.2    
        SYSTEM TIME (SEC)    =     0.30    
-       TOTAL CPU TIME (SEC) =      4.9    
-       WALLCLOCK TIME (SEC) =            5
+       TOTAL CPU TIME (SEC) =      4.5    
+       WALLCLOCK TIME (SEC) =            4

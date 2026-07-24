@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 17-Jul-2026   Time 15:18:11
+   Abaqus 2025                                  Date 23-Jul-2026   Time 11:16:29
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -171,7 +171,7 @@
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 17-Jul-2026   Time 15:18:15
+   Abaqus 2025                                  Date 23-Jul-2026   Time 11:16:33
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Iteration 1 (base build)                                                                  STEP    1  INCREMENT    1
@@ -250,7 +250,7 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      6.1    
-       SYSTEM TIME (SEC)    =     0.80    
-       TOTAL CPU TIME (SEC) =      6.9    
+       USER TIME (SEC)      =      6.3    
+       SYSTEM TIME (SEC)    =     0.70    
+       TOTAL CPU TIME (SEC) =      7.0    
        WALLCLOCK TIME (SEC) =            7

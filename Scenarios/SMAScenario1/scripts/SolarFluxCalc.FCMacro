@@ -65,7 +65,7 @@ ABSORPTIVITY_DICT = cfg['ABSORPTIVITY_DICT']
 
 EXPERIMENT_DATA_FILEPATH = f"{WORKING_DIR}/experiment_data.csv"
 FLUX_DATA_FILEPATH = f"{WORKING_DIR}/flux_data.csv"
-DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/iterative_analysis_{RUN_NO}"
+DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/run_{RUN_NO}"
 ABSORPTION_PLOT_DIR = f"{DOCUMENTATION_DIR}/plots"
 os.makedirs(ABSORPTION_PLOT_DIR, exist_ok=True)
 

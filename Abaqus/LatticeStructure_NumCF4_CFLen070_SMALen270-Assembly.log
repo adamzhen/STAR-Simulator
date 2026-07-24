@@ -1,0 +1,22 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB LatticeStructure_NumCF4_CFLen070_SMALen270-Assembly
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 8 tokens from Flexnet server hprc-license.tamu.edu.
+<175 out of 443 licenses remain available>.
+Begin Analysis Input File Processor
+7/24/2026 3:16:48 PM
+Run pre.exe
+7/24/2026 3:16:52 PM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+7/24/2026 3:16:52 PM
+Run standard.exe
+7/24/2026 3:17:43 PM
+End Abaqus/Standard Analysis
+Begin SIM Wrap-up
+7/24/2026 3:17:44 PM
+Run SMASimUtility.exe
+7/24/2026 3:17:44 PM
+End SIM Wrap-up
+Abaqus JOB LatticeStructure_NumCF4_CFLen070_SMALen270-Assembly COMPLETED

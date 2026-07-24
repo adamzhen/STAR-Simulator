@@ -40,8 +40,8 @@ from starlib import *
 #######################################
 
 # RUN PARAMETERS
-RUN_NO     = 0.83
-N_ITER     = 9
+RUN_NO     = 0.8
+N_ITER     = 2
 CHUNK_TIME = 20.0 # seconds per iterations
 
 # FILE NAMES AND PARAMETERS
@@ -67,7 +67,7 @@ EMISSIVITY = 0.75
 
 # ABAQUS PARAMETERS
 MESHSIZE   = 0.01 # mesh size in meters
-ANALYTIC_FIT_TOLERANCE = 0.02
+ANALYTIC_FIT_TOLERANCE = 0.018
 STITCH_TOLERANCE = 0.001
 BC_EDGE = [(0, 0, 0), (0, 0.1, 0)] # Edge to fix defined by endpoints
 BC_FIXPOINT = tuple((np.array(BC_EDGE[0]) + np.array(BC_EDGE[1])) / 2.0)
@@ -90,8 +90,9 @@ FCSTD_PATH            = f"{WORKING_DIR}/inputs/{FCSTD_FILE}"
 EXPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/{DEFORMED_NAME}.stp"
 FLUXDATA_FILEPATH     = f"{WORKING_DIR}/flux_data.csv"
 
-DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/iterative_analysis_{RUN_NO}"
+DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/run_{RUN_NO}"
 DEFORMED_DEBUG_DIR = f"{DOCUMENTATION_DIR}/deformed_cad"
+TIP_DATA_FILEPATH   = f"{DOCUMENTATION_DIR}/tip_displacements_{RUN_NO}.csv"
 
 ABAQUS_TO_FREECAD_JSON = f"{WORKING_DIR}/abaqus_to_freecad.json"
 FREECAD_TO_ABAQUS_JSON = f"{WORKING_DIR}/freecad_to_abaqus.json"
@@ -155,44 +156,6 @@ log("")
 # --------------------------------------------------
 # Main functions
 # --------------------------------------------------
-
-def define_encastre_bc(model, a, step_name, pt1, pt2, instance_name, tol=0.001):
-    """
-    Finds ALL edges between two endpoint coordinates and applies an Encastre BC.
-    Robust against edge fragmentation from CAD import errors.
-
-    Parameters
-    ----------
-    pt1, pt2 : (x, y, z) tuples — the two endpoints of the fixed edge
-    tol      : search tolerance in all directions (default 0.1 mm)
-    """
-    x1, y1, z1 = pt1
-    x2, y2, z2 = pt2
-
-    fix_edges = a.instances[instance_name].edges.getByBoundingBox(
-        xMin = min(x1, x2) - tol,
-        yMin = min(y1, y2) - tol,
-        zMin = min(z1, z2) - tol,
-        xMax = max(x1, x2) + tol,
-        yMax = max(y1, y2) + tol,
-        zMax = max(z1, z2) + tol
-    )
-
-    if len(fix_edges) == 0:
-        raise RuntimeError(
-            "No edges found between pt1=%s and pt2=%s (tol=%.2e). "
-            "Check coordinates or increase tol." % (pt1, pt2, tol)
-        )
-
-    printlog("Fixed BC: found %d edge(s) between %s and %s" % (len(fix_edges), pt1, pt2))
-
-    region_fix = a.Set(edges=fix_edges, name='Fixed-Set')
-    model.EncastreBC(
-        name='FixEdge',
-        createStepName=step_name,
-        region=region_fix,
-        localCsys=None
-    )
 
 def build_model_from_step(model_name, step_name, step_path,
                           object_name, bc_edge, mesh_size,
@@ -330,10 +293,36 @@ def build_model_from_step(model_name, step_name, step_path,
         )
 
     printlog('Defining BC')
-    define_encastre_bc(model, a, step_name, tol=bc_tol,
-                       pt1=bc_edge[0],
-                       pt2=bc_edge[1],
-                       instance_name=object_name)
+    # Find all edges between the two BC endpoint coordinates and apply
+    # Encastre. Robust against edge fragmentation from CAD import errors.
+    pt1, pt2 = bc_edge[0], bc_edge[1]
+    x1, y1, z1 = pt1
+    x2, y2, z2 = pt2
+
+    fix_edges = a.instances[object_name].edges.getByBoundingBox(
+        xMin=min(x1, x2) - bc_tol,
+        yMin=min(y1, y2) - bc_tol,
+        zMin=min(z1, z2) - bc_tol,
+        xMax=max(x1, x2) + bc_tol,
+        yMax=max(y1, y2) + bc_tol,
+        zMax=max(z1, z2) + bc_tol
+    )
+
+    if len(fix_edges) == 0:
+        raise RuntimeError(
+            "No edges found between pt1=%s and pt2=%s (tol=%.2e). "
+            "Check coordinates or increase bc_tol." % (pt1, pt2, bc_tol)
+        )
+
+    printlog("Fixed BC: found %d edge(s) between %s and %s" % (len(fix_edges), pt1, pt2))
+
+    region_fix = a.Set(edges=fix_edges, name='Fixed-Set')
+    model.EncastreBC(
+        name='FixEdge',
+        createStepName=step_name,
+        region=region_fix,
+        localCsys=None
+    )
 
     printlog('Defining amplitude and radiation')
     model.TabularAmplitude(name='InstantVacuum', timeSpan=STEP,
@@ -486,6 +475,9 @@ def run_comparison_model(model_name='Model_Comparison',
 printlog("\n=== Starting iterative loop with restart-based steps ===")
 Mdb()
 
+elem_fluxes_list = []
+elem_centroids_list = []
+
 for it in range(1, N_ITER + 1):
     iter_id = it
     job_name = '%s_%02d' % (JOB_BASENAME, iter_id)
@@ -531,8 +523,16 @@ for it in range(1, N_ITER + 1):
         update_flux_field(model, xyz_data, field_name=field_name)
         apply_surface_heat_flux(model, surface_name='All-Surfaces',
                                  step_name=step_name,
-                                 load_name=LOAD_NAME, 
+                                 load_name=LOAD_NAME,
                                  field_name=field_name)
+
+        # Record the equivalent per-element mapped flux for plotting only --
+        # iteration 1 itself still applies the load via update_flux_field/
+        # apply_surface_heat_flux above; this does not affect the model.
+        elem_centroids_iter1 = get_undeformed_element_centroids(model, OBJECT_NAME)
+        elem_fluxes_iter1 = map_flux_to_elements(xyz_data, elem_centroids_iter1)
+        elem_fluxes_list.append(elem_fluxes_iter1)
+        elem_centroids_list.append(elem_centroids_iter1)
 
         printlog(f'Creating job {job_name}')
         mdb.Job(name=job_name, model=MODEL_BASENAME,
@@ -549,7 +549,7 @@ for it in range(1, N_ITER + 1):
 
         elem_centroids = get_deformed_element_centroids(prev_job, instance_name=OBJECT_NAME)
         elem_fluxes = map_flux_to_elements(xyz_data, elem_centroids,
-                                   max_distance=1.2 * MESHSIZE)
+                                   max_distance=1.5 * MESHSIZE)
 
         create_restart_step(
             model, prev_job=prev_job, prev_step_name=prev_step_name,
@@ -562,6 +562,8 @@ for it in range(1, N_ITER + 1):
             model, surface_name='All-Surfaces', step_name=step_name,
             load_name=LOAD_NAME, instance_name=OBJECT_NAME,
             elem_fluxes=elem_fluxes, field_name=field_name)
+        elem_fluxes_list.append(elem_fluxes)
+        elem_centroids_list.append(get_undeformed_element_centroids(model, OBJECT_NAME))
 
         mdb.Job(
             name=job_name, model=model.name, type=RESTART,
@@ -582,7 +584,6 @@ for it in range(1, N_ITER + 1):
     # Export current deformed geometry for next FreeCAD ray-tracing pass
     debug_step_path = os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}_%02d.stp" % iter_id)
     debug_obj_path = os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}Mesh_%02d.obj" % iter_id)
-
     export_obj_from_odb(job_name, debug_obj_path)
     export_deformed_to_step(job_name, deformed_step_name=f"{DEFORMED_NAME}_{iter_id}", main_step_path=EXPORT_OBJECT_FILEPATH,
                             debug_step_path=debug_step_path,
@@ -608,9 +609,13 @@ printlog(f"Total iterative analysis time: {_elapsed:.3f} seconds")
 # Post-processing and plotting
 # ----------------------------------------------------------
 
+# Plot the mapped flux input
+plot_mapped_flux_input(elem_fluxes_list, elem_centroids_list,
+                         f"{DOCUMENTATION_DIR}/plots", RUN_NO)
+
 # Plot the HFL (Heat Flux) from Abaqus
 iter_job_names = ['%s_%02d' % (JOB_BASENAME, i) for i in range(1, N_ITER + 1)]
-plot_mapped_field_on_mesh(iter_job_names, DOCUMENTATION_DIR, RUN_NO,
+plot_field_output(iter_job_names, f"{DOCUMENTATION_DIR}/plots", RUN_NO,
                           instance_name=OBJECT_NAME,
                           field_name='HFL',
                           frame_index=1)
@@ -622,9 +627,8 @@ tip_data = compute_cumulative_node_displacement(
     initial_selection_mode='farthest'
 )
 
-tip_csv = os.path.join(DOCUMENTATION_DIR, 'tip_displacements_%s.csv' % RUN_NO)
 try:
-    with open(tip_csv, 'w') as f:
+    with open(TIP_DATA_FILEPATH, 'w') as f:
         f.write("iteration,ux_cum,uy_cum,uz_cum,u_mag_cum,"
                 "tip_def_x,tip_def_y,tip_def_z,tip_label,tmax_K,tmin_K\n")
         for r in tip_data:
@@ -634,9 +638,9 @@ try:
                 r['t_max'] if r['t_max'] is not None else float('nan'),
                 r['t_min'] if r['t_min'] is not None else float('nan'),
             ))
-    printlog("Saved cumulative tip displacement to %s" % tip_csv)
+    printlog("Saved cumulative tip displacement to %s" % TIP_DATA_FILEPATH)
 except Exception as e:
-    printlog("Failed to save cumulative tip displacement to %s: %s" % (tip_csv, e))
+    printlog("Failed to save cumulative tip displacement to %s: %s" % (TIP_DATA_FILEPATH, e))
 
 # ----------------------------------------------------------
 # Optional: Run comparison model (single analysis, no iteration)

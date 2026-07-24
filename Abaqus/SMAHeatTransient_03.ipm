@@ -1,7 +1,7 @@
 <?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName><clientHost type="string">AERO-MJ0JAKC7</clientHost><handle type="integer">0</handle></Started>
 <Odb_File><file type="string">C:\Users\adzheng\STAR-Simulator\Abaqus\SMAHeatTransient_03.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></Odb_File>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></Completed>
-<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName><clientHost type="string">AERO-MJ0JAKC7</clientHost><handle type="integer">11336</handle></Started>
+<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName><clientHost type="string">AERO-MJ0JAKC7</clientHost><handle type="integer">23080</handle></Started>
 <Step><stepId type="integer">3</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></Step>
 <Odb_Frame><step type="integer">2</step><frame type="integer">0</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></Odb_Frame>
 <MEMORY_ESTIMATE><memory type="float">87</memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></MEMORY_ESTIMATE>
@@ -31,4 +31,4 @@
 <Status><step type="integer">3</step><increment type="integer">11</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">1</equilibrium><iterations type="integer">1</iterations><totalTime type="float">60</totalTime><stepTime type="float">20</stepTime><timeIncrement type="float">3.5</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></Status>
 <End_Step><stepId type="integer">3</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></End_Step>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_03</jobName></Completed>
-<JOB_COMPLETED><time type="string">Fri Jul 17 15:19:11 2026</time><jobName type="string">SMAHeatTransient_03</jobName></JOB_COMPLETED></msgwrapper>
+<JOB_COMPLETED><time type="string">Tue Jul 21 10:38:51 2026</time><jobName type="string">SMAHeatTransient_03</jobName></JOB_COMPLETED></msgwrapper>

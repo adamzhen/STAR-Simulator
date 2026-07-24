@@ -1,0 +1,1 @@
+num_layers:  4.000000, SMA_rad:  0.000785, SMA_len:  0.270000, num_CF:  4.000000, CF_rad:  0.000785, CF_len:  0.070000
