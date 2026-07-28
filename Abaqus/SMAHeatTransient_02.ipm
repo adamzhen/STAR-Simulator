@@ -1,11 +1,11 @@
-<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName><clientHost type="string">AERO-CZJFMR2</clientHost><handle type="integer">0</handle></Started>
-<Odb_File><file type="string">C:\Users\kaylakane\Desktop\github-scripts\STAR-Simulator\Abaqus\SMAHeatTransient_02.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Odb_File>
+<?xml version="1.0"?><msgwrapper><Started><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName><clientHost type="string">AERO-MJ0JAKC7</clientHost><handle type="integer">0</handle></Started>
+<Odb_File><file type="string">C:\Users\adzheng\STAR-Simulator\Abaqus\SMAHeatTransient_02.odb</file><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Odb_File>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">BATCHPRE_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Completed>
-<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName><clientHost type="string">AERO-CZJFMR2</clientHost><handle type="integer">28432</handle></Started>
+<Started><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName><clientHost type="string">AERO-MJ0JAKC7</clientHost><handle type="integer">28540</handle></Started>
 <Step><stepId type="integer">2</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Step>
 <Odb_Frame><step type="integer">1</step><frame type="integer">0</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Odb_Frame>
 <MEMORY_ESTIMATE><memory type="float">85</memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></MEMORY_ESTIMATE>
-<PHYSICAL_MEMORY><physical_memory type="float">32466</physical_memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></PHYSICAL_MEMORY>
+<PHYSICAL_MEMORY><physical_memory type="float">32622</physical_memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></PHYSICAL_MEMORY>
 <MINIMUM_MEMORY><minimum_memory type="float">27</minimum_memory><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></MINIMUM_MEMORY>
 <Odb_Frame><step type="integer">1</step><frame type="integer">1</frame><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Odb_Frame>
 <Status><step type="integer">2</step><increment type="integer">1</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">2</equilibrium><iterations type="integer">2</iterations><totalTime type="float">20.1</totalTime><stepTime type="float">0.1</stepTime><timeIncrement type="float">0.1</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Status>
@@ -31,4 +31,4 @@
 <Status><step type="integer">2</step><increment type="integer">11</increment><attempts type="integer">1</attempts><severe type="integer">0</severe><equilibrium type="integer">2</equilibrium><iterations type="integer">2</iterations><totalTime type="float">40</totalTime><stepTime type="float">20</stepTime><timeIncrement type="float">3.5</timeIncrement><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Status>
 <End_Step><stepId type="integer">2</stepId><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></End_Step>
 <Completed><message type="string">Analysis phase complete</message><phase type="symconst">STANDARD_PHASE</phase><jobName type="string">SMAHeatTransient_02</jobName></Completed>
-<JOB_COMPLETED><time type="string">Tue Jul 28 10:27:56 2026</time><jobName type="string">SMAHeatTransient_02</jobName></JOB_COMPLETED></msgwrapper>
+<JOB_COMPLETED><time type="string">Tue Jul 28 11:40:21 2026</time><jobName type="string">SMAHeatTransient_02</jobName></JOB_COMPLETED></msgwrapper>

@@ -1,0 +1,326 @@
+
+
+import sys
+sys.path.append(r"\\storage.it.tamu.edu\TAMU\OAL\Homes\adzheng\Programs\Python\site-packages\python3.10")
+import FreeCAD
+import otsun
+import os
+import csv
+import math
+import time
+
+# start timer
+_start_time = time.perf_counter()  # TIMING
+
+# ============================================================================
+# MAIN SIMULATION SCRIPT (NO FACE EXTRACTION)
+# ============================================================================
+
+#FCSTD_PATH = "H:/STAR-Simulator/FreeCAD/SMAScenario1.FCStd"
+#OBJECT_NAME = 'SMAStrip (Nitinol)'
+
+FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/TestScenario1.FCStd'
+OBJECT_NAME = 'Cylinder (Aluminum)'
+#FCSTD_PATH = 'H:/Programs/FreeCAD 1.0/data/examples/Cube.FCStd'
+#OBJECT_NAME = 'Cube(Aluminum)'
+
+PLOT2D = True
+DISP3D = False
+
+# --- Create Working Copy ---
+dirpath = os.path.dirname(FCSTD_PATH)
+basename, ext = os.path.splitext(os.path.basename(FCSTD_PATH))
+counter = 0
+while True:
+    if counter == 0:
+        candidate = f"{basename}_otsun_working{ext}"
+    else:
+        candidate = f"{basename}_otsun_working_{counter}{ext}"
+    temp_path = os.path.join(dirpath, candidate)
+    if not os.path.exists(temp_path):
+        break
+    counter += 1
+
+original_doc = FreeCAD.open(FCSTD_PATH)
+original_doc.saveAs(temp_path)
+FreeCAD.closeDocument(original_doc.Name)
+doc = FreeCAD.open(temp_path)
+
+# --- Get target solid (no face extraction) ---
+target_solid = doc.getObjectsByLabel(OBJECT_NAME)[0]
+print(f"Using solid '{target_solid.Label}' directly (no face extraction)")
+doc.recompute()
+
+# --- Define Surface Materials ---
+from otsun.materials import SurfaceMaterial
+
+SurfaceMaterial.create("Aluminum", {
+    "probability_of_reflection": lambda wl: 0.0,
+    "probability_of_absorption": lambda wl: 1.0,
+    "probability_of_transmittance": lambda wl: 0.0,
+    'thermal_material': True
+})
+SurfaceMaterial.create("Nitinol", {
+    "probability_of_reflection": lambda wl: 0.0,
+    "probability_of_absorption": lambda wl: 1.0,
+    "probability_of_transmittance": lambda wl: 0.0,
+    'thermal_material': True
+})
+SurfaceMaterial.create("Blocker", {
+    "probability_of_reflection":   lambda wl: 0.0,
+    "probability_of_absorption":   lambda wl: 1.0,
+    "probability_of_transmittance":lambda wl: 0.0,
+    "thermal_material":            False,
+})
+
+# --- Build Scene ---
+scene = otsun.Scene.from_freecad_document(doc)
+
+print(f"\n=== Scene ===")
+print(f"  Faces in scene: {len(scene.faces)}")
+
+# ============================================================================
+# SUN WINDOW ONLY OVER THE TARGET OBJECT (USING SOLID BOUNDING BOX)
+# ============================================================================
+
+from otsun.source import SunWindow, LightSource
+import itertools
+from FreeCAD import Base
+
+# Direction of rays from sun window
+main_direction = FreeCAD.Base.Vector(0, 0, -1)
+
+# Create a normal SunWindow first
+sun_window = SunWindow(scene, main_direction)
+
+# --- Recompute rectangle using ONLY the target solid's bounding box ---
+
+# Bounding box of the target solid
+bb = target_solid.Shape.BoundBox
+bbs = [bb]
+
+projected_points = []
+
+# Same plane definition as in SunWindow.__init__
+point_of_plane = (scene.boundbox.Center -
+                  main_direction * 0.5 * scene.boundbox.DiagonalLength)
+
+for bb in bbs:
+    xs = [bb.XMin, bb.XMax]
+    ys = [bb.YMin, bb.YMax]
+    zs = [bb.ZMin, bb.ZMax]
+    coords = itertools.product(xs, ys, zs)
+    points = [Base.Vector(c) for c in coords]
+
+    projected_points.extend([
+        p.projectToPlane(point_of_plane, main_direction)
+        for p in points
+    ])
+
+# Use the library helper to get the minimum rectangle
+origin, v1, v2, length1, length2 = SunWindow.find_min_rectangle(
+    projected_points, main_direction
+)
+
+# Overwrite the default rectangle with the target-only one
+sun_window.origin = origin
+sun_window.v1 = v1
+sun_window.v2 = v2
+sun_window.length1 = length1
+sun_window.length2 = length2
+sun_window.aperture = length1 * length2
+
+# Optional: visualize
+sun_window.add_to_document(doc)
+doc.recompute()
+
+# --- Define Light Source using this custom SunWindow ---
+sun = LightSource(
+    scene=scene,
+    emitting_region=sun_window,
+    light_spectrum=550.0,
+    initial_energy=1.0,
+    direction_distribution=None,
+    polarization_vector=None
+)
+
+# --- Run Experiment ---
+num_rays = 10000
+if DISP3D:
+    experiment = otsun.Experiment(
+        scene=scene,
+        light_source=sun,
+        number_of_rays=num_rays,
+        document_to_show=doc
+    )
+else:
+    experiment = otsun.Experiment(
+        scene=scene,
+        light_source=sun,
+        number_of_rays=num_rays
+    )
+
+import Part
+import numpy as np
+
+print(f"\n=== Running simulation with {num_rays} rays ===")
+
+# Run rays manually so we can color absorbed ones red
+for n in np.arange(0, num_rays, 1):
+    ray = sun.emit_ray()
+    ray.run()
+
+    experiment.wavelengths.append(ray.wavelength)
+
+    if ray.Th_absorbed:
+        experiment.captured_energy_Th += ray.energy
+        experiment.Th_energy.append(ray.energy)
+        experiment.Th_wavelength.append(ray.wavelength)
+        experiment.points_absorber_Th.append((
+            ray.energy,
+            ray.points[-1].x, ray.points[-1].y, ray.points[-1].z,
+            ray.points[-2].x, ray.points[-2].y, ray.points[-2].z,
+            ray.last_normal.x, ray.last_normal.y, ray.last_normal.z,
+            ray.wavelength
+        ))
+    else:
+        experiment.Th_energy.append(0.0)
+        experiment.Th_wavelength.append(ray.wavelength)
+
+    if ray.PV_absorbed:
+        PV_energy_absorbed = np.sum(ray.PV_absorbed)
+        experiment.captured_energy_PV += PV_energy_absorbed
+        experiment.PV_energy.append(PV_energy_absorbed)
+        experiment.PV_wavelength.append(ray.wavelength)
+        for z in np.arange(0, len(ray.PV_values), 1):
+            experiment.PV_values.append(ray.PV_values[z])
+    else:
+        experiment.PV_energy.append(0.0)
+        experiment.PV_wavelength.append(ray.wavelength)
+
+    # 3D visualization with coloring
+    if DISP3D:
+        pts = ray.points
+        color = (1.0, 0.0, 0.0) if ray.Th_absorbed else (0.6, 0.6, 0.6)
+        for j in range(len(pts) - 1):
+            p1, p2 = pts[j], pts[j + 1]
+            try:
+                edge = Part.makeLine(
+                    (p1.x, p1.y, p1.z),
+                    (p2.x, p2.y, p2.z)
+                )
+                obj = doc.addObject("Part::Feature", f"Ray_{int(n)}_{j}")
+                obj.Shape = Part.Wire([edge])
+                obj.ViewObject.LineColor = color
+                obj.ViewObject.LineWidth = 1.0
+            except Exception:
+                pass
+
+experiment.has_run = True
+
+if DISP3D:
+    doc.recompute()
+
+print(f"\n=== RESULTS ===")
+print(f"Number of absorption points: {len(experiment.points_absorber_Th)}")
+
+# --- Results ---
+print(f"\n=== RESULTS ===")
+print(f"Number of absorption points: {len(experiment.points_absorber_Th)}")
+
+SOLAR_IRRADIANCE = 1361.0  # W/m^2
+ABSORPTIVITY     = 0.10    # dimensionless surface absorptivity
+
+def absorbed_flux(irradiance, absorptivity, angle_deg):
+    """Flux absorbed on a surface for given incidence angle."""
+    theta_rad = math.radians(angle_deg)
+    return irradiance * absorptivity * math.cos(theta_rad)
+
+EXPERIMENT_DATA_FILEPATH = 'H:/STAR-Simulator/FreeCAD/experiment_data.csv'
+FLUX_DATA_FILEPATH       = 'H:/STAR-Simulator/FreeCAD/flux_data.csv'
+
+with open(EXPERIMENT_DATA_FILEPATH, 'w', newline='') as f_exp, \
+     open(FLUX_DATA_FILEPATH, 'w', newline='') as f_flux:
+
+    writer_exp  = csv.writer(f_exp)
+    writer_flux = csv.writer(f_flux)
+
+    # Header for full experiment data (+ Flux column added)
+    writer_exp.writerow([
+        'Energy', 'X', 'Y', 'Z',
+        'Normal_X', 'Normal_Y', 'Normal_Z',
+        'Wavelength', 'Flux'
+    ])
+
+    # Ray direction (unit vector).
+    ray_dir = main_direction.normalize()
+
+    for entry in experiment.points_absorber_Th:
+        energy, x1, y1, z1, x2, y2, z2, nx, ny, nz, wavelength = entry
+
+        # Surface normal at hit
+        n = FreeCAD.Base.Vector(nx, ny, nz)
+        try:
+            n = n.normalize()
+        except Exception:
+            continue  # skip degenerate normals
+
+        # Angle between ray direction and surface normal
+        cos_theta = - (ray_dir.x * n.x + ray_dir.y * n.y + ray_dir.z * n.z)
+        cos_theta = max(-1.0, min(1.0, cos_theta))  # clamp
+        angle_deg = math.degrees(math.acos(cos_theta))
+
+        flux = absorbed_flux(SOLAR_IRRADIANCE, ABSORPTIVITY, angle_deg)
+
+        # Full data row -> experiment_data.csv
+        writer_exp.writerow([
+            f"{energy:.6f}",
+            f"{x1:.6f}", f"{y1:.6f}", f"{z1:.6f}",
+            f"{nx:.6f}", f"{ny:.6f}", f"{nz:.6f}",
+            f"{wavelength:.6f}",
+            f"{flux:.6f}",
+        ])
+
+        # Reduced data row -> flux_data.csv
+        writer_flux.writerow([
+            f"{x1:.6f}", f"{y1:.6f}", f"{z1:.6f}", f"{flux:.6f}",
+        ])
+
+print(f"\nExperiment data saved: {len(experiment.points_absorber_Th)} points")
+print(f"Flux data saved: {len(experiment.points_absorber_Th)} points")
+
+if (PLOT2D):
+    import numpy as np
+    import matplotlib.pyplot as plt
+
+    points = getattr(experiment, "points_absorber_Th", None)
+    if not points:
+        print("No absorption points to plot.")
+    else:
+        try:
+            arr = np.asarray(points, dtype=float)
+            xs = arr[:, 1]
+            ys = arr[:, 2]
+        except Exception:
+            xs = [p[1] for p in points if len(p) > 2]
+            ys = [p[2] for p in points if len(p) > 2]
+            xs = np.array(xs, dtype=float)
+            ys = np.array(ys, dtype=float)
+
+        if xs.size == 0:
+            print("No valid absorption coordinates found.")
+        else:
+            plt.figure(figsize=(6, 6))
+            plt.scatter(xs, ys, s=0.5, c='k', marker='.')
+            plt.xlabel("X")
+            plt.ylabel("Y")
+            plt.title(f"Absorption points (N={xs.size})")
+            plt.gca().set_aspect("equal", adjustable="box")
+            plt.tight_layout()
+            plt.show()
+
+doc.save()
+doc.recompute()
+
+_elapsed = time.perf_counter() - _start_time  # TIMING
+print(f"\nTotal script elapsed time: {_elapsed:.3f} seconds")  # TIMING

@@ -1,4 +1,5 @@
 ##### SolarFluxCalc.FCMacro #####
+##### Version 1.1           #####
 
 # ============================================================================
 # IMPORT LIBRARIES
@@ -7,6 +8,7 @@
 import os
 import sys
 import FreeCAD
+import Part
 import csv
 import math
 import json
@@ -32,9 +34,9 @@ config_file = os.path.normpath(os.path.join(script_dir, "..", "abaqus_to_freecad
 if not os.path.isfile(config_file):
 	raise FileNotFoundError(f"Config file not found at: {config_file}")
 
-REQUIRED_KEYS = ['WORKING_DIR', 'FCSTD_PATH', 'OBJECT_PATH', 'OBJECT_NAME',
+REQUIRED_KEYS = ['WORKING_DIR', 'FCSTD_PATH', 'OBJECT_PATH', 'OBJECT_NAME', 'OBJECT_TYPE',
                  'ITER_ID', 'RUN_NO', 'SCENARIO_NAME', 'NUM_RAYS', 'SUN_DIR',
-                 'SOLAR_IRRADIANCE', 'OBJECT_MATERIAL', 'ABSORPTION_ONLY', 'ABSORPTIVITY_DICT']
+                 'SOLAR_IRRADIANCE', 'OBJECT_MATERIAL', 'ABSORPTION_ONLY', 'ABSORPTIVITY_DICT', 'GEOMETRY_IMPORT']
 
 with open(config_file, 'r') as f:
     cfg = json.load(f)
@@ -58,6 +60,9 @@ SOLAR_IRRADIANCE = cfg['SOLAR_IRRADIANCE']
 OBJECT_MATERIAL = cfg['OBJECT_MATERIAL']
 ABSORPTION_ONLY = cfg['ABSORPTION_ONLY']
 ABSORPTIVITY_DICT = cfg['ABSORPTIVITY_DICT']
+OBJECT_TYPE = cfg.get('OBJECT_TYPE')          # 'shell' or 'wire'
+GEOMETRY_IMPORT = cfg.get('GEOMETRY_IMPORT')     # 'stp' or 'nodes'
+NODE_DATA = cfg.get('NODE_DATA', None)
 
 # ============================================================================
 # Set Parameters
@@ -71,8 +76,8 @@ os.makedirs(ABSORPTION_PLOT_DIR, exist_ok=True)
 
 PLOT2D = True # Plot absorption points on 2D graph if PLOT2D is True
 DISP3D = False # Display rays in FreeCAD if True
+KEEP_WORKING_COPY = False # Keeps working copy of .Fcstd doc used for ray tracing
 
-SOLAR_IRRADIANCE = 1361.0 # W/m^2
 OBJECT_ABSORPTIVITY = ABSORPTIVITY_DICT[OBJECT_MATERIAL]
 
 print("Running with config:")
@@ -90,7 +95,102 @@ FREECAD_TO_ABAQUS_JSON = os.path.normpath(os.path.join(script_dir, "..", "freeca
 # HELPER FUNCTIONS
 # ============================================================================
 
-def extract_faces_from_solid(doc, solid_obj_label, material_name):
+def build_wire_pipefuse(nodes, elements, radius=0.02):
+    """
+    Build individual swept-pipe solids for straight truss segments and fuse them.
+
+    nodes: dict {node_id: App.Vector(x, y, z)}
+    elements: list of (node1_id, node2_id) tuples
+    radius: cross-section radius (m), from Abaqus Property module
+    """
+    solids = []
+    for n1, n2 in elements:
+        p1, p2 = nodes[n1], nodes[n2]
+        direction = p2.sub(p1)
+        if direction.Length < 1e-9:
+            continue
+
+        edge = Part.LineSegment(p1, p2).toShape()
+        path = Part.Wire([edge])
+
+        circle = Part.Circle(p1, direction, radius)
+        profile = Part.Wire([circle.toShape()])
+
+        pipe = path.makePipeShell([profile], True, True)
+        solids.append(pipe)
+
+    if not solids:
+        raise ValueError("No valid elements to build geometry from.")
+
+    fused = solids[0].fuse(solids[1:]) if len(solids) > 1 else solids[0]
+    return fused
+
+
+def remove_existing_target(doc, object_name):
+    """
+    Remove only a previous instance of the target object (by label),
+    leaving every other object in the scene untouched.
+    """
+    existing = doc.getObjectsByLabel(object_name)
+    for obj in existing:
+        doc.removeObject(obj.Name)
+    if existing:
+        doc.recompute()
+        print(f"Removed {len(existing)} pre-existing object(s) labeled '{object_name}'")
+
+
+def import_target_from_stp(doc, object_path, object_name):
+    """Import target geometry from a STEP file (console-safe)."""
+    import Import  # non-GUI import module
+    n_before = len(doc.Objects)
+    Import.insert(object_path, doc.Name)  # works in FreeCADCmd
+    new_objs = doc.Objects[n_before:]
+    if not new_objs:
+        raise RuntimeError(f"STEP import produced no new objects from {object_path}")
+    imported_obj = new_objs[0]
+    imported_obj.Label = object_name
+    doc.recompute()
+    return imported_obj
+
+
+def build_target_from_nodes(doc, object_type, node_data, object_name):
+    """
+    Reconstruct target geometry in FreeCAD directly from Abaqus node/element
+    data, without importing a STEP file. Supports 'wire' (swept-pipe truss)
+    and 'shell' (flat/faceted plate from node coordinates) object types.
+    """
+    if node_data is None:
+        raise ValueError("GEOMETRY_IMPORT is 'nodes' but NODE_DATA was not provided.")
+
+    raw_nodes = node_data['nodes']
+    nodes = {int(nid): FreeCAD.Vector(*coords) for nid, coords in raw_nodes.items()}
+    elements = [tuple(e) for e in node_data['elements']]
+
+    if object_type == 'wire':
+        radius = node_data.get('radius', 0.02)
+        shape = build_wire_pipefuse(nodes, elements, radius=radius)
+
+    elif object_type == 'shell':
+        # Build shell faces directly from element connectivity (assumes each
+        # 'element' entry lists the ordered node IDs of one shell face, e.g.
+        # a triangle [1, 2, 3] or quad [1, 2, 3, 4]).
+        faces = []
+        for elem in elements:
+            pts = [nodes[nid] for nid in elem] + [nodes[elem[0]]]
+            wire = Part.makePolygon(pts)
+            faces.append(Part.Face(wire))
+        shape = Part.Shell(faces) if len(faces) > 1 else faces[0]
+
+    else:
+        raise ValueError(f"Unknown OBJECT_TYPE: {object_type!r}. Must be 'shell' or 'wire'.")
+
+    target_obj = doc.addObject("Part::Feature", object_name)
+    target_obj.Shape = shape
+    target_obj.Label = object_name
+    doc.recompute()
+    return target_obj
+    
+def extract_faces_from_solid(doc, solid_obj_label):
 	solid = doc.getObjectsByLabel(solid_obj_label)[0]
 	print(f"Extracting {len(solid.Shape.Faces)} faces from '{solid_obj_label}'...")
 	
@@ -262,46 +362,58 @@ error_message = None
 
 try:
 
-    # Create Working Copy of FCSTD Document
+    # ----------------------------------------------------------
+    # Set Up FCSTD Document
+    # ----------------------------------------------------------
+    
+    # --- Create working copy of the FCSTD document (unchanged) ---
     dirpath = os.path.dirname(FCSTD_PATH)
     basename, ext = os.path.splitext(os.path.basename(FCSTD_PATH))
     counter = 0
     while True:
-    	if counter == 0:
-    		candidate = f"{basename}_otsun_working{ext}"
-    	else:
-    		candidate = f"{basename}_otsun_working_{counter}{ext}"
-    	temp_path = os.path.join(dirpath, candidate)
-    	if not os.path.exists(temp_path):
-    		break
-    	counter += 1
+        if counter == 0:
+            candidate = f"{basename}_otsun_working{ext}"
+        else:
+            candidate = f"{basename}_otsun_working_{counter}{ext}"
+        temp_path = os.path.join(dirpath, candidate)
+        if not os.path.exists(temp_path):
+            break
+        counter += 1
     
     original_doc = FreeCAD.open(FCSTD_PATH)
     original_doc.saveAs(temp_path)
     FreeCAD.closeDocument(original_doc.Name)
     doc = FreeCAD.open(temp_path)
     
-    # --- Clear existing objects in the document ---
-    for obj in list(doc.Objects):
-    	doc.removeObject(obj.Name)     # remove everything in the scene
-    doc.recompute()                    
+    # --- Remove only a stale copy of the target object, keep everything else ---
+    remove_existing_target(doc, OBJECT_NAME)
     
-    # --- Import STEP geometry into this document (console-safe) ---
-    print("Importing STEP File")
-    import Import  # non-GUI import module
-    Import.insert(OBJECT_PATH, doc.Name)  # works in FreeCADCmd
-    imported_obj = doc.Objects[0]
-    imported_obj.Label = OBJECT_NAME
+    # --- Import or reconstruct target geometry, depending on config ---
+    if GEOMETRY_IMPORT == 'stp':
+        print("Importing STEP File")
+        imported_obj = import_target_from_stp(doc, OBJECT_PATH, OBJECT_NAME)
+    
+    elif GEOMETRY_IMPORT == 'nodes':
+        print(f"Reconstructing '{OBJECT_TYPE}' geometry from node data")
+        imported_obj = build_target_from_nodes(doc, OBJECT_TYPE, NODE_DATA, OBJECT_NAME)
+    
+    else:
+        raise ValueError(f"Unknown GEOMETRY_IMPORT: {GEOMETRY_IMPORT!r}. Must be 'stp' or 'nodes'.")
+    
     doc.recompute()
     
-    # --- Extract Faces from Solid ---
+    # --- Extract Faces from Solid/Shell ---
     print("Extracting Faces")
-    target_faces = extract_faces_from_solid(doc, OBJECT_NAME, "Aluminum")
+    target_faces = extract_faces_from_solid(doc, OBJECT_NAME)
     print("Done extracting faces")
     
+    # Evaluate complexity of geometry in the FCSTD document
     geometry_complexity = compute_geometry_complexity(target_faces)
     
-    # --- Define Surface Materials ---
+    # ----------------------------------------------------------
+    # Define Surface Materials
+    # ----------------------------------------------------------
+    
     from otsun.materials import SurfaceMaterial
     
     if ABSORPTION_ONLY:
@@ -318,12 +430,19 @@ try:
     	)
     print(f"Created {len(ABSORPTIVITY_DICT)} surface materials (ABSORPTION_ONLY={ABSORPTION_ONLY}): {', '.join(ABSORPTIVITY_DICT.keys())}")
     
-    # --- Build Scene ---
+    # ----------------------------------------------------------
+    # Build OTSun Scene
+    # ----------------------------------------------------------
+       
     scene = otsun.Scene.from_freecad_document(doc)
     
     print(f"\n=== Scene ===")
     num_faces = len(scene.faces)
     print(f"  Faces in scene: {num_faces}")
+    
+    # ----------------------------------------------------------
+    # Create Sun Window & Define LightSource
+    # ----------------------------------------------------------
     
     ## SUN WINDOW ONLY OVER THE TARGET OBJECT
     from otsun.source import SunWindow, LightSource
@@ -407,7 +526,10 @@ try:
     
     print(f"\nTIME: {time.perf_counter() - _start_time:.3f} seconds")
     
-    # --- Run Experiment ---
+    # ----------------------------------------------------------
+    # Run Experiment
+    # ----------------------------------------------------------
+    
     num_rays = NUM_RAYS
     if DISP3D:
     	experiment = otsun.Experiment(
@@ -436,7 +558,10 @@ try:
     
     success = True
     
-    # --- Results ---
+    # ----------------------------------------------------------
+    # Print and Output Results
+    # ----------------------------------------------------------
+    
     print(f"\n=== RESULTS ===")
     print(f"Number of absorption points: {len(experiment.points_absorber_Th)}")
     
@@ -495,7 +620,7 @@ try:
     print(f"Flux data saved: {len(experiment.points_absorber_Th)} points")
     
     # ============================================================================
-    # Create 2D absorption plots
+    # Create 2D Absorption Plots
     # ============================================================================
     
     if PLOT2D:
@@ -536,6 +661,10 @@ try:
     			plt.close()
     			print(f"Plot saved: {plot_path}")
     
+    # ============================================================================
+    # Log Complexity and Runtime
+    # ============================================================================
+    
     complexity_log_path = f"{DOCUMENTATION_DIR}/complexity_vs_runtime.csv"
     log_header = not os.path.exists(complexity_log_path)
     with open(complexity_log_path, 'a', newline='') as f_log:
@@ -553,19 +682,19 @@ except Exception as e:
 	print(f"ERROR: Simulation failed: {error_message}")
 
 finally:
-	# Delete working copy
-    try:
-        FreeCAD.closeDocument(doc.Name)
-    except Exception:
-        pass
-    try:
-        if os.path.exists(temp_path):
-            os.remove(temp_path)
-            print(f"Deleted working copy: {temp_path}")
-    except OSError as e:
-        print(f"WARNING: Could not delete working copy {temp_path}: {e}")
+    if not KEEP_WORKING_COPY: # Delete working copy if not keeping
+        try:
+            FreeCAD.closeDocument(doc.Name)
+        except Exception:
+            pass
+        try:
+            if os.path.exists(temp_path):
+                os.remove(temp_path)
+                print(f"Deleted working copy: {temp_path}")
+        except OSError as e:
+            print(f"WARNING: Could not delete working copy {temp_path}: {e}")
 	
-	# Write FreeCAD to Abaqus json 
+    # Write FreeCAD to Abaqus json 
     write_result_json(
         success=success,
         num_faces=num_faces,

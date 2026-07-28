@@ -126,7 +126,7 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
         "ABSORPTIVITY_DICT": absorptivity_dict,
         "OBJECT_TYPE": object_type,
         "GEOMETRY_IMPORT": geometry_import,
-        "NODE_DATA": node_data,
+        "NODE_DATA": node_data
     }
     with open(abaqus_to_freecad_json, 'w') as f:
         json.dump(data, f, indent=2)

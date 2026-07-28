@@ -4,10 +4,10 @@
 ########################################################
 
 ### Set key directories ###
-STAR_DIR = r"C:\Users\kaylakane\Desktop\github-scripts\STAR-Simulator"
-FREECAD_CMD = r"C:\Users\kaylakane\AppData\Local\Programs\FreeCAD 1.1\bin\freecadcmd.exe"
-# STAR_DIR = r"C:/Users/adzheng/STAR-Simulator"
-# FREECAD_CMD = r"C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe"
+# STAR_DIR = r"C:/Users/kaylakane/Desktop/github-scripts/STAR-Simulator"
+# FREECAD_CMD = r"C:/Users/kaylakane/AppData/Local/Programs/FreeCAD 1.1/bin/freecadcmd.exe"
+STAR_DIR = r"C:/Users/adzheng/STAR-Simulator"
+FREECAD_CMD = r"C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe"
 # STAR_DIR = r"H:/STAR-Simulator"
 # FREECAD_CMD = r"H:/Programs/FreeCAD 1.0/bin/FreeCADCmd.exe"
 
@@ -43,7 +43,7 @@ from starlib import *
 
 # RUN PARAMETERS
 RUN_NO     = 0.8
-N_ITER     = 7
+N_ITER     = 2
 CHUNK_TIME = 20.0 # seconds per iterations
 
 # FILE NAMES AND PARAMETERS
