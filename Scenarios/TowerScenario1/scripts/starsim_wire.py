@@ -43,7 +43,7 @@ from starlib import *
 # RUN PARAMETERS
 RUN_NO     = 0.1
 N_ITER     = 1
-CHUNK_TIME = 10.0 # seconds per iterations
+CHUNK_TIME = 30.0 # seconds per iterations
 
 # FILE NAMES AND PARAMETERS
 SCENARIO_NAME = 'TowerScenario1'
@@ -54,12 +54,12 @@ FCSTD_FILE    = 'TowerScenario1.FCStd'
 DEFORMED_NAME = 'SMAWireDeformed'
 
 # RAY TRACING PARAMETERS
-N_RAYS = 2000 # Number of rays for OTSun ray tracing
+N_RAYS = 4000 # Number of rays for OTSun ray tracing
 SOLAR_IRRADIANCE = 1361.0  # W/m^2
 OBJECT_MATERIAL = "Nitinol"
 ABSORPTION_ONLY = True  # If True, ray tracing ignores reflections and only accounts for absorption for computational efficiency 
-ABSORPTIVITY_DICT = {"Nitinol": 0.75, "Aluminum": 0.20, "Blocker": 1.0}
-SUN_ZENITH = 30 # degrees from the +Z ("straight overhead") axis.
+ABSORPTIVITY_DICT = {"Nitinol": 0.9, "Aluminum": 0.20, "Blocker": 1.0}
+SUN_ZENITH = 40 # degrees from the +Z ("straight overhead") axis.
 SUN_AZIMUTH = 0 # degrees from the +X axis in the XY plane (0 = +X, 90 = +Y, 180 = -X, 270 = -Y)
 FREECAD_TIMEOUT = 600  # seconds 
 GEOMETRY_IMPORT = 'nodes'  # 'stp' or 'nodes'
@@ -69,13 +69,13 @@ MODEL_BASENAME = f"{SCENARIO_NAME}_Model"
 LOAD_NAME = 'SolarFlux' 
 LOAD_SURFACE = 'Flux-Surface'
 JOB_BASENAME  = 'SMAHeatTransient'
-MESHSIZE   = 0.02 # mesh size in meters
+MESHSIZE   = 0.025 # mesh size in meters
 ANALYTIC_FIT_TOLERANCE = 0.018
 STITCH_TOLERANCE = 0.001
 BC_EDGE = [(0, 0, 0), (0, 0.1, 0)] # Edge to fix defined by endpoints
 BC_FIXPOINT = tuple((np.array(BC_EDGE[0]) + np.array(BC_EDGE[1])) / 2.0)
 BC_TOLERANCE = 0.1 # Tolerance for finding edges to fix
-INITIAL_TEMP = 300.0  # Kelvin (K)
+INITIAL_TEMP = 260.0  # Kelvin (K)
 AMBIENT_TEMP = 4.0  # Kelvin (K)
 EMISSIVITY = 0.75
 RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
@@ -540,6 +540,8 @@ for it in range(1, N_ITER + 1):
             initial_temp=INITIAL_TEMP,
             mesh_size=MESHSIZE,
         )
+        print(f"Built model {MODEL_BASENAME} for iteration 1")
+
         prep_job_name = "Assemble_Tower"
         assembleTower(MODEL_BASENAME, prep_job_name)
         addActivationStep(model_name=MODEL_BASENAME, step_name=step_name,
@@ -550,16 +552,17 @@ for it in range(1, N_ITER + 1):
         elem_centroids = get_deformed_element_centroids(prep_job_name, instance_name=OBJECT_NAME)
         elem_fluxes = map_flux_to_wire_elements(xyz_data, elem_centroids,
                                                     wire_radius=SMA_rad)
-        print(elem_fluxes)
         elem_fluxes_list.append(elem_fluxes)
         elem_centroids_list.append(elem_centroids)
-
+        printlog(f"Element fluxes (iteration {iter_id}): {elem_fluxes}")
 
         field_name = 'FluxField_%02d' % iter_id
-        apply_mapped_dflux(
-            model, surface_name=LOAD_SURFACE, step_name=step_name,
-            load_name=LOAD_NAME, instance_name=OBJECT_NAME,
-            elem_fluxes=elem_fluxes, field_name=field_name)
+        apply_mapped_body_flux(
+            model, step_name=step_name, load_name=LOAD_NAME,
+            instance_name=OBJECT_NAME, elem_fluxes=elem_fluxes,
+            field_name=field_name, wire_radius=SMA_rad
+        )
+
         # update_flux_field(model, xyz_data, field_name=field_name)
         # apply_surface_heat_flux(model, step_name=step_name, load_name=LOAD_NAME,
         #                         field_name=field_name, instance_name=OBJECT_NAME,
@@ -597,10 +600,11 @@ for it in range(1, N_ITER + 1):
             max_inc=5.0, deltmx=5.0, max_num_inc=200, restart_freq=1)
 
         field_name = 'FluxField_%02d' % iter_id
-        apply_mapped_dflux(
-            model, surface_name=LOAD_SURFACE, step_name=step_name,
-            load_name=LOAD_NAME, instance_name=OBJECT_NAME,
-            elem_fluxes=elem_fluxes, field_name=field_name)
+        apply_mapped_body_flux(
+            model, step_name=step_name, load_name=LOAD_NAME,
+            instance_name=OBJECT_NAME, elem_fluxes=elem_fluxes,
+            field_name=field_name, wire_radius=SMA_rad
+        )
         elem_fluxes_list.append(elem_fluxes)
         elem_centroids_list.append(get_undeformed_element_centroids(model, OBJECT_NAME))
 

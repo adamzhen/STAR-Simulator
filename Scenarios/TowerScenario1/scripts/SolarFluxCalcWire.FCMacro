@@ -459,7 +459,7 @@ try:
     # Collect bounding boxes of the target faces
     bbs = [face_obj.Shape.BoundBox for face_obj in target_faces]
     
-    MARGIN = 0.05  # 5% padding on each side to avoid clipping edge rays
+    MARGIN = 0.03  # 3% padding on each side 
     
     projected_points = []
     point_of_plane = (scene.boundbox.Center -

@@ -97,7 +97,7 @@ def build_model(model_name='Model-1',
     defineContact(model_name=model_name)
     defineLoads(disp_ax, isLoad, AXOFST, TR1OFST, TRANS_dist,
                 model_name=model_name)
-    defineModelChange(model_name=model_name)
+    defineModelChange(model_name=model_name, initial_temp=initial_temp, object_name=object_name)
     defineBCs(num_CF, initial_temp, CF_dist, SMA_dist, isLoad,
               clipwidth_factor, model_name=model_name)
     # assembleTower(model_name, prep_job_name="Assemble_Tower")
@@ -845,8 +845,10 @@ def defineBCs(num_CF, initial_temp, CF_dist, SMA_dist, isLoad, clipwidth_factor,
             mdb.models[model_name].ConnDisplacementBC(name='SMAWire-'+str(y+1+num_CF*floor(x/2)),
                 createStepName='Assembly', region=a.sets['SMAwire_layer-'+str(x+1)+'_beam-'+str(y+1)], u1=-SMA_dist+clipwidth_factor, u2=UNSET, u3=UNSET,
                 ur1=UNSET, ur2=UNSET, ur3=UNSET, amplitude='Assembly_Amp', fixed=OFF, distributionType=UNIFORM)
+
+    print('Defined BCs')
             
-def defineModelChange(model_name='Model-1', object_name='SMAWire_(Nitinol)'):
+def defineModelChange(model_name='Model-1', initial_temp=300.0, object_name='SMAWire_(Nitinol)'):
     #model change to bring in and out actuator
     a = mdb.models[model_name].rootAssembly
     # sma_faces = a.instances[object_name].faces
@@ -890,11 +892,13 @@ def defineModelChange(model_name='Model-1', object_name='SMAWire_(Nitinol)'):
         # region=region_conn2,activeInStep=True,includeStrain=False)
         
     #apply temp changes
+    print('Applying initial temperature of',initial_temp,'K to actuator')
     mdb.models[model_name].Temperature(name='Actuator_temp',
         createStepName='Initial', region=region_whole_actuator,
         distributionType=UNIFORM,
         crossSectionDistribution=CONSTANT_THROUGH_THICKNESS,
-        magnitudes=(200,))
+        magnitudes=(initial_temp,))
+    
     # e1 = a.instances[object_name].edges
     # edges1 = e1.findAt(((0.049419, 0.39755, -0.049571), ))
     # a.Set(edges=edges1, name='sma_edges')

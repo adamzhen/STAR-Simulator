@@ -281,39 +281,79 @@ def map_flux_to_elements(xyz_data, elem_centroids, max_distance=0.02):
               (n_zeroed, len(elem_centroids)))
     return elem_fluxes
 
-def map_flux_to_wire_elements(xyz_data, elem_centroids, wire_radius):
-    """
-    xyz_data: array of (x, y, z, flux) ray-hit points (flux = absorbed
-              power density at that point's local surface patch, W/m^2)
-    elem_centroids: dict {element_label: (x, y, z)} from
-                    get_deformed_element_centroids / get_undeformed_element_centroids
-    wire_radius: physical wire radius (m)
-
-    Assigns each hit point to its nearest element centroid (by axial
-    position along the wire), sums total absorbed power in that bin,
-    and redistributes it uniformly around the full circumference.
-    """
-    import numpy as np
+def map_flux_to_wire_elements(xyz_data, elem_centroids,
+                              axis='y', wire_radius=0.001,
+                              top_fraction=0.1,
+                              return_hit_counts=False):
+    if axis not in ('x', 'y', 'z'):
+        raise ValueError("axis must be 'x', 'y', or 'z'")
+    if not (0.0 < top_fraction <= 1.0):
+        raise ValueError("top_fraction must be greater than 0 and at most 1")
+    if not elem_centroids:
+        raise ValueError("elem_centroids is empty")
 
     labels = list(elem_centroids.keys())
-    centroids = np.array([elem_centroids[l] for l in labels])
-    xyz_data = np.asarray(xyz_data)
-    pts = xyz_data[:, :3]
-    flux_vals = xyz_data[:, 3]
 
-    dists = np.linalg.norm(pts[:, None, :] - centroids[None, :, :], axis=2)
-    nearest_idx = np.argmin(dists, axis=1)
+    # Handle empty input robustly (fix: check length before array-shape checks)
+    if xyz_data is None or len(xyz_data) == 0:
+        zero_fluxes = {label: 0.0 for label in labels}
+        zero_counts = {label: 0 for label in labels}
+        if return_hit_counts:
+            return zero_fluxes, zero_counts, 0.0
+        return zero_fluxes
+
+    data = np.asarray(xyz_data, dtype=float)
+    if data.ndim != 2 or data.shape[1] < 4:
+        raise ValueError("xyz_data must contain rows of (x, y, z, flux_w_m2)")
+
+    axis_index = {'x': 0, 'y': 1, 'z': 2}[axis]
+
+    centroid_coords = np.asarray([elem_centroids[label] for label in labels], dtype=float)
+
+    point_axis_coords = data[:, axis_index]
+    local_fluxes = data[:, 3]
+
+    axial_distances = np.abs(
+        point_axis_coords[:, None] - centroid_coords[:, axis_index][None, :]
+    )
+    assigned_element_indices = np.argmin(axial_distances, axis=1)
+
+    hit_counts = {label: 0 for label in labels}
+    flux_samples = {label: [] for label in labels}
+
+    for point_index, element_index in enumerate(assigned_element_indices):
+        label = labels[element_index]
+        hit_counts[label] += 1
+        flux_samples[label].append(local_fluxes[point_index])
+
+    nonzero_counts = sorted([c for c in hit_counts.values() if c > 0], reverse=True)
+
+    if not nonzero_counts:
+        zero_fluxes = {label: 0.0 for label in labels}
+        if return_hit_counts:
+            return zero_fluxes, hit_counts, 0.0
+        return zero_fluxes
+
+    n_top = max(1, int(np.ceil(top_fraction * len(nonzero_counts))))
+    expected_hits = float(np.mean(nonzero_counts[:n_top]))
+    printlog("map_flux_to_wire_elements: expected_hits (mean of top %.1f%%) = %.2f" % (top_fraction * 100, expected_hits))
+    printlog("map_flux_to_wire_elements: hit_counts = %s" % hit_counts)
 
     elem_fluxes = {}
-    for i, label in enumerate(labels):
-        mask = nearest_idx == i
-        if not np.any(mask):
+    for label in labels:
+        count = hit_counts[label]
+        if count == 0:
             elem_fluxes[label] = 0.0
             continue
-        elem_fluxes[label] = np.average(flux_vals[mask])  # placeholder, see note
+        mean_lit_flux = float(np.mean(flux_samples[label]))
+        if count >= 0.60 * expected_hits: # If the element has at least 60% of the expected hits, assume full coverage
+            coverage_fraction = 1.0
+        else:
+            coverage_fraction = min(1.0, count / expected_hits)
+        elem_fluxes[label] = 0.5 * mean_lit_flux * coverage_fraction
 
-    printlog("map_flux_to_wire_elements: mapped flux to %d wire elements" % len(elem_fluxes))
-
+    if return_hit_counts:
+        return elem_fluxes, hit_counts, expected_hits
     return elem_fluxes
 
 def create_restart_step(model, prev_job, prev_step_name, step_name,
@@ -367,12 +407,20 @@ def get_undeformed_element_centroids(model, instance_name):
               % (len(elem_centroids), instance_name))
     return elem_centroids
 
-def apply_mapped_dflux(model, surface_name, step_name, load_name,
-                        instance_name, elem_fluxes, field_name):
+def apply_mapped_dflux(model, step_name, load_name, instance_name,
+                        elem_fluxes, field_name,
+                        surface_name=None, part_surface_name=None):
     """Apply per-element flux as a real SurfaceHeatFlux load using a
     MappedField, keyed by each element's UNDEFORMED centroid (required
     since MappedField/POINT data is matched against the mesh's reference
     configuration, not deformed geometry).
+
+    Works for both shell and wire pipelines:
+      - Shell pipeline: pass surface_name (assembly-level surface, e.g.
+        'All-Surfaces', created via a.Surface(...) in build_model_from_step).
+      - Wire pipeline: pass instance_name + part_surface_name (e.g.
+        instance_name=OBJECT_NAME, part_surface_name=LOAD_SURFACE), which
+        resolves to a.instances[instance_name].surfaces[part_surface_name].
 
     Deletes and recreates the load/field under load_name/field_name if
     they already exist, so calling this repeatedly with a FIXED load_name
@@ -407,13 +455,88 @@ def apply_mapped_dflux(model, surface_name, step_name, load_name,
         xyzPointData=xyz_flux_data)
 
     a = model.rootAssembly
-    surf = a.surfaces[surface_name]
+
+    if surface_name is not None:
+        surf = a.surfaces[surface_name]
+    elif instance_name is not None and part_surface_name is not None:
+        surf = a.instances[instance_name].surfaces[part_surface_name]
+    else:
+        raise ValueError(
+            "Must provide either surface_name (assembly-level, shell "
+            "pipeline) or instance_name + part_surface_name (part-level, "
+            "wire pipeline)."
+        )
+
     model.SurfaceHeatFlux(
         name=load_name, createStepName=step_name,
         region=surf, magnitude=1.0, distributionType=FIELD,
         field=field_name)
 
     printlog("Redefined SurfaceHeatFlux '%s' (field=%s) for step %s"
+              % (load_name, field_name, step_name))
+
+def apply_mapped_body_flux(model, step_name, load_name, instance_name,
+                            elem_fluxes, field_name, wire_radius):
+    """
+    Apply per-element surface-equivalent flux as a single BodyHeatFlux
+    load using a MappedField, keyed by each element's UNDEFORMED
+    centroid. This avoids SurfaceHeatFlux entirely, since T3D2T
+    (truss) elements have no discrete faces and reject surface-type
+    (S) DFLUX loads outright.
+
+    elem_fluxes values are expected in units of surface flux (W/m^2),
+    e.g. the output of map_flux_to_wire_elements. They are converted
+    to an equivalent body flux (W/m^3) here using:
+
+        q_body = 2 * q_surface / wire_radius
+
+    which conserves total absorbed power per unit length:
+        q_surface * (2*pi*r) == q_body * (pi*r^2)
+
+    Deletes and recreates the load/field under load_name/field_name if
+    they already exist, so calling this repeatedly with a FIXED
+    load_name across iterations redefines (rather than stacks) the
+    flux load -- critical for avoiding additive flux loads across
+    restart steps.
+    """
+    if load_name in model.loads:
+        del model.loads[load_name]
+    if field_name in model.analyticalFields:
+        del model.analyticalFields[field_name]
+
+    undeformed_centroids = get_undeformed_element_centroids(model, instance_name)
+
+    xyz_flux_data = []
+    n_missing = 0
+    for label, surface_flux in elem_fluxes.items():
+        if label not in undeformed_centroids:
+            n_missing += 1
+            continue
+        x, y, z = undeformed_centroids[label]
+        body_flux = 2.0 * surface_flux / wire_radius
+        xyz_flux_data.append((x, y, z, body_flux))
+
+    if n_missing:
+        printlog("apply_mapped_body_flux: %d element labels from elem_fluxes "
+                  "not found in undeformed_centroids -- skipped" % n_missing)
+
+    model.MappedField(
+        name=field_name,
+        description='Per-element body flux from ray tracing, keyed by undeformed centroid',
+        regionType=POINT, partLevelData=False, localCsys=None,
+        pointDataFormat=XYZ, fieldDataType=SCALAR,
+        xyzPointData=xyz_flux_data)
+
+    a = model.rootAssembly
+    inst = a.instances[instance_name]
+    region = regionToolset.Region(elements=inst.elements)
+
+    model.BodyHeatFlux(
+        name=load_name, createStepName=step_name,
+        region=region, magnitude=1.0, distributionType=FIELD,
+        field=field_name)
+
+    printlog("Redefined BodyHeatFlux '%s' (field=%s) for step %s"
               % (load_name, field_name, step_name))
 
 def debug_plot_flux_on_centroids(xyz_data, elem_fluxes, elem_centroids, iterid,
