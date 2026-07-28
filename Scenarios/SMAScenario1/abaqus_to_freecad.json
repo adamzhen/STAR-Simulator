@@ -1,9 +1,9 @@
 {
-  "WORKING_DIR": "C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1",
-  "FCSTD_PATH": "C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/inputs/SMAScenario1.FCStd",
-  "OBJECT_PATH": "C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp",
+  "WORKING_DIR": "C:\\Users\\kaylakane\\Desktop\\github-scripts\\STAR-Simulator/Scenarios/SMAScenario1",
+  "FCSTD_PATH": "C:\\Users\\kaylakane\\Desktop\\github-scripts\\STAR-Simulator/Scenarios/SMAScenario1/inputs/SMAScenario1.FCStd",
+  "OBJECT_PATH": "C:\\Users\\kaylakane\\Desktop\\github-scripts\\STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp",
   "OBJECT_NAME": "SMAStrip_(Nitinol)",
-  "ITER_ID": 2,
+  "ITER_ID": 7,
   "RUN_NO": 0.8,
   "SCENARIO_NAME": "SMAScenario1",
   "NUM_RAYS": 4000,
@@ -19,5 +19,8 @@
     "Nitinol": 0.75,
     "Aluminum": 0.2,
     "Blocker": 1.0
-  }
+  },
+  "OBJECT_TYPE": "shell",
+  "GEOMETRY_IMPORT": "stp",
+  "NODE_DATA": null
 }

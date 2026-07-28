@@ -77,7 +77,6 @@ PLOT2D = True # Plot absorption points on 2D graph if PLOT2D is True
 DISP3D = True # Display rays in FreeCAD if True
 KEEP_WORKING_COPY = True  # Keeps working copy of .Fcstd doc used for ray tracing
 
-SOLAR_IRRADIANCE = 1361.0 # W/m^2
 OBJECT_ABSORPTIVITY = ABSORPTIVITY_DICT[OBJECT_MATERIAL]
 
 print("Running with config:")

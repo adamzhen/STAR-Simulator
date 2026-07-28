@@ -4,8 +4,10 @@
 ########################################################
 
 ### Set key directories ###
-STAR_DIR = r"C:/Users/adzheng/STAR-Simulator"
-FREECAD_CMD = r"C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe"
+STAR_DIR = r"C:\Users\kaylakane\Desktop\github-scripts\STAR-Simulator"
+FREECAD_CMD = r"C:\Users\kaylakane\AppData\Local\Programs\FreeCAD 1.1\bin\freecadcmd.exe"
+# STAR_DIR = r"C:/Users/adzheng/STAR-Simulator"
+# FREECAD_CMD = r"C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe"
 # STAR_DIR = r"H:/STAR-Simulator"
 # FREECAD_CMD = r"H:/Programs/FreeCAD 1.0/bin/FreeCADCmd.exe"
 
@@ -41,7 +43,7 @@ from starlib import *
 
 # RUN PARAMETERS
 RUN_NO     = 0.8
-N_ITER     = 2
+N_ITER     = 7
 CHUNK_TIME = 20.0 # seconds per iterations
 
 # FILE NAMES AND PARAMETERS
@@ -499,7 +501,7 @@ for it in range(1, N_ITER + 1):
         scenario_name=SCENARIO_NAME, object_name=OBJECT_NAME,
         num_rays=N_RAYS, sun_dir=SUN_DIR, solar_irradiance=SOLAR_IRRADIANCE,
         object_material=OBJECT_MATERIAL, absorption_only=ABSORPTION_ONLY,
-        absorptivity_dict=ABSORPTIVITY_DICT
+        absorptivity_dict=ABSORPTIVITY_DICT, object_type="shell", geometry_import="stp"
     )
     run_freecad_macro(FREECAD_CMD, FREECAD_MACRO, FREECAD_TIMEOUT)
     freecad_result, FLUXDATA_FILEPATH = read_freecad_result(FREECAD_TO_ABAQUS_JSON)

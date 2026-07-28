@@ -11,9 +11,10 @@ import os
 ####### EDIT PARAMETERS #######
 ###############################
 
-RUN_NO = 0.83
+RUN_NO = 0.8
 SCENARIO_NAME = "SMAScenario1"
 WORKING_DIR = f"C:/Users/adzheng/STAR-Simulator/Scenarios/{SCENARIO_NAME}"
+WORKING_DIR = f"C:/Users/kaylakane/Desktop/github-scripts/STAR-Simulator/Scenarios/{SCENARIO_NAME}"
 
 ###############################
 ###############################
