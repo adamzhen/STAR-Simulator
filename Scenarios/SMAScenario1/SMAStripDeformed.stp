@@ -1,7 +1,7 @@
 ISO-10303-21;
 HEADER;
 FILE_DESCRIPTION(('STEP AP214'),'1');
-FILE_NAME('SMAStripDeformed.stp','2026-07-28T16:40:23',(' '),(' '),'Spatial InterOp 3D',' ',' ');
+FILE_NAME('SMAStripDeformed.stp','2026-07-28T17:17:09',(' '),(' '),'Spatial InterOp 3D',' ',' ');
 FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
 ENDSEC;
 DATA;
