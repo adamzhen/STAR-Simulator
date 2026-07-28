@@ -1,3 +1,7 @@
-# Abaqus output files
+# Large Abaqus output files
 *.odb
-Abaqus/BakeTransient.odb
+*.stt
+*.mdl
+
+# User scenario folders
+/Scenarios/TestScenario/
