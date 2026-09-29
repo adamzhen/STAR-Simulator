@@ -125,7 +125,6 @@ def build_wire_pipefuse(nodes, elements, radius=0.02):
     fused = solids[0].fuse(solids[1:]) if len(solids) > 1 else solids[0]
     return fused
 
-
 def remove_existing_target(doc, object_name):
     """
     Remove only a previous instance of the target object (by label),
@@ -137,7 +136,6 @@ def remove_existing_target(doc, object_name):
     if existing:
         doc.recompute()
         print(f"Removed {len(existing)} pre-existing object(s) labeled '{object_name}'")
-
 
 def import_target_from_stp(doc, object_path, object_name):
     """Import target geometry from a STEP file (console-safe)."""
@@ -151,7 +149,6 @@ def import_target_from_stp(doc, object_path, object_name):
     imported_obj.Label = object_name
     doc.recompute()
     return imported_obj
-
 
 def build_target_from_nodes(doc, object_type, node_data, object_name):
     """
@@ -189,7 +186,20 @@ def build_target_from_nodes(doc, object_type, node_data, object_name):
     target_obj.Label = object_name
     doc.recompute()
     return target_obj
-    
+
+def export_target_for_visualization(imported_obj, output_path):
+    """
+    Write the reconstructed/imported target object's shape to a STEP
+    file purely for external visualization or debugging -- e.g.
+    inspecting the true swept-pipe wire geometry (from
+    build_wire_pipefuse) in another CAD viewer, outside of the
+    FreeCAD/OTSun ray-tracing pipeline itself.
+    """
+    import Part
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    Part.export([imported_obj], output_path)
+    print(f"Wrote visualization STEP file: {output_path}")
+
 def extract_faces_from_solid(doc, solid_obj_label):
 	solid = doc.getObjectsByLabel(solid_obj_label)[0]
 	print(f"Extracting {len(solid.Shape.Faces)} faces from '{solid_obj_label}'...")
@@ -205,7 +215,6 @@ def extract_faces_from_solid(doc, solid_obj_label):
 	doc.recompute()
 	print(f"Extracted {len(face_objects)} faces")
 	return face_objects
-
 
 def compute_geometry_complexity(target_faces, verbose=True):
     """Score each face by analytical surface/curve type to estimate
@@ -317,7 +326,6 @@ def compute_geometry_complexity(target_faces, verbose=True):
 
     return result
     
-    
 def absorbed_flux(irradiance, absorptivity, angle_deg):
 	"""Flux absorbed on a surface for given incidence angle."""
 	theta_rad = math.radians(angle_deg)
@@ -396,11 +404,17 @@ try:
     elif GEOMETRY_IMPORT == 'nodes':
         print(f"Reconstructing '{OBJECT_TYPE}' geometry from node data")
         imported_obj = build_target_from_nodes(doc, OBJECT_TYPE, NODE_DATA, OBJECT_NAME)
+
+        visualization_dir = os.path.join(WORKING_DIR, "run_documentation", f"run_{RUN_NO}", "deformed_cad")
+        visualization_path = os.path.join(visualization_dir, f"{OBJECT_NAME}_{ITER_ID:02d}.stp")
+        export_target_for_visualization(imported_obj, visualization_path)
     
     else:
         raise ValueError(f"Unknown GEOMETRY_IMPORT: {GEOMETRY_IMPORT!r}. Must be 'stp' or 'nodes'.")
     
     doc.recompute()
+
+
     
     # --- Extract Faces from Solid/Shell ---
     print("Extracting Faces")

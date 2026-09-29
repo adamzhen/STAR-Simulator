@@ -66,6 +66,58 @@ def log(msg):
         raise RuntimeError("Logging not initialized. Call init_logging(log_file_path) first.")
 
 # ---------------------------------------------
+# Math helper functions
+# ---------------------------------------------
+
+def _point_line_distance(point, line_start, line_end): # used by rdp_3d for simplify_wire_geometry()
+    """Perpendicular distance from a 3D point to the line through
+    line_start and line_end (not the segment -- the infinite line)."""
+    line_vec = line_end - line_start
+    line_len = np.linalg.norm(line_vec)
+    if line_len < 1e-12:
+        return np.linalg.norm(point - line_start)
+    line_unit = line_vec / line_len
+    proj_len = np.dot(point - line_start, line_unit)
+    proj_point = line_start + proj_len * line_unit
+    return np.linalg.norm(point - proj_point)
+
+def rdp_3d(points, tolerance): # used for simplify_wire_geometry()
+    """
+    3D Ramer-Douglas-Peucker polyline simplification.
+
+    points: (N,3) ordered array of coordinates along the wire
+    tolerance: max allowed perpendicular deviation (meters) to collapse points
+
+    Returns a boolean mask (length N) marking which indices to keep.
+    """
+    n = len(points)
+    if n < 3:
+        return np.ones(n, dtype=bool)
+
+    keep = np.zeros(n, dtype=bool)
+    keep[0] = True
+    keep[-1] = True
+
+    stack = [(0, n - 1)]
+    while stack:
+        start_idx, end_idx = stack.pop()
+        if end_idx <= start_idx + 1:
+            continue
+        max_dist = -1.0
+        max_idx = -1
+        for i in range(start_idx + 1, end_idx):
+            d = _point_line_distance(points[i], points[start_idx], points[end_idx])
+            if d > max_dist:
+                max_dist = d
+                max_idx = i
+        if max_dist > tolerance:
+            keep[max_idx] = True
+            stack.append((start_idx, max_idx))
+            stack.append((max_idx, end_idx))
+
+    return keep
+
+# ---------------------------------------------
 # Ray tracing helper functions
 # ---------------------------------------------
 
@@ -109,7 +161,7 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
                               object_path, iter_id, run_no, scenario_name,
                               object_name, num_rays, sun_dir,
                               solar_irradiance, object_material,
-                              absorption_only, absorptivity_dict, object_type, geometry_import, node_data = None):
+                              absorption_only, absorptivity_dict, object_type, geometry_import, node_data = None, scene_object_paths = None):
     data = {
         "WORKING_DIR": working_dir,
         "FCSTD_PATH": fcstd_path,
@@ -126,7 +178,8 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
         "ABSORPTIVITY_DICT": absorptivity_dict,
         "OBJECT_TYPE": object_type,
         "GEOMETRY_IMPORT": geometry_import,
-        "NODE_DATA": node_data
+        "NODE_DATA": node_data,
+        "SCENE_OBJECT_PATHS": scene_object_paths
     }
     with open(abaqus_to_freecad_json, 'w') as f:
         json.dump(data, f, indent=2)
@@ -152,6 +205,11 @@ def run_freecad_macro(freecad_cmd, freecad_macro, freecad_timeout):
             "FreeCAD macro timed out after %.0f s (FREECAD_TIMEOUT=%d). "
             "Increase FREECAD_TIMEOUT or reduce NUM_RAYS/tessellation for late iterations."
             % (elapsed, freecad_timeout)
+        )
+    except Exception as e:
+        elapsed = time.perf_counter() - t0
+        raise RuntimeError(
+            "FreeCAD macro failed after %.1f s: %s" % (elapsed, str(e))
         )
 
 def read_freecad_result(freecad_to_abaqus_json):
@@ -729,8 +787,16 @@ def apply_surface_heat_flux(model, step_name, load_name, field_name,
 # Post-processing functions
 # ---------------------------------------------
 
-def export_obj_from_odb(job_name, obj_path):
-    """Export final deformed geometry to OBJ at true scale.
+def export_obj_from_odb(job_name, obj_path, object_name):
+    """Export final deformed geometry of a single named instance to OBJ
+    at true scale.
+
+    object_name: the instance name (or a substring/base name of it) to
+                 isolate in the viewport before export -- e.g. OBJECT_NAME
+                 for the actuator, or the shade's instance name to export
+                 the shade instead. Without this, writeOBJFile exports
+                 whatever is currently displayed in the viewport, which
+                 includes every instance in the assembly.
 
     Works for both ANALYSIS jobs (ODB may contain multiple stacked steps)
     and RESTART jobs (ODB contains only the new step(s) from this run).
@@ -746,12 +812,38 @@ def export_obj_from_odb(job_name, obj_path):
     else:
         odb = session.openOdb(odb_path)
 
+    # --- Resolve the actual instance key in the ODB (case-insensitive),
+    #     matching the same lookup logic used elsewhere in the pipeline ---
+    instances = odb.rootAssembly.instances
+    resolved_instance_name = None
+    key_upper = object_name.upper()
+    if key_upper in instances.keys():
+        resolved_instance_name = key_upper
+    else:
+        base_name = object_name.split('.')[0].strip().upper()
+        for key in instances.keys():
+            if base_name in key:
+                resolved_instance_name = key
+                printlog("Found instance with key %s" % key)
+                break
+    if resolved_instance_name is None:
+        raise RuntimeError(
+            "Could not resolve instance '%s' among ODB instances: %s"
+            % (object_name, list(instances.keys()))
+        )
+
     vp_name = 'Viewport: 1'
     if vp_name not in session.viewports.keys():
         session.Viewport(name=vp_name)
     vp = session.viewports[vp_name]
 
     vp.setValues(displayedObject=odb)
+
+    # --- Restrict the display group to only the target instance so
+    #     writeOBJFile exports that geometry alone, not the full assembly ---
+    leaf = dgo.LeafFromPartInstance(partInstanceName=(resolved_instance_name,))
+    vp.odbDisplay.displayGroup.replace(leaf=leaf)
+    printlog(f"Restricted display group to instance: {resolved_instance_name}")
 
     step_names = odb.steps.keys()
     if not step_names:
@@ -781,13 +873,38 @@ def export_obj_from_odb(job_name, obj_path):
     vp.odbDisplay.display.setValues(plotState=(CONTOURS_ON_DEF,))
 
     session.writeOBJFile(fileName=obj_path, canvasObjects=(vp,))
-    printlog(f"Wrote OBJ to: {obj_path}")
-
-def export_deformed_to_step(job_name, deformed_step_name, main_step_path, instance_name, model_name,
+    printlog(f"Wrote OBJ to: {obj_path} (instance: {resolved_instance_name})")
+    
+def export_deformed_geometry(job_name, deformed_step_name, main_step_path, instance_name, model_name,
                             stitch_tolerance, analytic_fit_tolerance,
+                            object_type='shell', wire_radius=None,
                             debug_step_path=None, step_index=-1, frame_index=-1,
                             odb_wait_timeout=600.0):
-    """Extract deformed geometry from ODB into STEP."""
+    """Extract deformed geometry from ODB.
+
+    For object_type='shell': stitches element faces into a STEP file as
+    before (unchanged behavior).
+
+    For object_type='wire': skips STEP/face-stitching entirely (beam/truss
+    elements have no faces to stitch) and instead extracts deformed node
+    coordinates plus element connectivity, returned as a NODE_DATA-style
+    dict ready to hand to SolarFluxCalcWire.FCMacro (GEOMETRY_IMPORT='nodes')
+    for wire reconstruction in FreeCAD. Coordinates are cast to native
+    Python floats (ODB field-output values come back as numpy.float32,
+    which json.dump cannot serialize).
+
+    Returns
+    -------
+    None for object_type='shell' (STEP file(s) written as a side effect).
+    dict {'nodes': {node_id: (x, y, z)}, 'elements': [(n1, n2), ...],
+          'radius': wire_radius} for object_type='wire'.
+    """
+    if object_type not in ('shell', 'wire'):
+        raise ValueError("object_type must be 'shell' or 'wire'")
+
+    if object_type == 'wire' and wire_radius is None:
+        raise ValueError("wire_radius is required when object_type='wire'")
+
     odb_path = job_name + '.odb'
     lck_path = odb_path + '.lck'
 
@@ -819,23 +936,129 @@ def export_deformed_to_step(job_name, deformed_step_name, main_step_path, instan
         printlog("Warning: could not match '%s'; using first instance '%s'" % (
             instance_name, resolved_instance_name))
 
-    ptmp = mdb.models[model_name].PartFromOdb(
-        name=deformed_step_name, instance=resolved_instance_name, odb=odb,
-        shape=DEFORMED, step=step_index, frame=frame_index)
+    odb_instance = instances[resolved_instance_name]
 
-    elems = ptmp.elements
-    reg = regionToolset.Region(side1Elements=elems)
-    ptmp.FaceFromElementFaces(elementFaces=reg,
-                              stitchTolerance=stitch_tolerance,
-                              analyticFitTolerance=analytic_fit_tolerance)
-    ptmp.writeStepFile(main_step_path)
-    printlog("Wrote main STEP geometry to %s" % main_step_path)
+    # Extract deformed geometry for shell objects and write to STEP
+    if object_type == 'shell':
+        ptmp = mdb.models[model_name].PartFromOdb(
+            name=deformed_step_name, instance=resolved_instance_name, odb=odb,
+            shape=DEFORMED, step=step_index, frame=frame_index)
 
-    if debug_step_path is not None and debug_step_path != main_step_path:
-        ptmp.writeStepFile(debug_step_path)
-        printlog("Wrote debug STEP geometry to %s" % debug_step_path)
+        elems = ptmp.elements
+        reg = regionToolset.Region(side1Elements=elems)
+        ptmp.FaceFromElementFaces(elementFaces=reg,
+                                  stitchTolerance=stitch_tolerance,
+                                  analyticFitTolerance=analytic_fit_tolerance)
+        ptmp.writeStepFile(main_step_path)
+        printlog("Wrote main STEP geometry to %s" % main_step_path)
 
-    odb.close()
+        if debug_step_path is not None and debug_step_path != main_step_path:
+            ptmp.writeStepFile(debug_step_path)
+            printlog("Wrote debug STEP geometry to %s" % debug_step_path)
+
+        odb.close()
+        return None
+
+    # Extract deformed node coordinates and element connectivity for wire objects
+    if object_type == 'wire':
+        step_obj = odb.steps.keys()[step_index]
+        frame = odb.steps[step_obj].frames[frame_index]
+
+        disp_field = frame.fieldOutputs['U'].getSubset(region=odb_instance)
+
+        # Cast to native float here -- node.coordinates and value.data are
+        # numpy.float32-backed and will break json.dump downstream otherwise.
+        node_coords_ref = {
+            node.label: tuple(float(c) for c in node.coordinates)
+            for node in odb_instance.nodes
+        }
+
+        deformed_nodes = {}
+        for value in disp_field.values:
+            node_label = value.nodeLabel
+            ux, uy, uz = float(value.data[0]), float(value.data[1]), float(value.data[2])
+            x0, y0, z0 = node_coords_ref[node_label]
+            deformed_nodes[node_label] = (x0 + ux, y0 + uy, z0 + uz)
+
+        elements = [
+            tuple(int(n) for n in elem.connectivity)
+            for elem in odb_instance.elements
+        ]
+
+        printlog("Extracted %d deformed nodes and %d elements from wire instance %s"
+                % (len(deformed_nodes), len(elements), resolved_instance_name))
+
+        odb.close()
+
+        node_data = {
+            'nodes': deformed_nodes,
+            'elements': elements,
+            'radius': float(wire_radius)
+        }
+
+        return node_data
+
+def simplify_wire_geometry(node_data, tolerance):
+    """
+    Simplifies a wire's node/element chain using 3D Douglas-Peucker
+    line simplification, so OTSun ray tracing operates on a much smaller
+    swept-pipe geometry when the wire is locally near-straight.
+
+    node_data: {'nodes': {id: (x,y,z)}, 'elements': [(n1,n2), ...], 'radius': r}
+    tolerance: max perpendicular deviation (meters) allowed when collapsing
+               a run of nodes to a straight segment. Should be well under
+               wire_radius/2 to avoid visibly altering the swept-pipe shape,
+               and well under mesh feature size you care about resolving.
+
+    Returns a new node_data dict with the same schema, containing only the
+    simplified node chain and re-indexed elements.
+    """
+    nodes = node_data['nodes']
+    elements = node_data['elements']
+
+    adjacency = {}
+    for n1, n2 in elements:
+        adjacency.setdefault(n1, []).append(n2)
+        adjacency.setdefault(n2, []).append(n1)
+
+    endpoints = [n for n, neighbors in adjacency.items() if len(neighbors) == 1]
+    if len(endpoints) != 2:
+        raise ValueError(
+            "simplify_wire_geometry expects a single open polyline chain "
+            "(exactly 2 endpoints); found %d. Branching/looped wires are "
+            "not supported." % len(endpoints)
+        )
+
+    ordered_ids = [endpoints[0]]
+    visited = {endpoints[0]}
+    current = endpoints[0]
+    while len(ordered_ids) < len(nodes):
+        next_candidates = [n for n in adjacency[current] if n not in visited]
+        if not next_candidates:
+            break
+        current = next_candidates[0]
+        ordered_ids.append(current)
+        visited.add(current)
+
+    coords = np.array([nodes[nid] for nid in ordered_ids])
+    keep_mask = rdp_3d(coords, tolerance)
+    kept_ids = [ordered_ids[i] for i in range(len(ordered_ids)) if keep_mask[i]]
+
+    simplified_nodes = {nid: nodes[nid] for nid in kept_ids}
+    simplified_elements = [
+        (kept_ids[i], kept_ids[i + 1]) for i in range(len(kept_ids) - 1)
+    ]
+
+    printlog("simplify_wire_geometry: reduced %d nodes / %d elements to "
+              "%d nodes / %d elements (tolerance=%.4g m)"
+              % (len(nodes), len(elements), len(simplified_nodes),
+                 len(simplified_elements), tolerance))
+
+    return {
+        'nodes': simplified_nodes,
+        'elements': simplified_elements,
+        'radius': node_data['radius']
+    }
 
 def plot_field_output(job_names, output_dir, run_no,
                               instance_name,
@@ -1225,3 +1448,62 @@ def compute_cumulative_node_displacement(job_names, instance_name, initial_targe
 
     return results
 
+def plot_node_history(node_history, run_no, output_dir, up_axis='y'):
+    """
+    Plot the wire's shape at each iteration in 3D.
+
+    node_history: {iteration_id: [(x, y, z), (x, y, z), ...]}
+                  Each key is an iteration number; each value is the
+                  ordered list of node coordinates along the wire at
+                  that iteration.
+    run_no: run identifier used in the plot title/filename.
+    output_dir: directory to save the plot PNG into.
+    up_axis: which physical axis ('x', 'y', or 'z') should render as the
+             vertical axis on screen. Matplotlib's 3D axes always draw
+             the third plotted coordinate as vertical, so this remaps
+             which data column feeds that slot.
+
+    Returns the path to the saved PNG.
+    """
+    if not node_history:
+        raise ValueError("node_history is empty")
+
+    axis_index = {'x': 0, 'y': 1, 'z': 2}
+    if up_axis not in axis_index:
+        raise ValueError("up_axis must be 'x', 'y', or 'z'")
+    up_idx = axis_index[up_axis]
+    horiz_indices = [i for i in range(3) if i != up_idx]
+    h1_idx, h2_idx = horiz_indices
+    axis_labels = ['X (m)', 'Y (m)', 'Z (m)']
+
+    all_coords = np.array([c for coords_list in node_history.values() for c in coords_list])
+
+    fig = plt.figure(figsize=(8, 6))
+    ax = fig.add_subplot(111, projection='3d')
+
+    for iter_id in sorted(node_history.keys()):
+        coords_array = np.array(node_history[iter_id])
+        ax.plot(coords_array[:, h1_idx], coords_array[:, h2_idx], coords_array[:, up_idx],
+                 marker='o', markersize=2, linewidth=0.75, label=f'Iteration {iter_id}')
+
+    ax.set_title(f'Node History Over Iterations (Run {run_no})')
+    ax.set_xlabel(axis_labels[h1_idx])
+    ax.set_ylabel(axis_labels[h2_idx])
+    ax.set_zlabel(axis_labels[up_idx])
+    ax.legend()
+    ax.grid()
+
+    mids = [all_coords[:, i].mean() for i in range(3)]
+    max_range = max(all_coords[:, i].max() - all_coords[:, i].min() for i in range(3)) / 2.0
+    max_range = max(max_range, 1e-6)
+
+    ax.set_xlim(mids[h1_idx] - max_range, mids[h1_idx] + max_range)
+    ax.set_ylim(mids[h2_idx] - max_range, mids[h2_idx] + max_range)
+    ax.set_zlim(mids[up_idx] - max_range, mids[up_idx] + max_range)
+    ax.set_box_aspect((1, 1, 1))
+
+    os.makedirs(output_dir, exist_ok=True)
+    out_path = os.path.join(output_dir, f'node_history_{run_no}.png')
+    fig.savefig(out_path, dpi=200, bbox_inches='tight')
+    plt.close(fig)
+    return out_path

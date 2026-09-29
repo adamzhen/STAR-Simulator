@@ -63,6 +63,10 @@ ABSORPTIVITY_DICT = cfg['ABSORPTIVITY_DICT']
 OBJECT_TYPE = cfg.get('OBJECT_TYPE')          # 'shell' or 'wire'
 GEOMETRY_IMPORT = cfg.get('GEOMETRY_IMPORT')     # 'stp' or 'nodes'
 NODE_DATA = cfg.get('NODE_DATA', None)
+SCENE_OBJECT_PATHS = cfg.get('SCENE_OBJECT_PATHS', {})  # {instance_name: step_file_path}
+
+print("Scene objects:")
+print(SCENE_OBJECT_PATHS)
 
 # ============================================================================
 # Set Parameters
@@ -76,7 +80,7 @@ os.makedirs(ABSORPTION_PLOT_DIR, exist_ok=True)
 
 PLOT2D = True # Plot absorption points on 2D graph if PLOT2D is True
 DISP3D = False # Display rays in FreeCAD if True
-KEEP_WORKING_COPY = False # Keeps working copy of .Fcstd doc used for ray tracing
+KEEP_WORKING_COPY = True # Keeps working copy of .Fcstd doc used for ray tracing
 
 OBJECT_ABSORPTIVITY = ABSORPTIVITY_DICT[OBJECT_MATERIAL]
 
@@ -189,6 +193,61 @@ def build_target_from_nodes(doc, object_type, node_data, object_name):
     target_obj.Label = object_name
     doc.recompute()
     return target_obj
+   
+def remove_existing_scene_objects(doc, scene_object_paths):
+    """
+    Remove any previously-imported scene (blocker) objects before
+    reimporting this iteration's deformed versions, so repeated runs
+    don't accumulate duplicate/stale blocker geometry in the working
+    FCStd document.
+    """
+    removed_count = 0
+    for instance_name in scene_object_paths.keys():
+        matches = [o for o in doc.Objects if o.Label.startswith(f"{instance_name}_")]
+        for obj in matches:
+            doc.removeObject(obj.Name)
+            removed_count += 1
+    if removed_count:
+        doc.recompute()
+        print(f"Removed {removed_count} pre-existing scene object(s)")
+
+
+def import_scene_object(doc, step_path):
+    """
+    Import a single deformed scene (blocker) object STEP file. The
+    object's Label is set directly from the STEP filename's stem, which
+    is written by the Abaqus side as '{instance_name}_({material}).stp'
+    -- this naming convention lets OTSun's material-assignment logic
+    pick up the correct SurfaceMaterial automatically from the Label,
+    with no extra manual binding step required here.
+    """
+    import Import
+    n_before = len(doc.Objects)
+    Import.insert(step_path, doc.Name)
+    new_objs = doc.Objects[n_before:]
+    if not new_objs:
+        raise RuntimeError(f"STEP import produced no new objects from {step_path}")
+    imported_obj = new_objs[0]
+    imported_obj.Label = os.path.splitext(os.path.basename(step_path))[0]
+    doc.recompute()
+    return imported_obj
+
+
+def import_all_scene_objects(doc, scene_object_paths):
+    """
+    Reimport every deformed scene object for this iteration. Returns the
+    list of imported FreeCAD objects.
+    """
+    scene_objects = []
+    for instance_name, step_path in scene_object_paths.items():
+        if not os.path.isfile(step_path):
+            raise FileNotFoundError(
+                f"Scene object STEP file not found for '{instance_name}': {step_path}"
+            )
+        obj = import_scene_object(doc, step_path)
+        scene_objects.append(obj)
+        print(f"Imported scene object '{instance_name}' as '{obj.Label}'")
+    return scene_objects
     
 def extract_faces_from_solid(doc, solid_obj_label):
 	solid = doc.getObjectsByLabel(solid_obj_label)[0]
@@ -392,17 +451,26 @@ try:
     if GEOMETRY_IMPORT == 'stp':
         print("Importing STEP File")
         imported_obj = import_target_from_stp(doc, OBJECT_PATH, OBJECT_NAME)
-    
     elif GEOMETRY_IMPORT == 'nodes':
         print(f"Reconstructing '{OBJECT_TYPE}' geometry from node data")
         imported_obj = build_target_from_nodes(doc, OBJECT_TYPE, NODE_DATA, OBJECT_NAME)
-    
     else:
         raise ValueError(f"Unknown GEOMETRY_IMPORT: {GEOMETRY_IMPORT!r}. Must be 'stp' or 'nodes'.")
     
     doc.recompute()
     
-    # --- Extract Faces from Solid/Shell ---
+    # --- Refresh scene (blocker) objects: remove stale copies, reimport
+    #     this iteration's deformed geometry for each shading/scene instance ---
+    if SCENE_OBJECT_PATHS:
+        remove_existing_scene_objects(doc, SCENE_OBJECT_PATHS)
+        scene_objects = import_all_scene_objects(doc, SCENE_OBJECT_PATHS)
+    else:
+        scene_objects = []
+        print("No SCENE_OBJECT_PATHS provided -- skipping scene object import")
+    
+    # --- Extract Faces from Solid/Shell (target object only; scene objects
+    #     are left as imported solids so OTSun picks up their faces directly
+    #     via otsun.Scene.from_freecad_document(doc)) ---
     print("Extracting Faces")
     target_faces = extract_faces_from_solid(doc, OBJECT_NAME)
     print("Done extracting faces")

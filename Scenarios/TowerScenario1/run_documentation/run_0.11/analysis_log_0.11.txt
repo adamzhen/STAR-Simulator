@@ -1,0 +1,353 @@
+[2026-09-07 15:23:02] RUN NO: 0.11
+[2026-09-07 15:23:02] Date: 2026-09-07
+[2026-09-07 15:23:02] 
+=== Parameters ===
+[2026-09-07 15:23:02] SCENARIO_NAME = TowerScenario1
+[2026-09-07 15:23:02] OBJECT_NAME = SMAWire_(Nitinol)
+[2026-09-07 15:23:02] DEFORMED_NAME = SMAWireDeformed
+[2026-09-07 15:23:02] JOB_BASENAME = SMAHeatTransient
+[2026-09-07 15:23:02] N_ITER = 10
+[2026-09-07 15:23:02] CHUNK_TIME = 30.0
+[2026-09-07 15:23:02] MESHSIZE = 0.025
+[2026-09-07 15:23:02] N_RAYS = 4000
+[2026-09-07 15:23:02] SUN_ZENITH = 40
+[2026-09-07 15:23:02] SUN_AZIMUTH = 0
+[2026-09-07 15:23:02] SUN_DIR = (0.642787609686539, -0.766044443118978, 0.0)
+[2026-09-07 15:23:02] STITCH_TOLERANCE = 0.001
+[2026-09-07 15:23:02] ANALYTIC_FIT_TOLERANCE = 0.018
+[2026-09-07 15:23:02] BC_EDGE = [(0, 0, 0), (0, 0.1, 0)]
+[2026-09-07 15:23:02] BC_FIXPOINT = (0.0, 0.05, 0.0)
+[2026-09-07 15:23:02] BC_TOLERANCE = 0.1
+[2026-09-07 15:23:02] INITIAL_TEMP = 260.0
+[2026-09-07 15:23:02] AMBIENT_TEMP = 4.0
+[2026-09-07 15:23:02] EMISSIVITY = 0.75
+[2026-09-07 15:23:02] RUN_COMPARISON = False
+[2026-09-07 15:23:02] ABSORPTION_ONLY = True
+[2026-09-07 15:23:02] ABSORPTIVITY_DICT = {'Nitinol': 0.9, 'Aluminum': 0.2, 'Blocker': 1.0}
+[2026-09-07 15:23:02] OBJECT_TYPE = wire
+[2026-09-07 15:23:02] 
+[2026-09-07 15:23:02] 
+=== Starting iterative loop with restart-based steps ===
+[2026-09-07 15:23:02] 
+
+[2026-09-07 15:23:02] ========================================
+[2026-09-07 15:23:02]  Iteration 1 of 10 (job SMAHeatTransient_01)
+[2026-09-07 15:23:02] ========================================
+[2026-09-07 15:23:02] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:23:02] Running FreeCAD macro...
+[2026-09-07 15:23:13] FreeCAD macro finished in 10.9 s
+[2026-09-07 15:23:13] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:23:13] Loaded 1911 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:23:43] Computed 21 deformed element centroids from Assemble_Tower.odb
+[2026-09-07 15:23:43] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 147.00
+[2026-09-07 15:23:43] map_flux_to_wire_elements: hit_counts = {1: 100, 2: 118, 3: 140, 4: 144, 5: 121, 6: 111, 7: 110, 8: 140, 9: 111, 10: 132, 11: 132, 12: 150, 13: 138, 14: 107, 15: 114, 16: 35, 17: 0, 18: 0, 19: 0, 20: 0, 21: 8}
+[2026-09-07 15:23:43] Element fluxes (iteration 1): {1: 302.168195585, 2: 307.496636033898, 3: 292.798324992857, 4: 312.956520972222, 5: 308.571071123967, 6: 311.581749801802, 7: 304.824236163636, 8: 301.325372464286, 9: 302.43249627027, 10: 303.474613181818, 11: 309.143721598485, 12: 300.21303321, 13: 315.912702666667, 14: 308.091791439252, 15: 303.746805026316, 16: 77.8258223367347, 17: 0.0, 18: 0.0, 19: 0.0, 20: 0.0, 21: 25.5327302857143}
+[2026-09-07 15:23:43] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:23:43] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_01) for step Heat_01
+[2026-09-07 15:23:43] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:23:43] Creating job SMAHeatTransient_01
+[2026-09-07 15:23:43] Running job SMAHeatTransient_01
+[2026-09-07 15:24:21] Completed job SMAHeatTransient_01
+[2026-09-07 15:24:21] Exporting OBJ from ODB: SMAHeatTransient_01.odb
+[2026-09-07 15:24:22] Set to step 'Heat_01' (position index 3, global step number 4), frame 36
+[2026-09-07 15:24:22] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:24:22] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_01.obj
+[2026-09-07 15:24:22] Waiting for ODB to be released: SMAHeatTransient_01.odb
+[2026-09-07 15:24:22] Exporting deformed geometry from SMAHeatTransient_01.odb
+[2026-09-07 15:24:23] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:24:23] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:24:23] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_01_0.11.png
+[2026-09-07 15:24:23] Iteration 1 elapsed time: 81.017 seconds
+[2026-09-07 15:24:23] 
+
+[2026-09-07 15:24:23] ========================================
+[2026-09-07 15:24:23]  Iteration 2 of 10 (job SMAHeatTransient_02)
+[2026-09-07 15:24:23] ========================================
+[2026-09-07 15:24:23] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:24:23] Running FreeCAD macro...
+[2026-09-07 15:24:34] FreeCAD macro finished in 10.1 s
+[2026-09-07 15:24:34] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:24:34] Loaded 2420 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:24:35] Computed 21 deformed element centroids from SMAHeatTransient_01.odb
+[2026-09-07 15:24:35] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 146.50
+[2026-09-07 15:24:35] map_flux_to_wire_elements: hit_counts = {1: 136, 2: 148, 3: 118, 4: 121, 5: 143, 6: 127, 7: 145, 8: 115, 9: 121, 10: 142, 11: 130, 12: 136, 13: 127, 14: 125, 15: 128, 16: 128, 17: 122, 18: 122, 19: 14, 20: 0, 21: 72}
+[2026-09-07 15:24:35] Element fluxes (iteration 2): {1: 304.217532591912, 2: 303.03595825, 3: 305.262506728814, 4: 307.186714495868, 5: 318.759054590909, 6: 313.359257685039, 7: 309.506880234483, 8: 294.091330943478, 9: 298.633083909091, 10: 307.963301507042, 11: 289.419215403846, 12: 304.457225529412, 13: 319.583517204724, 14: 313.09763156, 15: 309.903632730469, 16: 314.224399785156, 17: 304.828765352459, 18: 308.277528885246, 19: 30.3496237303754, 20: 0.0, 21: 153.035232269625}
+[2026-09-07 15:24:35] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:24:35] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_02) for step Heat_02
+[2026-09-07 15:24:35] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:24:35] Running job SMAHeatTransient_02
+[2026-09-07 15:29:53] Completed job SMAHeatTransient_02
+[2026-09-07 15:29:53] Exporting OBJ from ODB: SMAHeatTransient_02.odb
+[2026-09-07 15:29:53] Set to step 'Heat_02' (position index 0, global step number 5), frame 15
+[2026-09-07 15:29:53] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:29:54] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_02.obj
+[2026-09-07 15:29:54] Waiting for ODB to be released: SMAHeatTransient_02.odb
+[2026-09-07 15:29:54] Exporting deformed geometry from SMAHeatTransient_02.odb
+[2026-09-07 15:29:54] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:29:55] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:29:55] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_02_0.11.png
+[2026-09-07 15:29:55] Iteration 2 elapsed time: 331.712 seconds
+[2026-09-07 15:29:55] 
+
+[2026-09-07 15:29:55] ========================================
+[2026-09-07 15:29:55]  Iteration 3 of 10 (job SMAHeatTransient_03)
+[2026-09-07 15:29:55] ========================================
+[2026-09-07 15:29:55] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:29:55] Running FreeCAD macro...
+[2026-09-07 15:30:05] FreeCAD macro finished in 10.3 s
+[2026-09-07 15:30:05] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:30:05] Loaded 2382 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:30:06] Computed 21 deformed element centroids from SMAHeatTransient_02.odb
+[2026-09-07 15:30:06] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 142.00
+[2026-09-07 15:30:06] map_flux_to_wire_elements: hit_counts = {1: 118, 2: 125, 3: 134, 4: 133, 5: 141, 6: 106, 7: 119, 8: 132, 9: 132, 10: 127, 11: 126, 12: 124, 13: 126, 14: 143, 15: 127, 16: 139, 17: 116, 18: 127, 19: 14, 20: 0, 21: 73}
+[2026-09-07 15:30:06] Element fluxes (iteration 3): {1: 303.495341419492, 2: 305.684287784, 3: 311.389286458955, 4: 305.964002845865, 5: 319.391895333333, 6: 294.01519770283, 7: 314.742563752101, 8: 304.827896170455, 9: 313.396912227273, 10: 329.298807090551, 11: 307.059899853175, 12: 312.909432782258, 13: 301.614934948413, 14: 321.737079157343, 15: 307.94061961811, 16: 299.848860179856, 17: 319.550218741379, 18: 301.928957248032, 19: 32.9844006549296, 20: 0.0, 21: 158.14429928169}
+[2026-09-07 15:30:06] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:30:06] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_03) for step Heat_03
+[2026-09-07 15:30:06] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:30:06] Running job SMAHeatTransient_03
+[2026-09-07 15:30:26] Completed job SMAHeatTransient_03
+[2026-09-07 15:30:26] Exporting OBJ from ODB: SMAHeatTransient_03.odb
+[2026-09-07 15:30:27] Set to step 'Heat_03' (position index 0, global step number 6), frame 17
+[2026-09-07 15:30:27] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:30:27] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_03.obj
+[2026-09-07 15:30:27] Waiting for ODB to be released: SMAHeatTransient_03.odb
+[2026-09-07 15:30:27] Exporting deformed geometry from SMAHeatTransient_03.odb
+[2026-09-07 15:30:28] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:30:28] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:30:28] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_03_0.11.png
+[2026-09-07 15:30:28] Iteration 3 elapsed time: 33.166 seconds
+[2026-09-07 15:30:28] 
+
+[2026-09-07 15:30:28] ========================================
+[2026-09-07 15:30:28]  Iteration 4 of 10 (job SMAHeatTransient_04)
+[2026-09-07 15:30:28] ========================================
+[2026-09-07 15:30:28] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:30:28] Running FreeCAD macro...
+[2026-09-07 15:30:38] FreeCAD macro finished in 10.0 s
+[2026-09-07 15:30:38] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:30:38] Loaded 2532 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:30:39] Computed 21 deformed element centroids from SMAHeatTransient_03.odb
+[2026-09-07 15:30:39] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 158.50
+[2026-09-07 15:30:39] map_flux_to_wire_elements: hit_counts = {1: 120, 2: 130, 3: 125, 4: 166, 5: 129, 6: 120, 7: 131, 8: 129, 9: 114, 10: 124, 11: 128, 12: 124, 13: 129, 14: 130, 15: 151, 16: 121, 17: 133, 18: 139, 19: 43, 20: 0, 21: 146}
+[2026-09-07 15:30:39] Element fluxes (iteration 4): {1: 319.512124541667, 2: 318.625452196154, 3: 312.09779866, 4: 302.586265051205, 5: 320.740594131783, 6: 321.909248133333, 7: 319.787520675572, 8: 324.288962344961, 9: 310.491726153509, 10: 301.183617100806, 11: 306.639944011719, 12: 311.141644907258, 13: 317.243068577519, 14: 303.413532361538, 15: 316.752415099338, 16: 314.114440677686, 17: 309.368140954887, 18: 313.81478168705, 19: 89.7133856119874, 20: 0.0, 21: 328.397547863014}
+[2026-09-07 15:30:39] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:30:39] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_04) for step Heat_04
+[2026-09-07 15:30:39] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:30:39] Running job SMAHeatTransient_04
+[2026-09-07 15:31:01] Completed job SMAHeatTransient_04
+[2026-09-07 15:31:01] Exporting OBJ from ODB: SMAHeatTransient_04.odb
+[2026-09-07 15:31:02] Set to step 'Heat_04' (position index 0, global step number 7), frame 16
+[2026-09-07 15:31:02] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:31:02] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_04.obj
+[2026-09-07 15:31:02] Waiting for ODB to be released: SMAHeatTransient_04.odb
+[2026-09-07 15:31:02] Exporting deformed geometry from SMAHeatTransient_04.odb
+[2026-09-07 15:31:03] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:31:03] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:31:03] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_04_0.11.png
+[2026-09-07 15:31:03] Iteration 4 elapsed time: 34.869 seconds
+[2026-09-07 15:31:03] 
+
+[2026-09-07 15:31:03] ========================================
+[2026-09-07 15:31:03]  Iteration 5 of 10 (job SMAHeatTransient_05)
+[2026-09-07 15:31:03] ========================================
+[2026-09-07 15:31:03] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:31:03] Running FreeCAD macro...
+[2026-09-07 15:31:13] FreeCAD macro finished in 10.1 s
+[2026-09-07 15:31:13] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:31:13] Loaded 2529 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:31:14] Computed 21 deformed element centroids from SMAHeatTransient_04.odb
+[2026-09-07 15:31:14] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 147.00
+[2026-09-07 15:31:14] map_flux_to_wire_elements: hit_counts = {1: 128, 2: 112, 3: 120, 4: 140, 5: 131, 6: 124, 7: 146, 8: 130, 9: 114, 10: 118, 11: 112, 12: 117, 13: 125, 14: 126, 15: 147, 16: 147, 17: 132, 18: 141, 19: 79, 20: 0, 21: 140}
+[2026-09-07 15:31:14] Element fluxes (iteration 5): {1: 299.995009070313, 2: 325.348253477679, 3: 327.383169833333, 4: 320.187659903571, 5: 301.442837232825, 6: 305.554687983871, 7: 311.754487339041, 8: 319.296542419231, 9: 324.793422149123, 10: 321.906553690678, 11: 313.407310875, 12: 308.675567273504, 13: 316.029948548, 14: 316.744115706349, 15: 316.676467965986, 16: 321.515191792517, 17: 318.629242295455, 18: 304.059468230496, 19: 169.851406142857, 20: 0.0, 21: 332.148828835714}
+[2026-09-07 15:31:14] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:31:14] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_05) for step Heat_05
+[2026-09-07 15:31:14] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:31:14] Running job SMAHeatTransient_05
+[2026-09-07 15:31:36] Completed job SMAHeatTransient_05
+[2026-09-07 15:31:36] Exporting OBJ from ODB: SMAHeatTransient_05.odb
+[2026-09-07 15:31:37] Set to step 'Heat_05' (position index 0, global step number 8), frame 18
+[2026-09-07 15:31:37] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:31:37] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_05.obj
+[2026-09-07 15:31:37] Waiting for ODB to be released: SMAHeatTransient_05.odb
+[2026-09-07 15:31:37] Exporting deformed geometry from SMAHeatTransient_05.odb
+[2026-09-07 15:31:38] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:31:38] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:31:38] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_05_0.11.png
+[2026-09-07 15:31:38] Iteration 5 elapsed time: 35.004 seconds
+[2026-09-07 15:31:38] 
+
+[2026-09-07 15:31:38] ========================================
+[2026-09-07 15:31:38]  Iteration 6 of 10 (job SMAHeatTransient_06)
+[2026-09-07 15:31:38] ========================================
+[2026-09-07 15:31:38] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:31:38] Running FreeCAD macro...
+[2026-09-07 15:31:48] FreeCAD macro finished in 10.2 s
+[2026-09-07 15:31:48] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:31:48] Loaded 2496 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:31:49] Computed 21 deformed element centroids from SMAHeatTransient_05.odb
+[2026-09-07 15:31:49] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 142.00
+[2026-09-07 15:31:49] map_flux_to_wire_elements: hit_counts = {1: 133, 2: 127, 3: 122, 4: 133, 5: 123, 6: 123, 7: 120, 8: 132, 9: 120, 10: 132, 11: 124, 12: 125, 13: 118, 14: 120, 15: 135, 16: 145, 17: 139, 18: 136, 19: 87, 20: 0, 21: 102}
+[2026-09-07 15:31:49] Element fluxes (iteration 6): {1: 317.587434157895, 2: 319.015463956693, 3: 330.202570946721, 4: 325.596087669173, 5: 317.059759719512, 6: 331.577691325203, 7: 305.618317208333, 8: 322.401475166667, 9: 321.889881125, 10: 306.104006996212, 11: 322.559766584677, 12: 323.202305992, 13: 310.143719470339, 14: 306.7338843625, 15: 322.347668055556, 16: 321.845468006897, 17: 308.348793363309, 18: 324.079631602941, 19: 322.676132586207, 20: 0.0, 21: 316.021704529412}
+[2026-09-07 15:31:49] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:31:49] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_06) for step Heat_06
+[2026-09-07 15:31:49] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:31:49] Running job SMAHeatTransient_06
+[2026-09-07 15:32:07] Completed job SMAHeatTransient_06
+[2026-09-07 15:32:07] Exporting OBJ from ODB: SMAHeatTransient_06.odb
+[2026-09-07 15:32:08] Set to step 'Heat_06' (position index 0, global step number 9), frame 16
+[2026-09-07 15:32:08] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:32:08] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_06.obj
+[2026-09-07 15:32:08] Waiting for ODB to be released: SMAHeatTransient_06.odb
+[2026-09-07 15:32:08] Exporting deformed geometry from SMAHeatTransient_06.odb
+[2026-09-07 15:32:09] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:32:09] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:32:10] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_06_0.11.png
+[2026-09-07 15:32:10] Iteration 6 elapsed time: 31.317 seconds
+[2026-09-07 15:32:10] 
+
+[2026-09-07 15:32:10] ========================================
+[2026-09-07 15:32:10]  Iteration 7 of 10 (job SMAHeatTransient_07)
+[2026-09-07 15:32:10] ========================================
+[2026-09-07 15:32:10] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:32:10] Running FreeCAD macro...
+[2026-09-07 15:32:20] FreeCAD macro finished in 10.2 s
+[2026-09-07 15:32:20] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:32:20] Loaded 2587 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:32:21] Computed 21 deformed element centroids from SMAHeatTransient_06.odb
+[2026-09-07 15:32:21] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 152.50
+[2026-09-07 15:32:21] map_flux_to_wire_elements: hit_counts = {1: 140, 2: 105, 3: 115, 4: 130, 5: 147, 6: 127, 7: 146, 8: 142, 9: 137, 10: 158, 11: 123, 12: 130, 13: 137, 14: 147, 15: 101, 16: 143, 17: 133, 18: 134, 19: 112, 20: 0, 21: 80}
+[2026-09-07 15:32:21] Element fluxes (iteration 7): {1: 314.957881846429, 2: 324.584868790476, 3: 299.128432773913, 4: 311.881989646154, 5: 334.669536098639, 6: 319.205031519685, 7: 330.723364636986, 8: 315.741369496479, 9: 328.305254116788, 10: 321.723266927215, 11: 319.735931126016, 12: 333.235691580769, 13: 329.495533284672, 14: 317.496754636054, 15: 328.433122891089, 16: 312.524281566434, 17: 309.98517637218, 18: 315.902775466418, 19: 308.330582933036, 20: 0.0, 21: 165.729989478689}
+[2026-09-07 15:32:21] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:32:21] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_07) for step Heat_07
+[2026-09-07 15:32:21] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:32:21] Running job SMAHeatTransient_07
+[2026-09-07 15:32:39] Completed job SMAHeatTransient_07
+[2026-09-07 15:32:39] Exporting OBJ from ODB: SMAHeatTransient_07.odb
+[2026-09-07 15:32:39] Set to step 'Heat_07' (position index 0, global step number 10), frame 15
+[2026-09-07 15:32:39] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:32:39] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_07.obj
+[2026-09-07 15:32:39] Waiting for ODB to be released: SMAHeatTransient_07.odb
+[2026-09-07 15:32:39] Exporting deformed geometry from SMAHeatTransient_07.odb
+[2026-09-07 15:32:40] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:32:40] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:32:41] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_07_0.11.png
+[2026-09-07 15:32:41] Iteration 7 elapsed time: 31.114 seconds
+[2026-09-07 15:32:41] 
+
+[2026-09-07 15:32:41] ========================================
+[2026-09-07 15:32:41]  Iteration 8 of 10 (job SMAHeatTransient_08)
+[2026-09-07 15:32:41] ========================================
+[2026-09-07 15:32:41] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:32:41] Running FreeCAD macro...
+[2026-09-07 15:32:51] FreeCAD macro finished in 10.1 s
+[2026-09-07 15:32:51] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:32:51] Loaded 2540 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:32:52] Computed 21 deformed element centroids from SMAHeatTransient_07.odb
+[2026-09-07 15:32:52] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 150.00
+[2026-09-07 15:32:52] map_flux_to_wire_elements: hit_counts = {1: 122, 2: 129, 3: 132, 4: 122, 5: 126, 6: 124, 7: 125, 8: 123, 9: 151, 10: 142, 11: 112, 12: 122, 13: 146, 14: 149, 15: 115, 16: 116, 17: 144, 18: 141, 19: 114, 20: 0, 21: 85}
+[2026-09-07 15:32:52] Element fluxes (iteration 8): {1: 310.801752184426, 2: 328.083017356589, 3: 319.60579225, 4: 330.853755368852, 5: 327.538078464286, 6: 324.963303141129, 7: 320.621568376, 8: 320.916458329268, 9: 317.274344291391, 10: 321.870577841549, 11: 337.208237370536, 12: 315.263868491803, 13: 324.459546859589, 14: 327.474254513423, 15: 322.998342, 16: 303.183707008621, 17: 319.647568059028, 18: 322.168509258865, 19: 314.539352372807, 20: 0.0, 21: 185.533754793333}
+[2026-09-07 15:32:52] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:32:52] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_08) for step Heat_08
+[2026-09-07 15:32:52] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:32:52] Running job SMAHeatTransient_08
+[2026-09-07 15:33:10] Completed job SMAHeatTransient_08
+[2026-09-07 15:33:10] Exporting OBJ from ODB: SMAHeatTransient_08.odb
+[2026-09-07 15:33:10] Set to step 'Heat_08' (position index 0, global step number 11), frame 14
+[2026-09-07 15:33:10] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:33:10] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_08.obj
+[2026-09-07 15:33:10] Waiting for ODB to be released: SMAHeatTransient_08.odb
+[2026-09-07 15:33:10] Exporting deformed geometry from SMAHeatTransient_08.odb
+[2026-09-07 15:33:11] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:33:11] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:33:12] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_08_0.11.png
+[2026-09-07 15:33:12] Iteration 8 elapsed time: 31.017 seconds
+[2026-09-07 15:33:12] 
+
+[2026-09-07 15:33:12] ========================================
+[2026-09-07 15:33:12]  Iteration 9 of 10 (job SMAHeatTransient_09)
+[2026-09-07 15:33:12] ========================================
+[2026-09-07 15:33:12] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:33:12] Running FreeCAD macro...
+[2026-09-07 15:33:22] FreeCAD macro finished in 10.1 s
+[2026-09-07 15:33:22] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:33:22] Loaded 2570 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:33:23] Computed 21 deformed element centroids from SMAHeatTransient_08.odb
+[2026-09-07 15:33:23] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 150.00
+[2026-09-07 15:33:23] map_flux_to_wire_elements: hit_counts = {1: 131, 2: 124, 3: 135, 4: 120, 5: 129, 6: 153, 7: 125, 8: 127, 9: 127, 10: 127, 11: 134, 12: 140, 13: 147, 14: 143, 15: 147, 16: 126, 17: 127, 18: 134, 19: 91, 20: 0, 21: 83}
+[2026-09-07 15:33:23] Element fluxes (iteration 9): {1: 330.358504080153, 2: 326.494206870968, 3: 318.134238803704, 4: 312.47305195, 5: 323.358353934109, 6: 321.783596581699, 7: 317.409800608, 8: 319.711033358268, 9: 299.671080779528, 10: 322.054272425197, 11: 320.503085115672, 12: 311.535338467857, 13: 322.400889561225, 14: 327.952573412587, 15: 317.976285884354, 16: 321.975410222222, 17: 313.91392403937, 18: 316.305880026119, 19: 301.860302076923, 20: 0.0, 21: 180.69792697}
+[2026-09-07 15:33:23] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:33:23] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_09) for step Heat_09
+[2026-09-07 15:33:23] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:33:23] Running job SMAHeatTransient_09
+[2026-09-07 15:33:41] Completed job SMAHeatTransient_09
+[2026-09-07 15:33:41] Exporting OBJ from ODB: SMAHeatTransient_09.odb
+[2026-09-07 15:33:41] Set to step 'Heat_09' (position index 0, global step number 12), frame 15
+[2026-09-07 15:33:41] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:33:41] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_09.obj
+[2026-09-07 15:33:41] Waiting for ODB to be released: SMAHeatTransient_09.odb
+[2026-09-07 15:33:41] Exporting deformed geometry from SMAHeatTransient_09.odb
+[2026-09-07 15:33:42] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:33:42] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:33:43] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_09_0.11.png
+[2026-09-07 15:33:43] Iteration 9 elapsed time: 31.054 seconds
+[2026-09-07 15:33:43] 
+
+[2026-09-07 15:33:43] ========================================
+[2026-09-07 15:33:43]  Iteration 10 of 10 (job SMAHeatTransient_10)
+[2026-09-07 15:33:43] ========================================
+[2026-09-07 15:33:43] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/abaqus_to_freecad.json
+[2026-09-07 15:33:43] Running FreeCAD macro...
+[2026-09-07 15:33:53] FreeCAD macro finished in 10.2 s
+[2026-09-07 15:33:53] FreeCAD ray tracing succeeded: 4 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:33:53] Loaded 2550 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/flux_data.csv
+[2026-09-07 15:33:54] Computed 21 deformed element centroids from SMAHeatTransient_09.odb
+[2026-09-07 15:33:54] map_flux_to_wire_elements: expected_hits (mean of top 10.0%) = 157.50
+[2026-09-07 15:33:54] map_flux_to_wire_elements: hit_counts = {1: 135, 2: 158, 3: 127, 4: 126, 5: 133, 6: 117, 7: 129, 8: 121, 9: 132, 10: 129, 11: 136, 12: 138, 13: 157, 14: 127, 15: 127, 16: 117, 17: 135, 18: 117, 19: 89, 20: 0, 21: 100}
+[2026-09-07 15:33:54] Element fluxes (iteration 10): {1: 313.755208596296, 2: 327.01604803481, 3: 318.591251700787, 4: 327.360418503968, 5: 312.851406432331, 6: 323.146905324786, 7: 324.150147379845, 8: 312.685701363636, 9: 329.482862590909, 10: 307.687819856589, 11: 314.755398569853, 12: 330.133246492754, 13: 334.732623187898, 14: 319.205242858268, 15: 322.521323606299, 16: 341.925297367521, 17: 334.804284922222, 18: 317.904269982906, 19: 185.092456736508, 20: 0.0, 21: 330.46453022}
+[2026-09-07 15:33:54] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:33:54] Redefined BodyHeatFlux 'SolarFlux' (field=FluxField_10) for step Heat_10
+[2026-09-07 15:33:54] Computed 21 undeformed element centroids for instance SMAWire_(Nitinol)
+[2026-09-07 15:33:54] Running job SMAHeatTransient_10
+[2026-09-07 15:34:12] Completed job SMAHeatTransient_10
+[2026-09-07 15:34:12] Exporting OBJ from ODB: SMAHeatTransient_10.odb
+[2026-09-07 15:34:12] Set to step 'Heat_10' (position index 0, global step number 13), frame 16
+[2026-09-07 15:34:12] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-09-07 15:34:12] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/deformed_cad\SMAWireDeformedMesh_10.obj
+[2026-09-07 15:34:12] Waiting for ODB to be released: SMAHeatTransient_10.odb
+[2026-09-07 15:34:12] Exporting deformed geometry from SMAHeatTransient_10.odb
+[2026-09-07 15:34:13] Extracted 22 deformed nodes and 21 elements from wire instance SMAWIRE_(NITINOL)
+[2026-09-07 15:34:13] simplify_wire_geometry: reduced 22 nodes / 21 elements to 2 nodes / 1 elements (tolerance=0.0003925 m)
+[2026-09-07 15:34:14] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\flux_3d_mapping_10_0.11.png
+[2026-09-07 15:34:14] Iteration 10 elapsed time: 31.136 seconds
+[2026-09-07 15:34:14] 
+DONE with all iterations.
+[2026-09-07 15:34:14] Total iterative analysis time: 671.430 seconds
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 1
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 2
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 3
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 4
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 5
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 6
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 7
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 8
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 9
+[2026-09-07 15:34:14] Read 21 mapped flux input values for iteration 10
+[2026-09-07 15:34:14] Mapped flux input colorscale: 0 to 330.4 (95th pct)
+[2026-09-07 15:34:16] Saved: C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/plots\solar_flux_mapped_input_0.11.png
+[2026-09-07 15:34:16] Tracked node label 22 selected (nearest) from SMAHeatTransient_01.odb
+[2026-09-07 15:34:17] Iter 1: cumU=(0.0028, -0.0005, -0.0021) m  |U|=0.0035 m  node=22  T=[259.9, 264.7] K
+[2026-09-07 15:34:18] Iter 2: cumU=(0.0028, -0.0005, -0.0021) m  |U|=0.0035 m  node=22  T=[259.6, 269.0] K
+[2026-09-07 15:34:19] Iter 3: cumU=(0.0115, -0.0059, -0.0101) m  |U|=0.0164 m  node=22  T=[260.2, 273.4] K
+[2026-09-07 15:34:20] Iter 4: cumU=(0.0153, -0.0152, -0.0107) m  |U|=0.0241 m  node=22  T=[261.4, 277.8] K
+[2026-09-07 15:34:20] Iter 5: cumU=(0.0175, -0.0215, -0.0107) m  |U|=0.0297 m  node=22  T=[264.0, 282.1] K
+[2026-09-07 15:34:21] Iter 6: cumU=(0.0180, -0.0229, -0.0107) m  |U|=0.0310 m  node=22  T=[267.9, 286.7] K
+[2026-09-07 15:34:22] Iter 7: cumU=(0.0183, -0.0239, -0.0108) m  |U|=0.0320 m  node=22  T=[271.3, 291.2] K
+[2026-09-07 15:34:23] Iter 8: cumU=(0.0187, -0.0249, -0.0108) m  |U|=0.0330 m  node=22  T=[273.3, 295.8] K
+[2026-09-07 15:34:23] Iter 9: cumU=(0.0190, -0.0255, -0.0108) m  |U|=0.0336 m  node=22  T=[275.4, 300.3] K
+[2026-09-07 15:34:24] Iter 10: cumU=(0.0193, -0.0263, -0.0108) m  |U|=0.0343 m  node=22  T=[278.8, 304.8] K
+[2026-09-07 15:34:24] Saved cumulative tip displacement to C:/Users/adzheng/STAR-Simulator/Scenarios/TowerScenario1/run_documentation/run_0.11/tip_displacements_0.11.csv
+[2026-09-07 15:34:25] 
+DONE with all analyses.
+[2026-09-07 15:34:25] Total script elapsed time: 682.249 seconds
+
+

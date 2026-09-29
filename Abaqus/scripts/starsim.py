@@ -586,7 +586,7 @@ for it in range(1, N_ITER + 1):
     # Export current deformed geometry for next FreeCAD ray-tracing pass
     debug_step_path = os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}_%02d.stp" % iter_id)
     debug_obj_path = os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}Mesh_%02d.obj" % iter_id)
-    export_obj_from_odb(job_name, debug_obj_path)
+    export_obj_from_odb(job_name, debug_obj_path, object_name=OBJECT_NAME)
     export_deformed_to_step(job_name, deformed_step_name=f"{DEFORMED_NAME}_{iter_id}", main_step_path=EXPORT_OBJECT_FILEPATH,
                             debug_step_path=debug_step_path,
                             model_name=MODEL_BASENAME,
