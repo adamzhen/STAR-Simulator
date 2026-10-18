@@ -1,0 +1,1251 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-08.00.46 RELr427 198590
+# Run by adzheng on Tue Oct 13 12:33:18 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=305.930206298828, 
+    height=156.505554199219)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile('C:/Users/adzheng/STAR-Simulator/Scenarios/CubeCase2Hartl.py', 
+    __main__.__dict__)
+#: Job HartlCase2: Analysis Input File Processor completed successfully.
+#: Job HartlCase2: Abaqus/Standard completed successfully.
+#: Job HartlCase2 completed successfully. 
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          5
+#: Number of Steps:              4
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb'])
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/starsim.py', 
+    __main__.__dict__)
+#: 
+#: ################
+#: [2026-10-13 12:39:01] RUN NO: 0.1
+#: [2026-10-13 12:39:01] Date: 2026-10-13
+#: [2026-10-13 12:39:01] 
+#: === Starting iterative loop with restart-based steps ===
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: [2026-10-13 12:39:01] 
+#: ========================================
+#: [2026-10-13 12:39:01]  Iteration 1 of 2 (job SMAHeatTransient_01)
+#: [2026-10-13 12:39:01] ========================================
+#: [2026-10-13 12:39:01] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+#: [2026-10-13 12:39:01] Running FreeCAD macro...
+#: [2026-10-13 12:39:07] FreeCAD macro finished in 5.9 s
+#: [2026-10-13 12:39:07] FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: [2026-10-13 12:39:07] Loaded 2752 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: The model "SMAScenario1_Model" has been created.
+#: [2026-10-13 12:39:08] Creating materials
+#: [2026-10-13 12:39:08] Creating composite shell section
+#: [2026-10-13 12:39:08] Creating assembly
+#: [2026-10-13 12:39:08] Defining step
+#: [2026-10-13 12:39:08] Defining initial temperature
+#: [2026-10-13 12:39:08] Defining uniform initial temperature
+#: [2026-10-13 12:39:08] Defining BC
+#: [2026-10-13 12:39:08] Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+#: [2026-10-13 12:39:08] Defining amplitude and radiation
+#: The interaction "ToVacuum" has been created.
+#: [2026-10-13 12:39:08] Meshing the strip
+#: [2026-10-13 12:39:08] Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+#: [2026-10-13 12:39:08] map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+#: [2026-10-13 12:39:08] Creating job SMAHeatTransient_01
+#: [2026-10-13 12:39:08] Running job SMAHeatTransient_01
+#: Warning: 
+#: The following warning was detected while evaluating the load "SolarFlux"
+#: from analytical field "FluxField_01": 
+#: The mapper has mapped the field values using distance weighting 
+#: algorithm for some of the target nodes.
+#: Job SMAHeatTransient_01: Analysis Input File Processor completed successfully.
+#: Job SMAHeatTransient_01: Abaqus/Standard completed successfully.
+#: Job SMAHeatTransient_01 completed successfully. 
+#: [2026-10-13 12:39:28] Completed job SMAHeatTransient_01
+#: [2026-10-13 12:39:28] Exporting OBJ from ODB: SMAHeatTransient_01.odb
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: [2026-10-13 12:39:28] Restricted display group to instance: SMASTRIP_(NITINOL)
+#: [2026-10-13 12:39:28] Set to step 'Heat_01' (position index 0, global step number 1), frame 14
+#: [2026-10-13 12:39:28] Set uniformScaleFactor=1.0 (true deformation scale)
+#: [2026-10-13 12:39:28] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/deformed_cad\SMAStripDeformedMesh_01.obj (instance: SMASTRIP_(NITINOL))
+#* NameError: name 'export_deformed_to_step' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/starsim.py",
+#*  line 590, in <module>
+#*     export_deformed_to_step(job_name, 
+#* deformed_step_name=f"{DEFORMED_NAME}_{iter_id}", 
+#* main_step_path=EXPORT_OBJECT_FILEPATH,
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/starsim.py', 
+    __main__.__dict__)
+#: 
+#: ################
+#: [2026-10-13 12:42:31] RUN NO: 0.1
+#: [2026-10-13 12:42:31] Date: 2026-10-13
+#: [2026-10-13 12:42:31] 
+#: === Starting iterative loop with restart-based steps ===
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: [2026-10-13 12:42:31] 
+#: ========================================
+#: [2026-10-13 12:42:31]  Iteration 1 of 2 (job SMAHeatTransient_01)
+#: [2026-10-13 12:42:31] ========================================
+#: [2026-10-13 12:42:31] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+#: [2026-10-13 12:42:31] Running FreeCAD macro...
+#: [2026-10-13 12:42:35] FreeCAD macro finished in 4.1 s
+#: [2026-10-13 12:42:35] FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: [2026-10-13 12:42:35] Loaded 2762 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: The model "SMAScenario1_Model" has been created.
+#: [2026-10-13 12:42:35] Creating materials
+#: [2026-10-13 12:42:35] Creating composite shell section
+#: [2026-10-13 12:42:35] Creating assembly
+#: [2026-10-13 12:42:35] Defining step
+#: [2026-10-13 12:42:35] Defining initial temperature
+#: [2026-10-13 12:42:35] Defining uniform initial temperature
+#: [2026-10-13 12:42:35] Defining BC
+#: [2026-10-13 12:42:35] Fixed BC: found 1 edge(s) between (0, 0, 0) and (0, 0.1, 0)
+#: [2026-10-13 12:42:35] Defining amplitude and radiation
+#: The interaction "ToVacuum" has been created.
+#: [2026-10-13 12:42:35] Meshing the strip
+#: [2026-10-13 12:42:35] Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+#: [2026-10-13 12:42:35] map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+#: [2026-10-13 12:42:35] Creating job SMAHeatTransient_01
+#: [2026-10-13 12:42:35] Running job SMAHeatTransient_01
+#: Warning: 
+#: The following warning was detected while evaluating the load "SolarFlux"
+#: from analytical field "FluxField_01": 
+#: The mapper has mapped the field values using distance weighting 
+#: algorithm for some of the target nodes.
+#: Job SMAHeatTransient_01: Analysis Input File Processor completed successfully.
+#: Job SMAHeatTransient_01: Abaqus/Standard completed successfully.
+#: Job SMAHeatTransient_01 completed successfully. 
+#: [2026-10-13 12:42:55] Completed job SMAHeatTransient_01
+#: [2026-10-13 12:42:55] Exporting OBJ from ODB: SMAHeatTransient_01.odb
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: [2026-10-13 12:42:55] Restricted display group to instance: SMASTRIP_(NITINOL)
+#: [2026-10-13 12:42:55] Set to step 'Heat_01' (position index 0, global step number 1), frame 14
+#: [2026-10-13 12:42:55] Set uniformScaleFactor=1.0 (true deformation scale)
+#: [2026-10-13 12:42:55] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/deformed_cad\SMAStripDeformedMesh_01.obj (instance: SMASTRIP_(NITINOL))
+#: [2026-10-13 12:42:55] Waiting for ODB to be released: SMAHeatTransient_01.odb
+#: [2026-10-13 12:42:55] Exporting deformed geometry from SMAHeatTransient_01.odb
+#: [2026-10-13 12:42:56] Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+#: [2026-10-13 12:42:56] Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/deformed_cad\SMAStripDeformed_01.stp
+#: [2026-10-13 12:42:56] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/plots\flux_3d_mapping_01_0.1.png
+#: [2026-10-13 12:42:56] Iteration 1 elapsed time: 25.531 seconds
+#: [2026-10-13 12:42:56] 
+#: ========================================
+#: [2026-10-13 12:42:56]  Iteration 2 of 2 (job SMAHeatTransient_02)
+#: [2026-10-13 12:42:56] ========================================
+#: [2026-10-13 12:42:56] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/abaqus_to_freecad.json
+#: [2026-10-13 12:42:56] Running FreeCAD macro...
+#: [2026-10-13 12:43:01] FreeCAD macro finished in 4.8 s
+#: [2026-10-13 12:43:01] FreeCAD ray tracing succeeded: 1 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: [2026-10-13 12:43:01] Loaded 2747 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/flux_data.csv
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: [2026-10-13 12:43:01] Computed 1000 deformed element centroids from SMAHeatTransient_01.odb
+#: [2026-10-13 12:43:01] map_flux_to_elements (kd-tree): 0 of 1000 elements zeroed
+#: [2026-10-13 12:43:02] Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+#: [2026-10-13 12:43:02] Redefined SurfaceHeatFlux 'SolarFlux' (field=FluxField_02) for step Heat_02
+#: [2026-10-13 12:43:02] Computed 1000 undeformed element centroids for instance SMAStrip_(Nitinol)
+#: [2026-10-13 12:43:02] Running job SMAHeatTransient_02
+#: Job SMAHeatTransient_02: Analysis Input File Processor completed successfully.
+#: Job SMAHeatTransient_02: Abaqus/Standard completed successfully.
+#: Job SMAHeatTransient_02 completed successfully. 
+#: [2026-10-13 12:43:20] Completed job SMAHeatTransient_02
+#: [2026-10-13 12:43:20] Exporting OBJ from ODB: SMAHeatTransient_02.odb
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_02.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: [2026-10-13 12:43:20] Restricted display group to instance: SMASTRIP_(NITINOL)
+#: [2026-10-13 12:43:20] Set to step 'Heat_02' (position index 0, global step number 2), frame 11
+#: [2026-10-13 12:43:20] Set uniformScaleFactor=1.0 (true deformation scale)
+#: [2026-10-13 12:43:20] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/deformed_cad\SMAStripDeformedMesh_02.obj (instance: SMASTRIP_(NITINOL))
+#: [2026-10-13 12:43:20] Waiting for ODB to be released: SMAHeatTransient_02.odb
+#: [2026-10-13 12:43:20] Exporting deformed geometry from SMAHeatTransient_02.odb
+#: [2026-10-13 12:43:20] Wrote main STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/SMAStripDeformed.stp
+#: [2026-10-13 12:43:20] Wrote debug STEP geometry to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/deformed_cad\SMAStripDeformed_02.stp
+#: [2026-10-13 12:43:21] Saved 3D flux mapping plot: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/plots\flux_3d_mapping_02_0.1.png
+#: [2026-10-13 12:43:21] Iteration 2 elapsed time: 24.302 seconds
+#: [2026-10-13 12:43:21] 
+#: DONE with all iterations.
+#: [2026-10-13 12:43:21] Total iterative analysis time: 49.896 seconds
+#: [2026-10-13 12:43:21] Read 1000 mapped flux input values for iteration 1
+#: [2026-10-13 12:43:21] Read 1000 mapped flux input values for iteration 2
+#: [2026-10-13 12:43:21] Mapped flux input colorscale: 0 to 510.4 (95th pct)
+#: [2026-10-13 12:43:21] Saved: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/plots\solar_flux_mapped_input_0.1.png
+#: [2026-10-13 12:43:21] Read 2000 HFL values for SMAHeatTransient_01
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_02.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: [2026-10-13 12:43:22] Read 2000 HFL values for SMAHeatTransient_02
+#: [2026-10-13 12:43:22] HFL colorscale: 0 to 135.1 (95th pct)
+#: [2026-10-13 12:43:22] Saved: C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/plots\hfl_field_output_0.1.png
+#: [2026-10-13 12:43:22] Tracked node label 1111 selected (farthest) from SMAHeatTransient_01.odb
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+#: [2026-10-13 12:43:22] Iter 1: cumU=(-0.0013, 0.0000, -0.0473) m  |U|=0.0474 m  node=1111  T=[300.1, 300.1] K
+#: [2026-10-13 12:43:22] Iter 2: cumU=(-0.0041, 0.0000, -0.0811) m  |U|=0.0812 m  node=1111  T=[300.2, 300.2] K
+#: [2026-10-13 12:43:22] Saved cumulative tip displacement to C:/Users/adzheng/STAR-Simulator/Scenarios/SMAScenario1/run_documentation/run_0.1/tip_displacements_0.1.csv
+#: [2026-10-13 12:43:22] 
+#: DONE with all analyses.
+#: [2026-10-13 12:43:22] Total script elapsed time: 51.678 seconds
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_02.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_02.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       4
+#: Number of Node Sets:          4
+#: Number of Steps:              1
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/adzheng/STAR-Simulator/Abaqus/SMAHeatTransient_02.odb'])
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__sweep__', sheetSize=200.0)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=STANDALONE)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=188.242, 
+    farPlane=188.882, width=3.29829, height=1.25432, cameraPosition=(0.178876, 
+    -0.0305582, 188.562), cameraTarget=(0.178876, -0.0305582, 0))
+s.Spline(points=((0.0, 0.0), (0.05, -0.01), (0.1, -0.03)))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=188.512, 
+    farPlane=188.612, width=0.515376, height=0.195995, cameraPosition=(
+    0.101442, -0.0419895, 188.562), cameraTarget=(0.101442, -0.0419895, 0))
+s.unsetPrimaryObject()
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=5.0, 
+    transform=(-0.15272351297721, -0.988268955590481, 0.0, 0.0, 0.0, 1.0, 
+    -0.988268955590481, 0.15272351297721, 0.0, 0.0, 0.0, 0.0))
+g1, v1, d1, c1 = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+s1.ConstructionLine(point1=(-2.5, 0.0), point2=(2.5, 0.0))
+s1.ConstructionLine(point1=(0.0, -2.5), point2=(0.0, 2.5))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=4.27476, 
+    farPlane=5.15333, width=1.93512, height=0.735916, cameraPosition=(-4.66068, 
+    0.707428, 0.000464402), cameraTarget=(-0.00193441, -0.0125175, 
+    0.000464402))
+s1.rectangle(point1=(0.0, 0.0), point2=(0.005588, 0.000254))
+s1.CoincidentConstraint(entity1=v1.findAt((0.0, 0.0)), entity2=g1.findAt((
+    555557.76, 0.0)), addUndoState=False)
+p = mdb.models['Model-1'].Part(name='SMAStrip', dimensionality=THREE_D, 
+    type=DEFORMABLE_BODY)
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.BaseShellSweep(sketch=s1, path=s)
+s1.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sketches['__profile__']
+del mdb.models['Model-1'].sketches['__sweep__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.209577, 
+    farPlane=0.264396, width=0.177951, height=0.0676738, cameraPosition=(
+    0.104473, -0.0145104, 0.230704), cameraUpVector=(-0.221848, 0.923239, 
+    -0.313708), cameraTarget=(0.0538674, -0.0197399, -0.0019703))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.199636, 
+    farPlane=0.275008, width=0.16951, height=0.0644638, cameraPosition=(
+    0.135022, 0.018057, 0.218711), cameraUpVector=(-0.305342, 0.86586, 
+    -0.396297), cameraTarget=(0.0537147, -0.0199027, -0.00191034))
+p1 = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].parts['SMAStrip'].setValues(space=THREE_D, 
+    type=DEFORMABLE_BODY)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__sweep__', sheetSize=200.0)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=STANDALONE)
+s.Spline(points=((0.0, 0.0), (0.05, -0.01), (0.1, -0.03)))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=188.419, 
+    farPlane=188.705, width=1.66992, height=0.635061, cameraPosition=(
+    0.0761782, -0.0484058, 188.562), cameraTarget=(0.0761782, -0.0484058, 0))
+s.unsetPrimaryObject()
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=2.0, 
+    transform=(-0.15272351297721, -0.988268955590481, 0.0, 0.0, 0.0, 1.0, 
+    -0.988268955590481, 0.15272351297721, 0.0, 0.0, 0.0, 0.0))
+g1, v1, d1, c1 = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+s1.ConstructionLine(point1=(-1.0, 0.0), point2=(1.0, 0.0))
+s1.ConstructionLine(point1=(0.0, -1.0), point2=(0.0, 1.0))
+s1.rectangle(point1=(0.0, 0.0), point2=(0.000254, 0.005588))
+s1.CoincidentConstraint(entity1=v1.findAt((0.0, 0.0)), entity2=g1.findAt((
+    222223.104, 0.0)), addUndoState=False)
+p = mdb.models['Model-1'].Part(name='Part-2', dimensionality=THREE_D, 
+    type=DEFORMABLE_BODY)
+p = mdb.models['Model-1'].parts['Part-2']
+p.BaseShellSweep(sketch=s1, path=s)
+s1.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['Part-2']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sketches['__profile__']
+del mdb.models['Model-1'].sketches['__sweep__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.190501, 
+    farPlane=0.27922, width=0.159355, height=0.0606019, cameraPosition=(
+    0.165565, 0.0175088, 0.204696), cameraUpVector=(0.148362, 0.785862, 
+    -0.600341), cameraTarget=(0.0543511, -0.0175871, 0.00089507))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.186322, 
+    farPlane=0.281032, width=0.155859, height=0.0592725, cameraPosition=(
+    0.145925, 0.134651, 0.154441), cameraUpVector=(0.101539, 0.360217, 
+    -0.927326), cameraTarget=(0.0543467, -0.0175609, 0.000883846))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.200272, 
+    farPlane=0.263292, width=0.167529, height=0.0637103, cameraPosition=(
+    0.0634267, 0.174899, 0.134932), cameraUpVector=(0.293796, 0.226231, 
+    -0.928711), cameraTarget=(0.0547462, -0.0177558, 0.000978312))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.160866, 
+    farPlane=0.294396, width=0.134566, height=0.0511748, cameraPosition=(
+    -0.137697, 0.107334, 0.042864), cameraUpVector=(0.74771, 0.62108, 
+    -0.234924), cameraTarget=(0.0573718, -0.0168738, 0.00218023))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.163569, 
+    farPlane=0.291692, width=0.136827, height=0.0520348, cameraPosition=(
+    -0.137697, 0.107334, 0.042864), cameraUpVector=(0.369129, 0.243362, 
+    -0.89695), cameraTarget=(0.0573718, -0.0168738, 0.00218022))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.191688, 
+    farPlane=0.268296, width=0.160349, height=0.0609801, cameraPosition=(
+    0.0940913, 0.203399, 0.0593881), cameraUpVector=(-0.342514, -0.0403149, 
+    -0.938647), cameraTarget=(0.050064, -0.0199025, 0.00165924))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.186355, 
+    farPlane=0.274253, width=0.155888, height=0.0592835, cameraPosition=(
+    0.136693, 0.0905165, 0.188168), cameraUpVector=(-0.373923, 0.680995, 
+    -0.629625), cameraTarget=(0.049172, -0.0175389, -0.00103723))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.190738, 
+    farPlane=0.268724, width=0.159554, height=0.0606778, cameraPosition=(
+    -0.00353424, 0.125211, 0.176638), cameraUpVector=(0.136275, 0.536973, 
+    -0.83252), cameraTarget=(0.0519142, -0.0182174, -0.000811752))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.186723, 
+    farPlane=0.272607, width=0.156196, height=0.0594006, cameraPosition=(
+    -0.0117317, 0.160715, 0.13704), cameraUpVector=(0.234358, 0.341461, 
+    -0.910209), cameraTarget=(0.0520953, -0.0190019, 6.32275e-05))
+p1 = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+del mdb.models['Model-1'].parts['SMAStrip']
+p = mdb.models['Model-1'].parts['Part-2']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.197104, 
+    farPlane=0.239702, width=0.103978, height=0.0395425, cameraPosition=(
+    0.0192513, 0.00755901, 0.217835), cameraUpVector=(-0.0267267, 0.898518, 
+    -0.438122), cameraTarget=(0.0490856, -0.0154202, 0.00277669))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.191717, 
+    farPlane=0.24509, width=0.165915, height=0.0630967, 
+    viewOffsetX=0.000575442, viewOffsetY=7.85415e-05)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.181149, 
+    farPlane=0.255515, width=0.156769, height=0.0596186, cameraPosition=(
+    0.0100787, 0.121882, 0.168049), cameraUpVector=(-0.000218917, 0.507084, 
+    -0.861896), cameraTarget=(0.0490851, -0.0154085, 0.00282794), 
+    viewOffsetX=0.000543722, viewOffsetY=7.42121e-05)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__sweep__', sheetSize=200.0)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=STANDALONE)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=188.279, 
+    farPlane=188.845, width=2.91436, height=1.10832, cameraPosition=(0.395738, 
+    -0.168203, 188.562), cameraTarget=(0.395738, -0.168203, 0))
+s.Spline(points=((0.0, 0.0), (0.05, -0.02), (0.08, -0.07)))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=188.427, 
+    farPlane=188.696, width=1.387, height=0.527471, cameraPosition=(0.212786, 
+    -0.0850644, 188.562), cameraTarget=(0.212786, -0.0850644, 0))
+s.unsetPrimaryObject()
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=2.0, 
+    transform=(-0.240518045305005, -0.970644667158204, 0.0, 0.0, 0.0, 1.0, 
+    -0.970644667158204, 0.240518045305005, 0.0, 0.0, 0.0, 0.0))
+g1, v1, d1, c1 = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+s1.ConstructionLine(point1=(-1.0, 0.0), point2=(1.0, 0.0))
+s1.ConstructionLine(point1=(0.0, -1.0), point2=(0.0, 1.0))
+s1.rectangle(point1=(0.0, 0.0), point2=(0.000254, 0.005588))
+p = mdb.models['Model-1'].Part(name='SMAStrip', dimensionality=THREE_D, 
+    type=DEFORMABLE_BODY)
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.BaseShellSweep(sketch=s1, path=s)
+s1.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sketches['__profile__']
+del mdb.models['Model-1'].sketches['__sweep__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.163491, 
+    farPlane=0.294447, width=0.188223, height=0.0715803, cameraPosition=(
+    0.174659, 0.0964368, 0.133205), cameraUpVector=(0.283343, 0.0937336, 
+    -0.954427), cameraTarget=(0.0424633, -0.0357584, 0.00100997))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.188902, 
+    farPlane=0.26457, width=0.217478, height=0.0827059, cameraPosition=(
+    0.0119169, 0.0370587, 0.215932), cameraUpVector=(0.567983, 0.656242, 
+    -0.496732), cameraTarget=(0.0424633, -0.0357584, 0.00100994))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.183446, 
+    farPlane=0.269324, width=0.211197, height=0.0803173, cameraPosition=(
+    -0.0240758, 0.0143176, 0.214256), cameraUpVector=(0.502552, 0.77575, 
+    -0.381645), cameraTarget=(0.0428178, -0.0355344, 0.00102645))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.17997, 
+    farPlane=0.273204, width=0.207196, height=0.0787955, cameraPosition=(
+    -3.44701e-05, 0.0679601, 0.200621), cameraUpVector=(-0.0114286, 0.675175, 
+    -0.737569), cameraTarget=(0.0425434, -0.0361467, 0.00118209))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.165218, 
+    farPlane=0.291176, width=0.190212, height=0.0723366, cameraPosition=(
+    0.182247, 0.0668971, 0.149219), cameraUpVector=(-0.0326593, 0.523204, 
+    -0.851581), cameraTarget=(0.0406272, -0.0361355, 0.00172245))
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* Shell sweep feature failed
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 65, in <module>
+#*     p.BaseShellSweep(sketch=s1, path=s)
+p1 = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p1 = mdb.models['Model-1'].parts['Part-2']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p1 = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__sweep__', sheetSize=5.0)
+g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
+s.setPrimaryObject(option=STANDALONE)
+s.Spline(points=((0.0, 0.0), (0.05, -0.02), (0.08, -0.08)))
+s.unsetPrimaryObject()
+s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=2.0, 
+    transform=(-0.239030216627167, -0.971012129450075, 0.0, 0.0, 0.0, 1.0, 
+    -0.971012129450075, 0.239030216627167, 0.0, 0.0, 0.0, 0.0))
+g1, v1, d1, c1 = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+s1.setPrimaryObject(option=SUPERIMPOSE)
+s1.ConstructionLine(point1=(-1.0, 0.0), point2=(1.0, 0.0))
+s1.ConstructionLine(point1=(0.0, -1.0), point2=(0.0, 1.0))
+s1.rectangle(point1=(0.0, 0.0), point2=(0.000254, 0.005588))
+p = mdb.models['Model-1'].Part(name='SMAStrip', dimensionality=THREE_D, 
+    type=DEFORMABLE_BODY)
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.BaseShellSweep(sketch=s1, path=s)
+s1.unsetPrimaryObject()
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sketches['__profile__']
+del mdb.models['Model-1'].sketches['__sweep__']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.205609, 
+    farPlane=0.271273, width=0.244716, height=0.0930645, cameraPosition=(
+    0.0411207, 0.0100337, 0.235926), cameraUpVector=(-0.0283335, 0.851503, 
+    -0.523583), cameraTarget=(0.0421683, -0.0403496, 0.000908275))
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 73, in <module>
+#*     stop
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 72, in <module>
+#*     stop
+p1 = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.17331, 
+    farPlane=0.306149, width=0.169203, height=0.0643469, cameraPosition=(
+    0.195088, 0.0644305, 0.152782), cameraUpVector=(-0.269958, 0.655542, 
+    -0.705256))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.176294, 
+    farPlane=0.303166, width=0.194789, height=0.0740774, 
+    viewOffsetX=0.00153361, viewOffsetY=0.00108918)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.18056, 
+    farPlane=0.297488, width=0.199504, height=0.0758704, cameraPosition=(
+    0.15075, 0.0714833, 0.182865), cameraUpVector=(0.0154862, 0.587877, 
+    -0.808802), cameraTarget=(0.0404346, -0.0388012, 0.00223138), 
+    viewOffsetX=0.00157072, viewOffsetY=0.00111554)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.18383, 
+    farPlane=0.294219, width=0.149069, height=0.0566901, 
+    viewOffsetX=0.00256725, viewOffsetY=0.000551678)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.186892, 
+    farPlane=0.283691, width=0.151551, height=0.0576342, cameraPosition=(
+    -0.110184, -0.00484144, 0.180511), cameraUpVector=(0.495489, 0.847908, 
+    -0.188526), cameraTarget=(0.0404675, -0.0394826, -0.00132636), 
+    viewOffsetX=0.00261001, viewOffsetY=0.000560866)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.186737, 
+    farPlane=0.283845, width=0.151426, height=0.0575864, cameraPosition=(
+    -0.110224, -0.00524169, 0.180554), cameraUpVector=(0.412518, 0.872475, 
+    -0.261948), cameraTarget=(0.0404273, -0.0398828, -0.00128345), 
+    viewOffsetX=0.00260785, viewOffsetY=0.000560401)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.206174, 
+    farPlane=0.266112, width=0.167188, height=0.0635806, cameraPosition=(
+    0.0540241, 0.0167955, 0.231582), cameraUpVector=(0.387829, 0.739309, 
+    -0.550465), cameraTarget=(0.0374077, -0.0391819, 0.000170607), 
+    viewOffsetX=0.00287929, viewOffsetY=0.000618732)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.191281, 
+    farPlane=0.281572, width=0.155111, height=0.0589881, cameraPosition=(
+    0.101784, 0.0506045, 0.212241), cameraUpVector=(0.231448, 0.64911, 
+    -0.724629), cameraTarget=(0.036957, -0.0395555, 0.000984643), 
+    viewOffsetX=0.00267131, viewOffsetY=0.000574039)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.192202, 
+    farPlane=0.28065, width=0.155858, height=0.0592722, viewOffsetX=0.00238749, 
+    viewOffsetY=0.00265133)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.192207, 
+    farPlane=0.280645, width=0.155863, height=0.0592738, viewOffsetX=0.0044644, 
+    viewOffsetY=0.00195987)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.181428, 
+    farPlane=0.293934, width=0.147123, height=0.05595, cameraPosition=(
+    0.174195, 0.0523713, 0.175838), cameraUpVector=(0.00121152, 0.615499, 
+    -0.788137), cameraTarget=(0.0371977, -0.0391872, 0.00318437), 
+    viewOffsetX=0.00421405, viewOffsetY=0.00184996)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.18249, 
+    farPlane=0.292559, width=0.147984, height=0.0562776, cameraPosition=(
+    0.162102, 0.0611083, 0.179653), cameraUpVector=(0.0345479, 0.58805, 
+    -0.808086), cameraTarget=(0.0370421, -0.0392091, 0.00285692), 
+    viewOffsetX=0.00423871, viewOffsetY=0.00186079)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.182472, 
+    farPlane=0.292577, width=0.147969, height=0.0562719, 
+    viewOffsetX=0.00433217, viewOffsetY=0.000172445)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#: Warning: findAt could not find a geometric entity at (1.0, 0.666667, 0.666667)
+#* ERROR: Only regions of the same dimension may be
+#* selected for each element type assignment
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 117, in <module>
+#*     p.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2,
+p = mdb.models['Model-1'].parts['Cube']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF, mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(width=0.181561, 
+    height=0.0692225, viewOffsetX=-0.00466657, viewOffsetY=-0.00170111)
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.seedPart(size=0.0011176, deviationFactor=0.1, minSizeFactor=0.1)
+elemType1 = mesh.ElemType(elemCode=S4RT, elemLibrary=STANDARD, 
+    secondOrderAccuracy=OFF, hourglassControl=DEFAULT)
+elemType2 = mesh.ElemType(elemCode=S3T, elemLibrary=STANDARD)
+p = mdb.models['Model-1'].parts['SMAStrip']
+f = p.faces
+faces = f.findAt(((0.078422, -0.074788, 0.001863), ), ((0.078239, -0.074835, 
+    0.005588), ), ((0.078176, -0.074854, 0.003725), ), ((0.078304, -0.074824, 
+    0.0), ))
+pickedRegions =(faces, )
+p.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2))
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.generateMesh()
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: 'Unknown key whole_cube'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 136, in <module>
+#*     region = p.sets['whole_cube']
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON, mesh=OFF)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+p1 = mdb.models['Model-1'].parts['Cube']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p1 = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+p = mdb.models['Model-1'].parts['SMAStrip']
+f = p.faces
+faces = f.findAt(((0.078422, -0.074788, 0.001863), ), ((0.078239, -0.074835, 
+    0.005588), ), ((0.078176, -0.074854, 0.003725), ), ((0.078304, -0.074824, 
+    0.0), ))
+p.Set(faces=faces, name='Whole-Object')
+#: The set 'Whole-Object' has been created (4 faces).
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: 'Unknown key whole_cube'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 141, in <module>
+#*     region = p.sets['whole_cube']
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+del mdb.models['Model-1'].sections['SMA-Section']
+mdb.models['Model-1'].HomogeneousShellSection(name='SMA-Section', 
+    preIntegrate=OFF, material='HartlSMA', thicknessType=UNIFORM, 
+    thickness=0.000254, thicknessField='', nodalThicknessField='', 
+    idealization=NO_IDEALIZATION, poissonDefinition=DEFAULT, 
+    thicknessModulus=None, temperature=GRADIENT, useDensity=OFF, 
+    integrationRule=SIMPSON, numIntPts=5)
+p = mdb.models['Model-1'].parts['SMAStrip']
+region = p.sets['Whole-Object']
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.SectionAssignment(region=region, sectionName='SMA-Section', offset=0.0, 
+    offsetType=MIDDLE_SURFACE, offsetField='', 
+    thicknessAssignment=FROM_SECTION)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: 'Cube-1'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 153, in <module>
+#*     region = a.instances['Cube-1'].sets['Corner']
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.206498, 
+    farPlane=0.27128, width=0.245775, height=0.093467, cameraPosition=(
+    0.0849962, -0.0344566, 0.237348), cameraUpVector=(-0.219137, 0.920987, 
+    -0.32212), cameraTarget=(0.0421683, -0.0403496, 0.000908275))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.182665, 
+    farPlane=0.293005, width=0.217409, height=0.0826795, cameraPosition=(
+    -0.0107371, 0.0800985, 0.201709), cameraUpVector=(0.0605441, 0.637304, 
+    -0.76823), cameraTarget=(0.0427577, -0.0410549, 0.00112771))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.16871, 
+    farPlane=0.306242, width=0.200799, height=0.076363, cameraPosition=(
+    -0.0413604, 0.147726, 0.123336), cameraUpVector=(0.698692, 0.303506, 
+    -0.647853), cameraTarget=(0.0430827, -0.0417727, 0.00195952))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.182328, 
+    farPlane=0.295511, width=0.217007, height=0.0825269, cameraPosition=(
+    0.117779, 0.0880712, 0.188857), cameraUpVector=(0.565444, 0.205169, 
+    -0.798861), cameraTarget=(0.0411502, -0.0410483, 0.00116388))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.168741, 
+    farPlane=0.309695, width=0.200837, height=0.0763772, cameraPosition=(
+    0.147405, 0.139031, 0.119502), cameraUpVector=(0.318958, -0.0128441, 
+    -0.947682), cameraTarget=(0.0409716, -0.0413554, 0.00158189))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.169931, 
+    farPlane=0.308505, width=0.202254, height=0.0769162, cameraPosition=(
+    0.147405, 0.139031, 0.119502), cameraUpVector=(-0.202465, 0.287303, 
+    -0.936197), cameraTarget=(0.0409716, -0.0413554, 0.00158189))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.189213, 
+    farPlane=0.289094, width=0.225204, height=0.0856441, cameraPosition=(
+    0.141008, 0.0243827, 0.209769), cameraUpVector=(-0.164236, 0.812572, 
+    -0.559243), cameraTarget=(0.0410021, -0.0408087, 0.00115147))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.180872, 
+    farPlane=0.296312, width=0.215276, height=0.0818685, cameraPosition=(
+    0.0668748, 0.137601, 0.159795), cameraUpVector=(0.110945, 0.357261, 
+    -0.927392), cameraTarget=(0.0413757, -0.0413794, 0.00140335))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.190106, 
+    farPlane=0.287076, width=0.114558, height=0.043566, viewOffsetX=-0.0199544, 
+    viewOffsetY=0.00911014)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.192415, 
+    farPlane=0.316358, width=0.11595, height=0.0440952, cameraPosition=(
+    -0.162538, 0.0721038, 0.114321), cameraUpVector=(0.829571, -0.0719962, 
+    0.55374), cameraTarget=(0.00417591, -0.0515914, -0.00683255), 
+    viewOffsetX=-0.0201968, viewOffsetY=0.00922081)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.195626, 
+    farPlane=0.322698, width=0.117885, height=0.044831, cameraPosition=(
+    -0.201444, 0.0380122, 0.0645136), cameraUpVector=(0.718027, 0.259965, 
+    0.645644), cameraTarget=(0.00798658, -0.0562795, -0.00633859), 
+    viewOffsetX=-0.0205338, viewOffsetY=0.00937468)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.195337, 
+    farPlane=0.322986, width=0.126251, height=0.0480128, 
+    viewOffsetX=-0.0287819, viewOffsetY=0.030914)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.19472, 
+    farPlane=0.323604, width=0.125852, height=0.047861, viewOffsetX=-0.0105638, 
+    viewOffsetY=0.0226799)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.212792, 
+    farPlane=0.307087, width=0.137533, height=0.0523031, cameraPosition=(
+    -0.145939, -0.0216058, 0.18634), cameraUpVector=(0.92145, 0.260573, 
+    0.288152), cameraTarget=(0.00821361, -0.0597248, 0.00590722), 
+    viewOffsetX=-0.0115442, viewOffsetY=0.0247849)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.208029, 
+    farPlane=0.313173, width=0.134455, height=0.0511325, cameraPosition=(
+    -0.0268817, 0.110541, 0.207485), cameraUpVector=(0.610202, 0.420441, 
+    -0.671478), cameraTarget=(0.0306925, -0.0511668, 0.0392352), 
+    viewOffsetX=-0.0112858, viewOffsetY=0.0242302)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.204949, 
+    farPlane=0.317703, width=0.132464, height=0.0503756, cameraPosition=(
+    0.100439, 0.135333, 0.189834), cameraUpVector=(0.630861, -0.0469958, 
+    -0.774471), cameraTarget=(0.0319009, -0.0407171, 0.041237), 
+    viewOffsetX=-0.0111187, viewOffsetY=0.0238715)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.193333, 
+    farPlane=0.330485, width=0.124957, height=0.0475204, cameraPosition=(
+    0.222496, 0.116628, 0.111755), cameraUpVector=(0.0899589, -0.158822, 
+    -0.9832), cameraTarget=(0.0543906, -0.0395103, 0.0401076), 
+    viewOffsetX=-0.0104885, viewOffsetY=0.0225185)
+session.viewports['Viewport: 1'].view.setValues(width=0.126673, 
+    height=0.0481732, viewOffsetX=-0.0106154, viewOffsetY=0.0226316)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.192365, 
+    farPlane=0.331571, width=0.125587, height=0.0477602, cameraPosition=(
+    0.240715, 0.121869, 0.0600309), cameraUpVector=(-0.246616, -0.0686034, 
+    -0.966682), cameraTarget=(0.0664529, -0.0414857, 0.0332002), 
+    viewOffsetX=-0.0105244, viewOffsetY=0.0224376)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.193052, 
+    farPlane=0.330528, width=0.126036, height=0.0479307, cameraPosition=(
+    0.205957, 0.162923, 0.0335017), cameraUpVector=(-0.21708, -0.250199, 
+    -0.943545), cameraTarget=(0.0657298, -0.0322881, 0.0326145), 
+    viewOffsetX=-0.010562, viewOffsetY=0.0225177)
+session.viewports['Viewport: 1'].view.setValues(width=0.127285, 
+    height=0.048406, viewOffsetX=-0.0105544, viewOffsetY=0.0225813)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.198578, 
+    farPlane=0.324312, width=0.130953, height=0.049801, cameraPosition=(
+    0.154081, 0.154468, 0.139413), cameraUpVector=(-0.0381523, 0.123301, 
+    -0.991636), cameraTarget=(0.0593686, -0.0417205, 0.0378674), 
+    viewOffsetX=-0.0108585, viewOffsetY=0.023232)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.203882, 
+    farPlane=0.318951, width=0.134451, height=0.0511311, cameraPosition=(
+    0.145487, 0.115489, 0.187689), cameraUpVector=(-0.000484161, 0.36284, 
+    -0.931851), cameraTarget=(0.0579639, -0.050253, 0.0372194), 
+    viewOffsetX=-0.0111485, viewOffsetY=0.0238525)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.202783, 
+    farPlane=0.32005, width=0.151343, height=0.0575548, 
+    viewOffsetX=-0.00993459, viewOffsetY=0.023968)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.188242, 
+    farPlane=0.330147, width=0.14049, height=0.0534277, cameraPosition=(
+    -0.119114, 0.14691, 0.0923695), cameraUpVector=(0.441697, 0.183005, 
+    -0.878301), cameraTarget=(0.0311151, -0.0330257, 0.0392064), 
+    viewOffsetX=-0.0092222, viewOffsetY=0.0222493)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.200688, 
+    farPlane=0.317701, width=0.0151769, height=0.00577169, 
+    viewOffsetX=-0.02188, viewOffsetY=0.0364778)
+a = mdb.models['Model-1'].rootAssembly
+f1 = a.instances['SMAStrip-1'].faces
+faces1 = f1.findAt(((0.078176, -0.074854, 0.003725), ))
+region = a.Set(faces=faces1, name='Top-Face')
+mdb.models['Model-1'].EncastreBC(name='BC-1', createStepName='Initial', 
+    region=region, localCsys=None)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.195248, 
+    farPlane=0.323141, width=0.0784867, height=0.0298481, 
+    viewOffsetX=-0.00497493, viewOffsetY=0.039473)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.194848, 
+    farPlane=0.323541, width=0.0783256, height=0.0297869, 
+    viewOffsetX=-0.000193619, viewOffsetY=0.0274277)
+del mdb.models['Model-1'].boundaryConditions['BC-1']
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.19959, 
+    farPlane=0.3188, width=0.0247614, height=0.00941665, viewOffsetX=-0.016802, 
+    viewOffsetY=0.035035)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.19973, 
+    farPlane=0.318659, width=0.0247789, height=0.00942329, 
+    viewOffsetX=-0.0169553, viewOffsetY=0.0363789)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['SMAStrip-1'].edges
+a.ReferencePoint(point=a.instances['SMAStrip-1'].InterestingPoint(
+    edge=e1.findAt(coordinates=(0.0, 0.0, 0.001397)), rule=MIDDLE))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.200519, 
+    farPlane=0.31787, width=0.0151642, height=0.00576685, 
+    viewOffsetX=-0.0197401, viewOffsetY=0.0369782)
+a = mdb.models['Model-1'].rootAssembly
+e11 = a.instances['SMAStrip-1'].edges
+a.ReferencePoint(point=a.instances['SMAStrip-1'].InterestingPoint(
+    edge=e11.findAt(coordinates=(-6.1e-05, -0.000247, 0.004191)), rule=MIDDLE))
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 157, in <module>
+#*     stop
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['Model-1'].rootAssembly
+r1 = a.referencePoints
+refPoints1=(r1[16], )
+region = a.Set(referencePoints=refPoints1, name='Fixed-Point')
+mdb.models['Model-1'].EncastreBC(name='BC-1', createStepName='Initial', 
+    region=region, localCsys=None)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.198059, 
+    farPlane=0.32033, width=0.0458065, height=0.01742, viewOffsetX=-0.00895792, 
+    viewOffsetY=0.0378141)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: '16'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 159, in <module>
+#*     refPoints1=(r1[16], )
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.198068, 
+    farPlane=0.320321, width=0.0404765, height=0.015393, 
+    viewOffsetX=-0.0102846, viewOffsetY=0.0371839)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* TypeError: referencePoints; found Feature, expecting tuple
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 158, in <module>
+#*     region = a.Set(referencePoints=fixed_point, name='Fixed-Point')
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* TypeError: referencePoints[0]; found Feature, expecting tuple
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 160, in <module>
+#*     region = a.Set(referencePoints=refPoints1, name='Fixed-Point')
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: 'Cube-1'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 166, in <module>
+#*     region = a.instances['Cube-1'].sets['whole_cube']
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.198294, 
+    farPlane=0.320095, width=0.0405228, height=0.0154106, cameraPosition=(
+    -0.119924, 0.146307, 0.0921228), cameraUpVector=(0.456022, 0.192206, 
+    -0.868965), cameraTarget=(0.0303051, -0.0336291, 0.0389597), 
+    viewOffsetX=-0.0102964, viewOffsetY=0.0372264)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.199036, 
+    farPlane=0.319772, width=0.0406744, height=0.0154683, cameraPosition=(
+    -0.183168, 0.0913748, 0.0386339), cameraUpVector=(0.572795, 0.306136, 
+    -0.760385), cameraTarget=(0.0199052, -0.0371417, 0.0344987), 
+    viewOffsetX=-0.0103349, viewOffsetY=0.0373656)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.199023, 
+    farPlane=0.319786, width=0.0406717, height=0.0154673, 
+    viewOffsetX=-0.00210179, viewOffsetY=0.0351461)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.199445, 
+    farPlane=0.321368, width=0.040758, height=0.0155001, cameraPosition=(
+    -0.172145, 0.110598, 0.0401039), cameraUpVector=(0.503444, 0.142079, 
+    -0.852266), cameraTarget=(0.0236047, -0.0288718, 0.0384768), 
+    viewOffsetX=-0.00210624, viewOffsetY=0.0352206)
+#: Coordinates of interesting point :-61.E-06,-247.E-06,2.794E-03
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: 'Cube-1'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 166, in <module>
+#*     region = a.instances['Cube-1'].sets['whole_cube']
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: 'Cube-1'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 166, in <module>
+#*     region = a.instances['Cube-1'].sets['whole_cube']
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.97869, 
+    farPlane=4.01572, width=0.151773, height=0.0577186, viewOffsetX=0.0167077, 
+    viewOffsetY=-0.00525462)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.96998, 
+    farPlane=4.08482, width=0.151441, height=0.0575921, cameraPosition=(
+    0.394335, 3.73077, 1.37296), cameraUpVector=(0.646983, 0.205342, 
+    -0.734335), cameraTarget=(0.00723503, -0.00184995, -0.0118501), 
+    viewOffsetX=0.0166711, viewOffsetY=-0.00524311)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.98087, 
+    farPlane=4.07392, width=0.0303919, height=0.0115579, 
+    viewOffsetX=0.00615365, viewOffsetY=-0.013845)
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Back'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Top'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.188707, 
+    farPlane=0.276526, width=0.0296439, height=0.0112734, 
+    viewOffsetX=-0.0260529, viewOffsetY=3.82326e-05)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 171, in <module>
+#*     stop
+session.viewports['Viewport: 1'].view.setValues(width=3.1538, height=1.19937, 
+    viewOffsetX=-0.0788108, viewOffsetY=-0.0378951)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF, adaptiveMeshConstraints=ON)
+mdb.models['Model-1'].StaticStep(name='Step-1', previous='Initial')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Step-1')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, adaptiveMeshConstraints=OFF)
+mdb.models['Model-1'].predefinedFields['TempField'].setValuesInStep(
+    stepName='Step-1', magnitudes=(295.0, ))
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF, adaptiveMeshConstraints=ON)
+mdb.models['Model-1'].StaticStep(name='Load-Step', previous='Step-1')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load-Step')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, adaptiveMeshConstraints=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.18254, 
+    farPlane=0.282692, width=0.105153, height=0.0399893, 
+    viewOffsetX=-0.0166188, viewOffsetY=0.00396566)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.182019, 
+    farPlane=0.283213, width=0.104853, height=0.0398752, 
+    viewOffsetX=-0.000470843, viewOffsetY=0.001296)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.182018, 
+    farPlane=0.283215, width=0.104853, height=0.039875, cameraPosition=(
+    0.0400633, 0.19258, 0.00275691), cameraUpVector=(-0.0571483, 0, -0.998366), 
+    cameraTarget=(0.0400633, -0.0400367, 0.00275691), viewOffsetX=-0.00047084, 
+    viewOffsetY=0.00129599)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.165114, 
+    farPlane=0.298951, width=0.095115, height=0.0361718, cameraPosition=(
+    0.227885, -0.175505, 0.0160746), cameraUpVector=(0.121603, 0.0722965, 
+    -0.989942), cameraTarget=(0.0388237, -0.0406448, 0.00269957), 
+    viewOffsetX=-0.000427112, viewOffsetY=0.00117563)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.172965, 
+    farPlane=0.2911, width=0.019941, height=0.00758347, viewOffsetX=0.00761324, 
+    viewOffsetY=0.00222745)
+a = mdb.models['Model-1'].rootAssembly
+e1 = a.instances['SMAStrip-1'].edges
+a.ReferencePoint(point=a.instances['SMAStrip-1'].InterestingPoint(
+    edge=e1.findAt(coordinates=(0.079757, -0.080073, 0.004191)), rule=MIDDLE))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.168864, 
+    farPlane=0.2952, width=0.0676574, height=0.0257298, viewOffsetX=0.0132423, 
+    viewOffsetY=0.00529008)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.167097, 
+    farPlane=0.268757, width=0.0669494, height=0.0254605, cameraPosition=(
+    0.245653, -0.0134358, 0.0699333), cameraUpVector=(0.259139, 0.216358, 
+    -0.941295), cameraTarget=(0.0243461, -0.0392127, 0.00308257), 
+    viewOffsetX=0.0131038, viewOffsetY=0.00523472)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.149763, 
+    farPlane=0.271064, width=0.0600044, height=0.0228194, cameraPosition=(
+    0.180582, 0.0885551, 0.0923782), cameraUpVector=(0.265631, 0.304898, 
+    -0.914591), cameraTarget=(0.0194873, -0.0509301, -0.000909819), 
+    viewOffsetX=0.0117445, viewOffsetY=0.0046917)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.144713, 
+    farPlane=0.276115, width=0.129605, height=0.0492883, viewOffsetX=0.0071846, 
+    viewOffsetY=0.00430649)
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+a = mdb.models['Model-1'].rootAssembly
+r1 = a.referencePoints
+refPoints1=(r1[11], )
+region = a.Set(referencePoints=refPoints1, name='Load-Point')
+mdb.models['Model-1'].DisplacementBC(name='BC-2', createStepName='Load-Step', 
+    region=region, u1=0.03, u2=0.04, u3=UNSET, ur1=UNSET, ur2=UNSET, ur3=UNSET, 
+    amplitude=UNSET, fixed=OFF, distributionType=UNIFORM, fieldName='', 
+    localCsys=None)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 183, in <module>
+#*     stop
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.1815, 
+    farPlane=0.283732, width=0.179742, height=0.068355, cameraPosition=(
+    0.105639, 0.0500901, 0.206939), cameraUpVector=(0.152873, 0.884954, 
+    -0.43987), cameraTarget=(0.0399696, -0.0400367, 0.00279401))
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load-Step')
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.179425, 
+    farPlane=0.285808, width=0.177687, height=0.0675735, cameraPosition=(
+    0.209941, -0.0179186, 0.160055), cameraUpVector=(0.162667, 0.937485, 
+    -0.307669), cameraTarget=(0.0399696, -0.0400367, 0.00279401))
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 196, in <module>
+#*     stop
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Back'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+#: Coordinates of vertex 4 :79.757E-03,-80.073E-03,5.588E-03
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.216123, 
+    farPlane=0.249109, width=0.147653, height=0.0561516, 
+    viewOffsetX=0.000235326, viewOffsetY=0.00776778)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.191396, 
+    farPlane=0.282301, width=0.130759, height=0.0497271, cameraPosition=(
+    0.0869844, 0.0775038, 0.202977), cameraUpVector=(0.0197728, 0.857518, 
+    -0.514073), cameraTarget=(0.0398096, -0.0388148, 0.0071335), 
+    viewOffsetX=0.000208402, viewOffsetY=0.00687905)
+#: 
+#: Point 1: -61.E-06, -247.E-06, 5.588E-03  Point 2: 0., 0., 5.588E-03
+#:    Distance: 254.E-06  Components: 61.E-06, 247.E-06, 0.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.186705, 
+    farPlane=0.28699, width=0.21011, height=0.0799039, viewOffsetX=0.0178154, 
+    viewOffsetY=0.00616951)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+#: Error in job HartlCase2: 1308 elements have zero transverse shear stiffness. Please check the input data. You may use the *TRANSVERSE SHEAR STIFFNESS option to directly specify values of transverse shear stiffness, or use the *TRANSVERSE SHEAR option to specify material transverse shear moduli for Abaqus to compute the transverse shear stiffness. The elements have been identified in element set ErrElemZeroTransShearStiff.
+#: Error in job HartlCase2: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_FIXED-POINT BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+#: Error in job HartlCase2: *TEMPERATURE MAY NOT BE USED WITH ELEMENTS THAT POSSESS TEMPERATURE DEGREES OF FREEDOM. USE *BOUNDARY TO PRESCRIBE BOUNDARY CONDITIONS ON TEMPERATURE
+#: Error in job HartlCase2: NODE SET ASSEMBLY_FIXED-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_LOAD-POINT BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+#: Error in job HartlCase2: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_LOAD-POINT BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_FIXED-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: *TEMPERATURE MAY NOT BE USED WITH ELEMENTS THAT POSSESS TEMPERATURE DEGREES OF FREEDOM. USE *BOUNDARY TO PRESCRIBE BOUNDARY CONDITIONS ON TEMPERATURE
+#: Error in job HartlCase2: NODE SET ASSEMBLY_FIXED-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Job HartlCase2: Analysis Input File Processor aborted due to errors.
+#: Error in job HartlCase2: Analysis Input File Processor exited with an error - Please see the  HartlCase2.dat file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
+p1 = mdb.models['Model-1'].parts['Cube']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].sections['SMA-Section'].setValues(preIntegrate=OFF, 
+    material='HartlSMA', thicknessType=UNIFORM, thickness=0.000254, 
+    thicknessField='', nodalThicknessField='', idealization=NO_IDEALIZATION, 
+    integrationRule=SIMPSON, numIntPts=5)
+mdb.models['Model-1'].sections['SMA-Section'].TransverseShearShell(k11=15000.0, 
+    k22=15000.0, k12=15000.0)
+#* The product of transverse shear stiffness values K11 and K22 must be greater 
+#* than the square of K12.
+mdb.models['Model-1'].HomogeneousShellSection(name='Section-2', 
+    preIntegrate=OFF, material='HartlSMA', thicknessType=UNIFORM, 
+    thickness=1.0, thicknessField='', nodalThicknessField='', 
+    idealization=NO_IDEALIZATION, poissonDefinition=DEFAULT, 
+    thicknessModulus=None, temperature=GRADIENT, useDensity=OFF, 
+    integrationRule=SIMPSON, numIntPts=5)
+mdb.models['Model-1'].sections['Section-2'].TransverseShearShell(k11=2600000.0, 
+    k22=2600000.0, k12=0.0)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+#: Error in job HartlCase2: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_FIXED-POINT BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+#: Error in job HartlCase2: *TEMPERATURE MAY NOT BE USED WITH ELEMENTS THAT POSSESS TEMPERATURE DEGREES OF FREEDOM. USE *BOUNDARY TO PRESCRIBE BOUNDARY CONDITIONS ON TEMPERATURE
+#: Error in job HartlCase2: NODE SET ASSEMBLY_FIXED-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_LOAD-POINT BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+#: Error in job HartlCase2: A BOUNDARY CONDITION HAS BEEN SPECIFIED ON NODE SET ASSEMBLY_LOAD-POINT BUT THIS NODE SET IS NOT ACTIVE IN THE MODEL
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_FIXED-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: *TEMPERATURE MAY NOT BE USED WITH ELEMENTS THAT POSSESS TEMPERATURE DEGREES OF FREEDOM. USE *BOUNDARY TO PRESCRIBE BOUNDARY CONDITIONS ON TEMPERATURE
+#: Error in job HartlCase2: NODE SET ASSEMBLY_FIXED-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Error in job HartlCase2: NODE SET ASSEMBLY_LOAD-POINT HAS NOT BEEN DEFINED
+#: Job HartlCase2: Analysis Input File Processor aborted due to errors.
+#: Error in job HartlCase2: Analysis Input File Processor exited with an error - Please see the  HartlCase2.dat file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.190142, 
+    farPlane=0.290577, width=0.00752893, height=0.00286322, 
+    viewOffsetX=-0.0234693, viewOffsetY=0.0385106)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.159994, 
+    farPlane=0.248663, width=0.00633516, height=0.00240923, cameraPosition=(
+    0.245545, -0.0376505, 0.00363046), cameraUpVector=(-0.376374, 0.913563, 
+    -0.154099), cameraTarget=(0.00691431, -0.0524281, -0.021068), 
+    viewOffsetX=-0.019748, viewOffsetY=0.0324045)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.147882, 
+    farPlane=0.260776, width=0.148598, height=0.056511, 
+    viewOffsetX=-0.00707324, viewOffsetY=0.0213804)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.149639, 
+    farPlane=0.233529, width=0.150363, height=0.0571824, cameraPosition=(
+    0.145706, -0.0601068, 0.161603), cameraUpVector=(0.314346, 0.759949, 
+    -0.568915), cameraTarget=(0.0103436, -0.0470573, -0.0365883), 
+    viewOffsetX=-0.00715728, viewOffsetY=0.0216344)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.13898, 
+    farPlane=0.269133, width=0.139652, height=0.0531091, cameraPosition=(
+    0.172568, 0.0633369, 0.119322), cameraUpVector=(-0.0393606, 0.32927, 
+    -0.943415), cameraTarget=(0.0167123, -0.0702488, -0.00572496), 
+    viewOffsetX=-0.00664744, viewOffsetY=0.0200933)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.138992, 
+    farPlane=0.269121, width=0.158709, height=0.0603563, 
+    viewOffsetX=-0.00217497, viewOffsetY=0.0201503)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON, loads=OFF, 
+    bcs=OFF, predefinedFields=OFF, connectors=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.151073, 
+    farPlane=0.257039, width=0.0164308, height=0.00626446, 
+    viewOffsetX=-0.038763, viewOffsetY=0.0206043)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.185217, 
+    farPlane=0.272277, width=0.0201444, height=0.0076803, cameraPosition=(
+    0.0852835, 0.129562, 0.150745), cameraUpVector=(0.188918, 0.237277, 
+    -0.952895), cameraTarget=(0.0427588, -0.0611356, 0.010749), 
+    viewOffsetX=-0.0475238, viewOffsetY=0.0252611)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.203003, 
+    farPlane=0.308494, width=0.0220788, height=0.00841781, cameraPosition=(
+    -0.0469482, 0.162296, 0.134965), cameraUpVector=(0.319235, 0.249392, 
+    -0.914272), cameraTarget=(0.0483715, -0.0306809, 0.0279755), 
+    viewOffsetX=-0.0520873, viewOffsetY=0.0276868)
+p = mdb.models['Model-1'].parts['Cube']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF, mesh=ON)
+session.viewports['Viewport: 1'].partDisplay.meshOptions.setValues(
+    meshTechnique=ON)
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.deleteMesh()
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.seedPart(size=0.000931333333333333, deviationFactor=0.1, minSizeFactor=0.1)
+p = mdb.models['Model-1'].parts['SMAStrip']
+p.generateMesh()
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF, loads=ON, 
+    bcs=ON, predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.meshOptions.setValues(
+    meshTechnique=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF, adaptiveMeshConstraints=ON)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+mdb.models['Model-1'].CoupledTempDisplacementStep(name='Cool', 
+    previous='Initial', response=STEADY_STATE, deltmx=None, cetol=None, 
+    creepIntegration=None, amplitude=RAMP)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Cool')
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stopstop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 179, in <module>
+#*     stopstop
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Step-1')
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.86114, 
+    farPlane=4.13327, width=1.36637, height=0.519622, viewOffsetX=0.0485851, 
+    viewOffsetY=-0.0386087)
+a = mdb.models['Model-1'].rootAssembly
+region = a.instances['SMAStrip-1'].sets['Whole-Object']
+mdb.models['Model-1'].TemperatureBC(name='Cool-Temp', createStepName='Step-1', 
+    region=region, fixed=OFF, distributionType=UNIFORM, fieldName='', 
+    magnitude=295.0, amplitude=UNSET)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* ValueError: The Predefined Field does not exist in the specified step or is 
+#* suppressed or inactive.
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 200, in <module>
+#*     mdb.models['Model-1'].predefinedFields['TempField'].setValuesInStep(
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Heat')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF, adaptiveMeshConstraints=ON)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+mdb.jobs['HartlCase2'].submit(consistencyChecking=OFF)
+#: Abaqus Error: Detected lock file HartlCase2.lck. Please confirm that no other applications are attempting to write to the output database associated with this job before removing the lock file and resubmitting.
+#: Abaqus/Analysis exited with error(s).
+#: The job input file "HartlCase2.inp" has been submitted for analysis.
+mdb.jobs['HartlCase2'].kill()

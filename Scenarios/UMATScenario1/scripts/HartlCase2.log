@@ -1,0 +1,13 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB HartlCase2
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
+<179 out of 443 licenses remain available>.
+Abaqus Warning: Your Abaqus license will expire in 14 days.
+Begin Compiling Abaqus/Standard User Subroutines
+10/16/2026 2:55:40 PM
+'ifx' is not recognized as an internal or external command,
+operable program or batch file.
+Abaqus Error: Problem during compilation - C:/Users/adzheng/STAR-Simulator/Abaqus/Hartl_UMAT_Changed.for
+Abaqus/Analysis exited with errors

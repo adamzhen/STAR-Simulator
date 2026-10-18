@@ -12,7 +12,7 @@ WORKING_DIR = r'C:\Users\adzheng\STAR-Simulator\Abaqus'
 # Base name of restart jobs, such as SMAHeatTransient_01.odb,
 # SMAHeatTransient_02.odb, ...
 JOB_NAME = 'SMAHeatTransient'
-
+ 
 # Run number appended to the desired final output name.
 # Example: JOB_NAME='SMAHeatTransient', RUN_NO='0.1' creates:
 # SMAHeatTransientCombined0.1.odb

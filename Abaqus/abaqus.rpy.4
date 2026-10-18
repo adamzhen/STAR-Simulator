@@ -1,0 +1,1027 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-08.00.46 RELr427 198590
+# Run by adzheng on Thu Oct 15 13:52:18 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=305.930206298828, 
+    height=156.505554199219)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    optimizationTasks=OFF, geometricRestrictions=OFF, stopConditions=OFF)
+mdb.jobs['HartlCase2'].submit(consistencyChecking=OFF)
+#: The job input file "HartlCase2.inp" has been submitted for analysis.
+#: Job HartlCase2: Analysis Input File Processor completed successfully.
+#: Error in job HartlCase2: Time increment required is less than the minimum specified
+#: Error in job HartlCase2: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+#: Job HartlCase2: Abaqus/Standard aborted due to errors.
+#: Error in job HartlCase2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              4
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p1 = mdb.models['Model-1'].parts['Cube']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].HomogeneousShellSection(name='Aluminum-Section', 
+    preIntegrate=OFF, material='aluminum', thicknessType=UNIFORM, 
+    thickness=0.000254, thicknessField='', nodalThicknessField='', 
+    idealization=NO_IDEALIZATION, poissonDefinition=DEFAULT, 
+    thicknessModulus=None, temperature=GRADIENT, useDensity=OFF, 
+    integrationRule=SIMPSON, numIntPts=5)
+mdb.models['Model-1'].materials['aluminum'].elastic.setValues(table=((
+    54600000000.0, 0.33), ))
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].parts['SMAStrip'].sectionAssignments[0].setValues(
+    sectionName='Aluminum-Section')
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='AluminumCase2', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
+mdb.jobs['AluminumCase2'].submit(consistencyChecking=OFF)
+#: The job input file "AluminumCase2.inp" has been submitted for analysis.
+#: Job AluminumCase2: Analysis Input File Processor completed successfully.
+#: Job AluminumCase2: Abaqus/Standard completed successfully.
+#: Job AluminumCase2 completed successfully. 
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb'])
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              4
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports[session.currentViewportName].odbDisplay.setFrame(
+    step='Load-Step', frame=0)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='TEMP', outputPosition=INTEGRATION_POINT, )
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Heat', 
+    frame=11)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Heat', 
+    frame=11)
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Heat', 
+    frame=11)
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports[session.currentViewportName].odbDisplay.setFrame(step='Heat', 
+    frame=11)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load-Step')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['Model-1'].boundaryConditions['Disp-BC'].setValues(u1=0.05, u2=0.05)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['AluminumCase2'].submit(consistencyChecking=OFF)
+#: The job input file "AluminumCase2.inp" has been submitted for analysis.
+#: Job AluminumCase2: Analysis Input File Processor completed successfully.
+#: Error in job AluminumCase2: Time increment required is less than the minimum specified
+#: Error in job AluminumCase2: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+#: Job AluminumCase2: Abaqus/Standard aborted due to errors.
+#: Error in job AluminumCase2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job AluminumCase2 aborted due to errors.
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              4
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['Model-1'].boundaryConditions['Disp-BC'].setValues(u1=0.03, u2=0.03)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['AluminumCase2'].submit(consistencyChecking=OFF)
+#: The job input file "AluminumCase2.inp" has been submitted for analysis.
+#: Job AluminumCase2: Analysis Input File Processor completed successfully.
+#: Job AluminumCase2: Abaqus/Standard completed successfully.
+#: Job AluminumCase2 completed successfully. 
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              4
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['Model-1'].boundaryConditions['Disp-BC'].setValues(u1=0.04, u2=0.04)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['AluminumCase2'].submit(consistencyChecking=OFF)
+#: The job input file "AluminumCase2.inp" has been submitted for analysis.
+#: Job AluminumCase2: Analysis Input File Processor completed successfully.
+#: Job AluminumCase2: Abaqus/Standard completed successfully.
+#: Job AluminumCase2 completed successfully. 
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              4
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.158517, 
+    farPlane=0.271797, width=0.18774, height=0.0713967, cameraPosition=(
+    0.160647, 0.0489621, 0.180433), cameraUpVector=(0.0493983, 0.65551, 
+    -0.753569), cameraTarget=(0.0438964, -0.0352587, -0.00395876))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.188434, 
+    farPlane=0.256712, width=0.223172, height=0.0848714, cameraPosition=(
+    0.0966307, -0.0515143, 0.220321), cameraUpVector=(0.347749, 0.88222, 
+    -0.317424), cameraTarget=(0.0494825, -0.026491, -0.00743948))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.196533, 
+    farPlane=0.249581, width=0.232764, height=0.0885192, cameraPosition=(
+    0.0440971, -0.0098778, 0.225344), cameraUpVector=(0.107443, 0.908456, 
+    -0.403935), cameraTarget=(0.0521636, -0.0286159, -0.00769585))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.150869, 
+    farPlane=0.275174, width=0.178682, height=0.0679518, cameraPosition=(
+    0.1346, 0.176736, 0.0360608), cameraUpVector=(-0.582524, 0.00316909, 
+    -0.812808), cameraTarget=(0.0477514, -0.0377137, 0.00153209))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='U', outputPosition=NODAL, refinement=(INVARIANT, 
+    'Magnitude'), )
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.168194, 
+    farPlane=0.265299, width=0.199201, height=0.0757553, cameraPosition=(
+    -0.0432682, -0.00331292, 0.192735), cameraUpVector=(0.746907, 0.663783, 
+    -0.0390015), cameraTarget=(0.0652105, -0.0200406, -0.0138467))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.185542, 
+    farPlane=0.24429, width=0.219748, height=0.083569, cameraPosition=(
+    0.0863871, -0.0238632, 0.216047), cameraUpVector=(0.234235, 0.908178, 
+    -0.346911), cameraTarget=(0.054931, -0.0184113, -0.0156949))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.190289, 
+    farPlane=0.239543, width=0.137379, height=0.0522445, 
+    viewOffsetX=0.00273578, viewOffsetY=0.0011909)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.192663, 
+    farPlane=0.237212, width=0.139093, height=0.0528963, cameraPosition=(
+    0.0817668, -0.0178948, 0.216617), cameraUpVector=(0.245966, 0.896956, 
+    -0.367384), cameraTarget=(0.0553284, -0.0189105, -0.0158124), 
+    viewOffsetX=0.00276991, viewOffsetY=0.00120576)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.183782, 
+    farPlane=0.247244, width=0.132681, height=0.0504581, cameraPosition=(
+    0.0912677, 0.0562819, 0.201906), cameraUpVector=(0.193599, 0.72044, 
+    -0.665948), cameraTarget=(0.0545287, -0.0253783, -0.014208), 
+    viewOffsetX=0.00264223, viewOffsetY=0.00115018)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.176715, 
+    farPlane=0.255315, width=0.12758, height=0.0485179, cameraPosition=(
+    0.103134, 0.113317, 0.167174), cameraUpVector=(0.127054, 0.486207, 
+    -0.864558), cameraTarget=(0.0535827, -0.030038, -0.0109202), 
+    viewOffsetX=0.00254063, viewOffsetY=0.00110595)
+#: 
+#: Node: SMASTRIP-1.146
+#:                                         1             2             3        Magnitude
+#: Base coordinates:                  0.00000e+00,  0.00000e+00,  2.79400e-03,      -      
+#: Scale:                             1.00000e+00,  1.00000e+00,  1.00000e+00,      -      
+#: Deformed coordinates (unscaled):   7.92372e-04,  2.41123e-05,  2.79400e-03,      -      
+#: Deformed coordinates (scaled):     7.92372e-04,  2.41123e-05,  2.79400e-03,      -      
+#: Displacement (unscaled):           7.92372e-04,  2.41123e-05,  2.02191e-09,  7.92739e-04
+#: 
+#: Node: SMASTRIP-1.11
+#:                                         1             2             3        Magnitude
+#: Base coordinates:                  8.00000e-02, -8.00000e-02,  2.79400e-03,      -      
+#: Scale:                             1.00000e+00,  1.00000e+00,  1.00000e+00,      -      
+#: Deformed coordinates (unscaled):   1.19220e-01, -3.93526e-02,  2.79395e-03,      -      
+#: Deformed coordinates (scaled):     1.19220e-01, -3.93526e-02,  2.79395e-03,      -      
+#: Displacement (unscaled):           3.92197e-02,  4.06474e-02, -5.20644e-08,  5.64835e-02
+#: 
+#: Nodes for distance: SMASTRIP-1.146, SMASTRIP-1.11
+#:                                        1             2             3        Magnitude
+#: Base distance:                     8.00000e-02, -8.00000e-02,  0.00000e+00,  1.13137e-01
+#: Scale:                             1.00000e+00,  1.00000e+00,  1.00000e+00,      -      
+#: Deformed distance (unscaled):      1.18427e-01, -3.93768e-02, -5.42495e-08,  1.24802e-01
+#: Deformed distance (scaled):        1.18427e-01, -3.93768e-02, -5.42495e-08,  1.24802e-01
+#: Relative displacement (unscaled):  3.84273e-02,  4.06232e-02, -5.40863e-08,  5.59187e-02
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.187676, 
+    farPlane=0.244355, width=0.0121312, height=0.00461345, 
+    viewOffsetX=-0.0474727, viewOffsetY=0.00141837)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.187746, 
+    farPlane=0.244285, width=0.0121358, height=0.00461517, cameraPosition=(
+    0.102906, 0.112649, 0.167775), cameraUpVector=(0.142286, 0.481362, 
+    -0.864896), cameraTarget=(0.0533546, -0.0307058, -0.0103192), 
+    viewOffsetX=-0.0474903, viewOffsetY=0.0014189)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.208098, 
+    farPlane=0.243855, width=0.0134513, height=0.00511547, cameraPosition=(
+    0.0656767, 0.122162, 0.178358), cameraUpVector=(0.19157, 0.504555, 
+    -0.841858), cameraTarget=(0.057954, -0.0243585, -0.00383887), 
+    viewOffsetX=-0.0526382, viewOffsetY=0.00157271)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.200519, 
+    farPlane=0.251434, width=0.0961753, height=0.036575, 
+    viewOffsetX=-0.0500877, viewOffsetY=0.00359231)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.200438, 
+    farPlane=0.251515, width=0.0961364, height=0.0365602, 
+    viewOffsetX=-0.0102342, viewOffsetY=-0.00231971)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.200438, 
+    width=0.0961362, height=0.0365601, viewOffsetX=0.0133729, 
+    viewOffsetY=-0.00171037)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.206059, 
+    farPlane=0.245894, width=0.032449, height=0.0123402, viewOffsetX=0.0459421, 
+    viewOffsetY=-0.00148255)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.205486, 
+    farPlane=0.300037, width=0.0323587, height=0.0123058, cameraPosition=(
+    0.193205, 0.0792027, 0.193932), cameraUpVector=(-0.213897, 0.680394, 
+    -0.700937), cameraTarget=(0.0609667, -0.0189318, 0.027781), 
+    viewOffsetX=0.0458143, viewOffsetY=-0.00147842)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.18696, 
+    farPlane=0.29376, width=0.0395114, height=0.015026, viewOffsetX=-0.0205589, 
+    viewOffsetY=0.0331744)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.134482, 
+    farPlane=0.253507, width=0.0284209, height=0.0108083, cameraPosition=(
+    0.191964, -0.165801, 0.00888431), cameraUpVector=(0.13624, 0.890668, 
+    -0.433762), cameraTarget=(-0.0179697, -0.0493123, -0.00256988), 
+    viewOffsetX=-0.0147882, viewOffsetY=0.0238626)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.13331, 
+    farPlane=0.25468, width=0.0556453, height=0.0211616, 
+    viewOffsetX=-0.0128115, viewOffsetY=0.0213735)
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb'])
+odb = session.odbs['C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb']
+session.viewports['Viewport: 1'].setValues(displayedObject=odb)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.210741, 
+    farPlane=0.314015, width=0.0331863, height=0.0126206, cameraPosition=(
+    0.233316, 0.0345133, 0.192931), cameraUpVector=(-0.219853, 0.801171, 
+    -0.556588), cameraTarget=(0.069745, -0.0223137, 0.0356454), 
+    viewOffsetX=0.046986, viewOffsetY=-0.00151623)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.210272, 
+    farPlane=0.314485, width=0.0398664, height=0.015161, viewOffsetX=0.0475328, 
+    viewOffsetY=-0.00177399)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.21442, 
+    farPlane=0.324296, width=0.0406529, height=0.0154601, cameraPosition=(
+    0.260473, 0.00709704, 0.181637), cameraUpVector=(-0.20735, 0.85543, 
+    -0.4746), cameraTarget=(0.0776995, -0.0250661, 0.039218), 
+    viewOffsetX=0.0484704, viewOffsetY=-0.00180898)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.209421, 
+    farPlane=0.329295, width=0.100445, height=0.0381988, viewOffsetX=0.0513872, 
+    viewOffsetY=-0.00261378)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.20064, 
+    farPlane=0.312403, width=0.0962333, height=0.0365971, cameraPosition=(
+    0.212589, 0.0551291, 0.195629), cameraUpVector=(-0.224363, 0.755659, 
+    -0.615338), cameraTarget=(0.0627983, -0.0193221, 0.0320947), 
+    viewOffsetX=0.0492324, viewOffsetY=-0.00250417)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.199252, 
+    farPlane=0.313791, width=0.122405, height=0.04655, viewOffsetX=0.0498795, 
+    viewOffsetY=-0.00233375)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.231651, 
+    farPlane=0.346076, width=0.142309, height=0.0541193, cameraPosition=(
+    0.266186, 0.0250093, 0.171759), cameraUpVector=(-0.538674, 0.79889, 
+    -0.26759), cameraTarget=(0.0830213, -0.0438297, 0.0435576), 
+    viewOffsetX=0.0579901, viewOffsetY=-0.00271323)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.235627, 
+    farPlane=0.352462, width=0.144751, height=0.0550483, cameraPosition=(
+    0.284823, 0.0166949, 0.157603), cameraUpVector=(-0.555258, 0.809324, 
+    -0.191529), cameraTarget=(0.0908659, -0.0470514, 0.0434077), 
+    viewOffsetX=0.0589854, viewOffsetY=-0.0027598)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.226163, 
+    farPlane=0.316092, width=0.138938, height=0.0528374, cameraPosition=(
+    0.162477, -0.100251, 0.237698), cameraUpVector=(0.404784, 0.8551, 
+    -0.323967), cameraTarget=(0.0568177, -0.0340309, 0.0397729), 
+    viewOffsetX=0.0566164, viewOffsetY=-0.00264896)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.198762, 
+    farPlane=0.249536, width=0.122105, height=0.0464359, cameraPosition=(
+    0.0168042, 0.0828956, 0.200839), cameraUpVector=(0.350996, 0.63677, 
+    -0.686532), cameraTarget=(0.0224779, -0.0227296, -0.0078102), 
+    viewOffsetX=0.049757, viewOffsetY=-0.00232802)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.194226, 
+    farPlane=0.254072, width=0.195743, height=0.07444, viewOffsetX=0.0522585, 
+    viewOffsetY=-0.00489062)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.193327, 
+    farPlane=0.254971, width=0.194837, height=0.0740955, viewOffsetX=0.0411374, 
+    viewOffsetY=-0.00227465)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.201449, 
+    farPlane=0.25761, width=0.203022, height=0.0772084, cameraPosition=(
+    0.0352609, 0.0223813, 0.230453), cameraUpVector=(0.253993, 0.821688, 
+    -0.510212), cameraTarget=(0.0203253, -0.0205855, 0.000988394), 
+    viewOffsetX=0.0428656, viewOffsetY=-0.00237021)
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.205294, 
+    farPlane=0.259267, width=0.206897, height=0.078682, cameraPosition=(
+    0.0404525, -0.011766, 0.237413), cameraUpVector=(0.265485, 0.883891, 
+    -0.385038), cameraTarget=(0.0206685, -0.0190925, 0.00443596), 
+    viewOffsetX=0.0436837, viewOffsetY=-0.00241545)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* Unknown step type.
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 183, in <module>
+#*     mdb.models['Model-1'].CoupledTempDisplacementStep(name='Step-1',
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* KeyError: 'Cool-Temp'
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 212, in <module>
+#*     mdb.models['Model-1'].boundaryConditions['Cool-Temp'].deactivate('Heat')
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['HartlCase2'].submit(consistencyChecking=OFF)
+#: The job input file "HartlCase2.inp" has been submitted for analysis.
+#: Job HartlCase2: Analysis Input File Processor completed successfully.
+#: Error in job HartlCase2: Time increment required is less than the minimum specified
+#: Error in job HartlCase2: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+#: Job HartlCase2: Abaqus/Standard aborted due to errors.
+#: Error in job HartlCase2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb'])
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              3
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports[session.currentViewportName].odbDisplay.setFrame(
+    step='Load-Step', frame=12)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Heat')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load-Step')
+mdb.models['Model-1'].steps['Load-Step'].setValues(minInc=1e-07)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(
+    adaptiveMeshConstraints=OFF)
+mdb.jobs['HartlCase2'].submit(consistencyChecking=OFF)
+#: The job input file "HartlCase2.inp" has been submitted for analysis.
+#: Job HartlCase2: Analysis Input File Processor completed successfully.
+#: Error in job HartlCase2: Time increment required is less than the minimum specified
+#: Error in job HartlCase2: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+#: Job HartlCase2: Abaqus/Standard aborted due to errors.
+#: Error in job HartlCase2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              3
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports[session.currentViewportName].odbDisplay.setFrame(
+    step='Load-Step', frame=13)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Heat')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Step-1')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load-Step')
+mdb.models['Model-1'].boundaryConditions['Disp-BC'].setValues(u1=0.01, u2=0.01)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['HartlCase2'].submit(consistencyChecking=OFF)
+#: The job input file "HartlCase2.inp" has been submitted for analysis.
+#: Job HartlCase2: Analysis Input File Processor completed successfully.
+#: Error in job HartlCase2: Too many attempts made for this increment
+#: Error in job HartlCase2: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+#: Job HartlCase2: Abaqus/Standard aborted due to errors.
+#: Error in job HartlCase2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+mdb.models['Model-1'].boundaryConditions['Disp-BC'].setValues(u1=0.04, u2=0.04)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p1 = mdb.models['Model-1'].parts['Cube']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+mdb.models['Model-1'].HomogeneousShellSection(name='Aluminum-Section', 
+    preIntegrate=OFF, material='aluminum', thicknessType=UNIFORM, 
+    thickness=0.000254, thicknessField='', nodalThicknessField='', 
+    idealization=NO_IDEALIZATION, poissonDefinition=DEFAULT, 
+    thicknessModulus=None, temperature=GRADIENT, useDensity=OFF, 
+    integrationRule=SIMPSON, numIntPts=5)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].parts['SMAStrip'].sectionAssignments[0].setValues(
+    sectionName='Aluminum-Section')
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.Job(name='AluminumCase2', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
+mdb.jobs['AluminumCase2'].submit(consistencyChecking=OFF)
+#: The job input file "AluminumCase2.inp" has been submitted for analysis.
+#: Job AluminumCase2: Analysis Input File Processor completed successfully.
+#: Job AluminumCase2: Abaqus/Standard completed successfully.
+#: Job AluminumCase2 completed successfully. 
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              3
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.232547, 
+    farPlane=0.273409, width=0.204137, height=0.0776323, 
+    viewOffsetX=-0.000497784, viewOffsetY=0.00259197)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.217409, 
+    farPlane=0.287843, width=0.190849, height=0.0725789, cameraPosition=(
+    0.0143323, -0.060262, 0.248004), cameraUpVector=(0.0879864, 0.980299, 
+    0.17684), cameraTarget=(0.0595891, -0.0200154, 0.00238275), 
+    viewOffsetX=-0.000465381, viewOffsetY=0.00242325)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.21795, 
+    farPlane=0.289055, width=0.191324, height=0.0727597, cameraPosition=(
+    0.103504, 0.0401556, 0.245156), cameraUpVector=(0.261742, 0.924033, 
+    -0.278666), cameraTarget=(0.0589582, -0.0200951, 0.00352937), 
+    viewOffsetX=-0.00046654, viewOffsetY=0.00242928)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.208526, 
+    farPlane=0.300996, width=0.183051, height=0.0696135, cameraPosition=(
+    0.113793, 0.155414, 0.179492), cameraUpVector=(0.24208, 0.647639, 
+    -0.722468), cameraTarget=(0.0590332, -0.0190904, 0.00471369), 
+    viewOffsetX=-0.000446366, viewOffsetY=0.00232423)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.177107, 
+    farPlane=0.334568, width=0.15547, height=0.0591246, cameraPosition=(
+    -0.180116, 0.0448569, 0.0633178), cameraUpVector=(0.112008, 0.862475, 
+    -0.493551), cameraTarget=(0.05701, -0.0200582, 0.00369419), 
+    viewOffsetX=-0.00037911, viewOffsetY=0.00197403)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.186815, 
+    farPlane=0.324859, width=0.0780475, height=0.0296811, 
+    viewOffsetX=-0.00559314, viewOffsetY=0.00598229)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.189217, 
+    farPlane=0.317287, width=0.0790507, height=0.0300626, cameraPosition=(
+    -0.166289, 0.00611379, 0.113804), cameraUpVector=(-0.019014, 0.958059, 
+    -0.28594), cameraTarget=(0.05916, -0.0225762, 0.00268625), 
+    viewOffsetX=-0.00566504, viewOffsetY=0.00605919)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.189126, 
+    farPlane=0.317378, width=0.0790126, height=0.0300481, cameraPosition=(
+    -0.168977, 0.00175601, 0.109476), cameraUpVector=(0.245379, 0.934885, 
+    0.256476), cameraTarget=(0.0564722, -0.026934, -0.00164184), 
+    viewOffsetX=-0.00566231, viewOffsetY=0.00605627)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.184925, 
+    farPlane=0.321608, width=0.0772575, height=0.0293807, cameraPosition=(
+    -0.169628, -0.102328, 0.0720622), cameraUpVector=(-0.130129, 0.871261, 
+    0.473255), cameraTarget=(0.0596677, -0.0269377, -0.00368469), 
+    viewOffsetX=-0.00553654, viewOffsetY=0.00592175)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.185079, 
+    farPlane=0.321454, width=0.0773221, height=0.0294052, cameraPosition=(
+    -0.171075, -0.102811, 0.0672026), cameraUpVector=(0.0630198, 0.605451, 
+    0.793383), cameraTarget=(0.0582211, -0.0274206, -0.00854432), 
+    viewOffsetX=-0.00554116, viewOffsetY=0.00592669)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.188867, 
+    farPlane=0.320087, width=0.0789047, height=0.0300071, cameraPosition=(
+    -0.186251, -0.0201482, 0.0689829), cameraUpVector=(0.250683, 0.638824, 
+    0.727367), cameraTarget=(0.0548124, -0.0278297, -0.00735342), 
+    viewOffsetX=-0.00565457, viewOffsetY=0.00604799)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.185012, 
+    farPlane=0.323942, width=0.126801, height=0.048222, 
+    viewOffsetX=-0.00976059, viewOffsetY=0.0070228)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.193508, 
+    farPlane=0.304967, width=0.132624, height=0.0504363, cameraPosition=(
+    -0.106319, 0.0117943, 0.18595), cameraUpVector=(0.479728, 0.84082, 
+    0.250764), cameraTarget=(0.0586411, -0.0262612, -0.00203311), 
+    viewOffsetX=-0.0102088, viewOffsetY=0.00734529)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.214946, 
+    farPlane=0.282795, width=0.147317, height=0.0560239, cameraPosition=(
+    0.0280234, 0.118491, 0.207123), cameraUpVector=(0.29997, 0.810291, 
+    -0.503435), cameraTarget=(0.0631121, -0.0229697, 0.000349516), 
+    viewOffsetX=-0.0113398, viewOffsetY=0.00815904)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.193818, 
+    farPlane=0.302119, width=0.132836, height=0.050517, cameraPosition=(
+    0.169753, 0.150677, 0.145324), cameraUpVector=(0.0117982, 0.644069, 
+    -0.764876), cameraTarget=(0.0630439, -0.0239628, -0.00337589), 
+    viewOffsetX=-0.0102251, viewOffsetY=0.00735704)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.194055, 
+    farPlane=0.301882, width=0.151753, height=0.0577109, 
+    viewOffsetX=-0.0136086, viewOffsetY=0.00836564)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.220169, 
+    farPlane=0.276228, width=0.172175, height=0.0654772, cameraPosition=(
+    0.0554182, 0.0992995, 0.220431), cameraUpVector=(0.230413, 0.856144, 
+    -0.462522), cameraTarget=(0.064138, -0.0226865, -0.00102061), 
+    viewOffsetX=-0.0154399, viewOffsetY=0.00949142)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.204291, 
+    farPlane=0.289358, width=0.159758, height=0.0607552, cameraPosition=(
+    0.119475, 0.114574, 0.200957), cameraUpVector=(0.261472, 0.759874, 
+    -0.595167), cameraTarget=(0.061955, -0.0247613, -0.00220392), 
+    viewOffsetX=-0.0143264, viewOffsetY=0.00880692)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 135, in <module>
+#*     stop
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 135, in <module>
+#*     stop
+p1 = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p1)
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.163032, 
+    farPlane=0.314593, width=0.194041, height=0.0737929, cameraPosition=(
+    -0.0689206, 0.170271, 0.0336351), cameraUpVector=(-0.364779, -0.44578, 
+    -0.817445), cameraTarget=(0.0421683, -0.0403497, 0.000908295))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.176691, 
+    farPlane=0.300935, width=0.0690456, height=0.0262577, 
+    viewOffsetX=-0.00798437, viewOffsetY=0.010582)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.177759, 
+    farPlane=0.305841, width=0.0694632, height=0.0264165, cameraPosition=(
+    -0.109967, 0.147396, 0.0322729), cameraUpVector=(-0.286909, -0.530597, 
+    -0.79759), cameraTarget=(0.0407713, -0.0370755, 0.000316014), 
+    viewOffsetX=-0.00803266, viewOffsetY=0.010646)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.181355, 
+    farPlane=0.302247, width=0.0280137, height=0.0106535, 
+    viewOffsetX=-0.00482688, viewOffsetY=0.00962662)
+p = mdb.models['Model-1'].parts['SMAStrip']
+n = p.nodes
+nodes = n[5:6]+n[7:8]+n[543:548]
+p.Set(nodes=nodes, name='Fixed-Set')
+#: The set 'Fixed-Set' has been created (7 nodes).
+session.viewports['Viewport: 1'].partDisplay.setValues(mesh=OFF)
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 135, in <module>
+#*     stop
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py", 
+#* line 135, in <module>
+#*     stop
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.164468, 
+    farPlane=0.313028, width=0.195751, height=0.0744432, cameraPosition=(
+    -0.0565693, 0.171764, 0.0559653), cameraUpVector=(-0.32128, -0.293583, 
+    -0.900327), cameraTarget=(0.0421683, -0.0403496, 0.000908297))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.181116, 
+    farPlane=0.29638, width=0.0381206, height=0.0144971, 
+    viewOffsetX=-0.0113111, viewOffsetY=0.0158878)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.181985, 
+    farPlane=0.301015, width=0.0383035, height=0.0145666, cameraPosition=(
+    -0.0803765, 0.164986, 0.0453703), cameraUpVector=(-0.261787, -0.357242, 
+    -0.896574), cameraTarget=(0.041117, -0.037667, 0.00128117), 
+    viewOffsetX=-0.0113654, viewOffsetY=0.015964)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.183682, 
+    farPlane=0.299318, width=0.0183994, height=0.0069972, 
+    viewOffsetX=-0.0109054, viewOffsetY=0.0147348)
+a = mdb.models['Model-1'].rootAssembly
+n1 = a.instances['SMAStrip-1'].nodes
+nodes1 = n1[5:6]+n1[7:8]+n1[543:548]
+a.Set(nodes=nodes1, name='Fixed-Set')
+#: The set 'Fixed-Set' has been created (7 nodes).
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.170058, 
+    farPlane=0.312942, width=0.178845, height=0.0680138, 
+    viewOffsetX=0.00787099, viewOffsetY=0.0179494)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.169243, 
+    farPlane=0.313757, width=0.177988, height=0.0676879, viewOffsetX=0.0235314, 
+    viewOffsetY=0.00387454)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.201987, 
+    farPlane=0.341285, width=0.212424, height=0.0807838, cameraPosition=(
+    0.287372, 0.0739321, 0.00243174), cameraUpVector=(-0.653908, 0.698618, 
+    -0.290408), cameraTarget=(0.0643535, -0.014778, 0.0153089), 
+    viewOffsetX=0.0280841, viewOffsetY=0.00462416)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.182498, 
+    farPlane=0.327962, width=0.191928, height=0.0729894, cameraPosition=(
+    0.224063, -0.168059, 0.126336), cameraUpVector=(0.333136, 0.909986, 
+    -0.246874), cameraTarget=(0.0454197, -0.0415453, 0.027071), 
+    viewOffsetX=0.0253744, viewOffsetY=0.004178)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.200382, 
+    farPlane=0.310079, width=0.0122355, height=0.0046531, 
+    viewOffsetX=0.0438802, viewOffsetY=-0.00520757)
+a = mdb.models['Model-1'].rootAssembly
+n1 = a.instances['SMAStrip-1'].nodes
+nodes1 = n1[4:5]+n1[6:7]+n1[408:413]
+a.Set(nodes=nodes1, name='Load-Set')
+#: The set 'Load-Set' has been created (7 nodes).
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(mesh=OFF)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['Cube']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].parts['SMAStrip'].sectionAssignments[0].setValues(
+    sectionName='Aluminum-Section')
+a = mdb.models['Model-1'].rootAssembly
+a.regenerate()
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.Job(name='AluminumCase2', model='Model-1', description='', type=ANALYSIS, 
+    atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
+    memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
+    explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
+    modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, userSubroutine='', 
+    scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
+mdb.jobs['AluminumCase2'].submit(consistencyChecking=OFF)
+#: The job input file "AluminumCase2.inp" has been submitted for analysis.
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+#: Job AluminumCase2: Analysis Input File Processor completed successfully.
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.97676, 
+    farPlane=4.01765, width=0.1943, height=0.0738913, viewOffsetX=0.0258009, 
+    viewOffsetY=-0.0179053)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.95763, 
+    farPlane=4.06654, width=0.193365, height=0.0735358, cameraPosition=(
+    -1.59042, 1.68006, 3.24049), cameraUpVector=(0.198008, 0.907135, 
+    -0.371349), cameraTarget=(0.00739975, -0.00251074, -0.0177224), 
+    viewOffsetX=0.0256767, viewOffsetY=-0.0178191)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.94982, 
+    farPlane=4.07435, width=0.282565, height=0.107458, viewOffsetX=0.0263035, 
+    viewOffsetY=-0.0144071)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.94958, 
+    farPlane=4.07459, width=0.282547, height=0.107451, viewOffsetX=0.0325767, 
+    viewOffsetY=-0.018167)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.96579, 
+    farPlane=4.04292, width=0.283706, height=0.107892, cameraPosition=(
+    0.586194, 0.301202, 3.95531), cameraUpVector=(0.04246, 0.995633, 
+    -0.0831427), cameraTarget=(0.00800969, -0.00368421, 0.00907779), 
+    viewOffsetX=0.0327104, viewOffsetY=-0.0182415)
+session.viewports['Viewport: 1'].view.setValues(width=0.286564, 
+    height=0.108979, viewOffsetX=0.0326186, viewOffsetY=-0.0180557)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=3.96542, 
+    farPlane=4.04328, width=0.286545, height=0.108972, viewOffsetX=0.0393437, 
+    viewOffsetY=-0.0289517)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+#: Job AluminumCase2: Abaqus/Standard completed successfully.
+#: Job AluminumCase2 completed successfully. 
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              3
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.157116, 
+    farPlane=0.269557, width=0.186081, height=0.0707657, cameraPosition=(
+    0.146904, 0.0878101, 0.165623), cameraUpVector=(-0.307909, 0.603447, 
+    -0.735557), cameraTarget=(0.0454026, -0.039502, -0.00234529))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.183792, 
+    farPlane=0.256302, width=0.217674, height=0.0827805, cameraPosition=(
+    0.101739, 0.00608764, 0.217586), cameraUpVector=(0.418121, 0.713071, 
+    -0.562765), cameraTarget=(0.0497628, -0.0316125, -0.0073618))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.190982, 
+    farPlane=0.256236, width=0.226189, height=0.0860187, cameraPosition=(
+    0.0805472, -0.0598249, 0.222153), cameraUpVector=(0.507015, 0.811705, 
+    -0.289951), cameraTarget=(0.0511, -0.0274533, -0.00764997))
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.16223, 
+    farPlane=0.274591, width=0.192137, height=0.0730688, cameraPosition=(
+    0.16726, -0.000953356, 0.192302), cameraUpVector=(0.172441, 0.772819, 
+    -0.610749), cameraTarget=(0.0470966, -0.0301713, -0.00627181))
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Back'])
+session.viewports['Viewport: 1'].view.setValues(session.views['Front'])
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.237181, 
+    farPlane=0.268898, width=0.13496, height=0.0513246, viewOffsetX=0.0141899, 
+    viewOffsetY=-0.0032438)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.211515, 
+    farPlane=0.304575, width=0.120355, height=0.0457706, cameraPosition=(
+    0.165111, 0.0678656, 0.221462), cameraUpVector=(-0.273674, 0.926529, 
+    -0.258162), cameraTarget=(0.0608832, -0.0220774, 0.00915076), 
+    viewOffsetX=0.0126544, viewOffsetY=-0.00289278)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.205186, 
+    farPlane=0.310905, width=0.216767, height=0.0824355, viewOffsetX=0.0181141, 
+    viewOffsetY=0.00606849)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.204199, 
+    farPlane=0.311892, width=0.215724, height=0.082039, viewOffsetX=0.0150155, 
+    viewOffsetY=0.00166389)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.20537, 
+    farPlane=0.310721, width=0.191707, height=0.0729053, viewOffsetX=0.0143805, 
+    viewOffsetY=0.000360871)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=ON, 
+    engineeringFeatures=ON)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=OFF)
+p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+mdb.models['Model-1'].parts['SMAStrip'].sectionAssignments[0].setValues(
+    sectionName='SMA-Section')
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+mdb.jobs['HartlCase2'].submit(consistencyChecking=OFF)
+#: The job input file "HartlCase2.inp" has been submitted for analysis.
+#: Job HartlCase2: Analysis Input File Processor completed successfully.
+#: Error in job HartlCase2: Time increment required is less than the minimum specified
+#: Error in job HartlCase2: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+#: Job HartlCase2: Abaqus/Standard aborted due to errors.
+#: Error in job HartlCase2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
+session.viewports['Viewport: 1'].setValues(
+    displayedObject=session.odbs['C:/Users/adzheng/STAR-Simulator/Abaqus/AluminumCase2.odb'])
+o3 = session.openOdb(
+    name='C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb')
+#: Model: C:/Users/adzheng/STAR-Simulator/Abaqus/HartlCase2.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     1
+#: Number of Meshes:             1
+#: Number of Element Sets:       2
+#: Number of Node Sets:          4
+#: Number of Steps:              3
+session.viewports['Viewport: 1'].setValues(displayedObject=o3)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    UNDEFORMED, ))
+session.viewports['Viewport: 1'].odbDisplay.display.setValues(plotState=(
+    CONTOURS_ON_DEF, ))
+session.viewports['Viewport: 1'].odbDisplay.setPrimaryVariable(
+    variableLabel='TEMP', outputPosition=INTEGRATION_POINT, )
+session.viewports[session.currentViewportName].odbDisplay.setFrame(
+    step='Load-Step', frame=5)
+Mdb()
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+session.viewports['Viewport: 1'].partDisplay.setValues(sectionAssignments=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/UMATScenario1/scripts/umat_strip.py', 
+    __main__.__dict__)
+a1 = mdb.models['Model-1'].rootAssembly
+a1.regenerate()
+a = mdb.models['Model-1'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.168715, 
+    farPlane=0.312004, width=0.229121, height=0.0871338, viewOffsetX=0.0050092, 
+    viewOffsetY=0.00428411)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load-Step')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, connectors=OFF)
+mdb.jobs['HartlCase2'].submit(consistencyChecking=OFF)
+#: The job input file "HartlCase2.inp" has been submitted for analysis.
+#: Job HartlCase2: Analysis Input File Processor completed successfully.
+#: Error in job HartlCase2: Time increment required is less than the minimum specified
+#: Error in job HartlCase2: Too many attempts made for this increment
+#: Error in job HartlCase2: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+#: Job HartlCase2: Abaqus/Standard aborted due to errors.
+#: Error in job HartlCase2: Abaqus/Standard Analysis exited with an error - Please see the  message file for possible error messages if the file exists.
+#: Job HartlCase2 aborted due to errors.
