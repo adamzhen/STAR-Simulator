@@ -2,6 +2,7 @@
 *.odb
 *.stt
 *.mdl
+*.sim
 
 # User scenario folders
 /Scenarios/TestScenario/

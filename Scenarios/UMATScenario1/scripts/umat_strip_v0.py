@@ -27,6 +27,7 @@ import csv
 import os
 
 OBJECT_NAME = 'SMAStrip'
+UMAT_PATH = "C:/Users/adzheng/STAR-Simulator/Abaqus/Hartl_UMAT_Changed.for"
 
 # Create Cube-----------------------------------------------------------------
 cube_height = 1.0
@@ -47,32 +48,27 @@ session.viewports['Viewport: 1'].setValues(displayedObject=p)
 del mdb.models['Model-1'].sketches['__profile__']
 
 
-s = mdb.models['Model-1'].ConstrainedSketch(name='__sweep__', sheetSize=5.0)
+s = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
 g, v, d, c = s.geometry, s.vertices, s.dimensions, s.constraints
 s.setPrimaryObject(option=STANDALONE)
 s.Spline(points=((0.0, 0.0), (0.05, -0.02), (0.08, -0.08)))
-s.unsetPrimaryObject()
-s1 = mdb.models['Model-1'].ConstrainedSketch(name='__profile__', sheetSize=2.0)
-g1, v1, d1, c1 = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
-s1.setPrimaryObject(option=SUPERIMPOSE)
-s1.ConstructionLine(point1=(-1.0, 0.0), point2=(1.0, 0.0))
-s1.ConstructionLine(point1=(0.0, -1.0), point2=(0.0, 1.0))
-s1.rectangle(point1=(0.0, 0.0), point2=(0.000254, 0.005588))
 p = mdb.models['Model-1'].Part(name='SMAStrip', dimensionality=THREE_D, 
     type=DEFORMABLE_BODY)
 p = mdb.models['Model-1'].parts['SMAStrip']
-p.BaseShellSweep(sketch=s1, path=s)
-s1.unsetPrimaryObject()
+p.BaseShellExtrude(sketch=s, depth=0.005588)
+s.unsetPrimaryObject()
 p = mdb.models['Model-1'].parts['SMAStrip']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
 del mdb.models['Model-1'].sketches['__profile__']
-del mdb.models['Model-1'].sketches['__sweep__']
+
 
 
 # Create Material-----------------------------------------------------------------
 
 #Aluminum 
 mdb.models['Model-1'].Material(name='aluminum')
-mdb.models['Model-1'].materials['aluminum'].Elastic(table=((69000000000.0, 
+mdb.models['Model-1'].materials['aluminum'].Elastic(table=((54.6E9, 
     0.33), ))
 mdb.models['Model-1'].materials['aluminum'].Density(table=((2700.0, ), ))
 mdb.models['Model-1'].materials['aluminum'].Conductivity(table=((167.0, ), ))
@@ -110,9 +106,7 @@ elemType1 = mesh.ElemType(elemCode=S4RT, elemLibrary=STANDARD,
 elemType2 = mesh.ElemType(elemCode=S3T, elemLibrary=STANDARD)
 p = mdb.models['Model-1'].parts['SMAStrip']
 f = p.faces
-faces = f.findAt(((0.078422, -0.074788, 0.001863), ), ((0.078239, -0.074835, 
-    0.005588), ), ((0.078176, -0.074854, 0.003725), ), ((0.078304, -0.074824, 
-    0.0), ))
+faces = f.findAt(((0.078422, -0.074788, 0.003725), ))
 pickedRegions =(faces, )
 p.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2))
 p = mdb.models['Model-1'].parts['SMAStrip']
@@ -128,22 +122,28 @@ a.Instance(name=f'{OBJECT_NAME}-1', part=p, dependent=ON)
 # Surface and Sets-----------------------------------------------------------------
 p = mdb.models['Model-1'].parts['SMAStrip']
 f = p.faces
-faces = f.findAt(((0.078422, -0.074788, 0.001863), ), ((0.078239, -0.074835, 
-    0.005588), ), ((0.078176, -0.074854, 0.003725), ), ((0.078304, -0.074824, 
-    0.0), ))
+faces = f.findAt(((0.078422, -0.074788, 0.003725), ))
 p.Set(faces=faces, name='Whole-Object')
 
 a = mdb.models['Model-1'].rootAssembly
 n1 = a.instances['SMAStrip-1'].nodes
-nodes1 = n1[545:546]
+nodes1 = n1[131:132]+n1[263:264]+n1[395:396]+n1[527:528]+n1[659:660]+\
+    n1[791:792]+n1[923:924]
 a.Set(nodes=nodes1, name='Fixed-Set')
 
 a = mdb.models['Model-1'].rootAssembly
 n1 = a.instances['SMAStrip-1'].nodes
-nodes1 = n1[410:411]
+nodes1 = n1[0:1]+n1[132:133]+n1[264:265]+n1[396:397]+n1[528:529]+n1[660:661]+\
+    n1[792:793]
 a.Set(nodes=nodes1, name='Load-Set')
 
 # Define and Assign Section -----------------------------------------------------------------
+mdb.models['Model-1'].HomogeneousShellSection(name='Aluminum-Section', 
+    preIntegrate=OFF, material='aluminum', thicknessType=UNIFORM, 
+    thickness=0.000254, thicknessField='', nodalThicknessField='', 
+    idealization=NO_IDEALIZATION, poissonDefinition=DEFAULT, 
+    thicknessModulus=None, temperature=GRADIENT, useDensity=OFF, 
+    integrationRule=SIMPSON, numIntPts=5)
 mdb.models['Model-1'].HomogeneousShellSection(name='SMA-Section', 
     preIntegrate=OFF, material='HartlSMA', thicknessType=UNIFORM, 
     thickness=0.000254, thicknessField='', nodalThicknessField='', 
@@ -165,51 +165,25 @@ a = mdb.models['Model-1'].rootAssembly
 region = a.sets['Fixed-Set']
 mdb.models['Model-1'].EncastreBC(name='BC-1', createStepName='Initial', 
     region=region, localCsys=None)
-# a = mdb.models['Model-1'].rootAssembly
-# fixed_coords = (-6.1e-05, -0.000247, 2.794E-03)
-
-# fixed_feature = a.ReferencePoint(point=fixed_coords)
-# rp = a.referencePoints[fixed_feature.id]
-
-# region = a.Set(referencePoints=(rp,), name='Fixed-Point')
-# mdb.models['Model-1'].EncastreBC(name='BC-1', createStepName='Initial', 
-#     region=region, localCsys=None)
 
  
 
 #Steps 
 
 # Initial heat
-mdb.models['Model-1'].CoupledTempDisplacementStep(name='Heat-1', 
+mdb.models['Model-1'].CoupledTempDisplacementStep(name='Step-1', 
     previous='Initial', response=STEADY_STATE, deltmx=None, cetol=None, 
     creepIntegration=None, amplitude=RAMP, nlgeom=ON, maxNumInc=10000, initialInc=0.01)
 a = mdb.models['Model-1'].rootAssembly
 region = a.instances['SMAStrip-1'].sets['Whole-Object']
-mdb.models['Model-1'].TemperatureBC(name='Initial-Temp', createStepName='Heat-1', 
+mdb.models['Model-1'].TemperatureBC(name='Initial-Temp', createStepName='Step-1', 
     region=region, fixed=OFF, distributionType=UNIFORM, fieldName='', 
     magnitude=323.0, amplitude=UNSET)
-
-# Cooling step to martensite 
-mdb.models['Model-1'].CoupledTempDisplacementStep(name='Step-1', 
-    previous='Heat-1', response=STEADY_STATE, deltmx=None, cetol=None, 
-    creepIntegration=None, amplitude=RAMP, nlgeom=ON, maxNumInc=10000, initialInc=0.01)
-a = mdb.models['Model-1'].rootAssembly
-region = a.instances['SMAStrip-1'].sets['Whole-Object']
-mdb.models['Model-1'].TemperatureBC(name='Cool-Temp', createStepName='Step-1', 
-    region=region, fixed=OFF, distributionType=UNIFORM, fieldName='', 
-    magnitude=295.0, amplitude=UNSET)
-mdb.models['Model-1'].boundaryConditions['Initial-Temp'].deactivate('Step-1')
 
 #load
 mdb.models['Model-1'].CoupledTempDisplacementStep(name='Load-Step', 
     previous='Step-1', response=STEADY_STATE, deltmx=None, cetol=None, 
     creepIntegration=None, amplitude=RAMP, nlgeom=ON, maxNumInc=10000, initialInc=0.01)
-
-# a = mdb.models['Model-1'].rootAssembly
-# load_coords = (0.079757, -0.080073, 0.004191)
-# load_feature = a.ReferencePoint(point=load_coords)
-# rp = a.referencePoints[load_feature.id]
-# region = a.Set(referencePoints=(rp,), name='Load-Point')
 a = mdb.models['Model-1'].rootAssembly
 region = a.sets['Load-Set']
 mdb.models['Model-1'].DisplacementBC(name='Disp-BC', createStepName='Load-Step', 
@@ -225,19 +199,24 @@ a = mdb.models['Model-1'].rootAssembly
 region = a.instances['SMAStrip-1'].sets['Whole-Object']
 mdb.models['Model-1'].TemperatureBC(name='Heat-Temp', createStepName='Heat', 
     region=region, fixed=OFF, distributionType=UNIFORM, fieldName='', 
-    magnitude=350.0, amplitude=UNSET)
-mdb.models['Model-1'].boundaryConditions['Cool-Temp'].deactivate('Heat')
+    magnitude=360.0, amplitude=UNSET)
 mdb.models['Model-1'].boundaryConditions['Initial-Temp'].deactivate('Heat')
+mdb.models['Model-1'].boundaryConditions['Disp-BC'].deactivate('Heat')
 
-mdb.models['Model-1'].FieldOutputRequest(name='F-Output-1', createStepName='Load-Step', variables=('S', 'SDV', 'E', 'PE', 'U', 'CF', 'TEMP'))
-
+# Output Requests
+mdb.models['Model-1'].FieldOutputRequest(
+    name='F-Output-1', createStepName='Step-1',
+    variables=('S', 'SDV', 'E', 'PE', 'U', 'CF', 'TEMP'))
+mdb.models['Model-1'].HistoryOutputRequest(
+    name='H-Output-1', createStepName='Step-1',
+    variables=PRESELECT)
 
 mdb.Job(name='HartlCase2', model='Model-1', description='', type=ANALYSIS, 
     atTime=None, waitMinutes=0, waitHours=0, queue=None, memory=90, 
     memoryUnits=PERCENTAGE, getMemoryFromAnalysis=True, 
     explicitPrecision=SINGLE, nodalOutputPrecision=SINGLE, echoPrint=OFF, 
     modelPrint=OFF, contactPrint=OFF, historyPrint=OFF, 
-    userSubroutine="C:/Users/adzheng/STAR-Simulator/Abaqus/Hartl_UMAT_Changed.for", 
+    userSubroutine=UMAT_PATH, 
     scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
 
 job_name = 'HartlCase2'

@@ -1,0 +1,36 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB HartlCase2_Path1
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
+<116 out of 443 licenses remain available>.
+Abaqus Warning: Your Abaqus license will expire in 8 days.
+Begin Compiling Abaqus/Standard User Subroutines
+10/22/2026 12:58:27 PM
+Intel(R) Fortran Compiler for applications running on Intel(R) 64, Version 2026.1.0 Build 20260617
+Copyright (C) 1985-2026 Intel Corporation. All rights reserved.
+
+End Compiling Abaqus/Standard User Subroutines
+Begin Linking Abaqus/Standard User Subroutines
+   Creating library standardU.lib and object standardU.exp
+Hartl_UMAT_Changed.obj : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+libircmt.lib(fast_mem_ops.c.obj) : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+End Linking Abaqus/Standard User Subroutines
+10/22/2026 12:58:29 PM
+Begin Analysis Input File Processor
+10/22/2026 12:58:29 PM
+Run pre.exe
+10/22/2026 12:58:33 PM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+10/22/2026 12:58:33 PM
+Run standard.exe
+10/22/2026 12:58:53 PM
+Abaqus Error: Abaqus/Standard Analysis exited with an error - Please see the 
+message file for possible error messages if the file exists.
+Begin SIM Wrap-up
+10/22/2026 12:58:55 PM
+Run SMASimUtility.exe
+10/22/2026 12:58:55 PM
+End SIM Wrap-up
+Abaqus/Analysis exited with errors

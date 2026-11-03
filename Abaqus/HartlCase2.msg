@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 16-Oct-2026   Time 15:12:31
+   Abaqus 2025                                  Date 21-Oct-2026   Time 16:11:44
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -116,7 +116,7 @@
 
      LINEAR EXTRAPOLATION WILL BE USED
 
-     CHARACTERISTIC ELEMENT LENGTH     8.843E-04
+     CHARACTERISTIC ELEMENT LENGTH     9.318E-04
 
      DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
 
@@ -133,15 +133,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  285ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 1.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -154,12 +162,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  6.759E-17   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -7.311E-16   AT NODE       1362   DOF 13
+ AVERAGE HEAT FLUX                  6.978E-17   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.142E-16   AT NODE        187   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          3.23       AT NODE        885   DOF 15
+ LARGEST INCREMENT OF TEMP.          3.23       AT NODE        411   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.         3.23       AT NODE        885   DOF 15
+ LARGEST CORRECTION TO TEMP.         3.23       AT NODE        411   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -181,15 +189,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  195ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -202,12 +218,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  5.900E-17   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -9.770E-16   AT NODE       1102   DOF 14
+ AVERAGE HEAT FLUX                  6.856E-17   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -1.091E-15   AT NODE        325   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          3.23       AT NODE       1312   DOF 15
+ LARGEST INCREMENT OF TEMP.          3.23       AT NODE        475   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        1.321E-13   AT NODE       1312   DOF 15
+ LARGEST CORRECTION TO TEMP.       -1.464E-13   AT NODE        411   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -230,15 +246,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  192ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -251,12 +275,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  1.645E-16   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         2.001E-15   AT NODE       1101   DOF 12
+ AVERAGE HEAT FLUX                  1.930E-16   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         2.143E-15   AT NODE        596   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          4.85       AT NODE        562   DOF 15
+ LARGEST INCREMENT OF TEMP.          4.85       AT NODE         85   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -1.009E-13   AT NODE       1312   DOF 15
+ LARGEST CORRECTION TO TEMP.        1.136E-13   AT NODE        411   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -279,15 +303,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  186ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -300,12 +332,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  1.815E-16   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         3.244E-15   AT NODE       1653   DOF 12
+ AVERAGE HEAT FLUX                  2.035E-16   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         3.346E-15   AT NODE        532   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          7.27       AT NODE       1319   DOF 15
+ LARGEST INCREMENT OF TEMP.          7.27       AT NODE        647   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.144E-14   AT NODE         33   DOF 15
+ LARGEST CORRECTION TO TEMP.        5.889E-14   AT NODE        647   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -328,15 +360,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  212ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -349,12 +389,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  3.399E-16   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.906E-15   AT NODE       1682   DOF 12
+ AVERAGE HEAT FLUX                  3.996E-16   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         4.687E-15   AT NODE        426   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          10.9       AT NODE       1358   DOF 13
+ LARGEST INCREMENT OF TEMP.          10.9       AT NODE        678   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -7.976E-14   AT NODE         55   DOF 13
+ LARGEST CORRECTION TO TEMP.       -8.234E-14   AT NODE        647   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -377,15 +417,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  193ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -398,12 +446,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  5.798E-16   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -9.092E-15   AT NODE       1227   DOF 13
+ AVERAGE HEAT FLUX                  6.602E-16   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -9.109E-15   AT NODE        165   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          16.4       AT NODE        410   DOF 15
+ LARGEST INCREMENT OF TEMP.          16.4       AT NODE        204   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        1.046E-13   AT NODE        324   DOF 15
+ LARGEST CORRECTION TO TEMP.       -1.236E-13   AT NODE        102   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -426,15 +474,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  198ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  38ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -447,12 +503,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  7.744E-16   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         1.451E-14   AT NODE       1276   DOF 12
+ AVERAGE HEAT FLUX                  8.306E-16   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         1.095E-14   AT NODE        294   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          24.5       AT NODE        289   DOF 15
+ LARGEST INCREMENT OF TEMP.          24.5       AT NODE        701   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        1.598E-13   AT NODE          9   DOF 15
+ LARGEST CORRECTION TO TEMP.       -1.898E-13   AT NODE        664   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -475,15 +531,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  190ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  37ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -496,12 +560,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  9.771E-16   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         1.567E-14   AT NODE        993   DOF 14
+ AVERAGE HEAT FLUX                  1.129E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         1.831E-14   AT NODE        262   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          36.8       AT NODE        350   DOF 13
+ LARGEST INCREMENT OF TEMP.          36.8       AT NODE        102   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -2.486E-13   AT NODE        308   DOF 15
+ LARGEST CORRECTION TO TEMP.        3.167E-13   AT NODE        664   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -524,15 +588,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  192ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -545,12 +617,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  1.480E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         2.494E-14   AT NODE       1692   DOF 14
+ AVERAGE HEAT FLUX                  1.701E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -2.319E-14   AT NODE        332   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          55.2       AT NODE          5   DOF 13
+ LARGEST INCREMENT OF TEMP.          55.2       AT NODE        664   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -3.570E-13   AT NODE       1596   DOF 15
+ LARGEST CORRECTION TO TEMP.        4.147E-13   AT NODE        643   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -573,15 +645,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  193ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 10.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -594,12 +674,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  2.686E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -3.397E-14   AT NODE       1767   DOF 14
+ AVERAGE HEAT FLUX                  3.135E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -4.218E-14   AT NODE        475   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          82.8       AT NODE        391   DOF 15
+ LARGEST INCREMENT OF TEMP.          82.8       AT NODE         18   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -5.255E-13   AT NODE       1385   DOF 15
+ LARGEST CORRECTION TO TEMP.       -5.620E-13   AT NODE        102   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -621,15 +701,23 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  200ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.332 D.O.F. 2 RATIO = 1.E+09     .
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 100.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                       0.00       TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                       0.00       TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
  ALL FORCE     RESIDUALS ARE ZERO
  ALL DISP.    INCREMENTS ARE ZERO
@@ -642,12 +730,12 @@
  ALL CORRECTION TO ROTATION ARE ZERO
           THERE IS ZERO MOMENT    EVERYWHERE
 
- AVERAGE HEAT FLUX                  2.766E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.494E-14   AT NODE        937   DOF 14
+ AVERAGE HEAT FLUX                  2.851E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         4.762E-14   AT NODE        473   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.          77.9       AT NODE        107   DOF 15
+ LARGEST INCREMENT OF TEMP.          77.9       AT NODE          1   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -6.934E-13   AT NODE         67   DOF 15
+ LARGEST CORRECTION TO TEMP.        6.972E-13   AT NODE        102   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -665,7 +753,7 @@
  STEP TIME COMPLETED        1.00    ,  TOTAL TIME COMPLETED         1.00    
 1
 
-   Abaqus 2025                                  Date 16-Oct-2026   Time 15:12:40
+   Abaqus 2025                                  Date 21-Oct-2026   Time 16:11:47
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
                                                                                  
@@ -686,7 +774,7 @@
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
           AND A TOTAL TIME PERIOD OF                            1.00    
-          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-05
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-07
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 1.00    
 
           CREEP AND SWELLING EFFECTS ARE OMITTED IN THIS STEP
@@ -781,7 +869,7 @@
 
      LINEAR EXTRAPOLATION WILL BE USED
 
-     CHARACTERISTIC ELEMENT LENGTH     8.843E-04
+     CHARACTERISTIC ELEMENT LENGTH     9.318E-04
 
      DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
 
@@ -796,40 +884,1452 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  200ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      5.124E-04   TIME AVG. FORCE       5.124E-04
- LARGEST SCALED RESIDUAL FORCE      1.928E-02   AT NODE       1836   DOF  2
+ AVERAGE FORCE                      1.863E-10   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -1.483E-11   AT NODE        659   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      1.928E-02
- LARGEST INCREMENT OF DISP.         4.012E-04   AT NODE         11   DOF  2
+  CORRESPONDING RESIDUAL FORCE     -1.483E-11
+ LARGEST INCREMENT OF DISP.         1.000E-06   AT NODE          1   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        4.012E-04   AT NODE         11   DOF  2
+ LARGEST CORRECTION TO DISP.        1.000E-06   AT NODE          1   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+          THERE IS ZERO FORCE     EVERYWHERE
 
- AVERAGE MOMENT                     1.979E-07   TIME AVG. MOMENT      1.979E-07
- LARGEST SCALED RESIDUAL MOMENT     2.931E-06   AT NODE        144   DOF  6
+ AVERAGE MOMENT                     2.055E-13   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -5.866E-14   AT NODE        112   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     2.931E-06
- LARGEST INCREMENT OF ROTATION      5.996E-03   AT NODE        146   DOF  6
+  CORRESPONDING RESIDUAL MOMENT    -5.866E-14
+ LARGEST INCREMENT OF ROTATION      3.842E-05   AT NODE          1   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     5.996E-03   AT NODE        146   DOF  6
+ LARGEST CORRECTION TO ROTATION     3.842E-05   AT NODE          1   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
 
- AVERAGE HEAT FLUX                  3.182E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.050E-14   AT NODE        975   DOF 14
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.223E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.246E-14   AT NODE        451   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.046E-13   AT NODE         12   DOF 15
+ LARGEST INCREMENT OF TEMP.         4.352E-13   AT NODE        698   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.046E-13   AT NODE         12   DOF 15
+ LARGEST CORRECTION TO TEMP.        4.352E-13   AT NODE        698   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.000E-02,  FRACTION OF STEP COMPLETED  1.000E-02
+ STEP TIME COMPLETED       1.000E-02,  TOTAL TIME COMPLETED         1.01    
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.000E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      3.732E-10   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -2.953E-11   AT NODE        659   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -2.953E-11
+ LARGEST INCREMENT OF DISP.         1.000E-06   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -1.366E-10   AT NODE        656   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     4.108E-13   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -1.775E-14   AT NODE        149   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -1.775E-14
+ LARGEST INCREMENT OF ROTATION      3.842E-05   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     4.601E-09   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.440E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.832E-14   AT NODE        153   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -5.140E-13   AT NODE          1   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -8.887E-13   AT NODE        698   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    1.500E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.000E-02,  FRACTION OF STEP COMPLETED  2.000E-02
+ STEP TIME COMPLETED       2.000E-02,  TOTAL TIME COMPLETED         1.02    
+
+
+  INCREMENT     3 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.500E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      6.532E-10   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -5.161E-11   AT NODE        659   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -5.161E-11
+ LARGEST INCREMENT OF DISP.         1.500E-06   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -7.569E-11   AT NODE         46   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     7.190E-13   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -3.080E-14   AT NODE        149   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -3.080E-14
+ LARGEST INCREMENT OF ROTATION      5.764E-05   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.729E-09   AT NODE        613   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.439E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         4.921E-14   AT NODE        454   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         5.806E-13   AT NODE         19   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.115E-12   AT NODE        666   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    2.250E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.500E-02,  FRACTION OF STEP COMPLETED  3.500E-02
+ STEP TIME COMPLETED       3.500E-02,  TOTAL TIME COMPLETED         1.03    
+
+
+  INCREMENT     4 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  2.250E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.073E-09   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.170E-10   AT NODE        203   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.170E-10
+ LARGEST INCREMENT OF DISP.         2.250E-06   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -2.859E-10   AT NODE        657   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     1.182E-12   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -6.136E-14   AT NODE        203   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -6.136E-14
+ LARGEST INCREMENT OF ROTATION      8.647E-05   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     9.832E-09   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.529E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.157E-14   AT NODE        551   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -5.126E-13   AT NODE         19   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.384E-12   AT NODE         19   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    3.375E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.250E-02,  FRACTION OF STEP COMPLETED  5.750E-02
+ STEP TIME COMPLETED       5.750E-02,  TOTAL TIME COMPLETED         1.06    
+
+
+  INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.375E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.704E-09   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      6.149E-10   AT NODE        561   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      6.149E-10
+ LARGEST INCREMENT OF DISP.         3.375E-06   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -6.434E-10   AT NODE        657   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     1.876E-12   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -2.424E-13   AT NODE        352   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -2.424E-13
+ LARGEST INCREMENT OF ROTATION      1.297E-04   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.225E-08   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.429E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -4.614E-14   AT NODE        116   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         6.079E-13   AT NODE         25   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.159E-12   AT NODE        204   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    5.063E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  3.375E-02,  FRACTION OF STEP COMPLETED  9.125E-02
+ STEP TIME COMPLETED       9.125E-02,  TOTAL TIME COMPLETED         1.09    
+
+
+  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.063E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      2.651E-09   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -5.217E-10   AT NODE        582   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -5.217E-10
+ LARGEST INCREMENT OF DISP.         5.062E-06   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -1.449E-09   AT NODE        657   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.919E-12   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -2.252E-13   AT NODE        684   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -2.252E-13
+ LARGEST INCREMENT OF ROTATION      1.946E-04   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     5.003E-08   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.522E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.163E-14   AT NODE        559   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         5.051E-13   AT NODE         93   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.181E-12   AT NODE         25   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    7.594E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.063E-02,  FRACTION OF STEP COMPLETED  0.142    
+ STEP TIME COMPLETED       0.142    ,  TOTAL TIME COMPLETED         1.14    
+
+
+  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  7.594E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      4.074E-09   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.089E-09   AT NODE        548   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.089E-09
+ LARGEST INCREMENT OF DISP.         7.594E-06   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -3.260E-09   AT NODE         44   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     4.485E-12   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -3.954E-13   AT NODE        447   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -3.954E-13
+ LARGEST INCREMENT OF ROTATION      2.921E-04   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     1.144E-07   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.907E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -5.531E-14   AT NODE        493   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         7.048E-13   AT NODE         59   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.328E-12   AT NODE        686   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    0.114    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  7.594E-02,  FRACTION OF STEP COMPLETED  0.218    
+ STEP TIME COMPLETED       0.218    ,  TOTAL TIME COMPLETED         1.22    
+
+
+  INCREMENT     8 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.114    
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      6.214E-09   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.378E-09   AT NODE        174   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.378E-09
+ LARGEST INCREMENT OF DISP.         1.139E-05   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -7.341E-09   AT NODE         44   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     6.840E-12   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     5.069E-13   AT NODE        276   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     5.069E-13
+ LARGEST INCREMENT OF ROTATION      4.384E-04   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.674E-07   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.711E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.706E-14   AT NODE        375   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -7.382E-13   AT NODE        620   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.448E-12   AT NODE        687   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    0.171    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.114    ,  FRACTION OF STEP COMPLETED  0.332    
+ STEP TIME COMPLETED       0.332    ,  TOTAL TIME COMPLETED         1.33    
+
+
+  INCREMENT     9 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.171    
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.437E-09   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      8.958E-10   AT NODE        583   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      8.958E-10
+ LARGEST INCREMENT OF DISP.         1.709E-05   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -1.657E-08   AT NODE         42   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     1.039E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -4.453E-13   AT NODE        149   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -4.453E-13
+ LARGEST INCREMENT OF ROTATION      6.582E-04   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     6.786E-07   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.663E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.283E-14   AT NODE        404   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         6.721E-13   AT NODE         23   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.385E-12   AT NODE        670   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    0.256    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.171    ,  FRACTION OF STEP COMPLETED  0.503    
+ STEP TIME COMPLETED       0.503    ,  TOTAL TIME COMPLETED         1.50    
+
+
+  INCREMENT    10 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.256    
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  33ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.432E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -1.416E-09   AT NODE        407   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -1.416E-09
+ LARGEST INCREMENT OF DISP.         2.563E-05   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -3.876E-08   AT NODE         37   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     1.575E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     3.841E-12   AT NODE        512   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     3.841E-12
+ LARGEST INCREMENT OF ROTATION      9.895E-04   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.095E-06   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.483E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -5.454E-14   AT NODE        170   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         5.465E-13   AT NODE        687   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.398E-12   AT NODE        670   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.256    ,  FRACTION OF STEP COMPLETED  0.759    
+ STEP TIME COMPLETED       0.759    ,  TOTAL TIME COMPLETED         1.76    
+
+
+  INCREMENT    11 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.241    
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -1.297E-09   AT NODE        177   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -1.297E-09
+ LARGEST INCREMENT OF DISP.         2.411E-05   AT NODE          1   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -4.237E-08   AT NODE         50   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.080E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     1.690E-12   AT NODE        517   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     1.690E-12
+ LARGEST INCREMENT OF ROTATION      9.318E-04   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -1.379E-06   AT NODE        690   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.653E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.404E-14   AT NODE        542   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -6.823E-13   AT NODE        687   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.196E-12   AT NODE        687   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.241    ,  FRACTION OF STEP COMPLETED   1.00    
+ STEP TIME COMPLETED        1.00    ,  TOTAL TIME COMPLETED         2.00    
+1
+
+   Abaqus 2025                                  Date 21-Oct-2026   Time 16:11:49
+   For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
+
+                                                                                 
+                                                                                 
+ STEP    3     INCREMENT     1     STEP TIME    0.00    
+
+
+                        S T E P       3     C O U P L E D - T E M P E R A T U R E - D I S P L A C E M E N T   A N A L Y S I S
+
+
+                                                                                          
+
+          STEADY STATE ANALYSIS
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-07
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                 1.00    
+
+          CREEP AND SWELLING EFFECTS ARE OMITTED IN THIS STEP
+          THE RATE DEPENDENCY WILL BE CONSIDERED IN THIS STEP
+
+          CREEP AND SWELLING EFFECTS WILL BE IGNORED.
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR FORCE    
+     CRITERION FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR DISP.    CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INIT. VALUE OF TIME AVG. FORCE     IS TIME AVG. FORCE     IN PREVIOUS STEP
+     AVERAGE FORCE     IS TIME AVERAGE FORCE    
+     ALTERNATE CRIT. FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO FORCE     RELATIVE TO TIME AVRG. FORCE         1.000E-05
+     CRITERION FOR RESIDUAL FORCE     WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR DISP.    CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL FORCE     FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO FORCE     REL. TO TIME AVRG. MAX. FORCE        1.000E-05
+     CRITERION FOR ZERO DISP.    RELATIVE TO CHARACTERISTIC LENGTH     1.000E-08
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR MOMENT   
+     CRITERION FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR ROTATION CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INIT. VALUE OF TIME AVG. MOMENT    IS TIME AVG. MOMENT    IN PREVIOUS STEP
+     AVERAGE MOMENT    IS TIME AVERAGE MOMENT   
+     ALTERNATE CRIT. FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO MOMENT    RELATIVE TO TIME AVRG. MOMENT        1.000E-05
+     CRITERION FOR RESIDUAL MOMENT    WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR ROTATION CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL MOMENT    FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO MOMENT    REL. TO TIME AVRG. MAX. MOMENT       1.000E-05
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR HEAT FLUX
+     CRITERION FOR RESIDUAL HEAT FLUX FOR A NONLINEAR PROBLEM          5.000E-03
+     CRITERION FOR TEMP.    CORRECTION IN A NONLINEAR PROBLEM          1.000E-02
+     INIT. VALUE OF TIME AVG. HEAT FLUX IS TIME AVG. HEAT FLUX IN PREVIOUS STEP
+     AVERAGE HEAT FLUX IS TIME AVERAGE HEAT FLUX
+     ALTERNATE CRIT. FOR RESIDUAL HEAT FLUX FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO HEAT FLUX RELATIVE TO TIME AVRG. HEAT FLUX     1.000E-05
+     CRITERION FOR RESIDUAL HEAT FLUX WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR TEMP.    CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL HEAT FLUX FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO HEAT FLUX REL. TO TIME AVRG. MAX. HEAT FLUX    1.000E-05
+
+     VOLUMETRIC STRAIN COMPATIBILITY TOLERANCE FOR HYBRID SOLIDS       1.000E-05
+     AXIAL STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS             1.000E-05
+     TRANS. SHEAR STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS      1.000E-05
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P>P0          5.000E-03
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P=0.0         0.100    
+     CONTACT FORCE ERROR TOLERANCE FOR CONVERT SDI=YES                 1.00    
+     DISPLACEMENT COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS           1.000E-05
+     ROTATION COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS               1.000E-05
+
+ EQUILIBRIUM WILL BE CHECKED FOR SEVERE DISCONTINUITY ITERATIONS
+
+ TIME INCREMENTATION CONTROL PARAMETERS:
+     FIRST EQUILIBRIUM ITERATION FOR CONSECUTIVE DIVERGENCE CHECK              4
+     EQUILIBRIUM ITERATION AT WHICH LOG. CONVERGENCE RATE CHECK BEGINS         8
+     EQUILIBRIUM ITERATION AFTER WHICH ALTERNATE RESIDUAL IS USED              9
+     MAXIMUM EQUILIBRIUM ITERATIONS ALLOWED                                   16
+     EQUILIBRIUM ITERATION COUNT FOR CUT-BACK IN NEXT INCREMENT               10
+     MAXIMUM EQUILIB. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      4
+     MAXIMUM ITERATIONS FOR SEVERE DISCONTINUITIES                            50
+     MAXIMUM ATTEMPTS ALLOWED IN AN INCREMENT                                  5
+     MAXIMUM DISCON. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      50
+     MAXIMUM CONTACT AUGMENTATIONS FOR *SURFACE BEHAVIOR,AUGMENTED LAGRANGE   50
+     CUT-BACK FACTOR AFTER DIVERGENCE                                 0.2500    
+     CUT-BACK FACTOR FOR TOO SLOW CONVERGENCE                         0.5000    
+     CUT-BACK FACTOR AFTER TOO MANY EQUILIBRIUM ITERATIONS            0.7500    
+     CUT-BACK FACTOR AFTER TOO MANY SEVERE DISCONTINUITY ITERATIONS   0.2500    
+     CUT-BACK FACTOR AFTER PROBLEMS IN ELEMENT ASSEMBLY               0.2500    
+     INCREASE FACTOR AFTER TWO INCREMENTS THAT CONVERGE QUICKLY        1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED                       1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DYNAMICS)            1.250    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DIFFUSION)           2.000    
+     MINIMUM TIME INCREMENT RATIO FOR EXTRAPOLATION TO OCCUR          0.1000    
+     MAX. RATIO OF TIME INCREMENT TO STABILITY LIMIT                   1.000    
+     FRACTION OF STABILITY LIMIT FOR NEW TIME INCREMENT               0.9500    
+     TIME INCREMENT INCREASE FACTOR BEFORE A TIME POINT                1.000    
+     GLOBAL STABILIZATION CONTROL IS NOT USED
+
+          PRINT OF INCREMENT NUMBER, TIME, ETC., EVERY    1  INCREMENTS
+
+     THE MAXIMUM NUMBER OF INCREMENTS IN THIS STEP IS                   10000
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+
+          UNSYMMETRIC MATRIX STORAGE AND SOLUTION WILL BE USED
+
+     LINEAR EXTRAPOLATION WILL BE USED
+
+     CHARACTERISTIC ELEMENT LENGTH     9.318E-04
+
+     DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
+
+     DETAILED OUTPUT OF DIAGNOSTICS TO DATABASE REQUESTED
+
+     PRINT OF INCREMENT NUMBER, TIME, ETC., TO THE MESSAGE FILE EVERY     1  INCREMENTS
+
+     COLLECTING STEP CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+
+  INCREMENT     1 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.000E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  43ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.864E-09   AT NODE        171   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.864E-09
+ LARGEST INCREMENT OF DISP.         1.428E-08   AT NODE        634   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.428E-08   AT NODE        634   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     9.963E-13   AT NODE        134   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     9.963E-13
+ LARGEST INCREMENT OF ROTATION     -1.527E-06   AT NODE        613   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -1.527E-06   AT NODE        613   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.080E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -5.161E-14   AT NODE        148   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.230       AT NODE        699   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -0.230       AT NODE        699   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.000E-02,  FRACTION OF STEP COMPLETED  1.000E-02
+ STEP TIME COMPLETED       1.000E-02,  TOTAL TIME COMPLETED         2.01    
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.000E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  41ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      2.022E-09   AT NODE        578   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      2.022E-09
+ LARGEST INCREMENT OF DISP.        -3.222E-13   AT NODE        683   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -1.428E-08   AT NODE        634   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -6.588E-13   AT NODE        168   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -6.588E-13
+ LARGEST INCREMENT OF ROTATION     -6.389E-11   AT NODE        617   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     1.527E-06   AT NODE        613   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.641E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.360E-14   AT NODE        147   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.230       AT NODE        622   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        9.602E-13   AT NODE        699   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    1.500E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.000E-02,  FRACTION OF STEP COMPLETED  2.000E-02
+ STEP TIME COMPLETED       2.000E-02,  TOTAL TIME COMPLETED         2.02    
+
+
+  INCREMENT     3 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.500E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -2.068E-09   AT NODE        571   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -2.068E-09
+ LARGEST INCREMENT OF DISP.        -9.897E-14   AT NODE         47   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        5.125E-13   AT NODE        683   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -7.322E-13   AT NODE        570   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -7.322E-13
+ LARGEST INCREMENT OF ROTATION      5.210E-10   AT NODE        511   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     4.285E-10   AT NODE          2   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.288E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.786E-14   AT NODE        517   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.345       AT NODE         67   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.200E-12   AT NODE        622   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    2.250E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.500E-02,  FRACTION OF STEP COMPLETED  3.500E-02
+ STEP TIME COMPLETED       3.500E-02,  TOTAL TIME COMPLETED         2.03    
+
+
+  INCREMENT     4 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  2.250E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -1.319E-09   AT NODE        170   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -1.319E-09
+ LARGEST INCREMENT OF DISP.        -2.430E-15   AT NODE        334   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.490E-13   AT NODE         47   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     7.134E-13   AT NODE        573   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     7.134E-13
+ LARGEST INCREMENT OF ROTATION     -1.499E-11   AT NODE        264   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -7.828E-10   AT NODE        511   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.768E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.556E-14   AT NODE        311   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.518       AT NODE        650   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.235E-12   AT NODE         65   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    3.375E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.250E-02,  FRACTION OF STEP COMPLETED  5.750E-02
+ STEP TIME COMPLETED       5.750E-02,  TOTAL TIME COMPLETED         2.06    
+
+
+  INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.375E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  38ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -1.158E-09   AT NODE        126   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -1.158E-09
+ LARGEST INCREMENT OF DISP.        -2.979E-15   AT NODE        676   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -5.163E-15   AT NODE        668   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -6.413E-13   AT NODE        170   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -6.413E-13
+ LARGEST INCREMENT OF ROTATION      1.604E-11   AT NODE        103   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.600E-11   AT NODE        571   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.737E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.089E-14   AT NODE        545   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.776       AT NODE        613   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.433E-12   AT NODE        650   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    5.063E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  3.375E-02,  FRACTION OF STEP COMPLETED  9.125E-02
+ STEP TIME COMPLETED       9.125E-02,  TOTAL TIME COMPLETED         2.09    
+
+
+  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.063E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -1.653E-09   AT NODE        674   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -1.653E-09
+ LARGEST INCREMENT OF DISP.         2.753E-15   AT NODE        639   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        3.841E-15   AT NODE         85   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -6.964E-13   AT NODE        166   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -6.964E-13
+ LARGEST INCREMENT OF ROTATION      2.689E-11   AT NODE        522   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -4.855E-11   AT NODE        103   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.582E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.713E-14   AT NODE        509   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -1.16       AT NODE        656   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.512E-12   AT NODE        613   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    7.594E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.063E-02,  FRACTION OF STEP COMPLETED  0.142    
+ STEP TIME COMPLETED       0.142    ,  TOTAL TIME COMPLETED         2.14    
+
+
+  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  7.594E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.294E-09   AT NODE        170   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.294E-09
+ LARGEST INCREMENT OF DISP.        -1.879E-15   AT NODE        103   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -5.463E-15   AT NODE        638   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     5.655E-13   AT NODE        580   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     5.655E-13
+ LARGEST INCREMENT OF ROTATION     -1.402E-11   AT NODE        562   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -3.402E-11   AT NODE         35   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.872E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.199E-14   AT NODE        495   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -1.75       AT NODE         69   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.670E-12   AT NODE        656   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    0.114    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  7.594E-02,  FRACTION OF STEP COMPLETED  0.218    
+ STEP TIME COMPLETED       0.218    ,  TOTAL TIME COMPLETED         2.22    
+
+
+  INCREMENT     8 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.114    
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.366E-09   AT NODE        528   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.366E-09
+ LARGEST INCREMENT OF DISP.        -4.524E-15   AT NODE        613   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        2.879E-15   AT NODE        705   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -7.150E-13   AT NODE        189   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -7.150E-13
+ LARGEST INCREMENT OF ROTATION     -2.273E-11   AT NODE        124   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     3.790E-11   AT NODE         24   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  3.592E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.008E-14   AT NODE        149   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -2.62       AT NODE        699   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.346E-12   AT NODE        102   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    0.171    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.114    ,  FRACTION OF STEP COMPLETED  0.332    
+ STEP TIME COMPLETED       0.332    ,  TOTAL TIME COMPLETED         2.33    
+
+
+  INCREMENT     9 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.171    
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      1.890E-08   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.769E-09   AT NODE        171   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.769E-09
+ LARGEST INCREMENT OF DISP.         2.346E-15   AT NODE         81   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        4.821E-15   AT NODE        613   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.079E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -6.783E-13   AT NODE        167   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -6.783E-13
+ LARGEST INCREMENT OF ROTATION     -1.076E-11   AT NODE         53   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     3.342E-11   AT NODE         56   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.378E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.053E-14   AT NODE        454   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -3.93       AT NODE        681   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.605E-12   AT NODE        699   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    0.256    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.171    ,  FRACTION OF STEP COMPLETED  0.503    
+ STEP TIME COMPLETED       0.503    ,  TOTAL TIME COMPLETED         2.50    
+
+
+  INCREMENT    10 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.256    
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      4.190E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.630E-04   AT NODE        598   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.630E-04
+ LARGEST INCREMENT OF DISP.        -4.838E-06   AT NODE        699   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -4.838E-06   AT NODE        699   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     2.330E-09   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     6.754E-08   AT NODE        601   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     6.754E-08
+ LARGEST INCREMENT OF ROTATION     -2.052E-03   AT NODE        700   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -2.052E-03   AT NODE        700   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.100E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -7.728E-14   AT NODE        305   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -5.89       AT NODE        102   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        1.564E-12   AT NODE        681   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -842,48 +2342,51 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  207ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
  
 
- ***WARNING: THE SYSTEM MATRIX HAS 24 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 3 NEGATIVE EIGENVALUES.
 
      NEGATIVE EIGENVALUES MEAN THAT THE SYSTEM MATRIX IS NOT 
      POSITIVE DEFINITE:
      FOR EXAMPLE, A BIFURCATION (BUCKLING) LOAD MAY HAVE BEEN EXCEEDED.
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.459 D.O.F. 2 RATIO = 10.E+09     .
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
 
- AVERAGE FORCE                      1.152E-04   TIME AVG. FORCE       1.152E-04
- LARGEST SCALED RESIDUAL FORCE      2.090E-02   AT NODE       1115   DOF  2
+ AVERAGE FORCE                      1.593E-04   TIME AVG. FORCE       1.593E-04
+ LARGEST SCALED RESIDUAL FORCE     -1.228E-02   AT NODE        518   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.090E-02
- LARGEST INCREMENT OF DISP.         4.013E-04   AT NODE         11   DOF  2
+  CORRESPONDING RESIDUAL FORCE     -1.228E-02
+ LARGEST INCREMENT OF DISP.         8.746E-05   AT NODE         27   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -9.025E-06   AT NODE       1111   DOF  2
+ LARGEST CORRECTION TO DISP.        8.641E-05   AT NODE         27   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     4.913E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.017E-05   AT NODE       1120   DOF  6
+ AVERAGE MOMENT                     1.508E-07   TIME AVG. MOMENT      1.508E-07
+ LARGEST SCALED RESIDUAL MOMENT    -7.372E-06   AT NODE        517   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.017E-05
- LARGEST INCREMENT OF ROTATION      1.341E-02   AT NODE       1105   DOF  6
+  CORRESPONDING RESIDUAL MOMENT    -7.372E-06
+ LARGEST INCREMENT OF ROTATION     -1.169E-02   AT NODE        700   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.099E-02   AT NODE       1115   DOF  6
+ LARGEST CORRECTION TO ROTATION     1.190E-02   AT NODE         41   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  3.129E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.159E-14   AT NODE       1023   DOF 14
+ AVERAGE HEAT FLUX                  5.668E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.452E-14   AT NODE        486   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.414E-13   AT NODE       1580   DOF 15
+ LARGEST INCREMENT OF TEMP.         -5.89       AT NODE        102   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -5.060E-13   AT NODE        963   DOF 15
+ LARGEST CORRECTION TO TEMP.        6.159E-13   AT NODE         95   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -896,44 +2399,44 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  194ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
  
 
- ***WARNING: THE SYSTEM MATRIX HAS 14 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 146 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
 
 
- AVERAGE FORCE                      3.112E-04   TIME AVG. FORCE       3.112E-04
- LARGEST SCALED RESIDUAL FORCE     -8.260E-02   AT NODE       1138   DOF  2
+ AVERAGE FORCE                      1.318E-03   TIME AVG. FORCE       1.318E-03
+ LARGEST SCALED RESIDUAL FORCE     -6.883E-02   AT NODE        584   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -8.260E-02
- LARGEST INCREMENT OF DISP.         4.013E-04   AT NODE         10   DOF  2
+  CORRESPONDING RESIDUAL FORCE     -6.883E-02
+ LARGEST INCREMENT OF DISP.         9.147E-05   AT NODE         28   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -5.099E-05   AT NODE       1137   DOF  2
+ LARGEST CORRECTION TO DISP.        1.215E-04   AT NODE        688   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     2.177E-07   TIME AVG. MOMENT      2.177E-07
- LARGEST SCALED RESIDUAL MOMENT     1.110E-04   AT NODE       1136   DOF  5
+ AVERAGE MOMENT                     1.073E-06   TIME AVG. MOMENT      1.073E-06
+ LARGEST SCALED RESIDUAL MOMENT    -1.065E-04   AT NODE        585   DOF  5
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.110E-04
- LARGEST INCREMENT OF ROTATION      7.769E-02   AT NODE       1131   DOF  6
+  CORRESPONDING RESIDUAL MOMENT    -1.065E-04
+ LARGEST INCREMENT OF ROTATION      6.862E-02   AT NODE        689   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     6.950E-02   AT NODE       1131   DOF  6
+ LARGEST CORRECTION TO ROTATION    -6.985E-02   AT NODE        687   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  3.010E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.975E-14   AT NODE        585   DOF 12
+ AVERAGE HEAT FLUX                  5.751E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.655E-14   AT NODE        116   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.104E-13   AT NODE        545   DOF 13
+ LARGEST INCREMENT OF TEMP.         -5.89       AT NODE        651   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.235E-13   AT NODE       1501   DOF 15
+ LARGEST CORRECTION TO TEMP.        5.865E-13   AT NODE         46   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -946,44 +2449,44 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  187ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
  
 
- ***WARNING: THE SYSTEM MATRIX HAS 80 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 309 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
 
 
- AVERAGE FORCE                      9.273E-03   TIME AVG. FORCE       9.273E-03
- LARGEST SCALED RESIDUAL FORCE       2.91       AT NODE       1182   DOF  2
+ AVERAGE FORCE                       14.1       TIME AVG. FORCE        14.1    
+ LARGEST SCALED RESIDUAL FORCE     -3.587E+03   AT NODE         89   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE       2.91    
- LARGEST INCREMENT OF DISP.         4.016E-04   AT NODE          9   DOF  2
+  CORRESPONDING RESIDUAL FORCE     -3.587E+03
+ LARGEST INCREMENT OF DISP.         2.431E-03   AT NODE        706   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.241E-04   AT NODE       1096   DOF  2
+ LARGEST CORRECTION TO DISP.        2.401E-03   AT NODE        706   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     5.791E-06   TIME AVG. MOMENT      5.791E-06
- LARGEST SCALED RESIDUAL MOMENT    -1.087E-03   AT NODE       1183   DOF  4
+ AVERAGE MOMENT                     7.472E-03   TIME AVG. MOMENT      7.472E-03
+ LARGEST SCALED RESIDUAL MOMENT     -1.53       AT NODE        191   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.087E-03
- LARGEST INCREMENT OF ROTATION      0.240       AT NODE       1187   DOF  6
+  CORRESPONDING RESIDUAL MOMENT     -1.53    
+ LARGEST INCREMENT OF ROTATION      -4.53       AT NODE        292   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     0.229       AT NODE       1102   DOF  6
+ LARGEST CORRECTION TO ROTATION      4.04       AT NODE        706   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  2.947E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -6.733E-14   AT NODE       1767   DOF 12
+ AVERAGE HEAT FLUX                  6.125E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -1.194E-13   AT NODE        706   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.804E-13   AT NODE          9   DOF 12
+ LARGEST INCREMENT OF TEMP.         -5.89       AT NODE        670   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.812E-13   AT NODE        547   DOF 15
+ LARGEST CORRECTION TO TEMP.       -7.625E-13   AT NODE        670   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -998,85 +2501,36 @@
  ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
 
 
-  INCREMENT     1 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  2.500E-03
+  INCREMENT    10 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  6.407E-02
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  189ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      4.443E-05   TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                      1.234E-08   TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
- LARGEST SCALED RESIDUAL FORCE      1.204E-03   AT NODE       1836   DOF  2
+ LARGEST SCALED RESIDUAL FORCE     -4.268E-09   AT NODE        708   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      1.204E-03
- LARGEST INCREMENT OF DISP.         1.003E-04   AT NODE         11   DOF  2
+  CORRESPONDING RESIDUAL FORCE     -4.268E-09
+ LARGEST INCREMENT OF DISP.        -3.033E-08   AT NODE        313   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.003E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
-          THE DISP.    CORRECTION IS NON-ZERO
-
- AVERAGE MOMENT                     1.813E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     1.835E-07   AT NODE        144   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.835E-07
- LARGEST INCREMENT OF ROTATION      1.499E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     1.499E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  3.042E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.102E-14   AT NODE        607   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.046E-13   AT NODE         12   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.046E-13   AT NODE         12   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  184ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      2.166E-05   TIME AVG. FORCE        11.3    
-                                                (FROM MOMENT    FIELD)
- LARGEST SCALED RESIDUAL FORCE      2.925E-07   AT NODE        143   DOF  3
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.925E-07
- LARGEST INCREMENT OF DISP.         1.003E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -7.103E-08   AT NODE         89   DOF  2
+ LARGEST CORRECTION TO DISP.       -3.033E-08   AT NODE        313   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO FORCE     EVERYWHERE
 
- AVERAGE MOMENT                     8.544E-09   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.544E-10   AT NODE        153   DOF  5
+ AVERAGE MOMENT                     1.283E-11   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     5.518E-12   AT NODE        712   DOF  5
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.544E-10
- LARGEST INCREMENT OF ROTATION      1.500E-03   AT NODE        146   DOF  6
+  CORRESPONDING RESIDUAL MOMENT     5.518E-12
+ LARGEST INCREMENT OF ROTATION      2.981E-05   AT NODE         99   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -7.206E-05   AT NODE        144   DOF  4
+ LARGEST CORRECTION TO ROTATION     2.981E-05   AT NODE         99   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO MOMENT    EVERYWHERE
  
@@ -1087,75 +2541,12 @@
              TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
              THE CRITERION FOR ZERO MOMENT.
 
- AVERAGE HEAT FLUX                  2.916E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.025E-14   AT NODE        758   DOF 12
+ AVERAGE HEAT FLUX                  5.293E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.703E-14   AT NODE        595   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.067E-13   AT NODE        935   DOF 15
+ LARGEST INCREMENT OF TEMP.         -1.47       AT NODE        670   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -3.999E-13   AT NODE          7   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
-
- ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
-
- TIME INCREMENT COMPLETED  2.500E-03,  FRACTION OF STEP COMPLETED  2.500E-03
- STEP TIME COMPLETED       2.500E-03,  TOTAL TIME COMPLETED         1.00    
-
-
-  INCREMENT     2 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  2.500E-03
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  190ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      4.326E-05   TIME AVG. FORCE        11.3    
-                                                (FROM MOMENT    FIELD)
- LARGEST SCALED RESIDUAL FORCE      5.682E-07   AT NODE        143   DOF  3
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      5.682E-07
- LARGEST INCREMENT OF DISP.         1.003E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -1.419E-07   AT NODE         89   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO FORCE     EVERYWHERE
-
- AVERAGE MOMENT                     1.706E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -4.010E-10   AT NODE        153   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -4.010E-10
- LARGEST INCREMENT OF ROTATION      1.525E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.400E-04   AT NODE        144   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  3.239E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -6.237E-14   AT NODE       1342   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.741E-13   AT NODE          9   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -1.030E-12   AT NODE          9   DOF 15
+ LARGEST CORRECTION TO TEMP.       -8.591E-13   AT NODE        670   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -1165,45 +2556,45 @@
              DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
              ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
              CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
-          TIME INCREMENT MAY NOW INCREASE TO    3.750E-03
+          TIME INCREMENT MAY NOW INCREASE TO    9.611E-02
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  2.500E-03,  FRACTION OF STEP COMPLETED  5.000E-03
- STEP TIME COMPLETED       5.000E-03,  TOTAL TIME COMPLETED         1.00    
+ TIME INCREMENT COMPLETED  6.407E-02,  FRACTION OF STEP COMPLETED  0.567    
+ STEP TIME COMPLETED       0.567    ,  TOTAL TIME COMPLETED         2.57    
 
 
-  INCREMENT     3 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.750E-03
+  INCREMENT    11 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  9.611E-02
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  191ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  33ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      7.554E-05   TIME AVG. FORCE        11.3    
+ AVERAGE FORCE                      2.812E-07   TIME AVG. FORCE        10.7    
                                                 (FROM MOMENT    FIELD)
- LARGEST SCALED RESIDUAL FORCE     -4.367E-06   AT NODE       1836   DOF  2
+ LARGEST SCALED RESIDUAL FORCE      1.574E-05   AT NODE        107   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -4.367E-06
- LARGEST INCREMENT OF DISP.         1.505E-04   AT NODE         13   DOF  2
+  CORRESPONDING RESIDUAL FORCE      1.574E-05
+ LARGEST INCREMENT OF DISP.        -1.912E-06   AT NODE        628   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -2.637E-07   AT NODE         88   DOF  2
+ LARGEST CORRECTION TO DISP.       -1.899E-06   AT NODE        629   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO FORCE     EVERYWHERE
 
- AVERAGE MOMENT                     2.979E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     1.890E-09   AT NODE        538   DOF  5
+ AVERAGE MOMENT                     2.389E-10   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -1.229E-08   AT NODE        108   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.890E-09
- LARGEST INCREMENT OF ROTATION      2.404E-03   AT NODE        146   DOF  6
+  CORRESPONDING RESIDUAL MOMENT    -1.229E-08
+ LARGEST INCREMENT OF ROTATION      6.950E-04   AT NODE         88   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.343E-04   AT NODE        144   DOF  4
+ LARGEST CORRECTION TO ROTATION     7.113E-04   AT NODE         88   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO MOMENT    EVERYWHERE
  
@@ -1214,12 +2605,12 @@
              TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
              THE CRITERION FOR ZERO MOMENT.
 
- AVERAGE HEAT FLUX                  3.343E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.450E-14   AT NODE       1772   DOF 12
+ AVERAGE HEAT FLUX                  3.719E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.111E-14   AT NODE        119   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.854E-13   AT NODE       1451   DOF 15
+ LARGEST INCREMENT OF TEMP.         -2.21       AT NODE        714   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        1.085E-12   AT NODE       1438   DOF 15
+ LARGEST CORRECTION TO TEMP.        1.602E-12   AT NODE        670   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -1229,540 +2620,61 @@
              DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
              ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
              CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
-          TIME INCREMENT MAY NOW INCREASE TO    5.625E-03
+          TIME INCREMENT MAY NOW INCREASE TO    0.144    
 
  ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
    0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  3.750E-03,  FRACTION OF STEP COMPLETED  8.750E-03
- STEP TIME COMPLETED       8.750E-03,  TOTAL TIME COMPLETED         1.01    
+ TIME INCREMENT COMPLETED  9.611E-02,  FRACTION OF STEP COMPLETED  0.663    
+ STEP TIME COMPLETED       0.663    ,  TOTAL TIME COMPLETED         2.66    
 
 
-  INCREMENT     4 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.625E-03
+  INCREMENT    12 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.144    
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  214ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 6 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.239E-04   TIME AVG. FORCE       1.239E-04
- LARGEST SCALED RESIDUAL FORCE     -5.352E-04   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -5.352E-04
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE          2   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        2.318E-06   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     4.875E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -2.925E-07   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -2.925E-07
- LARGEST INCREMENT OF ROTATION      5.957E-03   AT NODE       1837   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     4.877E-03   AT NODE       1831   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  3.351E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -6.158E-14   AT NODE       1061   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         6.486E-13   AT NODE       1179   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -1.334E-12   AT NODE       1451   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  199ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.238E-04   TIME AVG. FORCE       1.238E-04
- LARGEST SCALED RESIDUAL FORCE     -3.163E-05   AT NODE       1824   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -3.163E-05
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -7.403E-07   AT NODE       1836   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     4.883E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     3.001E-08   AT NODE        153   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     3.001E-08
- LARGEST INCREMENT OF ROTATION      5.805E-03   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -9.101E-04   AT NODE       1835   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  3.081E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.469E-14   AT NODE       1776   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.020E-13   AT NODE       1032   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.629E-13   AT NODE        811   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  192ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
-
-
- AVERAGE FORCE                      1.238E-04   TIME AVG. FORCE       1.238E-04
- LARGEST SCALED RESIDUAL FORCE     -9.908E-05   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -9.908E-05
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.174E-06   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     4.879E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     8.540E-08   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     8.540E-08
- LARGEST INCREMENT OF ROTATION      4.398E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.105E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.936E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.193E-14   AT NODE       1395   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.196E-13   AT NODE       1031   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.137E-13   AT NODE        358   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  206ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
-
-
- AVERAGE FORCE                      1.238E-04   TIME AVG. FORCE       1.238E-04
- LARGEST SCALED RESIDUAL FORCE      7.151E-06   AT NODE        141   DOF  3
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      7.151E-06
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        2.759E-07   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     4.881E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     4.948E-09   AT NODE        142   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     4.948E-09
- LARGEST INCREMENT OF ROTATION      4.401E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -4.817E-04   AT NODE       1831   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.919E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.552E-14   AT NODE       1010   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.899E-13   AT NODE        146   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.518E-13   AT NODE          7   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
-
-
- AVERAGE FORCE                      1.238E-04   TIME AVG. FORCE       1.238E-04
- LARGEST SCALED RESIDUAL FORCE     -4.111E-05   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -4.111E-05
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        9.511E-07   AT NODE       1830   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     4.880E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     4.998E-08   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     4.998E-08
- LARGEST INCREMENT OF ROTATION      4.406E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.417E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.866E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.518E-14   AT NODE       1844   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.316E-13   AT NODE        136   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.602E-13   AT NODE          9   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
-
-
- AVERAGE FORCE                      1.238E-04   TIME AVG. FORCE       1.238E-04
- LARGEST SCALED RESIDUAL FORCE      4.052E-06   AT NODE        141   DOF  3
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      4.052E-06
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -1.345E-07   AT NODE       1832   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     4.881E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     3.211E-09   AT NODE        142   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     3.211E-09
- LARGEST INCREMENT OF ROTATION      4.406E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.696E-04   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.991E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.012E-14   AT NODE       1169   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.389E-13   AT NODE       1451   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.115E-13   AT NODE          3   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
-
-
- AVERAGE FORCE                      1.238E-04   TIME AVG. FORCE       1.238E-04
- LARGEST SCALED RESIDUAL FORCE     -2.613E-06   AT NODE        149   DOF  3
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.613E-06
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.179E-07   AT NODE       1830   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     4.881E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     1.999E-09   AT NODE        150   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.999E-09
- LARGEST INCREMENT OF ROTATION      4.406E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.127E-04   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.740E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         4.795E-14   AT NODE       1402   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.433E-13   AT NODE       1174   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.457E-13   AT NODE        409   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  182ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
-
-
- AVERAGE FORCE                      1.238E-04   TIME AVG. FORCE       1.238E-04
- LARGEST SCALED RESIDUAL FORCE     -1.886E-07   AT NODE          3   DOF  3
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.886E-07
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -5.216E-09   AT NODE       1831   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
-
- AVERAGE MOMENT                     4.881E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     1.279E-10   AT NODE        142   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.279E-10
- LARGEST INCREMENT OF ROTATION      4.406E-03   AT NODE        146   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -6.875E-06   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.833E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -4.569E-14   AT NODE        792   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.126E-13   AT NODE        144   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        5.650E-13   AT NODE        548   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
-
- ITERATION SUMMARY FOR THE INCREMENT:   8 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  8 ARE EQUILIBRIUM ITERATIONS.
-
- TIME INCREMENT COMPLETED  5.625E-03,  FRACTION OF STEP COMPLETED  1.438E-02
- STEP TIME COMPLETED       1.438E-02,  TOTAL TIME COMPLETED         1.01    
-
-
-  INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.625E-03
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 11 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.752E-04   TIME AVG. FORCE       1.495E-04
- LARGEST SCALED RESIDUAL FORCE      2.339E-03   AT NODE       1842   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.339E-03
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE          2   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -4.696E-06   AT NODE       1842   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     6.934E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     2.078E-06   AT NODE       1841   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     2.078E-06
- LARGEST INCREMENT OF ROTATION      1.281E-02   AT NODE       1842   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.037E-02   AT NODE       1846   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  3.229E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.860E-14   AT NODE        665   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.583E-13   AT NODE       1086   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        9.398E-13   AT NODE        317   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  183ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
  
 
  ***WARNING: THE SYSTEM MATRIX HAS 7 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+ 
 
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.587 D.O.F. 2 RATIO = 10.E+09     .
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      2.014E-04   TIME AVG. FORCE       1.626E-04
- LARGEST SCALED RESIDUAL FORCE     -2.493E-02   AT NODE       1197   DOF  2
+ AVERAGE FORCE                      0.129       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE      -3.14       AT NODE        209   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.493E-02
- LARGEST INCREMENT OF DISP.         2.257E-04   AT NODE         11   DOF  2
+  CORRESPONDING RESIDUAL FORCE      -3.14    
+ LARGEST INCREMENT OF DISP.        -9.502E-04   AT NODE          9   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        3.041E-05   AT NODE        146   DOF  2
+ LARGEST CORRECTION TO DISP.       -9.486E-04   AT NODE          9   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     8.991E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -4.143E-05   AT NODE       1196   DOF  5
+ AVERAGE MOMENT                     6.836E-05   TIME AVG. MOMENT      6.836E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.232E-02   AT NODE        104   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -4.143E-05
- LARGEST INCREMENT OF ROTATION      4.353E-02   AT NODE        145   DOF  4
+  CORRESPONDING RESIDUAL MOMENT    -1.232E-02
+ LARGEST INCREMENT OF ROTATION      0.342       AT NODE        511   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -3.977E-02   AT NODE        146   DOF  6
+ LARGEST CORRECTION TO ROTATION     0.343       AT NODE        511   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  2.970E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.696E-14   AT NODE       1411   DOF 14
+ AVERAGE HEAT FLUX                  4.913E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.243E-14   AT NODE        197   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.928E-13   AT NODE       1666   DOF 15
+ LARGEST INCREMENT OF TEMP.         -3.32       AT NODE        654   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.287E-13   AT NODE        373   DOF 15
+ LARGEST CORRECTION TO TEMP.       -1.264E-12   AT NODE          6   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -1775,10 +2687,949 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  200ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 490 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       334.       TIME AVG. FORCE        334.    
+ LARGEST SCALED RESIDUAL FORCE      1.786E+04   AT NODE        453   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.786E+04
+ LARGEST INCREMENT OF DISP.         4.913E-03   AT NODE        270   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        4.562E-03   AT NODE        270   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.189       TIME AVG. MOMENT      0.189    
+ LARGEST SCALED RESIDUAL MOMENT      9.90       AT NODE        562   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT      9.90    
+ LARGEST INCREMENT OF ROTATION      -5.96       AT NODE        185   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION      14.7       AT NODE        655   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  7.201E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         4.082E-13   AT NODE        548   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -3.32       AT NODE        658   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        7.141E-13   AT NODE        613   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1431 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      9.243E+03   TIME AVG. FORCE       9.243E+03
+ LARGEST SCALED RESIDUAL FORCE     -2.283E+05   AT NODE        117   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -2.283E+05
+ LARGEST INCREMENT OF DISP.         0.693       AT NODE          4   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        0.691       AT NODE          4   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                      218.       TIME AVG. MOMENT       218.    
+ LARGEST SCALED RESIDUAL MOMENT     2.338E+04   AT NODE          7   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     2.338E+04
+ LARGEST INCREMENT OF ROTATION       4.96       AT NODE         59   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     -405.       AT NODE          7   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.532E-08   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         9.251E-06   AT NODE          4   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -3.32       AT NODE        658   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        4.918E-13   AT NODE        686   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          ALL TEMP.    CORRECTIONS ARE ZERO
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1692 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      1.017E+05   TIME AVG. FORCE       1.017E+05
+ LARGEST SCALED RESIDUAL FORCE      3.474E+06   AT NODE        210   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      3.474E+06
+ LARGEST INCREMENT OF DISP.         -1.56       AT NODE        381   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        -1.71       AT NODE        414   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.590E+04   TIME AVG. MOMENT      1.590E+04
+ LARGEST SCALED RESIDUAL MOMENT    -1.321E+06   AT NODE        108   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -1.321E+06
+ LARGEST INCREMENT OF ROTATION       5.27       AT NODE        316   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     -321.       AT NODE        489   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  4.264E-05   TIME AVG. HEAT FLUX   4.264E-05
+ LARGEST RESIDUAL HEAT FLUX        -7.341E-03   AT NODE        108   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.         -3.32       AT NODE        706   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.692E-12   AT NODE        706   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+          HEAT FLUX EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    12 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  3.604E-02
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  37ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 2 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      3.396E-04   TIME AVG. FORCE       3.396E-04
+ LARGEST SCALED RESIDUAL FORCE      5.062E-03   AT NODE        597   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      5.062E-03
+ LARGEST INCREMENT OF DISP.         1.290E-04   AT NODE        481   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.288E-04   AT NODE        481   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.157E-07   TIME AVG. MOMENT      2.157E-07
+ LARGEST SCALED RESIDUAL MOMENT     6.323E-06   AT NODE        564   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     6.323E-06
+ LARGEST INCREMENT OF ROTATION     -1.178E-02   AT NODE         58   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -1.178E-02   AT NODE         58   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  4.599E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.086E-14   AT NODE        270   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.829       AT NODE        651   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -6.835E-13   AT NODE        651   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 168 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      1.666E-03   TIME AVG. FORCE       1.666E-03
+ LARGEST SCALED RESIDUAL FORCE     -3.674E-02   AT NODE        629   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -3.674E-02
+ LARGEST INCREMENT OF DISP.         1.666E-04   AT NODE        275   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        4.430E-05   AT NODE        678   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.056E-06   TIME AVG. MOMENT      1.056E-06
+ LARGEST SCALED RESIDUAL MOMENT    -4.537E-05   AT NODE        703   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -4.537E-05
+ LARGEST INCREMENT OF ROTATION      6.374E-02   AT NODE        702   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     5.916E-02   AT NODE        702   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.786E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -5.512E-14   AT NODE        550   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.829       AT NODE        658   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -5.425E-13   AT NODE        632   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 342 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                       1.22       TIME AVG. FORCE        1.22    
+ LARGEST SCALED RESIDUAL FORCE       110.       AT NODE        466   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE       110.    
+ LARGEST INCREMENT OF DISP.         3.631E-04   AT NODE         88   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -4.303E-04   AT NODE         63   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     6.688E-04   TIME AVG. MOMENT      6.688E-04
+ LARGEST SCALED RESIDUAL MOMENT    -3.019E-02   AT NODE        466   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -3.019E-02
+ LARGEST INCREMENT OF ROTATION      -1.25       AT NODE        463   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     -1.24       AT NODE        463   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.499E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -4.002E-14   AT NODE        458   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.829       AT NODE         94   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -5.516E-13   AT NODE        652   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 658 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      2.052E+03   TIME AVG. FORCE       2.052E+03
+ LARGEST SCALED RESIDUAL FORCE     -5.729E+04   AT NODE        559   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -5.729E+04
+ LARGEST INCREMENT OF DISP.         5.846E-02   AT NODE        160   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        5.841E-02   AT NODE        160   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                      5.73       TIME AVG. MOMENT       5.73    
+ LARGEST SCALED RESIDUAL MOMENT     -459.       AT NODE        650   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     -459.    
+ LARGEST INCREMENT OF ROTATION      -5.69       AT NODE        146   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     -74.2       AT NODE        678   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  9.070E-12   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -3.468E-09   AT NODE        547   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.829       AT NODE        566   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -5.404E-13   AT NODE        102   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    12 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  9.010E-03
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      3.350E-05   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      2.444E-04   AT NODE        312   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      2.444E-04
+ LARGEST INCREMENT OF DISP.        -1.864E-05   AT NODE        660   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -1.864E-05   AT NODE        660   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     1.805E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     3.815E-07   AT NODE        512   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     3.815E-07
+ LARGEST INCREMENT OF ROTATION      1.416E-03   AT NODE        106   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     1.416E-03   AT NODE        106   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  5.773E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.049E-14   AT NODE        316   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.207       AT NODE         10   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -0.207       AT NODE         10   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 19 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      8.449E-05   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      2.760E-03   AT NODE        104   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      2.760E-03
+ LARGEST INCREMENT OF DISP.        -2.149E-05   AT NODE         44   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.893E-05   AT NODE        685   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     9.017E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     7.268E-06   AT NODE        105   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     7.268E-06
+ LARGEST INCREMENT OF ROTATION      2.535E-02   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.417E-02   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  6.042E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.807E-14   AT NODE        278   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.207       AT NODE        628   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -5.997E-13   AT NODE        628   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  37ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 110 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      2.132E-05   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -7.238E-04   AT NODE        105   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -7.238E-04
+ LARGEST INCREMENT OF DISP.        -1.916E-05   AT NODE         43   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        5.194E-06   AT NODE         46   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     1.469E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -4.481E-07   AT NODE        105   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -4.481E-07
+ LARGEST INCREMENT OF ROTATION      2.365E-02   AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -4.331E-03   AT NODE        511   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  5.772E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.213E-14   AT NODE        207   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.207       AT NODE         80   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        6.257E-13   AT NODE        706   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 27 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.284       TIME AVG. FORCE       0.284    
+ LARGEST SCALED RESIDUAL FORCE      -38.8       AT NODE          4   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      -38.8    
+ LARGEST INCREMENT OF DISP.        -7.390E-04   AT NODE         83   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -7.275E-04   AT NODE         83   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.628E-04   TIME AVG. MOMENT      1.628E-04
+ LARGEST SCALED RESIDUAL MOMENT     2.867E-02   AT NODE        208   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     2.867E-02
+ LARGEST INCREMENT OF ROTATION      0.873       AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     0.849       AT NODE          1   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  5.752E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.812E-14   AT NODE        580   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -0.207       AT NODE        656   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        6.632E-13   AT NODE        618   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    12 STARTS. ATTEMPT NUMBER  4, TIME INCREMENT  2.253E-03
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.452E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.025E-04   AT NODE        515   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.025E-04
+ LARGEST INCREMENT OF DISP.        -6.368E-06   AT NODE        647   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -6.368E-06   AT NODE        647   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     2.978E-09   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     8.244E-08   AT NODE        513   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     8.244E-08
+ LARGEST INCREMENT OF ROTATION      1.507E-03   AT NODE        616   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     1.507E-03   AT NODE        616   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO MOMENT    EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
+             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
+             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
+             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
+             THE CRITERION FOR ZERO MOMENT.
+
+ AVERAGE HEAT FLUX                  5.895E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.066E-14   AT NODE        538   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -5.181E-02   AT NODE         10   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -5.181E-02   AT NODE         10   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+          TIME INCREMENT MAY NOW INCREASE TO    3.379E-03
+
+ ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.253E-03,  FRACTION OF STEP COMPLETED  0.665    
+ STEP TIME COMPLETED       0.665    ,  TOTAL TIME COMPLETED         2.67    
+
+
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.379E-03
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 25 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+ 
+
+ ***WARNING: SOLVER PROBLEM. NUMERICAL SINGULARITY WHEN PROCESSING NODE 
+             SMASTRIP-1.599 D.O.F. 2 RATIO = 1.E+09     .
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      5.637E-02   TIME AVG. FORCE       5.637E-02
+ LARGEST SCALED RESIDUAL FORCE      0.854       AT NODE         26   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      0.854    
+ LARGEST INCREMENT OF DISP.         6.369E-04   AT NODE         31   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        6.456E-04   AT NODE         31   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.684E-05   TIME AVG. MOMENT      4.684E-05
+ LARGEST SCALED RESIDUAL MOMENT     2.138E-03   AT NODE        126   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     2.138E-03
+ LARGEST INCREMENT OF ROTATION     -0.175       AT NODE         24   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -0.176       AT NODE         24   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  5.045E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.392E-14   AT NODE        599   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -7.771E-02   AT NODE        658   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -1.242E-12   AT NODE          9   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 488 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       521.       TIME AVG. FORCE        521.    
+ LARGEST SCALED RESIDUAL FORCE      1.476E+04   AT NODE         86   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.476E+04
+ LARGEST INCREMENT OF DISP.         1.219E-02   AT NODE        447   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.213E-02   AT NODE        447   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     0.401       TIME AVG. MOMENT      0.401    
+ LARGEST SCALED RESIDUAL MOMENT      25.7       AT NODE        611   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT      25.7    
+ LARGEST INCREMENT OF ROTATION       5.89       AT NODE        395   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     -16.3       AT NODE        463   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  4.182E-14   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -2.491E-12   AT NODE        436   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -7.771E-02   AT NODE        632   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -6.268E-13   AT NODE        632   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  33ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1613 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      4.530E+03   TIME AVG. FORCE       4.530E+03
+ LARGEST SCALED RESIDUAL FORCE     -1.083E+05   AT NODE        373   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -1.083E+05
+ LARGEST INCREMENT OF DISP.        -6.657E-02   AT NODE        168   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -7.475E-02   AT NODE        168   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                      32.7       TIME AVG. MOMENT       32.7    
+ LARGEST SCALED RESIDUAL MOMENT     1.716E+03   AT NODE        267   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     1.716E+03
+ LARGEST INCREMENT OF ROTATION       5.17       AT NODE        381   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     -107.       AT NODE        692   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.906E-10   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.405E-08   AT NODE        173   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -7.771E-02   AT NODE        654   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -8.776E-13   AT NODE        631   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1702 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      9.558E+04   TIME AVG. FORCE       9.558E+04
+ LARGEST SCALED RESIDUAL FORCE     -2.173E+06   AT NODE        603   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -2.173E+06
+ LARGEST INCREMENT OF DISP.         -1.65       AT NODE        416   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        -1.60       AT NODE        416   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.169E+04   TIME AVG. MOMENT      1.169E+04
+ LARGEST SCALED RESIDUAL MOMENT    -8.124E+05   AT NODE        567   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -8.124E+05
+ LARGEST INCREMENT OF ROTATION       5.89       AT NODE        259   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     -641.       AT NODE        511   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.949E-05   TIME AVG. HEAT FLUX   2.949E-05
+ LARGEST RESIDUAL HEAT FLUX        -2.534E-03   AT NODE        154   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -7.771E-02   AT NODE         39   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        2.025E-12   AT NODE         40   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+          HEAT FLUX EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  8.447E-04
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 12 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.974E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.930E-04   AT NODE        599   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.930E-04
+ LARGEST INCREMENT OF DISP.         1.984E-05   AT NODE        700   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.877E-05   AT NODE        700   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     9.566E-09   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -5.633E-07   AT NODE        601   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -5.633E-07
+ LARGEST INCREMENT OF ROTATION      2.729E-03   AT NODE        703   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.747E-03   AT NODE        703   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  5.337E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.736E-14   AT NODE        131   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -1.943E-02   AT NODE         35   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        8.068E-13   AT NODE         29   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 27 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      4.785E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -7.881E-05   AT NODE        566   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -7.881E-05
+ LARGEST INCREMENT OF DISP.         1.913E-05   AT NODE         88   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -1.231E-05   AT NODE        666   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO FORCE     EVERYWHERE
+
+ AVERAGE MOMENT                     1.167E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     6.690E-07   AT NODE        568   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     6.690E-07
+ LARGEST INCREMENT OF ROTATION     -3.607E-03   AT NODE        669   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     3.400E-03   AT NODE         62   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  5.785E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.050E-14   AT NODE        252   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -1.943E-02   AT NODE         94   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -7.099E-13   AT NODE         94   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
  
 
  ***WARNING: THE SYSTEM MATRIX HAS 32 NEGATIVE EIGENVALUES.
@@ -1787,32 +3638,250 @@
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
 
 
- AVERAGE FORCE                      3.449E-04   TIME AVG. FORCE       2.343E-04
- LARGEST SCALED RESIDUAL FORCE      5.124E-02   AT NODE       1816   DOF  2
+ AVERAGE FORCE                      5.708E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -2.056E-04   AT NODE        201   DOF  3
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      5.124E-02
- LARGEST INCREMENT OF DISP.         2.258E-04   AT NODE         10   DOF  2
+  CORRESPONDING RESIDUAL FORCE     -2.056E-04
+ LARGEST INCREMENT OF DISP.         4.071E-05   AT NODE         89   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        2.743E-05   AT NODE       1820   DOF  2
+ LARGEST CORRECTION TO DISP.        2.512E-05   AT NODE        704   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     1.492E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     1.874E-06   AT NODE        200   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     1.874E-06
+ LARGEST INCREMENT OF ROTATION      6.258E-03   AT NODE        709   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     5.292E-03   AT NODE        710   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  6.023E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.616E-14   AT NODE        387   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -1.943E-02   AT NODE        645   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        6.898E-13   AT NODE         81   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 37 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      2.052E-05   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -3.371E-04   AT NODE        670   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -3.371E-04
+ LARGEST INCREMENT OF DISP.         3.990E-05   AT NODE        395   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -1.356E-05   AT NODE        632   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     2.069E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -1.037E-06   AT NODE        567   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -1.037E-06
+ LARGEST INCREMENT OF ROTATION     -6.610E-03   AT NODE        710   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION    -4.713E-03   AT NODE        670   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  5.816E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.557E-14   AT NODE        386   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -1.943E-02   AT NODE        656   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -7.111E-13   AT NODE        706   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  2.112E-04
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 9 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      9.252E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.420E-04   AT NODE         66   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.420E-04
+ LARGEST INCREMENT OF DISP.         8.311E-06   AT NODE         90   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        8.311E-06   AT NODE         90   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     1.049E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -1.931E-07   AT NODE        152   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -1.931E-07
+ LARGEST INCREMENT OF ROTATION      2.653E-03   AT NODE         75   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.653E-03   AT NODE         75   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  3.757E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -5.232E-14   AT NODE        134   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -4.857E-03   AT NODE         50   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -4.857E-03   AT NODE         50   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 29 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      2.713E-05   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      5.940E-04   AT NODE        582   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      5.940E-04
+ LARGEST INCREMENT OF DISP.         2.027E-05   AT NODE         86   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.434E-05   AT NODE         86   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     4.384E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -4.596E-06   AT NODE        581   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -4.596E-06
+ LARGEST INCREMENT OF ROTATION      1.032E-02   AT NODE        683   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     9.152E-03   AT NODE        683   DOF  4
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  3.221E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         4.518E-14   AT NODE        598   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -4.857E-03   AT NODE         28   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -5.242E-13   AT NODE        615   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 79 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      1.495E-04   TIME AVG. FORCE       1.495E-04
+ LARGEST SCALED RESIDUAL FORCE      3.889E-03   AT NODE        648   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      3.889E-03
+ LARGEST INCREMENT OF DISP.         2.978E-05   AT NODE         86   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -2.552E-05   AT NODE        644   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.844E-07   TIME AVG. MOMENT      1.844E-07
- LARGEST SCALED RESIDUAL MOMENT     6.029E-05   AT NODE       1819   DOF  5
+ AVERAGE MOMENT                     1.638E-07   TIME AVG. MOMENT      1.638E-07
+ LARGEST SCALED RESIDUAL MOMENT     9.236E-06   AT NODE        526   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     6.029E-05
- LARGEST INCREMENT OF ROTATION      7.378E-02   AT NODE       1824   DOF  6
+  CORRESPONDING RESIDUAL MOMENT     9.236E-06
+ LARGEST INCREMENT OF ROTATION     -2.728E-02   AT NODE          1   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     6.748E-02   AT NODE       1824   DOF  6
+ LARGEST CORRECTION TO ROTATION    -2.472E-02   AT NODE          1   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  2.914E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.258E-14   AT NODE       1118   DOF 13
+ AVERAGE HEAT FLUX                  3.051E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -4.139E-14   AT NODE        138   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         6.531E-13   AT NODE        108   DOF 15
+ LARGEST INCREMENT OF TEMP.        -4.857E-03   AT NODE        630   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.385E-13   AT NODE        556   DOF 15
+ LARGEST CORRECTION TO TEMP.        5.326E-13   AT NODE          1   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -1825,252 +3894,44 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  213ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
  
 
- ***WARNING: THE SYSTEM MATRIX HAS 65 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 147 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
 
 
- AVERAGE FORCE                      8.772E-04   TIME AVG. FORCE       5.005E-04
- LARGEST SCALED RESIDUAL FORCE      0.148       AT NODE       1828   DOF  2
+ AVERAGE FORCE                      4.790E-02   TIME AVG. FORCE       4.790E-02
+ LARGEST SCALED RESIDUAL FORCE       5.92       AT NODE        587   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      0.148    
- LARGEST INCREMENT OF DISP.         2.258E-04   AT NODE         12   DOF  2
+  CORRESPONDING RESIDUAL FORCE       5.92    
+ LARGEST INCREMENT OF DISP.         4.611E-04   AT NODE        688   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -5.239E-05   AT NODE       1751   DOF  2
+ LARGEST CORRECTION TO DISP.        4.459E-04   AT NODE        688   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     5.287E-07   TIME AVG. MOMENT      5.287E-07
- LARGEST SCALED RESIDUAL MOMENT     1.109E-04   AT NODE       1755   DOF  5
+ AVERAGE MOMENT                     3.658E-05   TIME AVG. MOMENT      3.658E-05
+ LARGEST SCALED RESIDUAL MOMENT    -5.090E-03   AT NODE        588   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.109E-04
- LARGEST INCREMENT OF ROTATION      7.244E-02   AT NODE       1821   DOF  6
+  CORRESPONDING RESIDUAL MOMENT    -5.090E-03
+ LARGEST INCREMENT OF ROTATION     -0.320       AT NODE        690   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     9.465E-02   AT NODE        146   DOF  6
+ LARGEST CORRECTION TO ROTATION    -0.317       AT NODE        690   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  2.780E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.066E-14   AT NODE       1803   DOF 12
+ AVERAGE HEAT FLUX                  3.137E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -4.319E-14   AT NODE        419   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.729E-13   AT NODE        108   DOF 15
+ LARGEST INCREMENT OF TEMP.        -4.857E-03   AT NODE         64   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -5.128E-13   AT NODE        412   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-
- ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
-
-
-  INCREMENT     5 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  1.406E-03
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.367E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -1.073E-03   AT NODE       1836   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.073E-03
- LARGEST INCREMENT OF DISP.         5.643E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        6.699E-06   AT NODE       1831   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.359E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     9.137E-07   AT NODE       1835   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     9.137E-07
- LARGEST INCREMENT OF ROTATION      9.437E-03   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     8.627E-03   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  3.031E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         6.482E-14   AT NODE       1034   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.306E-13   AT NODE       1520   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        5.896E-13   AT NODE       1520   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  187ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 2 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.365E-04   TIME AVG. FORCE       1.301E-04
- LARGEST SCALED RESIDUAL FORCE      1.414E-04   AT NODE       1836   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE      1.414E-04
- LARGEST INCREMENT OF DISP.         5.643E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.781E-06   AT NODE       1841   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.358E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -9.263E-08   AT NODE       1835   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -9.263E-08
- LARGEST INCREMENT OF ROTATION      8.235E-03   AT NODE       1835   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.213E-03   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  3.023E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         4.966E-14   AT NODE        660   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.793E-13   AT NODE         84   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -5.113E-13   AT NODE        656   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
-
-
- AVERAGE FORCE                      1.364E-04   TIME AVG. FORCE       1.301E-04
- LARGEST SCALED RESIDUAL FORCE     -2.014E-04   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.014E-04
- LARGEST INCREMENT OF DISP.         5.643E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -3.755E-06   AT NODE       1836   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.344E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     4.134E-07   AT NODE       1835   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     4.134E-07
- LARGEST INCREMENT OF ROTATION      4.957E-03   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -4.757E-03   AT NODE       1835   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  2.994E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         4.916E-14   AT NODE       1200   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.936E-13   AT NODE        145   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.413E-13   AT NODE        689   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  180ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
-
-
- AVERAGE FORCE                      1.399E-04   TIME AVG. FORCE       1.318E-04
- LARGEST SCALED RESIDUAL FORCE     -3.175E-03   AT NODE       1836   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -3.175E-03
- LARGEST INCREMENT OF DISP.         5.643E-05   AT NODE         10   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -1.329E-05   AT NODE       1830   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.796E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     5.893E-06   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     5.893E-06
- LARGEST INCREMENT OF ROTATION      1.238E-02   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.409E-02   AT NODE       1845   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  2.900E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.070E-14   AT NODE       1669   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.529E-13   AT NODE         55   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.445E-13   AT NODE        145   DOF 13
+ LARGEST CORRECTION TO TEMP.       -4.989E-13   AT NODE        677   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -2085,343 +3946,51 @@
  ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
 
 
-  INCREMENT     5 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  3.516E-04
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  4, TIME INCREMENT  5.279E-05
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.274E-04   TIME AVG. FORCE       1.256E-04
- LARGEST SCALED RESIDUAL FORCE     -4.021E-05   AT NODE       1841   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -4.021E-05
- LARGEST INCREMENT OF DISP.         1.411E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.411E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.000E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -4.974E-09   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -4.974E-09
- LARGEST INCREMENT OF ROTATION      5.373E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     5.373E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
  
 
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.767E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.125E-14   AT NODE        701   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         3.785E-13   AT NODE       1157   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        3.785E-13   AT NODE       1157   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  184ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.274E-04   TIME AVG. FORCE       1.256E-04
- LARGEST SCALED RESIDUAL FORCE     -6.184E-08   AT NODE       1836   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -6.184E-08
- LARGEST INCREMENT OF DISP.         1.411E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        5.447E-08   AT NODE       1831   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
-
- AVERAGE MOMENT                     5.000E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -6.909E-11   AT NODE       1837   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -6.909E-11
- LARGEST INCREMENT OF ROTATION      6.040E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     6.666E-05   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.798E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         4.948E-14   AT NODE        812   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.859E-13   AT NODE       1373   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -3.561E-13   AT NODE       1365   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
-
- ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
-
- TIME INCREMENT COMPLETED  3.516E-04,  FRACTION OF STEP COMPLETED  1.473E-02
- STEP TIME COMPLETED       1.473E-02,  TOTAL TIME COMPLETED         1.01    
-
-
-  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.516E-04
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  184ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.305E-04   TIME AVG. FORCE       1.272E-04
- LARGEST SCALED RESIDUAL FORCE     -2.381E-07   AT NODE       1836   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.381E-07
- LARGEST INCREMENT OF DISP.         1.411E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.186E-07   AT NODE       1831   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
-
- AVERAGE MOMENT                     5.118E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     6.356E-10   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     6.356E-10
- LARGEST INCREMENT OF ROTATION      7.576E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     1.536E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  3.139E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -4.802E-14   AT NODE       1230   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.353E-13   AT NODE          2   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -9.348E-13   AT NODE       1373   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
-          TIME INCREMENT MAY NOW INCREASE TO    5.273E-04
-
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
-
- TIME INCREMENT COMPLETED  3.516E-04,  FRACTION OF STEP COMPLETED  1.508E-02
- STEP TIME COMPLETED       1.508E-02,  TOTAL TIME COMPLETED         1.02    
-
-
-  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.273E-04
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  182ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.349E-04   TIME AVG. FORCE       1.291E-04
- LARGEST SCALED RESIDUAL FORCE     -7.212E-06   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -7.212E-06
- LARGEST INCREMENT OF DISP.         2.116E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        2.766E-07   AT NODE       1830   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.296E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     4.520E-09   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     4.520E-09
- LARGEST INCREMENT OF ROTATION      1.227E-03   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -5.066E-04   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  3.253E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         6.837E-14   AT NODE        909   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.115E-13   AT NODE        297   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        1.129E-12   AT NODE        546   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  195ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.350E-04   TIME AVG. FORCE       1.291E-04
- LARGEST SCALED RESIDUAL FORCE     -2.825E-07   AT NODE       1836   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.825E-07
- LARGEST INCREMENT OF DISP.         2.116E-05   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.059E-07   AT NODE       1830   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
-
- AVERAGE MOMENT                     5.296E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     4.783E-10   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     4.783E-10
- LARGEST INCREMENT OF ROTATION      1.341E-03   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.181E-04   AT NODE       1821   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  3.032E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.181E-14   AT NODE       1747   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         6.109E-13   AT NODE        546   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -5.584E-13   AT NODE       1030   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
-          TIME INCREMENT MAY NOW INCREASE TO    7.910E-04
-
- ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
-
- TIME INCREMENT COMPLETED  5.273E-04,  FRACTION OF STEP COMPLETED  1.561E-02
- STEP TIME COMPLETED       1.561E-02,  TOTAL TIME COMPLETED         1.02    
-
-
-  INCREMENT     8 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  7.910E-04
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  182ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 9 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      1.419E-04   TIME AVG. FORCE       1.317E-04
- LARGEST SCALED RESIDUAL FORCE     -5.244E-04   AT NODE       1836   DOF  2
+ AVERAGE FORCE                      8.076E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.186E-04   AT NODE         66   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -5.244E-04
- LARGEST INCREMENT OF DISP.         3.174E-05   AT NODE         11   DOF  2
+  CORRESPONDING RESIDUAL FORCE      1.186E-04
+ LARGEST INCREMENT OF DISP.         8.350E-06   AT NODE         90   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        4.998E-06   AT NODE       1832   DOF  2
+ LARGEST CORRECTION TO DISP.        8.350E-06   AT NODE         90   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
 
- AVERAGE MOMENT                     5.565E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.232E-06   AT NODE       1830   DOF  5
+ AVERAGE MOMENT                     9.194E-09   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -1.800E-07   AT NODE        152   DOF  5
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.232E-06
- LARGEST INCREMENT OF ROTATION      6.904E-03   AT NODE       1836   DOF  6
+  CORRESPONDING RESIDUAL MOMENT    -1.800E-07
+ LARGEST INCREMENT OF ROTATION      2.530E-03   AT NODE         75   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     5.135E-03   AT NODE       1830   DOF  6
+ LARGEST CORRECTION TO ROTATION     2.530E-03   AT NODE         75   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
           THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
           THE ROTATION CORRECTION IS NON-ZERO
 
- AVERAGE HEAT FLUX                  3.259E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.174E-14   AT NODE        565   DOF 12
+ AVERAGE HEAT FLUX                  3.727E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -4.623E-14   AT NODE        134   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.964E-13   AT NODE       1030   DOF 15
+ LARGEST INCREMENT OF TEMP.        -1.214E-03   AT NODE         50   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -1.137E-12   AT NODE        546   DOF 12
+ LARGEST CORRECTION TO TEMP.       -1.214E-03   AT NODE         50   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -2434,45 +4003,47 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  180ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
  
 
- ***WARNING: THE SYSTEM MATRIX HAS 3 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 27 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
 
- AVERAGE FORCE                      1.418E-04   TIME AVG. FORCE       1.317E-04
- LARGEST SCALED RESIDUAL FORCE     -2.595E-04   AT NODE       1836   DOF  2
+ AVERAGE FORCE                      1.815E-05   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -3.521E-04   AT NODE        146   DOF  3
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.595E-04
- LARGEST INCREMENT OF DISP.         3.174E-05   AT NODE         13   DOF  2
+  CORRESPONDING RESIDUAL FORCE     -3.521E-04
+ LARGEST INCREMENT OF DISP.         2.255E-05   AT NODE        692   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -1.241E-06   AT NODE       1840   DOF  2
+ LARGEST CORRECTION TO DISP.        1.537E-05   AT NODE         73   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
 
- AVERAGE MOMENT                     5.566E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.900E-07   AT NODE       1835   DOF  5
+ AVERAGE MOMENT                     4.347E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     1.858E-06   AT NODE        269   DOF  5
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.900E-07
- LARGEST INCREMENT OF ROTATION      7.428E-03   AT NODE       1836   DOF  6
+  CORRESPONDING RESIDUAL MOMENT     1.858E-06
+ LARGEST INCREMENT OF ROTATION      6.490E-03   AT NODE        147   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.313E-03   AT NODE       1826   DOF  6
+ LARGEST CORRECTION TO ROTATION     5.840E-03   AT NODE         46   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
           THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
           THE ROTATION CORRECTION IS NON-ZERO
 
- AVERAGE HEAT FLUX                  3.136E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.631E-14   AT NODE       1215   DOF 14
+ AVERAGE HEAT FLUX                  3.321E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -4.737E-14   AT NODE        265   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.340E-13   AT NODE         54   DOF 15
+ LARGEST INCREMENT OF TEMP.        -1.214E-03   AT NODE        124   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.986E-13   AT NODE       1379   DOF 15
+ LARGEST CORRECTION TO TEMP.       -5.727E-13   AT NODE        613   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -2485,247 +4056,47 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  195ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
-
-
- AVERAGE FORCE                      1.420E-04   TIME AVG. FORCE       1.317E-04
- LARGEST SCALED RESIDUAL FORCE     -9.396E-04   AT NODE       1836   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -9.396E-04
- LARGEST INCREMENT OF DISP.         3.174E-05   AT NODE         10   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -4.865E-06   AT NODE       1827   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.558E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     1.221E-06   AT NODE       1825   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.221E-06
- LARGEST INCREMENT OF ROTATION      2.814E-03   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     6.190E-03   AT NODE       1825   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  2.957E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.997E-14   AT NODE       1231   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.917E-13   AT NODE       1093   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -5.284E-13   AT NODE       1546   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
  
 
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  199ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 3 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
-
-
- AVERAGE FORCE                      1.713E-04   TIME AVG. FORCE       1.376E-04
- LARGEST SCALED RESIDUAL FORCE     -1.539E-02   AT NODE       1817   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.539E-02
- LARGEST INCREMENT OF DISP.         3.174E-05   AT NODE          9   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        2.423E-05   AT NODE       1811   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     8.565E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     3.625E-05   AT NODE       1816   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     3.625E-05
- LARGEST INCREMENT OF ROTATION      3.949E-02   AT NODE       1816   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     4.112E-02   AT NODE       1816   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  3.009E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.414E-14   AT NODE       1182   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.393E-13   AT NODE       1093   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        5.608E-13   AT NODE        411   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-
- ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
-
-
-  INCREMENT     8 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  1.978E-04
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  184ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.372E-04   TIME AVG. FORCE       1.307E-04
- LARGEST SCALED RESIDUAL FORCE     -2.126E-03   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.126E-03
- LARGEST INCREMENT OF DISP.         7.935E-06   AT NODE         10   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -5.284E-06   AT NODE       1832   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.390E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.821E-06   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.821E-06
- LARGEST INCREMENT OF ROTATION     -9.316E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -8.992E-03   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  3.175E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.780E-14   AT NODE       1160   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         5.077E-13   AT NODE        291   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -5.736E-13   AT NODE        546   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  185ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 3 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.533E-04   TIME AVG. FORCE       1.340E-04
- LARGEST SCALED RESIDUAL FORCE     -2.180E-02   AT NODE       1836   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.180E-02
- LARGEST INCREMENT OF DISP.        -2.400E-05   AT NODE       1831   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -2.228E-05   AT NODE       1831   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     6.464E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     1.684E-05   AT NODE       1826   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.684E-05
- LARGEST INCREMENT OF ROTATION     -3.326E-02   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -3.076E-02   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  2.964E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.101E-14   AT NODE       1773   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.571E-13   AT NODE          3   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.527E-13   AT NODE        646   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  188ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 13 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 84 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
 
 
- AVERAGE FORCE                      1.741E-04   TIME AVG. FORCE       1.381E-04
- LARGEST SCALED RESIDUAL FORCE     -2.552E-02   AT NODE       1805   DOF  2
+ AVERAGE FORCE                      1.950E-05   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      7.199E-04   AT NODE        566   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.552E-02
- LARGEST INCREMENT OF DISP.        -3.442E-05   AT NODE       1806   DOF  2
+  CORRESPONDING RESIDUAL FORCE      7.199E-04
+ LARGEST INCREMENT OF DISP.         2.296E-05   AT NODE        692   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -3.380E-05   AT NODE       1806   DOF  2
+ LARGEST CORRECTION TO DISP.        6.955E-06   AT NODE        707   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
 
- AVERAGE MOMENT                     8.198E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     3.683E-05   AT NODE       1811   DOF  5
+ AVERAGE MOMENT                     2.151E-08   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT     1.723E-06   AT NODE        361   DOF  5
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     3.683E-05
- LARGEST INCREMENT OF ROTATION     -3.982E-02   AT NODE       1805   DOF  4
+  CORRESPONDING RESIDUAL MOMENT     1.723E-06
+ LARGEST INCREMENT OF ROTATION      9.891E-03   AT NODE          2   DOF  5
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -3.595E-02   AT NODE       1805   DOF  4
+ LARGEST CORRECTION TO ROTATION     8.504E-03   AT NODE          3   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
           THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
           THE ROTATION CORRECTION IS NON-ZERO
 
- AVERAGE HEAT FLUX                  2.896E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.007E-14   AT NODE        623   DOF 12
+ AVERAGE HEAT FLUX                  3.083E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         3.914E-14   AT NODE        695   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.922E-13   AT NODE         46   DOF 13
+ LARGEST INCREMENT OF TEMP.        -1.214E-03   AT NODE         59   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.230E-13   AT NODE       1202   DOF 13
+ LARGEST CORRECTION TO TEMP.       -4.969E-13   AT NODE         59   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -2738,44 +4109,44 @@
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  194ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
  
 
- ***WARNING: THE SYSTEM MATRIX HAS 25 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 51 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
 
 
- AVERAGE FORCE                      1.095E-03   TIME AVG. FORCE       3.224E-04
- LARGEST SCALED RESIDUAL FORCE     -0.919       AT NODE       1785   DOF  2
+ AVERAGE FORCE                      2.384E-02   TIME AVG. FORCE       2.384E-02
+ LARGEST SCALED RESIDUAL FORCE       1.98       AT NODE         21   DOF  1
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -0.919    
- LARGEST INCREMENT OF DISP.        -1.109E-04   AT NODE       1781   DOF  2
+  CORRESPONDING RESIDUAL FORCE       1.98    
+ LARGEST INCREMENT OF DISP.         2.462E-04   AT NODE         50   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -1.129E-04   AT NODE       1781   DOF  2
+ LARGEST CORRECTION TO DISP.        2.516E-04   AT NODE         49   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     7.776E-07   TIME AVG. MOMENT      7.776E-07
- LARGEST SCALED RESIDUAL MOMENT    -5.569E-04   AT NODE       1790   DOF  5
+ AVERAGE MOMENT                     1.642E-05   TIME AVG. MOMENT      1.642E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.186E-03   AT NODE        111   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -5.569E-04
- LARGEST INCREMENT OF ROTATION      0.185       AT NODE       1786   DOF  4
+  CORRESPONDING RESIDUAL MOMENT    -1.186E-03
+ LARGEST INCREMENT OF ROTATION     -0.287       AT NODE         21   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     0.183       AT NODE       1786   DOF  4
+ LARGEST CORRECTION TO ROTATION    -0.286       AT NODE         21   DOF  6
    INSTANCE: SMASTRIP-1                                                                      
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  2.851E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -7.394E-14   AT NODE       1117   DOF 12
+ AVERAGE HEAT FLUX                  3.201E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         5.643E-14   AT NODE        509   DOF 14
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.922E-13   AT NODE        128   DOF 15
+ LARGEST INCREMENT OF TEMP.        -1.214E-03   AT NODE        706   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.132E-13   AT NODE          6   DOF 13
+ LARGEST CORRECTION TO TEMP.        4.602E-13   AT NODE        640   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -2790,261 +4161,204 @@
  ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
 
 
-  INCREMENT     8 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  4.944E-05
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  5, TIME INCREMENT  1.320E-05
  
 	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
+        NUMBER OF EQUATIONS:  7854
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  184ms
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  34ms
  
 
- ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+ ***WARNING: THE SYSTEM MATRIX HAS 9 NEGATIVE EIGENVALUES.
              EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
 
- AVERAGE FORCE                      1.354E-04   TIME AVG. FORCE       1.304E-04
- LARGEST SCALED RESIDUAL FORCE     -9.832E-05   AT NODE       1831   DOF  1
+ AVERAGE FORCE                      7.991E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE      1.178E-04   AT NODE         66   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -9.832E-05
- LARGEST INCREMENT OF DISP.         1.984E-06   AT NODE         12   DOF  2
+  CORRESPONDING RESIDUAL FORCE      1.178E-04
+ LARGEST INCREMENT OF DISP.         8.372E-06   AT NODE         90   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.984E-06   AT NODE         12   DOF  2
+ LARGEST CORRECTION TO DISP.        8.372E-06   AT NODE         90   DOF  2
    INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
 
- AVERAGE MOMENT                     5.310E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -6.294E-08   AT NODE       1830   DOF  5
+ AVERAGE MOMENT                     9.124E-09   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -1.804E-07   AT NODE        152   DOF  5
    INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -6.294E-08
- LARGEST INCREMENT OF ROTATION      1.905E-03   AT NODE       1836   DOF  4
+  CORRESPONDING RESIDUAL MOMENT    -1.804E-07
+ LARGEST INCREMENT OF ROTATION      2.527E-03   AT NODE         75   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     1.905E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.806E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.032E-14   AT NODE       1337   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.700E-13   AT NODE       1620   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.700E-13   AT NODE       1620   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  185ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.354E-04   TIME AVG. FORCE       1.304E-04
- LARGEST SCALED RESIDUAL FORCE     -4.800E-07   AT NODE       1832   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -4.800E-07
- LARGEST INCREMENT OF DISP.         1.984E-06   AT NODE         13   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -6.342E-08   AT NODE       1832   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
-
- AVERAGE MOMENT                     5.313E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -5.936E-10   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -5.936E-10
- LARGEST INCREMENT OF ROTATION      1.779E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.654E-04   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.872E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.341E-14   AT NODE       1547   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.576E-13   AT NODE         11   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        3.778E-13   AT NODE       1058   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  184ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
-
-
- AVERAGE FORCE                      1.354E-04   TIME AVG. FORCE       1.304E-04
- LARGEST SCALED RESIDUAL FORCE     -1.185E-04   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.185E-04
- LARGEST INCREMENT OF DISP.         1.984E-06   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.144E-06   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.309E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     7.535E-08   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     7.535E-08
- LARGEST INCREMENT OF ROTATION      6.980E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.088E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.876E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -4.610E-14   AT NODE       1182   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.219E-13   AT NODE       1140   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.013E-13   AT NODE       1034   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  188ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
-
-
- AVERAGE FORCE                      1.354E-04   TIME AVG. FORCE       1.304E-04
- LARGEST SCALED RESIDUAL FORCE     -2.042E-06   AT NODE       1830   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.042E-06
- LARGEST INCREMENT OF DISP.         1.984E-06   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -2.772E-07   AT NODE       1831   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.313E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     1.987E-09   AT NODE       1835   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     1.987E-09
- LARGEST INCREMENT OF ROTATION      4.168E-04   AT NODE       1835   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -3.748E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.843E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -6.204E-14   AT NODE       1311   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         6.044E-13   AT NODE        546   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.243E-13   AT NODE        546   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  184ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
-
-
- AVERAGE FORCE                      1.355E-04   TIME AVG. FORCE       1.304E-04
- LARGEST SCALED RESIDUAL FORCE     -9.598E-04   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -9.598E-04
- LARGEST INCREMENT OF DISP.        -2.986E-06   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -2.960E-06   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.304E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -5.876E-07   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -5.876E-07
- LARGEST INCREMENT OF ROTATION     -6.327E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -5.922E-03   AT NODE       1836   DOF  4
+ LARGEST CORRECTION TO ROTATION     2.527E-03   AT NODE         75   DOF  4
    INSTANCE: SMASTRIP-1                                                                      
           THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
           THE ROTATION CORRECTION IS NON-ZERO
 
- AVERAGE HEAT FLUX                  2.899E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.142E-14   AT NODE       1044   DOF 12
+ AVERAGE HEAT FLUX                  5.826E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.054E-14   AT NODE        334   DOF 12
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.253E-13   AT NODE          7   DOF 15
+ LARGEST INCREMENT OF TEMP.        -3.036E-04   AT NODE         50   DOF 13
    INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        3.898E-13   AT NODE       1307   DOF 15
+ LARGEST CORRECTION TO TEMP.       -3.036E-04   AT NODE         50   DOF 13
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  35ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 26 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      3.756E-06   TIME AVG. FORCE        10.7    
+                                                (FROM MOMENT    FIELD)
+ LARGEST SCALED RESIDUAL FORCE     -1.102E-04   AT NODE         67   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -1.102E-04
+ LARGEST INCREMENT OF DISP.         1.005E-05   AT NODE         55   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.       -8.655E-06   AT NODE        691   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          THE FORCE     IS ZERO EVERYWHERE BUT THE FORCE     RESIDUAL OR
+          THE DISP.    CORRECTION IS NON-ZERO
+
+ AVERAGE MOMENT                     3.907E-09   TIME AVG. MOMENT      1.000E-02
+ LARGEST SCALED RESIDUAL MOMENT    -1.693E-07   AT NODE        250   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -1.693E-07
+ LARGEST INCREMENT OF ROTATION      3.339E-03   AT NODE         66   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     2.251E-03   AT NODE        680   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
+          THE ROTATION CORRECTION IS NON-ZERO
+
+ AVERAGE HEAT FLUX                  5.829E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         6.172E-14   AT NODE        215   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -3.036E-04   AT NODE         82   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -7.828E-13   AT NODE        615   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  40ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 20 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      4.247E-04   TIME AVG. FORCE       4.247E-04
+ LARGEST SCALED RESIDUAL FORCE      1.004E-02   AT NODE        593   DOF  3
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE      1.004E-02
+ LARGEST INCREMENT OF DISP.         1.304E-04   AT NODE        639   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        1.248E-04   AT NODE        639   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     9.789E-07   TIME AVG. MOMENT      9.789E-07
+ LARGEST SCALED RESIDUAL MOMENT     5.233E-05   AT NODE        600   DOF  5
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT     5.233E-05
+ LARGEST INCREMENT OF ROTATION      3.308E-02   AT NODE        697   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     3.323E-02   AT NODE        697   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  5.956E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX         7.778E-14   AT NODE        553   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -3.036E-04   AT NODE         28   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.       -7.281E-13   AT NODE        102   DOF 12
+   INSTANCE: SMASTRIP-1                                                                      
+          THERE IS ZERO HEAT FLUX EVERYWHERE
+ 
+
+ ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
+             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
+             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
+             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
+             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
+ 
+	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7854
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      3.205e+08
+        SOLVER ELAPSED TIME:  36ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 236 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      9.742E-04   TIME AVG. FORCE       9.742E-04
+ LARGEST SCALED RESIDUAL FORCE     -5.844E-02   AT NODE        162   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL FORCE     -5.844E-02
+ LARGEST INCREMENT OF DISP.         1.298E-04   AT NODE        639   DOF  1
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO DISP.        5.068E-05   AT NODE         58   DOF  2
+   INSTANCE: SMASTRIP-1                                                                      
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.862E-07   TIME AVG. MOMENT      5.862E-07
+ LARGEST SCALED RESIDUAL MOMENT    -5.253E-05   AT NODE        161   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+  CORRESPONDING RESIDUAL MOMENT    -5.253E-05
+ LARGEST INCREMENT OF ROTATION      4.660E-02   AT NODE         59   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO ROTATION     4.629E-02   AT NODE         59   DOF  6
+   INSTANCE: SMASTRIP-1                                                                      
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  5.829E-15   TIME AVG. HEAT FLUX   1.000E-02
+ LARGEST RESIDUAL HEAT FLUX        -6.327E-14   AT NODE        226   DOF 14
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST INCREMENT OF TEMP.        -3.036E-04   AT NODE          9   DOF 15
+   INSTANCE: SMASTRIP-1                                                                      
+ LARGEST CORRECTION TO TEMP.        6.910E-13   AT NODE        651   DOF 15
    INSTANCE: SMASTRIP-1                                                                      
           THERE IS ZERO HEAT FLUX EVERYWHERE
  
@@ -3057,555 +4371,6 @@
  
 
  ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
-
-
-  INCREMENT     8 STARTS. ATTEMPT NUMBER  4, TIME INCREMENT  1.236E-05
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  185ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -4.081E-05   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -4.081E-05
- LARGEST INCREMENT OF DISP.         6.182E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        6.182E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.299E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -2.420E-08   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -2.420E-08
- LARGEST INCREMENT OF ROTATION      1.223E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     1.223E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.875E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -4.802E-14   AT NODE        596   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.700E-13   AT NODE       1620   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.700E-13   AT NODE       1620   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  183ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -9.581E-07   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -9.581E-07
- LARGEST INCREMENT OF DISP.         5.671E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.200E-07   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.301E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     5.872E-10   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     5.872E-10
- LARGEST INCREMENT OF ROTATION      1.030E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.108E-04   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.849E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.311E-14   AT NODE       1071   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.664E-13   AT NODE         11   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.045E-13   AT NODE        973   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  185ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -2.361E-05   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.361E-05
- LARGEST INCREMENT OF DISP.         4.959E-07   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -4.353E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.300E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.097E-08   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.097E-08
- LARGEST INCREMENT OF ROTATION      1.971E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -9.200E-04   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.893E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -4.183E-14   AT NODE       1317   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.877E-13   AT NODE        546   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        5.519E-13   AT NODE        546   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  183ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -9.464E-07   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -9.464E-07
- LARGEST INCREMENT OF DISP.         4.959E-07   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -9.678E-08   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.300E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -7.178E-10   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -7.178E-10
- LARGEST INCREMENT OF ROTATION      1.500E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -1.970E-04   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.900E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -4.947E-14   AT NODE        607   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.173E-13   AT NODE         11   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.202E-13   AT NODE        316   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  204ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -5.663E-04   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -5.663E-04
- LARGEST INCREMENT OF DISP.         2.107E-06   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -2.109E-06   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.289E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -2.772E-07   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -2.772E-07
- LARGEST INCREMENT OF ROTATION      4.447E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     4.526E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  2.893E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         5.245E-14   AT NODE        782   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -5.303E-13   AT NODE          7   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        4.250E-13   AT NODE        122   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-
- ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
-
-
-  INCREMENT     8 STARTS. ATTEMPT NUMBER  5, TIME INCREMENT  1.000E-05
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  186ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -3.799E-05   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -3.799E-05
- LARGEST INCREMENT OF DISP.         5.933E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        5.933E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.299E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -2.235E-08   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -2.235E-08
- LARGEST INCREMENT OF ROTATION      1.180E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     1.180E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.951E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         4.709E-14   AT NODE       1337   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.700E-13   AT NODE       1620   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.700E-13   AT NODE       1620   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  183ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -1.001E-06   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.001E-06
- LARGEST INCREMENT OF DISP.         5.405E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.        1.229E-07   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.300E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT     6.302E-10   AT NODE       1832   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT     6.302E-10
- LARGEST INCREMENT OF ROTATION      9.821E-04   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.139E-04   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.868E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX         4.958E-14   AT NODE       1743   DOF 14
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.861E-13   AT NODE         11   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.022E-13   AT NODE       1709   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  181ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
-
-
- AVERAGE FORCE                      1.351E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -2.100E-05   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.100E-05
- LARGEST INCREMENT OF DISP.         4.013E-07   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -4.158E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.299E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.007E-08   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.007E-08
- LARGEST INCREMENT OF ROTATION      1.770E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -8.680E-04   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.879E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.521E-14   AT NODE        653   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -6.125E-13   AT NODE          7   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -3.827E-13   AT NODE       1743   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  182ms
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
-
-
- AVERAGE FORCE                      1.350E-04   TIME AVG. FORCE       1.303E-04
- LARGEST SCALED RESIDUAL FORCE     -1.175E-06   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.175E-06
- LARGEST INCREMENT OF DISP.         4.013E-07   AT NODE         11   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -1.011E-07   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.300E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -7.695E-10   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -7.695E-10
- LARGEST INCREMENT OF ROTATION      1.412E-04   AT NODE       1836   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION    -2.152E-04   AT NODE       1830   DOF  6
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO MOMENT    EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO MOMENT EVERYWHERE IN THE MODEL BASED ON THE DEFAULT 
-             CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE MOMENT DURING THE 
-             CURRENT ITERATION TO VERIFY THAT THE MOMENT IS SMALL ENOUGH TO BE 
-             TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION CONTROLS TO RESET 
-             THE CRITERION FOR ZERO MOMENT.
-
- AVERAGE HEAT FLUX                  2.974E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.882E-14   AT NODE        652   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.         4.410E-13   AT NODE          3   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.       -4.114E-13   AT NODE       1704   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-	UNSYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  20328
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.716e+09
-        SOLVER ELAPSED TIME:  183ms
- 
-
- ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
-             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
-
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
-
-
- AVERAGE FORCE                      1.353E-04   TIME AVG. FORCE       1.304E-04
- LARGEST SCALED RESIDUAL FORCE     -1.249E-03   AT NODE       1831   DOF  1
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.249E-03
- LARGEST INCREMENT OF DISP.         3.122E-06   AT NODE       1837   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO DISP.       -3.114E-06   AT NODE       1835   DOF  2
-   INSTANCE: SMASTRIP-1                                                                      
-          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
-
- AVERAGE MOMENT                     5.295E-08   TIME AVG. MOMENT      1.000E-02
- LARGEST SCALED RESIDUAL MOMENT    -6.197E-07   AT NODE       1830   DOF  5
-   INSTANCE: SMASTRIP-1                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -6.197E-07
- LARGEST INCREMENT OF ROTATION      6.632E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO ROTATION     6.727E-03   AT NODE       1836   DOF  4
-   INSTANCE: SMASTRIP-1                                                                      
-          THE MOMENT    IS ZERO EVERYWHERE BUT THE MOMENT    RESIDUAL OR
-          THE ROTATION CORRECTION IS NON-ZERO
-
- AVERAGE HEAT FLUX                  2.913E-15   TIME AVG. HEAT FLUX   1.000E-02
- LARGEST RESIDUAL HEAT FLUX        -5.308E-14   AT NODE       1665   DOF 12
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST INCREMENT OF TEMP.        -4.786E-13   AT NODE          7   DOF 15
-   INSTANCE: SMASTRIP-1                                                                      
- LARGEST CORRECTION TO TEMP.        3.922E-13   AT NODE         13   DOF 13
-   INSTANCE: SMASTRIP-1                                                                      
-          THERE IS ZERO HEAT FLUX EVERYWHERE
- 
-
- ***WARNING: THERE IS ZERO HEAT FLUX EVERYWHERE IN THE MODEL BASED ON THE 
-             DEFAULT CRITERION. PLEASE CHECK THE VALUE OF THE AVERAGE HEAT FLUX 
-             DURING THE CURRENT ITERATION TO VERIFY THAT THE HEAT FLUX IS SMALL 
-             ENOUGH TO BE TREATED AS ZERO. IF NOT, PLEASE USE THE SOLUTION 
-             CONTROLS TO RESET THE CRITERION FOR ZERO HEAT FLUX.
- 
-
- ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
- 
-
- ***ERROR: TIME INCREMENT REQUIRED IS LESS THAN THE MINIMUM SPECIFIED
  
 
  ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
@@ -3616,26 +4381,26 @@
 
 
      ANALYSIS SUMMARY:
-     TOTAL OF         19  INCREMENTS
-                       8  CUTBACKS IN AUTOMATIC INCREMENTATION
-                      63  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
-                      63  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
-                      63  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+     TOTAL OF         35  INCREMENTS
+                       9  CUTBACKS IN AUTOMATIC INCREMENTATION
+                      70  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
+                      70  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
+                      70  INVOLVE MATRIX DECOMPOSITION, INCLUDING
                        0  DECOMPOSITION(S) OF THE MASS MATRIX
                        1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
                        0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
                        0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
-                       3  WARNING MESSAGES DURING USER INPUT PROCESSING
-                     112  WARNING MESSAGES DURING ANALYSIS
-                       0  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
-                      21  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
-                       3  ERROR MESSAGES
+                       4  WARNING MESSAGES DURING USER INPUT PROCESSING
+                     152  WARNING MESSAGES DURING ANALYSIS
+                      25  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
+                      36  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
+                       2  ERROR MESSAGES
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      32.    
-       SYSTEM TIME (SEC)    =      7.5    
-       TOTAL CPU TIME (SEC) =      39.    
-       WALLCLOCK TIME (SEC) =           39
+       USER TIME (SEC)      =      11.    
+       SYSTEM TIME (SEC)    =      1.3    
+       TOTAL CPU TIME (SEC) =      12.    
+       WALLCLOCK TIME (SEC) =           12
        MEMORY PEAK (GB)     =            0
