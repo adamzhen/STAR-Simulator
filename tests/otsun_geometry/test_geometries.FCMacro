@@ -1,0 +1,722 @@
+# -*- coding: utf-8 -*-
+"""OTSun geometry feasibility / performance test for the deformed nitinol dogbone.
+
+Run headless:
+    "C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe" test_geometries.FCMacro
+
+Optional environment overrides:
+    OTSUN_TEST_NRAYS=200          number of rays
+    OTSUN_TEST_ONLY=G1,G4_K1      run only these geometry ids
+    OTSUN_TEST_BUDGET=300         seconds per (geometry, engine) before extrapolating
+
+See README.md for what every metric means.
+"""
+
+# ============================================================================
+# CONFIG
+# ============================================================================
+import os
+
+REPO = r"C:/Users/adzheng/STAR-Simulator"
+CONFIG = {
+    "STL_PATH": REPO + "/Scenarios/DogboneScenario1/DogboneTest.stl",
+    "STEP_PATHS": {  # G0 negative controls (Abaqus FaceFromElementFaces exports)
+        "G0_deformedtest": REPO + "/deformedtest.stp",
+        "G0_SMAStripDeformed": REPO + "/Scenarios/DogboneScenario1/SMAStripDeformed.stp",
+    },
+    "SCALE": 1.0,              # production keeps Abaqus metre values unchanged (see README)
+    "N_RAYS": int(os.environ.get("OTSUN_TEST_NRAYS", 500)),
+    "SEED": 12345,
+    "SUN_ZENITH": 60.0,        # production values
+    "SUN_AZIMUTH": 0.0,
+    "WAVELENGTH": 550.0,       # production LightSource light_spectrum
+    "BUDGET_S": float(os.environ.get("OTSUN_TEST_BUDGET", 600)),
+    "WARMUP_RAYS": 5,
+    "COPLANAR_ANGLE_DEG": 0.5,
+    "COPLANAR_DIST": 1e-5,
+    "G5_TOLS": [3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-5],
+    "FLUX_BINS": (20, 5),      # (x, y) bins over the STL bounding box
+    "ONLY": [s for s in os.environ.get("OTSUN_TEST_ONLY", "").split(",") if s],
+}
+PASS = {
+    "edge_gap_rel": 1e-4,          # boundary-edge-to-surface <= this * strip length
+    "lossless_tol": 1e-5,          # geometry tolerance assumed for G0/G1 (G2 uses 2*COPLANAR_DIST)
+    "ruled_linear_tol": 2e-5,      # geometry tolerance assumed for G4 (ruling fit ~7e-6)
+    "dup_frac": 0.01,
+    "hit_rate_pp": 2.0,
+    "p95_factor": 3.0,             # p95 hit error <= factor*tol + 1e-6
+    "flux_l1": 0.05,               # same rays as ground truth -> no sampling noise, see README
+}
+
+# ============================================================================
+# IMPORTS
+# ============================================================================
+import sys, time, json, csv, math, traceback, logging, datetime, random
+
+try:
+    HERE = os.path.dirname(os.path.abspath(__file__))
+except NameError:
+    HERE = REPO + "/tests/otsun_geometry"
+sys.path.insert(0, HERE)
+
+import numpy as np
+import FreeCAD
+import Part
+from FreeCAD import Vector as Vec
+
+import geomlib as g
+
+logging.basicConfig(level=logging.WARNING)
+for name in ("otsun", "otsun.ray", "otsun.scene", "otsun.materials"):
+    logging.getLogger(name).setLevel(logging.WARNING)
+
+import otsun
+from otsun.ray import Ray, _ray_may_intersect_bb, _bb_intersects, part_line
+from otsun.materials import SurfaceMaterial
+
+# Same material set-up as SolarFluxCalc.FCMacro with ABSORPTION_ONLY=True
+SurfaceMaterial.create("Nitinol", {
+    "probability_of_reflection": lambda wl: 0.0,
+    "probability_of_absorption": lambda wl: 1.0,
+    "probability_of_transmittance": lambda wl: 0.0,
+    "thermal_material": True,
+})
+LABEL = "Strip_(Nitinol)_Face%d"   # OTSun parses the material from "(...)"
+
+
+def log(msg=""):
+    print(msg, flush=True)
+
+
+# ============================================================================
+# R1: accelerated Ray (vectorised AABB slab prefilter, identical semantics)
+# ============================================================================
+
+def _scene_cache(scene):
+    cache = getattr(scene, "_r1_cache", None)
+    if cache is not None:
+        return cache
+    bbs = [f.BoundBox for f in scene.faces]
+    lo = np.array([[b.XMin, b.YMin, b.ZMin] for b in bbs])
+    hi = np.array([[b.XMax, b.YMax, b.ZMax] for b in bbs])
+    tol = max([f.getTolerance(1) for f in scene.faces] + [0.0])
+    pad = 2.0 * max(tol, scene.epsilon)       # conservative inflation
+    cache = {"bbs": bbs, "lo": lo - pad, "hi": hi + pad}
+    scene._r1_cache = cache
+    return cache
+
+
+def _slab_candidates(lo, hi, o, d, tmax):
+    """Indices (ascending) of boxes hit by the segment o + t d, t in [0, tmax]."""
+    t0 = np.zeros(len(lo)); t1 = np.full(len(lo), tmax)
+    keep = np.ones(len(lo), bool)
+    for k in range(3):
+        if d[k] == 0.0:
+            keep &= (o[k] >= lo[:, k]) & (o[k] <= hi[:, k])
+        else:
+            a = (lo[:, k] - o[k]) / d[k]
+            b = (hi[:, k] - o[k]) / d[k]
+            t0 = np.maximum(t0, np.minimum(a, b))
+            t1 = np.minimum(t1, np.maximum(a, b))
+    keep &= t0 <= t1
+    return np.nonzero(keep)[0]
+
+
+class FastRay(Ray):
+    """Ray whose next_intersection only calls face.section on faces whose
+    (inflated) bounding box the segment crosses. Survivors then go through
+    OTSun's own two filters and loop body unchanged, in the original face
+    order, so the result is identical to otsun.ray.Ray."""
+
+    def next_intersection(self):
+        scene = self.scene
+        cache = _scene_cache(scene)
+        max_distance = 5 * scene.diameter
+        p0 = self.points[-1]
+        direction = self.current_direction()
+        intersections = []
+        p1 = p0 + direction * max_distance
+        shape_segment = part_line(p0, p1).toShape()
+        bb1 = shape_segment.BoundBox
+        o = np.array([p0.x, p0.y, p0.z])
+        d = np.array([direction.x, direction.y, direction.z])
+        for i in _slab_candidates(cache["lo"], cache["hi"], o, d, max_distance):
+            face = scene.faces[i]
+            bb2 = cache["bbs"][i]
+            if not _ray_may_intersect_bb(bb2, p0, direction):
+                continue
+            if not _bb_intersects(bb1, bb2):
+                continue
+            punts = face.section(shape_segment).Vertexes
+            if not punts:
+                continue
+            if (id(face) in scene.materials) & (face != self.last_touched_face):
+                for punt in punts:
+                    intersections.append([punt.Point, face])
+            else:
+                for punt in punts:
+                    if p0.distanceToPoint(punt.Point) > scene.epsilon:
+                        intersections.append([punt.Point, face])
+        if not intersections:
+            return p1, None
+        closest_pair = min(intersections, key=lambda pair: self.weighted_distance(p0, pair))
+        return tuple(closest_pair)
+
+
+ENGINES = {"R0": Ray, "R1": FastRay}
+
+
+# ============================================================================
+# GEOMETRY BUILDERS  (each returns list[Part.Face], tolerance, notes dict)
+# ============================================================================
+
+def tri_face(a, b, c):
+    return Part.Face(Part.makePolygon([Vec(*a), Vec(*b), Vec(*c), Vec(*a)]))
+
+
+def build_G0(path):
+    import Import
+    doc = FreeCAD.newDocument("g0import")
+    try:
+        Import.insert(path, doc.Name)        # same call as production
+        faces = []
+        for o in doc.Objects:
+            if hasattr(o, "Shape"):
+                faces.extend(f.copy() for f in o.Shape.Faces)
+    finally:
+        FreeCAD.closeDocument(doc.Name)
+    if CONFIG["SCALE"] != 1.0:
+        faces = [f.scale(CONFIG["SCALE"]) or f for f in faces]
+    return faces, PASS["lossless_tol"], {"surface_types": [type(f.Surface).__name__ for f in faces]}
+
+
+def build_G1(V, F):
+    return [tri_face(*V[t]) for t in F], PASS["lossless_tol"], {}
+
+
+def build_G2(V, F):
+    regions = g.coplanar_regions(V, F, CONFIG["COPLANAR_ANGLE_DEG"], CONFIG["COPLANAR_DIST"])
+    _, tri_area = g.tri_normals_areas(V, F)
+    faces, fallbacks, reasons = [], 0, {}
+    for reg in regions:
+        if len(reg) == 1:
+            faces.append(tri_face(*V[F[reg[0]]])); continue
+        try:
+            loops = g.boundary_loops(F[reg])
+            if loops is None or len(loops) != 1:
+                raise ValueError("boundary is not one simple loop (%s)" %
+                                 ("pinch vertex" if loops is None else "%d loops" % len(loops)))
+            P = V[loops[0]]
+            c, n = g.fit_plane(P)
+            P = P - np.outer((P - c) @ n, n)            # project onto fitted plane
+            face = Part.Face(Part.makePolygon([Vec(*p) for p in P] + [Vec(*P[0])]))
+            want = tri_area[reg].sum()
+            if not face.isValid() or abs(face.Area - want) > 1e-3 * want:
+                raise ValueError("polygon area %.4g != region area %.4g" % (face.Area, want))
+            faces.append(face)
+        except Exception as e:
+            fallbacks += 1
+            key = str(e).split("(")[0].strip()
+            reasons[key] = reasons.get(key, 0) + 1
+            faces.extend(tri_face(*V[F[t]]) for t in reg)
+    # lossy at the merge tolerance: vertices within COPLANAR_DIST of the seed
+    # plane, then projected onto the fitted plane -> allow 2x
+    return faces, 2 * CONFIG["COPLANAR_DIST"], {"regions": len(regions), "fallback_regions": fallbacks,
+                                          "fallback_reasons": reasons}
+
+
+def ruled_surface(poles_L, poles_R, uknots, umults, udeg):
+    s = Part.BSplineSurface()
+    s.buildFromPolesMultsKnots(
+        poles=[[Vec(*a), Vec(*b)] for a, b in zip(poles_L, poles_R)],
+        umults=list(umults), vmults=[2, 2], uknots=list(uknots), vknots=[0.0, 1.0],
+        uperiodic=False, vperiodic=False, udegree=udeg, vdegree=1)
+    return s
+
+
+def build_G4(V, F, K):
+    top, bot, _, _, _ = g.split_outline(V, g.boundary_loops(F)[0])
+    L, R, u = g.ruled_stations(V, top, bot)
+    s = ruled_surface(L, R, u, [2] + [1] * (len(u) - 2) + [2], 1)
+    if K == "span":
+        cuts = list(u)
+    else:
+        cuts = [0.0] + [float(u[np.argmin(np.abs(u - q))]) for q in np.linspace(0, 1, K + 1)[1:-1]] + [1.0]
+    faces = []
+    for a, b in zip(cuts[:-1], cuts[1:]):
+        if b <= a:
+            continue
+        piece = s.copy()
+        if not (a == 0.0 and b == 1.0):
+            piece.segment(a, b, 0.0, 1.0)
+        faces.append(piece.toShape())
+    return faces, PASS["ruled_linear_tol"], {"stations": len(u),
+                                              "ruling_dev_max": float(g.ruling_deviation(V, L, R).max())}
+
+
+def build_G5(V, F, tol, corner_aware=False):
+    """corner_aware=False: plain greedy cubic fit, one face.
+    corner_aware=True (G5c): triple knots at the two shoulder corners and the
+    face split there -> 3 C2 faces (grip / neck / grip)."""
+    top, bot, _, _, _ = g.split_outline(V, g.boundary_loops(F)[0])
+    L, R, u = g.ruled_stations(V, top, bot)
+    corners = g.outline_corners(L, R, u) if corner_aware else []
+    fit = g.fit_cubic_ruled(L, R, u, tol, corners=corners)
+    if not fit["ok"]:
+        raise RuntimeError("cubic fit failed: %s" % fit["reason"])
+    s = ruled_surface(fit["poles_L"], fit["poles_R"], fit["uknots"], fit["umults"], 3)
+    cuts = [0.0] + corners + [1.0]
+    faces = []
+    for a, b in zip(cuts[:-1], cuts[1:]):
+        piece = s.copy()
+        if not (a == 0.0 and b == 1.0):
+            piece.segment(a, b, 0.0, 1.0)
+        faces.append(piece.toShape())
+    return faces, tol, {"poles_per_edge": fit["n_poles"], "max_node_dev": fit["max_node_dev"],
+                        "corners_u": corners}
+
+
+def geometry_list(V, F):
+    out = [(gid, (lambda p=p: build_G0(p))) for gid, p in CONFIG["STEP_PATHS"].items() if os.path.isfile(p)]
+    out += [
+        ("G1_triangles", lambda: build_G1(V, F)),
+        ("G2_coplanar", lambda: build_G2(V, F)),
+        ("G4_K1", lambda: build_G4(V, F, 1)),
+        ("G4_K3", lambda: build_G4(V, F, 3)),
+        ("G4_span", lambda: build_G4(V, F, "span")),
+    ]
+    for tol in CONFIG["G5_TOLS"]:
+        out.append(("G5_tol%.0e" % tol, (lambda t=tol: build_G5(V, F, t))))
+    for tol in CONFIG["G5_TOLS"]:
+        out.append(("G5c_tol%.0e" % tol, (lambda t=tol: build_G5(V, F, t, corner_aware=True))))
+    if CONFIG["ONLY"]:
+        out = [x for x in out if x[0] in CONFIG["ONLY"]]
+    return out
+
+
+# ============================================================================
+# TEST A: validity     TEST B: fidelity vs STL
+# ============================================================================
+
+def test_validity(faces, stl):
+    comp = Part.Compound(faces)
+    r = {"n_faces": len(faces), "n_edges": len(comp.Edges), "n_vertices": len(comp.Vertexes),
+         "all_valid": bool(all(f.isValid() for f in faces)),
+         "max_tolerance": comp.getTolerance(1),
+         "surface_types": sorted(set(type(f.Surface).__name__ for f in faces))}
+    try:
+        comp.check(True); r["check"] = "OK"
+    except Exception as e:
+        msg = " | ".join(sorted(set(l.strip() for l in str(e).splitlines() if l.strip())))
+        r["check"] = msg[:300]
+    r["area"] = comp.Area
+    r["area_rel_err"] = comp.Area / stl["area"] - 1.0
+    # bounding box from vertices (edges), not face.BoundBox (which follows the surface)
+    VP = np.array([[v.X, v.Y, v.Z] for v in comp.Vertexes])
+    r["vertex_bbox_maxdiff"] = float(max(np.abs(VP.min(0) - stl["lo"]).max(), np.abs(VP.max(0) - stl["hi"]).max()))
+    bb = comp.BoundBox
+    r["shape_bbox_maxdiff"] = float(max(np.abs(np.array([bb.XMin, bb.YMin, bb.ZMin]) - stl["lo"]).max(),
+                                        np.abs(np.array([bb.XMax, bb.YMax, bb.ZMax]) - stl["hi"]).max()))
+    gap = 0.0
+    for f in faces:
+        s = f.Surface
+        for e in f.Edges:
+            for p in e.discretize(7):
+                q = s.value(*s.parameter(p))
+                gap = max(gap, (q - p).Length)
+    r["edge_gap_max"] = gap
+    return r
+
+
+def _is_full_bspline(f):
+    s = f.Surface
+    if not isinstance(s, Part.BSplineSurface):
+        return False
+    return np.allclose(f.ParameterRange, s.bounds(), atol=1e-12)
+
+
+def grid_mesh(f, nu, nv=11):
+    """Triangulate an untrimmed B-spline face on a uv grid (all u knots
+    included). Returns points, triangles (as point arrays) and the grid chord
+    error estimate (surface at cell centres vs. mean of the 4 corners)."""
+    s = f.Surface
+    u0, u1, v0, v1 = f.ParameterRange
+    us = np.unique(np.r_[np.linspace(u0, u1, nu), [k for k in s.getUKnots() if u0 <= k <= u1]])
+    vs = np.linspace(v0, v1, nv)
+    G = np.array([[tuple(s.value(u, v)) for v in vs] for u in us])           # (nu, nv, 3)
+    i, j = np.meshgrid(np.arange(len(us) - 1), np.arange(nv - 1), indexing="ij")
+    i, j = i.ravel(), j.ravel()
+    a, b, c, d = G[i, j], G[i + 1, j], G[i + 1, j + 1], G[i, j + 1]
+    tris = np.concatenate([np.stack([a, b, c], 1), np.stack([a, c, d], 1)])
+    k = np.linspace(0, len(i) - 1, min(len(i), 300)).astype(int)
+    um, vm = 0.5 * (us[i[k]] + us[i[k] + 1]), 0.5 * (vs[j[k]] + vs[j[k] + 1])
+    cen = np.array([tuple(s.value(x, y)) for x, y in zip(um, vm)])
+    err = np.max(np.linalg.norm(cen - 0.25 * (a[k] + b[k] + c[k] + d[k]), axis=1))
+    return G.reshape(-1, 3), tris, float(err)
+
+
+def shape_samples(faces, defl, cap=4000):
+    """Sample points on the shape and a triangulation of it.
+    Untrimmed B-spline faces (G4/G5): explicit uv grid. FreeCAD's tessellate()
+    produced 650k-810k triangles on the single cubic G5 face regardless of the
+    deflection passed (1e-6 or 3e-5), making the test take >10 min.
+    Everything else (planes, G0's trimmed faces): tessellate(defl)."""
+    pts, tris, grid_err = [], [], 0.0
+    nu = max(10, int(3000 / len(faces)))
+    for f in faces:
+        if _is_full_bspline(f):
+            P, T3, e = grid_mesh(f, nu)
+            pts.append(P); tris.append(T3); grid_err = max(grid_err, e)
+            continue
+        P, T = f.tessellate(defl)
+        P = np.array([[p.x, p.y, p.z] for p in P])
+        if len(P) == 0:
+            continue
+        T = np.array(T, int).reshape(-1, 3)
+        pts.append(P)
+        if isinstance(f.Surface, Part.Plane) and len(T):
+            pts.append(P[T].mean(1))
+        tris.append(P[T])
+    pts = np.vstack(pts)
+    if len(pts) > cap:
+        pts = pts[np.linspace(0, len(pts) - 1, cap).astype(int)]
+    return pts, np.vstack(tris), grid_err
+
+
+def test_fidelity(faces, stl, tol):
+    # tessellation deflection: 1% of the geometry tolerance, never below 1e-6
+    # (1e-6 on a smooth cubic face gave 650k triangles and a 7 min test)
+    defl = max(1e-6 * CONFIG["SCALE"], 0.01 * tol)
+    P, T, grid_err = shape_samples(faces, defl)
+    d_shape_to_stl = g.point_tri_distance(P, stl["A"], stl["B"], stl["C"])
+    Q = stl["samples"]
+    # PASS metric: exact distance to a dense tessellation (deflection 1e-6; exact
+    # for planar faces). OCC distToShape is kept only as a diagnostic: on C0
+    # B-spline faces it occasionally returns a wrong local minimum (see README).
+    d_stl_to_shape = g.point_tri_distance(Q, T[:, 0], T[:, 1], T[:, 2])
+    a, b = g.stats(d_shape_to_stl), g.stats(d_stl_to_shape)
+    TA = 0.5 * np.linalg.norm(np.cross(T[:, 1] - T[:, 0], T[:, 2] - T[:, 0]), axis=1).sum()
+    out = {"shape_to_stl": a, "stl_to_shape": b, "two_way_max": max(a["max"], b["max"]),
+           "n_tess_tris": len(T), "tess_area_rel_err": TA / stl["area"] - 1.0,
+           "deflection": defl, "uv_grid_chord_err": grid_err}
+    if len(faces) <= 50:
+        comp = Part.Compound(faces)
+        d_occ = np.array([comp.distToShape(Part.Vertex(Vec(*q)))[0] for q in Q])
+        out["stl_to_shape_occ_diag"] = g.stats(d_occ)
+        out["occ_vs_tess_max_disagreement"] = float(np.max(np.abs(d_occ - d_stl_to_shape)))
+    return out
+
+
+# ============================================================================
+# TEST C/E: ray tracing correctness + performance
+# ============================================================================
+
+def make_scene(faces):
+    """Assemble like production: one Part::Feature per face with a material label."""
+    t0 = time.perf_counter()
+    doc = FreeCAD.newDocument("otsuntest")
+    for i, f in enumerate(faces):
+        o = doc.addObject("Part::Feature", "F%d" % i)
+        o.Shape = f
+        o.Label = LABEL % i
+    doc.recompute()
+    t1 = time.perf_counter()
+    scene = otsun.Scene.from_freecad_document(doc)
+    t2 = time.perf_counter()
+    return doc, scene, t1 - t0, t2 - t1
+
+
+def trace(scene, engine, rays, pol):
+    O, D = rays
+    RayCls = ENGINES[engine]
+    face_index = {id(f): i for i, f in enumerate(scene.faces)}
+    random.seed(CONFIG["SEED"]); np.random.seed(CONFIG["SEED"])
+
+    def one(k):
+        r = RayCls(scene, Vec(*O[k]), Vec(*D[k]), CONFIG["WAVELENGTH"], 1.0, Vec(*pol))
+        r.run()
+        if r.Th_absorbed:
+            p, n = r.points[-1], r.last_normal
+            return True, (p.x, p.y, p.z), (n.x, n.y, n.z), face_index.get(id(r.last_touched_face), -1)
+        return False, (np.nan,) * 3, (np.nan,) * 3, -1
+
+    for k in range(min(CONFIG["WARMUP_RAYS"], len(O))):
+        one(k)
+    times, res = [], []
+    n_total = len(O)
+    n_run, extrapolated = n_total, False
+    for k in range(n_total):
+        t = time.perf_counter(); res.append(one(k)); times.append(time.perf_counter() - t)
+        if k == 19:
+            est = np.mean(times) * n_total
+            if est > CONFIG["BUDGET_S"]:
+                n_run = max(20, int(CONFIG["BUDGET_S"] / np.mean(times)))
+                extrapolated = True
+        if k + 1 >= n_run:
+            break
+    hit = np.array([r[0] for r in res])
+    P = np.array([r[1] for r in res]); N = np.array([r[2] for r in res])
+    fidx = np.array([r[3] for r in res])
+    times = np.array(times)
+    perf = {"n_rays_run": len(res), "extrapolated": extrapolated,
+            "ray_ms_mean": 1e3 * times.mean(), "ray_ms_median": 1e3 * np.median(times),
+            "ray_ms_p95": 1e3 * np.percentile(times, 95),
+            "total_s_for_N": float(times.mean() * n_total) if extrapolated else float(times.sum())}
+    return {"hit": hit, "P": P, "N": N, "face": fidx}, perf
+
+
+def ray_metrics(tr, gt, stl, tol, shape_vertices):
+    n = len(tr["hit"])
+    ghit, gP, gN = gt["hit"][:n], gt["P"][:n], gt["N"][:n]
+    hit, P, N = tr["hit"], tr["P"], tr["N"]
+    both = hit & ghit
+    err = np.linalg.norm(P[both] - gP[both], axis=1)
+    m = {"hit_rate": float(hit.mean()), "gt_hit_rate": float(ghit.mean()),
+         "hit_rate_diff_pp": float(100 * (hit.mean() - ghit.mean())),
+         "otsun_only_hits": int((hit & ~ghit).sum()), "gt_only_hits": int((~hit & ghit).sum()),
+         "hit_err": g.stats(err)}
+    Ph = P[hit]
+    if len(Ph):
+        d = g.point_tri_distance(Ph, stl["A"], stl["B"], stl["C"])
+        m["hit_to_stl"] = g.stats(d)
+        m["off_surface_frac"] = float((d > 3 * tol + 1e-6 * CONFIG["SCALE"]).mean())
+        keys = [tuple(k) for k in np.round(Ph / (1e-6 * CONFIG["SCALE"])).astype(np.int64)]
+        cnt = {}
+        for k in keys:
+            cnt[k] = cnt.get(k, 0) + 1
+        m["dup_frac"] = float(sum(c for c in cnt.values() if c > 1) / len(keys))
+        m["n_repeated_points"] = int(sum(1 for c in cnt.values() if c > 1))
+        dv = np.min(np.linalg.norm(Ph[:, None, :] - shape_vertices[None], axis=2), axis=1)
+        m["vertex_snapped_frac"] = float((dv < 1e-6 * CONFIG["SCALE"]).mean())
+    else:
+        m.update({"hit_to_stl": g.stats([]), "off_surface_frac": None, "dup_frac": None,
+                  "n_repeated_points": 0, "vertex_snapped_frac": None})
+    if both.any():
+        c = np.abs(np.sum(N[both] * gN[both], 1)) / np.linalg.norm(N[both], axis=1)
+        m["normal_err_deg"] = g.stats(np.degrees(np.arccos(np.clip(c, -1, 1))))
+    else:
+        m["normal_err_deg"] = g.stats([])
+    bx, by = CONFIG["FLUX_BINS"]
+    rng = [[stl["lo"][0], stl["hi"][0]], [stl["lo"][1], stl["hi"][1]]]
+    ho = np.histogram2d(Ph[:, 0], Ph[:, 1], [bx, by], range=rng)[0] if len(Ph) else np.zeros((bx, by))
+    gp = gP[ghit]
+    hg = np.histogram2d(gp[:, 0], gp[:, 1], [bx, by], range=rng)[0]
+    m["flux_l1"] = float(np.abs(ho - hg).sum() / max(hg.sum(), 1))
+    return m
+
+
+def equivalence(a, b):
+    n = min(len(a["hit"]), len(b["hit"]))
+    same_hit = a["hit"][:n] == b["hit"][:n]
+    both = a["hit"][:n] & b["hit"][:n]
+    dp = np.linalg.norm(a["P"][:n][both] - b["P"][:n][both], axis=1)
+    same_face = a["face"][:n] == b["face"][:n]
+    return {"n_compared": int(n), "hit_mismatch": int((~same_hit).sum()),
+            "face_mismatch": int((~same_face).sum()),
+            "max_point_diff": float(dp.max()) if len(dp) else 0.0,
+            "equal": bool(same_hit.all() and same_face.all() and (len(dp) == 0 or dp.max() <= 1e-9))}
+
+
+# ============================================================================
+# PASS / FAIL
+# ============================================================================
+
+def verdict(rec, strip_len):
+    A, B = rec.get("validity", {}), rec.get("fidelity", {})
+    tol = rec.get("tol", PASS["lossless_tol"])
+    checks = {}
+    if A:
+        checks["valid"] = A["all_valid"]
+        checks["edge_gap"] = A["edge_gap_max"] <= PASS["edge_gap_rel"] * strip_len
+    if B:
+        checks["fidelity"] = B["two_way_max"] <= tol * 1.0001
+    for eng in ("R0", "R1"):
+        m = rec.get("rays", {}).get(eng)
+        if not m:
+            continue
+        checks[eng + "_hit_rate"] = abs(m["hit_rate_diff_pp"]) <= PASS["hit_rate_pp"]
+        checks[eng + "_dup"] = m["dup_frac"] is not None and m["dup_frac"] < PASS["dup_frac"]
+        p95 = m["hit_err"]["p95"]
+        checks[eng + "_p95_err"] = p95 is not None and p95 <= PASS["p95_factor"] * tol + 1e-6 * CONFIG["SCALE"]
+        checks[eng + "_flux"] = m["flux_l1"] <= PASS["flux_l1"]
+    if "equivalence" in rec:
+        checks["R1_equals_R0"] = rec["equivalence"]["equal"]
+    rec["checks"] = checks
+    rec["PASS"] = bool(checks) and all(checks.values()) and not rec.get("errors")
+    return rec
+
+
+# ============================================================================
+# MAIN
+# ============================================================================
+
+def main():
+    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    outdir = os.path.join(HERE, "results", stamp)
+    os.makedirs(outdir, exist_ok=True)
+    log("FreeCAD %s | OTSun %s | numpy %s" % (".".join(FreeCAD.Version()[:3]),
+                                              getattr(otsun, "__version__", "?"), np.__version__))
+    log("Output: " + outdir)
+
+    # --- reference mesh, rays, ground truth -------------------------------
+    V, F = g.load_stl_ascii(CONFIG["STL_PATH"], scale=CONFIG["SCALE"])
+    nrm, area = g.tri_normals_areas(V, F)
+    A, B, C = V[F[:, 0]], V[F[:, 1]], V[F[:, 2]]
+    stl = {"A": A, "B": B, "C": C, "area": area.sum(), "lo": V.min(0), "hi": V.max(0),
+           "samples": np.vstack([V, (A + B + C) / 3])}
+    strip_len = stl["hi"][0] - stl["lo"][0]
+    log("STL: %d vertices, %d triangles, area %.6g, strip length %.6g" % (len(V), len(F), stl["area"], strip_len))
+
+    th, ph = math.radians(CONFIG["SUN_ZENITH"]), math.radians(CONFIG["SUN_AZIMUTH"])
+    sun = np.array([math.sin(th) * math.cos(ph), math.sin(th) * math.sin(ph), -math.cos(th)])
+    O, D, pol = g.make_rays(V, sun, CONFIG["N_RAYS"], CONFIG["SEED"])
+    t, ti = g.first_hits(O, D, A, B, C)
+    ghit = np.isfinite(t)
+    gt = {"hit": ghit, "P": O + D * np.where(ghit, t, 0)[:, None], "N": np.where(ghit[:, None], nrm[ti], np.nan)}
+    log("Rays: %d, sun dir %s, ground-truth hit rate %.3f" % (len(O), np.round(sun, 4), ghit.mean()))
+
+    records = []
+    for gid, builder in geometry_list(V, F):
+        log("\n=== %s ===" % gid)
+        rec = {"id": gid, "errors": {}}
+        records.append(rec)
+        doc = None
+        try:
+            t0 = time.perf_counter()
+            faces, tol, notes = builder()
+            rec["build_s"] = time.perf_counter() - t0
+            rec["tol"], rec["notes"] = tol, notes
+            log("  built %d faces in %.2fs  notes=%s" % (len(faces), rec["build_s"], notes))
+        except Exception:
+            rec["errors"]["build"] = traceback.format_exc()
+            log("  BUILD FAILED\n" + rec["errors"]["build"])
+            continue
+        for name, fn in (("validity", lambda: test_validity(faces, stl)),
+                         ("fidelity", lambda: test_fidelity(faces, stl, tol))):
+            try:
+                t0 = time.perf_counter()
+                rec[name] = fn()
+                log("  %s (%.1fs): %s" % (name, time.perf_counter() - t0,
+                                         {k: v for k, v in rec[name].items() if not isinstance(v, dict)}))
+            except Exception:
+                rec["errors"][name] = traceback.format_exc()
+                log("  %s FAILED\n%s" % (name, rec["errors"][name]))
+        try:
+            doc, scene, rec["doc_s"], rec["scene_s"] = make_scene(faces)
+            rec["scene_faces"] = len(scene.faces)
+            shape_vertices = np.array([[v.X, v.Y, v.Z] for v in Part.Compound(faces).Vertexes])
+            rec["rays"], rec["perf"], traces = {}, {}, {}
+            for eng in ("R0", "R1"):
+                try:
+                    tr, perf = trace(scene, eng, (O, D), pol)
+                    traces[eng] = tr
+                    rec["perf"][eng] = perf
+                    rec["rays"][eng] = ray_metrics(tr, gt, stl, tol, shape_vertices)
+                    m = rec["rays"][eng]
+                    log("  %s: %.2f ms/ray (median %.2f)%s | hit %.3f (gt %.3f) | err p95 %s | dup %.3f | flux L1 %.3f"
+                        % (eng, perf["ray_ms_mean"], perf["ray_ms_median"],
+                           " EXTRAPOLATED" if perf["extrapolated"] else "",
+                           m["hit_rate"], m["gt_hit_rate"], m["hit_err"]["p95"], m["dup_frac"] or 0, m["flux_l1"]))
+                except Exception:
+                    rec["errors"]["rays_" + eng] = traceback.format_exc()
+                    log("  %s FAILED\n%s" % (eng, rec["errors"]["rays_" + eng]))
+            if "R0" in traces and "R1" in traces:
+                rec["equivalence"] = equivalence(traces["R0"], traces["R1"])
+                rec["R1_speedup"] = rec["perf"]["R0"]["ray_ms_mean"] / rec["perf"]["R1"]["ray_ms_mean"]
+                log("  R1 vs R0: %s, speedup x%.1f" % (rec["equivalence"], rec["R1_speedup"]))
+            rec["_hits"] = {e: traces[e]["P"][traces[e]["hit"]].tolist() for e in traces}
+        except Exception:
+            rec["errors"]["scene"] = traceback.format_exc()
+            log("  SCENE FAILED\n" + rec["errors"]["scene"])
+        finally:
+            if doc is not None:
+                FreeCAD.closeDocument(doc.Name)
+        verdict(rec, strip_len)
+        log("  -> %s  %s" % ("PASS" if rec["PASS"] else "FAIL",
+                             [k for k, v in rec.get("checks", {}).items() if not v]))
+
+    # --- outputs ------------------------------------------------------------
+    for rec in records:
+        if rec["id"].startswith("G0"):
+            rec["negative_control_ok"] = not rec["PASS"]
+            if rec["PASS"]:
+                log("WARNING: negative control %s PASSED - validators are not sensitive enough" % rec["id"])
+    hits = {r["id"]: r.pop("_hits", {}) for r in records}
+    meta = {"config": CONFIG, "pass": PASS, "freecad": FreeCAD.Version()[:4],
+            "sun_dir": sun.tolist(), "stl_area": stl["area"], "strip_len": strip_len,
+            "gt_hit_rate": float(ghit.mean())}
+    with open(os.path.join(outdir, "results.json"), "w") as f:
+        json.dump({"meta": meta, "records": records}, f, indent=1, default=float)
+
+    cols = ["id", "PASS", "n_faces", "build_s", "scene_s", "valid", "edge_gap", "fid_max",
+            "R0_ms", "R1_ms", "speedup", "R1==R0", "hit", "gt_hit", "err_p50", "err_p95", "err_max",
+            "dup", "vsnap", "offsurf", "nrm_p95", "flux_L1", "failed_checks"]
+    rows = []
+    for r in records:
+        A_, B_ = r.get("validity", {}), r.get("fidelity", {})
+        m = r.get("rays", {}).get("R0") or r.get("rays", {}).get("R1") or {}
+        p = r.get("perf", {})
+        he = m.get("hit_err", {})
+        rows.append([r["id"], r.get("PASS"), A_.get("n_faces"), r.get("build_s"), r.get("scene_s"),
+                     A_.get("all_valid"), A_.get("edge_gap_max"), B_.get("two_way_max"),
+                     p.get("R0", {}).get("ray_ms_mean"), p.get("R1", {}).get("ray_ms_mean"), r.get("R1_speedup"),
+                     r.get("equivalence", {}).get("equal"), m.get("hit_rate"), m.get("gt_hit_rate"),
+                     he.get("median"), he.get("p95"), he.get("max"), m.get("dup_frac"),
+                     m.get("vertex_snapped_frac"), m.get("off_surface_frac"),
+                     (m.get("normal_err_deg") or {}).get("p95"), m.get("flux_l1"),
+                     ";".join([k for k, v in r.get("checks", {}).items() if not v] + list(r["errors"]))])
+    with open(os.path.join(outdir, "summary.csv"), "w", newline="") as f:
+        w = csv.writer(f); w.writerow(cols); w.writerows(rows)
+
+    def fmt(x):
+        if x is None: return "-"
+        if isinstance(x, bool): return "Y" if x else "N"
+        if isinstance(x, (int, np.integer)): return str(x)
+        if isinstance(x, float): return "%.3g" % x
+        return str(x)
+    table = [cols] + [[fmt(x) for x in row] for row in rows]
+    widths = [max(len(r[i]) for r in table) for i in range(len(cols))]
+    log("\n" + "\n".join("  ".join(c.ljust(w) for c, w in zip(r, widths)) for r in table))
+
+    # --- plots ---------------------------------------------------------------
+    try:
+        import matplotlib
+        matplotlib.use("Agg")
+        import matplotlib.pyplot as plt
+        ids = [r["id"] for r in records if hits.get(r["id"], {}).get("R0") is not None]
+        ncol = 3; nrow = max(1, math.ceil(len(ids) / ncol))
+        fig, axs = plt.subplots(nrow, ncol, figsize=(5 * ncol, 2.6 * nrow), squeeze=False)
+        gp = gt["P"][ghit]
+        for ax, gid in zip(axs.flat, ids):
+            h = np.array(hits[gid]["R0"]).reshape(-1, 3)
+            ax.scatter(gp[:, 0], gp[:, 1], s=2, c="0.7", label="ground truth")
+            if len(h):
+                ax.scatter(h[:, 0], h[:, 1], s=2, c="C3", label="OTSun R0")
+            ax.set_title(gid, fontsize=9); ax.set_aspect("equal")
+        for ax in list(axs.flat)[len(ids):]:
+            ax.axis("off")
+        axs.flat[0].legend(fontsize=7, markerscale=3)
+        fig.tight_layout(); fig.savefig(os.path.join(outdir, "hit_maps.png"), dpi=150); plt.close(fig)
+
+        ok = [r for r in records if r.get("perf", {}).get("R0") and r.get("validity")]
+        fig, ax = plt.subplots(1, 2, figsize=(10, 4))
+        for eng, mk in (("R0", "o"), ("R1", "s")):
+            xs = [r["validity"]["n_faces"] for r in ok if eng in r["perf"]]
+            ys = [r["perf"][eng]["ray_ms_mean"] for r in ok if eng in r["perf"]]
+            ax[0].loglog(xs, ys, mk, label=eng)
+        for r in ok:
+            ax[0].annotate(r["id"], (r["validity"]["n_faces"], r["perf"]["R0"]["ray_ms_mean"]), fontsize=6)
+        ax[0].set_xlabel("faces"); ax[0].set_ylabel("ms / ray"); ax[0].legend(); ax[0].set_title("ray time vs face count")
+        for r in ok:
+            he = r["rays"]["R0"]["hit_err"]
+            if he["max"] is not None and r.get("fidelity"):
+                ax[1].loglog(r["validity"]["n_faces"], max(he["p95"], 1e-12), "o")
+                ax[1].annotate(r["id"], (r["validity"]["n_faces"], max(he["p95"], 1e-12)), fontsize=6)
+        ax[1].set_xlabel("faces"); ax[1].set_ylabel("p95 hit error (scene units)"); ax[1].set_title("accuracy vs face count")
+        fig.tight_layout(); fig.savefig(os.path.join(outdir, "performance.png"), dpi=150); plt.close(fig)
+    except Exception:
+        log("plotting failed:\n" + traceback.format_exc())
+    log("\nWrote " + outdir)
+
+
+main()
