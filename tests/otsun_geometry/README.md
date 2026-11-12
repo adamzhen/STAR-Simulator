@@ -28,7 +28,7 @@ Optional environment variables:
 - `OTSUN_TEST_ONLY=G1_triangles,G4_K1` runs only the listed geometries.
 - `OTSUN_TEST_BUDGET` is the number of seconds allowed per (geometry, engine). If the estimate after 20 rays exceeds it, only a subset of rays is traced and the result is flagged `extrapolated`.
 
-All other settings are in the `CONFIG` and `PASS` dicts at the top of the macro. Inputs are read by absolute path from `Scenarios/DogboneScenario1/DogboneTest.stl`, `deformedtest.stp` and `Scenarios/DogboneScenario1/SMAStripDeformed.stp`. Those files are gitignored, so they are not part of this branch.
+All other settings are in the `CONFIG` and `PASS` dicts at the top of the macro. The reference mesh is `tests/otsun_geometry/DogboneTest.stl` (Abaqus STL of the deformed strip). The G0 inputs are read by absolute path from `deformedtest.stp` and `Scenarios/DogboneScenario1/SMAStripDeformed.stp`. Those two STEP files are gitignored, so they are not part of this branch.
 
 A full run with 500 rays takes about 10 minutes, most of it the fidelity tests on the curved faces.
 

@@ -19,7 +19,7 @@ import os
 
 REPO = r"C:/Users/adzheng/STAR-Simulator"
 CONFIG = {
-    "STL_PATH": REPO + "/Scenarios/DogboneScenario1/DogboneTest.stl",
+    "STL_PATH": REPO + "/tests/otsun_geometry/DogboneTest.stl",
     "STEP_PATHS": {  # G0 negative controls (Abaqus FaceFromElementFaces exports)
         "G0_deformedtest": REPO + "/deformedtest.stp",
         "G0_SMAStripDeformed": REPO + "/Scenarios/DogboneScenario1/SMAStripDeformed.stp",

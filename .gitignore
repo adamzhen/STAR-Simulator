@@ -3,7 +3,8 @@
 *.stt
 *.mdl
 *.sim
+*.FCBak
 
 # User scenario folders
 /Scenarios/TestScenario/
-/Scenarios/DogboneScenario1/
+/Scenarios/*/cae_saves/

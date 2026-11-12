@@ -1,0 +1,27 @@
+run_no,phase,iteration,category,start_time,seconds,status
+0.3,setup,,prep_job,2026-11-11 16:21:33,357.358,ok
+0.3,setup,,setup_total,2026-11-11 16:21:33,360.472,ok
+0.3,setup,,model_build,2026-11-11 16:27:34,3.114,ok
+0.3,iteration,1,freecad_io,2026-11-11 16:27:34,0.029,ok
+0.3,iteration,1,ray_tracing,2026-11-11 16:27:34,6.195,ok
+0.3,iteration,1,freecad_io,2026-11-11 16:27:40,0.005,ok
+0.3,iteration,1,flux_mapping,2026-11-11 16:27:40,2.032,ok
+0.3,iteration,1,model_update,2026-11-11 16:27:42,0.134,ok
+0.3,iteration,1,flux_mapping,2026-11-11 16:27:42,0.120,ok
+0.3,iteration,1,model_update,2026-11-11 16:27:42,0.089,ok
+0.3,iteration,1,abaqus_analysis,2026-11-11 16:27:42,20.372,ok
+0.3,iteration,1,geometry_export,2026-11-11 16:28:03,1.186,ok
+0.3,iteration,1,iteration_total,2026-11-11 16:28:04,30.168,ok
+0.3,iteration,2,freecad_io,2026-11-11 16:28:04,0.030,ok
+0.3,iteration,2,ray_tracing,2026-11-11 16:28:04,5.998,ok
+0.3,iteration,2,freecad_io,2026-11-11 16:28:10,0.006,ok
+0.3,iteration,2,flux_mapping,2026-11-11 16:28:10,0.638,ok
+0.3,iteration,2,model_update,2026-11-11 16:28:11,0.138,ok
+0.3,iteration,2,flux_mapping,2026-11-11 16:28:11,0.123,ok
+0.3,iteration,2,model_update,2026-11-11 16:28:11,0.126,ok
+0.3,iteration,2,abaqus_analysis,2026-11-11 16:28:11,36.252,ok
+0.3,iteration,2,geometry_export,2026-11-11 16:28:47,1.254,ok
+0.3,iteration,2,iteration_total,2026-11-11 16:28:48,44.572,ok
+0.3,post,,plot_mapped_flux,2026-11-11 16:28:48,0.575,ok
+0.3,post,,plot_hfl,2026-11-11 16:28:49,2.640,ok
+0.3,post,,tip_displacement,2026-11-11 16:28:52,1.100,ok

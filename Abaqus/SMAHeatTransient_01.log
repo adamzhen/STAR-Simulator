@@ -2,22 +2,33 @@ Analysis initiated from SIMULIA established products
 Abaqus JOB SMAHeatTransient_01
 Abaqus 2025
 Abaqus License Manager checked out the following licenses:
-Abaqus/Standard checked out 5 tokens from Flexnet server hprc-license.tamu.edu.
-<49 out of 443 licenses remain available>.
-Abaqus Warning: Your Abaqus license will expire in 17 days.
+Abaqus/Standard checked out 5 tokens from Flexnet server coe-vtls7.engr.tamu.edu.
+<236 out of 443 licenses remain available>.
+Begin Compiling Abaqus/Standard User Subroutines
+11/11/2026 9:59:19 PM
+Intel(R) Fortran Compiler for applications running on Intel(R) 64, Version 2026.1.0 Build 20260617
+Copyright (C) 1985-2026 Intel Corporation. All rights reserved.
+
+End Compiling Abaqus/Standard User Subroutines
+Begin Linking Abaqus/Standard User Subroutines
+   Creating library standardU.lib and object standardU.exp
+Hartl_UMAT_Hacked.obj : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+libircmt.lib(fast_mem_ops.c.obj) : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+End Linking Abaqus/Standard User Subroutines
+11/11/2026 9:59:20 PM
 Begin Analysis Input File Processor
-10/13/2026 12:42:38 PM
+11/11/2026 9:59:20 PM
 Run pre.exe
-10/13/2026 12:42:42 PM
+11/11/2026 9:59:24 PM
 End Analysis Input File Processor
 Begin Abaqus/Standard Analysis
-10/13/2026 12:42:42 PM
+11/11/2026 9:59:24 PM
 Run standard.exe
-10/13/2026 12:42:52 PM
+11/11/2026 9:59:50 PM
 End Abaqus/Standard Analysis
 Begin SIM Wrap-up
-10/13/2026 12:42:53 PM
+11/11/2026 9:59:51 PM
 Run SMASimUtility.exe
-10/13/2026 12:42:53 PM
+11/11/2026 9:59:51 PM
 End SIM Wrap-up
 Abaqus JOB SMAHeatTransient_01 COMPLETED

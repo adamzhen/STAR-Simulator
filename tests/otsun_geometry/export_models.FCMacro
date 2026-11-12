@@ -1,0 +1,68 @@
+# -*- coding: utf-8 -*-
+"""Save each candidate geometry as a .FCStd so it can be inspected in the FreeCAD GUI.
+
+Reuses the builders in test_geometries.FCMacro (its main() is not run).
+Run headless:
+    "C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe" export_models.FCMacro
+Output: results/models/<geometry id>.FCStd, each with
+    - "<id>"         : the candidate shape (one compound of all its faces)
+    - "STL_reference": the Abaqus STL mesh, for overlay/comparison
+plus results/models/overview.png (face boundaries, top view).
+"""
+import os
+
+REPO = r"C:/Users/adzheng/STAR-Simulator"
+HERE = REPO + "/tests/otsun_geometry"
+SRC = os.path.join(HERE, "test_geometries.FCMacro")
+
+ns = {"__file__": SRC, "__name__": "test_geometries"}
+src = open(SRC, encoding="utf-8").read()
+src = src[:src.rstrip().rfind("main()")]          # drop the trailing main() call
+exec(compile(src, SRC, "exec"), ns)
+
+import FreeCAD, Part, Mesh
+import numpy as np
+g = ns["g"]
+
+KEEP = ["G0_deformedtest", "G0_SMAStripDeformed", "G1_triangles", "G2_coplanar",
+        "G4_K1", "G4_K3", "G4_span", "G5_tol1e-03", "G5_tol1e-04", "G5c_tol1e-04"]
+
+outdir = os.path.join(HERE, "results", "models")
+os.makedirs(outdir, exist_ok=True)
+V, F = g.load_stl_ascii(ns["CONFIG"]["STL_PATH"], scale=ns["CONFIG"]["SCALE"])
+stl_mesh = Mesh.Mesh([[list(map(float, V[i])) for i in tri] for tri in F])
+
+edges_for_plot = {}
+for gid, builder in ns["geometry_list"](V, F):
+    if gid not in KEEP:
+        continue
+    faces, tol, notes = builder()
+    comp = Part.makeCompound(faces)
+    doc = FreeCAD.newDocument(gid.replace("-", "_"))
+    o = doc.addObject("Part::Feature", gid.replace("-", "_"))
+    o.Label = "%s (%d faces)" % (gid, len(faces))
+    o.Shape = comp
+    m = doc.addObject("Mesh::Feature", "STL_reference")
+    m.Mesh = stl_mesh
+    doc.recompute()
+    path = os.path.join(outdir, gid + ".FCStd")
+    doc.saveAs(path)
+    FreeCAD.closeDocument(doc.Name)
+    pts = [np.array([(p.x, p.y, p.z) for p in e.discretize(Number=30 if len(comp.Edges) > 50 else 1500)]) for e in comp.Edges]
+    edges_for_plot[gid] = (len(faces), pts)
+    print("saved %-22s %5d faces -> %s" % (gid, len(faces), path))
+
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+ids = [k for k in KEEP if k in edges_for_plot]
+fig, axs = plt.subplots(len(ids), 1, figsize=(12, 1.7 * len(ids)))
+for ax, gid in zip(axs, ids):
+    n, pts = edges_for_plot[gid]
+    for p in pts:
+        ax.plot(p[:, 0], p[:, 1], lw=0.4, color="k")
+    ax.set_title("%s  (%d faces)" % (gid, n), fontsize=9, loc="left")
+    ax.set_aspect("equal"); ax.set_xticks([]); ax.set_yticks([])
+fig.tight_layout()
+fig.savefig(os.path.join(outdir, "overview.png"), dpi=130)
+print("overview.png written")

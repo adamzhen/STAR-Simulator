@@ -27,6 +27,8 @@ import numpy as np
 
 from scipy.spatial import cKDTree
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 (needed for 3d projection)
+from contextlib import contextmanager
+import builtins as _bi  # `from abaqus import *` shadows sum/max/min with XY-data versions
 
 # Global variables
 _log_file = None
@@ -64,6 +66,214 @@ def log(msg):
         _log_file.write(timestamped + '\n')
     else:
         raise RuntimeError("Logging not initialized. Call init_logging(log_file_path) first.")
+
+# ---------------------------------------------
+# Runtime reporting
+# ---------------------------------------------
+
+class RuntimeReport:
+    """Records wall-clock runtimes per phase/iteration/category.
+
+    Every timed block is appended (and flushed) to csv_path the moment it
+    finishes, so partial runs keep their data. A human-readable summary is
+    rewritten to summary_path whenever write_summary() is called, and
+    automatically if an exception escapes a timed section.
+
+    Usage:
+        timer = RuntimeReport(csv_path, summary_path, run_no)
+        with timer.section('ray_tracing', iteration=3):
+            run_freecad_macro(...)
+        timer.record('iteration_total', seconds, iteration=3)
+        timer.write_summary()
+
+    phase is one of 'setup', 'iteration', 'post' (free-form; used only to
+    group the summary).
+    """
+
+    CSV_HEADER = "run_no,phase,iteration,category,start_time,seconds,status\n"
+
+    def __init__(self, csv_path, summary_path, run_no):
+        self.csv_path = csv_path
+        self.summary_path = summary_path
+        self.run_no = run_no
+        self.records = []  # dicts: phase, iteration, category, seconds, status
+        self._t0 = time.perf_counter()
+        self._started = datetime.now()
+        with open(self.csv_path, 'w') as f:
+            f.write(self.CSV_HEADER)
+
+    def record(self, category, seconds, iteration=None, phase='iteration',
+               start_time=None, status='ok'):
+        if start_time is None:
+            start_time = datetime.now()
+        rec = {'phase': phase, 'iteration': iteration, 'category': category,
+               'seconds': float(seconds), 'status': status}
+        self.records.append(rec)
+        with open(self.csv_path, 'a') as f:
+            f.write("%s,%s,%s,%s,%s,%.3f,%s\n" % (
+                self.run_no, phase, '' if iteration is None else iteration,
+                category, start_time.strftime('%Y-%m-%d %H:%M:%S'),
+                float(seconds), status))
+            f.flush()
+        return rec
+
+    @contextmanager
+    def section(self, category, iteration=None, phase='iteration'):
+        start_wall = datetime.now()
+        t = time.perf_counter()
+        status = 'ok'
+        try:
+            yield
+        except BaseException:
+            status = 'error'
+            raise
+        finally:
+            self.record(category, time.perf_counter() - t, iteration=iteration,
+                        phase=phase, start_time=start_wall, status=status)
+            if status == 'error':
+                try:
+                    self.write_summary()
+                except Exception:
+                    pass
+
+    def total(self, phase=None, category=None, iteration=None):
+        return _bi.sum(r['seconds'] for r in self.records
+                   if (phase is None or r['phase'] == phase)
+                   and (category is None or r['category'] == category)
+                   and (iteration is None or r['iteration'] == iteration))
+
+    def write_summary(self):
+        def ordered_categories(phase):
+            cats = []
+            for r in self.records:
+                if r['phase'] == phase and r['category'] not in cats:
+                    cats.append(r['category'])
+            # Keep first-seen order, but put *_total rollups last
+            return sorted(cats, key=lambda c: c.endswith('_total'))
+
+        lines = []
+        lines.append("STAR Simulator runtime summary -- run %s" % self.run_no)
+        lines.append("Started: %s   Updated: %s   Elapsed: %.1f s" % (
+            self._started.strftime('%Y-%m-%d %H:%M:%S'),
+            datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+            time.perf_counter() - self._t0))
+        errors = [r for r in self.records if r['status'] != 'ok']
+        if errors:
+            lines.append("!! %d section(s) ended in error; last: %s (iteration %s)" % (
+                len(errors), errors[-1]['category'], errors[-1]['iteration']))
+        lines.append("")
+
+        # Setup and post-processing: flat category lists
+        for phase, title in (('setup', 'MODEL SETUP'), ('post', 'POST-PROCESSING')):
+            cats = ordered_categories(phase)
+            if not cats:
+                continue
+            lines.append("== %s ==" % title)
+            for c in cats:
+                lines.append("  %-24s %10.1f s" % (c, self.total(phase=phase, category=c)))
+            lines.append("")
+
+        # Iterations: table of iteration x category
+        cats = ordered_categories('iteration')
+        iters = []
+        for r in self.records:
+            if r['phase'] == 'iteration' and r['iteration'] not in iters:
+                iters.append(r['iteration'])
+        if cats:
+            lines.append("== ITERATIONS (seconds) ==")
+            w = _bi.max(10, _bi.max(len(c) for c in cats) + 2)
+            lines.append("%-6s" % "iter" + "".join(("%" + str(w) + "s") % c for c in cats))
+            for it in iters:
+                row = "%-6s" % it
+                for c in cats:
+                    row += ("%" + str(w) + ".1f") % self.total('iteration', c, it)
+                lines.append(row)
+
+            n = float(len(iters)) if iters else 1.0
+            lines.append("%-6s" % "total" + "".join(
+                ("%" + str(w) + ".1f") % self.total('iteration', c) for c in cats))
+            lines.append("%-6s" % "mean" + "".join(
+                ("%" + str(w) + ".1f") % (self.total('iteration', c) / n) for c in cats))
+
+            # Share of iteration time (excluding the *_total rollup)
+            parts = [c for c in cats if not c.endswith('_total')]
+            denom = _bi.sum(self.total('iteration', c) for c in parts)
+            if denom > 0:
+                lines.append("")
+                lines.append("Share of timed iteration work:")
+                for c in parts:
+                    s = self.total('iteration', c)
+                    lines.append("  %-24s %10.1f s  %5.1f%%" % (c, s, 100.0 * s / denom))
+            lines.append("")
+
+        with open(self.summary_path, 'w') as f:
+            f.write("\n".join(lines) + "\n")
+
+    def plot_breakdown(self, output_dir, include_setup=True):
+        """Stacked bar chart of runtime per iteration, broken down by
+        category (*_total rollups excluded). If include_setup, a leading
+        'Setup' bar shows the setup-phase categories."""
+        bars = []  # (label, {category: seconds})
+        if include_setup:
+            setup = {}
+            for r in self.records:
+                if r['phase'] == 'setup' and not r['category'].endswith('_total'):
+                    setup[r['category']] = setup.get(r['category'], 0.0) + r['seconds']
+            if setup:
+                bars.append(('Setup', setup))
+
+        iters = []
+        for r in self.records:
+            if r['phase'] == 'iteration' and r['iteration'] not in iters:
+                iters.append(r['iteration'])
+        for it in iters:
+            d = {}
+            for r in self.records:
+                if (r['phase'] == 'iteration' and r['iteration'] == it
+                        and not r['category'].endswith('_total')):
+                    d[r['category']] = d.get(r['category'], 0.0) + r['seconds']
+            bars.append(('Iter %s' % it, d))
+
+        if not bars:
+            printlog("RuntimeReport.plot_breakdown: no data -- skipping")
+            return None
+
+        cats = []
+        for _, d in bars:
+            for c in d:
+                if c not in cats:
+                    cats.append(c)
+
+        cmap = plt.get_cmap('tab10' if len(cats) <= 10 else 'tab20')
+        x = np.arange(len(bars))
+        bottoms = np.zeros(len(bars))
+
+        plt.rcParams.update({'font.size': 12})
+        fig, ax = plt.subplots(figsize=(_bi.max(6, 1.1 * len(bars) + 3), 6))
+        for i, c in enumerate(cats):
+            vals = np.array([d.get(c, 0.0) for _, d in bars])
+            ax.bar(x, vals, bottom=bottoms, color=cmap(i % cmap.N), label=c,
+                   edgecolor='white', linewidth=0.5)
+            bottoms += vals
+
+        for xi, tot in zip(x, bottoms):
+            ax.text(xi, tot, '%.0f s' % tot, ha='center', va='bottom', fontsize=10)
+
+        ax.set_xticks(x)
+        ax.set_xticklabels([b[0] for b in bars], rotation=0 if len(bars) <= 8 else 45)
+        ax.set_ylabel('Wall-clock time (s)')
+        ax.set_title('Runtime breakdown -- run %s' % self.run_no)
+        ax.set_ylim(0, bottoms.max() * 1.1 if bottoms.max() > 0 else 1)
+        ax.legend(loc='upper left', bbox_to_anchor=(1.01, 1.0), fontsize=10, frameon=False)
+        ax.grid(axis='y', alpha=0.3)
+        ax.set_axisbelow(True)
+
+        os.makedirs(output_dir, exist_ok=True)
+        out_path = os.path.join(output_dir, 'runtime_breakdown_%s.png' % self.run_no)
+        fig.savefig(out_path, dpi=200, bbox_inches='tight')
+        plt.close(fig)
+        printlog("Saved runtime breakdown plot: %s" % out_path)
+        return out_path
 
 # ---------------------------------------------
 # Math helper functions
@@ -161,7 +371,20 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
                               object_path, iter_id, run_no, scenario_name,
                               object_name, num_rays, sun_dir,
                               solar_irradiance, object_material,
-                              absorption_only, absorptivity_dict, object_type, geometry_import, node_data = None, scene_object_paths = None):
+                              absorption_only, absorptivity_dict, object_type, geometry_import, node_data = None, scene_object_paths = None,
+                              ray_engine='FastRay', random_seed=None, geometry_export_path=None):
+    """Write the Abaqus -> FreeCAD handoff JSON.
+
+    ray_engine: 'FastRay' (default; vectorised bounding-box prefilter, same
+        results as stock OTSun, much faster on many-face meshes) or 'Ray'
+        (stock otsun.ray.Ray). The macro falls back to 'Ray' by itself if the
+        installed OTSun version has not been verified with FastRay.
+    random_seed: optional int; seeds OTSun's ray sampling in the macro so a
+        run can be reproduced exactly. None (default) = unseeded.
+    geometry_export_path: optional STEP path; the macro saves the exact
+        target geometry it ray-traces there (debugging, non-fatal).
+    """
+
     data = {
         "WORKING_DIR": working_dir,
         "FCSTD_PATH": fcstd_path,
@@ -179,7 +402,10 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
         "OBJECT_TYPE": object_type,
         "GEOMETRY_IMPORT": geometry_import,
         "NODE_DATA": node_data,
-        "SCENE_OBJECT_PATHS": scene_object_paths
+        "SCENE_OBJECT_PATHS": scene_object_paths,
+        "RAY_ENGINE": ray_engine,
+        "RANDOM_SEED": random_seed,
+        "GEOMETRY_EXPORT_PATH": geometry_export_path
     }
     with open(abaqus_to_freecad_json, 'w') as f:
         json.dump(data, f, indent=2)
@@ -229,6 +455,9 @@ def read_freecad_result(freecad_to_abaqus_json):
     flux_data_path = result.get('FLUX_DATA_PATH')
     printlog(f"FreeCAD ray tracing succeeded: {result.get('NUM_FACES')} faces, "
               f"flux data at {flux_data_path}")
+    if result.get('RAY_TRACE_SECONDS') is not None:
+        printlog("  ray engine %s, ray tracing %.2f s" % (
+            result.get('RAY_ENGINE'), result['RAY_TRACE_SECONDS']))
 
     return result, flux_data_path
 
@@ -875,15 +1104,128 @@ def export_obj_from_odb(job_name, obj_path, object_name):
     session.writeOBJFile(fileName=obj_path, canvasObjects=(vp,))
     printlog(f"Wrote OBJ to: {obj_path} (instance: {resolved_instance_name})")
     
+def run_noncritical(label, func, *args, **kwargs):
+    """Run a non-essential step (debug export, plot, ...). On failure, log
+    a warning with the traceback and return None instead of stopping the run."""
+    try:
+        return func(*args, **kwargs)
+    except Exception as e:
+        import traceback
+        printlog("WARNING: %s failed (non-critical, continuing): %s" % (label, e))
+        printlog(traceback.format_exc())
+        return None
+
+
+def triangulate_shell_elements(nodes, elements):
+    """Split shell elements into triangles for FreeCAD (one flat face each).
+
+    nodes:    {node_label: (x, y, z)}
+    elements: list of node-label tuples; 3-node (S3/S3R/S3T) elements pass
+              through, 4-node (S4/S4R/S4T) elements are split along their
+              shorter diagonal. Other node counts raise ValueError.
+
+    A slightly twisted (non-planar) quad cannot be made into a planar FreeCAD
+    face, hence the split. Either diagonal approximates the Abaqus bilinear
+    shell to within about the quad's warp, which is reported.
+
+    Returns (triangles, info) where triangles is a list of (n1, n2, n3)
+    tuples of ints and info = {'n_tri_in', 'n_quad_in', 'n_tri_out',
+    'max_quad_warp'}. max_quad_warp is the largest distance of a quad's
+    fourth node from the plane through its first three nodes (model units).
+    """
+    def sub(p, q):
+        return (p[0] - q[0], p[1] - q[1], p[2] - q[2])
+
+    def dot(p, q):
+        return p[0] * q[0] + p[1] * q[1] + p[2] * q[2]
+
+    def cross(p, q):
+        return (p[1] * q[2] - p[2] * q[1], p[2] * q[0] - p[0] * q[2], p[0] * q[1] - p[1] * q[0])
+
+    triangles = []
+    n_tri_in = 0
+    n_quad_in = 0
+    max_warp = 0.0
+    for elem in elements:
+        elem = tuple(int(n) for n in elem)
+        if len(elem) == 3:
+            triangles.append(elem)
+            n_tri_in += 1
+        elif len(elem) == 4:
+            a, b, c, d = elem
+            pa, pb, pc, pd = nodes[a], nodes[b], nodes[c], nodes[d]
+            ac, bd = sub(pc, pa), sub(pd, pb)
+            if dot(ac, ac) <= dot(bd, bd):
+                triangles.extend([(a, b, c), (a, c, d)])
+            else:
+                triangles.extend([(a, b, d), (b, c, d)])
+            n = cross(sub(pb, pa), sub(pc, pa))
+            nn = math.sqrt(dot(n, n))
+            if nn > 0.0:
+                warp = abs(dot(sub(pd, pa), n)) / nn
+                if warp > max_warp:
+                    max_warp = warp
+            n_quad_in += 1
+        else:
+            raise ValueError("Shell element with %d nodes is not supported "
+                             "(only 3- and 4-node shells): %r" % (len(elem), elem))
+    info = {'n_tri_in': n_tri_in, 'n_quad_in': n_quad_in,
+            'n_tri_out': len(triangles), 'max_quad_warp': float(max_warp)}
+    return triangles, info
+
+
+def _extract_deformed_nodes(odb, odb_instance, step_index, frame_index):
+    """Deformed node coordinates (reference coordinates + U at the given
+    step/frame) and element connectivity of one ODB instance.
+
+    Values are cast to native Python floats/ints: ODB data is
+    numpy.float32-backed and would break json.dump downstream.
+
+    Returns (nodes {label: (x, y, z)}, elements [tuple of labels]).
+    """
+    step_obj = odb.steps.keys()[step_index]
+    frame = odb.steps[step_obj].frames[frame_index]
+    disp_field = frame.fieldOutputs['U'].getSubset(region=odb_instance)
+
+    node_coords_ref = {
+        node.label: tuple(float(c) for c in node.coordinates)
+        for node in odb_instance.nodes
+    }
+
+    deformed_nodes = {}
+    for value in disp_field.values:
+        node_label = value.nodeLabel
+        ux, uy, uz = float(value.data[0]), float(value.data[1]), float(value.data[2])
+        x0, y0, z0 = node_coords_ref[node_label]
+        deformed_nodes[node_label] = (x0 + ux, y0 + uy, z0 + uz)
+
+    if len(deformed_nodes) != len(node_coords_ref):
+        printlog("Warning: U available for %d of %d nodes in frame; nodes without U are left out"
+                 % (len(deformed_nodes), len(node_coords_ref)))
+
+    elements = [
+        tuple(int(n) for n in elem.connectivity)
+        for elem in odb_instance.elements
+    ]
+    return deformed_nodes, elements
+
+
 def export_deformed_geometry(job_name, deformed_step_name, main_step_path, instance_name, model_name,
                             stitch_tolerance, analytic_fit_tolerance,
                             object_type='shell', wire_radius=None,
                             debug_step_path=None, step_index=-1, frame_index=-1,
-                            odb_wait_timeout=600.0):
+                            odb_wait_timeout=600.0, export_nodes=False):
     """Extract deformed geometry from ODB.
 
-    For object_type='shell': stitches element faces into a STEP file as
-    before (unchanged behavior).
+    For object_type='shell': if main_step_path and/or debug_step_path are
+    given, stitches element faces into STEP file(s) as before
+    (FaceFromElementFaces); pass main_step_path=None to skip that.
+    With export_nodes=True it also extracts deformed node coordinates and
+    element connectivity, splits quads into triangles
+    (triangulate_shell_elements) and returns a NODE_DATA dict for
+    SolarFluxCalc.FCMacro (GEOMETRY_IMPORT='nodes'), which builds one flat
+    face per triangle. With export_nodes=False (default) the shell branch
+    behaves exactly as before and returns None.
 
     For object_type='wire': skips STEP/face-stitching entirely (beam/truss
     elements have no faces to stitch) and instead extracts deformed node
@@ -895,7 +1237,9 @@ def export_deformed_geometry(job_name, deformed_step_name, main_step_path, insta
 
     Returns
     -------
-    None for object_type='shell' (STEP file(s) written as a side effect).
+    For object_type='shell': dict {'nodes': {node_id: (x, y, z)},
+          'elements': [(n1, n2, n3), ...], 'triangulation': info dict}
+          if export_nodes, else None.
     dict {'nodes': {node_id: (x, y, z)}, 'elements': [(n1, n2), ...],
           'radius': wire_radius} for object_type='wire'.
     """
@@ -938,52 +1282,63 @@ def export_deformed_geometry(job_name, deformed_step_name, main_step_path, insta
 
     odb_instance = instances[resolved_instance_name]
 
-    # Extract deformed geometry for shell objects and write to STEP
+    # Extract deformed geometry for shell objects: node data (always) and
+    # optionally STEP file(s) for debugging / the old STEP import path
     if object_type == 'shell':
-        ptmp = mdb.models[model_name].PartFromOdb(
-            name=deformed_step_name, instance=resolved_instance_name, odb=odb,
-            shape=DEFORMED, step=step_index, frame=frame_index)
+        step_paths = [p for p in (main_step_path, debug_step_path) if p is not None]
+        if step_paths:
+            # FaceFromElementFaces can fail on strongly deformed meshes
+            # ("Associating selected elements with the face failed"). That is
+            # fatal only when the STEP is the ray-tracing input
+            # (main_step_path); a debug-only STEP failure is logged and skipped.
+            try:
+                ptmp = mdb.models[model_name].PartFromOdb(
+                    name=deformed_step_name, instance=resolved_instance_name, odb=odb,
+                    shape=DEFORMED, step=step_index, frame=frame_index)
 
-        elems = ptmp.elements
-        reg = regionToolset.Region(side1Elements=elems)
-        ptmp.FaceFromElementFaces(elementFaces=reg,
-                                  stitchTolerance=stitch_tolerance,
-                                  analyticFitTolerance=analytic_fit_tolerance)
-        ptmp.writeStepFile(main_step_path)
-        printlog("Wrote main STEP geometry to %s" % main_step_path)
+                elems = ptmp.elements
+                reg = regionToolset.Region(side1Elements=elems)
+                ptmp.FaceFromElementFaces(elementFaces=reg,
+                                          stitchTolerance=stitch_tolerance,
+                                          analyticFitTolerance=analytic_fit_tolerance)
+                if main_step_path is not None:
+                    ptmp.writeStepFile(main_step_path)
+                    printlog("Wrote main STEP geometry to %s" % main_step_path)
 
-        if debug_step_path is not None and debug_step_path != main_step_path:
-            ptmp.writeStepFile(debug_step_path)
-            printlog("Wrote debug STEP geometry to %s" % debug_step_path)
+                if debug_step_path is not None and debug_step_path != main_step_path:
+                    ptmp.writeStepFile(debug_step_path)
+                    printlog("Wrote debug STEP geometry to %s" % debug_step_path)
+            except Exception as e:
+                if main_step_path is not None:
+                    odb.close()
+                    raise
+                printlog("WARNING: debug STEP export failed (non-critical, continuing): %s" % e)
 
+        if not export_nodes:
+            odb.close()
+            return None
+
+        deformed_nodes, elements = _extract_deformed_nodes(
+            odb, odb_instance, step_index, frame_index)
         odb.close()
-        return None
+
+        triangles, tri_info = triangulate_shell_elements(deformed_nodes, elements)
+        printlog("Extracted %d deformed nodes and %d shell elements (%d tri, %d quad) "
+                 "from instance %s -> %d triangles; max quad warp %.3e"
+                 % (len(deformed_nodes), len(elements), tri_info['n_tri_in'],
+                    tri_info['n_quad_in'], resolved_instance_name,
+                    tri_info['n_tri_out'], tri_info['max_quad_warp']))
+
+        return {
+            'nodes': deformed_nodes,
+            'elements': triangles,
+            'triangulation': tri_info,
+        }
 
     # Extract deformed node coordinates and element connectivity for wire objects
     if object_type == 'wire':
-        step_obj = odb.steps.keys()[step_index]
-        frame = odb.steps[step_obj].frames[frame_index]
-
-        disp_field = frame.fieldOutputs['U'].getSubset(region=odb_instance)
-
-        # Cast to native float here -- node.coordinates and value.data are
-        # numpy.float32-backed and will break json.dump downstream otherwise.
-        node_coords_ref = {
-            node.label: tuple(float(c) for c in node.coordinates)
-            for node in odb_instance.nodes
-        }
-
-        deformed_nodes = {}
-        for value in disp_field.values:
-            node_label = value.nodeLabel
-            ux, uy, uz = float(value.data[0]), float(value.data[1]), float(value.data[2])
-            x0, y0, z0 = node_coords_ref[node_label]
-            deformed_nodes[node_label] = (x0 + ux, y0 + uy, z0 + uz)
-
-        elements = [
-            tuple(int(n) for n in elem.connectivity)
-            for elem in odb_instance.elements
-        ]
+        deformed_nodes, elements = _extract_deformed_nodes(
+            odb, odb_instance, step_index, frame_index)
 
         printlog("Extracted %d deformed nodes and %d elements from wire instance %s"
                 % (len(deformed_nodes), len(elements), resolved_instance_name))

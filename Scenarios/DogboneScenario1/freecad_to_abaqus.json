@@ -1,0 +1,8 @@
+{
+  "SUCCESS": true,
+  "NUM_FACES": 1474,
+  "FLUX_DATA_PATH": "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/flux_data.csv",
+  "ERROR_MESSAGE": null,
+  "RAY_ENGINE": "FastRay",
+  "RAY_TRACE_SECONDS": 2.5960652999929152
+}

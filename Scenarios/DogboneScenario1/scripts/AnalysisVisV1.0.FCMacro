@@ -1,0 +1,167 @@
+"""Load one run's deformed geometry into a FreeCAD document for visual review.
+
+Reads run_documentation/run_<RUN_NO>/deformed_cad/ written by starsimUMATtwist.py:
+
+  <DEFORMED_NAME>_NN.stp          FreeCAD: the exact triangle geometry ray-traced
+                                   in iteration NN+1 (shape after job NN;
+                                   _00 = after the load/unload prep job, or the
+                                   undeformed part if PREP_DEFORMS_GEOMETRY=False)
+  <DEFORMED_NAME>_NN_Loaded.stp   Abaqus STEP debug export (old 'stp' mode only)
+  <DEFORMED_NAME>_Comparison.stp  comparison run (RUN_COMPARISON=True)
+  <DEFORMED_NAME>MeshNN[_Loaded].obj
+  <DEFORMED_NAME>Mesh_NN[_Loaded].obj
+                                   Abaqus mesh after job NN (00_Loaded = prep job)
+
+Objects are sorted into groups, labelled with the iteration they belong to,
+and replaced (not duplicated) when the macro is rerun. Everything is in the
+same units as the Abaqus model (metres), so no scaling is applied.
+
+Saves run_documentation/run_<RUN_NO>/<SCENARIO_NAME>_Sequence<RUN_NO>.FCStd.
+"""
+import os
+import re
+
+import FreeCAD as App
+import Part
+import Mesh
+
+# ---------------------------------------------------------------- settings
+STAR_DIR = "C:/Users/adzheng/STAR-Simulator"
+SCENARIO_NAME = "DogboneScenario1"
+RUN_NO = "0.4"                                # string, as in the folder name run_<RUN_NO>
+DEFORMED_NAME = "SMADogboneDeformed"          # DEFORMED_NAME in starsimUMATtwist.py
+OBJECT_FILE = "SMADogbone_(Nitinol).stp"      # undeformed input part (inputs/)
+SHOW_ONLY_LATEST = True                       # hide all but the initial part and the last ray-traced shape
+
+WORKING_DIR = "%s/Scenarios/%s" % (STAR_DIR, SCENARIO_NAME)
+DOCUMENTATION_DIR = "%s/run_documentation/run_%s" % (WORKING_DIR, RUN_NO)
+GEOMETRY_DIR = "%s/deformed_cad" % DOCUMENTATION_DIR
+IMPORT_OBJECT_FILEPATH = "%s/inputs/%s" % (WORKING_DIR, OBJECT_FILE)
+DOC_NAME = "%s_Sequence%s" % (SCENARIO_NAME, RUN_NO.replace(".", "_"))
+FCSTD_PATH = "%s/%s_Sequence%s.FCStd" % (DOCUMENTATION_DIR, SCENARIO_NAME, RUN_NO)
+
+GROUPS = {
+    "initial": "Initial_Geometry",
+    "raytraced": "RayTraced_STEP",
+    "abaqus_step": "Abaqus_STEP_debug",
+    "abaqus_obj": "Abaqus_Mesh_OBJ",
+}
+
+# ---------------------------------------------------------------- file classification
+_name = re.escape(DEFORMED_NAME)
+RE_STEP = re.compile(r"^%s_(\d+|Comparison)(_Loaded)?\.(stp|step)$" % _name, re.I)
+RE_OBJ = re.compile(r"^%sMesh_?(\d+|Comparison)(_Loaded)?\.obj$" % _name, re.I)
+
+
+def classify(fname):
+    """Return (group key, sort key, label) or None for files we don't know."""
+    m = RE_STEP.match(fname)
+    if m:
+        tag, loaded = m.group(1), bool(m.group(2))
+        if tag.lower() == "comparison":
+            return "raytraced", (1, 0), "RayTraced_Comparison"
+        n = int(tag)
+        if loaded:  # Abaqus debug STEP of the prep job (old 'stp' mode)
+            return "abaqus_step", (0, n), "AbaqusSTEP_%02d_Loaded" % n
+        return "raytraced", (0, n), "RayTraced_%02d_iter%02d" % (n, n + 1)
+    m = RE_OBJ.match(fname)
+    if m:
+        tag, loaded = m.group(1), bool(m.group(2))
+        if tag.lower() == "comparison":
+            return "abaqus_obj", (1, 0), "AbaqusMesh_Comparison"
+        n = int(tag)
+        return "abaqus_obj", (0, n), "AbaqusMesh_%02d%s" % (n, "_Loaded" if loaded else "")
+    return None
+
+
+def get_group(doc, label):
+    for o in doc.Objects:
+        if o.Label == label and o.TypeId == "App::DocumentObjectGroup":
+            return o
+    return doc.addObject("App::DocumentObjectGroup", label)
+
+
+def clear_group(doc, group):
+    """Remove previously imported objects so a rerun replaces them."""
+    for o in list(group.Group):
+        doc.removeObject(o.Name)
+
+
+# ---------------------------------------------------------------- main
+if not os.path.isdir(GEOMETRY_DIR):
+    raise FileNotFoundError("deformed_cad folder not found: %s" % GEOMETRY_DIR)
+
+if os.path.exists(FCSTD_PATH):
+    doc = App.openDocument(FCSTD_PATH)
+else:
+    doc = App.newDocument(DOC_NAME)
+
+groups = {k: get_group(doc, v) for k, v in GROUPS.items()}
+for g in groups.values():
+    clear_group(doc, g)
+
+entries, skipped = [], []
+for fname in os.listdir(GEOMETRY_DIR):
+    c = classify(fname)
+    if c is None:
+        skipped.append(fname)
+    else:
+        entries.append((c[0], c[1], c[2], fname))
+entries.sort(key=lambda e: (e[0], e[1]))
+
+counts = {k: 0 for k in GROUPS}
+latest_raytraced = None
+for gkey, skey, label, fname in entries:
+    path = os.path.join(GEOMETRY_DIR, fname)
+    try:
+        if fname.lower().endswith(".obj"):
+            obj = doc.addObject("Mesh::Feature", label)
+            obj.Mesh = Mesh.Mesh(path)
+            detail = "%d facets" % obj.Mesh.CountFacets
+        else:
+            shape = Part.Shape()
+            shape.read(path)
+            obj = doc.addObject("Part::Feature", label)
+            obj.Shape = shape
+            detail = "%d faces" % len(shape.Faces)
+    except Exception as e:
+        print("WARNING: could not import %s: %s" % (fname, e))
+        continue
+    obj.Label = label
+    groups[gkey].addObject(obj)
+    counts[gkey] += 1
+    if gkey == "raytraced" and skey[0] == 0:
+        latest_raytraced = obj
+    print("Imported %-28s <- %s (%s)" % (label, fname, detail))
+
+# Undeformed input part
+if os.path.exists(IMPORT_OBJECT_FILEPATH):
+    shape = Part.Shape()
+    shape.read(IMPORT_OBJECT_FILEPATH)
+    obj = doc.addObject("Part::Feature", "Undeformed_Input")
+    obj.Label = "Undeformed_Input"
+    obj.Shape = shape
+    groups["initial"].addObject(obj)
+    counts["initial"] += 1
+    print("Imported %-28s <- %s" % ("Undeformed_Input", IMPORT_OBJECT_FILEPATH))
+else:
+    print("Undeformed input STEP not found:", IMPORT_OBJECT_FILEPATH)
+
+# Visibility: by default show the input part and the last ray-traced shape
+if SHOW_ONLY_LATEST:
+    for key in ("raytraced", "abaqus_step", "abaqus_obj"):
+        for o in groups[key].Group:
+            o.Visibility = (o is latest_raytraced)
+
+# Drop empty groups (e.g. no Abaqus STEP debug files in 'nodes' mode)
+for key, g in groups.items():
+    if not g.Group:
+        doc.removeObject(g.Name)
+
+if skipped:
+    print("Skipped unrecognised files: %s" % ", ".join(sorted(skipped)))
+
+doc.recompute()
+doc.saveAs(FCSTD_PATH)
+print("Saved %s: %d ray-traced STEP, %d Abaqus STEP, %d Abaqus OBJ, %d initial" % (
+    FCSTD_PATH, counts["raytraced"], counts["abaqus_step"], counts["abaqus_obj"], counts["initial"]))
