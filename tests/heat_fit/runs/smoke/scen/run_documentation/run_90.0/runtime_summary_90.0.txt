@@ -1,0 +1,29 @@
+STAR Simulator runtime summary -- run 90.0
+Started: 2026-11-24 01:24:16   Updated: 2026-11-24 01:46:20   Elapsed: 1324.3 s
+
+== MODEL SETUP ==
+  prep_job                      665.0 s
+  model_build                     7.4 s
+  setup_total                   672.4 s
+
+== POST-PROCESSING ==
+  plot_mapped_flux                2.4 s
+  raytrace_viewer                 0.1 s
+  plot_hfl                       11.7 s
+  twist                         210.5 s
+
+== ITERATIONS (seconds) ==
+iter         freecad_io      ray_tracing     flux_mapping     model_update  abaqus_analysis  geometry_export  iteration_total
+1                   0.2             63.9              7.9              0.8            126.5              2.8            202.1
+2                   0.2             55.4              4.9              1.0            160.5              3.1            225.2
+total               0.3            119.3             12.8              1.8            287.0              5.9            427.2
+mean                0.2             59.6              6.4              0.9            143.5              3.0            213.6
+
+Share of timed iteration work:
+  freecad_io                      0.3 s    0.1%
+  ray_tracing                   119.3 s   27.9%
+  flux_mapping                   12.8 s    3.0%
+  model_update                    1.8 s    0.4%
+  abaqus_analysis               287.0 s   67.2%
+  geometry_export                 5.9 s    1.4%
+

@@ -29,6 +29,9 @@ from scipy.spatial import cKDTree
 from mpl_toolkits.mplot3d import Axes3D  # noqa: F401 (needed for 3d projection)
 from contextlib import contextmanager
 import builtins as _bi  # `from abaqus import *` shadows sum/max/min with XY-data versions
+# Interactive 3D ray-tracing viewer (standard library only; also runnable on its
+# own: python raytrace_viewer.py <run folder>)
+from raytrace_viewer import write_raytrace_viewer
 
 # Global variables
 _log_file = None
@@ -67,9 +70,167 @@ def log(msg):
     else:
         raise RuntimeError("Logging not initialized. Call init_logging(log_file_path) first.")
 
+
+def begin_parameters():
+    """Call just above a script's EDIT PARAMETERS block; pass the result to
+    collect_parameters() just below it. Records the calling script's file
+    and line so the block's names can be read from the source.
+
+    (Comparing globals() before/after the block does not work in Abaqus/CAE:
+    Run Script reuses one namespace for the whole session, so on a second
+    run every parameter already exists before the block.)"""
+    import inspect
+    f = inspect.currentframe().f_back
+    try:
+        return (f.f_code.co_filename, f.f_lineno, set(f.f_globals))
+    finally:
+        del f
+
+
+def _names_assigned_in_lines(filename, first, last):
+    """UPPER_CASE names assigned in source lines first < line < last, in
+    order of first assignment; None if the file can't be read/parsed."""
+    import ast, warnings
+    try:
+        with open(filename, 'rb') as fh:
+            src = fh.read()
+        with warnings.catch_warnings():
+            warnings.simplefilter('ignore')  # invalid escapes like "\S" in paths
+            tree = ast.parse(src, filename)
+    except Exception:
+        return None
+    found = []
+    for node in ast.walk(tree):
+        if (isinstance(node, ast.Name) and isinstance(node.ctx, ast.Store)
+                and first < node.lineno < last):
+            found.append((node.lineno, node.col_offset, node.id))
+    names = []
+    for _, _, name in sorted(found):
+        if name.isupper() and not name.startswith('_') and name not in names:
+            names.append(name)
+    return names
+
+
+def collect_parameters(namespace, start):
+    """UPPER_CASE names assigned between begin_parameters() and this call,
+    with their current values in `namespace` (the script's globals()), in
+    definition order. Used to log a script's whole EDIT PARAMETERS block
+    without keeping a hand-written list. `start` may also be a plain set of
+    names (old style): then names not in it are returned."""
+    if isinstance(start, tuple):
+        import inspect
+        f = inspect.currentframe().f_back
+        try:
+            this_line = f.f_lineno
+        finally:
+            del f
+        filename, first_line, names_before = start
+        names = _names_assigned_in_lines(filename, first_line, this_line)
+        if names:
+            return dict((k, namespace[k]) for k in names if k in namespace)
+        log("WARNING: could not read parameter names from %s; "
+            "logging only names new to this session" % filename)
+    else:
+        names_before = start
+    return dict((k, v) for k, v in namespace.items()
+                if k not in names_before and k.isupper() and not k.startswith('_'))
+
+
+def log_parameters(params, title='Parameters'):
+    """Write 'NAME = value' lines (repr, so strings keep their quotes) to the log."""
+    log("=== %s ===" % title)
+    for k, v in params.items():
+        log("%s = %r" % (k, v))
+    log("")
+
+
+def log_model_setup(model, umat_labels=None):
+    """Log what the built Abaqus model actually contains: model constants,
+    every material (density, conductivity, specific heat, elastic,
+    expansion, Depvar, UMAT constants), sections and thermal interactions.
+    Catches values hard-coded inside build functions as well as parameters.
+
+    umat_labels: optional {1-based index: name} for UserMaterial constants,
+        e.g. {17: 'MS', 18: 'MF', 19: 'AS', 20: 'AF'}.
+    """
+    umat_labels = umat_labels or {}
+
+    def _get(obj, attr):
+        try:
+            return getattr(obj, attr)
+        except Exception:
+            return None
+
+    log("=== Abaqus model as built: %s ===" % model.name)
+    log("absoluteZero = %r, stefanBoltzmann = %r"
+        % (_get(model, 'absoluteZero'), _get(model, 'stefanBoltzmann')))
+    for name in model.materials.keys():
+        mat = model.materials[name]
+        log("Material '%s':" % name)
+        for attr in ('density', 'conductivity', 'specificHeat', 'elastic', 'expansion', 'plastic'):
+            sub = _get(mat, attr)
+            if sub is not None:
+                log("  %s = %r" % (attr, _get(sub, 'table')))
+        dv = _get(mat, 'depvar')
+        if dv is not None:
+            log("  depvar n = %r" % _get(dv, 'n'))
+        um = _get(mat, 'userMaterial')
+        consts = _get(um, 'mechanicalConstants') if um is not None else None
+        if consts:
+            log("  UMAT mechanicalConstants (%d values, 1-based index):" % len(consts))
+            for i in range(0, len(consts), 8):
+                log("    " + ", ".join(
+                    "[%d]%s %r" % (k + 1, (" " + umat_labels[k + 1]) if (k + 1) in umat_labels else "", consts[k])
+                    for k in range(i, min(i + 8, len(consts)))))
+            if umat_labels:
+                log("  UMAT " + ", ".join("%s = %r" % (n, consts[k - 1])
+                                          for k, n in sorted(umat_labels.items()) if k <= len(consts)))
+    for name in model.sections.keys():
+        sec = model.sections[name]
+        fields = [(a, _get(sec, a)) for a in ('material', 'thickness', 'numIntPts',
+                                               'integrationRule', 'temperature')]
+        log("Section '%s': %s" % (name, ", ".join("%s=%r" % (a, v) for a, v in fields if v is not None)))
+    # Interaction values (film coefficient, emissivity, ...) are step
+    # dependent: they live in each step's interactionStates, not on the
+    # interaction itself. Log them in every step that creates/modifies them.
+    for step_name in model.steps.keys():
+        try:
+            states = model.steps[step_name].interactionStates
+            names = list(states.keys())
+        except Exception:
+            continue
+        for name in names:
+            st = states[name]
+            status = str(_get(st, 'status'))
+            if status not in ('CREATED', 'MODIFIED'):
+                continue
+            it = model.interactions[name] if name in model.interactions.keys() else None
+            region = _get(it, 'region') if it is not None else None
+            fields = [(a, _get(st, a)) for a in ('filmCoeff', 'sinkTemperature',
+                                                 'emissivity', 'ambientTemperature')]
+            log("Interaction '%s' (%s) %s in step %s: %s%s"
+                % (name, type(it).__name__ if it is not None else '?', status.lower(), step_name,
+                   ", ".join("%s=%r" % (a, v) for a, v in fields if v is not None),
+                   (", surface=%r" % region[0]) if region else ""))
+    log("")
+
 # ---------------------------------------------
 # Runtime reporting
 # ---------------------------------------------
+
+def format_duration(seconds):
+    """'1 h 02 min 05 s (3725 s)'; shorter forms under an hour/minute."""
+    seconds = float(seconds)
+    h, rem = divmod(int(round(seconds)), 3600)
+    m, sec = divmod(rem, 60)
+    if h:
+        txt = "%d h %02d min %02d s" % (h, m, sec)
+    elif m:
+        txt = "%d min %02d s" % (m, sec)
+    else:
+        return "%.1f s" % seconds
+    return "%s (%.0f s)" % (txt, seconds)
+
 
 class RuntimeReport:
     """Records wall-clock runtimes per phase/iteration/category.
@@ -209,10 +370,14 @@ class RuntimeReport:
         with open(self.summary_path, 'w') as f:
             f.write("\n".join(lines) + "\n")
 
-    def plot_breakdown(self, output_dir, include_setup=True):
+    def plot_breakdown(self, output_dir, include_setup=True, total_seconds=None, status=None):
         """Stacked bar chart of runtime per iteration, broken down by
         category (*_total rollups excluded). If include_setup, a leading
-        'Setup' bar shows the setup-phase categories."""
+        'Setup' bar shows the setup-phase categories.
+
+        total_seconds: total wall-clock runtime shown under the title
+            (default: time since this RuntimeReport was created).
+        status: optional note appended to that line, e.g. 'stopped early'."""
         bars = []  # (label, {category: seconds})
         if include_setup:
             setup = {}
@@ -262,7 +427,13 @@ class RuntimeReport:
         ax.set_xticks(x)
         ax.set_xticklabels([b[0] for b in bars], rotation=0 if len(bars) <= 8 else 45)
         ax.set_ylabel('Wall-clock time (s)')
-        ax.set_title('Runtime breakdown -- run %s' % self.run_no)
+        if total_seconds is None:
+            total_seconds = time.perf_counter() - self._t0
+        subtitle = 'Total runtime: %s' % format_duration(total_seconds)
+        if status:
+            subtitle += ' -- %s' % status
+        ax.set_title('Runtime breakdown -- run %s\n%s' % (self.run_no, subtitle),
+                     color='black' if not status else 'firebrick')
         ax.set_ylim(0, bottoms.max() * 1.1 if bottoms.max() > 0 else 1)
         ax.legend(loc='upper left', bbox_to_anchor=(1.01, 1.0), fontsize=10, frameon=False)
         ax.grid(axis='y', alpha=0.3)
@@ -372,8 +543,18 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
                               object_name, num_rays, sun_dir,
                               solar_irradiance, object_material,
                               absorption_only, absorptivity_dict, object_type, geometry_import, node_data = None, scene_object_paths = None,
-                              ray_engine='FastRay', random_seed=None, geometry_export_path=None):
+                              ray_engine='FastRay', random_seed=None, geometry_export_path=None,
+                              scene_objects=None):
     """Write the Abaqus -> FreeCAD handoff JSON.
+
+    scene_objects: optional list of extra (non-target) ray-tracing objects,
+        e.g. shades. Each is a dict with 'name', 'material' (a key of
+        absorptivity_dict, e.g. 'Blocker'), the geometry as either
+        'node_data' (NODE_DATA-style shell: one flat face per element) or
+        'step_path' (STEP file), and optionally 'export_path' (the macro
+        saves the geometry it ray-traced there). Written as SCENE_OBJECTS.
+        (scene_object_paths is the older STEP-only form used by
+        TowerScenario1.)
 
     ray_engine: 'FastRay' (default; vectorised bounding-box prefilter, same
         results as stock OTSun, much faster on many-face meshes) or 'Ray'
@@ -403,6 +584,7 @@ def transfer_data_to_freecad(abaqus_to_freecad_json, working_dir, fcstd_path,
         "GEOMETRY_IMPORT": geometry_import,
         "NODE_DATA": node_data,
         "SCENE_OBJECT_PATHS": scene_object_paths,
+        "SCENE_OBJECTS": scene_objects or [],
         "RAY_ENGINE": ray_engine,
         "RANDOM_SEED": random_seed,
         "GEOMETRY_EXPORT_PATH": geometry_export_path
@@ -481,10 +663,11 @@ def read_flux_data(fluxdata_filepath):
 # Abaqus helper functions (for restart analyses)
 # ---------------------------------------------
 
-def get_deformed_element_centroids(job_name, instance_name,
-                                    step_index=-1, frame_index=-1):
-    """Return dict of element_label -> (x, y, z) deformed centroid
-    for all elements in instance_name, from the given job's ODB."""
+def get_deformed_element_nodes(job_name, instance_name,
+                               step_index=-1, frame_index=-1):
+    """Return dict of element_label -> list of deformed (x, y, z) node
+    coordinates (in connectivity order) for all elements in instance_name,
+    from the given job's ODB (undeformed coordinates + U at the frame)."""
 
     odb_path = job_name + '.odb'
     if odb_path in session.odbs:
@@ -521,27 +704,193 @@ def get_deformed_element_centroids(job_name, instance_name,
 
     node_coords = {n.label: n.coordinates for n in instance.nodes}
 
-    elem_centroids = {}
+    elem_nodes = {}
     for el in instance.elements:
-        conn = el.connectivity
-        xs, ys, zs = [], [], []
-        for nl in conn:
+        pts = []
+        for nl in el.connectivity:
             x0, y0, z0 = node_coords[nl]
             if nl in disp_dict:
                 ux, uy, uz = disp_dict[nl]
             else:
                 ux, uy, uz = 0.0, 0.0, 0.0
-            xs.append(x0 + ux)
-            ys.append(y0 + uy)
-            zs.append(z0 + uz)
-        n = len(conn)
-        elem_centroids[el.label] = (sum(xs) / n, sum(ys) / n, sum(zs) / n)
+            pts.append((float(x0 + ux), float(y0 + uy), float(z0 + uz)))
+        elem_nodes[el.label] = pts
+    return elem_nodes
 
-    printlog("Computed %d deformed element centroids from %s"
-              % (len(elem_centroids), odb_path))
+
+def get_deformed_element_centroids(job_name, instance_name,
+                                    step_index=-1, frame_index=-1):
+    """Return dict of element_label -> (x, y, z) deformed centroid
+    for all elements in instance_name, from the given job's ODB."""
+    elem_nodes = get_deformed_element_nodes(job_name, instance_name,
+                                            step_index=step_index, frame_index=frame_index)
+    elem_centroids = {}
+    for label, pts in elem_nodes.items():
+        n = len(pts)
+        elem_centroids[label] = tuple(math.fsum([p[k] for p in pts]) / n for k in range(3))
+    printlog("Computed %d deformed element centroids from %s.odb"
+              % (len(elem_centroids), job_name))
     return elem_centroids
 
-def map_flux_to_elements(xyz_data, elem_centroids, max_distance=0.02):
+
+# --- Coverage flux mapping constants (see docs/coverage_flux_mapping.md) ---
+# Expected number of ray hits inside the search disc (radius rho) on a fully
+# lit surface. rho is calculated from this and the ray density. Low k: sharper
+# shadow edges but noisier lit elements (and under-counting along the part's
+# outer/hole edges, where half the disc is off the part); high k: the reverse.
+# k = 8 chosen from run 0.82 (k = 3/6/8/10/13 tested against the exact shadow):
+# energy +1.2%, 0.69 J on shaded elements (nearest: 5.84 J), ~2% noise.
+COVERAGE_HITS = 8.0
+COVERAGE_SAMPLES = 6        # sample grid per element edge (6x6 = 36 points for quads)
+COVERAGE_ISOLATION = 2.0    # a hit with no other hit within this many rho is discarded
+COVERAGE_MIN_COS = 0.05     # floor on |cos| when computing rho (avoids a huge rho at grazing angles)
+
+
+def _is_quad(pts):
+    return len(pts) in (4, 8, 9)
+
+
+def _element_sample_points(pts, n=COVERAGE_SAMPLES):
+    """Interior sample points of a deformed shell element: an n x n bilinear
+    grid for quads, the matching barycentric grid for triangles. Only the
+    corner nodes are used (mid-side nodes of 6/8-node elements ignored)."""
+    P = np.asarray(pts, dtype=float)
+    g = (np.arange(n) + 0.5) / n
+    if _is_quad(P):
+        P = P[:4]
+        u, v = np.meshgrid(g, g)
+        u, v = u.ravel()[:, None], v.ravel()[:, None]
+        return (1 - u) * (1 - v) * P[0] + u * (1 - v) * P[1] + u * v * P[2] + (1 - u) * v * P[3]
+    P = P[:3]
+    out = []
+    for i in range(n):
+        for j in range(n - i):
+            a, b = (i + 1.0 / 3) / n, (j + 1.0 / 3) / n
+            out.append((1 - a - b) * P[0] + a * P[1] + b * P[2])
+    return np.array(out)
+
+
+def _element_unit_normal_and_area(pts):
+    P = np.asarray(pts, dtype=float)
+    if _is_quad(P):
+        cr = np.cross(P[1] - P[0], P[2] - P[0]) + np.cross(P[2] - P[0], P[3] - P[0])
+    else:
+        cr = np.cross(P[1] - P[0], P[2] - P[0])
+    nrm = float(np.linalg.norm(cr))
+    return (cr / nrm if nrm > 0 else cr), 0.5 * nrm
+
+
+def map_flux_to_elements(xyz_data, elem_centroids, max_distance=0.02,
+                         method='nearest', elem_nodes=None, sun_dir=None,
+                         irradiance=None, absorptivity=None,
+                         num_rays=None, sun_window_area=None,
+                         coverage_hits=COVERAGE_HITS):
+    """Map ray-traced hit points (x, y, z, flux) onto shell elements.
+
+    method='nearest' (original): each element takes the flux of the nearest
+        hit within max_distance of its centroid, else 0.0. Simple, but every
+        element within max_distance of a lit hit gets FULL flux, so flux
+        bleeds into shadows and partly lit elements are over-counted.
+
+    method='coverage': each element gets
+            q = irradiance * absorptivity * |cos(theta)| * f
+        where f is the element's lit fraction, estimated from how much of
+        the element has a ray hit close by:
+          lambda = num_rays / sun_window_area * |cos|   expected hits per m^2
+                                                         if fully lit
+          rho    = sqrt(coverage_hits / (pi * lambda))   search radius
+          c      = share of the element's sample points with a hit within rho
+          f      = min(1, c / (1 - exp(-coverage_hits)))
+        Hits with no other hit within COVERAGE_ISOLATION * rho are discarded
+        first (stray rays grazing a shade edge). Needs elem_nodes (label ->
+        deformed node coords, from get_deformed_element_nodes), sun_dir,
+        irradiance, absorptivity, num_rays and sun_window_area (from the
+        FreeCAD result JSON). max_distance is not used.
+        Full explanation: docs/coverage_flux_mapping.md.
+    """
+    if method == 'nearest':
+        return _map_flux_nearest(xyz_data, elem_centroids, max_distance)
+    if method != 'coverage':
+        raise ValueError("map_flux_to_elements: method must be 'nearest' or 'coverage', got %r" % (method,))
+    missing = [k for k, v in (('elem_nodes', elem_nodes), ('sun_dir', sun_dir), ('irradiance', irradiance),
+                              ('absorptivity', absorptivity), ('num_rays', num_rays),
+                              ('sun_window_area', sun_window_area)) if v is None]
+    if missing:
+        raise ValueError("map_flux_to_elements(method='coverage') needs: %s" % ', '.join(missing))
+
+    d = np.asarray(sun_dir, dtype=float)
+    d = d / np.linalg.norm(d)
+    q_normal = float(irradiance) * float(absorptivity)          # W/m^2 at normal incidence
+    density_normal = float(num_rays) / float(sun_window_area)   # rays per m^2 across the beam
+    k = float(coverage_hits)
+    expected_cov = 1.0 - math.exp(-k)
+
+    def rho_for(cos_t):
+        lam = density_normal * max(abs(cos_t), COVERAGE_MIN_COS)
+        return math.sqrt(k / (math.pi * lam))
+
+    pts = np.array([(x, y, z) for x, y, z, f in xyz_data], dtype=float).reshape(-1, 3)
+    n_hits = len(pts)
+
+    # 1) Discard isolated hits. Each hit's |cos| is recovered from its flux
+    #    value (flux = irradiance * absorptivity * |cos|), giving its own rho.
+    n_isolated = 0
+    if n_hits:
+        hit_cos = np.array([f for x, y, z, f in xyz_data], dtype=float) / q_normal
+        hit_rho = np.array([rho_for(c) for c in hit_cos])
+        if n_hits >= 2:
+            # distance from each hit to its nearest OTHER hit (k=2: itself + next)
+            d2, _ = cKDTree(pts).query(pts, k=2)
+            keep = d2[:, 1] <= COVERAGE_ISOLATION * hit_rho
+        else:
+            keep = np.zeros(n_hits, dtype=bool)
+        n_isolated = int(n_hits - keep.sum())
+        pts = pts[keep]
+    tree = cKDTree(pts) if len(pts) else None
+
+    # 2) Lit fraction per element from sample-point coverage
+    labels = [l for l in elem_centroids if l in elem_nodes]
+    elem_fluxes = dict((l, 0.0) for l in elem_centroids)
+    n_dark = len(elem_centroids) - len(labels)
+    n_partial = n_full = 0
+    rhos, cosv, areas, S_all, owner = [], [], [], [], []
+    for i, label in enumerate(labels):
+        nodes = elem_nodes[label]
+        nrm, area = _element_unit_normal_and_area(nodes)
+        cos_t = abs(float(np.dot(nrm, d)))
+        S = _element_sample_points(nodes)
+        rhos.append(rho_for(cos_t)); cosv.append(cos_t); areas.append(area)
+        S_all.append(S); owner.append(np.full(len(S), i))
+    p_applied = 0.0
+    if labels and tree is not None:
+        S_all = np.vstack(S_all); owner = np.concatenate(owner)
+        rhos_a = np.array(rhos)
+        dist, _ = tree.query(S_all)
+        covered = dist <= rhos_a[owner]
+        cov = np.bincount(owner, weights=covered.astype(float), minlength=len(labels)) / \
+              np.bincount(owner, minlength=len(labels))
+        f = np.minimum(1.0, cov / expected_cov)
+        q = q_normal * np.array(cosv) * f
+        for i, label in enumerate(labels):
+            elem_fluxes[label] = float(q[i])
+        p_applied = float(np.dot(q, areas))
+        n_dark += int((f <= 0.0).sum())
+        n_full += int((f >= 1.0).sum())
+        n_partial += int(((f > 0.0) & (f < 1.0)).sum())
+    else:
+        n_dark += len(labels)
+
+    # Sanity check: power carried by the rays vs power applied to the mesh
+    p_rays = n_hits * float(irradiance) * float(sun_window_area) / float(num_rays) * float(absorptivity)
+    printlog("map_flux_to_elements (coverage, k=%.1f): %d hits (%d isolated, discarded); "
+             "rho median %.2f mm; elements %d dark / %d partial / %d full; "
+             "power applied %.4f W vs ray estimate %.4f W"
+             % (k, n_hits, n_isolated, 1e3 * float(np.median(rhos)) if rhos else float('nan'),
+                n_dark, n_partial, n_full, p_applied, p_rays))
+    return elem_fluxes
+
+
+def _map_flux_nearest(xyz_data, elem_centroids, max_distance=0.02):
     """Nearest-neighbor mapping of ray-traced flux points onto element
     centroids via a KD-tree. Elements with no ray-traced point within
     max_distance are assigned 0.0 flux."""
@@ -564,8 +913,8 @@ def map_flux_to_elements(xyz_data, elem_centroids, max_distance=0.02):
         else:
             elem_fluxes[label] = float(vals[idx])
 
-    printlog("map_flux_to_elements (kd-tree): %d of %d elements zeroed" %
-              (n_zeroed, len(elem_centroids)))
+    printlog("map_flux_to_elements (nearest, max_distance %.2f mm): %d of %d elements zeroed" %
+              (1e3 * max_distance, n_zeroed, len(elem_centroids)))
     return elem_fluxes
 
 def map_flux_to_wire_elements(xyz_data, elem_centroids,
@@ -696,7 +1045,8 @@ def get_undeformed_element_centroids(model, instance_name):
 
 def apply_mapped_dflux(model, step_name, load_name, instance_name,
                         elem_fluxes, field_name,
-                        surface_name=None, part_surface_name=None):
+                        surface_name=None, part_surface_name=None,
+                        deactivate_load=None):
     """Apply per-element flux as a real SurfaceHeatFlux load using a
     MappedField, keyed by each element's UNDEFORMED centroid (required
     since MappedField/POINT data is matched against the mesh's reference
@@ -713,7 +1063,22 @@ def apply_mapped_dflux(model, step_name, load_name, instance_name,
     they already exist, so calling this repeatedly with a FIXED load_name
     across iterations redefines (rather than stacks) the flux load --
     critical for avoiding additive flux loads across restart steps.
+
+    WARNING (fixed load_name across restart steps): CAE then writes a plain
+    *Dflux (op=MOD), and Abaqus keeps the old flux on every element NOT
+    listed in the new step. Zero-flux elements are never listed, so an
+    element that goes dark (e.g. shaded) keeps its last flux forever.
+
+    deactivate_load: name of the previous step's flux load. Use one load per
+        step (e.g. SolarFlux_NN) and pass the previous one here; it is
+        deactivated in step_name, which makes CAE write '*Dflux, op=NEW' so
+        only this step's flux is applied (see check_dflux_op_new).
     """
+    if deactivate_load is not None:
+        if deactivate_load == load_name:
+            raise ValueError("apply_mapped_dflux: deactivate_load must differ from load_name")
+        if deactivate_load not in model.loads:
+            raise KeyError("apply_mapped_dflux: load to deactivate %r not in model" % deactivate_load)
     if load_name in model.loads:
         del model.loads[load_name]
     if field_name in model.analyticalFields:
@@ -759,8 +1124,29 @@ def apply_mapped_dflux(model, step_name, load_name, instance_name,
         region=surf, magnitude=1.0, distributionType=FIELD,
         field=field_name)
 
-    printlog("Redefined SurfaceHeatFlux '%s' (field=%s) for step %s"
-              % (load_name, field_name, step_name))
+    if deactivate_load is not None:
+        model.loads[deactivate_load].deactivate(step_name)
+        printlog("Created SurfaceHeatFlux '%s' (field=%s) in step %s; deactivated '%s' there"
+                 % (load_name, field_name, step_name, deactivate_load))
+    else:
+        printlog("Redefined SurfaceHeatFlux '%s' (field=%s) for step %s"
+                  % (load_name, field_name, step_name))
+
+
+def check_dflux_op_new(inp_path):
+    """Raise RuntimeError unless every *Dflux line in inp_path has op=NEW.
+
+    A plain *Dflux (op=MOD) in a restart step keeps the previous flux on
+    elements not listed in the new step (see apply_mapped_dflux)."""
+    with open(inp_path) as f:
+        heads = [ln.strip() for ln in f if ln.upper().startswith('*DFLUX')]
+    if not heads:
+        raise RuntimeError("%s has no *Dflux keyword (no flux load written?)" % inp_path)
+    bad = [h for h in heads if 'OP=NEW' not in h.upper().replace(' ', '')]
+    if bad:
+        raise RuntimeError("%s: *Dflux without op=NEW (%s); old flux would persist on "
+                           "elements not listed in this step" % (inp_path, bad[0]))
+    printlog("Checked %s: %d *Dflux block(s), all op=NEW" % (os.path.basename(inp_path), len(heads)))
 
 def apply_mapped_body_flux(model, step_name, load_name, instance_name,
                             elem_fluxes, field_name, wire_radius):
@@ -1802,6 +2188,526 @@ def compute_cumulative_node_displacement(job_names, instance_name, initial_targe
             printlog("Warning: could not read node data for %s: %s" % (job_name, str(e)))
 
     return results
+
+# ---------------------------------------------------------------------------
+# Per-increment ODB history CSV
+#
+# write_odb_history_csv() walks the ODB frames of a restart chain and writes
+# one CSV row per frame (or per job). WHAT goes in each row is decided by
+# "metric" objects, so the same function produces tip displacement, twist,
+# temperatures, ... depending on which metrics are passed in. A metric has:
+#     columns                 tuple of the CSV column names it fills
+#     setup(inst)             called once with the first job's part instance
+#                             (pick node labels here; the restart chain keeps
+#                             the same mesh, so labels stay valid)
+#     evaluate(frame, inst)   returns {column: value} for one ODB frame
+# ---------------------------------------------------------------------------
+
+def _odb_part_instance(odb, instance_name):
+    """The part instance in an ODB: exact name match, then substring match,
+    then the instance with the most nodes (skips Abaqus's 'ASSEMBLY'
+    reference-point instance, which caused the prep_sweep twist bug)."""
+    insts = odb.rootAssembly.instances
+    for key in insts.keys():
+        if key.upper() == instance_name.upper():
+            return insts[key]
+    for key in insts.keys():
+        if instance_name.upper() in key.upper():
+            return insts[key]
+    return sorted([insts[k] for k in insts.keys()], key=lambda i: len(i.nodes))[-1]
+
+
+def _nearest_node_label(inst, point):
+    """(label, distance) of the instance node closest to point, UNDEFORMED coords."""
+    px, py, pz = point
+    best_label, best_d = None, None
+    for n in inst.nodes:
+        x, y, z = n.coordinates
+        d = math.sqrt((x - px) ** 2 + (y - py) ** 2 + (z - pz) ** 2)
+        if best_d is None or d < best_d:
+            best_label, best_d = n.label, d
+    return best_label, best_d
+
+
+def _nodal_vectors(frame, inst, field_name, labels):
+    """{label: data} of a nodal field for the given node labels only."""
+    wanted = set(labels)
+    out = {}
+    for v in frame.fieldOutputs[field_name].getSubset(region=inst).values:
+        if v.nodeLabel in wanted:
+            out[v.nodeLabel] = [float(c) for c in v.data]
+    return out
+
+
+class TemperatureMetric(object):
+    """Part-wide max/min temperature.
+
+    Uses the nodal temperatures NT11, NT12, ... (shells store one per
+    thickness point; all are included). Steps without nodal temperature
+    (the static Load/Unload steps) fall back to the element field TEMP.
+    """
+    columns = ('tmax_K', 'tmin_K')
+
+    def setup(self, inst):
+        pass
+
+    def evaluate(self, frame, inst):
+        keys = frame.fieldOutputs.keys()
+        names = sorted(k for k in keys if k.startswith('NT') and k[2:].isdigit())
+        if not names and 'TEMP' in keys:
+            names = ['TEMP']
+        temps = []
+        for name in names:
+            temps.extend(float(v.data) for v in
+                         frame.fieldOutputs[name].getSubset(region=inst).values)
+        if not temps:
+            return {'tmax_K': float('nan'), 'tmin_K': float('nan')}
+        return {'tmax_K': _bi.max(temps), 'tmin_K': _bi.min(temps)}
+
+
+class NodeTemperatureMetric(object):
+    """Temperature at named probe points, e.g. {'T1': (x, y, z), 'T2': ...}.
+
+    Each probe tracks the node nearest to its point (UNDEFORMED coords), picked
+    once. Columns are '<name>_K' in the given order. The value is the mean of
+    the node's nodal temperatures NT11, NT12, ... (one per shell thickness
+    point). Steps without nodal temperature (the static Load/Unload steps)
+    fall back to the element field TEMP extrapolated to the node
+    (ELEMENT_NODAL), averaged over the elements sharing it.
+    """
+
+    def __init__(self, probes):
+        self.probes = list(probes.items())
+        self.columns = tuple('%s_K' % name for name, _ in self.probes)
+
+    def setup(self, inst):
+        self.labels = []
+        for name, pt in self.probes:
+            lab, d = _nearest_node_label(inst, pt)
+            self.labels.append(lab)
+            printlog("NodeTemperatureMetric: %s at %s -> node %d (%.2e m away)"
+                     % (name, tuple(pt), lab, d))
+
+    def evaluate(self, frame, inst):
+        keys = frame.fieldOutputs.keys()
+        names = sorted(k for k in keys if k.startswith('NT') and k[2:].isdigit())
+        vals = dict((lab, []) for lab in self.labels)
+        if names:
+            for name in names:
+                for v in frame.fieldOutputs[name].getSubset(region=inst).values:
+                    if v.nodeLabel in vals:
+                        vals[v.nodeLabel].append(float(v.data))
+        elif 'TEMP' in keys:
+            try:
+                field = frame.fieldOutputs['TEMP'].getSubset(region=inst, position=ELEMENT_NODAL)
+                for v in field.values:
+                    if v.nodeLabel in vals:
+                        vals[v.nodeLabel].append(float(v.data))
+            except Exception:
+                pass
+        out = {}
+        for col, lab in zip(self.columns, self.labels):
+            t = vals[lab]
+            out[col] = math.fsum(t) / len(t) if t else float('nan')
+        return out
+
+
+class EdgeTwistMetric(object):
+    """Rotation of an edge about a global axis, relative to the UNDEFORMED part.
+
+    edge_pts: the edge's two end points (undeformed coords); the nearest node
+        to each is tracked. The edge direction (b - a, deformed = original + U)
+        is projected onto the plane normal to `axis`, and the signed angle from
+        the undeformed direction is the twist (right-hand rule about +axis).
+    The angle is unwrapped from one row to the next, so a twist past +-180 deg
+    keeps counting instead of jumping by 360 deg.
+    """
+    columns = ('twist_deg', 'twist_rad')
+    _PLANE = {'x': (1, 2), 'y': (2, 0), 'z': (0, 1)}
+
+    def __init__(self, edge_pts, axis='x'):
+        self.edge_pts = edge_pts
+        self.i, self.j = self._PLANE[axis.lower()]
+
+    def setup(self, inst):
+        self.a_lab, da = _nearest_node_label(inst, self.edge_pts[0])
+        self.b_lab, db = _nearest_node_label(inst, self.edge_pts[1])
+        if self.a_lab == self.b_lab:
+            raise ValueError("EdgeTwistMetric: both edge points map to node %d" % self.a_lab)
+        coords = {n.label: n.coordinates for n in inst.nodes
+                  if n.label in (self.a_lab, self.b_lab)}
+        self.ref = {lab: [float(c) for c in coords[lab]] for lab in coords}
+        self.d0 = [self.ref[self.b_lab][k] - self.ref[self.a_lab][k] for k in range(3)]
+        self._prev = None
+        printlog("EdgeTwistMetric: tracking nodes %d and %d (%.2e m and %.2e m from the given edge points)"
+                 % (self.a_lab, self.b_lab, da, db))
+
+    def evaluate(self, frame, inst):
+        u = _nodal_vectors(frame, inst, 'U', (self.a_lab, self.b_lab))
+        d1 = [self.d0[k] + u[self.b_lab][k] - u[self.a_lab][k] for k in range(3)]
+        p0 = (self.d0[self.i], self.d0[self.j])
+        p1 = (d1[self.i], d1[self.j])
+        ang = math.degrees(math.atan2(p0[0] * p1[1] - p0[1] * p1[0],
+                                      p0[0] * p1[0] + p0[1] * p1[1]))
+        if self._prev is not None:
+            ang += 360.0 * round((self._prev - ang) / 360.0)
+        self._prev = ang
+        return {'twist_deg': ang, 'twist_rad': math.radians(ang)}
+
+
+class NodeDisplacementMetric(object):
+    """Total displacement (from the undeformed mesh) of one node, picked once as
+    the node 'farthest' from / 'nearest' to `target`. Same quantity as
+    compute_cumulative_node_displacement (the old tip-displacement CSV)."""
+    columns = ('ux', 'uy', 'uz', 'u_mag', 'def_x', 'def_y', 'def_z', 'node_label')
+
+    def __init__(self, target, mode='farthest'):
+        self.target = target
+        self.mode = mode
+
+    def setup(self, inst):
+        tx, ty, tz = self.target
+        best = None
+        for n in inst.nodes:
+            x, y, z = n.coordinates
+            d = math.sqrt((x - tx) ** 2 + (y - ty) ** 2 + (z - tz) ** 2)
+            if best is None or (d > best[1] if self.mode == 'farthest' else d < best[1]):
+                best = (n.label, d, (float(x), float(y), float(z)))
+        self.label, _, self.ref = best
+        printlog("NodeDisplacementMetric: tracking node %d (%s from %s)"
+                 % (self.label, self.mode, self.target))
+
+    def evaluate(self, frame, inst):
+        ux, uy, uz = _nodal_vectors(frame, inst, 'U', (self.label,))[self.label]
+        return {'ux': ux, 'uy': uy, 'uz': uz,
+                'u_mag': math.sqrt(ux ** 2 + uy ** 2 + uz ** 2),
+                'def_x': self.ref[0] + ux, 'def_y': self.ref[1] + uy,
+                'def_z': self.ref[2] + uz, 'node_label': self.label}
+
+
+def write_odb_history_csv(job_names, instance_name, out_path, metrics,
+                          frames='last', first_iteration=1,
+                          time_zero_step=None, time_zero_column='rel_time'):
+    """Write a CSV of ODB results over a restart chain; return the rows.
+
+    job_names: jobs in chain order (ODBs at <job>.odb). Iteration ids are
+        first_iteration, first_iteration + 1, ... (pass 0 when job_names
+        starts with the prep job).
+    metrics: metric objects (TemperatureMetric, EdgeTwistMetric,
+        NodeDisplacementMetric, ...) whose columns are appended in order.
+    frames: 'last' = one row per job (last frame of its last step);
+            'all'  = every saved frame of every step. Frame 0 of a step is the
+            same state as the end of the previous step, so it is skipped
+            except for the very first step (the undeformed start).
+    time_zero_step: optional step name (e.g. 'Heat_01'); adds the column
+        time_zero_column = total_time - start time of that step.
+
+    Columns: iteration, job, step, increment, step_time, total_time,
+    [time_zero_column], then each metric's columns. Abaqus total_time keeps
+    counting across restart jobs. A job whose ODB can't be read is logged
+    and skipped.
+    """
+    if frames not in ('last', 'all'):
+        raise ValueError("frames must be 'last' or 'all'")
+    rows = []
+    t_zero = None
+    set_up = False
+    for idx, job_name in enumerate(job_names):
+        try:
+            odb = session.openOdb(job_name + '.odb', readOnly=True)
+        except Exception as e:
+            printlog("write_odb_history_csv: could not open %s.odb: %s" % (job_name, e))
+            continue
+        try:
+            inst = _odb_part_instance(odb, instance_name)
+            if not set_up:
+                for m in metrics:
+                    m.setup(inst)
+                set_up = True
+            steps = odb.steps.values()
+            if time_zero_step is not None and time_zero_step in odb.steps.keys():
+                t_zero = odb.steps[time_zero_step].totalTime
+            if frames == 'last':
+                picks = [(steps[-1], steps[-1].frames[-1])]
+            else:
+                picks = []
+                for st in steps:
+                    for k, fr in enumerate(st.frames):
+                        if k == 0 and (rows or picks):
+                            continue
+                        picks.append((st, fr))
+            for st, fr in picks:
+                row = {'iteration': first_iteration + idx, 'job': job_name,
+                       'step': st.name, 'increment': fr.incrementNumber,
+                       'step_time': fr.frameValue,
+                       'total_time': st.totalTime + fr.frameValue}
+                for m in metrics:
+                    row.update(m.evaluate(fr, inst))
+                rows.append(row)
+        except Exception as e:
+            printlog("write_odb_history_csv: error reading %s: %s" % (job_name, e))
+        finally:
+            odb.close()
+
+    columns = ['iteration', 'job', 'step', 'increment', 'step_time', 'total_time']
+    if time_zero_step is not None:
+        columns.append(time_zero_column)
+        for r in rows:
+            r[time_zero_column] = (r['total_time'] - t_zero) if t_zero is not None else float('nan')
+    for m in metrics:
+        columns.extend(m.columns)
+
+    def _fmt(v):
+        return ('%.8g' % v) if isinstance(v, float) else v
+
+    os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
+    with open(out_path, 'w', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(columns)
+        for r in rows:
+            w.writerow([_fmt(r.get(c, '')) for c in columns])
+    printlog("Wrote %d row(s) to %s" % (len(rows), out_path))
+    return rows
+
+
+def plot_twist_history(rows, out_path, run_no, time_col='heating_time', temp_cols=None):
+    """Twist vs time from write_odb_history_csv rows (EdgeTwistMetric), with
+    temperatures on a second y-axis. Dotted lines mark the end of each
+    iteration/job; t = 0 is the start of heating.
+
+    temp_cols: temperature columns to plot. Default: the NodeTemperatureMetric
+        probe columns (e.g. T1_K, T2_K) if present, otherwise Tmax/Tmin
+        (TemperatureMetric). Columns that are only in the CSV are not plotted.
+    """
+    if not rows:
+        raise ValueError("plot_twist_history: no rows")
+    t = [r[time_col] for r in rows]
+    fig, ax = plt.subplots(figsize=(9, 5))
+    ax.plot(t, [r['twist_deg'] for r in rows], color='tab:blue',
+            marker='.', markersize=3, linewidth=1.2, label='Twist')
+    ax.set_xlabel('Heating time (s)' if time_col == 'heating_time' else time_col)
+    ax.set_ylabel('Twist about X (deg)')
+    ax.axvline(0.0, color='0.3', linestyle='--', linewidth=0.8)
+    for k in range(len(rows) - 1):
+        if rows[k]['iteration'] != rows[k + 1]['iteration']:
+            ax.axvline(t[k], color='0.7', linestyle=':', linewidth=0.8)
+    ax.grid(alpha=0.3)
+
+    handles, labels = ax.get_legend_handles_labels()
+    if temp_cols is None:
+        temp_cols = [k for k in rows[0] if k.endswith('_K') and k not in ('tmax_K', 'tmin_K')]
+        if not temp_cols:
+            temp_cols = [k for k in ('tmax_K', 'tmin_K') if k in rows[0]]
+    temp_cols = [c for c in temp_cols if c in rows[0]]
+    if temp_cols:
+        ax2 = ax.twinx()
+        names = {'tmax_K': 'Tmax', 'tmin_K': 'Tmin'}
+        colors = ['tab:red', 'tab:orange', 'tab:green', 'tab:purple', 'tab:brown']
+        for k, c in enumerate(temp_cols):
+            ax2.plot(t, [r[c] for r in rows], color=colors[k % len(colors)], linewidth=1.0,
+                     linestyle='-' if k % 2 == 0 else '--', label=names.get(c, c[:-2]))
+        ax2.set_ylabel('Temperature (K)')
+        h2, l2 = ax2.get_legend_handles_labels()
+        handles, labels = handles + h2, labels + l2
+    ax.legend(handles, labels, loc='best')
+    ax.set_title('Twist history (run %s)' % run_no)
+
+    os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
+    fig.savefig(out_path, dpi=200, bbox_inches='tight')
+    plt.close(fig)
+    printlog("Saved twist plot to %s" % out_path)
+    return out_path
+
+def export_shell_corners(job_name, instance_name, step_index=-1, frame_index=-1):
+    """Deformed corners of a flat rectangular shell instance (e.g. a shade) as
+    NODE_DATA with one quad: {'nodes': {1..4: (x, y, z)}, 'elements': [[1, 2, 3, 4]]}.
+
+    The corners are picked once from the UNDEFORMED node coordinates: the two
+    principal in-plane axes (u, v) of the node cloud are found, and the nodes
+    furthest along +u+v, -u+v, -u-v, +u-v are taken, which gives them in order
+    around the edge. Their deformed positions = coordinates + U at the chosen
+    frame. Only valid for a part that stays a flat rectangle (a rigid,
+    kinematically coupled shade does).
+    """
+    odb = session.openOdb(job_name + '.odb', readOnly=True)
+    try:
+        inst = _odb_part_instance(odb, instance_name)
+        labels = [n.label for n in inst.nodes]
+        xyz = np.array([n.coordinates for n in inst.nodes], dtype=float)
+        rel = xyz - xyz.mean(axis=0)
+        # Principal axes of the node cloud: rows of vt, largest spread first
+        _, _, vt = np.linalg.svd(rel, full_matrices=False)
+        pu, pv = rel @ vt[0], rel @ vt[1]
+        idx = [int(np.argmax(su * pu + sv * pv))
+               for su, sv in ((1, 1), (-1, 1), (-1, -1), (1, -1))]
+        if len(set(idx)) != 4:
+            raise RuntimeError("export_shell_corners: could not find 4 distinct corners of %s"
+                               % instance_name)
+        corner_labels = [labels[i] for i in idx]
+
+        frame = odb.steps.values()[step_index].frames[frame_index]
+        u = _nodal_vectors(frame, inst, 'U', corner_labels)
+        nodes = {}
+        for k, (i, lab) in enumerate(zip(idx, corner_labels)):
+            nodes[k + 1] = tuple(float(xyz[i][c] + u[lab][c]) for c in range(3))
+    finally:
+        odb.close()
+    printlog("Exported 4 corners of %s from %s (nodes %s)"
+             % (instance_name, job_name, corner_labels))
+    return {'nodes': nodes, 'elements': [[1, 2, 3, 4]]}
+
+
+def preview_sun_direction(part, sun_dir, out_path, title='', ask_to_continue=True,
+                          extra_parts=()):
+    """Show the sun direction on the meshed (undeformed) part before a run.
+
+    Draws every element of `part` (an Abaqus Part with a generated mesh) in
+    four panels (3D isometric, plus 2D orthographic top / front / right
+    projections with Z up), shaded by |cos| of the angle between the element normal and the beam
+    (1 = beam hits it square on, 0 = grazing; shells absorb on either side),
+    plus a red arrow along sun_dir (the direction sunlight travels) aimed at
+    the middle of the part. Saves the PNG to out_path and opens it in the
+    default image viewer (matplotlib runs headless here, so there is no live
+    window).
+
+    extra_parts: other meshed parts (e.g. a shade) drawn in translucent grey,
+        unshaded, at their part coordinates (no instance offset applied).
+
+    ask_to_continue: in Abaqus/CAE (GUI), also show a Yes/No dialog; No raises
+    RuntimeError so the run stops before any job is submitted. Without a GUI
+    (noGUI) the dialog isn't available and the run just continues.
+    """
+    from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+
+    coords = np.array([n.coordinates for n in part.nodes], dtype=float)
+    polys = [coords[list(e.connectivity)] for e in part.elements]
+    d = np.asarray(sun_dir, dtype=float)
+    d = d / np.linalg.norm(d)
+
+    cosv = []
+    for pts in polys:
+        nrm = np.cross(pts[1] - pts[0], pts[2] - pts[0])
+        ln = np.linalg.norm(nrm)
+        cosv.append(abs(np.dot(nrm, d)) / ln if ln > 0 else 0.0)
+    cmap = plt.get_cmap('inferno')
+    norm = mcolors.Normalize(vmin=0.0, vmax=1.0)
+
+    extra = [np.array([n.coordinates for n in xp.nodes], dtype=float) for xp in extra_parts]
+    extra_polys = [[xc[list(e.connectivity)] for e in xp.elements]
+                   for xc, xp in zip(extra, extra_parts)]
+
+    center = coords.mean(axis=0)
+    size = float(np.max(coords.max(axis=0) - coords.min(axis=0)))
+    start = center - d * 0.9 * size
+    pts = np.vstack([coords] + extra + [start[None, :]])
+    mid = (pts.max(axis=0) + pts.min(axis=0)) / 2.0
+    half = float(np.max(pts.max(axis=0) - pts.min(axis=0))) / 2.0 * 1.05
+
+    from matplotlib.collections import PolyCollection
+    from matplotlib.ticker import MaxNLocator
+
+    face_part = cmap(norm(cosv))
+    face_extra = (0.6, 0.6, 0.6, 0.35)
+    edge_part, edge_extra = (0, 0, 0, 0.15), (0, 0, 0, 0.3)
+    labels = ('X', 'Y', 'Z')
+
+    fig = plt.figure(figsize=(14, 11))
+    fig.subplots_adjust(wspace=0.4, hspace=0.25)
+
+    # Isometric (3D)
+    ax = fig.add_subplot(2, 2, 1, projection='3d')
+    ax.add_collection3d(Poly3DCollection(polys, facecolors=face_part,
+                                         edgecolors=edge_part, linewidths=0.2))
+    for xpolys in extra_polys:
+        ax.add_collection3d(Poly3DCollection(xpolys, facecolors=face_extra,
+                                             edgecolors=edge_extra, linewidths=0.3))
+    ax.quiver(start[0], start[1], start[2], d[0], d[1], d[2],
+              length=0.8 * size, color='red', linewidth=2.5, arrow_length_ratio=0.15)
+    ax.text(start[0], start[1], start[2], '  Sun', color='red', fontsize=10)
+    ax.set_xlim(mid[0] - half, mid[0] + half)
+    ax.set_ylim(mid[1] - half, mid[1] + half)
+    ax.set_zlim(mid[2] - half, mid[2] + half)
+    ax.set_box_aspect((1, 1, 1))
+    for axis in (ax.xaxis, ax.yaxis, ax.zaxis):
+        axis.set_major_locator(MaxNLocator(4))
+    ax.set_xlabel('X')
+    ax.set_ylabel('Y')
+    ax.set_zlabel('Z')
+    ax.set_title('Isometric', fontsize=10)
+
+    # Orthographic views as 2D projections, Z up (the sun zenith axis).
+    # (title, horizontal axis, vertical axis, unit vector from part to viewer)
+    ortho = [
+        ('Top (looking down -Z)', 0, 1, np.array([0.0, 0.0, 1.0])),
+        ('Front (looking along +Y)', 0, 2, np.array([0.0, -1.0, 0.0])),
+        ('Right (looking along -X)', 1, 2, np.array([1.0, 0.0, 0.0])),
+    ]
+    tagged = ([(pg, face_part[i], edge_part, 0.2) for i, pg in enumerate(polys)]
+              + [(pg, face_extra, edge_extra, 0.3) for xpolys in extra_polys for pg in xpolys])
+    for k, (vtitle, h, v, to_viewer) in enumerate(ortho):
+        ax = fig.add_subplot(2, 2, k + 2)
+        # Painter's order: farthest from the viewer first
+        order = sorted(tagged, key=lambda t: float(np.mean(t[0] @ to_viewer)))
+        ax.add_collection(PolyCollection([t[0][:, [h, v]] for t in order],
+                                         facecolors=[t[1] for t in order],
+                                         edgecolors=[t[2] for t in order],
+                                         linewidths=[t[3] for t in order]))
+        arrow = 0.8 * size * d
+        if np.hypot(arrow[h], arrow[v]) > 0.05 * size:
+            ax.annotate('', xy=(start[h] + arrow[h], start[v] + arrow[v]),
+                        xytext=(start[h], start[v]),
+                        arrowprops=dict(arrowstyle='-|>', color='red', lw=2.5,
+                                        mutation_scale=20))
+            ax.text(start[h], start[v], '  Sun', color='red', fontsize=10)
+        else:
+            # Beam is (almost) along the viewing direction: draw it end-on
+            into_page = float(np.dot(d, to_viewer)) < 0
+            ax.plot(center[h], center[v], marker='o', markersize=18, markerfacecolor='none',
+                    markeredgecolor='red', markeredgewidth=2)
+            ax.plot(center[h], center[v], marker='x' if into_page else '.',
+                    markersize=12 if into_page else 10, color='red', markeredgewidth=2)
+            ax.text(center[h], center[v], '     Sun (%s page)' % ('into' if into_page else 'out of'),
+                    color='red', fontsize=10)
+        ax.set_xlim(mid[h] - half, mid[h] + half)
+        ax.set_ylim(mid[v] - half, mid[v] + half)
+        ax.set_aspect('equal')
+        ax.xaxis.set_major_locator(MaxNLocator(5))
+        ax.yaxis.set_major_locator(MaxNLocator(5))
+        ax.set_xlabel(labels[h])
+        ax.set_ylabel(labels[v])
+        ax.grid(alpha=0.3)
+        ax.set_title('%s: %s right, %s up' % (vtitle, labels[h], labels[v]), fontsize=10)
+
+    sm = cm.ScalarMappable(norm=norm, cmap=cmap)
+    sm.set_array([])
+    fig.colorbar(sm, ax=fig.axes, shrink=0.5, pad=0.04,
+                 label='|cos| of incidence angle (1 = beam hits square on)')
+    fig.suptitle('%sSun direction (travel) = (%.3f, %.3f, %.3f)'
+                 % ((title + '\n') if title else '', d[0], d[1], d[2]), fontsize=12)
+
+    os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
+    fig.savefig(out_path, dpi=150, bbox_inches='tight')
+    plt.close(fig)
+    printlog("Saved sun-direction preview to %s" % out_path)
+    try:
+        os.startfile(out_path)
+    except Exception as e:
+        printlog("Could not open the preview image: %s" % e)
+
+    if not ask_to_continue:
+        return out_path
+    try:
+        from abaqus import getWarningReply, YES, NO
+        reply = getWarningReply(
+            'Check the sun-direction preview that just opened:\n%s\n\n'
+            'Continue with the analysis?' % out_path, (YES, NO))
+    except Exception as e:
+        printlog("Sun preview: no confirmation dialog (%s); continuing." % e)
+        return out_path
+    if reply != YES:
+        raise RuntimeError("Run cancelled at the sun-direction preview.")
+    printlog("Sun preview confirmed; continuing.")
+    return out_path
 
 def plot_node_history(node_history, run_no, output_dir, up_axis='y'):
     """

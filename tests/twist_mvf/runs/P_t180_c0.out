@@ -1,0 +1,2341 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB P_t180_c0
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server coe-vtls7.engr.tamu.edu.
+<268 out of 443 licenses remain available>.
+Begin Compiling Abaqus/Standard User Subroutines
+11/22/2026 11:24:21 PM
+Intel(R) Fortran Compiler for applications running on Intel(R) 64, Version 2026.1.0 Build 20260617
+Copyright (C) 1985-2026 Intel Corporation. All rights reserved.
+
+End Compiling Abaqus/Standard User Subroutines
+Begin Linking Abaqus/Standard User Subroutines
+   Creating library standardU.lib and object standardU.exp
+Hartl_UMAT_Hacked.obj : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+libircmt.lib(fast_mem_ops.c.obj) : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+End Linking Abaqus/Standard User Subroutines
+11/22/2026 11:24:22 PM
+Begin Analysis Input File Processor
+11/22/2026 11:24:22 PM
+Run pre.exe
+11/22/2026 11:24:26 PM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+11/22/2026 11:24:26 PM
+Run standard.exe
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.065368539993300E-006
+                              xi=  0.211827039974958     
+             Total inc. in xi is:  0.211827039974958     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.133594530947139E-006
+                              xi=  0.189368045814836     
+             Total inc. in xi is:  0.189368045814836     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.133823178068111E-006
+                              xi=  0.189210947213667     
+             Total inc. in xi is:  0.189210947213667     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.193793149613247E-006
+                              xi=  0.166488492333461     
+             Total inc. in xi is:  0.166488492333461     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.193401518783640E-006
+                              xi=  0.166342392767573     
+             Total inc. in xi is:  0.166342392767573     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.235898644266083E-006
+                              xi=  0.143698001226520     
+             Total inc. in xi is:  0.143698001226520     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.234684348009404E-006
+                              xi=  0.143563753786979     
+             Total inc. in xi is:  0.143563753786979     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.248351592606947E-006
+                              xi=  0.121307792934364     
+             Total inc. in xi is:  0.121307792934364     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.246183815904216E-006
+                              xi=  0.121184554787831     
+             Total inc. in xi is:  0.121184554787831     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.217449515780653E-006
+                              xi=  9.960360969221228E-002
+             Total inc. in xi is:  9.960360969221228E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.214301711956136E-006
+                              xi=  9.948943017488081E-002
+             Total inc. in xi is:  9.948943017488081E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.129991348706974E-006
+                              xi=  7.881305522618941E-002
+             Total inc. in xi is:  7.881305522618941E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.126034450095636E-006
+                              xi=  7.870392445215028E-002
+             Total inc. in xi is:  7.870392445215028E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.756664451677921E-007
+                              xi=  5.911308718260375E-002
+             Total inc. in xi is:  5.911308718260375E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.713383768615435E-007
+                              xi=  5.900108558151001E-002
+             Total inc. in xi is:  5.900108558151001E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.525814384654575E-007
+                              xi=  4.059234841365782E-002
+             Total inc. in xi is:  4.059234841365782E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.313102694056069E-007
+                              xi=  0.362009242972742     
+             Total inc. in xi is:  0.362009242972742     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.702654526155582E-007
+                              xi=  0.348464227430490     
+             Total inc. in xi is:  0.348464227430490     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.714969829465805E-007
+                              xi=  0.348248120850004     
+             Total inc. in xi is:  0.348248120850004     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.128118666495566E-007
+                              xi=  0.332511336395603     
+             Total inc. in xi is:  0.332511336395603     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.100051632609774E-007
+                              xi=  0.332536083419223     
+             Total inc. in xi is:  0.332536083419223     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.579882439700676E-007
+                              xi=  0.314581939665379     
+             Total inc. in xi is:  0.314581939665379     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.555818987027937E-007
+                              xi=  0.314577865414443     
+             Total inc. in xi is:  0.314577865414443     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.123588146036820E-007
+                              xi=  0.294596038664417     
+             Total inc. in xi is:  0.294596038664417     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.111906299194994E-007
+                              xi=  0.294528661683389     
+             Total inc. in xi is:  0.294528661683389     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.766501719966476E-007
+                              xi=  0.272845047770509     
+             Total inc. in xi is:  0.272845047770509     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.764997732306537E-007
+                              xi=  0.272736190552894     
+             Total inc. in xi is:  0.272736190552894     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.494042920593773E-007
+                              xi=  0.249711531231522     
+             Total inc. in xi is:  0.249711531231522     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.498324568461383E-007
+                              xi=  0.249586585021631     
+             Total inc. in xi is:  0.249586585021631     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.027483583284264E-006
+                              xi=  0.225591220101301     
+             Total inc. in xi is:  0.225591220101301     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.028052947565826E-006
+                              xi=  0.225468979046555     
+             Total inc. in xi is:  0.225468979046555     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.106094503516971E-006
+                              xi=  0.200867586119795     
+             Total inc. in xi is:  0.200867586119795     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.106449032598652E-006
+                              xi=  0.200758661212831     
+             Total inc. in xi is:  0.200758661212831     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.177966286109473E-006
+                              xi=  0.175909824761621     
+             Total inc. in xi is:  0.175909824761621     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.177852978038251E-006
+                              xi=  0.175818816638386     
+             Total inc. in xi is:  0.175818816638386     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.233142491597777E-006
+                              xi=  0.151061199872401     
+             Total inc. in xi is:  0.151061199872401     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.232400410224872E-006
+                              xi=  0.150988871606523     
+             Total inc. in xi is:  0.150988871606523     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.258048218118681E-006
+                              xi=  0.126643273971720     
+             Total inc. in xi is:  0.126643273971720     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.256596738198375E-006
+                              xi=  0.126588866325304     
+             Total inc. in xi is:  0.126588866325304     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.236246848986924E-006
+                              xi=  0.102934404363951     
+             Total inc. in xi is:  0.102934404363951     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.234121327783611E-006
+                              xi=  0.102895793972108     
+             Total inc. in xi is:  0.102895793972108     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.149253090730426E-006
+                              xi=  8.016721318596455E-002
+             Total inc. in xi is:  8.016721318596455E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.146700599458426E-006
+                              xi=  8.014028199744141E-002
+             Total inc. in xi is:  8.014028199744141E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.810894130005447E-007
+                              xi=  5.849075864085088E-002
+             Total inc. in xi is:  5.849075864085088E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.786200339507379E-007
+                              xi=  5.846729143321792E-002
+             Total inc. in xi is:  5.846729143321792E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.237886345336991E-007
+                              xi=  3.796483304112960E-002
+             Total inc. in xi is:  3.796483304112960E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.219761317864119E-007
+                              xi=  3.793119943636897E-002
+             Total inc. in xi is:  3.793119943636897E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.862772036388056E-007
+                              xi=  1.852263681754570E-002
+             Total inc. in xi is:  1.852263681754570E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.850255267602194E-007
+                              xi=  1.845966545450477E-002
+             Total inc. in xi is:  1.845966545450477E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.842748188543869E-007
+                              xi=  7.292834802404212E-002
+             Total inc. in xi is:  7.292834802404212E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.477648242603113E-008
+                              xi=  0.283122089891278     
+             Total inc. in xi is:  0.283122089891278     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.138138245942043E-007
+                              xi=  7.187550115674714E-002
+             Total inc. in xi is:  7.187550115674714E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.646222203062269E-007
+                              xi=  9.360614358491040E-002
+             Total inc. in xi is:  9.360614358491040E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.105205364665756E-007
+                              xi=  0.104276814221710     
+             Total inc. in xi is:  0.104276814221710     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.231118007974583E-007
+                              xi=  9.131251305760837E-002
+             Total inc. in xi is:  9.131251305760837E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.126176538233848E-006
+                              xi=  7.721593983444186E-002
+             Total inc. in xi is:  7.721593983444186E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.162400395485411E-006
+                              xi=  7.836294290875047E-002
+             Total inc. in xi is:  7.836294290875047E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.921755415894086E-007
+                              xi=  3.990869735009278E-002
+             Total inc. in xi is:  3.990869735009278E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.371434002394946E-007
+                              xi=  4.209804373367718E-002
+             Total inc. in xi is:  4.209804373367718E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.436428393742832E-007
+                              xi=  1.554732452789287E-002
+             Total inc. in xi is:  1.554732452789287E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.527793486545965E-007
+                              xi=  1.613186942619192E-002
+             Total inc. in xi is:  1.613186942619192E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.470628495924015E-007
+                              xi=  1.530213033469350E-002
+             Total inc. in xi is:  1.530213033469350E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.577382740395246E-007
+                              xi=  1.604376860971672E-002
+             Total inc. in xi is:  1.604376860971672E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.265617060032812E-006
+                              xi=  0.101888719199918     
+             Total inc. in xi is:  0.101888719199918     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.254685176267084E-006
+                              xi=  9.726598867733975E-002
+             Total inc. in xi is:  9.726598867733975E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.267024326149373E-006
+                              xi=  0.101975079558056     
+             Total inc. in xi is:  0.101975079558056     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.256952152723687E-006
+                              xi=  9.728328358384836E-002
+             Total inc. in xi is:  9.728328358384836E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.123694124150175E-007
+                              xi=  3.657327686722014E-002
+             Total inc. in xi is:  3.657327686722014E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.160418430020884E-007
+                              xi=  3.641870439541420E-002
+             Total inc. in xi is:  3.641870439541420E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.231692297562468E-007
+                              xi=  3.666313010167101E-002
+             Total inc. in xi is:  3.666313010167101E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.320653318056386E-007
+                              xi=  3.640542269452159E-002
+             Total inc. in xi is:  3.640542269452159E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.425282855761813E-007
+                              xi=  6.034119905017089E-002
+             Total inc. in xi is:  6.034119905017089E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.403334070965964E-007
+                              xi=  5.358403024194344E-002
+             Total inc. in xi is:  5.358403024194344E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.792006025359929E-007
+                              xi=  5.899378755164786E-002
+             Total inc. in xi is:  5.899378755164786E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.831602743233964E-007
+                              xi=  5.381928603115380E-002
+             Total inc. in xi is:  5.381928603115380E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.901649951303209E-007
+                              xi=  7.702094983371457E-002
+             Total inc. in xi is:  7.702094983371457E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.037071151404414E-006
+                              xi=  6.700557812940169E-002
+             Total inc. in xi is:  6.700557812940169E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.048864707270051E-006
+                              xi=  7.513701033536813E-002
+             Total inc. in xi is:  7.513701033536813E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.092185452808586E-006
+                              xi=  6.610089762334168E-002
+             Total inc. in xi is:  6.610089762334168E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.133080988825314E-006
+                              xi=  7.746839039614220E-002
+             Total inc. in xi is:  7.746839039614220E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.222320541542849E-006
+                              xi=  9.311447165531218E-002
+             Total inc. in xi is:  9.311447165531218E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.223739986446002E-006
+                              xi=  9.321815683727425E-002
+             Total inc. in xi is:  9.321815683727425E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.272222425831960E-006
+                              xi=  0.109754039909844     
+             Total inc. in xi is:  0.109754039909844     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.257651484566553E-006
+                              xi=  0.109171239734489     
+             Total inc. in xi is:  0.109171239734489     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.243580638668641E-006
+                              xi=  0.100049312139340     
+             Total inc. in xi is:  0.100049312139340     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.256781146698844E-006
+                              xi=  0.100565697209552     
+             Total inc. in xi is:  0.100565697209552     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.287722287644480E-006
+                              xi=  0.103035389857451     
+             Total inc. in xi is:  0.103035389857451     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.273848852258049E-006
+                              xi=  0.102462907896956     
+             Total inc. in xi is:  0.102462907896956     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.293418195880502E-006
+                              xi=  0.105641334274535     
+             Total inc. in xi is:  0.105641334274535     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.278370993267028E-006
+                              xi=  0.105120824740463     
+             Total inc. in xi is:  0.105120824740463     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.265343460700046E-006
+                              xi=  0.108182134227642     
+             Total inc. in xi is:  0.108182134227642     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.245426818636183E-006
+                              xi=  9.454019348242235E-002
+             Total inc. in xi is:  9.454019348242235E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.240275069118527E-006
+                              xi=  9.436335218318785E-002
+             Total inc. in xi is:  9.436335218318785E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.256498958685256E-006
+                              xi=  0.107556728283635     
+             Total inc. in xi is:  0.107556728283635     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.240399583997985E-006
+                              xi=  9.997027170225499E-002
+             Total inc. in xi is:  9.997027170225499E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.239807664890621E-006
+                              xi=  9.968602828857948E-002
+             Total inc. in xi is:  9.968602828857948E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.250072137229375E-006
+                              xi=  0.105993902152594     
+             Total inc. in xi is:  0.105993902152594     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.251101847235641E-006
+                              xi=  0.105971435779006     
+             Total inc. in xi is:  0.105971435779006     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.255355829524666E-006
+                              xi=  0.128786293836106     
+             Total inc. in xi is:  0.128786293836106     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.247464699156944E-006
+                              xi=  0.116323332566049     
+             Total inc. in xi is:  0.116323332566049     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.256326132082668E-006
+                              xi=  9.933629245459638E-002
+             Total inc. in xi is:  9.933629245459638E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.241887507928329E-006
+                              xi=  9.557266083014707E-002
+             Total inc. in xi is:  9.557266083014707E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.243276054046983E-006
+                              xi=  0.101203948411849     
+             Total inc. in xi is:  0.101203948411849     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.239419253660590E-006
+                              xi=  0.100936096442460     
+             Total inc. in xi is:  0.100936096442460     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.008629326526339E-006
+                              xi=  6.014043142003387E-002
+             Total inc. in xi is:  6.014043142003387E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.046201799331499E-006
+                              xi=  6.378133389993722E-002
+             Total inc. in xi is:  6.378133389993722E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.035890098238504E-006
+                              xi=  6.412785389201058E-002
+             Total inc. in xi is:  6.412785389201058E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.035592109864342E-006
+                              xi=  5.935137690908290E-002
+             Total inc. in xi is:  5.935137690908290E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.041868824153059E-006
+                              xi=  5.924482385449640E-002
+             Total inc. in xi is:  5.924482385449640E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.031719171949137E-006
+                              xi=  5.940677892800878E-002
+             Total inc. in xi is:  5.940677892800878E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.036817337981748E-006
+                              xi=  5.935127520043958E-002
+             Total inc. in xi is:  5.935127520043958E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.044109819246851E-007
+                              xi=  5.035810971962026E-002
+             Total inc. in xi is:  5.035810971962026E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.648059309630864E-007
+                              xi=  5.648859167840616E-002
+             Total inc. in xi is:  5.648859167840616E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.452769088072253E-007
+                              xi=  3.705031945651750E-002
+             Total inc. in xi is:  3.705031945651750E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.223906536772549E-007
+                              xi=  3.775621400631485E-002
+             Total inc. in xi is:  3.775621400631485E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.811510515028991E-007
+                              xi=  1.232561477711155E-002
+             Total inc. in xi is:  1.232561477711155E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.681865891204295E-007
+                              xi=  1.181324445326578E-002
+             Total inc. in xi is:  1.181324445326578E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.149945783564770E-006
+                              xi=  7.750829236143034E-002
+             Total inc. in xi is:  7.750829236143034E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.150145267826342E-006
+                              xi=  7.757869055558556E-002
+             Total inc. in xi is:  7.757869055558556E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.178334762218024E-006
+                              xi=  7.821477467749303E-002
+             Total inc. in xi is:  7.821477467749303E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.194913990177165E-006
+                              xi=  7.881338162122718E-002
+             Total inc. in xi is:  7.881338162122718E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.177748575215691E-006
+                              xi=  7.816597825349057E-002
+             Total inc. in xi is:  7.816597825349057E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.196573216898629E-006
+                              xi=  7.871272295307016E-002
+             Total inc. in xi is:  7.871272295307016E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.154681824850261E-006
+                              xi=  7.859964461097471E-002
+             Total inc. in xi is:  7.859964461097471E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.172256491065500E-006
+                              xi=  7.919796035181031E-002
+             Total inc. in xi is:  7.919796035181031E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.063975217018760E-006
+                              xi=  6.485728048784918E-002
+             Total inc. in xi is:  6.485728048784918E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.065059630520131E-006
+                              xi=  6.492348333431573E-002
+             Total inc. in xi is:  6.492348333431573E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.054052982412615E-006
+                              xi=  6.375722359845902E-002
+             Total inc. in xi is:  6.375722359845902E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.055256805255241E-006
+                              xi=  6.385318583965938E-002
+             Total inc. in xi is:  6.385318583965938E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.209166056357547E-006
+                              xi=  9.513452819965745E-002
+             Total inc. in xi is:  9.513452819965745E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.124600930530158E-006
+                              xi=  7.383357290027075E-002
+             Total inc. in xi is:  7.383357290027075E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.127995721665822E-006
+                              xi=  7.381879743750235E-002
+             Total inc. in xi is:  7.381879743750235E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.147475186894898E-006
+                              xi=  7.936962805577201E-002
+             Total inc. in xi is:  7.936962805577201E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.164629909134285E-006
+                              xi=  7.988708202671845E-002
+             Total inc. in xi is:  7.988708202671845E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.163489401202923E-006
+                              xi=  7.555796664503893E-002
+             Total inc. in xi is:  7.555796664503893E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.158247571019182E-006
+                              xi=  7.442812327445204E-002
+             Total inc. in xi is:  7.442812327445204E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.163024552752408E-006
+                              xi=  7.550103505091592E-002
+             Total inc. in xi is:  7.550103505091592E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.156319993737917E-006
+                              xi=  7.439566261759163E-002
+             Total inc. in xi is:  7.439566261759163E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.240653312791272E-007
+                              xi=  5.666174419203336E-003
+             Total inc. in xi is:  5.666174419203336E-003
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.173671591917149E-007
+                              xi=  5.272841252235023E-003
+             Total inc. in xi is:  5.272841252235023E-003
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.518603722569872E-007
+                              xi=  5.455202729254523E-002
+             Total inc. in xi is:  5.455202729254523E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.421289845812458E-007
+                              xi=  3.198843193583280E-002
+             Total inc. in xi is:  3.198843193583280E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.338172769476728E-007
+                              xi=  3.164015695486249E-002
+             Total inc. in xi is:  3.164015695486249E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.655068642113009E-007
+                              xi=  2.202908011998136E-002
+             Total inc. in xi is:  2.202908011998136E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.647364966247197E-007
+                              xi=  2.202350040782698E-002
+             Total inc. in xi is:  2.202350040782698E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.299468037633512E-007
+                              xi=  0.114786838546704     
+             Total inc. in xi is:  0.114786838546704     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.023725143351831E-007
+                              xi=  0.222106141143859     
+             Total inc. in xi is:  0.222106141143859     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.780213948789488E-008
+                              xi=  0.937203659503279     
+             Total inc. in xi is:  0.937203659503279     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.443727200489294E-008
+                              xi=  0.951078948479695     
+             Total inc. in xi is:  0.951078948479695     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.273926851367087E-007
+                              xi=  0.289259456213215     
+             Total inc. in xi is:  0.289259456213215     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.337458899850725E-006
+                              xi=  0.153379820080421     
+             Total inc. in xi is:  0.153379820080421     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.928505755844035E-007
+                              xi=  3.616165484776476E-002
+             Total inc. in xi is:  3.616165484776476E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.937147336905841E-007
+                              xi=  0.500753899012120     
+             Total inc. in xi is:  0.500753899012120     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.847835412571215E-007
+                              xi=  0.282137249225919     
+             Total inc. in xi is:  0.282137249225919     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.044558251164862E-006
+                              xi=  0.262367089633972     
+             Total inc. in xi is:  0.262367089633972     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.101386750380578E-006
+                              xi=  0.227273887649455     
+             Total inc. in xi is:  0.227273887649455     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.268768654823503E-006
+                              xi=  0.187355346615229     
+             Total inc. in xi is:  0.187355346615229     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.237152358256588E-006
+                              xi=  0.212460976542853     
+             Total inc. in xi is:  0.212460976542853     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.015602742681792E-007
+                              xi=  0.851884010997004     
+             Total inc. in xi is:  0.851884010997004     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.524382169159923E-008
+                              xi=  0.877072918649520     
+             Total inc. in xi is:  0.877072918649520     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.831540607388603E-007
+                              xi=  0.594589568766231     
+             Total inc. in xi is:  0.594589568766231     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.415777938583875E-007
+                              xi=  0.658050410021796     
+             Total inc. in xi is:  0.658050410021796     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.242368549821327E-008
+                              xi=  0.805871482710406     
+             Total inc. in xi is:  0.805871482710406     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.313738255704498E-008
+                              xi=  0.892798575643848     
+             Total inc. in xi is:  0.892798575643848     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.542052061573252E-008
+                              xi=  0.910406202468728     
+             Total inc. in xi is:  0.910406202468728     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.925338197323901E-008
+                              xi=  0.966078307346779     
+             Total inc. in xi is:  0.966078307346779     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.560774521686534E-008
+                              xi=  0.944224665397334     
+             Total inc. in xi is:  0.944224665397334     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.407119764198336E-008
+                              xi=  0.856233862560216     
+             Total inc. in xi is:  0.856233862560216     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.859354193198206E-008
+                              xi=  0.924198562126276     
+             Total inc. in xi is:  0.924198562126276     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.519331365876686E-007
+                              xi=  0.757348303823969     
+             Total inc. in xi is:  0.757348303823969     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.768343620559060E-008
+                              xi=  0.910289278042029     
+             Total inc. in xi is:  0.910289278042029     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.112222841170365E-007
+                              xi=  0.541983821498278     
+             Total inc. in xi is:  0.541983821498278     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.054978741267892E-007
+                              xi=  0.410577655571904     
+             Total inc. in xi is:  0.410577655571904     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.248018879873555E-007
+                              xi=  0.508422096765598     
+             Total inc. in xi is:  0.508422096765598     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.868181213129009E-008
+                              xi=  0.942074613303556     
+             Total inc. in xi is:  0.942074613303556     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.500880323569866E-008
+                              xi=  0.917845543363596     
+             Total inc. in xi is:  0.917845543363596     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.893681511915419E-007
+                              xi=  0.259948863681797     
+             Total inc. in xi is:  0.259948863681797     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.351284290966786E-006
+                              xi=  0.161285140400975     
+             Total inc. in xi is:  0.161285140400975     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.028503241207960E-007
+                              xi=  0.664115682406998     
+             Total inc. in xi is:  0.664115682406998     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.017049234042765E-007
+                              xi=  0.667947841631526     
+             Total inc. in xi is:  0.667947841631526     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.659503820715430E-007
+                              xi=  0.527414478227641     
+             Total inc. in xi is:  0.527414478227641     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.362463450005258E-007
+                              xi=  0.470460967909639     
+             Total inc. in xi is:  0.470460967909639     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.282866253637154E-007
+                              xi=  0.485908366877036     
+             Total inc. in xi is:  0.485908366877036     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.048252147911396E-006
+                              xi=  0.126833309853603     
+             Total inc. in xi is:  0.126833309853603     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.048552952318720E-006
+                              xi=  0.110202181953396     
+             Total inc. in xi is:  0.110202181953396     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.734842744455407E-007
+                              xi=  0.337069352711121     
+             Total inc. in xi is:  0.337069352711121     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.791301609259835E-007
+                              xi=  0.323921305028600     
+             Total inc. in xi is:  0.323921305028600     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.445473112439375E-007
+                              xi=  0.294354381616472     
+             Total inc. in xi is:  0.294354381616472     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.630121335394290E-007
+                              xi=  0.291140431728414     
+             Total inc. in xi is:  0.291140431728414     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.021454279494979E-006
+                              xi=  0.248885827784334     
+             Total inc. in xi is:  0.248885827784334     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.005782901506276E-006
+                              xi=  0.244314822938819     
+             Total inc. in xi is:  0.244314822938819     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.729947485549603E-007
+                              xi=  0.251469638627982     
+             Total inc. in xi is:  0.251469638627982     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.003485489812587E-007
+                              xi=  0.250389134634023     
+             Total inc. in xi is:  0.250389134634023     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.670001153042078E-007
+                              xi=  0.309791842094088     
+             Total inc. in xi is:  0.309791842094088     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.325853102812380E-007
+                              xi=  0.303231346869027     
+             Total inc. in xi is:  0.303231346869027     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.859208789407625E-007
+                              xi=  0.106299829685957     
+             Total inc. in xi is:  0.106299829685957     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.825615583210864E-007
+                              xi=  0.690070186198532     
+             Total inc. in xi is:  0.690070186198532     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.821577453513120E-007
+                              xi=  0.691989600728630     
+             Total inc. in xi is:  0.691989600728630     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.981016795894284E-007
+                              xi=  0.495579805005350     
+             Total inc. in xi is:  0.495579805005350     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.058380214829008E-007
+                              xi=  0.484170808244587     
+             Total inc. in xi is:  0.484170808244587     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.178613012100080E-007
+                              xi=  0.312189185994467     
+             Total inc. in xi is:  0.312189185994467     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.565812196117469E-007
+                              xi=  0.682223420465922     
+             Total inc. in xi is:  0.682223420465922     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.274830273127704E-007
+                              xi=  0.279659790104983     
+             Total inc. in xi is:  0.279659790104983     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.442600582939260E-007
+                              xi=  0.269351527073261     
+             Total inc. in xi is:  0.269351527073261     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.536320260120518E-007
+                              xi=  0.256384552782804     
+             Total inc. in xi is:  0.256384552782804     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.622112720634424E-007
+                              xi=  0.154389745534284     
+             Total inc. in xi is:  0.154389745534284     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.490921996810749E-007
+                              xi=  0.589951715767963     
+             Total inc. in xi is:  0.589951715767963     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.618323718211782E-007
+                              xi=  0.285081251531299     
+             Total inc. in xi is:  0.285081251531299     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.022061888462693E-007
+                              xi=  0.580368498567653     
+             Total inc. in xi is:  0.580368498567653     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.228104046998680E-007
+                              xi=  0.245503412639469     
+             Total inc. in xi is:  0.245503412639469     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.948567530832567E-008
+                              xi=  0.874565978071483     
+             Total inc. in xi is:  0.874565978071483     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.279929589875098E-008
+                              xi=  0.913522603265294     
+             Total inc. in xi is:  0.913522603265294     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.339308968509394E-008
+                              xi=  0.914058180762579     
+             Total inc. in xi is:  0.914058180762579     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.447979886853867E-007
+                              xi=  0.735025918116499     
+             Total inc. in xi is:  0.735025918116499     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.757295016315996E-007
+                              xi=  0.379068987164682     
+             Total inc. in xi is:  0.379068987164682     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.043745608171025E-007
+                              xi=  0.348470106498494     
+             Total inc. in xi is:  0.348470106498494     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.206424152325490E-007
+                              xi=  0.326264383719976     
+             Total inc. in xi is:  0.326264383719976     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.603435247610932E-007
+                              xi=  0.138305323600434     
+             Total inc. in xi is:  0.138305323600434     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.179434350321633E-006
+                              xi=  0.115494099064457     
+             Total inc. in xi is:  0.115494099064457     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.300714248655886E-007
+                              xi=  0.231630667064647     
+             Total inc. in xi is:  0.231630667064647     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.459462293271383E-007
+                              xi=  0.214864566467587     
+             Total inc. in xi is:  0.214864566467587     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.161750628290482E-007
+                              xi=  0.735916291521561     
+             Total inc. in xi is:  0.735916291521561     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.247500534198111E-008
+                              xi=  0.864386950354276     
+             Total inc. in xi is:  0.864386950354276     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.228718405732545E-007
+                              xi=  0.784812439275725     
+             Total inc. in xi is:  0.784812439275725     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.853284786574184E-007
+                              xi=  0.508222273733124     
+             Total inc. in xi is:  0.508222273733124     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.566742056431112E-007
+                              xi=  0.650180136962103     
+             Total inc. in xi is:  0.650180136962103     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.296964073281663E-007
+                              xi=  0.565940008642911     
+             Total inc. in xi is:  0.565940008642911     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.975381543233402E-008
+                              xi=  0.667706105161428     
+             Total inc. in xi is:  0.667706105161428     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.850660844197206E-007
+                              xi=  0.641136866158471     
+             Total inc. in xi is:  0.641136866158471     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.693241024036799E-007
+                              xi=  0.656713898038756     
+             Total inc. in xi is:  0.656713898038756     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.919121066853065E-008
+                              xi=  0.912179970106555     
+             Total inc. in xi is:  0.912179970106555     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.444037332726753E-008
+                              xi=  0.953474265460345     
+             Total inc. in xi is:  0.953474265460345     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  6.522371952862314E-007
+                              xi=  3.211029578029931E-002
+             Total inc. in xi is:  3.211029578029931E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.846378018089085E-007
+                              xi=  0.220848441803326     
+             Total inc. in xi is:  0.220848441803326     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.414635642416171E-007
+                              xi=  0.239837492890770     
+             Total inc. in xi is:  0.239837492890770     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.933870095559507E-007
+                              xi=  0.225704788909289     
+             Total inc. in xi is:  0.225704788909289     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.461905102814136E-007
+                              xi=  0.244431281852635     
+             Total inc. in xi is:  0.244431281852635     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.701613903145639E-007
+                              xi=  6.700666013313798E-002
+             Total inc. in xi is:  6.700666013313798E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.248955931331299E-007
+                              xi=  5.714546442287145E-003
+             Total inc. in xi is:  5.714546442287145E-003
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.338676265841859E-007
+                              xi=  2.113236449109249E-002
+             Total inc. in xi is:  2.113236449109249E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.372409407602451E-006
+                              xi=  0.122707696354713     
+             Total inc. in xi is:  0.122707696354713     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.007316544264399E-006
+                              xi=  6.711254077376141E-002
+             Total inc. in xi is:  6.711254077376141E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.292723066014205E-006
+                              xi=  0.178277627546859     
+             Total inc. in xi is:  0.178277627546859     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.198835618732644E-006
+                              xi=  0.155146702979278     
+             Total inc. in xi is:  0.155146702979278     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.035446793553619E-006
+                              xi=  0.156015372982440     
+             Total inc. in xi is:  0.156015372982440     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.076628004469412E-006
+                              xi=  0.197273958891494     
+             Total inc. in xi is:  0.197273958891494     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.409870984174999E-007
+                              xi=  0.191781447875950     
+             Total inc. in xi is:  0.191781447875950     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.224365840167550E-006
+                              xi=  0.181362380690190     
+             Total inc. in xi is:  0.181362380690190     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.260168838652000E-007
+                              xi=  0.298914808670895     
+             Total inc. in xi is:  0.298914808670895     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.913730614683575E-007
+                              xi=  2.950468408515320E-002
+             Total inc. in xi is:  2.950468408515320E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.704125865445813E-007
+                              xi=  1.695008546018830E-002
+             Total inc. in xi is:  1.695008546018830E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.698695150621000E-007
+                              xi=  1.704386974442173E-002
+             Total inc. in xi is:  1.704386974442173E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.831155814186320E-007
+                              xi=  2.254571265439666E-002
+             Total inc. in xi is:  2.254571265439666E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.687947336685225E-007
+                              xi=  2.190891323252618E-002
+             Total inc. in xi is:  2.190891323252618E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.910323708652430E-007
+                              xi=  4.012642696309032E-002
+             Total inc. in xi is:  4.012642696309032E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.770736503350466E-007
+                              xi=  3.983149412181786E-002
+             Total inc. in xi is:  3.983149412181786E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.541216777705466E-007
+                              xi=  4.487548867644813E-002
+             Total inc. in xi is:  4.487548867644813E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.499697747772738E-007
+                              xi=  4.529842182198129E-002
+             Total inc. in xi is:  4.529842182198129E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.533512488201325E-007
+                              xi=  7.145931365351496E-003
+             Total inc. in xi is:  7.145931365351496E-003
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.574742766945742E-007
+                              xi=  7.327714135767890E-003
+             Total inc. in xi is:  7.327714135767890E-003
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.048719184507601E-007
+                              xi=  0.855854542330774     
+             Total inc. in xi is:  0.855854542330774     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.305958605357665E-007
+                              xi=  0.795746399921546     
+             Total inc. in xi is:  0.795746399921546     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.819394345125342E-008
+                              xi=  2.372772742136700E-003
+             Total inc. in xi is:  2.372772742136700E-003
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.844908795318252E-007
+                              xi=  4.827234944151292E-002
+             Total inc. in xi is:  4.827234944151292E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.020425049914669E-007
+                              xi=  4.080872719701224E-002
+             Total inc. in xi is:  4.080872719701224E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.777238541570606E-007
+                              xi=  4.823332699945120E-002
+             Total inc. in xi is:  4.823332699945120E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.909093819432670E-007
+                              xi=  3.983584029182919E-002
+             Total inc. in xi is:  3.983584029182919E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.069232837660278E-006
+                              xi=  0.187570082205374     
+             Total inc. in xi is:  0.187570082205374     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.024052275982866E-006
+                              xi=  0.206479938543803     
+             Total inc. in xi is:  0.206479938543803     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.070033329665612E-006
+                              xi=  0.193570931201868     
+             Total inc. in xi is:  0.193570931201868     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.030957633807854E-006
+                              xi=  0.209919138955453     
+             Total inc. in xi is:  0.209919138955453     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.400680934228903E-007
+                              xi=  1.056807404620170E-002
+             Total inc. in xi is:  1.056807404620170E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.044718352041822E-007
+                              xi=  1.344079419150016E-002
+             Total inc. in xi is:  1.344079419150016E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.473206167951812E-007
+                              xi=  0.367464389353347     
+             Total inc. in xi is:  0.367464389353347     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.176432655802575E-007
+                              xi=  0.384181378061372     
+             Total inc. in xi is:  0.384181378061372     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.797800780061249E-007
+                              xi=  1.847182780855041E-002
+             Total inc. in xi is:  1.847182780855041E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  5.616078015533359E-007
+                              xi=  0.361670399208672     
+             Total inc. in xi is:  0.361670399208672     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.220610982090780E-008
+                              xi=  1.937056849805913E-003
+             Total inc. in xi is:  1.937056849805913E-003
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.057471490941946E-007
+                              xi=  0.489119154749273     
+             Total inc. in xi is:  0.489119154749273     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.061424847221785E-007
+                              xi=  0.478833887551226     
+             Total inc. in xi is:  0.478833887551226     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.412406173807085E-007
+                              xi=  5.233640251081147E-002
+             Total inc. in xi is:  5.233640251081147E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.138892713862331E-007
+                              xi=  5.122371687713671E-002
+             Total inc. in xi is:  5.122371687713671E-002
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.056896639937357E-007
+                              xi=  0.129077948126984     
+             Total inc. in xi is:  0.129077948126984     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.700271901095581E-007
+                              xi=  0.111182463065169     
+             Total inc. in xi is:  0.111182463065169     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.561460495552518E-007
+                              xi=  0.730312790372934     
+             Total inc. in xi is:  0.730312790372934     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.598538847328300E-007
+                              xi=  0.723218033233751     
+             Total inc. in xi is:  0.723218033233751     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.579689906074464E-007
+                              xi=  0.720361956637037     
+             Total inc. in xi is:  0.720361956637037     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  4.300081522584350E-007
+                              xi=  0.453374044168728     
+             Total inc. in xi is:  0.453374044168728     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.844228724908591E-007
+                              xi=  0.527586858671663     
+             Total inc. in xi is:  0.527586858671663     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.245033060442313E-006
+                              xi=  0.128704919998978     
+             Total inc. in xi is:  0.128704919998978     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  7.487254601492850E-007
+                              xi=  0.311444435184551     
+             Total inc. in xi is:  0.311444435184551     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  3.946449251461593E-007
+                              xi=  0.512605057043103     
+             Total inc. in xi is:  0.512605057043103     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.499882313839404E-007
+                              xi=  0.600693216700595     
+             Total inc. in xi is:  0.600693216700595     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  2.443876490625898E-007
+                              xi=  0.628486014777384     
+             Total inc. in xi is:  0.628486014777384     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.322538111980118E-006
+                              xi=  0.147974414700335     
+             Total inc. in xi is:  0.147974414700335     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.297468810878656E-006
+                              xi=  0.190677276643972     
+             Total inc. in xi is:  0.190677276643972     
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  1.059042661837298E-006
+                              xi=  0.250217302371333     
+             Total inc. in xi is:  0.250217302371333     
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi= -8.305599337822013E-005
+                              xi=  1.694400662177987E-005
+             Total inc. in xi is: -4.606126521665060E-004
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.350176942937157E-005
+                              xi=  1.000000000000000E-004
+             Total inc. in xi is: -4.971603862029358E-004
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.093877165742831E-005
+                              xi=  1.000000000000000E-004
+             Total inc. in xi is: -2.386014419085357E-004
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.737838117615539E-005
+                              xi=  1.000000000000000E-004
+             Total inc. in xi is: -7.526480610103503E-004
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.579685168442175E-005
+                              xi=  1.000000000000000E-004
+             Total inc. in xi is: -1.917986652127125E-004
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.552425279080794E-005
+                              xi=  1.000000000000000E-004
+             Total inc. in xi is: -3.324502457012931E-004
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+11/22/2026 11:30:21 PM
+End Abaqus/Standard Analysis
+Begin SIM Wrap-up
+11/22/2026 11:30:23 PM
+Run SMASimUtility.exe
+11/22/2026 11:30:23 PM
+End SIM Wrap-up
+Abaqus JOB P_t180_c0 COMPLETED

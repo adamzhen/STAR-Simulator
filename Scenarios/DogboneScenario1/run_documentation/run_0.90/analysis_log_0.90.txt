@@ -1,0 +1,1158 @@
+[2026-11-24 12:09:32] RUN NO: 0.90
+[2026-11-24 12:09:32] Date: 2026-11-24
+[2026-11-24 12:09:32] 
+[2026-11-24 12:09:32] === Paths ===
+[2026-11-24 12:09:32] STAR_DIR = 'C:/Users/adzheng/STAR-Simulator'
+[2026-11-24 12:09:32] FREECAD_CMD = 'C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe'
+[2026-11-24 12:09:32] UMAT_PATH = 'C:\\Users\\adzheng\\STAR-Simulator\\Scenarios\\DogboneScenario1\\Hartl_UMAT_Hacked.for'
+[2026-11-24 12:09:32] 
+[2026-11-24 12:09:32] === Parameters (EDIT PARAMETERS block) ===
+[2026-11-24 12:09:32] RUN_NO = '0.90'
+[2026-11-24 12:09:32] CHUNK_SCHEDULE = [(4, 5.0), (3, 2.0), (10, 1.0), (2, 2.0), (6, 5.0), (5, 10.0), (2, 20.0)]
+[2026-11-24 12:09:32] CHUNK_TIMES = [5.0, 5.0, 5.0, 5.0, 2.0, 2.0, 2.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 2.0, 5.0, 5.0, 5.0, 5.0, 5.0, 5.0, 10.0, 10.0, 10.0, 10.0, 10.0, 20.0, 20.0]
+[2026-11-24 12:09:32] N_ITER = 32
+[2026-11-24 12:09:32] MAX_INC = 5.0
+[2026-11-24 12:09:32] SCENARIO_NAME = 'DogboneScenario1'
+[2026-11-24 12:09:32] OBJECT_NAME = 'SMADogbone_(Nitinol)'
+[2026-11-24 12:09:32] OBJECT_FILE = 'SMADogbone_(Nitinol).stp'
+[2026-11-24 12:09:32] FCSTD_FILE = 'SMAScenario4.FCStd'
+[2026-11-24 12:09:32] DEFORMED_NAME = 'SMADogboneDeformed'
+[2026-11-24 12:09:32] LOAD_NAME = 'SolarFlux'
+[2026-11-24 12:09:32] JOB_BASENAME = 'SMAHeatTransient'
+[2026-11-24 12:09:32] PREP_JOB_NAME = 'loading'
+[2026-11-24 12:09:32] PREP_DEFORMS_GEOMETRY = True
+[2026-11-24 12:09:32] MODEL_BASENAME = 'DogboneScenario1_Model'
+[2026-11-24 12:09:32] N_RAYS = 7000
+[2026-11-24 12:09:32] SOLAR_IRRADIANCE = 6788.0
+[2026-11-24 12:09:32] OBJECT_MATERIAL = 'Nitinol'
+[2026-11-24 12:09:32] ABSORPTION_ONLY = True
+[2026-11-24 12:09:32] ABSORPTIVITY_DICT = {'Nitinol': 0.9, 'Aluminum': 0.2, 'Blocker': 1.0}
+[2026-11-24 12:09:32] SUN_ZENITH = 50
+[2026-11-24 12:09:32] SUN_AZIMUTH = 90
+[2026-11-24 12:09:32] PREVIEW_SUN = False
+[2026-11-24 12:09:32] INCLUDE_SHADE = False
+[2026-11-24 12:09:32] SHADE_X_RANGE_PHYS = (0.02166, 0.07388)
+[2026-11-24 12:09:32] SHADE_X_RANGE = (0.01766, 0.07388)
+[2026-11-24 12:09:32] SHADE_END_EXTENSION = 0.0025
+[2026-11-24 12:09:32] INCLUDE_GRIP = True
+[2026-11-24 12:09:32] GRIP_LENGTH = 0.003
+[2026-11-24 12:09:32] GRIP_X_START = 0.0
+[2026-11-24 12:09:32] GRIP_Y_RANGE = (-0.002, 0.022)
+[2026-11-24 12:09:32] GRIP_HEIGHT = 0.0005
+[2026-11-24 12:09:32] GRIP_MARGIN = 0.002
+[2026-11-24 12:09:32] FREECAD_TIMEOUT = 600
+[2026-11-24 12:09:32] GEOMETRY_IMPORT = 'nodes'
+[2026-11-24 12:09:32] RAY_ENGINE = 'FastRay'
+[2026-11-24 12:09:32] FLUX_MAPPING = 'coverage'
+[2026-11-24 12:09:32] SHADE_FLUX_FRACTION = 0.254
+[2026-11-24 12:09:32] TAPE_FLUX_FACTOR = 0.4
+[2026-11-24 12:09:32] TAPE_HOLE_X = (0.0122, 0.06168)
+[2026-11-24 12:09:32] TAPE_HALF_WIDTH = 0.00395
+[2026-11-24 12:09:32] TAPE_AXIS_Y = 0.01
+[2026-11-24 12:09:32] FLUX_PROFILE_CENTER_X = 0.0529
+[2026-11-24 12:09:32] FLUX_PROFILE_SIGMA = 0.0368
+[2026-11-24 12:09:32] GRIP_FILM_COEFF = 0.0
+[2026-11-24 12:09:32] MESHSIZE = 0.002
+[2026-11-24 12:09:32] ANALYTIC_FIT_TOLERANCE = 0.05
+[2026-11-24 12:09:32] STITCH_TOLERANCE = 0.001
+[2026-11-24 12:09:32] BC_EDGE = [(0, 0, 0), (0, 0.015, 0)]
+[2026-11-24 12:09:32] LOAD_EDGE = [(0.074, 0, 0), (0.074, 0.02, 0)]
+[2026-11-24 12:09:32] LOAD_POINT = [(0.074, 0.01, 0)]
+[2026-11-24 12:09:32] TEMP_PROBES = {'T1': (0.004125, 0.01, 0.0), 'T2': (0.0718, 0.01, 0.0)}
+[2026-11-24 12:09:32] BC_FIXPOINT = (0.0, 0.0075, 0.0)
+[2026-11-24 12:09:32] BC_TOLERANCE = 0.002
+[2026-11-24 12:09:32] AMBIENT_TEMP = 295.3
+[2026-11-24 12:09:32] INITIAL_TEMP = 295.3
+[2026-11-24 12:09:32] MS = 294.3
+[2026-11-24 12:09:32] MF = 289.3
+[2026-11-24 12:09:32] AS = 297.0
+[2026-11-24 12:09:32] AF = 345.0
+[2026-11-24 12:09:32] FILM_COEFF = 6.28
+[2026-11-24 12:09:32] EMISSIVITY = 0.91
+[2026-11-24 12:09:32] RUN_COMPARISON = False
+[2026-11-24 12:09:32] LOADING_TWIST = 2.15
+[2026-11-24 12:09:32] PRETWIST_DEG = -28.0
+[2026-11-24 12:09:32] LOAD_BACKOFF = 0.05
+[2026-11-24 12:09:32] PREP_SOLVER_CONTROLS = False
+[2026-11-24 12:09:32] WORKING_DIR = 'C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen'
+[2026-11-24 12:09:32] 
+[2026-11-24 12:09:32] === Derived ===
+[2026-11-24 12:09:32] SUN_DIR = (4.69066937635137e-17, 0.766044443118978, -0.642787609686539)
+[2026-11-24 12:09:32] DOCUMENTATION_DIR = 'C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90'
+[2026-11-24 12:09:32] 
+[2026-11-24 12:09:32] 
+=== Starting iterative loop with restart-based steps ===
+[2026-11-24 12:09:32] 
+========================================
+[2026-11-24 12:09:32]  Iteration 1 of 32 (job SMAHeatTransient_01)
+[2026-11-24 12:09:32] ========================================
+[2026-11-24 12:09:32] Creating materials
+[2026-11-24 12:09:32] partitioning part
+[2026-11-24 12:09:32] Creating shell section
+[2026-11-24 12:09:32] Creating assembly
+[2026-11-24 12:09:32] Defining step
+[2026-11-24 12:09:32] Defining initial temperature
+[2026-11-24 12:09:32] Defining uniform initial temperature
+[2026-11-24 12:09:32] Defining sets
+[2026-11-24 12:09:32] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.02, 0)
+[2026-11-24 12:09:32] Defining surfaces
+[2026-11-24 12:09:32] Defining BC
+[2026-11-24 12:09:32] Defining constraints
+[2026-11-24 12:09:32] Defining loads
+[2026-11-24 12:09:32] Meshing part
+[2026-11-24 12:09:33] Pre-twist -28.0 deg: rotated 1206 nodes (parts sma, shade) -> C:\Users\adzheng\STAR-Simulator\tests\heat_fit\runs\r0_90_un\loading_pretwist.inp
+[2026-11-24 12:15:14] Defining interactions
+[2026-11-24 12:15:14] Exporting deformed geometry from prep job loading
+[2026-11-24 12:15:14] Exporting OBJ from ODB: loading.odb
+[2026-11-24 12:15:15] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:15:15] Set to step 'temp_step' (position index 2, global step number 3), frame 12
+[2026-11-24 12:15:15] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:15:15] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_00_Loaded.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:15:15] Waiting for ODB to be released: loading.odb
+[2026-11-24 12:15:15] Exporting deformed geometry from loading.odb
+[2026-11-24 12:15:16] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.958e-05
+[2026-11-24 12:15:16] === Abaqus model as built: DogboneScenario1_Model ===
+[2026-11-24 12:15:16] absoluteZero = 0.0, stefanBoltzmann = 5.67e-08
+[2026-11-24 12:15:16] Material 'Aluminum':
+[2026-11-24 12:15:16]   density = ((2300.0,),)
+[2026-11-24 12:15:16]   conductivity = ((100.0,),)
+[2026-11-24 12:15:16]   specificHeat = ((900.0,),)
+[2026-11-24 12:15:16]   elastic = ((70000000000.0, 0.3),)
+[2026-11-24 12:15:16]   expansion = ((0.0,),)
+[2026-11-24 12:15:16] Material 'FakeSMA':
+[2026-11-24 12:15:16]   density = ((6450.0,),)
+[2026-11-24 12:15:16]   conductivity = ((50.0,),)
+[2026-11-24 12:15:16]   specificHeat = ((800.0,),)
+[2026-11-24 12:15:16]   elastic = ((90000000000.0, 0.3),)
+[2026-11-24 12:15:16]   expansion = ((-0.0025, 0.0, 0.0),)
+[2026-11-24 12:15:16] Material 'SMA':
+[2026-11-24 12:15:16]   density = ((6450.0,),)
+[2026-11-24 12:15:16]   conductivity = ((18.0,),)
+[2026-11-24 12:15:16]   specificHeat = ((837.0,),)
+[2026-11-24 12:15:16]   depvar n = 100
+[2026-11-24 12:15:16]   UMAT mechanicalConstants (40 values, 1-based index):
+[2026-11-24 12:15:16]     [1] 1.0, [2] 0.0, [3] 1e-08, [4] 0.0, [5] 0.0, [6] 0.15, [7] 1.0, [8] 0.0
+[2026-11-24 12:15:16]     [9] 35000000000.0, [10] 75000000000.0, [11] 0.33, [12] 0.33, [13] 0.0, [14] 0.0, [15] 0.0, [16] 0.0
+[2026-11-24 12:15:16]     [17] MS 294.3, [18] MF 289.3, [19] AS 297.0, [20] AF 345.0, [21] 6000000.0, [22] 7000000.0, [23] 300000000.0, [24] 0.0
+[2026-11-24 12:15:16]     [25] 0.0, [26] 0.05, [27] 0.0, [28] 7.52e-09, [29] 0.0, [30] 0.0, [31] 0.0, [32] 0.0
+[2026-11-24 12:15:16]     [33] 1.0, [34] 1.0, [35] 1.0, [36] 1.0, [37] 0.0, [38] 0.0, [39] 0.0, [40] 0.0
+[2026-11-24 12:15:16]   UMAT MS = 294.3, MF = 289.3, AS = 297.0, AF = 345.0
+[2026-11-24 12:15:16] Section 'sma': material='SMA', thickness=0.00041, numIntPts=5, integrationRule=SIMPSON, temperature=GRADIENT
+[2026-11-24 12:15:16] Interaction 'Convection-SNEG' (FilmCondition) created in step Heat_01: filmCoeff=6.28, sinkTemperature=295.3, surface='All-Surfaces-Side2'
+[2026-11-24 12:15:16] Interaction 'Convection-SPOS' (FilmCondition) created in step Heat_01: filmCoeff=6.28, sinkTemperature=295.3, surface='All-Surfaces'
+[2026-11-24 12:15:16] Interaction 'Radiation-SNEG' (RadiationToAmbient) created in step Heat_01: emissivity=0.91, ambientTemperature=295.3, surface='All-Surfaces-Side2'
+[2026-11-24 12:15:16] Interaction 'Radiation-SPOS' (RadiationToAmbient) created in step Heat_01: emissivity=0.91, ambientTemperature=295.3, surface='All-Surfaces'
+[2026-11-24 12:15:16] 
+[2026-11-24 12:15:16] Model setup time: 343.3 s (prep job 341.1 s)
+[2026-11-24 12:15:16] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:15:16] Running FreeCAD macro...
+[2026-11-24 12:15:28] FreeCAD macro finished in 12.7 s
+[2026-11-24 12:15:28] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:15:28]   ray engine FastRay, ray tracing 3.89 s
+[2026-11-24 12:15:28] Loaded 2129 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:15:30] map_flux_to_elements (coverage, k=8.0): 2129 hits (0 isolated, discarded); rho median 0.90 mm; elements 39 dark / 41 partial / 994 full; power applied 3.9366 W vs ray estimate 3.9313 W
+[2026-11-24 12:15:30] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:15:30] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.9366 W -> 2.8889 W
+[2026-11-24 12:15:30] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:15:30] Redefined SurfaceHeatFlux 'SolarFlux_01' (field=FluxField_01) for step Heat_01
+[2026-11-24 12:15:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:15:31] Creating job SMAHeatTransient_01
+[2026-11-24 12:15:31] Running job SMAHeatTransient_01
+[2026-11-24 12:16:27] Completed job SMAHeatTransient_01
+[2026-11-24 12:16:27] Exporting OBJ from ODB: SMAHeatTransient_01.odb
+[2026-11-24 12:16:27] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:16:27] Set to step 'Heat_01' (position index 0, global step number 4), frame 28
+[2026-11-24 12:16:27] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:16:27] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_01.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:16:27] Waiting for ODB to be released: SMAHeatTransient_01.odb
+[2026-11-24 12:16:27] Exporting deformed geometry from SMAHeatTransient_01.odb
+[2026-11-24 12:16:28] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.958e-05
+[2026-11-24 12:16:28] Iteration 1 elapsed time: 72.264 seconds
+[2026-11-24 12:16:28] 
+========================================
+[2026-11-24 12:16:28]  Iteration 2 of 32 (job SMAHeatTransient_02)
+[2026-11-24 12:16:28] ========================================
+[2026-11-24 12:16:28] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:16:28] Running FreeCAD macro...
+[2026-11-24 12:16:38] FreeCAD macro finished in 9.8 s
+[2026-11-24 12:16:38] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:16:38]   ray engine FastRay, ray tracing 3.66 s
+[2026-11-24 12:16:38] Loaded 2039 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:16:39] map_flux_to_elements (coverage, k=8.0): 2039 hits (0 isolated, discarded); rho median 0.90 mm; elements 39 dark / 34 partial / 1001 full; power applied 3.9395 W vs ray estimate 3.7753 W
+[2026-11-24 12:16:39] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:16:39] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.9395 W -> 2.8940 W
+[2026-11-24 12:16:39] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:16:39] Created SurfaceHeatFlux 'SolarFlux_02' (field=FluxField_02) in step Heat_02; deactivated 'SolarFlux_01' there
+[2026-11-24 12:16:39] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:16:39] Creating job SMAHeatTransient_02
+[2026-11-24 12:16:40] Checked SMAHeatTransient_02.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:16:40] Running job SMAHeatTransient_02
+[2026-11-24 12:17:43] Completed job SMAHeatTransient_02
+[2026-11-24 12:17:43] Exporting OBJ from ODB: SMAHeatTransient_02.odb
+[2026-11-24 12:17:44] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:17:44] Set to step 'Heat_02' (position index 0, global step number 5), frame 35
+[2026-11-24 12:17:44] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:17:44] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_02.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:17:44] Waiting for ODB to be released: SMAHeatTransient_02.odb
+[2026-11-24 12:17:44] Exporting deformed geometry from SMAHeatTransient_02.odb
+[2026-11-24 12:17:44] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.958e-05
+[2026-11-24 12:17:44] Iteration 2 elapsed time: 76.611 seconds
+[2026-11-24 12:17:44] 
+========================================
+[2026-11-24 12:17:44]  Iteration 3 of 32 (job SMAHeatTransient_03)
+[2026-11-24 12:17:44] ========================================
+[2026-11-24 12:17:45] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:17:45] Running FreeCAD macro...
+[2026-11-24 12:17:55] FreeCAD macro finished in 10.8 s
+[2026-11-24 12:17:55] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:17:55]   ray engine FastRay, ray tracing 4.09 s
+[2026-11-24 12:17:55] Loaded 2114 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:17:56] map_flux_to_elements (coverage, k=8.0): 2114 hits (0 isolated, discarded); rho median 0.91 mm; elements 36 dark / 39 partial / 999 full; power applied 3.9681 W vs ray estimate 3.9459 W
+[2026-11-24 12:17:57] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:17:57] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.9681 W -> 2.9120 W
+[2026-11-24 12:17:57] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:17:57] Created SurfaceHeatFlux 'SolarFlux_03' (field=FluxField_03) in step Heat_03; deactivated 'SolarFlux_02' there
+[2026-11-24 12:17:57] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:17:57] Creating job SMAHeatTransient_03
+[2026-11-24 12:17:57] Checked SMAHeatTransient_03.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:17:57] Running job SMAHeatTransient_03
+[2026-11-24 12:19:39] Completed job SMAHeatTransient_03
+[2026-11-24 12:19:39] Exporting OBJ from ODB: SMAHeatTransient_03.odb
+[2026-11-24 12:19:40] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:19:40] Set to step 'Heat_03' (position index 0, global step number 6), frame 39
+[2026-11-24 12:19:40] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:19:40] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_03.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:19:40] Waiting for ODB to be released: SMAHeatTransient_03.odb
+[2026-11-24 12:19:40] Exporting deformed geometry from SMAHeatTransient_03.odb
+[2026-11-24 12:19:40] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.959e-05
+[2026-11-24 12:19:40] Iteration 3 elapsed time: 116.011 seconds
+[2026-11-24 12:19:40] 
+========================================
+[2026-11-24 12:19:40]  Iteration 4 of 32 (job SMAHeatTransient_04)
+[2026-11-24 12:19:40] ========================================
+[2026-11-24 12:19:41] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:19:41] Running FreeCAD macro...
+[2026-11-24 12:19:51] FreeCAD macro finished in 10.5 s
+[2026-11-24 12:19:51] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:19:51]   ray engine FastRay, ray tracing 3.81 s
+[2026-11-24 12:19:51] Loaded 2154 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:19:52] map_flux_to_elements (coverage, k=8.0): 2154 hits (0 isolated, discarded); rho median 0.92 mm; elements 36 dark / 30 partial / 1008 full; power applied 3.9720 W vs ray estimate 4.0340 W
+[2026-11-24 12:19:52] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:19:53] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.9720 W -> 2.9118 W
+[2026-11-24 12:19:53] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:19:53] Created SurfaceHeatFlux 'SolarFlux_04' (field=FluxField_04) in step Heat_04; deactivated 'SolarFlux_03' there
+[2026-11-24 12:19:53] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:19:53] Creating job SMAHeatTransient_04
+[2026-11-24 12:19:53] Checked SMAHeatTransient_04.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:19:53] Running job SMAHeatTransient_04
+[2026-11-24 12:24:06] Completed job SMAHeatTransient_04
+[2026-11-24 12:24:06] Exporting OBJ from ODB: SMAHeatTransient_04.odb
+[2026-11-24 12:24:06] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:24:06] Set to step 'Heat_04' (position index 0, global step number 7), frame 79
+[2026-11-24 12:24:06] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:24:06] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_04.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:24:06] Waiting for ODB to be released: SMAHeatTransient_04.odb
+[2026-11-24 12:24:06] Exporting deformed geometry from SMAHeatTransient_04.odb
+[2026-11-24 12:24:07] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.964e-05
+[2026-11-24 12:24:07] Iteration 4 elapsed time: 266.570 seconds
+[2026-11-24 12:24:07] 
+========================================
+[2026-11-24 12:24:07]  Iteration 5 of 32 (job SMAHeatTransient_05)
+[2026-11-24 12:24:07] ========================================
+[2026-11-24 12:24:07] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:24:07] Running FreeCAD macro...
+[2026-11-24 12:24:17] FreeCAD macro finished in 10.3 s
+[2026-11-24 12:24:17] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:24:17]   ray engine FastRay, ray tracing 3.90 s
+[2026-11-24 12:24:17] Loaded 2247 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:24:19] map_flux_to_elements (coverage, k=8.0): 2247 hits (0 isolated, discarded); rho median 0.89 mm; elements 38 dark / 34 partial / 1002 full; power applied 3.6338 W vs ray estimate 3.6376 W
+[2026-11-24 12:24:19] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:24:19] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.6338 W -> 2.6245 W
+[2026-11-24 12:24:19] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:24:19] Created SurfaceHeatFlux 'SolarFlux_05' (field=FluxField_05) in step Heat_05; deactivated 'SolarFlux_04' there
+[2026-11-24 12:24:19] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:24:19] Creating job SMAHeatTransient_05
+[2026-11-24 12:24:19] Checked SMAHeatTransient_05.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:24:19] Running job SMAHeatTransient_05
+[2026-11-24 12:27:00] Completed job SMAHeatTransient_05
+[2026-11-24 12:27:00] Exporting OBJ from ODB: SMAHeatTransient_05.odb
+[2026-11-24 12:27:00] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:27:00] Set to step 'Heat_05' (position index 0, global step number 8), frame 42
+[2026-11-24 12:27:00] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:27:00] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_05.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:27:00] Waiting for ODB to be released: SMAHeatTransient_05.odb
+[2026-11-24 12:27:00] Exporting deformed geometry from SMAHeatTransient_05.odb
+[2026-11-24 12:27:00] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.967e-05
+[2026-11-24 12:27:00] Iteration 5 elapsed time: 173.415 seconds
+[2026-11-24 12:27:00] 
+========================================
+[2026-11-24 12:27:00]  Iteration 6 of 32 (job SMAHeatTransient_06)
+[2026-11-24 12:27:00] ========================================
+[2026-11-24 12:27:01] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:27:01] Running FreeCAD macro...
+[2026-11-24 12:27:12] FreeCAD macro finished in 11.0 s
+[2026-11-24 12:27:12] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:27:12]   ray engine FastRay, ray tracing 4.36 s
+[2026-11-24 12:27:12] Loaded 2410 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:27:13] map_flux_to_elements (coverage, k=8.0): 2410 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 30 partial / 1004 full; power applied 3.3744 W vs ray estimate 3.4226 W
+[2026-11-24 12:27:13] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:27:13] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.3744 W -> 2.4094 W
+[2026-11-24 12:27:13] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:27:13] Created SurfaceHeatFlux 'SolarFlux_06' (field=FluxField_06) in step Heat_06; deactivated 'SolarFlux_05' there
+[2026-11-24 12:27:13] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:27:13] Creating job SMAHeatTransient_06
+[2026-11-24 12:27:14] Checked SMAHeatTransient_06.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:27:14] Running job SMAHeatTransient_06
+[2026-11-24 12:28:15] Completed job SMAHeatTransient_06
+[2026-11-24 12:28:15] Exporting OBJ from ODB: SMAHeatTransient_06.odb
+[2026-11-24 12:28:16] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:28:16] Set to step 'Heat_06' (position index 0, global step number 9), frame 20
+[2026-11-24 12:28:16] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:28:16] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_06.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:28:16] Waiting for ODB to be released: SMAHeatTransient_06.odb
+[2026-11-24 12:28:16] Exporting deformed geometry from SMAHeatTransient_06.odb
+[2026-11-24 12:28:16] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.970e-05
+[2026-11-24 12:28:16] Iteration 6 elapsed time: 75.775 seconds
+[2026-11-24 12:28:16] 
+========================================
+[2026-11-24 12:28:16]  Iteration 7 of 32 (job SMAHeatTransient_07)
+[2026-11-24 12:28:16] ========================================
+[2026-11-24 12:28:16] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:28:16] Running FreeCAD macro...
+[2026-11-24 12:28:27] FreeCAD macro finished in 10.6 s
+[2026-11-24 12:28:27] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:28:27]   ray engine FastRay, ray tracing 4.31 s
+[2026-11-24 12:28:27] Loaded 2432 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:28:28] map_flux_to_elements (coverage, k=8.0): 2432 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 35 partial / 999 full; power applied 3.1961 W vs ray estimate 3.1416 W
+[2026-11-24 12:28:28] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:28:28] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.1961 W -> 2.2609 W
+[2026-11-24 12:28:29] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:28:29] Created SurfaceHeatFlux 'SolarFlux_07' (field=FluxField_07) in step Heat_07; deactivated 'SolarFlux_06' there
+[2026-11-24 12:28:29] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:28:29] Creating job SMAHeatTransient_07
+[2026-11-24 12:28:29] Checked SMAHeatTransient_07.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:28:29] Running job SMAHeatTransient_07
+[2026-11-24 12:29:21] Completed job SMAHeatTransient_07
+[2026-11-24 12:29:21] Exporting OBJ from ODB: SMAHeatTransient_07.odb
+[2026-11-24 12:29:21] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:29:21] Set to step 'Heat_07' (position index 0, global step number 10), frame 15
+[2026-11-24 12:29:21] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:29:21] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_07.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:29:21] Waiting for ODB to be released: SMAHeatTransient_07.odb
+[2026-11-24 12:29:21] Exporting deformed geometry from SMAHeatTransient_07.odb
+[2026-11-24 12:29:22] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.973e-05
+[2026-11-24 12:29:22] Iteration 7 elapsed time: 65.589 seconds
+[2026-11-24 12:29:22] 
+========================================
+[2026-11-24 12:29:22]  Iteration 8 of 32 (job SMAHeatTransient_08)
+[2026-11-24 12:29:22] ========================================
+[2026-11-24 12:29:22] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:29:22] Running FreeCAD macro...
+[2026-11-24 12:29:32] FreeCAD macro finished in 10.5 s
+[2026-11-24 12:29:32] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:29:32]   ray engine FastRay, ray tracing 4.37 s
+[2026-11-24 12:29:32] Loaded 2485 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:29:33] map_flux_to_elements (coverage, k=8.0): 2485 hits (0 isolated, discarded); rho median 0.89 mm; elements 39 dark / 30 partial / 1005 full; power applied 3.0554 W vs ray estimate 3.0724 W
+[2026-11-24 12:29:33] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:29:33] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 3.0554 W -> 2.1440 W
+[2026-11-24 12:29:34] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:29:34] Created SurfaceHeatFlux 'SolarFlux_08' (field=FluxField_08) in step Heat_08; deactivated 'SolarFlux_07' there
+[2026-11-24 12:29:34] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:29:34] Creating job SMAHeatTransient_08
+[2026-11-24 12:29:34] Checked SMAHeatTransient_08.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:29:34] Running job SMAHeatTransient_08
+[2026-11-24 12:30:04] Completed job SMAHeatTransient_08
+[2026-11-24 12:30:04] Exporting OBJ from ODB: SMAHeatTransient_08.odb
+[2026-11-24 12:30:04] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:30:04] Set to step 'Heat_08' (position index 0, global step number 11), frame 8
+[2026-11-24 12:30:04] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:30:04] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_08.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:30:04] Waiting for ODB to be released: SMAHeatTransient_08.odb
+[2026-11-24 12:30:04] Exporting deformed geometry from SMAHeatTransient_08.odb
+[2026-11-24 12:30:05] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.975e-05
+[2026-11-24 12:30:05] Iteration 8 elapsed time: 42.692 seconds
+[2026-11-24 12:30:05] 
+========================================
+[2026-11-24 12:30:05]  Iteration 9 of 32 (job SMAHeatTransient_09)
+[2026-11-24 12:30:05] ========================================
+[2026-11-24 12:30:05] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:30:05] Running FreeCAD macro...
+[2026-11-24 12:30:15] FreeCAD macro finished in 10.6 s
+[2026-11-24 12:30:15] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:30:15]   ray engine FastRay, ray tracing 4.32 s
+[2026-11-24 12:30:15] Loaded 2327 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:30:16] map_flux_to_elements (coverage, k=8.0): 2327 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 34 partial / 1000 full; power applied 2.9947 W vs ray estimate 2.8771 W
+[2026-11-24 12:30:16] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:30:16] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.9947 W -> 2.0927 W
+[2026-11-24 12:30:16] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:30:16] Created SurfaceHeatFlux 'SolarFlux_09' (field=FluxField_09) in step Heat_09; deactivated 'SolarFlux_08' there
+[2026-11-24 12:30:17] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:30:17] Creating job SMAHeatTransient_09
+[2026-11-24 12:30:17] Checked SMAHeatTransient_09.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:30:17] Running job SMAHeatTransient_09
+[2026-11-24 12:30:45] Completed job SMAHeatTransient_09
+[2026-11-24 12:30:45] Exporting OBJ from ODB: SMAHeatTransient_09.odb
+[2026-11-24 12:30:45] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:30:45] Set to step 'Heat_09' (position index 0, global step number 12), frame 8
+[2026-11-24 12:30:45] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:30:45] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_09.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:30:45] Waiting for ODB to be released: SMAHeatTransient_09.odb
+[2026-11-24 12:30:45] Exporting deformed geometry from SMAHeatTransient_09.odb
+[2026-11-24 12:30:45] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.976e-05
+[2026-11-24 12:30:45] Iteration 9 elapsed time: 40.902 seconds
+[2026-11-24 12:30:45] 
+========================================
+[2026-11-24 12:30:45]  Iteration 10 of 32 (job SMAHeatTransient_10)
+[2026-11-24 12:30:45] ========================================
+[2026-11-24 12:30:45] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:30:45] Running FreeCAD macro...
+[2026-11-24 12:30:56] FreeCAD macro finished in 10.4 s
+[2026-11-24 12:30:56] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:30:56]   ray engine FastRay, ray tracing 4.24 s
+[2026-11-24 12:30:56] Loaded 2364 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:30:57] map_flux_to_elements (coverage, k=8.0): 2364 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 32 partial / 1002 full; power applied 2.9392 W vs ray estimate 2.9228 W
+[2026-11-24 12:30:57] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:30:57] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.9392 W -> 2.0461 W
+[2026-11-24 12:30:57] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:30:57] Created SurfaceHeatFlux 'SolarFlux_10' (field=FluxField_10) in step Heat_10; deactivated 'SolarFlux_09' there
+[2026-11-24 12:30:57] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:30:57] Creating job SMAHeatTransient_10
+[2026-11-24 12:30:58] Checked SMAHeatTransient_10.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:30:58] Running job SMAHeatTransient_10
+[2026-11-24 12:31:25] Completed job SMAHeatTransient_10
+[2026-11-24 12:31:25] Exporting OBJ from ODB: SMAHeatTransient_10.odb
+[2026-11-24 12:31:26] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:31:26] Set to step 'Heat_10' (position index 0, global step number 13), frame 8
+[2026-11-24 12:31:26] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:31:26] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_10.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:31:26] Waiting for ODB to be released: SMAHeatTransient_10.odb
+[2026-11-24 12:31:26] Exporting deformed geometry from SMAHeatTransient_10.odb
+[2026-11-24 12:31:26] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.977e-05
+[2026-11-24 12:31:26] Iteration 10 elapsed time: 40.838 seconds
+[2026-11-24 12:31:26] 
+========================================
+[2026-11-24 12:31:26]  Iteration 11 of 32 (job SMAHeatTransient_11)
+[2026-11-24 12:31:26] ========================================
+[2026-11-24 12:31:26] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:31:26] Running FreeCAD macro...
+[2026-11-24 12:31:37] FreeCAD macro finished in 10.5 s
+[2026-11-24 12:31:37] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:31:37]   ray engine FastRay, ray tracing 4.13 s
+[2026-11-24 12:31:37] Loaded 2286 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:31:38] map_flux_to_elements (coverage, k=8.0): 2286 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 36 partial / 998 full; power applied 2.8805 W vs ray estimate 2.8264 W
+[2026-11-24 12:31:38] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:31:38] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.8805 W -> 2.0013 W
+[2026-11-24 12:31:39] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:31:39] Created SurfaceHeatFlux 'SolarFlux_11' (field=FluxField_11) in step Heat_11; deactivated 'SolarFlux_10' there
+[2026-11-24 12:31:39] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:31:39] Creating job SMAHeatTransient_11
+[2026-11-24 12:31:39] Checked SMAHeatTransient_11.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:31:39] Running job SMAHeatTransient_11
+[2026-11-24 12:32:07] Completed job SMAHeatTransient_11
+[2026-11-24 12:32:07] Exporting OBJ from ODB: SMAHeatTransient_11.odb
+[2026-11-24 12:32:07] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:32:07] Set to step 'Heat_11' (position index 0, global step number 14), frame 8
+[2026-11-24 12:32:07] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:32:07] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_11.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:32:07] Waiting for ODB to be released: SMAHeatTransient_11.odb
+[2026-11-24 12:32:07] Exporting deformed geometry from SMAHeatTransient_11.odb
+[2026-11-24 12:32:08] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.977e-05
+[2026-11-24 12:32:08] Iteration 11 elapsed time: 41.477 seconds
+[2026-11-24 12:32:08] 
+========================================
+[2026-11-24 12:32:08]  Iteration 12 of 32 (job SMAHeatTransient_12)
+[2026-11-24 12:32:08] ========================================
+[2026-11-24 12:32:08] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:32:08] Running FreeCAD macro...
+[2026-11-24 12:32:18] FreeCAD macro finished in 10.6 s
+[2026-11-24 12:32:18] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:32:18]   ray engine FastRay, ray tracing 4.24 s
+[2026-11-24 12:32:18] Loaded 2277 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:32:19] map_flux_to_elements (coverage, k=8.0): 2277 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 36 partial / 998 full; power applied 2.8463 W vs ray estimate 2.8153 W
+[2026-11-24 12:32:20] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:32:20] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.8463 W -> 1.9659 W
+[2026-11-24 12:32:20] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:32:20] Created SurfaceHeatFlux 'SolarFlux_12' (field=FluxField_12) in step Heat_12; deactivated 'SolarFlux_11' there
+[2026-11-24 12:32:20] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:32:20] Creating job SMAHeatTransient_12
+[2026-11-24 12:32:20] Checked SMAHeatTransient_12.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:32:20] Running job SMAHeatTransient_12
+[2026-11-24 12:32:46] Completed job SMAHeatTransient_12
+[2026-11-24 12:32:46] Exporting OBJ from ODB: SMAHeatTransient_12.odb
+[2026-11-24 12:32:46] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:32:46] Set to step 'Heat_12' (position index 0, global step number 15), frame 8
+[2026-11-24 12:32:46] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:32:46] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_12.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:32:46] Waiting for ODB to be released: SMAHeatTransient_12.odb
+[2026-11-24 12:32:46] Exporting deformed geometry from SMAHeatTransient_12.odb
+[2026-11-24 12:32:47] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.978e-05
+[2026-11-24 12:32:47] Iteration 12 elapsed time: 39.181 seconds
+[2026-11-24 12:32:47] 
+========================================
+[2026-11-24 12:32:47]  Iteration 13 of 32 (job SMAHeatTransient_13)
+[2026-11-24 12:32:47] ========================================
+[2026-11-24 12:32:47] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:32:47] Running FreeCAD macro...
+[2026-11-24 12:32:57] FreeCAD macro finished in 10.4 s
+[2026-11-24 12:32:57] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:32:57]   ray engine FastRay, ray tracing 4.17 s
+[2026-11-24 12:32:57] Loaded 2194 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:32:58] map_flux_to_elements (coverage, k=8.0): 2194 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 37 partial / 997 full; power applied 2.7972 W vs ray estimate 2.7127 W
+[2026-11-24 12:32:58] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:32:59] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.7972 W -> 1.9290 W
+[2026-11-24 12:32:59] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:32:59] Created SurfaceHeatFlux 'SolarFlux_13' (field=FluxField_13) in step Heat_13; deactivated 'SolarFlux_12' there
+[2026-11-24 12:32:59] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:32:59] Creating job SMAHeatTransient_13
+[2026-11-24 12:32:59] Checked SMAHeatTransient_13.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:32:59] Running job SMAHeatTransient_13
+[2026-11-24 12:33:25] Completed job SMAHeatTransient_13
+[2026-11-24 12:33:25] Exporting OBJ from ODB: SMAHeatTransient_13.odb
+[2026-11-24 12:33:25] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:33:25] Set to step 'Heat_13' (position index 0, global step number 16), frame 8
+[2026-11-24 12:33:25] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:33:25] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_13.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:33:25] Waiting for ODB to be released: SMAHeatTransient_13.odb
+[2026-11-24 12:33:25] Exporting deformed geometry from SMAHeatTransient_13.odb
+[2026-11-24 12:33:26] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.979e-05
+[2026-11-24 12:33:26] Iteration 13 elapsed time: 39.110 seconds
+[2026-11-24 12:33:26] 
+========================================
+[2026-11-24 12:33:26]  Iteration 14 of 32 (job SMAHeatTransient_14)
+[2026-11-24 12:33:26] ========================================
+[2026-11-24 12:33:26] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:33:26] Running FreeCAD macro...
+[2026-11-24 12:33:37] FreeCAD macro finished in 10.7 s
+[2026-11-24 12:33:37] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:33:37]   ray engine FastRay, ray tracing 4.40 s
+[2026-11-24 12:33:37] Loaded 2181 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:33:38] map_flux_to_elements (coverage, k=8.0): 2181 hits (0 isolated, discarded); rho median 0.90 mm; elements 38 dark / 32 partial / 1004 full; power applied 2.7596 W vs ray estimate 2.6966 W
+[2026-11-24 12:33:38] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:33:38] Flux adjustment: 1 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.7596 W -> 1.8967 W
+[2026-11-24 12:33:38] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:33:38] Created SurfaceHeatFlux 'SolarFlux_14' (field=FluxField_14) in step Heat_14; deactivated 'SolarFlux_13' there
+[2026-11-24 12:33:39] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:33:39] Creating job SMAHeatTransient_14
+[2026-11-24 12:33:39] Checked SMAHeatTransient_14.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:33:39] Running job SMAHeatTransient_14
+[2026-11-24 12:34:05] Completed job SMAHeatTransient_14
+[2026-11-24 12:34:05] Exporting OBJ from ODB: SMAHeatTransient_14.odb
+[2026-11-24 12:34:05] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:34:05] Set to step 'Heat_14' (position index 0, global step number 17), frame 8
+[2026-11-24 12:34:05] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:34:05] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_14.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:34:05] Waiting for ODB to be released: SMAHeatTransient_14.odb
+[2026-11-24 12:34:05] Exporting deformed geometry from SMAHeatTransient_14.odb
+[2026-11-24 12:34:05] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.980e-05
+[2026-11-24 12:34:05] Iteration 14 elapsed time: 39.200 seconds
+[2026-11-24 12:34:05] 
+========================================
+[2026-11-24 12:34:05]  Iteration 15 of 32 (job SMAHeatTransient_15)
+[2026-11-24 12:34:05] ========================================
+[2026-11-24 12:34:05] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:34:05] Running FreeCAD macro...
+[2026-11-24 12:34:17] FreeCAD macro finished in 11.2 s
+[2026-11-24 12:34:17] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:34:17]   ray engine FastRay, ray tracing 4.53 s
+[2026-11-24 12:34:17] Loaded 2203 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:34:17] map_flux_to_elements (coverage, k=8.0): 2203 hits (0 isolated, discarded); rho median 0.90 mm; elements 40 dark / 37 partial / 997 full; power applied 2.7259 W vs ray estimate 2.7238 W
+[2026-11-24 12:34:18] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:34:18] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.7259 W -> 1.8662 W
+[2026-11-24 12:34:18] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:34:18] Created SurfaceHeatFlux 'SolarFlux_15' (field=FluxField_15) in step Heat_15; deactivated 'SolarFlux_14' there
+[2026-11-24 12:34:18] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:34:18] Creating job SMAHeatTransient_15
+[2026-11-24 12:34:18] Checked SMAHeatTransient_15.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:34:18] Running job SMAHeatTransient_15
+[2026-11-24 12:34:46] Completed job SMAHeatTransient_15
+[2026-11-24 12:34:46] Exporting OBJ from ODB: SMAHeatTransient_15.odb
+[2026-11-24 12:34:46] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:34:46] Set to step 'Heat_15' (position index 0, global step number 18), frame 8
+[2026-11-24 12:34:46] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:34:46] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_15.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:34:46] Waiting for ODB to be released: SMAHeatTransient_15.odb
+[2026-11-24 12:34:46] Exporting deformed geometry from SMAHeatTransient_15.odb
+[2026-11-24 12:34:47] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.982e-05
+[2026-11-24 12:34:47] Iteration 15 elapsed time: 41.577 seconds
+[2026-11-24 12:34:47] 
+========================================
+[2026-11-24 12:34:47]  Iteration 16 of 32 (job SMAHeatTransient_16)
+[2026-11-24 12:34:47] ========================================
+[2026-11-24 12:34:47] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:34:47] Running FreeCAD macro...
+[2026-11-24 12:34:58] FreeCAD macro finished in 10.9 s
+[2026-11-24 12:34:58] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:34:58]   ray engine FastRay, ray tracing 4.43 s
+[2026-11-24 12:34:58] Loaded 2153 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:34:59] map_flux_to_elements (coverage, k=8.0): 2153 hits (0 isolated, discarded); rho median 0.90 mm; elements 38 dark / 38 partial / 998 full; power applied 2.6912 W vs ray estimate 2.6620 W
+[2026-11-24 12:34:59] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:34:59] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.6912 W -> 1.8367 W
+[2026-11-24 12:34:59] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:34:59] Created SurfaceHeatFlux 'SolarFlux_16' (field=FluxField_16) in step Heat_16; deactivated 'SolarFlux_15' there
+[2026-11-24 12:35:00] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:35:00] Creating job SMAHeatTransient_16
+[2026-11-24 12:35:00] Checked SMAHeatTransient_16.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:35:00] Running job SMAHeatTransient_16
+[2026-11-24 12:35:26] Completed job SMAHeatTransient_16
+[2026-11-24 12:35:26] Exporting OBJ from ODB: SMAHeatTransient_16.odb
+[2026-11-24 12:35:26] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:35:26] Set to step 'Heat_16' (position index 0, global step number 19), frame 8
+[2026-11-24 12:35:26] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:35:26] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_16.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:35:26] Waiting for ODB to be released: SMAHeatTransient_16.odb
+[2026-11-24 12:35:26] Exporting deformed geometry from SMAHeatTransient_16.odb
+[2026-11-24 12:35:27] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.982e-05
+[2026-11-24 12:35:27] Iteration 16 elapsed time: 39.934 seconds
+[2026-11-24 12:35:27] 
+========================================
+[2026-11-24 12:35:27]  Iteration 17 of 32 (job SMAHeatTransient_17)
+[2026-11-24 12:35:27] ========================================
+[2026-11-24 12:35:27] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:35:27] Running FreeCAD macro...
+[2026-11-24 12:35:38] FreeCAD macro finished in 11.0 s
+[2026-11-24 12:35:38] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:35:38]   ray engine FastRay, ray tracing 4.53 s
+[2026-11-24 12:35:38] Loaded 2089 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:35:39] map_flux_to_elements (coverage, k=8.0): 2089 hits (0 isolated, discarded); rho median 0.90 mm; elements 39 dark / 30 partial / 1005 full; power applied 2.6552 W vs ray estimate 2.5828 W
+[2026-11-24 12:35:39] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:35:39] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.6552 W -> 1.8079 W
+[2026-11-24 12:35:40] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:35:40] Created SurfaceHeatFlux 'SolarFlux_17' (field=FluxField_17) in step Heat_17; deactivated 'SolarFlux_16' there
+[2026-11-24 12:35:40] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:35:40] Creating job SMAHeatTransient_17
+[2026-11-24 12:35:40] Checked SMAHeatTransient_17.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:35:40] Running job SMAHeatTransient_17
+[2026-11-24 12:36:04] Completed job SMAHeatTransient_17
+[2026-11-24 12:36:04] Exporting OBJ from ODB: SMAHeatTransient_17.odb
+[2026-11-24 12:36:04] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:36:04] Set to step 'Heat_17' (position index 0, global step number 20), frame 8
+[2026-11-24 12:36:04] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:36:04] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_17.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:36:04] Waiting for ODB to be released: SMAHeatTransient_17.odb
+[2026-11-24 12:36:04] Exporting deformed geometry from SMAHeatTransient_17.odb
+[2026-11-24 12:36:04] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.982e-05
+[2026-11-24 12:36:04] Iteration 17 elapsed time: 37.679 seconds
+[2026-11-24 12:36:04] 
+========================================
+[2026-11-24 12:36:04]  Iteration 18 of 32 (job SMAHeatTransient_18)
+[2026-11-24 12:36:04] ========================================
+[2026-11-24 12:36:05] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:36:05] Running FreeCAD macro...
+[2026-11-24 12:36:16] FreeCAD macro finished in 11.0 s
+[2026-11-24 12:36:16] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:36:16]   ray engine FastRay, ray tracing 4.38 s
+[2026-11-24 12:36:16] Loaded 2060 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:36:17] map_flux_to_elements (coverage, k=8.0): 2060 hits (0 isolated, discarded); rho median 0.90 mm; elements 40 dark / 30 partial / 1004 full; power applied 2.6342 W vs ray estimate 2.5470 W
+[2026-11-24 12:36:17] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:36:17] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.6342 W -> 1.7880 W
+[2026-11-24 12:36:17] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:36:17] Created SurfaceHeatFlux 'SolarFlux_18' (field=FluxField_18) in step Heat_18; deactivated 'SolarFlux_17' there
+[2026-11-24 12:36:17] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:36:17] Creating job SMAHeatTransient_18
+[2026-11-24 12:36:18] Checked SMAHeatTransient_18.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:36:18] Running job SMAHeatTransient_18
+[2026-11-24 12:36:52] Completed job SMAHeatTransient_18
+[2026-11-24 12:36:52] Exporting OBJ from ODB: SMAHeatTransient_18.odb
+[2026-11-24 12:36:52] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:36:52] Set to step 'Heat_18' (position index 0, global step number 21), frame 15
+[2026-11-24 12:36:52] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:36:52] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_18.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:36:52] Waiting for ODB to be released: SMAHeatTransient_18.odb
+[2026-11-24 12:36:52] Exporting deformed geometry from SMAHeatTransient_18.odb
+[2026-11-24 12:36:52] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.976e-05
+[2026-11-24 12:36:52] Iteration 18 elapsed time: 47.988 seconds
+[2026-11-24 12:36:52] 
+========================================
+[2026-11-24 12:36:52]  Iteration 19 of 32 (job SMAHeatTransient_19)
+[2026-11-24 12:36:52] ========================================
+[2026-11-24 12:36:53] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:36:53] Running FreeCAD macro...
+[2026-11-24 12:37:03] FreeCAD macro finished in 10.9 s
+[2026-11-24 12:37:03] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:37:03]   ray engine FastRay, ray tracing 4.23 s
+[2026-11-24 12:37:03] Loaded 2046 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:37:05] map_flux_to_elements (coverage, k=8.0): 2046 hits (0 isolated, discarded); rho median 0.91 mm; elements 42 dark / 33 partial / 999 full; power applied 2.5705 W vs ray estimate 2.5296 W
+[2026-11-24 12:37:05] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:37:05] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.5705 W -> 1.7392 W
+[2026-11-24 12:37:05] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:37:05] Created SurfaceHeatFlux 'SolarFlux_19' (field=FluxField_19) in step Heat_19; deactivated 'SolarFlux_18' there
+[2026-11-24 12:37:05] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:37:05] Creating job SMAHeatTransient_19
+[2026-11-24 12:37:05] Checked SMAHeatTransient_19.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:37:06] Running job SMAHeatTransient_19
+[2026-11-24 12:37:44] Completed job SMAHeatTransient_19
+[2026-11-24 12:37:44] Exporting OBJ from ODB: SMAHeatTransient_19.odb
+[2026-11-24 12:37:44] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:37:44] Set to step 'Heat_19' (position index 0, global step number 22), frame 15
+[2026-11-24 12:37:44] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:37:44] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_19.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:37:44] Waiting for ODB to be released: SMAHeatTransient_19.odb
+[2026-11-24 12:37:44] Exporting deformed geometry from SMAHeatTransient_19.odb
+[2026-11-24 12:37:45] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.964e-05
+[2026-11-24 12:37:45] Iteration 19 elapsed time: 52.030 seconds
+[2026-11-24 12:37:45] 
+========================================
+[2026-11-24 12:37:45]  Iteration 20 of 32 (job SMAHeatTransient_20)
+[2026-11-24 12:37:45] ========================================
+[2026-11-24 12:37:45] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:37:45] Running FreeCAD macro...
+[2026-11-24 12:37:56] FreeCAD macro finished in 11.1 s
+[2026-11-24 12:37:56] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:37:56]   ray engine FastRay, ray tracing 4.32 s
+[2026-11-24 12:37:56] Loaded 2037 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:37:57] map_flux_to_elements (coverage, k=8.0): 2037 hits (0 isolated, discarded); rho median 0.92 mm; elements 38 dark / 31 partial / 1005 full; power applied 2.5349 W vs ray estimate 2.5182 W
+[2026-11-24 12:37:57] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:37:57] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.5349 W -> 1.7043 W
+[2026-11-24 12:37:58] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:37:58] Created SurfaceHeatFlux 'SolarFlux_20' (field=FluxField_20) in step Heat_20; deactivated 'SolarFlux_19' there
+[2026-11-24 12:37:58] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:37:58] Creating job SMAHeatTransient_20
+[2026-11-24 12:37:58] Checked SMAHeatTransient_20.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:37:58] Running job SMAHeatTransient_20
+[2026-11-24 12:39:00] Completed job SMAHeatTransient_20
+[2026-11-24 12:39:00] Exporting OBJ from ODB: SMAHeatTransient_20.odb
+[2026-11-24 12:39:00] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:39:00] Set to step 'Heat_20' (position index 0, global step number 23), frame 35
+[2026-11-24 12:39:00] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:39:01] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_20.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:39:01] Waiting for ODB to be released: SMAHeatTransient_20.odb
+[2026-11-24 12:39:01] Exporting deformed geometry from SMAHeatTransient_20.odb
+[2026-11-24 12:39:01] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.886e-05
+[2026-11-24 12:39:01] Iteration 20 elapsed time: 76.757 seconds
+[2026-11-24 12:39:01] 
+========================================
+[2026-11-24 12:39:01]  Iteration 21 of 32 (job SMAHeatTransient_21)
+[2026-11-24 12:39:01] ========================================
+[2026-11-24 12:39:01] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:39:01] Running FreeCAD macro...
+[2026-11-24 12:39:12] FreeCAD macro finished in 10.9 s
+[2026-11-24 12:39:12] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:39:12]   ray engine FastRay, ray tracing 4.36 s
+[2026-11-24 12:39:12] Loaded 1966 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:39:13] map_flux_to_elements (coverage, k=8.0): 1966 hits (0 isolated, discarded); rho median 0.94 mm; elements 40 dark / 26 partial / 1008 full; power applied 2.4384 W vs ray estimate 2.4289 W
+[2026-11-24 12:39:14] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:39:14] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.4384 W -> 1.6265 W
+[2026-11-24 12:39:14] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:39:14] Created SurfaceHeatFlux 'SolarFlux_21' (field=FluxField_21) in step Heat_21; deactivated 'SolarFlux_20' there
+[2026-11-24 12:39:14] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:39:14] Creating job SMAHeatTransient_21
+[2026-11-24 12:39:14] Checked SMAHeatTransient_21.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:39:15] Running job SMAHeatTransient_21
+[2026-11-24 12:40:17] Completed job SMAHeatTransient_21
+[2026-11-24 12:40:17] Exporting OBJ from ODB: SMAHeatTransient_21.odb
+[2026-11-24 12:40:17] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:40:17] Set to step 'Heat_21' (position index 0, global step number 24), frame 35
+[2026-11-24 12:40:17] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:40:17] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_21.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:40:17] Waiting for ODB to be released: SMAHeatTransient_21.odb
+[2026-11-24 12:40:17] Exporting deformed geometry from SMAHeatTransient_21.odb
+[2026-11-24 12:40:18] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.712e-05
+[2026-11-24 12:40:18] Iteration 21 elapsed time: 76.414 seconds
+[2026-11-24 12:40:18] 
+========================================
+[2026-11-24 12:40:18]  Iteration 22 of 32 (job SMAHeatTransient_22)
+[2026-11-24 12:40:18] ========================================
+[2026-11-24 12:40:18] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:40:18] Running FreeCAD macro...
+[2026-11-24 12:40:29] FreeCAD macro finished in 11.1 s
+[2026-11-24 12:40:29] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:40:29]   ray engine FastRay, ray tracing 4.50 s
+[2026-11-24 12:40:29] Loaded 1841 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:40:30] map_flux_to_elements (coverage, k=8.0): 1841 hits (0 isolated, discarded); rho median 0.96 mm; elements 40 dark / 34 partial / 1000 full; power applied 2.3652 W vs ray estimate 2.2707 W
+[2026-11-24 12:40:30] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:40:30] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.3652 W -> 1.5596 W
+[2026-11-24 12:40:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:40:31] Created SurfaceHeatFlux 'SolarFlux_22' (field=FluxField_22) in step Heat_22; deactivated 'SolarFlux_21' there
+[2026-11-24 12:40:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:40:31] Creating job SMAHeatTransient_22
+[2026-11-24 12:40:31] Checked SMAHeatTransient_22.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:40:32] Running job SMAHeatTransient_22
+[2026-11-24 12:41:39] Completed job SMAHeatTransient_22
+[2026-11-24 12:41:39] Exporting OBJ from ODB: SMAHeatTransient_22.odb
+[2026-11-24 12:41:40] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:41:40] Set to step 'Heat_22' (position index 0, global step number 25), frame 35
+[2026-11-24 12:41:40] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:41:40] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_22.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:41:40] Waiting for ODB to be released: SMAHeatTransient_22.odb
+[2026-11-24 12:41:40] Exporting deformed geometry from SMAHeatTransient_22.odb
+[2026-11-24 12:41:40] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.436e-05
+[2026-11-24 12:41:40] Iteration 22 elapsed time: 82.613 seconds
+[2026-11-24 12:41:40] 
+========================================
+[2026-11-24 12:41:40]  Iteration 23 of 32 (job SMAHeatTransient_23)
+[2026-11-24 12:41:40] ========================================
+[2026-11-24 12:41:40] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:41:40] Running FreeCAD macro...
+[2026-11-24 12:41:50] FreeCAD macro finished in 10.1 s
+[2026-11-24 12:41:50] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:41:50]   ray engine FastRay, ray tracing 4.04 s
+[2026-11-24 12:41:50] Loaded 1909 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:41:51] map_flux_to_elements (coverage, k=8.0): 1909 hits (0 isolated, discarded); rho median 0.98 mm; elements 40 dark / 31 partial / 1003 full; power applied 2.2865 W vs ray estimate 2.3464 W
+[2026-11-24 12:41:52] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:41:52] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.2865 W -> 1.4939 W
+[2026-11-24 12:41:52] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:41:52] Created SurfaceHeatFlux 'SolarFlux_23' (field=FluxField_23) in step Heat_23; deactivated 'SolarFlux_22' there
+[2026-11-24 12:41:52] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:41:52] Creating job SMAHeatTransient_23
+[2026-11-24 12:41:52] Checked SMAHeatTransient_23.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:41:52] Running job SMAHeatTransient_23
+[2026-11-24 12:42:46] Completed job SMAHeatTransient_23
+[2026-11-24 12:42:46] Exporting OBJ from ODB: SMAHeatTransient_23.odb
+[2026-11-24 12:42:46] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:42:46] Set to step 'Heat_23' (position index 0, global step number 26), frame 35
+[2026-11-24 12:42:46] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:42:46] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_23.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:42:46] Waiting for ODB to be released: SMAHeatTransient_23.odb
+[2026-11-24 12:42:46] Exporting deformed geometry from SMAHeatTransient_23.odb
+[2026-11-24 12:42:47] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.455e-05
+[2026-11-24 12:42:47] Iteration 23 elapsed time: 66.622 seconds
+[2026-11-24 12:42:47] 
+========================================
+[2026-11-24 12:42:47]  Iteration 24 of 32 (job SMAHeatTransient_24)
+[2026-11-24 12:42:47] ========================================
+[2026-11-24 12:42:47] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:42:47] Running FreeCAD macro...
+[2026-11-24 12:42:57] FreeCAD macro finished in 9.8 s
+[2026-11-24 12:42:57] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:42:57]   ray engine FastRay, ray tracing 3.85 s
+[2026-11-24 12:42:57] Loaded 1764 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:42:58] map_flux_to_elements (coverage, k=8.0): 1764 hits (0 isolated, discarded); rho median 1.00 mm; elements 40 dark / 40 partial / 994 full; power applied 2.1987 W vs ray estimate 2.1545 W
+[2026-11-24 12:42:58] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:42:58] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.1987 W -> 1.4253 W
+[2026-11-24 12:42:58] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:42:58] Created SurfaceHeatFlux 'SolarFlux_24' (field=FluxField_24) in step Heat_24; deactivated 'SolarFlux_23' there
+[2026-11-24 12:42:58] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:42:58] Creating job SMAHeatTransient_24
+[2026-11-24 12:42:58] Checked SMAHeatTransient_24.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:42:59] Running job SMAHeatTransient_24
+[2026-11-24 12:44:08] Completed job SMAHeatTransient_24
+[2026-11-24 12:44:08] Exporting OBJ from ODB: SMAHeatTransient_24.odb
+[2026-11-24 12:44:08] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:44:08] Set to step 'Heat_24' (position index 0, global step number 27), frame 35
+[2026-11-24 12:44:08] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:44:08] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_24.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:44:08] Waiting for ODB to be released: SMAHeatTransient_24.odb
+[2026-11-24 12:44:08] Exporting deformed geometry from SMAHeatTransient_24.odb
+[2026-11-24 12:44:09] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.504e-05
+[2026-11-24 12:44:09] Iteration 24 elapsed time: 81.647 seconds
+[2026-11-24 12:44:09] 
+========================================
+[2026-11-24 12:44:09]  Iteration 25 of 32 (job SMAHeatTransient_25)
+[2026-11-24 12:44:09] ========================================
+[2026-11-24 12:44:09] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:44:09] Running FreeCAD macro...
+[2026-11-24 12:44:20] FreeCAD macro finished in 11.3 s
+[2026-11-24 12:44:20] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:44:20]   ray engine FastRay, ray tracing 4.55 s
+[2026-11-24 12:44:20] Loaded 1705 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:44:21] map_flux_to_elements (coverage, k=8.0): 1705 hits (0 isolated, discarded); rho median 1.02 mm; elements 40 dark / 33 partial / 1001 full; power applied 2.1368 W vs ray estimate 2.0747 W
+[2026-11-24 12:44:22] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:44:22] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.1368 W -> 1.3700 W
+[2026-11-24 12:44:22] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:44:22] Created SurfaceHeatFlux 'SolarFlux_25' (field=FluxField_25) in step Heat_25; deactivated 'SolarFlux_24' there
+[2026-11-24 12:44:22] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:44:22] Creating job SMAHeatTransient_25
+[2026-11-24 12:44:22] Checked SMAHeatTransient_25.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:44:23] Running job SMAHeatTransient_25
+[2026-11-24 12:45:21] Completed job SMAHeatTransient_25
+[2026-11-24 12:45:21] Exporting OBJ from ODB: SMAHeatTransient_25.odb
+[2026-11-24 12:45:21] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:45:21] Set to step 'Heat_25' (position index 0, global step number 28), frame 35
+[2026-11-24 12:45:21] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:45:21] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_25.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:45:21] Waiting for ODB to be released: SMAHeatTransient_25.odb
+[2026-11-24 12:45:21] Exporting deformed geometry from SMAHeatTransient_25.odb
+[2026-11-24 12:45:21] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.546e-05
+[2026-11-24 12:45:21] Iteration 25 elapsed time: 72.805 seconds
+[2026-11-24 12:45:21] 
+========================================
+[2026-11-24 12:45:21]  Iteration 26 of 32 (job SMAHeatTransient_26)
+[2026-11-24 12:45:21] ========================================
+[2026-11-24 12:45:21] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:45:21] Running FreeCAD macro...
+[2026-11-24 12:45:32] FreeCAD macro finished in 11.0 s
+[2026-11-24 12:45:32] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:45:32]   ray engine FastRay, ray tracing 4.18 s
+[2026-11-24 12:45:32] Loaded 1687 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:45:33] map_flux_to_elements (coverage, k=8.0): 1687 hits (0 isolated, discarded); rho median 1.04 mm; elements 40 dark / 35 partial / 999 full; power applied 2.0917 W vs ray estimate 2.0481 W
+[2026-11-24 12:45:34] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:45:34] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.0917 W -> 1.3332 W
+[2026-11-24 12:45:34] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:45:34] Created SurfaceHeatFlux 'SolarFlux_26' (field=FluxField_26) in step Heat_26; deactivated 'SolarFlux_25' there
+[2026-11-24 12:45:34] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:45:34] Creating job SMAHeatTransient_26
+[2026-11-24 12:45:34] Checked SMAHeatTransient_26.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:45:34] Running job SMAHeatTransient_26
+[2026-11-24 12:47:05] Completed job SMAHeatTransient_26
+[2026-11-24 12:47:05] Exporting OBJ from ODB: SMAHeatTransient_26.odb
+[2026-11-24 12:47:05] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:47:05] Set to step 'Heat_26' (position index 0, global step number 29), frame 68
+[2026-11-24 12:47:05] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:47:05] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_26.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:47:05] Waiting for ODB to be released: SMAHeatTransient_26.odb
+[2026-11-24 12:47:05] Exporting deformed geometry from SMAHeatTransient_26.odb
+[2026-11-24 12:47:06] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.573e-05
+[2026-11-24 12:47:06] Iteration 26 elapsed time: 104.105 seconds
+[2026-11-24 12:47:06] 
+========================================
+[2026-11-24 12:47:06]  Iteration 27 of 32 (job SMAHeatTransient_27)
+[2026-11-24 12:47:06] ========================================
+[2026-11-24 12:47:06] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:47:06] Running FreeCAD macro...
+[2026-11-24 12:47:17] FreeCAD macro finished in 11.0 s
+[2026-11-24 12:47:17] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:47:17]   ray engine FastRay, ray tracing 4.28 s
+[2026-11-24 12:47:17] Loaded 1670 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:47:18] map_flux_to_elements (coverage, k=8.0): 1670 hits (0 isolated, discarded); rho median 1.05 mm; elements 40 dark / 40 partial / 994 full; power applied 2.0519 W vs ray estimate 2.0243 W
+[2026-11-24 12:47:18] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:47:18] Flux adjustment: 1 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.0519 W -> 1.2986 W
+[2026-11-24 12:47:18] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:47:18] Created SurfaceHeatFlux 'SolarFlux_27' (field=FluxField_27) in step Heat_27; deactivated 'SolarFlux_26' there
+[2026-11-24 12:47:19] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:47:19] Creating job SMAHeatTransient_27
+[2026-11-24 12:47:19] Checked SMAHeatTransient_27.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:47:19] Running job SMAHeatTransient_27
+[2026-11-24 12:48:47] Completed job SMAHeatTransient_27
+[2026-11-24 12:48:47] Exporting OBJ from ODB: SMAHeatTransient_27.odb
+[2026-11-24 12:48:48] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:48:48] Set to step 'Heat_27' (position index 0, global step number 30), frame 68
+[2026-11-24 12:48:48] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:48:48] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_27.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:48:48] Waiting for ODB to be released: SMAHeatTransient_27.odb
+[2026-11-24 12:48:48] Exporting deformed geometry from SMAHeatTransient_27.odb
+[2026-11-24 12:48:48] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.535e-05
+[2026-11-24 12:48:48] Iteration 27 elapsed time: 102.929 seconds
+[2026-11-24 12:48:48] 
+========================================
+[2026-11-24 12:48:48]  Iteration 28 of 32 (job SMAHeatTransient_28)
+[2026-11-24 12:48:48] ========================================
+[2026-11-24 12:48:49] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:48:49] Running FreeCAD macro...
+[2026-11-24 12:49:00] FreeCAD macro finished in 11.0 s
+[2026-11-24 12:49:00] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:49:00]   ray engine FastRay, ray tracing 4.32 s
+[2026-11-24 12:49:00] Loaded 1588 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:49:01] map_flux_to_elements (coverage, k=8.0): 1588 hits (0 isolated, discarded); rho median 1.05 mm; elements 40 dark / 50 partial / 984 full; power applied 2.0380 W vs ray estimate 1.9239 W
+[2026-11-24 12:49:01] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:49:01] Flux adjustment: 2 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.0380 W -> 1.2918 W
+[2026-11-24 12:49:02] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:49:02] Created SurfaceHeatFlux 'SolarFlux_28' (field=FluxField_28) in step Heat_28; deactivated 'SolarFlux_27' there
+[2026-11-24 12:49:02] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:49:02] Creating job SMAHeatTransient_28
+[2026-11-24 12:49:02] Checked SMAHeatTransient_28.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:49:03] Running job SMAHeatTransient_28
+[2026-11-24 12:50:35] Completed job SMAHeatTransient_28
+[2026-11-24 12:50:35] Exporting OBJ from ODB: SMAHeatTransient_28.odb
+[2026-11-24 12:50:35] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:50:35] Set to step 'Heat_28' (position index 0, global step number 31), frame 68
+[2026-11-24 12:50:35] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:50:35] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_28.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:50:35] Waiting for ODB to be released: SMAHeatTransient_28.odb
+[2026-11-24 12:50:35] Exporting deformed geometry from SMAHeatTransient_28.odb
+[2026-11-24 12:50:36] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.521e-05
+[2026-11-24 12:50:36] Iteration 28 elapsed time: 107.399 seconds
+[2026-11-24 12:50:36] 
+========================================
+[2026-11-24 12:50:36]  Iteration 29 of 32 (job SMAHeatTransient_29)
+[2026-11-24 12:50:36] ========================================
+[2026-11-24 12:50:36] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:50:36] Running FreeCAD macro...
+[2026-11-24 12:50:47] FreeCAD macro finished in 10.9 s
+[2026-11-24 12:50:47] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:50:47]   ray engine FastRay, ray tracing 4.31 s
+[2026-11-24 12:50:47] Loaded 1638 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:50:48] map_flux_to_elements (coverage, k=8.0): 1638 hits (0 isolated, discarded); rho median 1.05 mm; elements 40 dark / 27 partial / 1007 full; power applied 2.0341 W vs ray estimate 1.9833 W
+[2026-11-24 12:50:48] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:50:49] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.0341 W -> 1.2861 W
+[2026-11-24 12:50:49] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:50:49] Created SurfaceHeatFlux 'SolarFlux_29' (field=FluxField_29) in step Heat_29; deactivated 'SolarFlux_28' there
+[2026-11-24 12:50:49] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:50:49] Creating job SMAHeatTransient_29
+[2026-11-24 12:50:49] Checked SMAHeatTransient_29.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:50:50] Running job SMAHeatTransient_29
+[2026-11-24 12:52:18] Completed job SMAHeatTransient_29
+[2026-11-24 12:52:18] Exporting OBJ from ODB: SMAHeatTransient_29.odb
+[2026-11-24 12:52:18] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:52:18] Set to step 'Heat_29' (position index 0, global step number 32), frame 68
+[2026-11-24 12:52:18] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:52:18] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_29.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:52:18] Waiting for ODB to be released: SMAHeatTransient_29.odb
+[2026-11-24 12:52:18] Exporting deformed geometry from SMAHeatTransient_29.odb
+[2026-11-24 12:52:19] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.506e-05
+[2026-11-24 12:52:19] Iteration 29 elapsed time: 103.146 seconds
+[2026-11-24 12:52:19] 
+========================================
+[2026-11-24 12:52:19]  Iteration 30 of 32 (job SMAHeatTransient_30)
+[2026-11-24 12:52:19] ========================================
+[2026-11-24 12:52:19] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:52:19] Running FreeCAD macro...
+[2026-11-24 12:52:30] FreeCAD macro finished in 10.4 s
+[2026-11-24 12:52:30] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:52:30]   ray engine FastRay, ray tracing 4.26 s
+[2026-11-24 12:52:30] Loaded 1617 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:52:31] map_flux_to_elements (coverage, k=8.0): 1617 hits (0 isolated, discarded); rho median 1.06 mm; elements 40 dark / 27 partial / 1007 full; power applied 2.0226 W vs ray estimate 1.9561 W
+[2026-11-24 12:52:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:52:31] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.0226 W -> 1.2755 W
+[2026-11-24 12:52:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:52:31] Created SurfaceHeatFlux 'SolarFlux_30' (field=FluxField_30) in step Heat_30; deactivated 'SolarFlux_29' there
+[2026-11-24 12:52:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:52:31] Creating job SMAHeatTransient_30
+[2026-11-24 12:52:31] Checked SMAHeatTransient_30.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:52:32] Running job SMAHeatTransient_30
+[2026-11-24 12:53:50] Completed job SMAHeatTransient_30
+[2026-11-24 12:53:50] Exporting OBJ from ODB: SMAHeatTransient_30.odb
+[2026-11-24 12:53:50] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:53:50] Set to step 'Heat_30' (position index 0, global step number 33), frame 68
+[2026-11-24 12:53:50] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:53:50] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_30.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:53:50] Waiting for ODB to be released: SMAHeatTransient_30.odb
+[2026-11-24 12:53:50] Exporting deformed geometry from SMAHeatTransient_30.odb
+[2026-11-24 12:53:50] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.493e-05
+[2026-11-24 12:53:50] Iteration 30 elapsed time: 91.391 seconds
+[2026-11-24 12:53:50] 
+========================================
+[2026-11-24 12:53:50]  Iteration 31 of 32 (job SMAHeatTransient_31)
+[2026-11-24 12:53:50] ========================================
+[2026-11-24 12:53:50] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:53:50] Running FreeCAD macro...
+[2026-11-24 12:54:00] FreeCAD macro finished in 9.9 s
+[2026-11-24 12:54:00] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:54:00]   ray engine FastRay, ray tracing 3.92 s
+[2026-11-24 12:54:00] Loaded 1661 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:54:01] map_flux_to_elements (coverage, k=8.0): 1661 hits (0 isolated, discarded); rho median 1.06 mm; elements 40 dark / 34 partial / 1000 full; power applied 2.0027 W vs ray estimate 2.0066 W
+[2026-11-24 12:54:02] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:54:02] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 2.0027 W -> 1.2600 W
+[2026-11-24 12:54:02] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:54:02] Created SurfaceHeatFlux 'SolarFlux_31' (field=FluxField_31) in step Heat_31; deactivated 'SolarFlux_30' there
+[2026-11-24 12:54:02] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:54:02] Creating job SMAHeatTransient_31
+[2026-11-24 12:54:02] Checked SMAHeatTransient_31.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:54:02] Running job SMAHeatTransient_31
+[2026-11-24 12:56:17] Completed job SMAHeatTransient_31
+[2026-11-24 12:56:17] Exporting OBJ from ODB: SMAHeatTransient_31.odb
+[2026-11-24 12:56:17] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:56:17] Set to step 'Heat_31' (position index 0, global step number 34), frame 135
+[2026-11-24 12:56:17] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:56:17] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_31.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:56:17] Waiting for ODB to be released: SMAHeatTransient_31.odb
+[2026-11-24 12:56:17] Exporting deformed geometry from SMAHeatTransient_31.odb
+[2026-11-24 12:56:18] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.475e-05
+[2026-11-24 12:56:18] Iteration 31 elapsed time: 147.402 seconds
+[2026-11-24 12:56:18] 
+========================================
+[2026-11-24 12:56:18]  Iteration 32 of 32 (job SMAHeatTransient_32)
+[2026-11-24 12:56:18] ========================================
+[2026-11-24 12:56:18] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/abaqus_to_freecad.json
+[2026-11-24 12:56:18] Running FreeCAD macro...
+[2026-11-24 12:56:29] FreeCAD macro finished in 11.3 s
+[2026-11-24 12:56:29] FreeCAD ray tracing succeeded: 2126 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:56:29]   ray engine FastRay, ray tracing 4.70 s
+[2026-11-24 12:56:29] Loaded 1611 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/flux_data.csv
+[2026-11-24 12:56:31] map_flux_to_elements (coverage, k=8.0): 1611 hits (0 isolated, discarded); rho median 1.07 mm; elements 40 dark / 27 partial / 1007 full; power applied 1.9620 W vs ray estimate 1.9435 W
+[2026-11-24 12:56:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:56:31] Flux adjustment: 0 elements raised to 25% of unshaded flux, 144 on tape strips (x0.40); absorbed power 1.9620 W -> 1.2308 W
+[2026-11-24 12:56:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:56:32] Created SurfaceHeatFlux 'SolarFlux_32' (field=FluxField_32) in step Heat_32; deactivated 'SolarFlux_31' there
+[2026-11-24 12:56:32] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-24 12:56:32] Creating job SMAHeatTransient_32
+[2026-11-24 12:56:32] Checked SMAHeatTransient_32.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-24 12:56:32] Running job SMAHeatTransient_32
+[2026-11-24 12:59:27] Completed job SMAHeatTransient_32
+[2026-11-24 12:59:27] Exporting OBJ from ODB: SMAHeatTransient_32.odb
+[2026-11-24 12:59:28] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-24 12:59:28] Set to step 'Heat_32' (position index 0, global step number 35), frame 135
+[2026-11-24 12:59:28] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-24 12:59:28] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/deformed_cad\SMADogboneDeformedMesh_32.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-24 12:59:28] Waiting for ODB to be released: SMAHeatTransient_32.odb
+[2026-11-24 12:59:28] Exporting deformed geometry from SMAHeatTransient_32.odb
+[2026-11-24 12:59:28] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.470e-05
+[2026-11-24 12:59:28] Iteration 32 elapsed time: 190.573 seconds
+[2026-11-24 12:59:28] 
+DONE with all iterations.
+[2026-11-24 12:59:28] Total iterative analysis time: 2996.165 seconds
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 1
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 2
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 3
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 4
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 5
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 6
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 7
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 8
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 9
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 10
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 11
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 12
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 13
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 14
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 15
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 16
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 17
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 18
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 19
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 20
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 21
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 22
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 23
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 24
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 25
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 26
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 27
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 28
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 29
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 30
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 31
+[2026-11-24 12:59:28] Read 1074 mapped flux input values for iteration 32
+[2026-11-24 12:59:28] Mapped flux input colorscale: 0 to 5289.5 (95th pct)
+[2026-11-24 12:59:37] Saved: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/plots\solar_flux_mapped_input_0.90.png
+[2026-11-24 12:59:38] Saved 3D ray-tracing viewer to C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90\raytrace_viewer_0.90.html
+[2026-11-24 12:59:40] Read 8448 HFL values for SMAHeatTransient_01
+[2026-11-24 12:59:42] Read 8448 HFL values for SMAHeatTransient_02
+[2026-11-24 12:59:44] Read 8448 HFL values for SMAHeatTransient_03
+[2026-11-24 12:59:45] Read 8448 HFL values for SMAHeatTransient_04
+[2026-11-24 12:59:47] Read 8448 HFL values for SMAHeatTransient_05
+[2026-11-24 12:59:49] Read 8448 HFL values for SMAHeatTransient_06
+[2026-11-24 12:59:51] Read 8448 HFL values for SMAHeatTransient_07
+[2026-11-24 12:59:53] Read 8448 HFL values for SMAHeatTransient_08
+[2026-11-24 12:59:54] Read 8448 HFL values for SMAHeatTransient_09
+[2026-11-24 12:59:56] Read 8448 HFL values for SMAHeatTransient_10
+[2026-11-24 12:59:58] Read 8448 HFL values for SMAHeatTransient_11
+[2026-11-24 13:00:00] Read 8448 HFL values for SMAHeatTransient_12
+[2026-11-24 13:00:02] Read 8448 HFL values for SMAHeatTransient_13
+[2026-11-24 13:00:03] Read 8448 HFL values for SMAHeatTransient_14
+[2026-11-24 13:00:05] Read 8448 HFL values for SMAHeatTransient_15
+[2026-11-24 13:00:06] Read 8448 HFL values for SMAHeatTransient_16
+[2026-11-24 13:00:07] Read 8448 HFL values for SMAHeatTransient_17
+[2026-11-24 13:00:09] Read 8448 HFL values for SMAHeatTransient_18
+[2026-11-24 13:00:10] Read 8448 HFL values for SMAHeatTransient_19
+[2026-11-24 13:00:12] Read 8448 HFL values for SMAHeatTransient_20
+[2026-11-24 13:00:14] Read 8448 HFL values for SMAHeatTransient_21
+[2026-11-24 13:00:16] Read 8448 HFL values for SMAHeatTransient_22
+[2026-11-24 13:00:17] Read 8448 HFL values for SMAHeatTransient_23
+[2026-11-24 13:00:19] Read 8448 HFL values for SMAHeatTransient_24
+[2026-11-24 13:00:21] Read 8448 HFL values for SMAHeatTransient_25
+[2026-11-24 13:00:22] Read 8448 HFL values for SMAHeatTransient_26
+[2026-11-24 13:00:24] Read 8448 HFL values for SMAHeatTransient_27
+[2026-11-24 13:00:25] Read 8448 HFL values for SMAHeatTransient_28
+[2026-11-24 13:00:27] Read 8448 HFL values for SMAHeatTransient_29
+[2026-11-24 13:00:29] Read 8448 HFL values for SMAHeatTransient_30
+[2026-11-24 13:00:31] Read 8448 HFL values for SMAHeatTransient_31
+[2026-11-24 13:00:33] Read 8448 HFL values for SMAHeatTransient_32
+[2026-11-24 13:00:33] HFL colorscale: 0 to 23842.2 (95th pct)
+[2026-11-24 13:00:45] Saved: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/plots\hfl_field_output_0.90.png
+[2026-11-24 13:00:45] EdgeTwistMetric: tracking nodes 23 and 15 (1.20e-04 m and 1.20e-04 m from the given edge points)
+[2026-11-24 13:00:45] NodeTemperatureMetric: T1 at (0.004125, 0.01, 0.0) -> node 282 (4.96e-10 m away)
+[2026-11-24 13:00:46] NodeTemperatureMetric: T2 at (0.0718, 0.01, 0.0) -> node 240 (1.75e-05 m away)
+[2026-11-24 13:01:14] Wrote 33 row(s) to C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/twist_0.90.csv
+[2026-11-24 13:01:16] EdgeTwistMetric: tracking nodes 23 and 15 (1.20e-04 m and 1.20e-04 m from the given edge points)
+[2026-11-24 13:01:16] NodeTemperatureMetric: T1 at (0.004125, 0.01, 0.0) -> node 282 (4.96e-10 m away)
+[2026-11-24 13:01:16] NodeTemperatureMetric: T2 at (0.0718, 0.01, 0.0) -> node 240 (1.75e-05 m away)
+[2026-11-24 13:08:34] Wrote 1404 row(s) to C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/twist_history_0.90.csv
+[2026-11-24 13:08:35] Saved twist plot to C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/plots/twist_history_0.90.png
+[2026-11-24 13:08:35] 
+DONE with all analyses.
+[2026-11-24 13:08:35] 
+Total runtime: 59 min 03 s (3543 s)
+
+[2026-11-24 13:08:36] Saved runtime breakdown plot: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/plots\runtime_breakdown_0.90.png
+[2026-11-24 13:08:36] Runtime report: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/runtime_report_0.90.csv
+[2026-11-24 13:08:36] Runtime summary: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_90_un/scen/run_documentation/run_0.90/runtime_summary_0.90.txt

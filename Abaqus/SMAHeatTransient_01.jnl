@@ -1,0 +1,1612 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='DogboneScenario1_Model')
+del mdb.models['Model-1']
+mdb.models['DogboneScenario1_Model'].setValues(absoluteZero=0.0, 
+    stefanBoltzmann=5.67e-08)
+mdb.models['DogboneScenario1_Model'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.0), point2=(0.0, 0.193224683403969))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.193224683403969), point2=(0.155075997114182, 0.193224683403969))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.077537998557091, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.077537998557091, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.0), point2=(0.152335405349731, 0.0))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0761677026748655, 0.0), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0761677026748655, 0.0), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(-0.0292295515537262, 0.0939513891935349), value=0.02, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.0), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0660063922405243, 0.221979722380638), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.193224683403969), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.155075997114182, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0570994317531586, 0.126814261078835), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.173224683403969), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.152335405349731, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0300150439143181, 0.188589945435524), point2=(0.0675337612628937, 
+    0.188589945435524))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0487744025886059, 0.188589945435524), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0359990410506725, 0.184413731098175), point2=(0.0671538263559341, 
+    0.184413731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0515764337033033, 0.184413731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0441676713526249, 0.193335622549057), value=0.0186, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0300150439143181, 0.188589945435524), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0675337612628937, 0.188589945435524), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.045402467250824, 0.179668053984642), value=0.0186, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0359990410506725, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0671538263559341, 0.184413731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].DistanceDimension(
+    entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0582337612628937, 0.188589945435524), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0578538263559341, 0.184413731098175), ), textPoint=(0.0806317999958992, 
+    0.186493337154388), value=0.00292)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.0350101664662361, 0.157073989510536), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0485538263559341, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.0222361087799072, 0.205944165587425), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0280199349069596, 0.187333731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalDimension(
+    textPoint=(-0.0126796439290047, 0.178348317742348), value=0.00855, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.02764, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.187333731098175), ), point1=(0.02764, 0.187333731098175), 
+    point2=(0.0182, 0.195863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.184413731098175), ), point1=(0.02764, 0.184413731098175), 
+    point2=(0.0182, 0.175863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0509473234415054, 0.197920694947243), point2=(0.0676144286990166, 
+    0.197920694947243))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.059280876070261, 0.197920694947243), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0676144286990166, 0.197920694947243), point2=(0.0676144286990166, 
+    0.175673827528954))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.059280876070261, 0.197920694947243), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0676144286990166, 0.175673827528954), point2=(0.050095722079277, 
+    0.175673827528954))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0588550753891468, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0588550753891468, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0761304646730423, 0.185399234294891), value=0.02, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.197920694947243), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0597066804766655, 0.202053993940353), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0509473234415054, 0.195673827528954), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.195673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0605582818388939, 0.169595450162888), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.175673827528954), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.050095722079277, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalDimension(
+    textPoint=(0.0910943672060966, 0.179442420601845), value=0.00855, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.04624, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0494144286990166, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.047784224152565, 0.154277935624123), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.04624, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0494144286990166, 0.175863731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.187333731098175), ), point1=(0.04624, 0.187333731098175), 
+    point2=(0.05568, 0.195863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.184413731098175), ), point1=(0.04624, 0.184413731098175), 
+    point2=(0.05568, 0.175863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].move(objectList=(
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.185863731098175), ), ), vector=(0.0, -0.175863731098175))
+mdb.models['DogboneScenario1_Model'].Part(dimensionality=THREE_D, name='sma', 
+    type=DEFORMABLE_BODY)
+mdb.models['DogboneScenario1_Model'].parts['sma'].BaseShell(sketch=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'])
+del mdb.models['DogboneScenario1_Model'].sketches['__profile__']
+mdb.models['DogboneScenario1_Model'].ConstrainedSketch(gridSpacing=0.003, name=
+    '__profile__', sheetSize=0.153, transform=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].MakeSketchTransform(
+    sketchPlane=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(
+    (0.012359, 0.0009, 0.0), (0.0, 0.0, 1.0)), sketchPlaneSide=SIDE1, 
+    sketchUpEdge=mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt(
+    (0.07388, 0.015, 0.0), ), sketchOrientation=RIGHT, origin=(0.03694, 
+    0.010002, 0.0)))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].sketchOptions.setValues(
+    decimalPlaces=3)
+mdb.models['DogboneScenario1_Model'].parts['sma'].projectReferencesOntoSketch(
+    filter=COPLANAR_EDGES, sketch=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'])
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].CircleByCenterPerimeter(
+    center=(-0.02775, 0.0), point1=(-0.0255, -0.0045))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt((
+    -0.03694, -2e-06))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt((
+    -0.02775, 0.0))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].DistanceDimension(
+    entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (-0.03694, -2e-06), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (-0.02775, 0.0), ), textPoint=(-0.0287949172580242, -0.00673806548458338), 
+    value=0.0122)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt((
+    -0.02699, 0.0045))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].RadialDimension(
+    curve=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (-0.02699, 0.0045), ), radius=0.00395, textPoint=(-0.0140282911980152, 
+    0.00717658016490936))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt((
+    -0.026506, 0.003533))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].linearPattern(
+    angle1=0.0, angle2=90.0, geomList=(
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (-0.026506, 0.003533), ), ), number1=2, number2=1, spacing1=0.04948, 
+    spacing2=0.0153, vertexList=())
+mdb.models['DogboneScenario1_Model'].parts['sma'].CutExtrude(
+    flipExtrudeDirection=OFF, sketch=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'], 
+    sketchOrientation=RIGHT, sketchPlane=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt((0.012359, 
+    0.0009, 0.0), (0.0, 0.0, 1.0)), sketchPlaneSide=SIDE1, sketchUpEdge=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt((0.07388, 
+    0.015, 0.0), ))
+del mdb.models['DogboneScenario1_Model'].sketches['__profile__']
+mdb.models['DogboneScenario1_Model'].Material(name='Aluminum')
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Elastic(table=((
+    70000000000.0, 0.3), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Conductivity(table=(
+    (100.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].SpecificHeat(table=(
+    (900.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Density(table=((
+    2300.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Expansion(table=((
+    0.0, ), ))
+mdb.models['DogboneScenario1_Model'].Material(name='FakeSMA')
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Elastic(table=((
+    90000000000.0, 0.3), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Conductivity(table=((
+    50.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].SpecificHeat(table=((
+    800.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Density(table=((
+    6450.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Expansion(table=((
+    -0.0025, 0.0, 0.0), ), type=ORTHOTROPIC)
+mdb.models['DogboneScenario1_Model'].Material(name='SMA')
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Conductivity(table=((
+    18.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].SpecificHeat(table=((
+    837.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Density(table=((6450.0, 
+    ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Depvar(n=100)
+mdb.models['DogboneScenario1_Model'].materials['SMA'].UserMaterial(
+    mechanicalConstants=(1.0, 0.0, 1e-08, 0.0, 0.0, 0.15, 1.0, 0.0, 
+    35000000000.0, 75000000000.0, 0.33, 0.33, 0.0, 0.0, 0.0, 0.0, 292.15, 
+    287.15, 295.0, 350.0, 6000000.0, 7000000.0, 300000000.0, 0.0, 0.0, 0.05, 
+    0.0, 7.52e-09, 0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.012805, 0.004399, 0.0), )), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].InterestingPoint(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt((0.0, 0.005, 
+    0.0), ), MIDDLE), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].InterestingPoint(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt((0.07388, 
+    0.015, 0.0), ), MIDDLE))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.070931, 0.010451, 0.0), ), ((0.070954, 0.009621, 0.0), ), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.0182, 
+    0.02, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.0182, 
+    0.0, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.018428, 0.015769, 0.0), ), ((0.018426, 0.004233, 0.0), ), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.05568, 
+    0.02, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.05568, 
+    0.0, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.055454, 0.004233, 0.0), ), ((0.055452, 0.015769, 0.0), ), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.02764, 
+    0.01147, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.02764, 
+    0.00855, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.03384, 0.01098, 0.0), ), ((0.03384, 0.009033, 0.0), ), ((0.026723, 
+    0.008897, 0.0), ), ((0.026724, 0.011116, 0.0), ), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.04624, 
+    0.01147, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.04624, 
+    0.00855, 0.0), ))
+mdb.models['DogboneScenario1_Model'].HomogeneousShellSection(idealization=
+    NO_IDEALIZATION, integrationRule=SIMPSON, material='SMA', name='sma', 
+    nodalThicknessField='', numIntPts=5, poissonDefinition=DEFAULT, 
+    preIntegrate=OFF, temperature=GRADIENT, thickness=0.00041, thicknessField=
+    '', thicknessModulus=None, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['DogboneScenario1_Model'].sections['sma'].TransverseShearShell(k11=
+    25000000000.0, k12=12000000000.0, k22=25000000000.0)
+mdb.models['DogboneScenario1_Model'].parts['sma'].Set(faces=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].faces, name='whole-sma')
+mdb.models['DogboneScenario1_Model'].parts['sma'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].sets['whole-sma'], 
+    sectionName='sma', thicknessAssignment=FROM_SECTION)
+mdb.models['DogboneScenario1_Model'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Instance(dependent=ON, name=
+    'SMADogbone_(Nitinol)', part=
+    mdb.models['DogboneScenario1_Model'].parts['sma'])
+mdb.models['DogboneScenario1_Model'].StaticStep(initialInc=0.01, maxInc=1.0, 
+    maxNumInc=1000000, minInc=1e-12, name='Load', nlgeom=ON, previous='Initial'
+    , timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].StaticStep(initialInc=0.01, maxInc=1.0, 
+    maxNumInc=1000000, minInc=1e-12, name='Unload', nlgeom=ON, previous='Load', 
+    timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].CoupledTempDisplacementStep(deltmx=10.0, 
+    initialInc=0.001, maxInc=1, maxNumInc=10000, minInc=1e-08, name='temp_step'
+    , previous='Unload', timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].steps['Unload'].Restart(frequency=1, 
+    numberIntervals=0, overlay=ON)
+mdb.models['DogboneScenario1_Model'].steps['Load'].Restart(frequency=1, 
+    numberIntervals=0, overlay=ON)
+mdb.models['DogboneScenario1_Model'].steps['temp_step'].Restart(frequency=1, 
+    numberIntervals=0, overlay=OFF)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(faces=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].faces.findAt(
+    ((0.04004, 0.009517, 0.0), (0.0, 0.0, 1.0)), ((0.047156, 0.011116, 0.0), (
+    0.0, 0.0, 1.0)), ((0.04004, 0.01098, 0.0), (0.0, 0.0, 1.0)), ((0.047157, 
+    0.008897, 0.0), (0.0, 0.0, 1.0)), ((0.026723, 0.008897, 0.0), (0.0, 0.0, 
+    1.0)), ((0.057126, 0.010451, 0.0), (0.0, 0.0, 1.0)), ((0.016745, 0.009525, 
+    0.0), (0.0, 0.0, 1.0)), ((0.026724, 0.011116, 0.0), (0.0, 0.0, 1.0)), ((
+    0.015087, 0.015771, 0.0), (0.0, 0.0, 1.0)), ((0.058708, 0.004261, 0.0), (
+    0.0, 0.0, 1.0)), ), name='Set-Temp')
+mdb.models['DogboneScenario1_Model'].Temperature(createStepName='Initial', 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, distributionType=
+    UNIFORM, magnitudes=(293.15, ), name='Temp0', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Set-Temp'])
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(edges=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].edges.findAt(
+    ((0.0, 0.0025, 0.0), ), ((0.0, 0.0125, 0.0), ), ), name='Fixed-Set')
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(edges=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].edges.findAt(
+    ((0.07388, 0.0175, 0.0), ), ((0.07388, 0.0075, 0.0), ), ), name=
+    'Loaded-Set')
+mdb.models['DogboneScenario1_Model'].rootAssembly.ReferencePoint(point=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].vertices.findAt(
+    (0.07388, 0.01, 0.0), ))
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(name='rp-load', 
+    referencePoints=(
+    mdb.models['DogboneScenario1_Model'].rootAssembly.referencePoints[7], ))
+mdb.models['DogboneScenario1_Model'].rootAssembly.Surface(name='All-Surfaces', 
+    side1Faces=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].faces)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Surface(name=
+    'All-Surfaces-Side2', side2Faces=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].faces)
+mdb.models['DogboneScenario1_Model'].EncastreBC(createStepName='Initial', 
+    localCsys=None, name='FixEdge', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Fixed-Set'])
+mdb.models['DogboneScenario1_Model'].MultipointConstraint(controlPoint=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], csys=
+    None, mpcType=BEAM_MPC, name='load-rp', surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Loaded-Set'], 
+    userMode=DOF_MODE_MPC, userType=0)
+mdb.models['DogboneScenario1_Model'].TabularAmplitude(data=((0.0, 0.0), (0.9, 
+    1.0), (1.0, 0.974874371859296)), name='LoadPath', smooth=SOLVER_DEFAULT, 
+    timeSpan=STEP)
+mdb.models['DogboneScenario1_Model'].DisplacementBC(amplitude='LoadPath', 
+    createStepName='Load', distributionType=UNIFORM, fieldName='', fixed=OFF, 
+    localCsys=None, name='Twist-BC', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], u1=UNSET
+    , u2=UNSET, u3=UNSET, ur1=1.99, ur2=UNSET, ur3=UNSET)
+mdb.models['DogboneScenario1_Model'].DisplacementBC(amplitude=UNSET, 
+    createStepName='Load', distributionType=UNIFORM, fieldName='', fixed=OFF, 
+    localCsys=None, name='End-BC', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], u1=UNSET
+    , u2=0.0, u3=0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['DogboneScenario1_Model'].boundaryConditions['Twist-BC'].deactivate(
+    'Unload')
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedEdgeBySize(constraint=
+    FINER, deviationFactor=0.1, edges=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt(((0.04624, 
+    0.008912, 0.0), ), ((0.04159, 0.01, 0.0), ), ((0.02764, 0.008912, 0.0), ), 
+    ((0.03229, 0.00855, 0.0), ), ((0.04624, 0.010367, 0.0), ), ((0.03229, 
+    0.01147, 0.0), ), ((0.02764, 0.010367, 0.0), ), ), size=0.0005)
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedEdgeBySize(constraint=
+    FINER, deviationFactor=0.1, edges=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt(((0.05332, 
+    0.01, 0.0), ), ((0.05568, 0.0125, 0.0), ), ((0.049648, 0.012103, 0.0), ), (
+    (0.049653, 0.007915, 0.0), ), ((0.05568, 0.0025, 0.0), ), ((0.02528, 0.01, 
+    0.0), ), ((0.0182, 0.0025, 0.0), ), ((0.024227, 0.007915, 0.0), ), ((
+    0.060176, 0.01, 0.0), ), ((0.062831, 0.012794, 0.0), ), ((0.072804, 0.01, 
+    0.0), ), ((0.07388, 0.0175, 0.0), ), ((0.06023, 0.02, 0.0), ), ((0.016701, 
+    0.01, 0.0), ), ((0.01211, 0.009142, 0.0), ), ((0.008761, 0.006085, 0.0), ), 
+    ((0.003229, 0.01, 0.0), ), ((0.0, 0.0025, 0.0), ), ((0.00455, 0.0, 0.0), ), 
+    ((0.024232, 0.012103, 0.0), ), ((0.0182, 0.0125, 0.0), ), ((0.00455, 0.02, 
+    0.0), ), ((0.0, 0.0125, 0.0), ), ((0.005461, 0.012794, 0.0), ), ((0.06933, 
+    0.0, 0.0), ), ((0.07388, 0.0075, 0.0), ), ((0.06948, 0.009142, 0.0), ), ((
+    0.066131, 0.006085, 0.0), ), ), size=0.001)
+mdb.models['DogboneScenario1_Model'].parts['sma'].setElementType(elemTypes=(
+    ElemType(elemCode=S4T, elemLibrary=STANDARD, secondOrderAccuracy=OFF), 
+    ElemType(elemCode=S3T, elemLibrary=STANDARD)), regions=(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].faces, ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].generateMesh()
+mdb.models['DogboneScenario1_Model'].ConstrainedSketch(name='__profile__', 
+    sheetSize=1.0)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.07638, 0.0), point2=(0.01766, 0.0))
+mdb.models['DogboneScenario1_Model'].Part(dimensionality=THREE_D, name='shade', 
+    type=DEFORMABLE_BODY)
+mdb.models['DogboneScenario1_Model'].parts['shade'].BaseShellExtrude(depth=
+    0.03632, sketch=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'])
+del mdb.models['DogboneScenario1_Model'].sketches['__profile__']
+mdb.models['DogboneScenario1_Model'].Material(name='shade_mat')
+mdb.models['DogboneScenario1_Model'].materials['shade_mat'].Elastic(table=((
+    1000000000.0, 0.3), ))
+mdb.models['DogboneScenario1_Model'].HomogeneousShellSection(material=
+    'shade_mat', name='shade_sec', thickness=0.0005)
+mdb.models['DogboneScenario1_Model'].parts['shade'].SectionAssignment(region=
+    Region(
+    faces=mdb.models['DogboneScenario1_Model'].parts['shade'].faces.findAt(((
+    0.037233, 0.0, 0.024213), (0.0, 1.0, 0.0)), )), sectionName='shade_sec')
+mdb.models['DogboneScenario1_Model'].parts['shade'].setElementType(elemTypes=(
+    ElemType(elemCode=S4R, elemLibrary=STANDARD), ElemType(elemCode=S3, 
+    elemLibrary=STANDARD)), regions=(
+    mdb.models['DogboneScenario1_Model'].parts['shade'].faces, ))
+mdb.models['DogboneScenario1_Model'].parts['shade'].seedPart(deviationFactor=
+    0.1, minSizeFactor=0.1, size=0.01)
+mdb.models['DogboneScenario1_Model'].parts['shade'].generateMesh()
+mdb.models['DogboneScenario1_Model'].rootAssembly.Instance(dependent=ON, name=
+    'shade-1', part=mdb.models['DogboneScenario1_Model'].parts['shade'])
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(name='shade_nodes', 
+    nodes=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['shade-1'].nodes)
+mdb.models['DogboneScenario1_Model'].Coupling(controlPoint=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], 
+    couplingType=KINEMATIC, influenceRadius=WHOLE_SURFACE, name=
+    'shade-coupling', surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['shade_nodes'], u1=
+    ON, u2=ON, u3=ON, ur1=ON, ur2=ON, ur3=ON)
+mdb.models['DogboneScenario1_Model'].FieldOutputRequest(createStepName='Load', 
+    frequency=1, name='F-Output', variables=('SDV', 'E', 'U', 'RM', 'TEMP'))
+mdb.Job(contactPrint=OFF, description='Assembly + Add_actuator prep run', 
+    echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model=
+    'DogboneScenario1_Model', modelPrint=OFF, name='loading', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, resultsFormat=ODB, 
+    scratch='', type=ANALYSIS, userSubroutine=
+    'C:\\Users\\adzheng\\STAR-Simulator\\Scenarios\\DogboneScenario1\\Hartl_UMAT_Hacked.for')
+del mdb.jobs['loading']
+mdb.JobFromInputFile(explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
+    inputFileName=
+    'C:\\Users\\adzheng\\STAR-Simulator\\Abaqus\\loading_pretwist.inp', memory=
+    90, memoryUnits=PERCENTAGE, name='loading', nodalOutputPrecision=SINGLE, 
+    numCpus=1, numGPUs=0, resultsFormat=ODB, scratch='', type=ANALYSIS, 
+    userSubroutine=
+    'C:\\Users\\adzheng\\STAR-Simulator\\Scenarios\\DogboneScenario1\\Hartl_UMAT_Hacked.for')
+mdb.jobs['loading'].submit()
+mdb.jobs['loading'].waitForCompletion()
+mdb.models['DogboneScenario1_Model'].setValues(restartJob='loading', 
+    restartStep='temp_step')
+mdb.models['DogboneScenario1_Model'].CoupledTempDisplacementStep(amplitude=STEP
+    , deltmx=5.0, initialInc=0.1, maxInc=5.0, maxNumInc=200, minInc=4e-12, 
+    name='Heat_01', nlgeom=ON, previous='temp_step', timePeriod=5.0)
+mdb.models['DogboneScenario1_Model'].steps['Heat_01'].Restart(frequency=1, 
+    numberIntervals=0, overlay=ON)
+mdb.models['DogboneScenario1_Model'].rootAssembly.regenerate()
+mdb.models['DogboneScenario1_Model'].TabularAmplitude(data=((0.0, 1.0), (4.0, 
+    1.0)), name='Instantaneous', smooth=SOLVER_DEFAULT, timeSpan=STEP)
+mdb.models['DogboneScenario1_Model'].RadiationToAmbient(ambientTemperature=
+    293.15, ambientTemperatureAmp='Instantaneous', createStepName='Heat_01', 
+    distributionType=UNIFORM, emissivity=0.9, field='', name='Radiation-SPOS', 
+    radiationType=AMBIENT, surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.surfaces['All-Surfaces'])
+mdb.models['DogboneScenario1_Model'].FilmCondition(createStepName='Heat_01', 
+    definition=EMBEDDED_COEFF, filmCoeff=6.3, filmCoeffAmplitude='', name=
+    'Convection-SPOS', sinkAmplitude='', sinkDistributionType=UNIFORM, 
+    sinkFieldName='', sinkTemperature=293.15, surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.surfaces['All-Surfaces'])
+mdb.models['DogboneScenario1_Model'].RadiationToAmbient(ambientTemperature=
+    293.15, ambientTemperatureAmp='Instantaneous', createStepName='Heat_01', 
+    distributionType=UNIFORM, emissivity=0.9, field='', name='Radiation-SNEG', 
+    radiationType=AMBIENT, surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.surfaces['All-Surfaces-Side2'])
+mdb.models['DogboneScenario1_Model'].FilmCondition(createStepName='Heat_01', 
+    definition=EMBEDDED_COEFF, filmCoeff=6.3, filmCoeffAmplitude='', name=
+    'Convection-SNEG', sinkAmplitude='', sinkDistributionType=UNIFORM, 
+    sinkFieldName='', sinkTemperature=293.15, surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.surfaces['All-Surfaces-Side2'])
+mdb.models['DogboneScenario1_Model'].FieldOutputRequest(createStepName=
+    'Heat_01', frequency=1, name='F-Output-HFL', variables=('HFL', 'SDV', 'E', 
+    'PE', 'U', 'CF', 'RM', 'TEMP'))
+mdb.models['DogboneScenario1_Model'].MappedField(description=
+    'Per-element flux from ray tracing, keyed by undeformed centroid', 
+    fieldDataType=SCALAR, localCsys=None, name='FluxField_01', partLevelData=
+    False, pointDataFormat=XYZ, regionType=POINT, xyzPointData=[(
+    0.0459886472672224, 0.00879166694357991, 0.0, 6427.65220008359), (
+    0.0459886472672224, 0.00927500007674098, 0.0, 6431.29874474968), (
+    0.0459886472672224, 0.00975833320990205, 0.0, 6433.46911052626), (
+    0.0454859454184771, 0.00879166694357991, 0.0, 6425.0929639314), (
+    0.0454859454184771, 0.00927500007674098, 0.0, 6428.70518957776), (
+    0.0454859454184771, 0.00975833320990205, 0.0, 6430.82104851611), (
+    0.0449832435697317, 0.00879166694357991, 0.0, 6418.94386533179), (
+    0.0449832435697317, 0.00927500007674098, 0.0, 6422.57479388773), (
+    0.0449832435697317, 0.00975833320990205, 0.0, 6424.67689258889), (
+    0.0444805417209864, 0.00879166694357991, 0.0, 6409.19942384887), (
+    0.0444805417209864, 0.00927500007674098, 0.0, 6412.89909613896), (
+    0.0444805417209864, 0.00975833320990205, 0.0, 6415.02855313428), (
+    0.0439778380095959, 0.00879166694357991, 0.0, 6395.86094577523), (
+    0.0439778380095959, 0.00927500007674098, 0.0, 6399.65045372732), (
+    0.0439778380095959, 0.00975833320990205, 0.0, 6401.82639429101), (
+    0.0434751342982054, 0.00879166694357991, 0.0, 6378.90456880322), (
+    0.0434751342982054, 0.00927500007674098, 0.0, 6382.78327690299), (
+    0.0434751342982054, 0.00975833320990205, 0.0, 6385.00933075513), (
+    0.04297243244946, 0.00879166694357991, 0.0, 6358.30388391596), (
+    0.04297243244946, 0.00927500007674098, 0.0, 6362.25690637707), (
+    0.04297243244946, 0.00975833320990205, 0.0, 6364.52124164006), (
+    0.0424697306007147, 0.00879166694357991, 0.0, 6334.04524127358), (
+    0.0424697306007147, 0.00927500007674098, 0.0, 6338.04736936757), (
+    0.0424697306007147, 0.00975833320990205, 0.0, 6340.3284497339), (
+    0.0419670268893242, 0.00879166694357991, 0.0, 6306.13132779675), (
+    0.0419670268893242, 0.00927500007674098, 0.0, 6310.15313574469), (
+    0.0419670268893242, 0.00975833320990205, 0.0, 6312.42818813632), (
+    0.0414643231779337, 0.00879166694357991, 0.0, 6274.58315188719), (
+    0.0414643231779337, 0.00927500007674098, 0.0, 6278.59738008791), (
+    0.0414643231779337, 0.00975833320990205, 0.0, 6280.84697545791), (
+    0.0409616213291883, 0.00879166694357991, 0.0, 6239.43951602587), (
+    0.0409616213291883, 0.00927500007674098, 0.0, 6243.4240827003), (
+    0.0409616213291883, 0.00975833320990205, 0.0, 6245.63326301141), (
+    0.040458919480443, 0.00879166694357991, 0.0, 6200.75124981436), (
+    0.040458919480443, 0.00927500007674098, 0.0, 6204.69175679042), (
+    0.040458919480443, 0.00975833320990205, 0.0, 6206.85215724388), (
+    0.0399562176316977, 0.00879166694357991, 0.0, 6158.58368590751), (
+    0.0399562176316977, 0.00927500007674098, 0.0, 6162.46897195717), (
+    0.0399562176316977, 0.00975833320990205, 0.0, 6164.57699965542), (
+    0.0394535139203072, 0.00879166694357991, 0.0, 6113.00436757656), (
+    0.0394535139203072, 0.00927500007674098, 0.0, 6116.83011867815), (
+    0.0394535139203072, 0.00975833320990205, 0.0, 6118.88573902449), (
+    0.0389508102089167, 0.00879166694357991, 0.0, 6064.08806252474), (
+    0.0389508102089167, 0.00927500007674098, 0.0, 6067.85301307739), (
+    0.0389508102089167, 0.00975833320990205, 0.0, 6069.85847911372), (
+    0.0384481083601713, 0.00879166694357991, 0.0, 6011.91363737989), (
+    0.0384481083601713, 0.00927500007674098, 0.0, 6015.61800904766), (
+    0.0384481083601713, 0.00975833320990205, 0.0, 6017.57560306771), (
+    0.037945406511426, 0.00879166694357991, 0.0, 5956.55971561804), (
+    0.037945406511426, 0.00927500007674098, 0.0, 5960.20653232108), (
+    0.037945406511426, 0.00975833320990205, 0.0, 5962.11798629044), (
+    0.0374427028000355, 0.00879166694357991, 0.0, 5898.10833330898), (
+    0.0374427028000355, 0.00927500007674098, 0.0, 5901.69833368531), (
+    0.0374427028000355, 0.00975833320990205, 0.0, 5903.56667842733), (
+    0.036939999088645, 0.00879166694357991, 0.0, 5836.64515244577), (
+    0.036939999088645, 0.00927500007674098, 0.0, 5840.17594660165), (
+    0.036939999088645, 0.00975833320990205, 0.0, 5842.00411631064), (
+    0.0364372972398996, 0.00879166694357991, 0.0, 5772.25416589405), (
+    0.0364372972398996, 0.00927500007674098, 0.0, 5775.72635865925), (
+    0.0364372972398996, 0.00975833320990205, 0.0, 5777.51391881012), (
+    0.0359345953911543, 0.00879166694357991, 0.0, 5705.02341420932), (
+    0.0359345953911543, 0.00927500007674098, 0.0, 5708.43769268544), (
+    0.0359345953911543, 0.00975833320990205, 0.0, 5710.18241824505), (
+    0.0354318916797638, 0.00879166694357991, 0.0, 4697.44554238196), (
+    0.0354318916797638, 0.00927500007674098, 0.0, 5638.39952865542), (
+    0.0354318916797638, 0.00975833320990205, 0.0, 5640.09895003756), (
+    0.0349291879683733, 0.00879166694357991, 0.0, 5562.41333159309), (
+    0.0349291879683733, 0.00927500007674098, 0.0, 5565.707571256), (
+    0.0349291879683733, 0.00975833320990205, 0.0, 5567.35758981295), (
+    0.034426486119628, 0.00879166694357991, 0.0, 5487.23282287287), (
+    0.034426486119628, 0.00927500007674098, 0.0, 5490.46325598891), (
+    0.034426486119628, 0.00975833320990205, 0.0, 5492.05927877734), (
+    0.0339237842708826, 0.00879166694357991, 0.0, 5409.61213862367), (
+    0.0339237842708826, 0.00927500007674098, 0.0, 5412.77344325283), (
+    0.0339237842708826, 0.00975833320990205, 0.0, 5414.31656081433), (
+    0.0334210824221373, 0.00879166694357991, 0.0, 5329.66885378542), (
+    0.0334210824221373, 0.00927500007674098, 0.0, 5332.76074998866), (
+    0.0334210824221373, 0.00975833320990205, 0.0, 5334.25039671426), (
+    0.0329183787107468, 0.00879166694357991, 0.0, 5247.53751185251), (
+    0.0329183787107468, 0.00927500007674098, 0.0, 5250.55910083429), (
+    0.0329183787107468, 0.00975833320990205, 0.0, 5251.99891355765), (
+    0.0324156749993563, 0.00879166694357991, 0.0, 5163.36370291976), (
+    0.0324156749993563, 0.00927500007674098, 0.0, 5166.32049775333), (
+    0.0324156749993563, 0.00975833320990205, 0.0, 5167.72544902976), (
+    0.0319129731506109, 0.00879166694357991, 0.0, 5077.31067770791), (
+    0.0319129731506109, 0.00927500007674098, 0.0, 5080.21597578986), (
+    0.0319129731506109, 0.00975833320990205, 0.0, 5081.61391729526), (
+    0.031410270370543, 0.00879166694357991, 0.0, 4989.56353753253), (
+    0.031410270370543, 0.00927500007674098, 0.0, 4992.43190433949), (
+    0.031410270370543, 0.00975833320990205, 0.0, 4993.87225238444), (
+    0.0309075675904751, 0.00879166694357991, 0.0, 4900.32067407468), (
+    0.0309075675904751, 0.00927500007674098, 0.0, 4903.17752299406), (
+    0.0309075675904751, 0.00975833320990205, 0.0, 4904.70963932233), (
+    0.0304048648104072, 0.00879166694357991, 0.0, 4809.80177856877), (
+    0.0304048648104072, 0.00927500007674098, 0.0, 4812.65721625178), (
+    0.0304048648104072, 0.00975833320990205, 0.0, 4814.34786634916), (
+    0.0299021620303392, 0.00879166694357991, 0.0, 4718.23131778314), (
+    0.0299021620303392, 0.00927500007674098, 0.0, 4721.10458276925), (
+    0.0299021620303392, 0.00975833320990205, 0.0, 4722.93140609054), (
+    0.0293994592502713, 0.00879166694357991, 0.0, 4625.88309921386), (
+    0.0293994592502713, 0.00927500007674098, 0.0, 4628.69555637868), (
+    0.0293994592502713, 0.00975833320990205, 0.0, 4630.57817333251), (
+    0.0288967564702034, 0.00879166694357991, 0.0, 4533.09710136776), (
+    0.0288967564702034, 0.00927500007674098, 0.0, 4535.60630148786), (
+    0.0288967564702034, 0.00975833320990205, 0.0, 4537.13675542932), (
+    0.0283940536901355, 0.00879166694357991, 0.0, 4439.75604177819), (
+    0.0283940536901355, 0.00927500007674098, 0.0, 4442.05847744829), (
+    0.0283940536901355, 0.00975833320990205, 0.0, 4442.58949774815), (
+    0.0278913509100676, 0.00879166694357991, 0.0, 4345.30619104994), (
+    0.0278913509100676, 0.00927500007674098, 0.0, 4347.58039571523), (
+    0.0278913509100676, 0.00975833320990205, 0.0, 4347.40156304017), (
+    0.0459886472672224, 0.010245000012219, 0.0, 6434.14635270321), (
+    0.0459886472672224, 0.0107350000180304, 0.0, 6433.22934412824), (
+    0.0459886472672224, 0.0112250000238419, 0.0, 6430.65027383469), (
+    0.0454859454184771, 0.010245000012219, 0.0, 6431.44605732122), (
+    0.0454859454184771, 0.0107350000180304, 0.0, 6430.51476335046), (
+    0.0454859454184771, 0.0112250000238419, 0.0, 6427.99717742871), (
+    0.0449832435697317, 0.010245000012219, 0.0, 6425.26034731433), (
+    0.0449832435697317, 0.0107350000180304, 0.0, 6424.29507066047), (
+    0.0449832435697317, 0.0112250000238419, 0.0, 6421.76272246487), (
+    0.0444805417209864, 0.010245000012219, 0.0, 6415.5938562868), (
+    0.0444805417209864, 0.0107350000180304, 0.0, 6414.57140927078), (
+    0.0444805417209864, 0.0112250000238419, 0.0, 6411.94854387027), (
+    0.0439778380095959, 0.010245000012219, 0.0, 6402.38457733524), (
+    0.0439778380095959, 0.0107350000180304, 0.0, 6401.29473309926), (
+    0.0439778380095959, 0.0112250000238419, 0.0, 6398.55318874823), (
+    0.0434751342982054, 0.010245000012219, 0.0, 6385.56043966224), (
+    0.0434751342982054, 0.0107350000180304, 0.0, 6384.39779272339), (
+    0.0434751342982054, 0.0112250000238419, 0.0, 6381.5361985635), (
+    0.04297243244946, 0.010245000012219, 0.0, 6365.05859863659), (
+    0.04297243244946, 0.0107350000180304, 0.0, 6363.82698785562), (
+    0.04297243244946, 0.0112250000238419, 0.0, 6360.85942516635), (
+    0.0424697306007147, 0.010245000012219, 0.0, 6340.84434075936), (
+    0.0424697306007147, 0.0107350000180304, 0.0, 6339.55500332236), (
+    0.0424697306007147, 0.0112250000238419, 0.0, 6336.5032648403), (
+    0.0419670268893242, 0.010245000012219, 0.0, 6312.91637110076), (
+    0.0419670268893242, 0.0107350000180304, 0.0, 6311.5821684632), (
+    0.0419670268893242, 0.0112250000238419, 0.0, 6308.4714509251), (
+    0.0414643231779337, 0.010245000012219, 0.0, 6281.302622327), (
+    0.0414643231779337, 0.0107350000180304, 0.0, 6279.93611172468), (
+    0.0414643231779337, 0.0112250000238419, 0.0, 6276.7899269635), (
+    0.0409616213291883, 0.010245000012219, 0.0, 6246.05450006804), (
+    0.0409616213291883, 0.0107350000180304, 0.0, 6244.66667505658), (
+    0.0409616213291883, 0.0112250000238419, 0.0, 6241.50221247221), (
+    0.040458919480443, 0.010245000012219, 0.0, 6207.23815800981), (
+    0.040458919480443, 0.0107350000180304, 0.0, 6205.83437725353), (
+    0.040458919480443, 0.0112250000238419, 0.0, 6202.66777352983), (
+    0.0399562176316977, 0.010245000012219, 0.0, 6164.92757515794), (
+    0.0399562176316977, 0.0107350000180304, 0.0, 6163.51299366213), (
+    0.0399562176316977, 0.0112250000238419, 0.0, 5991.24222527088), (
+    0.0394535139203072, 0.010245000012219, 0.0, 6119.20274917481), (
+    0.0394535139203072, 0.0107350000180304, 0.0, 6117.77886874888), (
+    0.0394535139203072, 0.0112250000238419, 0.0, 6114.62909940863), (
+    0.0389508102089167, 0.010245000012219, 0.0, 6070.14435892214), (
+    0.0389508102089167, 0.0107350000180304, 0.0, 6068.70953661922), (
+    0.0389508102089167, 0.0112250000238419, 0.0, 6065.57266791293), (
+    0.0384481083601713, 0.010245000012219, 0.0, 6017.83199955372), (
+    0.0384481083601713, 0.0107350000180304, 0.0, 6016.38496398574), (
+    0.0384481083601713, 0.0112250000238419, 0.0, 6013.26160219487), (
+    0.037945406511426, 0.010245000012219, 0.0, 5962.34488249909), (
+    0.037945406511426, 0.0107350000180304, 0.0, 5960.88586673426), (
+    0.037945406511426, 0.0112250000238419, 0.0, 5957.77482278224), (
+    0.0374427028000355, 0.010245000012219, 0.0, 5903.76385736698), (
+    0.0374427028000355, 0.0107350000180304, 0.0, 5902.29375403129), (
+    0.0374427028000355, 0.0112250000238419, 0.0, 5899.1926177273), (
+    0.036939999088645, 0.010245000012219, 0.0, 5842.1725667349), (
+    0.036939999088645, 0.0107350000180304, 0.0, 5840.68795686079), (
+    0.036939999088645, 0.0112250000238419, 0.0, 5837.59785943556), (
+    0.0364372972398996, 0.010245000012219, 0.0, 5777.65288478805), (
+    0.0364372972398996, 0.0107350000180304, 0.0, 5776.15389292839), (
+    0.0364372972398996, 0.0112250000238419, 0.0, 5773.07505370224), (
+    0.0359345953911543, 0.010245000012219, 0.0, 5710.29017673734), (
+    0.0359345953911543, 0.0107350000180304, 0.0, 5708.78000164532), (
+    0.0359345953911543, 0.0112250000238419, 0.0, 5705.71061077351), (
+    0.0354318916797638, 0.010245000012219, 0.0, 5640.17659566298), (
+    0.0354318916797638, 0.0107350000180304, 0.0, 5638.65404182333), (
+    0.0354318916797638, 0.0112250000238419, 0.0, 5635.5969580095), (
+    0.0349291879683733, 0.010245000012219, 0.0, 5567.40536421026), (
+    0.0349291879683733, 0.0107350000180304, 0.0, 5565.87335274839), (
+    0.0349291879683733, 0.0112250000238419, 0.0, 5562.83216111521), (
+    0.034426486119628, 0.010245000012219, 0.0, 5492.07882232128), (
+    0.034426486119628, 0.0107350000180304, 0.0, 5490.54347440739), (
+    0.034426486119628, 0.0112250000238419, 0.0, 5487.52637526422), (
+    0.0339237842708826, 0.010245000012219, 0.0, 5414.30750782048), (
+    0.0339237842708826, 0.0107350000180304, 0.0, 5412.7818149941), (
+    0.0339237842708826, 0.0112250000238419, 0.0, 5409.79644119925), (
+    0.0334210824221373, 0.010245000012219, 0.0, 5334.2187322809), (
+    0.0334210824221373, 0.0107350000180304, 0.0, 5332.71911253335), (
+    0.0334210824221373, 0.0112250000238419, 0.0, 5329.77886051216), (
+    0.0329183787107468, 0.010245000012219, 0.0, 5251.96082158291), (
+    0.0329183787107468, 0.0107350000180304, 0.0, 5250.50517229006), (
+    0.0329183787107468, 0.0112250000238419, 0.0, 5247.6304809628), (
+    0.0324156749993563, 0.010245000012219, 0.0, 5167.70445396649), (
+    0.0324156749993563, 0.0107350000180304, 0.0, 5166.31345073615), (
+    0.0324156749993563, 0.0112250000238419, 0.0, 5163.52603564834), (
+    0.0319129731506109, 0.010245000012219, 0.0, 5081.64509597551), (
+    0.0319129731506109, 0.0107350000180304, 0.0, 5080.34552402464), (
+    0.0319129731506109, 0.0112250000238419, 0.0, 5077.66250988286), (
+    0.031410270370543, 0.010245000012219, 0.0, 4993.99866377799), (
+    0.031410270370543, 0.0107350000180304, 0.0, 4992.82202107175), (
+    0.031410270370543, 0.0112250000238419, 0.0, 4990.24882937585), (
+    0.0309075675904751, 0.010245000012219, 0.0, 4905.00265300108), (
+    0.0309075675904751, 0.0107350000180304, 0.0, 4903.96188570436), (
+    0.0309075675904751, 0.0112250000238419, 0.0, 4901.4894581014), (
+    0.0304048648104072, 0.010245000012219, 0.0, 4814.85060000774), (
+    0.0304048648104072, 0.0107350000180304, 0.0, 4813.97782295175), (
+    0.0304048648104072, 0.0112250000238419, 0.0, 4811.53935062388), (
+    0.0299021620303392, 0.010245000012219, 0.0, 4723.71139372482), (
+    0.0299021620303392, 0.0107350000180304, 0.0, 4722.96921370939), (
+    0.0299021620303392, 0.0112250000238419, 0.0, 4720.5074247379), (
+    0.0293994592502713, 0.010245000012219, 0.0, 4631.5389865488), (
+    0.0293994592502713, 0.0107350000180304, 0.0, 4631.00614556126), (
+    0.0293994592502713, 0.0112250000238419, 0.0, 4628.375725687), (
+    0.0288967564702034, 0.010245000012219, 0.0, 4538.23801869206), (
+    0.0288967564702034, 0.0107350000180304, 0.0, 4537.94894066513), (
+    0.0288967564702034, 0.0112250000238419, 0.0, 4535.32524738527), (
+    0.0283940536901355, 0.010245000012219, 0.0, 4443.27696487299), (
+    0.0283940536901355, 0.0107350000180304, 0.0, 4443.77971591546), (
+    0.0283940536901355, 0.0112250000238419, 0.0, 4441.86935687394), (
+    0.0278913509100676, 0.010245000012219, 0.0, 4346.66178355028), (
+    0.0278913509100676, 0.0107350000180304, 0.0, 4348.76486610205), (
+    0.0278913509100676, 0.0112250000238419, 0.0, 4348.53712879125), (
+    0.0556291999916236, 0.0193387207885583, 0.0, 5939.09625762465), (
+    0.0475486281017462, 0.0108028668910265, 0.0, 6425.26445486408), (
+    0.0467367889359593, 0.0112478723749518, 0.0, 6427.6691921817), (
+    0.0477598970755935, 0.0103473351337016, 0.0, 6414.77135642683), (
+    0.0551844965666533, 0.0115027902647853, 0.0, 6091.57918128784), (
+    0.0507322950288653, 0.0110396302770823, 0.0, 6316.55458614015), (
+    0.0551956547424197, 0.0135884084738791, 0.0, 6056.14436956685), (
+    0.0532271880656481, 0.0114674502983689, 0.0, 6199.08113868777), (
+    0.0467418059706688, 0.0107559624593705, 0.0, 6430.87183297956), (
+    0.0551640707999468, 0.010497850831598, 0.0, 6097.88158201707), (
+    0.0541397435590625, 0.0104936794377863, 0.0, 6157.23408106039), (
+    0.0515172369778156, 0.0125251768622547, 0.0, 6259.21281994823), (
+    0.0512470211833715, 0.0104988862294704, 0.0, 6296.81370180547), (
+    0.0498254923149943, 0.0105906743556261, 0.0, 6353.67512478446), (
+    0.0487101105973125, 0.0113782756961882, 0.0, 6381.83805322178), (
+    0.0487921228632331, 0.0104745347052813, 0.0, 6388.93743867174), (
+    0.0552180986851454, 0.012516433140263, 0.0, 6077.75881465544), (
+    0.054496387951076, 0.0152625129558146, 0.0, 6056.22692099915), (
+    0.0552368247881532, 0.0146040841937065, 0.0, 6037.73404094026), (
+    0.0551870279014111, 0.0165895549580455, 0.0, 5997.20918787963), (
+    0.0553879579529166, 0.0175442360341549, 0.0, 5978.57007723752), (
+    0.0555401397868991, 0.0185174676589668, 0.0, 5964.49888708306), (
+    0.0477108173072338, 0.0112686457578093, 0.0, 6409.15681149035), (
+    0.0496916892006993, 0.0116483846213669, 0.0, 6343.89322956732), (
+    0.0505988262593746, 0.0120466062799096, 0.0, 6304.55249952002), (
+    0.0524094086140394, 0.0131249451078475, 0.0, 6213.02210938391), (
+    0.0539088193327188, 0.0145229995250702, 0.0, 6101.81370386581), (
+    0.0551983751356602, 0.0155859154183418, 0.0, 5999.6644065597), (
+    0.0531861986964941, 0.0138393940869719, 0.0, 6158.67319669232), (
+    0.0521499598398805, 0.010476264404133, 0.0, 6257.75667810625), (
+    0.0531277507543564, 0.0104765868745744, 0.0, 6210.78496220989), (
+    0.0543321976438165, 0.0135318962857127, 0.0, 6107.5000659001), (
+    0.0529301557689905, 0.0123135650064796, 0.0, 6200.08817623718), (
+    0.0536626102402806, 0.0129991993308067, 0.0, 6152.65097666015), (
+    0.0515783997252584, 0.0115146150346845, 0.0, 6273.52066273368), (
+    0.0523896040394902, 0.0114841181784868, 0.0, 6239.39028939822), (
+    0.0541856633499265, 0.0115409344434738, 0.0, 6149.40683280619), (
+    0.0543309189379215, 0.0125617571175098, 0.0, 6124.63394875176), (
+    0.0467557879164815, 0.0102561474777758, 0.0, 6431.21051411006), (
+    0.0556298705438773, 0.000661835229645161, 0.0, 5980.72367461323), (
+    0.0475561680893103, 0.0092096251125137, 0.0, 6423.06098146592), (
+    0.0477643432095647, 0.0096588667947799, 0.0, 6413.94563627356), (
+    0.0516096688807011, 0.00725696387235075, 0.0, 6248.59622551874), (
+    0.0521300155669451, 0.00955026294104755, 0.0, 6259.59364207939), (
+    0.0533295869827271, 0.00869862060062587, 0.0, 6193.09772747094), (
+    0.0552335502579808, 0.00530779361724854, 0.0, 6054.59905806757), (
+    0.0553901186212897, 0.00245799537515268, 0.0, 6019.68959921452), (
+    0.0467383321374655, 0.00876858970150352, 0.0, 6424.71646326285), (
+    0.046743961982429, 0.00925440830178559, 0.0, 6428.77267545804), (
+    0.0488152066245675, 0.00953845540061593, 0.0, 6387.07381519451), (
+    0.0514895636588335, 0.00846498250029981, 0.0, 6273.84741665579), (
+    0.0531369224190712, 0.00609443360008299, 0.0, 6164.93018958411), (
+    0.0552068343386054, 0.00855022482573986, 0.0, 6091.23005340854), (
+    0.0543110389262438, 0.00766501214820892, 0.0, 6133.11999777813), (
+    0.0553964367136359, 0.00436569773592055, 0.0, 6031.57732652009), (
+    0.0555415600538254, 0.00148382317274809, 0.0, 6005.63653304429), (
+    0.0553814144805074, 0.00344566447893158, 0.0, 6014.39992524385), (
+    0.054496225900948, 0.00465356756467372, 0.0, 6080.80919692373), (
+    0.0538880936801434, 0.00546979659702629, 0.0, 6114.3443081908), (
+    0.0523771280422807, 0.00667289760895073, 0.0, 6208.35678254031), (
+    0.0551758389919996, 0.00952092651277781, 0.0, 6097.18375363587), (
+    0.0520517807453871, 0.00771180575247854, 0.0, 6238.50969178816), (
+    0.050792770460248, 0.00789455487392843, 0.0, 6294.22866069792), (
+    0.0499482061713934, 0.00943326950073242, 0.0, 6347.89762587912), (
+    0.0498165721073747, 0.00838462368119508, 0.0, 6338.36529533851), (
+    0.0487348046153784, 0.00864422251470387, 0.0, 6378.7329444891), (
+    0.0467567350715399, 0.0097477228846401, 0.0, 6430.44576226274), (
+    0.0477165160700679, 0.00874832877889276, 0.0, 6406.27104118746), (
+    0.0552130024880171, 0.00754342623986304, 0.0, 6082.07893046488), (
+    0.0549061903730035, 0.00377935409778729, 0.0, 6050.11069119079), (
+    0.0524067813530564, 0.00867619691416621, 0.0, 6239.01004750941), (
+    0.0542647494003177, 0.00864120898768306, 0.0, 6144.38826852121), (
+    0.0526492465287447, 0.00723273318726569, 0.0, 6201.70420538062), (
+    0.0542342839762568, 0.00654856220353395, 0.0, 6122.01659300307), (
+    0.0551717961207032, 0.00643133977428079, 0.0, 6068.80268879521), (
+    0.0541648464277387, 0.00955453817732632, 0.0, 6155.28198237061), (
+    0.0531508568674326, 0.00956938602030277, 0.0, 6209.45123397278), (
+    0.0526641700416803, 0.00789052608888596, 0.0, 6217.20856159596), (
+    0.0510687725618482, 0.00944961304776371, 0.0, 6306.57032205187), (
+    0.053400743752718, 0.00690351927187294, 0.0, 6167.09334752434), (
+    0.053451219573617, 0.0078089227899909, 0.0, 6177.10785709793), (
+    0.0182501301169395, 0.000661835229645164, 0.0, 2754.27867085108), (
+    0.0263232948879401, 0.00920941835890214, 0.0, 4077.02702560927), (
+    0.0271356981247663, 0.00925415894016623, 0.0, 4204.49931912913), (
+    0.0261154719628394, 0.00965887820348144, 0.0, 4005.88095924626), (
+    0.0206974530592561, 0.00616536079905927, 0.0, 3105.31355119328), (
+    0.0239349496550858, 0.00943330395966768, 0.0, 3638.07592550545), (
+    0.0186902466230094, 0.00341365643544123, 0.0, 2809.11799804108), (
+    0.0186688681133091, 0.00748105370439589, 0.0, 2931.5834090725), (
+    0.0271231434307992, 0.00974763999693096, 0.0, 4200.50009964137), (
+    0.0250651640817523, 0.00953852944076061, 0.0, 3823.10271883242), (
+    0.0231367666274309, 0.00789877562783659, 0.0, 3474.96943807789), (
+    0.0215628519654274, 0.0084724152693525, 0.0, 3290.73361732228), (
+    0.0223256880417466, 0.00739823433104903, 0.0, 3347.52942515812), (
+    0.019566988106817, 0.00743161595892161, 0.0, 3025.29200030449), (
+    0.0187019524164498, 0.00849281740374863, 0.0, 2957.95219224578), (
+    0.0187185406684875, 0.00949958083219826, 0.0, 2970.7206722763), (
+    0.0183384399861097, 0.00148382317274809, 0.0, 2772.01100249331), (
+    0.0184898804873228, 0.00245799537515268, 0.0, 2801.29961453055), (
+    0.0193817336112261, 0.00474250561092049, 0.0, 2912.53935821886), (
+    0.018644408788532, 0.0053967316634953, 0.0, 2861.0419627669), (
+    0.0195606295019388, 0.00646703131496906, 0.0, 2990.31453439005), (
+    0.0186886885203421, 0.00641145324334502, 0.0, 2898.86706377247), (
+    0.027141448110342, 0.0087684232275933, 0.0, 4200.05773856346), (
+    0.0261632013134658, 0.00874825660139322, 0.0, 3998.70568535401), (
+    0.0240665841847658, 0.00838465814013034, 0.0, 3625.41835826463), (
+    0.0224608806893229, 0.00831618125084788, 0.0, 3394.80132337998), (
+    0.0214779637753963, 0.00687427644152194, 0.0, 3224.39707829372), (
+    0.0199727523140609, 0.00548287364654243, 0.0, 2990.34365836205), (
+    0.0186801627278328, 0.00441620347555727, 0.0, 2832.16535257114), (
+    0.0207705739885569, 0.00950825540348887, 0.0, 3210.97938027664), (
+    0.0206877388991416, 0.00851016934029758, 0.0, 3185.6918407973), (
+    0.0202353531494737, 0.00699532055296004, 0.0, 3083.92574969371), (
+    0.025145567022264, 0.00864429655484855, 0.0, 3812.81882786187), (
+    0.0228263176977634, 0.00941629428416491, 0.0, 3479.58886960959), (
+    0.0197485806420445, 0.0094982273876667, 0.0, 3088.87755713116), (
+    0.0217847372405231, 0.00949072395451367, 0.0, 3338.80653787395), (
+    0.0197126367129385, 0.00844610994681716, 0.0, 3071.74465252963), (
+    0.0209770817309618, 0.00767143361736089, 0.0, 3194.03128984733), (
+    0.062263401846091, 0.0176822077482939, 0.0, 5473.24630464169), (
+    0.0698580046494802, 0.0134061643232902, 0.0, 1934.20368330117), (
+    0.070001316567262, 0.0148642181108395, 0.0, 4633.72875428825), (
+    0.0692650005221367, 0.0136553722744187, 0.0, 1963.92971535911), (
+    0.0673720166087151, 0.0150707429274917, 0.0, 4941.12107814322), (
+    0.0653961027661959, 0.0173903275281191, 0.0, 5156.91792465084), (
+    0.0566708771511912, 0.0130344643257558, 0.0, 5970.36606840192), (
+    0.0561876241117716, 0.0116582133341581, 0.0, 6025.07538457368), (
+    0.0561934160068631, 0.0153708357829601, 0.0, 5951.61698756772), (
+    0.0603092266246676, 0.0168935670517385, 0.0, 5646.92857686197), (
+    0.0572100598365068, 0.0194964418187737, 0.0, 5867.00716140111), (
+    0.0632838886231184, 0.0195063301362097, 0.0, 5374.6384992672), (
+    0.0663128234446049, 0.0195664362981915, 0.0, 5060.10634814978), (
+    0.0723199378699064, 0.0155144899617881, 0.0, 4345.13861982457), (
+    0.0704528298228979, 0.0133767474908382, 0.0, 1903.97150880903), (
+    0.0562299247831106, 0.0105748127680272, 0.0, 6029.72678434314), (
+    0.0560279982164502, 0.0125851281918585, 0.0, 6020.03011338103), (
+    0.0560224521905184, 0.0134290589485317, 0.0, 6011.40600099292), (
+    0.0561366630718112, 0.0143551980145276, 0.0, 5978.60040798833), (
+    0.0570568302646279, 0.0139707820490003, 0.0, 5920.0010074592), (
+    0.0581777188926935, 0.0159070885274559, 0.0, 5811.27027707757), (
+    0.0562329441308975, 0.0174492727965117, 0.0, 5927.80314836636), (
+    0.0572874499484897, 0.0105766660999507, 0.0, 5958.93305503911), (
+    0.0576311852782965, 0.0116005341988057, 0.0, 5920.81046059612), (
+    0.0624871235340834, 0.0157474959269166, 0.0, 5452.08419975918), (
+    0.0673167873173952, 0.0186620708554983, 0.0, 4947.61541656435), (
+    0.0660725608468056, 0.0105697489343584, 0.0, 2118.01524808246), (
+    0.0733683556318283, 0.0104962524492294, 0.0, 1752.48142167528), (
+    0.0733740050345659, 0.011492007644847, 0.0, 1752.18206820131), (
+    0.072334885597229, 0.0144989443942904, 0.0, 4343.19517665786), (
+    0.0702540650963783, 0.0166240008547902, 0.0, 4601.16452208545), (
+    0.071387343108654, 0.0124517055228353, 0.0, 1855.97695693415), (
+    0.0692932326346636, 0.0105040271300822, 0.0, 1962.70162006273), (
+    0.0682393126189709, 0.0106003740802407, 0.0, 2014.92460474609), (
+    0.0733757019042969, 0.0195026490837336, 0.0, 3393.67598134463), (
+    0.0733767505735159, 0.0185071034356952, 0.0, 4211.63597332585), (
+    0.0703464765101671, 0.0195258990861475, 0.0, 4588.75695510407), (
+    0.0733674634248018, 0.0165080772712827, 0.0, 4212.87723101842), (
+    0.0733667556196451, 0.0145030007697642, 0.0, 4212.94953003874), (
+    0.0733755864202976, 0.0124933440238237, 0.0, 1752.10284109818), (
+    0.0561934188008308, 0.0194960329681635, 0.0, 5927.28679632984), (
+    0.056212842464447, 0.0184811768122017, 0.0, 5926.92847988469), (
+    0.0582481874153018, 0.0185132957994938, 0.0, 5797.44472874226), (
+    0.0582140795886517, 0.0195106444880366, 0.0, 5800.00788187269), (
+    0.0602252893149853, 0.0195319638587534, 0.0, 5648.43449375915), (
+    0.0592173151671886, 0.0195278977043927, 0.0, 5727.95002549265), (
+    0.0622641276568174, 0.0194925204850733, 0.0, 5471.20788561023), (
+    0.0653112418949604, 0.019567237701267, 0.0, 5168.52330726609), (
+    0.0673147644847631, 0.0195563710294664, 0.0, 4947.35085639262), (
+    0.0693346187472343, 0.0195365408435464, 0.0, 4711.05461388437), (
+    0.0683229826390743, 0.0195469581522048, 0.0, 4830.86564278935), (
+    0.0723662469536066, 0.0195085490122437, 0.0, 4338.18030496061), (
+    0.0570935308933258, 0.0122163812629879, 0.0, 5951.42352090519), (
+    0.0581215666607022, 0.013611412839964, 0.0, 5838.46489251902), (
+    0.0591398747637868, 0.013685246463865, 0.0, 5750.82076470806), (
+    0.0733640100806952, 0.0155061916448176, 0.0, 4213.3057128985), (
+    0.0713246036320925, 0.0104854165110737, 0.0, 1859.2502259746), (
+    0.0733727980405092, 0.0134979384019971, 0.0, 1752.25790465712), (
+    0.0723735690116882, 0.0124763504136354, 0.0, 1804.68956598206), (
+    0.0723454151302576, 0.0104897427372634, 0.0, 1806.15686766616), (
+    0.0562258996069431, 0.0164070981554687, 0.0, 5933.63946343336), (
+    0.07337343133986, 0.0175089910626411, 0.0, 4212.09225945683), (
+    0.0612423103302717, 0.0195133169181645, 0.0, 5562.78814567346), (
+    0.0619799075648189, 0.0144170802086592, 0.0, 5497.4897512989), (
+    0.0643011517822742, 0.0195440617389977, 0.0, 5273.73078287183), (
+    0.0650484599173069, 0.014060553861782, 0.0, 5198.69181875795), (
+    0.0723557937890291, 0.0175298126414418, 0.0, 4340.6157866836), (
+    0.0586600555106997, 0.016542452853173, 0.0, 5773.88415357268), (
+    0.0610056240111589, 0.0142940813675523, 0.0, 5582.8995279031), (
+    0.0572505183517933, 0.0184672926552594, 0.0, 5865.00105284376), (
+    0.0573205417022109, 0.0173633093945682, 0.0, 5862.16572415052), (
+    0.0616495534777641, 0.0153942143078893, 0.0, 5525.22302876473), (
+    0.0627918532118201, 0.0170881259255111, 0.0, 5421.72841074783), (
+    0.062921398319304, 0.0147873216774315, 0.0, 5410.77871776833), (
+    0.0653983578085899, 0.0179452453739941, 0.0, 5159.10160392014), (
+    0.0663309413939714, 0.0186997354030609, 0.0, 5058.36501153155), (
+    0.0643794983625412, 0.0186565732583404, 0.0, 5266.58308851955), (
+    0.067393122240901, 0.0168689582496881, 0.0, 4939.88370389285), (
+    0.0696847308427095, 0.0139384432695806, 0.0, 1942.60395313473), (
+    0.0703451465815306, 0.0185751477256417, 0.0, 4589.58109684812), (
+    0.0713560059666634, 0.0185453104786575, 0.0, 4465.13349837063), (
+    0.0713566970080137, 0.0195162808522582, 0.0, 4464.165865535), (
+    0.0580216655507684, 0.0124875421170145, 0.0, 5872.43362629615), (
+    0.0600322317332029, 0.0140394058544189, 0.0, 5667.90545062189), (
+    0.0602123783901334, 0.0177459269762039, 0.0, 5650.98849369458), (
+    0.0612219199538231, 0.0185568388551474, 0.0, 5564.17024479334), (
+    0.0658061429858208, 0.0117027123924345, 0.0, 2129.17767278723), (
+    0.0669186729937792, 0.0119189319666475, 0.0, 2077.81120190179), (
+    0.0671390555799007, 0.0106509530451149, 0.0, 2068.02302065059), (
+    0.0635587777942419, 0.0140217794105411, 0.0, 5350.92975973947), (
+    0.0622822064906359, 0.0184563337825239, 0.0, 5469.70312318259), (
+    0.0643789321184158, 0.0134360312949866, 0.0, 2191.93018642692), (
+    0.0652019698172808, 0.0126851408276707, 0.0, 2156.44580199461), (
+    0.0686597116291523, 0.0123370885848999, 0.0, 1993.76711729662), (
+    0.0684787482023239, 0.0115800802595913, 0.0, 2002.77538937476), (
+    0.0571798635646701, 0.0150941563770175, 0.0, 5889.00332070706), (
+    0.0723649021238089, 0.0114764082245529, 0.0, 1805.13147602652), (
+    0.0723644867539406, 0.0134846870787442, 0.0, 1805.18977321602), (
+    0.0723354145884514, 0.0165259204804897, 0.0, 4343.23738046779), (
+    0.0683222077786922, 0.0186403444968164, 0.0, 4831.56404179789), (
+    0.0704141575843096, 0.0124350113328546, 0.0, 1905.93791002268), (
+    0.0572876622900367, 0.0162151693366468, 0.0, 5870.72099248306), (
+    0.0693329460918903, 0.0186087531037629, 0.0, 4711.9429453781), (
+    0.0633519422262907, 0.0185069250874221, 0.0, 5368.67827843586), (
+    0.0712914168834686, 0.016555302310735, 0.0, 4473.68539640891), (
+    0.0653619132936001, 0.0187234617769718, 0.0, 5163.37829320408), (
+    0.0592314340174198, 0.018585444893688, 0.0, 5727.53983243673), (
+    0.0583511702716351, 0.017458129208535, 0.0, 5790.24227555345), (
+    0.0602122070267797, 0.0186176048591733, 0.0, 5649.7457472413), (
+    0.0598493041470647, 0.0149428572040051, 0.0, 5680.16906158588), (
+    0.0672869719564915, 0.0177410994656384, 0.0, 4951.33125042939), (
+    0.065836600959301, 0.0158782764337957, 0.0, 5111.96762875686), (
+    0.0683060549199581, 0.0177416577935219, 0.0, 4833.91773723385), (
+    0.0632867272943258, 0.0162257675547153, 0.0, 5376.82208136689), (
+    0.0645367316901684, 0.0178327485918999, 0.0, 5249.87449311683), (
+    0.0643618311733007, 0.0147146817762405, 0.0, 5270.37141173251), (
+    0.0703083761036396, 0.0104863243177533, 0.0, 1911.43202505548), (
+    0.0658752303570509, 0.0133927632123232, 0.0, 2126.02935635735), (
+    0.0694191046059132, 0.0114642735570669, 0.0, 1956.19788774236), (
+    0.0713639911264181, 0.0114620903041214, 0.0, 1857.18138336786), (
+    0.0589759554713964, 0.0148026293609291, 0.0, 5754.42496384089), (
+    0.0610817847773433, 0.0177281433716416, 0.0, 5577.68151243237), (
+    0.0636166986078024, 0.0175489368848503, 0.0, 5341.4431355044), (
+    0.0640683211386204, 0.0167044443078339, 0.0, 5298.9641449051), (
+    0.0668482407927513, 0.0130486751440912, 0.0, 2081.12216053095), (
+    0.0662898048758507, 0.017825654707849, 0.0, 5062.4836212002), (
+    0.0713802091777325, 0.0134419607929885, 0.0, 1856.37807148831), (
+    0.0581043222919106, 0.0148528704885393, 0.0, 5822.45772198022), (
+    0.0712335128337145, 0.0155117886606604, 0.0, 4480.80545472995), (
+    0.0659524779766798, 0.017065086401999, 0.0, 5101.72313774325), (
+    0.0693842768669128, 0.0131557723507285, 0.0, 1958.16302094574), (
+    0.0712838545441628, 0.0144555906299502, 0.0, 4474.7044748492), (
+    0.0723669789731503, 0.0185229890048504, 0.0, 4338.9689713945), (
+    0.0713339876383543, 0.0175612047314644, 0.0, 4468.28715027862), (
+    0.0678427815437317, 0.0161741229239851, 0.0, 4887.3689684314), (
+    0.0653002448379993, 0.0164892333559692, 0.0, 5172.19629109665), (
+    0.0693038161844015, 0.0176746039651334, 0.0, 4715.77385734186), (
+    0.0593083957210183, 0.0176536627113819, 0.0, 5722.54609885417), (
+    0.0605162493884563, 0.0160295113455504, 0.0, 5625.0354499428), (
+    0.0610710978507996, 0.0170150734484196, 0.0, 5579.2767624381), (
+    0.0616977596655488, 0.0173339270986617, 0.0, 5521.86338404282), (
+    0.0703153815120459, 0.0176109075546265, 0.0, 4593.56107255638), (
+    0.0701453220099211, 0.015596620272845, 0.0, 4614.28580001214), (
+    0.070379002019763, 0.011454064399004, 0.0, 1907.73296419323), (
+    0.0678919646888971, 0.0121506387367845, 0.0, 2031.3289883925), (
+    0.070362638682127, 0.0142607318703085, 0.0, 4588.55983941029), (
+    0.0694897100329399, 0.0123787601478398, 0.0, 1952.60750190174), (
+    0.0596869084984064, 0.0158646835479885, 0.0, 5690.76171063473), (
+    0.0594863938167691, 0.0167565904557705, 0.0, 5708.22797308958), (
+    0.0589138017967343, 0.0157458067405969, 0.0, 5754.87218633724), (
+    0.0682651624083519, 0.0168745899572968, 0.0, 4838.93841723372), (
+    0.0692183952778578, 0.016713185235858, 0.0, 4725.98009979788), (
+    0.0637865476310253, 0.0154181031975895, 0.0, 5326.33902115404), (
+    0.064564311876893, 0.015970271313563, 0.0, 5248.13710728295), (
+    0.0670344959944487, 0.0139822526834905, 0.0, 4980.7018714793), (
+    0.0613295072689652, 0.0162530322559178, 0.0, 5560.52556110489), (
+    0.0651045609265566, 0.0153126511722803, 0.0, 5192.97993315153), (
+    0.0648339912295341, 0.017113191075623, 0.0, 5218.97394269728), (
+    0.066578071564436, 0.0164484288543463, 0.0, 5031.23989501558), (
+    0.0620846785604954, 0.0165902404114604, 0.0, 5489.07408647275), (
+    0.0670721046626568, 0.0157010473776609, 0.0, 4977.10824361929), (
+    0.0668549034744501, 0.0146746789105237, 0.0, 5000.22829869022), (
+    0.0686330553144217, 0.0130924030672759, 0.0, 1995.07339127519), (
+    0.068378584459424, 0.0156177047174424, 0.0, 4826.26982527556), (
+    0.0656875092536211, 0.0146932404022664, 0.0, 5130.02971125124), (
+    0.0688162427395582, 0.0150892026722431, 0.0, 4773.57707582803), (
+    0.0663497764617205, 0.0152551194187254, 0.0, 5058.48370671966), (
+    0.0679217968136072, 0.0140120568685234, 0.0, 4879.92084210167), (
+    0.0678031090646982, 0.0130731274839491, 0.0, 2035.59311621722), (
+    0.0663099437952042, 0.014160958584398, 0.0, 5061.15067624387), (
+    0.0687608830630779, 0.0138544458895922, 0.0, 1989.12332988943), (
+    0.0680237133055925, 0.0149152402300388, 0.0, 4866.42304038355), (
+    0.0607639886438847, 0.0151514203753322, 0.0, 5600.27024392158), (
+    0.0692905765026808, 0.014530218206346, 0.0, 4718.47263583378), (
+    0.0691677089780569, 0.0157929812557995, 0.0, 4732.65684658526), (
+    0.00292485463432968, 0.00393770487668614, 0.0, 1434.95884542395), (
+    0.0112800349791845, 0.00313618406653404, 0.0, 2132.44411606515), (
+    0.007399199064821, 0.00425762853895624, 0.0, 1796.83475201994), (
+    0.0131561125939091, 0.00369969258705775, 0.0, 2301.84673730173), (
+    0.017628270201385, 0.00846800487488508, 0.0, 2839.44084137013), (
+    0.0177124585025012, 0.00352836033562198, 0.0, 2723.83755389763), (
+    0.011524420697242, 0.00214665141538717, 0.0, 2156.60224656676), (
+    0.0106357005424798, 0.00217978714499623, 0.0, 2075.64905963207), (
+    0.000539658649358898, 0.00349177944008261, 0.0, 0.0), (0.00050757170538418, 
+    0.00149051789776422, 0.0, 0.0), (0.0056649895850569, 0.009504325222224, 
+    0.0, 686.167955049551), (0.00462604069616646, 0.00950826751068234, 0.0, 
+    651.170443229265), (0.0131585476920009, 0.00512579607311636, 0.0, 
+    2302.06488790756), (0.0136228206101805, 0.00158622689195909, 0.0, 
+    2343.14670010683), (0.0146952429786325, 0.00449258205480874, 0.0, 
+    2442.34258898186), (0.0138163561932743, 0.00590655545238405, 0.0, 
+    2364.17100439168), (0.0177565813064575, 0.00451178383082151, 0.0, 
+    2746.77963381722), (0.0177075350657105, 0.00647181528620422, 0.0, 
+    2791.32921016203), (0.0167449270375073, 0.00634239776991308, 0.0, 
+    2676.07924733132), (0.0176408947445452, 0.00747221673373133, 0.0, 
+    2816.4028020658), (0.0176658239215612, 0.00948073831386864, 0.0, 
+    2853.87210668813), (0.0166031350381672, 0.00946102710440755, 0.0, 
+    2742.2854159371), (0.0146550815552473, 0.00640357262454927, 0.0, 
+    2452.94327815945), (0.0115851948503405, 0.0013320909201866, 0.0, 
+    2158.18691350786), (0.00565269927028567, 0.00853976141661406, 0.0, 
+    685.675691796487), (0.00778097612783313, 0.00949592795222998, 0.0, 
+    760.766131370563), (0.00786152074579149, 0.00755146075971425, 0.0, 
+    763.283784970088), (0.00359529780689627, 0.00950959115289152, 0.0, 
+    617.508110258999), (0.00164195877732709, 0.00345790915889665, 0.0, 
+    74.4273712574011), (0.00657607126049697, 0.000487692916067312, 0.0, 
+    1675.8092392535), (0.00673960172571242, 0.00853133108466864, 0.0, 
+    723.371705809147), (0.000510933808982372, 0.00850522518157959, 0.0, 0.0), (
+    0.00051358001655899, 0.00950224348343909, 0.0, 0.0), (0.000504867726704106, 
+    0.000496065040351823, 0.0, 0.0), (0.000519639463163912, 
+    0.00248996703885496, 0.0, 0.0), (0.0055369600886479, 0.00147561382618733, 
+    0.0, 1639.21494655507), (0.002678174583707, 0.00329455645987764, 0.0, 
+    1415.78050924497), (0.000527989846887067, 0.00550069217570126, 0.0, 0.0), (
+    0.000511319347424433, 0.00750567123759538, 0.0, 0.0), (0.00881331530399621, 
+    0.00720834080129862, 0.0, 798.366996286378), (0.00860951654613018, 
+    0.000444678924395696, 0.0, 1895.64014903685), (0.00907802162691951, 
+    0.00591770967002958, 0.0, 1941.57216853787), (0.0076417155796662, 
+    0.00137799751246348, 0.0, 1813.5669228994), (0.0106187113560736, 
+    0.00043550973350647, 0.0, 2072.1986091607), (0.0113292871974409, 
+    0.00571939267683774, 0.0, 2138.34149659834), (0.0122911238577217, 
+    0.00554841861594468, 0.0, 2222.40438733591), (0.0136456764303148, 
+    0.000517954613314931, 0.0, 2344.11979763422), (0.0146602699533105, 
+    0.000516613479703654, 0.0, 2435.33665549973), (0.013717741239816, 
+    0.0026640344876796, 0.0, 2353.34139509326), (0.0176940141245723, 
+    0.00251952378312126, 0.0, 2712.76175261242), (0.0156725673004985, 
+    0.000511275808094057, 0.0, 2526.21816817625), (0.0176913905888796, 
+    0.00150888276402839, 0.0, 2708.84035618515), (0.0166816706769168, 
+    0.000507101911352935, 0.0, 2617.14615094612), (0.0176931121386588, 
+    0.000502559967571856, 0.0, 2707.76414092368), (0.00358865084126592, 
+    0.00660616392269731, 0.0, 617.512961988491), (0.000543348927749321, 
+    0.00449516740627587, 0.0, 0.0), (0.000516294880071655, 0.00650447967927903, 
+    0.0, 0.0), (0.00363117636879906, 0.00565961259417236, 0.0, 
+    1488.06379102971), (0.0025500146439299, 0.00754042179323733, 0.0, 
+    454.869606502451), (0.00154089959687553, 0.0095061669126153, 0.0, 0.0), (
+    0.00454610143788159, 0.000467233316157941, 0.0, 1558.45171495364), (
+    0.00556044792756438, 0.000486156699480485, 0.0, 1639.72634319476), (
+    0.00151398565503769, 0.000486060307594015, 0.0, 0.0), (0.00353102816734463, 
+    0.00046417998964898, 0.0, 1479.26757092751), (0.0177654731087387, 
+    0.00548348948359489, 0.0, 2768.76129987154), (0.0169462175108492, 
+    0.00542706868145615, 0.0, 2681.43893569791), (0.0164598561823368, 
+    0.00738439057022333, 0.0, 2679.6090981392), (0.016417967621237, 
+    0.00842942134477198, 0.0, 2704.89648055864), (0.0103762077633291, 
+    0.00607069570105523, 0.0, 855.917719729618), (0.0116218200419098, 
+    0.000451229760074048, 0.0, 2161.63197289501), (0.00953807379119098, 
+    0.00660360441543162, 0.0, 825.27489518293), (0.0096168287564069, 
+    0.000435288064181797, 0.0, 1983.49396446842), (0.00759548449423164, 
+    0.000463992037111887, 0.0, 1808.74555811596), (0.00793122535105795, 
+    0.00853123213164508, 0.0, 766.112600600896), (0.00671750004403293, 
+    0.00949577474966645, 0.0, 722.749415687113), (0.0126320102717727, 
+    0.000490227088448582, 0.0, 2252.54630726942), (0.0106193928513676, 
+    0.0013026660453761, 0.0, 2072.8617037731), (0.00865032686851919, 
+    0.00132601709628943, 0.0, 1900.15851061435), (0.00964356237091124, 
+    0.00130348184029572, 0.0, 1986.65256114097), (0.012878913898021, 
+    0.00297048181528226, 0.0, 2278.40531418334), (0.0156792958732694, 
+    0.00153845813474618, 0.0, 2528.48068707805), (0.00165314154583029, 
+    0.00449478742666543, 0.0, 186.205819431134), (0.00256197591079399, 
+    0.00235718325711787, 0.0, 1251.27326676716), (0.00353470689151436, 
+    0.00226218227180652, 0.0, 1481.09572395306), (0.00773924845270813, 
+    0.00226394538185559, 0.0, 1822.42197780402), (0.0166886569932103, 
+    0.00256128457840532, 0.0, 2622.2578847001), (0.0166813232935965, 
+    0.00152568068006076, 0.0, 2618.67415723445), (0.00357361370697618, 
+    0.0085322130471468, 0.0, 616.839623301149), (0.00158005536650307, 
+    0.00552094716113061, 0.0, 111.252036800309), (0.00256797950714827, 
+    0.00950881652534008, 0.0, 569.026127798976), (0.00154494712478481, 
+    0.00652300799265504, 0.0, 0.0), (0.00153232246520929, 0.00752024829853326, 
+    0.0, 0.0), (0.0154614916536957, 0.00700396054890007, 0.0, 
+    2557.21985147716), (0.0121950579341501, 0.0034346156171523, 0.0, 
+    2212.9616571622), (0.0158884041011333, 0.00603195128496736, 0.0, 
+    2577.54618052426), (0.00452269264496863, 0.00137809188163374, 0.0, 
+    1557.77562271126), (0.00255280878627673, 0.00852504768408835, 0.0, 
+    373.651892543388), (0.00155513169011101, 0.00244734392617829, 0.0, 0.0), (
+    0.0168778160586953, 0.0045943078584969, 0.0, 2662.81230714559), (
+    0.0167100899852812, 0.00363634631503373, 0.0, 2630.80769164738), (
+    0.0157021323684603, 0.00366131833288819, 0.0, 2535.11111397527), (
+    0.0146672439295799, 0.00155436643399298, 0.0, 2437.22429625895), (
+    0.0125788883306086, 0.00148235088272486, 0.0, 2247.94121161752), (
+    0.0106223558541387, 0.00305133068468422, 0.0, 2073.95521454791), (
+    0.00925570400431752, 0.00453597807791084, 0.0, 1958.89211712728), (
+    0.00784003140870482, 0.00315864442382008, 0.0, 1832.12067999688), (
+    0.0065905274823308, 0.00148419130709954, 0.0, 1725.43396084472), (
+    0.00252275168895721, 0.0014170753856888, 0.0, 1287.29299037068), (
+    0.0025217313086614, 0.000473574837087652, 0.0, 1247.31645341295), (
+    0.00871209730394185, 0.00219214704702608, 0.0, 1906.38596067978), (
+    0.00879187975078821, 0.00303646276006475, 0.0, 1914.16860681496), (
+    0.0045977650443092, 0.00758857361506671, 0.0, 650.28248624026), (
+    0.00369805243099108, 0.00474236032459885, 0.0, 1493.58644824607), (
+    0.0147081725299358, 0.00259603332960978, 0.0, 2442.13508084578), (
+    0.0156974205747247, 0.00258245633449405, 0.0, 2532.21063588285), (
+    0.00670767889823765, 0.00760138453915715, 0.0, 722.222757246304), (
+    0.00460402562748641, 0.00853819353505969, 0.0, 650.429574250236), (
+    0.00153271149611101, 0.00851565226912498, 0.0, 0.0), (0.00256683473708108, 
+    0.00656028487719595, 0.0, 552.935674263892), (0.00151978558278643, 
+    0.00146158027928323, 0.0, 0.0), (0.00270923710195348, 0.00461178494151682, 
+    0.0, 1418.45022956213), (0.00356962566729635, 0.00756403792183846, 0.0, 
+    616.784796976256), (0.00677423132583499, 0.00238593062385917, 0.0, 
+    1742.18405723566), (0.0052857855334878, 0.00243035249877721, 0.0, 
+    1618.33263940067), (0.00473664666060358, 0.00381257542176172, 0.0, 
+    1575.93086183073), (0.00261195661732927, 0.00558565417304635, 0.0, 
+    1410.61281079528), (0.0162541177123785, 0.00511311006266624, 0.0, 
+    2607.02565808709), (0.0147402381990105, 0.00360161782009527, 0.0, 
+    2446.03081544697), (0.0155102824792266, 0.00470233638770878, 0.0, 
+    2524.32844043054), (0.0143943552393466, 0.00520381587557495, 0.0, 
+    2419.10654802082), (0.00445700064301491, 0.00221209297887981, 0.0, 
+    1553.10029390903), (0.00351999362464994, 0.00137662544148043, 0.0, 
+    1479.37450200458), (0.00985311274416745, 0.00528986006975174, 0.0, 
+    2008.32365080037), (0.00967888790182769, 0.00216619545244612, 0.0, 
+    1990.49924137986), (0.00836849608458579, 0.00562068994622678, 0.0, 
+    1879.02813908789), (0.010615789797157, 0.00394604913890362, 0.0, 
+    2076.2571253693), (0.00362873071571812, 0.00310389755759388, 0.0, 
+    1488.65185088255), (0.00605652388185263, 0.00291670626029372, 0.0, 
+    1682.05301453764), (0.012311177328229, 0.00231283268658444, 0.0, 
+    2229.22896734125), (0.011486227856949, 0.00376531964866444, 0.0, 
+    2151.23098322491), (0.0138184998650104, 0.00367832707706839, 0.0, 
+    2362.6247226274), (0.00372133846394718, 0.00390165625140071, 0.0, 
+    1495.72423572881), (0.0126482960768044, 0.00417742354329675, 0.0, 
+    2258.43604861961), (0.00575315370224416, 0.00385671824915335, 0.0, 
+    1658.24642737234), (0.00563787820283324, 0.00760579493362457, 0.0, 
+    685.196881516961), (0.011838803300634, 0.00457507313694805, 0.0, 
+    2188.3233256545), (0.0108817568980157, 0.0048564508324489, 0.0, 
+    2100.75089343864), (0.00842917477712035, 0.00637686101254076, 0.0, 
+    784.210160229477), (0.00971156498417258, 0.00301748898345977, 0.0, 
+    1994.27904928038), (0.00759225338697433, 0.0065754825482145, 0.0, 
+    753.590579282094), (0.00460842100437731, 0.0066469298908487, 0.0, 
+    650.764344572868), (0.00662452902179211, 0.00666441908106208, 0.0, 
+    719.383843365566), (0.00458157411776483, 0.00296636624261737, 0.0, 
+    1562.38810488087), (0.0117486622184515, 0.0028040090110153, 0.0, 
+    2178.28083426597), (0.00890347058884799, 0.00382667558733374, 0.0, 
+    1925.42499644108), (0.00689764332491904, 0.00320538732921705, 0.0, 
+    1752.45983905822), (0.00672440486960113, 0.0040476958383806, 0.0, 
+    1738.59201179593), (0.00656686502043158, 0.0057536190142855, 0.0, 
+    1724.76633194602), (0.00804025947581977, 0.00401874299859628, 0.0, 
+    1850.89951651072), (0.0151101055089384, 0.00561114400625229, 0.0, 
+    2497.11184017995), (0.0056538610951975, 0.00480995408724993, 0.0, 
+    1649.68610089703), (0.00561961869243532, 0.00667318759951741, 0.0, 
+    684.69432818669), (0.00463895499706268, 0.00570759072434157, 0.0, 
+    1567.19808928311), (0.00832833908498287, 0.00482735713012516, 0.0, 
+    1876.27357277855), (0.00469048344530165, 0.00476675212848932, 0.0, 
+    1571.75856378375), (0.00743476138450205, 0.00490729790180922, 0.0, 
+    1798.87768853815), (0.00747713481541723, 0.00570607837289572, 0.0, 
+    1802.10606425863), (0.00561585102695972, 0.00574136851355433, 0.0, 
+    1646.04834949237), (0.00657677603885531, 0.00488676899112761, 0.0, 
+    1725.84332119214), (0.0139381643384695, 0.00458660547155887, 0.0, 
+    2373.82536669778), (0.0097095244564116, 0.00387203454738483, 0.0, 
+    1995.65111739566), (0.0182507994274298, 0.0193387207885583, 0.0, 
+    2777.37203797907), (0.0273382340868314, 0.0107450407619278, 0.0, 
+    4270.70090754572), (0.0271651255898178, 0.0111843380145729, 0.0, 
+    4083.92865529296), (0.0239263931289315, 0.0105723710730672, 0.0, 
+    3635.99203550937), (0.0230901692993939, 0.0121185565367341, 0.0, 
+    3469.4346082675), (0.0204318333417177, 0.0121966123115271, 0.0, 
+    3138.10005287417), (0.0186684238724411, 0.012457825941965, 0.0, 
+    2939.91137318418), (0.0184920425526798, 0.0175442360341549, 0.0, 
+    2824.45581992705), (0.0271514533087611, 0.0103137805126607, 0.0, 
+    4198.24833941997), (0.0261115059256554, 0.0104073425754905, 0.0, 
+    4009.51184195786), (0.0250274105928838, 0.0104714650660753, 0.0, 
+    3814.45891585148), (0.0222749626263976, 0.0127559790853411, 0.0, 
+    3340.27829257022), (0.0215082368813455, 0.0133394512813538, 0.0, 
+    3219.94669135225), (0.0199978090822697, 0.0145399735774845, 0.0, 
+    3007.49725435689), (0.0186483347788453, 0.0146951195783913, 0.0, 
+    2875.1901200317), (0.018500738311559, 0.016556185670197, 0.0, 
+    2804.04385117969), (0.0183398597873747, 0.0185174676589668, 0.0, 
+    2795.76092960383), (0.0187046155333519, 0.0104794004000723, 0.0, 
+    2969.12387310813), (0.0205524563789368, 0.0113052574452013, 0.0, 
+    3172.0236224911), (0.0207493337802589, 0.013917287113145, 0.0, 
+    3120.96124285742), (0.0184855256229639, 0.0156359870452434, 0.0, 
+    2848.17602313328), (0.0223910729400814, 0.0115422715898603, 0.0, 
+    3385.95739623523), (0.0217502196319401, 0.0104518127627671, 0.0, 
+    3336.47291777299), (0.0197160090319812, 0.0104463922325522, 0.0, 
+    3084.07048702113), (0.0261552594602108, 0.0112074858043343, 0.0, 
+    4004.59480867694), (0.0240601971745491, 0.0116300813388079, 0.0, 
+    3626.28362469023), (0.0218307855539024, 0.0122969609219581, 0.0, 
+    3293.04692127448), (0.0193887706845999, 0.0153535483404994, 0.0, 
+    2931.29067533144), (0.025109423790127, 0.0113752060569823, 0.0, 
+    3592.58269731615), (0.0214744596742094, 0.0113288047723472, 0.0, 
+    3284.60049558196), (0.0196174327284098, 0.0113610201515257, 0.0, 
+    3061.42373758393), (0.0195721592754126, 0.0123386096674949, 0.0, 
+    3038.61364010396), (0.0186742036603391, 0.01145049626939, 0.0, 
+    2957.3962953137), (0.0189784970134497, 0.0162255414761603, 0.0, 
+    2864.62676730018), (0.0196501663886011, 0.013458349974826, 0.0, 
+    3017.62251631358), (0.0187098784372211, 0.0135712393093854, 0.0, 
+    2914.51447789435), (0.0228107906877995, 0.0105534954927862, 0.0, 
+    3480.55850189765), (0.0212180619128048, 0.0121162584982812, 0.0, 
+    3228.14446474043), (0.0207298579625785, 0.0104322771076113, 0.0, 
+    3205.9917489786), (0.0204838667996228, 0.0131054003722966, 0.0, 
+    3115.76811806898), (0.0212340820580721, 0.01277647446841, 0.0, 
+    3210.13978683829), (0.0126218553632498, 0.0178301346798738, 0.0, 
+    2277.01051327026), (0.00839305606981119, 0.0167641794929902, 0.0, 
+    1890.70297106669), (0.0153362549220522, 0.0146933803334832, 0.0, 
+    2529.20947356931), (0.00654102598006527, 0.0159077284236749, 0.0, 
+    1729.91136685209), (0.0176342446357012, 0.0115128681063652, 0.0, 
+    2843.85741036946), (0.0176402265205979, 0.0125132414977998, 0.0, 
+    2824.87698065046), (0.0177175085991621, 0.0165312071330845, 0.0, 
+    2746.13697818172), (0.016444485867396, 0.0115105144213885, 0.0, 
+    2714.61965467706), (0.0139064928516746, 0.0139441487845033, 0.0, 
+    2396.81799028228), (0.0116014166269451, 0.0195248406380415, 0.0, 
+    2176.36909605189), (0.00857208576053381, 0.0195100498385727, 0.0, 
+    1904.95343773903), (0.00237925405963324, 0.0154583053663373, 0.0, 
+    1201.10308910125), (0.00847891462035477, 0.0139757255092263, 0.0, 
+    1900.11591394546), (0.0167069653980434, 0.0136348388623446, 0.0, 
+    2690.56498982149), (0.0176878804340959, 0.0135334976948798, 0.0, 
+    2802.92677289222), (0.0177199984900653, 0.0145452539436519, 0.0, 
+    2781.90408317415), (0.0158462498802692, 0.0138189815916121, 0.0, 
+    2592.94616131715), (0.0177130037918687, 0.0175226209685206, 0.0, 
+    2736.8075704147), (0.0176996886730194, 0.019505865406245, 0.0, 
+    2732.31878443746), (0.000502644310472533, 0.0195027114823461, 0.0, 0.0), (
+    0.00049734502681531, 0.0185059239156544, 0.0, 0.0), (0.00147556356387213, 
+    0.0175080196931958, 0.0, 0.0), (0.00241273664869368, 0.0164748672395945, 
+    0.0, 1203.72369595509), (0.0014795126626268, 0.0124755608849227, 0.0, 0.0), 
+    (0.00453276990447193, 0.0194879933260381, 0.0, 1560.82228329651), (
+    0.00340407463954762, 0.0134818407241255, 0.0, 611.948571814923), (
+    0.00853728828951716, 0.0185170550830662, 0.0, 1903.04206358541), (
+    0.00554224185179919, 0.0194866536185145, 0.0, 1643.40507184439), (
+    0.0122366612777114, 0.0161327586974949, 0.0, 2240.29588751068), (
+    0.0122792560141534, 0.0148316014092416, 0.0, 2243.51000755846), (
+    0.0126324284356087, 0.0195146533660591, 0.0, 1956.3940440522), (
+    0.0167166129685938, 0.0185437914915383, 0.0, 2644.70250061216), (
+    0.0136608185712248, 0.0195218925364316, 0.0, 2300.51297289782), (
+    0.0177078326232731, 0.0185154597274959, 0.0, 2733.76789408911), (
+    0.000510662241140381, 0.0104966012295336, 0.0, 0.0), (0.00358418613905087, 
+    0.0104984627105296, 0.0, 617.1856212026), (0.000493822328280658, 
+    0.0124903046526015, 0.0, 0.0), (0.00048757936747279, 0.0134907229803503, 
+    0.0, 0.0), (0.000483911673654802, 0.0144927417859435, 0.0, 0.0), (
+    0.000484340882394463, 0.0154971121810377, 0.0, 0.0), (0.000492624472826719, 
+    0.0175057291053236, 0.0, 0.0), (0.00778313248883933, 0.010523249860853, 
+    0.0, 740.57549374736), (0.00671556522138417, 0.0105284645687789, 0.0, 
+    723.02011997891), (0.00238527136389166, 0.0144533254206181, 0.0, 
+    1278.45197283996), (0.00461747555527836, 0.0105073947925121, 0.0, 
+    650.96656756755), (0.00153288230649196, 0.0104923392646015, 0.0, 0.0), (
+    0.00885786791332066, 0.0129389364738017, 0.0, 804.583836680953), (
+    0.0138165398966521, 0.017742901109159, 0.0, 2381.78959979761), (
+    0.0105158449150622, 0.0186053235083818, 0.0, 2079.35874889191), (
+    0.0166108570992947, 0.01051598158665, 0.0, 2744.5440845619), (
+    0.0176691953092813, 0.0105110590811819, 0.0, 2855.1313335408), (
+    0.0164810216519982, 0.0125560977030545, 0.0, 2694.52326552309), (
+    0.0167879918590188, 0.0146346669644117, 0.0, 2682.32802292662), (
+    0.0177234159782529, 0.0155413690954447, 0.0, 2762.9978247332), (
+    0.0155256609432399, 0.0128761697560549, 0.0, 2581.80183932782), (
+    0.0143590357620269, 0.0146177725400776, 0.0, 2439.56198119176), (
+    0.0126198893412948, 0.0185435619205236, 0.0, 2270.99025648669), (
+    0.0166964791715145, 0.0195160009898245, 0.0, 2642.71144806163), (
+    0.0146814363542944, 0.0195281766355038, 0.0, 2458.839658824), (
+    0.000501508970046416, 0.0114917473401874, 0.0, 0.0), (0.00565888243727386, 
+    0.010517863323912, 0.0, 686.126353056249), (0.0024918252020143, 
+    0.0184990186244249, 0.0, 1130.61648498614), (0.00144292003824376, 
+    0.0154842352494597, 0.0, 0.0), (0.000487991492263973, 0.0165024516172707, 
+    0.0, 0.0), (0.00251688435673714, 0.0195020413957536, 0.0, 
+    116.997811701033), (0.00150889568612911, 0.0195053932256997, 0.0, 0.0), (
+    0.0105801604222506, 0.0195316034369171, 0.0, 1737.03153800218), (
+    0.0130205876193941, 0.0143137057311833, 0.0, 2312.93320221814), (
+    0.00756767741404474, 0.0195006104186177, 0.0, 1816.29331729945), (
+    0.0105484242085367, 0.0140014153439552, 0.0, 2090.91811311482), (
+    0.0075437311315909, 0.0184984183870256, 0.0, 1815.63943307223), (
+    0.00957428524270654, 0.0195209458470345, 0.0, 1994.5623947145), (
+    0.0157862175256014, 0.015598354395479, 0.0, 2579.83501581839), (
+    0.0157197087537497, 0.0185717567801476, 0.0, 2554.18354963064), (
+    0.014721954241395, 0.0185998100787401, 0.0, 2462.91249834477), (
+    0.015690574189648, 0.0195240252651274, 0.0, 2551.79773181663), (
+    0.00668588408734649, 0.0125602758489549, 0.0, 723.134260661313), (
+    0.0065561052178964, 0.0194920073263347, 0.0, 1728.63397744717), (
+    0.00953182368539274, 0.0175082925707102, 0.0, 1992.68453678743), (
+    0.00965006626211107, 0.0135222563985735, 0.0, 835.172634019081), (
+    0.0147609410341829, 0.0134424963034689, 0.0, 2485.69290623523), (
+    0.0159372312482446, 0.0146912494674325, 0.0, 2592.74215178621), (
+    0.0142424704972655, 0.0158831789158285, 0.0, 2424.39625232828), (
+    0.0129100000485778, 0.0156104154884815, 0.0, 2300.1131268309), (
+    0.00251317076617852, 0.011481394758448, 0.0, 81.0622667871282), (
+    0.00353308231569827, 0.0114946782123297, 0.0, 581.641486719448), (
+    0.00255663599818945, 0.0104930133093148, 0.0, 227.477657339572), (
+    0.00787548790685833, 0.0126007008366287, 0.0, 766.78928824961), (
+    0.00794265477452427, 0.0115276470314711, 0.0, 768.457905920781), (
+    0.0110783944837749, 0.0151343790348619, 0.0, 2134.2431443975), (
+    0.0114742619916797, 0.0143118146806955, 0.0, 2171.2581318934), (
+    0.00449761340860277, 0.0184495551511645, 0.0, 1559.56882987596), (
+    0.00673287292011082, 0.0115478790830821, 0.0, 724.155746551501), (
+    0.00562679371796548, 0.0115355830639601, 0.0, 685.304979473437), (
+    0.016732239164412, 0.0165826077573001, 0.0, 2653.63588218604), (
+    0.00144283492409158, 0.0144742918200791, 0.0, 0.0), (0.00145722141314764, 
+    0.0134729498531669, 0.0, 0.0), (0.00246946589322761, 0.0124735522549599, 
+    0.0, 339.736405799439), (0.00344705994939432, 0.0174415772780776, 0.0, 
+    1476.91353282152), (0.00145681574940681, 0.0164986932650208, 0.0, 0.0), (
+    0.0167258884757757, 0.0175636345520616, 0.0, 2647.2310476265), (
+    0.0136907945852727, 0.0185832008719444, 0.0, 2369.21109856095), (
+    0.00612592464312911, 0.0161172831431031, 0.0, 1694.43944074718), (
+    0.0035253960522823, 0.0194950108416378, 0.0, 1316.78417073291), (
+    0.0156852800864726, 0.0165997762233019, 0.0, 2552.8637421244), (
+    0.0115444369148463, 0.0185847785323858, 0.0, 2172.46991663458), (
+    0.0095266099087894, 0.0185474837198853, 0.0, 1991.10375617672), (
+    0.00652981270104647, 0.0184779562987387, 0.0, 1728.06450453462), (
+    0.00550749839749187, 0.0184560064226389, 0.0, 1642.09076115087), (
+    0.0014930693723727, 0.0185104785487056, 0.0, 0.0), (0.00245713861659169, 
+    0.0174884339794517, 0.0, 1051.08115213396), (0.0102291272487491, 
+    0.0148356296122074, 0.0, 2059.0538424397), (0.00652189110405743, 
+    0.0174746601842344, 0.0, 1728.46959929635), (0.0104015583638102, 
+    0.016301570693031, 0.0, 2073.34111023609), (0.0113615912850946, 
+    0.0177282490767539, 0.0, 2163.15265628843), (0.0120894049759954, 
+    0.017328652087599, 0.0, 2225.02152686387), (0.0157250645570457, 
+    0.017607640940696, 0.0, 2554.65842256764), (0.00456879509147257, 
+    0.0115160120185465, 0.0, 649.509938322457), (0.00514148524962366, 
+    0.0159251899458468, 0.0, 1611.95960994333), (0.00443018769146875, 
+    0.0135778218973428, 0.0, 645.655409940989), (0.00150541003677063, 
+    0.0114807656500489, 0.0, 0.0), (0.0167653202079237, 0.0156081565655768, 
+    0.0, 2668.81356184353), (0.0146533015649766, 0.0167502644471824, 0.0, 
+    2458.07792527548), (0.0131579064764082, 0.0174340419471264, 0.0, 
+    2321.97053139565), (0.0136227370239794, 0.0151214613579214, 0.0, 
+    2367.40248912426), (0.0105050860438496, 0.0177064700983465, 0.0, 
+    2080.69798621705), (0.00933050806634128, 0.0143788994755596, 0.0, 
+    1979.61807315633), (0.00549519818741828, 0.0174117460846901, 0.0, 
+    1641.71009744926), (0.00758753647096455, 0.0136995553039014, 0.0, 
+    756.683979487337), (0.00242431354126893, 0.0134636012371629, 0.0, 
+    371.302766046828), (0.00347768410574645, 0.0124916436616331, 0.0, 
+    614.052549340978), (0.0033619370078668, 0.0164199899882078, 0.0, 
+    1470.25313655457), (0.0115763978101313, 0.0166107667610049, 0.0, 
+    2175.63396144281), (0.00850812904536724, 0.0174976759590209, 0.0, 
+    1901.49461345429), (0.00958162010647357, 0.0164922405965626, 0.0, 
+    1996.91135016855), (0.00753190997056663, 0.0174922063015401, 0.0, 
+    1815.53011782978), (0.00872695120051503, 0.0161573679652065, 0.0, 
+    1920.6792412786), (0.00641434302087873, 0.0166635885834694, 0.0, 
+    1719.92339440189), (0.00446521013509482, 0.017362826038152, 0.0, 
+    1557.68305061707), (0.00696820567827672, 0.0162354600615799, 0.0, 
+    1767.01817766959), (0.0076786873396486, 0.0165876126848161, 0.0, 
+    1827.1548967707), (0.0134232190903276, 0.0163308875635266, 0.0, 
+    2347.80890719488), (0.014744705054909, 0.0176881509833038, 0.0, 
+    2465.52479824167), (0.0137884586583823, 0.0170230283401906, 0.0, 
+    2378.84517093792), (0.00349450478097424, 0.0184744130820036, 0.0, 
+    1479.92650277133), (0.00451074284501374, 0.0125292099546641, 0.0, 
+    647.860876831755), (0.00557477457914501, 0.012552356114611, 0.0, 
+    683.936375465953), (0.006529530743137, 0.0145461086649448, 0.0, 
+    1727.70946351523), (0.00410839839605615, 0.0153581865597516, 0.0, 
+    1528.16420164437), (0.00328374083619565, 0.0154195562936366, 0.0, 
+    1463.4903498626), (0.00331028504297137, 0.0144481540191919, 0.0, 
+    1464.53697173075), (0.011114127933979, 0.0159010414499789, 0.0, 
+    2139.99900534369), (0.0056771116796881, 0.016566778998822, 0.0, 
+    1656.18518515732), (0.00420768838375807, 0.0145226491149515, 0.0, 
+    1534.84117788815), (0.0108839466702193, 0.0170445744879544, 0.0, 
+    2114.40159190281), (0.00902785500511527, 0.0152655425481498, 0.0, 
+    1950.32003823115), (0.0127178076654673, 0.0167969241738319, 0.0, 
+    2280.25326210875), (0.00550938048399985, 0.0136137676890939, 0.0, 
+    682.24316648302), (0.00560049049090594, 0.0146410593297333, 0.0, 
+    1649.95025920351), (0.00583568983711302, 0.0155043341219425, 0.0, 
+    1670.6659642285), (0.0065829410450533, 0.0135881216265261, 0.0, 
+    720.088605543727), (0.00796274875756353, 0.0157728432677686, 0.0, 
+    1853.91689136273), (0.00984044233337045, 0.0156564333010465, 0.0, 
+    2020.99831179047), (0.00821756804361939, 0.0149115729145706, 0.0, 
+    1877.82934427228), (0.00723303342238069, 0.0154992495663464, 0.0, 
+    1790.81598066639), (0.00431715371087193, 0.0162940309382975, 0.0, 
+    1545.71710737365), (0.0065340920118615, 0.0153692800085992, 0.0, 
+    1729.02018984662), (0.00480724265798926, 0.0150314590428025, 0.0, 
+    1584.30733031113), (0.00739881186746061, 0.0146538519766182, 0.0, 
+    1804.19591732458), (0.0150903214234859, 0.0141405507456511, 0.0, 
+    2517.75786327857), (0.0117267977911979, 0.015498268418014, 0.0, 
+    2193.38037205949), (0.014950806973502, 0.0152633416000754, 0.0, 
+    2492.77770371467), (0.0683420300483704, 0.00407291832379997, 0.0, 
+    4845.06801329117), (0.06485565751791, 0.00301233438464502, 0.0, 
+    5246.86909328188), (0.0562089877203107, 0.00949382386170328, 0.0, 
+    6032.58096530624), (0.0570131223648787, 0.00238006838480942, 0.0, 
+    5923.40488413484), (0.0571542205289006, 0.00629907520487905, 0.0, 
+    5939.05465087091), (0.0579045647755265, 0.00234410638222471, 0.0, 
+    5863.1578138437), (0.0632702875882387, 0.000508382276166217, 0.0, 
+    5408.52153959239), (0.0693635605275631, 0.000479341906611794, 0.0, 
+    4717.37250018517), (0.0675182808190584, 0.00243348351796158, 0.0, 
+    4942.65121621161), (0.0723738428205252, 0.00746967422310263, 0.0, 
+    1804.79777797813), (0.0702565331012011, 0.00945767969824374, 0.0, 
+    1914.22806055618), (0.0561709459871054, 0.000489447978907249, 0.0, 
+    5971.51553598077), (0.0561441536992788, 0.0014711434050696, 0.0, 
+    5973.5395451962), (0.0591659545898438, 0.000502134818816544, 0.0, 
+    5772.0363101502), (0.0580418519675732, 0.00143096168176271, 0.0, 
+    5855.87891336735), (0.0606015985831618, 0.00429597665788606, 0.0, 
+    5657.97709107716), (0.0583079680800438, 0.00712851725984365, 0.0, 
+    5861.935667087), (0.0573803782463074, 0.00744216598104686, 0.0, 
+    5936.77540026287), (0.0572648961097002, 0.00949919549748302, 0.0, 
+    5962.91325527725), (0.0733783822506666, 0.000496303924592198, 0.0, 
+    4211.66006605027), (0.0733850505203009, 0.00149083402357064, 0.0, 
+    4211.42512399064), (0.0724254157394171, 0.00345784384990111, 0.0, 
+    4333.8415947786), (0.0696928184479475, 0.00445008266251534, 0.0, 
+    4676.24846419333), (0.0714344996958971, 0.00244996140827425, 0.0, 
+    4460.75495325609), (0.0673543754965067, 0.000480580551084117, 0.0, 
+    4960.11003792877), (0.0663433950394392, 0.000481555733131231, 0.0, 
+    5077.99378046056), (0.0622346922755241, 0.000493642903165878, 0.0, 
+    5508.83699566846), (0.0607960568740964, 0.00508905889000744, 0.0, 
+    5642.25424341182), (0.0588771095499396, 0.00573313771747053, 0.0, 
+    5805.83429091017), (0.0601818058639765, 0.000509129487909363, 0.0, 
+    5689.90764687346), (0.0571583406999707, 0.000476512752356925, 0.0, 
+    5913.8456069313), (0.0733649060130119, 0.00949735124595463, 0.0, 
+    1752.66827957052), (0.0723337978124619, 0.00948917563073337, 0.0, 
+    1806.78725210623), (0.0692104455083609, 0.0094593963585794, 0.0, 
+    1967.11352069896), (0.0733851008117199, 0.00649145990610123, 0.0, 
+    1751.65053286191), (0.0733934417366982, 0.00448554323520511, 0.0, 
+    4209.87398455458), (0.0733899418264627, 0.00248797872336581, 0.0, 
+    4210.67052001684), (0.073390593752265, 0.00548799359239638, 0.0, 
+    4210.09500248614), (0.0715001784265041, 0.00441262882668525, 0.0, 
+    4450.86637318191), (0.0681644305586815, 0.00947010447271168, 0.0, 
+    2019.06771108746), (0.0670165065675974, 0.00843963329680264, 0.0, 
+    2076.06589211459), (0.0671185553073883, 0.00946312281303108, 0.0, 
+    2069.95079194119), (0.0660748071968555, 0.00945791299454868, 0.0, 
+    2119.48787449687), (0.06407262198627, 0.00636603112798184, 0.0, 
+    2218.84687743247), (0.0609342390671372, 0.00580889557022601, 0.0, 
+    5632.64811031302), (0.0590655077248812, 0.00657809514086694, 0.0, 
+    5794.87497300763), (0.0562382712960243, 0.00748367141932249, 0.0, 
+    6017.22884715281), (0.0574211440980434, 0.00852699275128543, 0.0, 
+    5946.52129616412), (0.0561866275966167, 0.00644794292747974, 0.0, 
+    6007.58963089821), (0.0561119699850678, 0.00344305706676096, 0.0, 
+    5981.31624104908), (0.0733687598258257, 0.00849442882463336, 0.0, 
+    1752.47267257301), (0.0724065862596035, 0.00646360334940255, 0.0, 
+    1803.18762343551), (0.0724276900291443, 0.00545459613204002, 0.0, 
+    4332.33794789853), (0.0733932200819254, 0.00348596938420087, 0.0, 
+    4210.10256544562), (0.0733768213540316, 0.00749356625601649, 0.0, 
+    1752.06326986164), (0.0691434908658266, 0.00838613405358046, 0.0, 
+    1970.8961439097), (0.0562432548031211, 0.00849654991179705, 0.0, 
+    6026.23422800307), (0.0561406863853335, 0.0054325326345861, 0.0, 
+    5997.85978654793), (0.0561168054118752, 0.00443466834258288, 0.0, 
+    5989.11142673098), (0.056122962385416, 0.00245561933843419, 0.0, 
+    5976.16636274442), (0.0569732058793306, 0.00333440495887771, 0.0, 
+    5928.53381082567), (0.0578181715682149, 0.00324355368502438, 0.0, 
+    5873.11112472003), (0.0703660231083632, 0.000481889612274231, 0.0, 
+    4593.05298982079), (0.0724112875759602, 0.00246560829691589, 0.0, 
+    4336.08386397372), (0.072374390438199, 0.000490007805638001, 0.0, 
+    4339.02518599836), (0.0601904727518559, 0.00253056775545701, 0.0, 
+    5696.80377427993), (0.0599503014236689, 0.00611678673885763, 0.0, 
+    5717.0545463342), (0.0643020085990429, 0.00050543408724478, 0.0, 
+    5302.86946557841), (0.0643643867224455, 0.00151472727884538, 0.0, 
+    5297.59848762139), (0.0683613643050194, 0.000478835921967388, 0.0, 
+    4839.92811047812), (0.0612044017761946, 0.000495611311634989, 0.0, 
+    5602.47323614943), (0.0590458009392023, 0.00151586905121803, 0.0, 
+    5781.24954324608), (0.0724331066012383, 0.00445160211529583, 0.0, 
+    4332.24348934254), (0.0684439018368721, 0.00144523897324689, 0.0, 
+    4831.71541326964), (0.0649225674569607, 0.00697238766588271, 0.0, 
+    2179.22796042875), (0.0653268545866013, 0.000486872741021202, 0.0, 
+    5192.09867638779), (0.0630854442715645, 0.0058632226428017, 0.0, 
+    5435.65181254591), (0.0674436613917351, 0.00144784172880463, 0.0, 
+    4951.23126339667), (0.0620747460052371, 0.003056077985093, 0.0, 
+    5529.09560822904), (0.0621939869597554, 0.00143931093043648, 0.0, 
+    5513.65472204235), (0.0581573462113738, 0.000481289782328517, 0.0, 
+    5848.1124494073), (0.062005621381104, 0.00567384727764875, 0.0, 
+    5538.17499946271), (0.0611527767032385, 0.00145604053977877, 0.0, 
+    5608.95312756467), (0.062261545099318, 0.00370328169083223, 0.0, 
+    5512.69704684978), (0.0698514431715012, 0.00525978184305131, 0.0, 
+    4656.28219233517), (0.0702393017709255, 0.00836394366342574, 0.0, 
+    1915.36357523142), (0.0713105797767639, 0.00843547657132149, 0.0, 
+    1860.14521758981), (0.0712983515113592, 0.00947471358813345, 0.0, 
+    1860.67847889298), (0.065897062420845, 0.0073562990874052, 0.0, 
+    2132.24971071625), (0.065868217498064, 0.00842121336609125, 0.0, 
+    2131.28670797741), (0.0663167275488377, 0.00331602955702692, 0.0, 
+    5081.42205356869), (0.0633647311478853, 0.00367788225412369, 0.0, 
+    5402.7363099315), (0.057037191465497, 0.00527494086418301, 0.0, 
+    5937.01821466605), (0.0580232869833708, 0.00605553213972598, 0.0, 
+    5872.89564906891), (0.0705686062574387, 0.00629095057956874, 0.0, 
+    1899.22263932735), (0.0670525543391705, 0.00368757161777467, 0.0, 
+    4997.03838584294), (0.0704551637172699, 0.00244699482573196, 0.0, 
+    4584.27064651578), (0.0587667804211378, 0.00484579498879611, 0.0, 
+    5810.20647648747), (0.0578275015577674, 0.00415307120420039, 0.0, 
+    5876.46046251759), (0.0569805484265089, 0.00429811008507386, 0.0, 
+    5933.22324696973), (0.0713698156177998, 0.000485493030282655, 0.0, 
+    4466.52400454298), (0.0654138289391994, 0.00143514384399168, 0.0, 
+    5183.68685564343), (0.0664302948862314, 0.00143949984339997, 0.0, 
+    5069.56002130527), (0.0694266371428967, 0.00144970750261564, 0.0, 
+    4711.37150877874), (0.0664804689586163, 0.00239879879518412, 0.0, 
+    5064.02913394528), (0.0601003700867295, 0.00153655465692282, 0.0, 
+    5698.43066046764), (0.0632729306817055, 0.00151905862730928, 0.0, 
+    5409.06709471034), (0.0611696811392903, 0.00235569968936034, 0.0, 
+    5610.41853439606), (0.0586820924654603, 0.003978792054113, 0.0, 
+    5813.45798316648), (0.071403194218874, 0.00146280649641994, 0.0, 
+    4464.17560485588), (0.0723944660276175, 0.00147457170533016, 0.0, 
+    4338.15413542681), (0.0655005276203156, 0.00232012048945762, 0.0, 
+    5174.24417079427), (0.0621276758611202, 0.00230110622942448, 0.0, 
+    5520.89591439072), (0.0604064520448446, 0.0034453310072422, 0.0, 
+    5677.88487697021), (0.0714675411581993, 0.00343574403086677, 0.0, 
+    4456.04445847325), (0.0680765695869923, 0.00845689210109413, 0.0, 
+    2024.14193963294), (0.0659824628382921, 0.00417564884992316, 0.0, 
+    5121.85180646936), (0.0570821221917868, 0.0014300517650554, 0.0, 
+    5919.02117365767), (0.0715055782347918, 0.00539998232852668, 0.0, 
+    4449.02374583728), (0.0596740962937474, 0.00457457406446338, 0.0, 
+    5735.89452799452), (0.0695337504148483, 0.00697466474957764, 0.0, 
+    1951.90514803453), (0.0714601147919893, 0.00640353432390839, 0.0, 
+    1852.75642871275), (0.0680030342191458, 0.00752512027975172, 0.0, 
+    2028.6195868172), (0.0705070197582245, 0.00343640561914071, 0.0, 
+    4577.21567746028), (0.0704125892370939, 0.00145534510375001, 0.0, 
+    4588.94325472325), (0.0612759040668607, 0.00320723332697526, 0.0, 
+    5603.58109917271), (0.0630896110087633, 0.00245029301731847, 0.0, 
+    5428.59328744453), (0.0627513900399208, 0.00320263142930344, 0.0, 
+    5464.62015648296), (0.0685185510665178, 0.00242549041286111, 0.0, 
+    4822.74848224933), (0.0653243940323591, 0.00596431968733668, 0.0, 
+    5193.98955833001), (0.059540162794292, 0.00372851564316079, 0.0, 
+    5746.46731250226), (0.0586132761090994, 0.00317288906080648, 0.0, 
+    5815.42076284437), (0.0593416830524802, 0.00289126235293224, 0.0, 
+    5764.58229518733), (0.0645885039120913, 0.00242588436231017, 0.0, 
+    5273.70803849738), (0.0627392325550318, 0.00437693297863007, 0.0, 
+    5465.68664860577), (0.0640490502119064, 0.00421631167409942, 0.0, 
+    5333.04184749404), (0.0638848431408405, 0.00292927434202284, 0.0, 
+    5349.22191036349), (0.0654634181410074, 0.0031163832754828, 0.0, 
+    5179.10623028544), (0.0694782715290785, 0.00244861276587471, 0.0, 
+    4705.64021098812), (0.07234494574368, 0.00847504008561373, 0.0, 
+    1806.24451415757), (0.070371663197875, 0.00729378266260028, 0.0, 
+    1908.72799886292), (0.0689352378249168, 0.00747161242179573, 0.0, 
+    1981.89149225109), (0.0667427629232407, 0.0044740314478986, 0.0, 
+    5035.07047007689), (0.0598042784258723, 0.00538974464870989, 0.0, 
+    5727.38522359654), (0.0705924108624458, 0.00438714493066072, 0.0, 
+    4565.10780870803), (0.0685337465256453, 0.00342287105740979, 0.0, 
+    4820.60896059498), (0.0673220902681351, 0.00556871795561165, 0.0, 
+    4962.28807001422), (0.0587813500314951, 0.0024096833949443, 0.0, 
+    5803.07377066478), (0.0713753495365381, 0.00741384760476649, 0.0, 
+    1856.91063806935), (0.0652117598801851, 0.00387356337159872, 0.0, 
+    5206.62414322798), (0.0645127762109041, 0.00349490053486079, 0.0, 
+    5284.05204760405), (0.0615002047270536, 0.0040199586073868, 0.0, 
+    5581.97897485181), (0.0676635261625051, 0.00330222665797919, 0.0, 
+    4923.65067766504), (0.0680225174874067, 0.00662502821069211, 0.0, 
+    2028.61717895566), (0.0689553301781416, 0.0058878626441583, 0.0, 
+    4765.40911874792), (0.0688256602734327, 0.00670491089113057, 0.0, 
+    1988.39735373175), (0.0670063681900501, 0.00746588059701025, 0.0, 
+    2077.94649932671), (0.061840083450079, 0.00483375741168857, 0.0, 
+    5548.94908198248), (0.0635026097297668, 0.0050149685703218, 0.0, 
+    5391.1528631589), (0.0644453093409538, 0.00552386860363185, 0.0, 
+    5292.19766673437), (0.0656587705016136, 0.00504500127863139, 0.0, 
+    5159.40431007148), (0.0676936507225037, 0.00398210878483951, 0.0, 
+    4923.60297167805), (0.0683533437550068, 0.00476439250633121, 0.0, 
+    4839.89858886527), (0.069496875628829, 0.0035022521042265, 0.0, 
+    4702.83111095793), (0.0697441957890987, 0.0061063818866387, 0.0, 
+    1942.00855441091), (0.0671279430389404, 0.00650026113726199, 0.0, 
+    2073.00758366132), (0.0691330935806036, 0.00498733425047249, 0.0, 
+    4745.30794428889), (0.0648395139724016, 0.00467558763921261, 0.0, 
+    5250.11208453608), (0.0664765499532223, 0.00534518342465162, 0.0, 
+    5062.98563118623), (0.0681581534445286, 0.00572022690903395, 0.0, 
+    4861.86807475876), (0.0662022028118372, 0.00629265082534403, 0.0, 
+    2118.23116873562), (0.0675193574279547, 0.00470393151044846, 0.0, 
+    4941.65009610157), (0.0578960403800011, 0.00507991411723197, 0.0, 
+    5876.2064675994), (0.07063845731318, 0.00532771041616797, 0.0, 
+    4558.13217894325)])
+mdb.models['DogboneScenario1_Model'].SurfaceHeatFlux(createStepName='Heat_01', 
+    distributionType=FIELD, field='FluxField_01', magnitude=1.0, name=
+    'SolarFlux_01', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.surfaces['All-Surfaces'])
+mdb.Job(contactPrint=OFF, echoPrint=OFF, explicitPrecision=SINGLE, 
+    getMemoryFromAnalysis=True, historyPrint=OFF, memory=90, memoryUnits=
+    PERCENTAGE, model='DogboneScenario1_Model', modelPrint=OFF, name=
+    'SMAHeatTransient_01', nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, 
+    resultsFormat=ODB, scratch='', type=RESTART, userSubroutine=
+    'C:\\Users\\adzheng\\STAR-Simulator\\Scenarios\\DogboneScenario1\\Hartl_UMAT_Hacked.for')
+# Save by adzheng on 2026_11_24-23.21.53; build 2025 2024_09_20-08.00.46 RELr427 198590

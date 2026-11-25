@@ -69,6 +69,9 @@ NODE_DATA = cfg.get('NODE_DATA', None)
 RAY_ENGINE = cfg.get('RAY_ENGINE', 'FastRay')  # 'FastRay' (default) or 'Ray' (stock OTSun)
 RANDOM_SEED = cfg.get('RANDOM_SEED', None)     # optional int: reproducible ray sampling
 GEOMETRY_EXPORT_PATH = cfg.get('GEOMETRY_EXPORT_PATH', None)  # optional: save ray-traced target geometry (STEP) here
+# Optional extra ray-tracing objects (e.g. shades): list of {'name', 'material',
+# 'node_data' or 'step_path', optional 'export_path'}. See add_scene_objects().
+SCENE_OBJECTS = cfg.get('SCENE_OBJECTS') or []
 
 # ============================================================================
 # Set Parameters
@@ -339,7 +342,71 @@ def build_target_from_nodes(doc, object_type, node_data, object_name):
     target_obj.Label = object_name
     doc.recompute()
     return target_obj
-    
+
+
+def add_scene_objects(doc, scene_objects):
+    """
+    Add the non-target ray-tracing objects (shades, blockers) to the document.
+
+    Each entry: {'name', 'material', 'node_data' or 'step_path',
+    optional 'export_path'}. 'node_data' is built like the target in 'nodes'
+    mode (one flat triangle per element, quads split); 'step_path' is
+    imported. The object is labelled '<name>_(<material>)' so
+    otsun.Scene.from_freecad_document assigns that SurfaceMaterial (e.g.
+    Blocker: absorbs, not thermal, so its hits are not in the flux data).
+    Stale copies (labels starting with '<name>_') are removed first.
+    Returns the list of FreeCAD objects.
+    """
+    objs = []
+    for so in scene_objects:
+        name, material = so['name'], so['material']
+        label = f"{name}_({material})"
+        stale = [o for o in doc.Objects if o.Label.startswith(f"{name}_")]
+        for o in stale:
+            doc.removeObject(o.Name)
+        if stale:
+            print(f"Removed {len(stale)} stale scene object(s) for '{name}'")
+
+        if so.get('node_data') is not None:
+            nd = so['node_data']
+            nodes = {int(k): FreeCAD.Vector(*c) for k, c in nd['nodes'].items()}
+            tris = triangulate_elements(nodes, [tuple(e) for e in nd['elements']])
+            faces = [Part.Face(Part.makePolygon([nodes[a], nodes[b], nodes[c], nodes[a]]))
+                     for a, b, c in tris
+                     if (nodes[b] - nodes[a]).cross(nodes[c] - nodes[a]).Length >= 1e-18]
+            if not faces:
+                raise ValueError(f"Scene object '{name}': no valid faces in node_data")
+            obj = doc.addObject("Part::Feature", name)
+            obj.Shape = Part.makeCompound(faces) if len(faces) > 1 else faces[0]
+            source = f"{len(faces)} triangle(s) from node data"
+        elif so.get('step_path'):
+            import Import
+            if not os.path.isfile(so['step_path']):
+                raise FileNotFoundError(f"Scene object '{name}': STEP not found: {so['step_path']}")
+            n_before = len(doc.Objects)
+            Import.insert(so['step_path'], doc.Name)
+            new_objs = doc.Objects[n_before:]
+            if not new_objs:
+                raise RuntimeError(f"Scene object '{name}': STEP import produced no objects")
+            obj = new_objs[0]
+            source = f"STEP {so['step_path']}"
+        else:
+            raise ValueError(f"Scene object '{name}' needs 'node_data' or 'step_path'")
+        obj.Label = label
+        doc.recompute()
+        print(f"Added scene object '{label}' ({source})")
+
+        if so.get('export_path'):
+            try:
+                os.makedirs(os.path.dirname(so['export_path']), exist_ok=True)
+                obj.Shape.exportStep(so['export_path'])
+                print(f"Saved ray-traced scene object geometry: {so['export_path']}")
+            except Exception as _e:
+                print(f"WARNING: could not save scene object '{name}' to {so['export_path']}: {_e}")
+        objs.append(obj)
+    return objs
+
+
 def extract_faces_from_solid(doc, solid_obj_label):
 	solid = doc.getObjectsByLabel(solid_obj_label)[0]
 	print(f"Extracting {len(solid.Shape.Faces)} faces from '{solid_obj_label}'...")
@@ -498,6 +565,9 @@ def write_result_json(success, num_faces=None, flux_data_path=None, error_messag
 		"ERROR_MESSAGE": error_message,
 		"RAY_ENGINE": ray_engine_used,
 		"RAY_TRACE_SECONDS": ray_trace_seconds,
+		# For coverage flux mapping in Abaqus: rays per unit area across the beam
+		"NUM_RAYS": NUM_RAYS,
+		"SUN_WINDOW_AREA": sun_window_area,
 	}
 	with open(FREECAD_TO_ABAQUS_JSON, 'w') as f:
 		json.dump(result, f, indent=2)
@@ -513,6 +583,7 @@ num_faces = None
 error_message = None
 ray_engine_used = None
 ray_trace_seconds = None
+sun_window_area = None  # m^2, set once the sun window is built
 
 try:
 
@@ -573,7 +644,15 @@ try:
             print(f"Saved ray-traced target geometry ({len(target_faces)} faces): {GEOMETRY_EXPORT_PATH}")
         except Exception as _e:
             print(f"WARNING: could not save ray-traced geometry to {GEOMETRY_EXPORT_PATH}: {_e}")
-    
+
+    # --- Non-target scene objects (shades, blockers). Added after the target
+    #     faces are extracted, so the sun window still covers only the target ---
+    if SCENE_OBJECTS:
+        scene_objs = add_scene_objects(doc, SCENE_OBJECTS)
+    else:
+        scene_objs = []
+        print("No SCENE_OBJECTS -- ray tracing the target only")
+
     # ----------------------------------------------------------
     # Define Surface Materials
     # ----------------------------------------------------------
@@ -696,6 +775,7 @@ try:
     sun_window.length1  = length1_padded
     sun_window.length2  = length2_padded
     sun_window.aperture = length1_padded * length2_padded
+    sun_window_area = sun_window.aperture
         
     # Summarise target face normals vs sun direction (one line, not one per face).
     # Face orientation does not affect OTSun hits (intersections are two-sided);
@@ -836,7 +916,60 @@ try:
     
     print(f"\nExperiment data saved: {len(experiment.points_absorber_Th)} points")
     print(f"Flux data saved: {len(experiment.points_absorber_Th)} points")
-    
+
+    # ============================================================================
+    # Save the ray-traced scene for the interactive 3D viewer (non-fatal)
+    # run_documentation/run_<RUN_NO>/raytrace_scene/scene_<ITER_ID>.json:
+    # target + scene-object triangles, absorption points with flux, sun window
+    # corners and sun direction. Read by Abaqus/scripts/raytrace_viewer.py.
+    # ============================================================================
+
+    try:
+        def _tess(shape):
+            pts, tris = shape.tessellate(tess_tol)
+            return {'vertices': [[round(p.x, 7), round(p.y, 7), round(p.z, 7)] for p in pts],
+                    'triangles': [list(t) for t in tris]}
+
+        _o, _a, _b = sun_window.origin, sun_window.v1 * sun_window.length1, sun_window.v2 * sun_window.length2
+        _corners = [_o, _o + _a, _o + _a + _b, _o + _b]
+        _points = []
+        with open(FLUX_DATA_FILEPATH, newline='') as _f:
+            for _row in csv.reader(_f):
+                if len(_row) >= 4:
+                    _points.append([float(v) for v in _row[:4]])
+        _scene = {
+            'iteration': ITER_ID,
+            'run_no': RUN_NO,
+            'num_rays': NUM_RAYS,
+            'solar_irradiance': SOLAR_IRRADIANCE,
+            'sun_dir': [main_direction.x, main_direction.y, main_direction.z],
+            'sun_window': [[c.x, c.y, c.z] for c in _corners],
+            'target': dict(_tess(Part.makeCompound([fo.Shape for fo in target_faces])),
+                           name=OBJECT_NAME, material=OBJECT_MATERIAL),
+            'scene_objects': [dict(_tess(o.Shape), name=o.Label) for o in scene_objs],
+            'points': _points,   # [x, y, z, flux]
+        }
+        _scene_dir = os.path.join(DOCUMENTATION_DIR, 'raytrace_scene')
+        os.makedirs(_scene_dir, exist_ok=True)
+        _iter_tag = f"{ITER_ID:02d}" if isinstance(ITER_ID, int) else str(ITER_ID)
+        _scene_path = os.path.join(_scene_dir, f"scene_{_iter_tag}.json")
+        # Serialize fully first, write to a temp file, then rename: a failed
+        # write (e.g. disk full) leaves no half-written scene_NN.json behind
+        _text = json.dumps(_scene)
+        _tmp_path = _scene_path + '.tmp'
+        try:
+            with open(_tmp_path, 'w') as _f:
+                _f.write(_text)
+            os.replace(_tmp_path, _scene_path)
+        finally:
+            if os.path.exists(_tmp_path):
+                os.remove(_tmp_path)
+        print(f"Saved ray-traced scene for the 3D viewer: {_scene_path}")
+    except Exception as _e:
+        import traceback
+        traceback.print_exc()
+        print(f"WARNING: could not save ray-traced scene for the 3D viewer: {type(_e).__name__}: {_e}")
+
     # ============================================================================
     # Create 2D Absorption Plots
     # ============================================================================

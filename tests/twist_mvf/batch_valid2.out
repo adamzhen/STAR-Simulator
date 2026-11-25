@@ -1,0 +1,2 @@
+[2026-11-22 23:57:43] start v_t185_c5 (c5 settings check vs t185)
+[2026-11-23 00:12:00] done v_t185_c5: note=c5 settings check vs t185, twist_rad=1.85, pretwist_deg=0, status=completed, seconds=847, start_angle=0.0, loaded_angle=106.0324, load_reached_time=1.0, unloaded_angle=100.8309, last_step=temp_step, gauge_xi_mean=0.6822, gauge_xi_min=0.5731, gauge_xi_max=0.7473, gauge_frac_xi_gt_0.9=0.0, fillet_xi_mean=0.3524, whole_xi_mean=0.2666, frac_points_xi_gt_0.05=0.6802, gauge_onset_median_K=309.3144, gauge_onset_min_K=307.5815, gauge_mises_median_MPa=44.4449

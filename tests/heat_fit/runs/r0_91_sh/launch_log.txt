@@ -1,0 +1,4 @@
+2026-11-24 12:09:26 start r0_91_sh {"RUN_NO": "\"0.91\""}
+2026-11-24 13:06:57 abaqus/cae finished after 3451 s
+copied C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r0_91_sh/scen/run_documentation/run_0.91 -> C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.91
+2026-11-24 13:07:40 cleaned 2.3 GB

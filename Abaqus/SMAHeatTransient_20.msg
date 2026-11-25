@@ -1,9 +1,9 @@
 1
 
-   Abaqus 2025                                  Date 29-Sep-2026   Time 15:26:47
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:38:08
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
- Iteration 1                                                                     
+ Assembly + Add_actuator prep run                                                
                                                                                  
  STEP   23     INCREMENT     1     STEP TIME    0.00    
 
@@ -15,7 +15,7 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            30.0    
+          AND A TOTAL TIME PERIOD OF                            5.00    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
           THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
 
@@ -123,7 +123,7 @@
 
      LINEAR EXTRAPOLATION WILL BE USED
 
-     CHARACTERISTIC ELEMENT LENGTH     3.131E-02
+     CHARACTERISTIC ELEMENT LENGTH     1.070E-03
 
      DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
 
@@ -137,208 +137,134 @@
 
 
   INCREMENT     1 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.100    
-
- ***WARNING: THERE ARE 2 UNCONNECTED REGIONS IN THE MODEL.
-
- ***NOTE: SFM TYPE SURFACE ELEMENTS USED TO DEFINE CONTACT SURFACES NOT PART OF 
-          A RIGID BODY MAY INCREASE THE NUMBER OF UNCONNECTED REGIONS REPORTED.
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      3.160e+06
-        SOLVER ELAPSED TIME:  9ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  175ms
 
-                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    1 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR -295.795E-15   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -116.430E-06   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      8.915E-02   AT NODE        747   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      8.915E-02
+ LARGEST INCREMENT OF DISP.         1.543E-09   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.543E-09   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE FORCE                       1.01       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      3.042E-04   AT NODE          5   DOF  3
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE      3.042E-04
- LARGEST INCREMENT OF DISP.        -1.670E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.       -1.670E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
-          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+ AVERAGE MOMENT                     1.702E-03   TIME AVG. MOMENT      1.702E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.134E-05   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     1.692E-03
+ LARGEST INCREMENT OF ROTATION     -5.450E-08   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -5.450E-08   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT     7.389E-07   AT NODE          4   DOF  4
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL MOMENT     7.389E-07
- LARGEST INCREMENT OF ROTATION     -1.024E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -1.024E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
-          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
-
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX         7.330E-07   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         1.626E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.        1.626E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- ESTIMATE OF TEMP.    CORRECTION    2.922E-07
+ AVERAGE HEAT FLUX                  2.990E-04   TIME AVG. HEAT FLUX   2.990E-04
+ LARGEST RESIDUAL HEAT FLUX        -3.149E-10   AT NODE        678   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         8.831E-02   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        8.831E-02   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    1.437E-08
           HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      3.134e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
 
-               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
-   MAX. PENETRATION ERROR -1.26301E-15 AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -497.144E-09   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINTS HAVE CONVERGED.
 
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE      2.717E-06   AT NODE          7   DOF  1
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE      2.717E-06
- LARGEST INCREMENT OF DISP.        -1.663E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.       -8.369E-08   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
-          DISP.    CORRECTION TOO LARGE COMPARED TO DISP.    INCREMENT
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -3.645E-02   AT NODE        747   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -3.645E-02
+ LARGEST INCREMENT OF DISP.         3.777E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.776E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT     4.578E-08   AT NODE          2   DOF  4
-   INSTANCE: CF_BEAM-14                                                                      
-  CORRESPONDING RESIDUAL MOMENT     4.578E-08
- LARGEST INCREMENT OF ROTATION     -1.045E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     8.625E-07   AT NODE          6   DOF  5
-   INSTANCE: SHADE-3                                                                         
- ESTIMATE OF ROTATION CORRECTION    5.344E-08
+ AVERAGE MOMENT                     1.703E-03   TIME AVG. MOMENT      1.703E-03
+ LARGEST SCALED RESIDUAL MOMENT    -3.892E-05   AT NODE        747   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -3.892E-05
+ LARGEST INCREMENT OF ROTATION     -1.104E-04   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.104E-04   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.990E-04   TIME AVG. HEAT FLUX   2.990E-04
+ LARGEST RESIDUAL HEAT FLUX         4.031E-09   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         8.831E-02   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -2.698E-08   AT NODE        256   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -1.839E-03   AT NODE        653   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.839E-03
+ LARGEST INCREMENT OF DISP.         4.225E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        4.480E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ ESTIMATE OF DISP.    CORRECTION    2.261E-08
+          FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ AVERAGE MOMENT                     1.703E-03   TIME AVG. MOMENT      1.703E-03
+ LARGEST SCALED RESIDUAL MOMENT    -6.206E-07   AT NODE        747   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -6.206E-07
+ LARGEST INCREMENT OF ROTATION     -1.283E-04   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.787E-05   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION    5.199E-07
           MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
 
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -9.314E-11   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         1.627E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.        1.818E-05   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE HEAT FLUX EQUILIBRIUM RESPONSE WAS LINEAR IN THIS INCREMENT
- 
-	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      3.134e+06
-        SOLVER ELAPSED TIME:  7ms
-
-                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    2 POINTS CHANGED FROM OPEN TO CLOSED
-                    1 POINTS CHANGED FROM CLOSED TO OPEN
-
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
-
-   MAX. PENETRATION ERROR 61.7354E-18  AT NODE SMA_BEAM-8.4 OF CONTACT PAIR 
-   (GENERAL_CONTACT_VERTICES_22,GENERAL_CONTACT_FACES_02)
-   MAX. CONTACT FORCE ERROR -8.10098E-09 AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE     -9.545E-07   AT NODE          4   DOF  1
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE     -9.545E-07
- LARGEST INCREMENT OF DISP.        -1.662E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.       -1.218E-08   AT NODE          6   DOF  1
-   INSTANCE: SHADE-3                                                                         
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
-
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.524E-07   AT NODE          4   DOF  5
-   INSTANCE: SMA_BEAM-4                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.524E-07
- LARGEST INCREMENT OF ROTATION     -1.035E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     1.410E-07   AT NODE          2   DOF  4
-   INSTANCE: CF_BEAM-14                                                                      
-          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
-
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -7.680E-14   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         1.627E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.        1.905E-09   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
- 
-	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
- 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
-        NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.510e+06
-        SOLVER ELAPSED TIME:  8ms
-
-                    2 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    1 POINTS CHANGED FROM OPEN TO CLOSED
-                    1 POINTS CHANGED FROM CLOSED TO OPEN
-
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     3
-
-   MAX. PENETRATION ERROR 148.874E-18   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 58.5993E-09  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE     -9.498E-07   AT NODE          4   DOF  1
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE     -9.498E-07
- LARGEST INCREMENT OF DISP.        -1.662E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        2.952E-09   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
-
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.148E-08   AT NODE         22   DOF  5
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-  CORRESPONDING RESIDUAL MOMENT    -1.148E-08
- LARGEST INCREMENT OF ROTATION     -1.034E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     3.415E-08   AT NODE          2   DOF  4
-   INSTANCE: CF_BEAM-14                                                                      
-          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
-
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -1.193E-14   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         1.627E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -1.228E-13   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.990E-04   TIME AVG. HEAT FLUX   2.990E-04
+ LARGEST RESIDUAL HEAT FLUX         4.053E-10   AT NODE        639   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         8.831E-02   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -4.215E-07   AT NODE         15   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   1.627E-02
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   8.831E-02
 
- ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
-   3 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  3.333E-03
- STEP TIME COMPLETED       0.100    ,  TOTAL TIME COMPLETED         573.    
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  2.000E-02
+ STEP TIME COMPLETED       0.100    ,  TOTAL TIME COMPLETED         38.1    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     1
 
@@ -347,58 +273,92 @@
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.485e+06
-        SOLVER ELAPSED TIME:  12ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  160ms
 
-                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    3 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 200.730E-15   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 79.0108E-06  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      9.197E-02   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.197E-02
+ LARGEST INCREMENT OF DISP.         4.349E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.237E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE      9.069E-06   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      9.069E-06
- LARGEST INCREMENT OF DISP.        -1.663E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        9.850E-09   AT NODE          6   DOF  1
-   INSTANCE: SHADE-3                                                                         
-          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE MOMENT                     1.703E-03   TIME AVG. MOMENT      1.703E-03
+ LARGEST SCALED RESIDUAL MOMENT     9.305E-05   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.305E-05
+ LARGEST INCREMENT OF ROTATION     -1.338E-04   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.497E-06   AT NODE        257   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT    -7.480E-08   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -7.480E-08
- LARGEST INCREMENT OF ROTATION     -1.041E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -1.019E-07   AT NODE          2   DOF  4
-   INSTANCE: CF_BEAM-14                                                                      
-          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE HEAT FLUX                  2.991E-04   TIME AVG. HEAT FLUX   2.990E-04
+ LARGEST RESIDUAL HEAT FLUX         7.156E-10   AT NODE        226   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         8.791E-02   AT NODE        254   DOF 12
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        4.836E-02   AT NODE        562   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    1.854E-08
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
 
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -5.125E-10   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         1.621E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -5.822E-05   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      5.524E-04   AT NODE        145   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      5.524E-04
+ LARGEST INCREMENT OF DISP.         4.225E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.242E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ ESTIMATE OF DISP.    CORRECTION   -3.426E-09
+          FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ AVERAGE MOMENT                     1.704E-03   TIME AVG. MOMENT      1.703E-03
+ LARGEST SCALED RESIDUAL MOMENT    -6.753E-08   AT NODE        643   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -6.753E-08
+ LARGEST INCREMENT OF ROTATION     -1.299E-04   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.709E-06   AT NODE        225   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION    5.593E-08
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ AVERAGE HEAT FLUX                  2.991E-04   TIME AVG. HEAT FLUX   2.990E-04
+ LARGEST RESIDUAL HEAT FLUX        -6.196E-10   AT NODE        226   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         8.791E-02   AT NODE        254   DOF 12
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        2.757E-08   AT NODE        319   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   1.621E-02
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   8.791E-02
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   1 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.667E-03
- STEP TIME COMPLETED       0.200    ,  TOTAL TIME COMPLETED         573.    
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  4.000E-02
+ STEP TIME COMPLETED       0.200    ,  TOTAL TIME COMPLETED         38.2    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     2
 
@@ -407,59 +367,92 @@
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.287e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
 
-                    2 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    2 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 200.285E-15   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 78.8356E-06  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      9.169E-02   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.169E-02
+ LARGEST INCREMENT OF DISP.         4.022E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.055E-07   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE      9.105E-06   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      9.105E-06
- LARGEST INCREMENT OF DISP.        -1.662E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.       -4.966E-09   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE MOMENT                     1.704E-03   TIME AVG. MOMENT      1.703E-03
+ LARGEST SCALED RESIDUAL MOMENT     9.275E-05   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.275E-05
+ LARGEST INCREMENT OF ROTATION     -1.209E-04   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.062E-05   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.991E-04   TIME AVG. HEAT FLUX   2.991E-04
+ LARGEST RESIDUAL HEAT FLUX         2.919E-10   AT NODE        653   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         8.756E-02   AT NODE        254   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.266E-02   AT NODE        562   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    2.714E-08
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      3.754E-04   AT NODE        145   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.754E-04
+ LARGEST INCREMENT OF DISP.         3.992E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.007E-08   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT     7.462E-08   AT NODE          2   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT     7.462E-08
- LARGEST INCREMENT OF ROTATION     -1.043E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     5.118E-08   AT NODE          6   DOF  5
-   INSTANCE: SHADE-3                                                                         
-          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE MOMENT                     1.704E-03   TIME AVG. MOMENT      1.703E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.971E-08   AT NODE        617   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.971E-08
+ LARGEST INCREMENT OF ROTATION     -1.200E-04   AT NODE        256   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.050E-06   AT NODE        224   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION   -1.149E-08
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
 
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -4.035E-10   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         1.617E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -4.471E-05   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.991E-04   TIME AVG. HEAT FLUX   2.991E-04
+ LARGEST RESIDUAL HEAT FLUX         2.908E-10   AT NODE        644   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         8.756E-02   AT NODE        254   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -2.079E-08   AT NODE        231   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   1.617E-02
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   8.756E-02
           TIME INCREMENT MAY NOW INCREASE TO    0.150    
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   1 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  1.000E-02
- STEP TIME COMPLETED       0.300    ,  TOTAL TIME COMPLETED         573.    
+ TIME INCREMENT COMPLETED  0.100    ,  FRACTION OF STEP COMPLETED  6.000E-02
+ STEP TIME COMPLETED       0.300    ,  TOTAL TIME COMPLETED         38.3    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     3
 
@@ -468,938 +461,2924 @@
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.425e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
 
-                    2 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    2 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 375.976E-15   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 147.990E-06   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.150       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.150    
+ LARGEST INCREMENT OF DISP.         6.199E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.113E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE      1.741E-05   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      1.741E-05
- LARGEST INCREMENT OF DISP.        -2.493E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        4.058E-09   AT NODE          9   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE MOMENT                     1.704E-03   TIME AVG. MOMENT      1.704E-03
+ LARGEST SCALED RESIDUAL MOMENT     1.515E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.515E-04
+ LARGEST INCREMENT OF ROTATION     -1.873E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.301E-05   AT NODE        256   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.992E-04   TIME AVG. HEAT FLUX   2.991E-04
+ LARGEST RESIDUAL HEAT FLUX         1.366E-09   AT NODE        653   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.131       AT NODE        254   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.358E-02   AT NODE        317   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    2.229E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -5.356E-04   AT NODE        617   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -5.356E-04
+ LARGEST INCREMENT OF DISP.         6.196E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.415E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.399E-07   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -1.399E-07
- LARGEST INCREMENT OF ROTATION     -1.561E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     5.871E-08   AT NODE         22   DOF  4
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE MOMENT                     1.704E-03   TIME AVG. MOMENT      1.704E-03
+ LARGEST SCALED RESIDUAL MOMENT     1.074E-07   AT NODE        617   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.074E-07
+ LARGEST INCREMENT OF ROTATION     -1.885E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.841E-06   AT NODE        224   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -6.416E-10   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         2.418E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -7.161E-05   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.992E-04   TIME AVG. HEAT FLUX   2.991E-04
+ LARGEST RESIDUAL HEAT FLUX        -4.669E-10   AT NODE        557   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.131       AT NODE        254   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -1.283E-07   AT NODE        231   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   2.418E-02
-          TIME INCREMENT MAY NOW INCREASE TO    0.225    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.131    
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   1 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  1.500E-02
- STEP TIME COMPLETED       0.450    ,  TOTAL TIME COMPLETED         573.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  9.000E-02
+ STEP TIME COMPLETED       0.450    ,  TOTAL TIME COMPLETED         38.4    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     4
 
 
-  INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.225    
+  INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.287e+06
-        SOLVER ELAPSED TIME:  9ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-   MAX. PENETRATION ERROR 845.277E-15   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 332.716E-06   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINTS HAVE CONVERGED.
 
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE      3.999E-05   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      3.999E-05
- LARGEST INCREMENT OF DISP.        -3.738E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        3.579E-09   AT NODE          6   DOF  1
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.192       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.192    
+ LARGEST INCREMENT OF DISP.         6.336E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.400E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.705E-03   TIME AVG. MOMENT      1.704E-03
+ LARGEST SCALED RESIDUAL MOMENT     1.944E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.944E-04
+ LARGEST INCREMENT OF ROTATION     -1.916E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -9.317E-06   AT NODE        258   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.993E-04   TIME AVG. HEAT FLUX   2.991E-04
+ LARGEST RESIDUAL HEAT FLUX         1.026E-09   AT NODE        653   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.130       AT NODE        254   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        8.968E-03   AT NODE        318   DOF 14
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    1.885E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      3.596E-04   AT NODE        643   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.596E-04
+ LARGEST INCREMENT OF DISP.         6.341E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.182E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT    -3.146E-07   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -3.146E-07
- LARGEST INCREMENT OF ROTATION     -2.341E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -3.981E-08   AT NODE          2   DOF  5
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE MOMENT                     1.705E-03   TIME AVG. MOMENT      1.704E-03
+ LARGEST SCALED RESIDUAL MOMENT     7.706E-08   AT NODE        150   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     7.706E-08
+ LARGEST INCREMENT OF ROTATION     -1.927E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.546E-06   AT NODE        226   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.790E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -1.047E-09   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         3.616E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -1.075E-04   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.993E-04   TIME AVG. HEAT FLUX   2.991E-04
+ LARGEST RESIDUAL HEAT FLUX         3.875E-10   AT NODE        624   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.130       AT NODE        254   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -5.449E-08   AT NODE         15   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   3.616E-02
-          TIME INCREMENT MAY NOW INCREASE TO    0.450    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.130    
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.225    ,  FRACTION OF STEP COMPLETED  2.250E-02
- STEP TIME COMPLETED       0.675    ,  TOTAL TIME COMPLETED         574.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.120    
+ STEP TIME COMPLETED       0.600    ,  TOTAL TIME COMPLETED         38.6    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     5
 
 
-  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.450    
+  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.287e+06
-        SOLVER ELAPSED TIME:  7ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-   MAX. PENETRATION ERROR 3.04046E-12 AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 1.19678E-03 AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINTS HAVE CONVERGED.
 
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE      1.448E-04   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      1.448E-04
- LARGEST INCREMENT OF DISP.        -7.468E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        7.891E-09   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.202       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.202    
+ LARGEST INCREMENT OF DISP.         6.398E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        6.318E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.706E-03   TIME AVG. MOMENT      1.704E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.046E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.046E-04
+ LARGEST INCREMENT OF ROTATION     -1.960E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.024E-05   AT NODE        231   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.994E-04   TIME AVG. HEAT FLUX   2.992E-04
+ LARGEST RESIDUAL HEAT FLUX        -9.920E-10   AT NODE        653   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.129       AT NODE        253   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        6.403E-03   AT NODE        318   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION   -1.851E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      3.057E-04   AT NODE        643   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.057E-04
+ LARGEST INCREMENT OF DISP.         6.406E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.288E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.760E-02
- LARGEST SCALED RESIDUAL MOMENT     1.131E-06   AT NODE          2   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT     1.131E-06
- LARGEST INCREMENT OF ROTATION     -4.680E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     6.093E-08   AT NODE         31   DOF  6
-   INSTANCE: SMA_BEAM-4                                                                      
+ AVERAGE MOMENT                     1.707E-03   TIME AVG. MOMENT      1.704E-03
+ LARGEST SCALED RESIDUAL MOMENT     7.420E-08   AT NODE        150   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     7.420E-08
+ LARGEST INCREMENT OF ROTATION     -1.971E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.337E-06   AT NODE        643   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.791E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -2.940E-09   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         7.205E-02   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -2.605E-04   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.994E-04   TIME AVG. HEAT FLUX   2.992E-04
+ LARGEST RESIDUAL HEAT FLUX         4.544E-10   AT NODE        624   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.129       AT NODE        253   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        6.342E-08   AT NODE        231   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   7.205E-02
-          TIME INCREMENT MAY NOW INCREASE TO    0.900    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.129    
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.450    ,  FRACTION OF STEP COMPLETED  3.750E-02
- STEP TIME COMPLETED        1.12    ,  TOTAL TIME COMPLETED         574.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.150    
+ STEP TIME COMPLETED       0.750    ,  TOTAL TIME COMPLETED         38.7    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     6
 
 
-  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.900    
+  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.287e+06
-        SOLVER ELAPSED TIME:  7ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-   MAX. PENETRATION ERROR 12.1361E-12  AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 4.77699E-03 AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINTS HAVE CONVERGED.
 
- AVERAGE FORCE                       1.01       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE      5.781E-04   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      5.781E-04
- LARGEST INCREMENT OF DISP.        -1.490E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        3.366E-08   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.208       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.208    
+ LARGEST INCREMENT OF DISP.         6.476E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        7.029E-08   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.708E-03   TIME AVG. MOMENT      1.705E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.108E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.108E-04
+ LARGEST INCREMENT OF ROTATION     -1.993E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.787E-06   AT NODE        256   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.995E-04   TIME AVG. HEAT FLUX   2.992E-04
+ LARGEST RESIDUAL HEAT FLUX         3.884E-10   AT NODE        749   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.128       AT NODE        253   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        4.768E-03   AT NODE        318   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    7.134E-08
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      1.800E-04   AT NODE        164   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.800E-04
+ LARGEST INCREMENT OF DISP.         6.484E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.135E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.745E-02   TIME AVG. MOMENT      1.758E-02
- LARGEST SCALED RESIDUAL MOMENT     4.515E-06   AT NODE          2   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT     4.515E-06
- LARGEST INCREMENT OF ROTATION     -9.337E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     2.226E-07   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
+ AVERAGE MOMENT                     1.708E-03   TIME AVG. MOMENT      1.705E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.597E-08   AT NODE        150   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.597E-08
+ LARGEST INCREMENT OF ROTATION     -2.003E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.141E-06   AT NODE        643   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.791E-02   TIME AVG. HEAT FLUX   1.790E-02
- LARGEST RESIDUAL HEAT FLUX        -1.012E-08   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.143       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -6.414E-04   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.995E-04   TIME AVG. HEAT FLUX   2.992E-04
+ LARGEST RESIDUAL HEAT FLUX        -3.286E-10   AT NODE        154   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.128       AT NODE        253   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -2.613E-08   AT NODE        163   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.143    
-          TIME INCREMENT MAY NOW INCREASE TO     1.80    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.128    
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED  0.900    ,  FRACTION OF STEP COMPLETED  6.750E-02
- STEP TIME COMPLETED        2.03    ,  TOTAL TIME COMPLETED         575.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.180    
+ STEP TIME COMPLETED       0.900    ,  TOTAL TIME COMPLETED         38.9    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     7
 
 
-  INCREMENT     8 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   1.80    
+  INCREMENT     8 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.287e+06
-        SOLVER ELAPSED TIME:  7ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
 
                CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-   MAX. PENETRATION ERROR 48.3234E-12  AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 19.0209E-03  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINTS HAVE CONVERGED.
 
- AVERAGE FORCE                       1.01       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      2.302E-03   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.302E-03
- LARGEST INCREMENT OF DISP.        -2.967E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        1.364E-07   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.215       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.215    
+ LARGEST INCREMENT OF DISP.         6.719E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.354E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.709E-03   TIME AVG. MOMENT      1.705E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.176E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.176E-04
+ LARGEST INCREMENT OF ROTATION     -2.079E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.231E-05   AT NODE        256   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  2.997E-04   TIME AVG. HEAT FLUX   2.993E-04
+ LARGEST RESIDUAL HEAT FLUX         1.634E-09   AT NODE        653   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.127       AT NODE        252   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        3.669E-03   AT NODE        318   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    2.917E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -2.946E-04   AT NODE        749   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.946E-04
+ LARGEST INCREMENT OF DISP.         6.749E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.098E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.722E-02   TIME AVG. MOMENT      1.753E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.798E-05   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -1.798E-05
- LARGEST INCREMENT OF ROTATION     -1.859E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     8.417E-07   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
+ AVERAGE MOMENT                     1.708E-03   TIME AVG. MOMENT      1.705E-03
+ LARGEST SCALED RESIDUAL MOMENT    -4.876E-08   AT NODE        640   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.876E-08
+ LARGEST INCREMENT OF ROTATION     -2.097E-04   AT NODE        255   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.978E-06   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.792E-02   TIME AVG. HEAT FLUX   1.791E-02
- LARGEST RESIDUAL HEAT FLUX        -3.928E-08   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.285       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -1.643E-03   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.997E-04   TIME AVG. HEAT FLUX   2.993E-04
+ LARGEST RESIDUAL HEAT FLUX         4.113E-10   AT NODE        624   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.127       AT NODE        252   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -1.122E-07   AT NODE        231   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.285    
-          TIME INCREMENT MAY NOW INCREASE TO     3.60    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.127    
 
- ITERATION SUMMARY FOR THE INCREMENT:   1 TOTAL ITERATIONS, OF WHICH
-   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  1 ARE EQUILIBRIUM ITERATIONS.
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   1.80    ,  FRACTION OF STEP COMPLETED  0.128    
- STEP TIME COMPLETED        3.83    ,  TOTAL TIME COMPLETED         577.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.210    
+ STEP TIME COMPLETED        1.05    ,  TOTAL TIME COMPLETED         39.0    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     8
 
 
-  INCREMENT     9 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   3.60    
+  INCREMENT     9 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.287e+06
-        SOLVER ELAPSED TIME:  7ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
 
-                    2 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    2 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 191.504E-12   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 75.3791E-03  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                      0.975       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      9.122E-03   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      9.122E-03
- LARGEST INCREMENT OF DISP.        -5.950E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        2.222E-07   AT NODE         10   DOF  2
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.232       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.232    
+ LARGEST INCREMENT OF DISP.         7.013E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.642E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.631E-02   TIME AVG. MOMENT      1.740E-02
- LARGEST SCALED RESIDUAL MOMENT    -7.125E-05   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -7.125E-05
- LARGEST INCREMENT OF ROTATION     -3.728E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -1.035E-06   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
-          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE MOMENT                     1.710E-03   TIME AVG. MOMENT      1.706E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.352E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.352E-04
+ LARGEST INCREMENT OF ROTATION     -2.148E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.257E-05   AT NODE        255   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  1.793E-02   TIME AVG. HEAT FLUX   1.791E-02
- LARGEST RESIDUAL HEAT FLUX        -1.585E-07   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.567       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -4.002E-03   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE HEAT FLUX                  2.997E-04   TIME AVG. HEAT FLUX   2.993E-04
+ LARGEST RESIDUAL HEAT FLUX         1.705E-09   AT NODE        694   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.127       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        2.898E-03   AT NODE        318   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    2.941E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.425e+06
-        SOLVER ELAPSED TIME:  7ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  161ms
 
-                    1 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    1 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
 
-   MAX. PENETRATION ERROR -32.0275E-18  AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -12.6066E-09  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE     -2.101E-07   AT NODE          3   DOF  3
-   INSTANCE: CF_BEAM-10                                                                      
-  CORRESPONDING RESIDUAL FORCE     -2.101E-07
- LARGEST INCREMENT OF DISP.        -5.949E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.       -6.469E-09   AT NODE          3   DOF  3
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -2.742E-04   AT NODE        749   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.742E-04
+ LARGEST INCREMENT OF DISP.         7.049E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.600E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.763E-02   TIME AVG. MOMENT      1.754E-02
- LARGEST SCALED RESIDUAL MOMENT     7.964E-07   AT NODE          4   DOF  5
-   INSTANCE: SMA_BEAM-4                                                                      
-  CORRESPONDING RESIDUAL MOMENT     7.964E-07
- LARGEST INCREMENT OF ROTATION     -3.728E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -8.842E-08   AT NODE         22   DOF  4
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE MOMENT                     1.709E-03   TIME AVG. MOMENT      1.706E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.815E-08   AT NODE        753   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.815E-08
+ LARGEST INCREMENT OF ROTATION     -2.170E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.209E-06   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION    6.707E-09
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
 
- AVERAGE HEAT FLUX                  1.793E-02   TIME AVG. HEAT FLUX   1.791E-02
- LARGEST RESIDUAL HEAT FLUX        -4.336E-11   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.567       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -1.102E-05   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.997E-04   TIME AVG. HEAT FLUX   2.993E-04
+ LARGEST RESIDUAL HEAT FLUX         2.648E-10   AT NODE        730   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.127       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -9.580E-08   AT NODE        686   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.567    
-          TIME INCREMENT MAY NOW INCREASE TO     5.00    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.127    
 
  ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   2 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   3.60    ,  FRACTION OF STEP COMPLETED  0.248    
- STEP TIME COMPLETED        7.43    ,  TOTAL TIME COMPLETED         580.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.240    
+ STEP TIME COMPLETED        1.20    ,  TOTAL TIME COMPLETED         39.2    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT     9
 
 
-  INCREMENT    10 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   5.00    
+  INCREMENT    10 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.498e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
 
-                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    3 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 425.658E-12   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 167.546E-03   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                      0.945       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      2.028E-02   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.028E-02
- LARGEST INCREMENT OF DISP.        -8.209E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        5.416E-07   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.253       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.253    
+ LARGEST INCREMENT OF DISP.         7.229E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.808E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.550E-02   TIME AVG. MOMENT      1.734E-02
- LARGEST SCALED RESIDUAL MOMENT     1.583E-04   AT NODE          2   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT     1.583E-04
- LARGEST INCREMENT OF ROTATION     -5.147E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     3.371E-06   AT NODE         31   DOF  6
-   INSTANCE: SMA_BEAM-4                                                                      
+ AVERAGE MOMENT                     1.711E-03   TIME AVG. MOMENT      1.706E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.572E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.572E-04
+ LARGEST INCREMENT OF ROTATION     -2.232E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.703E-06   AT NODE        256   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  1.795E-02   TIME AVG. HEAT FLUX   1.791E-02
- LARGEST RESIDUAL HEAT FLUX        -3.219E-07   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.782       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -4.835E-03   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE HEAT FLUX                  2.999E-04   TIME AVG. HEAT FLUX   2.994E-04
+ LARGEST RESIDUAL HEAT FLUX         1.107E-09   AT NODE        674   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.126       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        2.390E-03   AT NODE        164   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    1.884E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.287e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
 
-                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    3 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
 
-   MAX. PENETRATION ERROR -189.773E-18   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -74.6979E-09  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE     -1.081E-06   AT NODE          4   DOF  1
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE     -1.081E-06
- LARGEST INCREMENT OF DISP.        -8.209E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        1.806E-08   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.36       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -1.373E-04   AT NODE        645   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.373E-04
+ LARGEST INCREMENT OF DISP.         7.252E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.684E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.759E-02   TIME AVG. MOMENT      1.755E-02
- LARGEST SCALED RESIDUAL MOMENT    -2.737E-06   AT NODE          4   DOF  5
-   INSTANCE: SMA_BEAM-4                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -2.737E-06
- LARGEST INCREMENT OF ROTATION     -5.145E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     1.906E-07   AT NODE          2   DOF  4
-   INSTANCE: CF_BEAM-14                                                                      
+ AVERAGE MOMENT                     1.711E-03   TIME AVG. MOMENT      1.706E-03
+ LARGEST SCALED RESIDUAL MOMENT    -3.898E-08   AT NODE        640   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -3.898E-08
+ LARGEST INCREMENT OF ROTATION     -2.249E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.673E-06   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.795E-02   TIME AVG. HEAT FLUX   1.791E-02
- LARGEST RESIDUAL HEAT FLUX        -1.863E-10   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.782       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -2.666E-05   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  2.999E-04   TIME AVG. HEAT FLUX   2.994E-04
+ LARGEST RESIDUAL HEAT FLUX         2.589E-10   AT NODE        730   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.126       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -9.311E-08   AT NODE        249   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.782    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.126    
 
  ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   2 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   5.00    ,  FRACTION OF STEP COMPLETED  0.414    
- STEP TIME COMPLETED        12.4    ,  TOTAL TIME COMPLETED         585.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.270    
+ STEP TIME COMPLETED        1.35    ,  TOTAL TIME COMPLETED         39.3    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    10
 
 
-  INCREMENT    11 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   5.00    
+  INCREMENT    11 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.498e+06
-        SOLVER ELAPSED TIME:  7ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  160ms
 
-                    4 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    1 POINTS CHANGED FROM OPEN TO CLOSED
-                    3 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 487.754E-12   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 191.989E-03   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                      0.937       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      2.325E-02   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.325E-02
- LARGEST INCREMENT OF DISP.        -7.991E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        2.172E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.269       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.269    
+ LARGEST INCREMENT OF DISP.         7.363E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.105E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.552E-02   TIME AVG. MOMENT      1.736E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.820E-04   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -1.820E-04
- LARGEST INCREMENT OF ROTATION     -5.013E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     1.315E-05   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
+ AVERAGE MOMENT                     1.712E-03   TIME AVG. MOMENT      1.707E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.733E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.733E-04
+ LARGEST INCREMENT OF ROTATION     -2.294E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.061E-05   AT NODE        255   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  1.797E-02   TIME AVG. HEAT FLUX   1.792E-02
- LARGEST RESIDUAL HEAT FLUX        -6.620E-07   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.779       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -3.386E-03   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE HEAT FLUX                  3.000E-04   TIME AVG. HEAT FLUX   2.994E-04
+ LARGEST RESIDUAL HEAT FLUX         9.458E-10   AT NODE        640   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.125       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        2.050E-03   AT NODE        164   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    1.621E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.356e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
 
-                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    3 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
 
-   MAX. PENETRATION ERROR -1.03975E-15 AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -409.262E-09   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE     -3.041E-06   AT NODE          2   DOF  1
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE     -3.041E-06
- LARGEST INCREMENT OF DISP.        -7.991E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        6.758E-08   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      1.438E-04   AT NODE        630   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.438E-04
+ LARGEST INCREMENT OF DISP.         7.378E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.618E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.760E-02   TIME AVG. MOMENT      1.755E-02
- LARGEST SCALED RESIDUAL MOMENT    -7.011E-06   AT NODE          4   DOF  5
-   INSTANCE: SMA_BEAM-4                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -7.011E-06
- LARGEST INCREMENT OF ROTATION     -5.010E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -6.816E-07   AT NODE         22   DOF  5
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE MOMENT                     1.712E-03   TIME AVG. MOMENT      1.707E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.794E-08   AT NODE        723   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.794E-08
+ LARGEST INCREMENT OF ROTATION     -2.305E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.240E-06   AT NODE        161   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.797E-02   TIME AVG. HEAT FLUX   1.792E-02
- LARGEST RESIDUAL HEAT FLUX         3.784E-10   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.779       AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -5.381E-05   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  3.000E-04   TIME AVG. HEAT FLUX   2.994E-04
+ LARGEST RESIDUAL HEAT FLUX         2.401E-10   AT NODE        666   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.125       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -6.111E-08   AT NODE        255   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.779    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.125    
 
  ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   2 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   5.00    ,  FRACTION OF STEP COMPLETED  0.581    
- STEP TIME COMPLETED        17.4    ,  TOTAL TIME COMPLETED         590.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.300    
+ STEP TIME COMPLETED        1.50    ,  TOTAL TIME COMPLETED         39.5    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    11
 
 
-  INCREMENT    12 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   5.00    
+  INCREMENT    12 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      3.793e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  161ms
 
-                    4 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    4 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 462.187E-12   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 181.925E-03   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                      0.942       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      2.202E-02   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.202E-02
- LARGEST INCREMENT OF DISP.        -7.835E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        1.561E-06   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.281       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.281    
+ LARGEST INCREMENT OF DISP.         7.505E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.272E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.548E-02   TIME AVG. MOMENT      1.738E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.721E-04   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -1.721E-04
- LARGEST INCREMENT OF ROTATION     -4.916E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     9.318E-06   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
+ AVERAGE MOMENT                     1.714E-03   TIME AVG. MOMENT      1.707E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.852E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.852E-04
+ LARGEST INCREMENT OF ROTATION     -2.378E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.141E-05   AT NODE        255   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  1.799E-02   TIME AVG. HEAT FLUX   1.792E-02
- LARGEST RESIDUAL HEAT FLUX        -3.846E-07   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.776       AT NODE          9   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -2.560E-03   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE HEAT FLUX                  3.001E-04   TIME AVG. HEAT FLUX   2.995E-04
+ LARGEST RESIDUAL HEAT FLUX         1.099E-09   AT NODE        640   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.124       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.773E-03   AT NODE        164   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    1.886E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      3.081e+06
-        SOLVER ELAPSED TIME:  10ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
 
-                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    3 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
 
-   MAX. PENETRATION ERROR -309.054E-18   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -121.649E-09   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE     -3.117E-06   AT NODE          2   DOF  1
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE     -3.117E-06
- LARGEST INCREMENT OF DISP.        -7.835E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        4.765E-08   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      1.298E-04   AT NODE        630   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.298E-04
+ LARGEST INCREMENT OF DISP.         7.524E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.370E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.759E-02   TIME AVG. MOMENT      1.756E-02
- LARGEST SCALED RESIDUAL MOMENT    -5.562E-06   AT NODE          4   DOF  5
-   INSTANCE: SMA_BEAM-4                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -5.562E-06
- LARGEST INCREMENT OF ROTATION     -4.914E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -4.736E-07   AT NODE         22   DOF  5
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE MOMENT                     1.714E-03   TIME AVG. MOMENT      1.707E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.883E-08   AT NODE        630   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.883E-08
+ LARGEST INCREMENT OF ROTATION     -2.394E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.543E-06   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.799E-02   TIME AVG. HEAT FLUX   1.792E-02
- LARGEST RESIDUAL HEAT FLUX        -1.456E-10   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.776       AT NODE          9   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -2.958E-05   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  3.001E-04   TIME AVG. HEAT FLUX   2.995E-04
+ LARGEST RESIDUAL HEAT FLUX         2.318E-10   AT NODE        666   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.124       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.198E-08   AT NODE        255   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.776    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.124    
 
  ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   2 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   5.00    ,  FRACTION OF STEP COMPLETED  0.748    
- STEP TIME COMPLETED        22.4    ,  TOTAL TIME COMPLETED         595.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.330    
+ STEP TIME COMPLETED        1.65    ,  TOTAL TIME COMPLETED         39.6    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    12
 
 
-  INCREMENT    13 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   5.00    
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      3.162e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
 
-                    3 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    3 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 444.192E-12   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 174.842E-03   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                      0.944       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      2.115E-02   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      2.115E-02
- LARGEST INCREMENT OF DISP.        -7.778E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        6.337E-07   AT NODE         11   DOF  2
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.295       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.295    
+ LARGEST INCREMENT OF DISP.         7.704E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.799E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.548E-02   TIME AVG. MOMENT      1.740E-02
- LARGEST SCALED RESIDUAL MOMENT     1.652E-04   AT NODE          2   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT     1.652E-04
- LARGEST INCREMENT OF ROTATION     -4.881E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     3.515E-06   AT NODE         31   DOF  6
-   INSTANCE: SMA_BEAM-4                                                                      
+ AVERAGE MOMENT                     1.714E-03   TIME AVG. MOMENT      1.708E-03
+ LARGEST SCALED RESIDUAL MOMENT     2.988E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.988E-04
+ LARGEST INCREMENT OF ROTATION     -2.428E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     9.087E-06   AT NODE        255   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  1.801E-02   TIME AVG. HEAT FLUX   1.793E-02
- LARGEST RESIDUAL HEAT FLUX        -3.884E-07   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.775       AT NODE          9   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -2.035E-03   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
-          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ AVERAGE HEAT FLUX                  3.002E-04   TIME AVG. HEAT FLUX   2.995E-04
+ LARGEST RESIDUAL HEAT FLUX        -8.394E-10   AT NODE        669   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.123       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.545E-03   AT NODE        164   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION   -1.437E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.686e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
 
-                    2 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    2 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
 
-   MAX. PENETRATION ERROR -179.701E-18   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -70.7336E-09  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE     -1.420E-06   AT NODE          7   DOF  3
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE     -1.420E-06
- LARGEST INCREMENT OF DISP.        -7.778E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        1.817E-08   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -1.163E-04   AT NODE        631   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.163E-04
+ LARGEST INCREMENT OF DISP.         7.725E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.506E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.761E-02   TIME AVG. MOMENT      1.756E-02
- LARGEST SCALED RESIDUAL MOMENT    -2.315E-06   AT NODE          4   DOF  5
-   INSTANCE: SMA_BEAM-4                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -2.315E-06
- LARGEST INCREMENT OF ROTATION     -4.880E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -1.673E-07   AT NODE         22   DOF  5
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE MOMENT                     1.714E-03   TIME AVG. MOMENT      1.708E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.548E-08   AT NODE        630   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.548E-08
+ LARGEST INCREMENT OF ROTATION     -2.440E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.227E-06   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.801E-02   TIME AVG. HEAT FLUX   1.793E-02
- LARGEST RESIDUAL HEAT FLUX        -1.063E-10   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.775       AT NODE          9   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -2.844E-05   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  3.002E-04   TIME AVG. HEAT FLUX   2.995E-04
+ LARGEST RESIDUAL HEAT FLUX         2.700E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.123       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -5.014E-08   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.775    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.123    
 
  ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   2 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   5.00    ,  FRACTION OF STEP COMPLETED  0.914    
- STEP TIME COMPLETED        27.4    ,  TOTAL TIME COMPLETED         600.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.360    
+ STEP TIME COMPLETED        1.80    ,  TOTAL TIME COMPLETED         39.8    
 
      RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    13
 
 
-  INCREMENT    14 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT   2.57    
+  INCREMENT    14 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.786e+06
-        SOLVER ELAPSED TIME:  8ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
 
-                    2 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    2 POINTS CHANGED FROM CLOSED TO OPEN
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     1
 
-   MAX. PENETRATION ERROR 170.659E-12   AT NODE SMAWIRE_(NITINOL).22 OF CONTACT 
-   PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR 67.1744E-03  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                      0.978       TIME AVG. FORCE        1.01    
- LARGEST SCALED RESIDUAL FORCE      8.125E-03   AT NODE          4   DOF  2
-   INSTANCE: SMA_BEAM-5                                                                      
-  CORRESPONDING RESIDUAL FORCE      8.125E-03
- LARGEST INCREMENT OF DISP.        -3.950E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        5.585E-07   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.312       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.312    
+ LARGEST INCREMENT OF DISP.         7.846E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.210E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
           FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE MOMENT                     1.647E-02   TIME AVG. MOMENT      1.748E-02
- LARGEST SCALED RESIDUAL MOMENT    -6.348E-05   AT NODE          7   DOF  6
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL MOMENT    -6.348E-05
- LARGEST INCREMENT OF ROTATION     -2.479E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION     3.377E-06   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- ESTIMATE OF ROTATION CORRECTION    2.121E-07
-          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ AVERAGE MOMENT                     1.716E-03   TIME AVG. MOMENT      1.708E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.168E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.168E-04
+ LARGEST INCREMENT OF ROTATION     -2.485E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.237E-05   AT NODE        254   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
 
- AVERAGE HEAT FLUX                  1.802E-02   TIME AVG. HEAT FLUX   1.794E-02
- LARGEST RESIDUAL HEAT FLUX        -1.371E-07   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.399       AT NODE          9   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -4.823E-04   AT NODE          1   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  3.003E-04   TIME AVG. HEAT FLUX   2.996E-04
+ LARGEST RESIDUAL HEAT FLUX         7.208E-10   AT NODE        631   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.123       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.356E-03   AT NODE        164   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF TEMP.    CORRECTION    1.229E-07
+          HEAT FLUX EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -1.378E-04   AT NODE        631   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.378E-04
+ LARGEST INCREMENT OF DISP.         7.860E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.147E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.716E-03   TIME AVG. MOMENT      1.709E-03
+ LARGEST SCALED RESIDUAL MOMENT    -3.994E-08   AT NODE        631   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -3.994E-08
+ LARGEST INCREMENT OF ROTATION     -2.495E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.289E-06   AT NODE        253   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.003E-04   TIME AVG. HEAT FLUX   2.996E-04
+ LARGEST RESIDUAL HEAT FLUX         2.761E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.123       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -5.224E-08   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.123    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.390    
+ STEP TIME COMPLETED        1.95    ,  TOTAL TIME COMPLETED         39.9    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    14
+
+
+  INCREMENT    15 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.325       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.325    
+ LARGEST INCREMENT OF DISP.         8.027E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.664E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.717E-03   TIME AVG. MOMENT      1.709E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.297E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.297E-04
+ LARGEST INCREMENT OF ROTATION     -2.523E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.442E-06   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.004E-04   TIME AVG. HEAT FLUX   2.997E-04
+ LARGEST RESIDUAL HEAT FLUX         1.196E-09   AT NODE        653   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.122       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -1.214E-03   AT NODE          8   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
  
 	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
  	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
-        NUMBER OF EQUATIONS:  2016
+        NUMBER OF EQUATIONS:  13146
         NUMBER OF RHS:        1
-        NUMBER OF FLOPS:      2.686e+06
-        SOLVER ELAPSED TIME:  7ms
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
 
-                    4 SEVERE DISCONTINUITIES OCCURRED DURING THIS ITERATION.
-                    4 POINTS CHANGED FROM OPEN TO CLOSED
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
 
-               CONVERGENCE CHECKS FOR SEVERE DISCONTINUITY ITERATION     2
 
-   MAX. PENETRATION ERROR -174.028E-18   AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-   MAX. CONTACT FORCE ERROR -68.5003E-09  AT NODE SMAWIRE_(NITINOL).22 OF 
-   CONTACT PAIR (GENERAL_CONTACT_VERTICES_29,GENERAL_CONTACT_FACES_03)
-          THE CONTACT CONSTRAINT ERRORS ARE WITHIN THE TOLERANCES.
-
- AVERAGE FORCE                       1.02       TIME AVG. FORCE        1.02    
- LARGEST SCALED RESIDUAL FORCE     -5.989E-07   AT NODE          2   DOF  1
-   INSTANCE: SHADE-3                                                                         
-  CORRESPONDING RESIDUAL FORCE     -5.989E-07
- LARGEST INCREMENT OF DISP.        -3.950E-05   AT NODE          6   DOF  2
-   INSTANCE: SHADE-3                                                                         
- LARGEST CORRECTION TO DISP.        2.527E-08   AT NODE          9   DOF  1
-   INSTANCE: SHADE-3                                                                         
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -2.331E-04   AT NODE        733   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.331E-04
+ LARGEST INCREMENT OF DISP.         8.051E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.591E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
           THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE MOMENT                     1.763E-02   TIME AVG. MOMENT      1.757E-02
- LARGEST SCALED RESIDUAL MOMENT    -1.084E-06   AT NODE          4   DOF  5
-   INSTANCE: SMA_BEAM-4                                                                      
-  CORRESPONDING RESIDUAL MOMENT    -1.084E-06
- LARGEST INCREMENT OF ROTATION     -2.478E-04   AT NODE         31   DOF  4
-   INSTANCE: SMA_BEAM-4                                                                      
- LARGEST CORRECTION TO ROTATION    -2.532E-07   AT NODE         22   DOF  5
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE MOMENT                     1.717E-03   TIME AVG. MOMENT      1.709E-03
+ LARGEST SCALED RESIDUAL MOMENT     6.836E-08   AT NODE        723   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     6.836E-08
+ LARGEST INCREMENT OF ROTATION     -2.535E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.197E-06   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- AVERAGE HEAT FLUX                  1.802E-02   TIME AVG. HEAT FLUX   1.794E-02
- LARGEST RESIDUAL HEAT FLUX        -2.662E-11   AT NODE         17   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST INCREMENT OF TEMP.         0.399       AT NODE          9   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
- LARGEST CORRECTION TO TEMP.       -7.985E-06   AT NODE         16   DOF 11
-   INSTANCE: SMAWIRE_(NITINOL)                                                               
+ AVERAGE HEAT FLUX                  3.004E-04   TIME AVG. HEAT FLUX   2.997E-04
+ LARGEST RESIDUAL HEAT FLUX         3.018E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.122       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -6.767E-08   AT NODE        231   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
           THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
 
- MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.399    
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.122    
 
  ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
-   2 ARE SEVERE DISCONTINUITY ITERATIONS AND  0 ARE EQUILIBRIUM ITERATIONS.
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
 
- TIME INCREMENT COMPLETED   2.57    ,  FRACTION OF STEP COMPLETED   1.00    
- STEP TIME COMPLETED        30.0    ,  TOTAL TIME COMPLETED         603.    
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.420    
+ STEP TIME COMPLETED        2.10    ,  TOTAL TIME COMPLETED         40.1    
 
-     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    14
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    15
+
+
+  INCREMENT    16 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.342       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.342    
+ LARGEST INCREMENT OF DISP.         8.191E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.402E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.719E-03   TIME AVG. MOMENT      1.710E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.469E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.469E-04
+ LARGEST INCREMENT OF ROTATION     -2.545E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.000E-05   AT NODE        254   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.005E-04   TIME AVG. HEAT FLUX   2.997E-04
+ LARGEST RESIDUAL HEAT FLUX         1.065E-09   AT NODE        631   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.121       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -1.150E-03   AT NODE          8   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      1.369E-04   AT NODE        640   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.369E-04
+ LARGEST INCREMENT OF DISP.         8.215E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.529E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.718E-03   TIME AVG. MOMENT      1.710E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.231E-08   AT NODE        694   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.231E-08
+ LARGEST INCREMENT OF ROTATION     -2.555E-04   AT NODE        254   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.421E-06   AT NODE        253   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.005E-04   TIME AVG. HEAT FLUX   2.997E-04
+ LARGEST RESIDUAL HEAT FLUX         2.984E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.121       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.482E-08   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.121    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.450    
+ STEP TIME COMPLETED        2.25    ,  TOTAL TIME COMPLETED         40.2    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    16
+
+
+  INCREMENT    17 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.357       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.357    
+ LARGEST INCREMENT OF DISP.         8.372E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.567E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.720E-03   TIME AVG. MOMENT      1.710E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.623E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.623E-04
+ LARGEST INCREMENT OF ROTATION     -2.627E-04   AT NODE        253   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.237E-05   AT NODE        254   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.007E-04   TIME AVG. HEAT FLUX   2.998E-04
+ LARGEST RESIDUAL HEAT FLUX         1.224E-09   AT NODE        631   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.120       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -1.090E-03   AT NODE        267   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  206ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      1.578E-04   AT NODE        640   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.578E-04
+ LARGEST INCREMENT OF DISP.         8.396E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.362E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.720E-03   TIME AVG. MOMENT      1.710E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.377E-08   AT NODE        640   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.377E-08
+ LARGEST INCREMENT OF ROTATION     -2.641E-04   AT NODE        253   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.435E-06   AT NODE        253   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.007E-04   TIME AVG. HEAT FLUX   2.998E-04
+ LARGEST RESIDUAL HEAT FLUX         3.416E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.120       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -8.952E-08   AT NODE        253   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.120    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.480    
+ STEP TIME COMPLETED        2.40    ,  TOTAL TIME COMPLETED         40.4    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    17
+
+
+  INCREMENT    18 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE      0.373       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.373    
+ LARGEST INCREMENT OF DISP.         8.605E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.095E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.722E-03   TIME AVG. MOMENT      1.711E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.784E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.784E-04
+ LARGEST INCREMENT OF ROTATION     -2.715E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     9.019E-06   AT NODE        231   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.008E-04   TIME AVG. HEAT FLUX   2.998E-04
+ LARGEST RESIDUAL HEAT FLUX         6.582E-10   AT NODE        249   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.119       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -1.038E-03   AT NODE        266   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  161ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.36    
+ LARGEST SCALED RESIDUAL FORCE     -2.015E-04   AT NODE        723   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.015E-04
+ LARGEST INCREMENT OF DISP.         8.627E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.338E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.722E-03   TIME AVG. MOMENT      1.711E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.333E-08   AT NODE        733   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.333E-08
+ LARGEST INCREMENT OF ROTATION     -2.726E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.089E-06   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.008E-04   TIME AVG. HEAT FLUX   2.998E-04
+ LARGEST RESIDUAL HEAT FLUX         3.079E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.119       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.041E-08   AT NODE        249   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.119    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.510    
+ STEP TIME COMPLETED        2.55    ,  TOTAL TIME COMPLETED         40.5    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    18
+
+
+  INCREMENT    19 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.37       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.393       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.393    
+ LARGEST INCREMENT OF DISP.         8.826E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.987E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.723E-03   TIME AVG. MOMENT      1.712E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.988E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.988E-04
+ LARGEST INCREMENT OF ROTATION     -2.851E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.354E-05   AT NODE        253   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.009E-04   TIME AVG. HEAT FLUX   2.999E-04
+ LARGEST RESIDUAL HEAT FLUX         1.841E-09   AT NODE        641   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.119       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -9.945E-04   AT NODE        265   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE     -1.510E-04   AT NODE        723   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.510E-04
+ LARGEST INCREMENT OF DISP.         8.847E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.203E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.723E-03   TIME AVG. MOMENT      1.712E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.137E-08   AT NODE        733   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.137E-08
+ LARGEST INCREMENT OF ROTATION     -2.867E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.531E-06   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.009E-04   TIME AVG. HEAT FLUX   2.999E-04
+ LARGEST RESIDUAL HEAT FLUX         3.349E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.119       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -1.183E-07   AT NODE        253   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.119    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.540    
+ STEP TIME COMPLETED        2.70    ,  TOTAL TIME COMPLETED         40.7    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    19
+
+
+  INCREMENT    20 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.413       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.413    
+ LARGEST INCREMENT OF DISP.         8.904E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        6.242E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.725E-03   TIME AVG. MOMENT      1.712E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.196E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.196E-04
+ LARGEST INCREMENT OF ROTATION     -2.908E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.043E-06   AT NODE        256   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.010E-04   TIME AVG. HEAT FLUX   2.999E-04
+ LARGEST RESIDUAL HEAT FLUX        -1.052E-09   AT NODE        630   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.118       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -9.590E-04   AT NODE        265   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  160ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      1.573E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.573E-04
+ LARGEST INCREMENT OF DISP.         8.919E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.731E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.725E-03   TIME AVG. MOMENT      1.712E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.169E-08   AT NODE        640   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.169E-08
+ LARGEST INCREMENT OF ROTATION     -2.919E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.123E-06   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.010E-04   TIME AVG. HEAT FLUX   2.999E-04
+ LARGEST RESIDUAL HEAT FLUX         3.476E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.118       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        6.075E-08   AT NODE        256   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.118    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.570    
+ STEP TIME COMPLETED        2.85    ,  TOTAL TIME COMPLETED         40.8    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    20
+
+
+  INCREMENT    21 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.422       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.422    
+ LARGEST INCREMENT OF DISP.         8.993E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        7.714E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.727E-03   TIME AVG. MOMENT      1.713E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.284E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.284E-04
+ LARGEST INCREMENT OF ROTATION     -2.952E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     9.605E-06   AT NODE        253   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.011E-04   TIME AVG. HEAT FLUX   3.000E-04
+ LARGEST RESIDUAL HEAT FLUX         1.033E-09   AT NODE        730   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.117       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -9.304E-04   AT NODE        264   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      1.596E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.596E-04
+ LARGEST INCREMENT OF DISP.         9.004E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.371E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.727E-03   TIME AVG. MOMENT      1.713E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.548E-08   AT NODE        735   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.548E-08
+ LARGEST INCREMENT OF ROTATION     -2.959E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.680E-07   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.011E-04   TIME AVG. HEAT FLUX   3.000E-04
+ LARGEST RESIDUAL HEAT FLUX         3.150E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.117       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -6.579E-08   AT NODE        252   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.117    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.600    
+ STEP TIME COMPLETED        3.00    ,  TOTAL TIME COMPLETED         41.0    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    21
+
+
+  INCREMENT    22 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.432       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.432    
+ LARGEST INCREMENT OF DISP.         9.126E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.222E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.728E-03   TIME AVG. MOMENT      1.714E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.385E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.385E-04
+ LARGEST INCREMENT OF ROTATION     -2.980E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.383E-06   AT NODE        254   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.012E-04   TIME AVG. HEAT FLUX   3.000E-04
+ LARGEST RESIDUAL HEAT FLUX         1.226E-09   AT NODE        641   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.117       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -9.048E-04   AT NODE        263   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      1.660E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.660E-04
+ LARGEST INCREMENT OF DISP.         9.139E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.432E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.727E-03   TIME AVG. MOMENT      1.714E-03
+ LARGEST SCALED RESIDUAL MOMENT     3.351E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     2.657E-06
+ LARGEST INCREMENT OF ROTATION     -2.988E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.474E-07   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.012E-04   TIME AVG. HEAT FLUX   3.000E-04
+ LARGEST RESIDUAL HEAT FLUX         2.900E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.117       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.457E-08   AT NODE        253   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.117    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.630    
+ STEP TIME COMPLETED        3.15    ,  TOTAL TIME COMPLETED         41.1    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    22
+
+
+  INCREMENT    23 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.445       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.445    
+ LARGEST INCREMENT OF DISP.         9.295E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.556E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.729E-03   TIME AVG. MOMENT      1.714E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.520E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.520E-04
+ LARGEST INCREMENT OF ROTATION     -3.018E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     5.950E-06   AT NODE        254   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.013E-04   TIME AVG. HEAT FLUX   3.001E-04
+ LARGEST RESIDUAL HEAT FLUX         8.548E-10   AT NODE        631   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.116       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -8.826E-04   AT NODE        263   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      1.751E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.751E-04
+ LARGEST INCREMENT OF DISP.         9.312E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.652E-08   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.729E-03   TIME AVG. MOMENT      1.714E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.658E-08   AT NODE        686   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.658E-08
+ LARGEST INCREMENT OF ROTATION     -3.027E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.134E-07   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.013E-04   TIME AVG. HEAT FLUX   3.001E-04
+ LARGEST RESIDUAL HEAT FLUX         3.109E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.116       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -5.038E-08   AT NODE        752   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.116    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.660    
+ STEP TIME COMPLETED        3.30    ,  TOTAL TIME COMPLETED         41.3    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    23
+
+
+  INCREMENT    24 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.461       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.461    
+ LARGEST INCREMENT OF DISP.         9.433E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.213E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.731E-03   TIME AVG. MOMENT      1.715E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.678E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.678E-04
+ LARGEST INCREMENT OF ROTATION     -3.028E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     9.092E-06   AT NODE        254   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.014E-04   TIME AVG. HEAT FLUX   3.002E-04
+ LARGEST RESIDUAL HEAT FLUX        -1.614E-09   AT NODE        250   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.115       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -8.609E-04   AT NODE        262   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      1.874E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.874E-04
+ LARGEST INCREMENT OF DISP.         9.447E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.378E-08   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.731E-03   TIME AVG. MOMENT      1.715E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.247E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     3.367E-06
+ LARGEST INCREMENT OF ROTATION     -3.036E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.237E-07   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.014E-04   TIME AVG. HEAT FLUX   3.002E-04
+ LARGEST RESIDUAL HEAT FLUX         3.037E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.115       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.915E-07   AT NODE         15   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.115    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.690    
+ STEP TIME COMPLETED        3.45    ,  TOTAL TIME COMPLETED         41.4    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    24
+
+
+  INCREMENT    25 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.474       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.474    
+ LARGEST INCREMENT OF DISP.         9.619E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.721E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.733E-03   TIME AVG. MOMENT      1.716E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.815E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.815E-04
+ LARGEST INCREMENT OF ROTATION     -3.044E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     9.680E-06   AT NODE        253   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.016E-04   TIME AVG. HEAT FLUX   3.002E-04
+ LARGEST RESIDUAL HEAT FLUX         1.433E-09   AT NODE        730   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.115       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -8.427E-04   AT NODE        262   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      1.956E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.956E-04
+ LARGEST INCREMENT OF DISP.         9.632E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.351E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.733E-03   TIME AVG. MOMENT      1.716E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.851E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     3.847E-06
+ LARGEST INCREMENT OF ROTATION     -3.052E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.310E-07   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.016E-04   TIME AVG. HEAT FLUX   3.002E-04
+ LARGEST RESIDUAL HEAT FLUX         3.121E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.115       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.403E-07   AT NODE         15   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.115    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.720    
+ STEP TIME COMPLETED        3.60    ,  TOTAL TIME COMPLETED         41.6    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    25
+
+
+  INCREMENT    26 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  155ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.38       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.492       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.492    
+ LARGEST INCREMENT OF DISP.         9.650E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.904E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.734E-03   TIME AVG. MOMENT      1.716E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.999E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.999E-04
+ LARGEST INCREMENT OF ROTATION     -3.035E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.257E-06   AT NODE        730   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.017E-04   TIME AVG. HEAT FLUX   3.003E-04
+ LARGEST RESIDUAL HEAT FLUX         7.705E-10   AT NODE        730   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.114       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -8.247E-04   AT NODE        262   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      2.032E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.032E-04
+ LARGEST INCREMENT OF DISP.         9.652E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        8.240E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.735E-03   TIME AVG. MOMENT      1.716E-03
+ LARGEST SCALED RESIDUAL MOMENT     4.847E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     3.844E-06
+ LARGEST INCREMENT OF ROTATION     -3.038E-04   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.899E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.017E-04   TIME AVG. HEAT FLUX   3.003E-04
+ LARGEST RESIDUAL HEAT FLUX         3.217E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.114       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -4.972E-08   AT NODE        252   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.114    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.750    
+ STEP TIME COMPLETED        3.75    ,  TOTAL TIME COMPLETED         41.7    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    26
+
+
+  INCREMENT    27 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.496       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.496    
+ LARGEST INCREMENT OF DISP.         9.686E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.668E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.737E-03   TIME AVG. MOMENT      1.717E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.034E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.034E-04
+ LARGEST INCREMENT OF ROTATION     -3.003E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.045E-05   AT NODE        251   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.018E-04   TIME AVG. HEAT FLUX   3.003E-04
+ LARGEST RESIDUAL HEAT FLUX        -1.551E-09   AT NODE        250   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.113       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -8.069E-04   AT NODE        262   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      2.313E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.313E-04
+ LARGEST INCREMENT OF DISP.         9.690E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        8.534E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.737E-03   TIME AVG. MOMENT      1.717E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.064E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.016E-06
+ LARGEST INCREMENT OF ROTATION     -3.007E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.302E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.018E-04   TIME AVG. HEAT FLUX   3.003E-04
+ LARGEST RESIDUAL HEAT FLUX         3.324E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.113       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        2.087E-07   AT NODE         15   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.113    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.780    
+ STEP TIME COMPLETED        3.90    ,  TOTAL TIME COMPLETED         41.9    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    27
+
+
+  INCREMENT    28 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.501       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.501    
+ LARGEST INCREMENT OF DISP.         9.777E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        8.710E-08   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.738E-03   TIME AVG. MOMENT      1.718E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.087E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.087E-04
+ LARGEST INCREMENT OF ROTATION     -3.027E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -9.218E-06   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.019E-04   TIME AVG. HEAT FLUX   3.004E-04
+ LARGEST RESIDUAL HEAT FLUX        -1.150E-09   AT NODE        250   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.113       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.905E-04   AT NODE        261   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      2.490E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.490E-04
+ LARGEST INCREMENT OF DISP.         9.782E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.034E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.738E-03   TIME AVG. MOMENT      1.718E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.387E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.272E-06
+ LARGEST INCREMENT OF ROTATION     -3.032E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -9.867E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.019E-04   TIME AVG. HEAT FLUX   3.004E-04
+ LARGEST RESIDUAL HEAT FLUX         3.645E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.113       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        1.174E-07   AT NODE         15   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.113    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.810    
+ STEP TIME COMPLETED        4.05    ,  TOTAL TIME COMPLETED         42.0    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    28
+
+
+  INCREMENT    29 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.512       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.512    
+ LARGEST INCREMENT OF DISP.         9.807E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.068E-08   AT NODE          7   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.740E-03   TIME AVG. MOMENT      1.719E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.192E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.192E-04
+ LARGEST INCREMENT OF ROTATION     -3.035E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     5.025E-06   AT NODE        253   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.020E-04   TIME AVG. HEAT FLUX   3.004E-04
+ LARGEST RESIDUAL HEAT FLUX        -5.014E-10   AT NODE        250   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.112       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.757E-04   AT NODE        261   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      2.598E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.598E-04
+ LARGEST INCREMENT OF DISP.         9.812E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        9.632E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.740E-03   TIME AVG. MOMENT      1.719E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.524E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.380E-06
+ LARGEST INCREMENT OF ROTATION     -3.039E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.219E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.020E-04   TIME AVG. HEAT FLUX   3.004E-04
+ LARGEST RESIDUAL HEAT FLUX         3.602E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.112       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        5.147E-08   AT NODE         15   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.112    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.840    
+ STEP TIME COMPLETED        4.20    ,  TOTAL TIME COMPLETED         42.2    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    29
+
+
+  INCREMENT    30 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.516       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.516    
+ LARGEST INCREMENT OF DISP.         9.830E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.583E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.741E-03   TIME AVG. MOMENT      1.719E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.238E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.238E-04
+ LARGEST INCREMENT OF ROTATION     -3.037E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.541E-06   AT NODE        255   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.021E-04   TIME AVG. HEAT FLUX   3.005E-04
+ LARGEST RESIDUAL HEAT FLUX        -9.424E-10   AT NODE        631   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.111       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.612E-04   AT NODE        261   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      2.581E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.581E-04
+ LARGEST INCREMENT OF DISP.         9.836E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        7.815E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.741E-03   TIME AVG. MOMENT      1.719E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.598E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.439E-06
+ LARGEST INCREMENT OF ROTATION     -3.041E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -5.877E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.021E-04   TIME AVG. HEAT FLUX   3.005E-04
+ LARGEST RESIDUAL HEAT FLUX         3.603E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.111       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        6.099E-08   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.111    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.870    
+ STEP TIME COMPLETED        4.35    ,  TOTAL TIME COMPLETED         42.3    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    30
+
+
+  INCREMENT    31 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  159ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.520       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.520    
+ LARGEST INCREMENT OF DISP.         9.846E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.547E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.742E-03   TIME AVG. MOMENT      1.720E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.277E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.277E-04
+ LARGEST INCREMENT OF ROTATION     -3.038E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.508E-06   AT NODE        253   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.022E-04   TIME AVG. HEAT FLUX   3.005E-04
+ LARGEST RESIDUAL HEAT FLUX         7.673E-10   AT NODE        730   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.111       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.470E-04   AT NODE        261   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  160ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.39       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      3.012E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.012E-04
+ LARGEST INCREMENT OF DISP.         9.850E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        7.524E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.742E-03   TIME AVG. MOMENT      1.720E-03
+ LARGEST SCALED RESIDUAL MOMENT     6.036E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.787E-06
+ LARGEST INCREMENT OF ROTATION     -3.042E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     5.434E-07   AT NODE        253   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.022E-04   TIME AVG. HEAT FLUX   3.005E-04
+ LARGEST RESIDUAL HEAT FLUX         3.684E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.111       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -4.380E-08   AT NODE        252   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.111    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.900    
+ STEP TIME COMPLETED        4.50    ,  TOTAL TIME COMPLETED         42.5    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    31
+
+
+  INCREMENT    32 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.523       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.523    
+ LARGEST INCREMENT OF DISP.         9.814E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.657E-08   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.745E-03   TIME AVG. MOMENT      1.721E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.307E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.307E-04
+ LARGEST INCREMENT OF ROTATION     -3.031E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.467E-06   AT NODE        253   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.023E-04   TIME AVG. HEAT FLUX   3.006E-04
+ LARGEST RESIDUAL HEAT FLUX        -8.766E-10   AT NODE        249   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.110       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.331E-04   AT NODE        261   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  160ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      3.302E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.302E-04
+ LARGEST INCREMENT OF DISP.         9.812E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        7.873E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.745E-03   TIME AVG. MOMENT      1.721E-03
+ LARGEST SCALED RESIDUAL MOMENT     6.292E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.989E-06
+ LARGEST INCREMENT OF ROTATION     -3.034E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.973E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.023E-04   TIME AVG. HEAT FLUX   3.006E-04
+ LARGEST RESIDUAL HEAT FLUX         3.605E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.110       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        8.689E-08   AT NODE        249   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.110    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.930    
+ STEP TIME COMPLETED        4.65    ,  TOTAL TIME COMPLETED         42.6    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    32
+
+
+  INCREMENT    33 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.521       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.521    
+ LARGEST INCREMENT OF DISP.         9.686E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.260E-07   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.746E-03   TIME AVG. MOMENT      1.722E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.282E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.282E-04
+ LARGEST INCREMENT OF ROTATION     -2.999E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.965E-06   AT NODE        253   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.024E-04   TIME AVG. HEAT FLUX   3.007E-04
+ LARGEST RESIDUAL HEAT FLUX        -9.405E-10   AT NODE        631   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.109       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.199E-04   AT NODE        260   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  156ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      3.390E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.390E-04
+ LARGEST INCREMENT OF DISP.         9.682E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        6.838E-09   AT NODE         29   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.746E-03   TIME AVG. MOMENT      1.722E-03
+ LARGEST SCALED RESIDUAL MOMENT     6.272E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.973E-06
+ LARGEST INCREMENT OF ROTATION     -3.000E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.593E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.024E-04   TIME AVG. HEAT FLUX   3.007E-04
+ LARGEST RESIDUAL HEAT FLUX         3.492E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.109       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        5.394E-08   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.109    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.960    
+ STEP TIME COMPLETED        4.80    ,  TOTAL TIME COMPLETED         42.8    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    33
+
+
+  INCREMENT    34 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  0.150    
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  162ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      0.511       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.511    
+ LARGEST INCREMENT OF DISP.         9.670E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.416E-08   AT NODE         29   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.749E-03   TIME AVG. MOMENT      1.722E-03
+ LARGEST SCALED RESIDUAL MOMENT     5.177E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.177E-04
+ LARGEST INCREMENT OF ROTATION     -2.992E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     4.013E-06   AT NODE        641   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.025E-04   TIME AVG. HEAT FLUX   3.007E-04
+ LARGEST RESIDUAL HEAT FLUX        -8.084E-10   AT NODE        631   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.109       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.082E-04   AT NODE        260   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  158ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.37    
+ LARGEST SCALED RESIDUAL FORCE      3.267E-04   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.267E-04
+ LARGEST INCREMENT OF DISP.         9.672E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        7.003E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.749E-03   TIME AVG. MOMENT      1.722E-03
+ LARGEST SCALED RESIDUAL MOMENT     6.172E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     4.894E-06
+ LARGEST INCREMENT OF ROTATION     -2.995E-04   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -4.582E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.025E-04   TIME AVG. HEAT FLUX   3.007E-04
+ LARGEST RESIDUAL HEAT FLUX         3.514E-10   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         0.109       AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        4.674E-08   AT NODE        254   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   0.109    
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  0.150    ,  FRACTION OF STEP COMPLETED  0.990    
+ STEP TIME COMPLETED        4.95    ,  TOTAL TIME COMPLETED         42.9    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    34
+
+
+  INCREMENT    35 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.000E-02
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.38    
+ LARGEST SCALED RESIDUAL FORCE      0.114       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.114    
+ LARGEST INCREMENT OF DISP.         3.223E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.186E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.749E-03   TIME AVG. MOMENT      1.723E-03
+ LARGEST SCALED RESIDUAL MOMENT     1.153E-04   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.153E-04
+ LARGEST INCREMENT OF ROTATION     -9.989E-05   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.495E-07   AT NODE        641   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE HEAT FLUX                  3.025E-04   TIME AVG. HEAT FLUX   3.008E-04
+ LARGEST RESIDUAL HEAT FLUX        -1.270E-10   AT NODE        720   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         3.621E-02   AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.       -7.827E-05   AT NODE        260   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	UNSYMMETRIC HYBRID DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  13146
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      7.741e+08
+        SOLVER ELAPSED TIME:  157ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       2.40       TIME AVG. FORCE        2.38    
+ LARGEST SCALED RESIDUAL FORCE      7.258E-05   AT NODE        626   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      7.258E-05
+ LARGEST INCREMENT OF DISP.         3.223E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.590E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.749E-03   TIME AVG. MOMENT      1.723E-03
+ LARGEST SCALED RESIDUAL MOMENT     1.378E-08   AT NODE          1   DOF  6
+   INSTANCE:                                                                                 
+  CORRESPONDING RESIDUAL MOMENT     1.093E-06
+ LARGEST INCREMENT OF ROTATION     -9.993E-05   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.051E-07   AT NODE        231   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE HEAT FLUX                  3.025E-04   TIME AVG. HEAT FLUX   3.008E-04
+ LARGEST RESIDUAL HEAT FLUX         7.743E-11   AT NODE        747   DOF 15
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST INCREMENT OF TEMP.         3.621E-02   AT NODE         15   DOF 13
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO TEMP.        5.140E-09   AT NODE        727   DOF 11
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE HEAT FLUX EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ MAXIMUM NON-PRESCRIBED INCREMENT IN TEMPERATURE IS   3.621E-02
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.000E-02,  FRACTION OF STEP COMPLETED   1.00    
+ STEP TIME COMPLETED        5.00    ,  TOTAL TIME COMPLETED         43.0    
+
+     RESTART INFORMATION WRITTEN IN STEP  23  AFTER INCREMENT    35
 
 
           THE ANALYSIS HAS BEEN COMPLETED
@@ -1407,17 +3386,17 @@
 
 
      ANALYSIS SUMMARY:
-     TOTAL OF        361  INCREMENTS
-                       7  CUTBACKS IN AUTOMATIC INCREMENTATION
-                     967  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
-                     967  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
-                     967  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+     TOTAL OF        511  INCREMENTS
+                      16  CUTBACKS IN AUTOMATIC INCREMENTATION
+                    2162  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
+                    2162  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
+                    2162  INVOLVE MATRIX DECOMPOSITION, INCLUDING
                        0  DECOMPOSITION(S) OF THE MASS MATRIX
                        1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
                        0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
                        0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
-                      49  WARNING MESSAGES DURING USER INPUT PROCESSING
-                     275  WARNING MESSAGES DURING ANALYSIS
+                       1  WARNING MESSAGES DURING USER INPUT PROCESSING
+                     528  WARNING MESSAGES DURING ANALYSIS
                        0  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
                        0  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
                        0  ERROR MESSAGES
@@ -1425,8 +3404,8 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      3.1    
-       SYSTEM TIME (SEC)    =     0.20    
-       TOTAL CPU TIME (SEC) =      3.3    
-       WALLCLOCK TIME (SEC) =            3
+       USER TIME (SEC)      =      33.    
+       SYSTEM TIME (SEC)    =      2.2    
+       TOTAL CPU TIME (SEC) =      35.    
+       WALLCLOCK TIME (SEC) =           36
        MEMORY PEAK (GB)     =            0

@@ -1,0 +1,16 @@
+[2026-11-22 23:40:18] start v_t185_c5 (c5 settings check vs t185)
+[2026-11-22 23:40:18] start v_t167_c5 (c5 settings check vs t167)
+[2026-11-22 23:40:18] start v_B1_t215_c5 (c5 settings check vs B1_t215_c0)
+[2026-11-22 23:40:18] start v_B2_t220_c5_keep (B2 repeat, keep odb for maps)
+[2026-11-22 23:43:43] done v_t167_c5: note=c5 settings check vs t167, twist_rad=1.67, pretwist_deg=0, status=aborted, seconds=203, start_angle=0.0, loaded_angle=95.6557, load_reached_time=1.0, unloaded_angle=92.8304, last_step=Unload, gauge_xi_mean=0.6538, gauge_xi_min=0.5544, gauge_xi_max=0.6958, gauge_frac_xi_gt_0.9=0.0, fillet_xi_mean=0.2907, whole_xi_mean=0.2188, frac_points_xi_gt_0.05=0.6084, gauge_onset_median_K=310.1474, gauge_onset_min_K=309.1274, gauge_mises_median_MPa=55.2699
+[2026-11-22 23:44:13] done v_B1_t215_c5: note=c5 settings check vs B1_t215_c0, twist_rad=2.15, pretwist_deg=-28.0, status=aborted, seconds=233, start_angle=-27.9987, loaded_angle=95.179, load_reached_time=1.0, unloaded_angle=92.3338, last_step=Unload, gauge_xi_mean=0.7833, gauge_xi_min=0.7042, gauge_xi_max=0.8092, gauge_frac_xi_gt_0.9=0.0, fillet_xi_mean=0.3732, whole_xi_mean=0.274, frac_points_xi_gt_0.05=0.7866, gauge_onset_median_K=306.3103, gauge_onset_min_K=305.7249, gauge_mises_median_MPa=62.5657
+[2026-11-22 23:50:23] done v_B2_t220_c5_keep: note=B2 repeat, keep odb for maps, twist_rad=2.2, pretwist_deg=0, status=completed, seconds=598, start_angle=0.0, loaded_angle=126.2137, load_reached_time=1.0, unloaded_angle=87.6029, last_step=temp_step, gauge_xi_mean=0.7425, gauge_xi_min=0.5943, gauge_xi_max=1.0, gauge_frac_xi_gt_0.9=0.0985, fillet_xi_mean=0.4794, whole_xi_mean=0.3487, frac_points_xi_gt_0.05=0.7279, gauge_onset_median_K=308.482, gauge_onset_min_K=300.0, gauge_mises_median_MPa=156.0639
+[2026-11-22 23:57:28] post failed v_t185_c5: tor\tests\twist_mvf\tm.py", line 164, in post
+    raise RuntimeError('post failed for %s: %s %s' % (name, r.stdout[-500:], r.stderr[-500:]))
+RuntimeError: post failed for v_t185_c5:  Traceback (most recent call last):
+  File "C:\Users\adzheng\STAR-Simulator\tests\twist_mvf\extract.py", line 59, in <module>
+    t += 360.0 * round((prev - t) / 360.0)
+ValueError: cannot convert float NaN to integer
+
+
+[2026-11-22 23:57:28] done v_t185_c5: note=c5 settings check vs t185, twist_rad=1.85, pretwist_deg=0, status=completed, seconds=1020

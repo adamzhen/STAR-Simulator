@@ -1,0 +1,229 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-08.00.46 RELr427 198590
+# Run by adzheng on Wed Nov 18 14:16:20 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+#: Warning: Permission was denied for "abaqus.rpy"; "abaqus.rpy.11" will be used for this session's replay file.
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(0.0, 0.0), width=305.930206298828, 
+    height=156.505554199219)
+session.viewports['Viewport: 1'].makeCurrent()
+session.viewports['Viewport: 1'].maximize()
+from caeModules import *
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+session.viewports['Viewport: 1'].partDisplay.geometryOptions.setValues(
+    referenceRepresentation=ON)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py', 
+    __main__.__dict__)
+#: 
+#: ################
+#: [2026-11-18 14:17:17] RUN NO: 0.52
+#: [2026-11-18 14:17:17] Date: 2026-11-18
+#: [2026-11-18 14:17:17] 
+#: === Starting iterative loop with restart-based steps ===
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: [2026-11-18 14:17:17] 
+#: ========================================
+#: [2026-11-18 14:17:17]  Iteration 1 of 12 (job SMAHeatTransient_01)
+#: [2026-11-18 14:17:17] ========================================
+#: The model "DogboneScenario1_Model" has been created.
+#: [2026-11-18 14:17:17] Creating materials
+#: [2026-11-18 14:17:17] partitioning part
+#: [2026-11-18 14:17:17] Creating shell section
+#: [2026-11-18 14:17:17] Creating assembly
+#: [2026-11-18 14:17:17] Defining step
+#: [2026-11-18 14:17:17] Defining initial temperature
+#: [2026-11-18 14:17:17] Defining uniform initial temperature
+#: [2026-11-18 14:17:17] Defining sets
+#: [2026-11-18 14:17:17] Load: found 1 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+#: [2026-11-18 14:17:17] Defining surfaces
+#: [2026-11-18 14:17:17] Defining BC
+#: [2026-11-18 14:17:17] Defining constraints
+#: [2026-11-18 14:17:17] Defining loads
+#: [2026-11-18 14:17:17] Meshing part
+#: [2026-11-18 14:17:17] RuntimeReport.plot_breakdown: no data -- skipping
+#: [2026-11-18 14:17:17] Runtime report: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_report_0.52.csv
+#: [2026-11-18 14:17:17] Runtime summary: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_summary_0.52.txt
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 943, in <module>
+#*     model = build_model_from_step(
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 641, in build_model_from_step
+#*     stop
+p = mdb.models['DogboneScenario1_Model'].parts['sma']
+session.viewports['Viewport: 1'].setValues(displayedObject=p)
+a = mdb.models['DogboneScenario1_Model'].rootAssembly
+a.regenerate()
+a = mdb.models['DogboneScenario1_Model'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, connectors=ON, optimizationTasks=OFF, 
+    geometricRestrictions=OFF, stopConditions=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.145727, 
+    farPlane=0.16043, width=0.0835768, height=0.0317839, 
+    viewOffsetX=0.00359875, viewOffsetY=-0.000258975)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Initial')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(step='Load')
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=OFF, bcs=OFF, 
+    predefinedFields=OFF, interactions=ON, constraints=ON, 
+    engineeringFeatures=ON)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py', 
+    __main__.__dict__)
+#: 
+#: ################
+#: [2026-11-18 14:19:03] RUN NO: 0.52
+#: [2026-11-18 14:19:03] Date: 2026-11-18
+#: [2026-11-18 14:19:03] 
+#: === Starting iterative loop with restart-based steps ===
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: [2026-11-18 14:19:03] 
+#: ========================================
+#: [2026-11-18 14:19:03]  Iteration 1 of 12 (job SMAHeatTransient_01)
+#: [2026-11-18 14:19:03] ========================================
+#: The model "DogboneScenario1_Model" has been created.
+#: [2026-11-18 14:19:03] Creating materials
+#: [2026-11-18 14:19:03] partitioning part
+#: [2026-11-18 14:19:03] Creating shell section
+#: [2026-11-18 14:19:03] Creating assembly
+#: [2026-11-18 14:19:03] Defining step
+#: [2026-11-18 14:19:03] Defining initial temperature
+#: [2026-11-18 14:19:03] Defining uniform initial temperature
+#: [2026-11-18 14:19:03] Defining sets
+#: [2026-11-18 14:19:03] Load: found 1 edge(s) between (0.074, -0.015, 0) and (0.074, 0.015, 0)
+#: [2026-11-18 14:19:03] Defining surfaces
+#: [2026-11-18 14:19:03] Defining BC
+#: [2026-11-18 14:19:03] Defining constraints
+#: [2026-11-18 14:19:03] Defining loads
+#: [2026-11-18 14:19:03] Meshing part
+#: [2026-11-18 14:19:03] RuntimeReport.plot_breakdown: no data -- skipping
+#: [2026-11-18 14:19:03] Runtime report: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_report_0.52.csv
+#: [2026-11-18 14:19:03] Runtime summary: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_summary_0.52.txt
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 943, in <module>
+#*     model = build_model_from_step(
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 641, in build_model_from_step
+#*     stop
+a = mdb.models['DogboneScenario1_Model'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a.regenerate()
+a = mdb.models['DogboneScenario1_Model'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+#: Coordinates of vertex 14 :73.88E-03,20.E-03,0.
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py', 
+    __main__.__dict__)
+#: 
+#: ################
+#: [2026-11-18 14:19:37] RUN NO: 0.52
+#: [2026-11-18 14:19:37] Date: 2026-11-18
+#: [2026-11-18 14:19:37] 
+#: === Starting iterative loop with restart-based steps ===
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: [2026-11-18 14:19:37] 
+#: ========================================
+#: [2026-11-18 14:19:37]  Iteration 1 of 12 (job SMAHeatTransient_01)
+#: [2026-11-18 14:19:37] ========================================
+#: The model "DogboneScenario1_Model" has been created.
+#: [2026-11-18 14:19:37] Creating materials
+#: [2026-11-18 14:19:37] partitioning part
+#: [2026-11-18 14:19:37] Creating shell section
+#: [2026-11-18 14:19:37] Creating assembly
+#: [2026-11-18 14:19:37] Defining step
+#: [2026-11-18 14:19:37] Defining initial temperature
+#: [2026-11-18 14:19:37] Defining uniform initial temperature
+#: [2026-11-18 14:19:37] Defining sets
+#: [2026-11-18 14:19:37] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.02, 0)
+#: [2026-11-18 14:19:37] Defining surfaces
+#: [2026-11-18 14:19:37] Defining BC
+#: [2026-11-18 14:19:37] Defining constraints
+#: [2026-11-18 14:19:37] Defining loads
+#: [2026-11-18 14:19:37] Meshing part
+#: [2026-11-18 14:19:37] RuntimeReport.plot_breakdown: no data -- skipping
+#: [2026-11-18 14:19:37] Runtime report: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_report_0.52.csv
+#: [2026-11-18 14:19:37] Runtime summary: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_summary_0.52.txt
+#* NameError: name 'stop' is not defined
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 943, in <module>
+#*     model = build_model_from_step(
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 641, in build_model_from_step
+#*     stop
+a = mdb.models['DogboneScenario1_Model'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+a.regenerate()
+a = mdb.models['DogboneScenario1_Model'].rootAssembly
+session.viewports['Viewport: 1'].setValues(displayedObject=a)
+session.viewports['Viewport: 1'].assemblyDisplay.setValues(loads=ON, bcs=ON, 
+    predefinedFields=ON, interactions=OFF, constraints=OFF, 
+    engineeringFeatures=OFF)
+session.viewports['Viewport: 1'].view.setValues(nearPlane=0.142857, 
+    farPlane=0.1633, width=0.118763, height=0.045165, viewOffsetX=0.0127102, 
+    viewOffsetY=-0.00249812)
+execfile(
+    'C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py', 
+    __main__.__dict__)
+#: 
+#: ################
+#: [2026-11-18 14:20:09] RUN NO: 0.52
+#: [2026-11-18 14:20:09] Date: 2026-11-18
+#: [2026-11-18 14:20:09] 
+#: === Starting iterative loop with restart-based steps ===
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: [2026-11-18 14:20:09] 
+#: ========================================
+#: [2026-11-18 14:20:09]  Iteration 1 of 12 (job SMAHeatTransient_01)
+#: [2026-11-18 14:20:09] ========================================
+#: The model "DogboneScenario1_Model" has been created.
+#: [2026-11-18 14:20:09] Creating materials
+#: [2026-11-18 14:20:09] partitioning part
+#: [2026-11-18 14:20:09] Creating shell section
+#: [2026-11-18 14:20:09] Creating assembly
+#: [2026-11-18 14:20:09] Defining step
+#: [2026-11-18 14:20:09] Defining initial temperature
+#: [2026-11-18 14:20:09] Defining uniform initial temperature
+#: [2026-11-18 14:20:09] Defining sets
+#: [2026-11-18 14:20:09] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.02, 0)
+#: [2026-11-18 14:20:09] Defining surfaces
+#: [2026-11-18 14:20:09] Defining BC
+#: [2026-11-18 14:20:09] Defining constraints
+#: [2026-11-18 14:20:09] Defining loads
+#: [2026-11-18 14:20:09] Meshing part
+#: [2026-11-18 14:30:38] Saved runtime breakdown plot: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/plots\runtime_breakdown_0.52.png
+#: [2026-11-18 14:30:38] Runtime report: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_report_0.52.csv
+#: [2026-11-18 14:30:38] Runtime summary: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_0.52/runtime_summary_0.52.txt
+#* ipc_TOO_LITTLE_SENT
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 942, in <module>
+#*     bc_tol=BC_TOLERANCE,
+#* File 
+#* "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwist.py", 
+#* line 643, in build_model_from_step
+#*     phase='setup', start_time=_prep_start,

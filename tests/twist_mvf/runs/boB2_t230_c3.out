@@ -1,0 +1,202 @@
+Analysis initiated from SIMULIA established products
+Abaqus JOB boB2_t230_c3
+Abaqus 2025
+Abaqus License Manager checked out the following licenses:
+Abaqus/Standard checked out 5 tokens from Flexnet server coe-vtls7.engr.tamu.edu.
+<328 out of 443 licenses remain available>.
+Begin Compiling Abaqus/Standard User Subroutines
+11/22/2026 11:09:55 PM
+Intel(R) Fortran Compiler for applications running on Intel(R) 64, Version 2026.1.0 Build 20260617
+Copyright (C) 1985-2026 Intel Corporation. All rights reserved.
+
+End Compiling Abaqus/Standard User Subroutines
+Begin Linking Abaqus/Standard User Subroutines
+   Creating library standardU.lib and object standardU.exp
+Hartl_UMAT_Hacked.obj : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+libircmt.lib(fast_mem_ops.c.obj) : warning LNK4210: .CRT section exists; there may be unhandled static initializers or terminators
+End Linking Abaqus/Standard User Subroutines
+11/22/2026 11:09:57 PM
+Begin Analysis Input File Processor
+11/22/2026 11:09:57 PM
+Run pre.exe
+11/22/2026 11:10:00 PM
+End Analysis Input File Processor
+Begin Abaqus/Standard Analysis
+11/22/2026 11:10:00 PM
+Run standard.exe
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  9.835158196728650E-005
+                              xi=  1.000000000000000E-004
+             Total inc. in xi is: -3.314369084864721E-003
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ RARE
+ ITER. FAILS TO CONVERGE! IPHASE=           1
+                          Del_xi=  8.905534915498291E-005
+                              xi=  1.000000000000000E-004
+             Total inc. in xi is: -3.123810746586324E-005
+11/22/2026 11:15:10 PM
+Abaqus Error: Abaqus/Standard Analysis exited with an error - Please see the 
+message file for possible error messages if the file exists.
+Begin SIM Wrap-up
+11/22/2026 11:15:11 PM
+Run SMASimUtility.exe
+11/22/2026 11:15:11 PM
+End SIM Wrap-up
+Abaqus/Analysis exited with errors

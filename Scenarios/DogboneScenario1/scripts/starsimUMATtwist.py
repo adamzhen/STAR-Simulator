@@ -44,16 +44,26 @@ import numpy as np
 #sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(f"{STAR_DIR}\Scenarios\SMAScenario2\scripts")
 sys.path.append(f"{STAR_DIR}/Abaqus/scripts")
+# Abaqus/CAE keeps imported modules for the whole session, so a second run
+# in the same CAE window would reuse an old starlib. Reload so edits apply.
+import importlib
+import raytrace_viewer, starlib
+importlib.reload(raytrace_viewer)
+importlib.reload(starlib)
 from starlib import *
     
+_names_before_params = begin_parameters()  # for logging every parameter below
+
 #######################################
 ########### EDIT PARAMETERS ###########
 #######################################
 
 # RUN PARAMETERS
-RUN_NO     = 0.4
-N_ITER     = 12
-CHUNK_TIME = 5.0 # seconds per iterations
+RUN_NO     = 1.03
+CHUNK_SCHEDULE = [(3, 5.0), (15, 1.0), (2, 5.0), (11, 10.0)]  # 150 s; 1 s chunks over 15-30 s, where the shade sweeps over  
+CHUNK_TIMES = [t for n, t in CHUNK_SCHEDULE for _ in range(n)]  # seconds, one per iteration
+N_ITER     = len(CHUNK_TIMES)
+MAX_INC    = 5.0  # max Abaqus time increment (s); capped at each step's length
 
 # FILE NAMES AND PARAMETERS
 SCENARIO_NAME = 'DogboneScenario1'  # ENFORCE NO SPACES
@@ -61,7 +71,7 @@ OBJECT_NAME   = 'SMADogbone_(Nitinol)'  # ENFORCE NO SPACES
 OBJECT_FILE   = 'SMADogbone_(Nitinol).stp'
 FCSTD_FILE    = 'SMAScenario4.FCStd'
 DEFORMED_NAME = 'SMADogboneDeformed'
-LOAD_NAME = 'SolarFlux' 
+LOAD_NAME = 'SolarFlux'  # base name; each iteration's load is SolarFlux_NN
 JOB_BASENAME  = 'SMAHeatTransient'
 PREP_JOB_NAME = 'loading'  # Load/Unload/temp_step prep job that Heat_01 restarts from
 PREP_DEFORMS_GEOMETRY = True  # True: prep job deforms the part, so iteration 1 ray-traces the post load/unload shape.
@@ -69,30 +79,99 @@ PREP_DEFORMS_GEOMETRY = True  # True: prep job deforms the part, so iteration 1 
 MODEL_BASENAME = f"{SCENARIO_NAME}_Model"
 
 # RAY TRACING PARAMETERS
-N_RAYS = 5000 # Number of rays for OTSun ray tracing
-SOLAR_IRRADIANCE = 4000.0  # W/m^2
+N_RAYS = 7000 # Number of rays for OTSun ray tracing
+SOLAR_IRRADIANCE = 7169.0  # W/m^2 (gauss mode: PEAK incident irradiance; heat fit g448_bulb 11/24, tilt 44.8 deg)
 OBJECT_MATERIAL = "Nitinol"
 ABSORPTION_ONLY = True  # If True, ray tracing ignores reflections and only accounts for absorption for computational efficiency 
-ABSORPTIVITY_DICT = {"Nitinol": 0.75, "Aluminum": 0.20, "Blocker": 1.0}
-SUN_ZENITH = 10 # degrees from the +Z ("straight overhead") axis.
-SUN_AZIMUTH = 0 # degrees from the +X axis in the XY plane (0 = +X, 90 = +Y, 180 = -X, 270 = -Y)
+ABSORPTIVITY_DICT = {"Nitinol": 0.9, "Aluminum": 0.20, "Blocker": 1.0}
+SUN_ZENITH = 44.8  # degrees from the +Z ("straight overhead") axis.
+SUN_AZIMUTH = 90 # degrees from the +X axis in the XY plane (0 = +X, 90 = +Y, 180 = -X, 270 = -Y)
+PREVIEW_SUN = True  # before the prep job: open a sun-direction preview PNG and ask (CAE GUI) whether to continue
+INCLUDE_SHADE = True  # True: shade built in Abaqus (coupled to the free end) and used as a Blocker in ray tracing
+                      # False: no shade anywhere (no Abaqus part, no ray-tracing blocker)
+SHADE_X_RANGE_PHYS = (0.02166, 0.07388)  # m, shade length of physical shade along x
+SHADE_X_RANGE = (SHADE_X_RANGE_PHYS[0] - 0.004, SHADE_X_RANGE_PHYS[1])  # m, shade length along x for simulation(fixed-end side, free-end side); dogbone free end is at x = 0.074
+SHADE_END_EXTENSION = 0.0025        # m, extra length added past the free-end side so rays can't slip around the shade's end
+# Extra (non-target) objects in the ray tracing, by Abaqus instance name.
+#   'material': key of ABSORPTIVITY_DICT ('Blocker' = absorbs rays, not counted as flux)
+#   'source':   'abaqus' = the instance is in the Abaqus model; its 4 deformed corners are
+#               exported each iteration from the same ODB frame as the dogbone.
+#               'fixed'  = exists only in ray tracing (not in Abaqus); 'corners' gives its
+#               4 corners (m, FreeCAD/Abaqus coords, in loop order). It never moves.
+INCLUDE_GRIP = True     # True: thin Blocker plate over the fixed end, standing in for the grip (ray tracing only)
+GRIP_LENGTH = 0.003     # m, gripped length measured from the fixed end (x = GRIP_X_START)
+GRIP_X_START = 0.0      # m, x of the fixed end of the dogbone
+GRIP_Y_RANGE = (-0.002, 0.022)  # m, dogbone width at the fixed end
+GRIP_HEIGHT = 0.0005     # m, height of the plate above the dogbone mid-plane (z = 0)
+GRIP_MARGIN = 0.002     # m, plate overhang past the end and both sides so no rays slip past the edges
 FREECAD_TIMEOUT = 600  # seconds 
-EMISSIVITY = 0.75
 GEOMETRY_IMPORT='nodes'  # 'nodes': FreeCAD builds one flat triangle per element from Abaqus node data (quads split); 'stp': old STEP import
 RAY_ENGINE = 'FastRay'  # 'FastRay' (default, same results, much faster on many faces) or 'Ray' (stock OTSun)
+FLUX_MAPPING = 'coverage'  # ray hits -> element flux: 'coverage' (lit fraction per element, see
+                           # docs/coverage_flux_mapping.md) or 'nearest' (old: nearest hit within 1.5*MESHSIZE)
+# Post-processing of the mapped flux (applied every iteration, after the mapping above)
+SHADE_FLUX_FRACTION = 0.15  # every element (except under the grip) gets at least this fraction of the flux it
+                           # would absorb unshaded (irradiance * absorptivity * |cos| at its current tilt).
+                           # Stands in for light through/around the shade (divergence) and shade radiation. 0 = off
+TAPE_FLUX_FACTOR = 0.416  # flux multiplier on the thermal-tape strips (both ends, both faces); 1 = off
+TAPE_HOLE_X = (0.0122, 0.06168)  # m, x of the hole centres; each strip runs from its hole centre to that end
+TAPE_HALF_WIDTH = 0.00395        # m, strip half-width (= hole radius), centred on y = TAPE_AXIS_Y
+TAPE_AXIS_Y = 0.01               # m, dogbone centreline
+# Irradiance peak under the bulb (tests/heat_fit): every element's flux, lit or floor, is multiplied by
+# g(x) = exp(-0.5*((x - FLUX_PROFILE_CENTER_X)/FLUX_PROFILE_SIGMA)^2), x = flat element centroid.
+# SOLAR_IRRADIANCE is then the PEAK irradiance (g = 1 at the centre). FLUX_PROFILE_SIGMA = None: uniform (off).
+FLUX_PROFILE_CENTER_X = 0.0476  # m, from the fixed end: Gaussian peak (fit, limited to 41-48 mm around the bulb axis)
+FLUX_PROFILE_SIGMA = 0.0293  # m
+# FLUX_PROFILE_MODE = 'nearfield' replaces the Gaussian with a point lamp at LAMP_HEIGHT above the dogbone point
+# x = FLUX_PROFILE_CENTER_X (lamp axis), dogbone tilted SUN_ZENITH deg with the free end higher:
+# g(x) = [cos(incidence)/cos(SUN_ZENITH)] * (LAMP_HEIGHT/r)^2 * exp(-0.5*(angle off axis / LAMP_BEAM_SIGMA)^2).
+# SOLAR_IRRADIANCE is then the on-axis irradiance at LAMP_HEIGHT.
+FLUX_PROFILE_MODE = 'gauss'  # 'gauss' or 'nearfield'
+LAMP_HEIGHT = 0.2153             # m, EFFECTIVE source distance (fit; filament is 7 in = 0.178 m, reflector source sits further back)
+LAMP_BEAM_SIGMA = 0.3961         # rad, reflector beam width (nearfield mode only)
+# Gauge boost (user 11/24): g *= 1 + GAUGE_BOOST*exp(-0.5*((x - GAUGE_BOOST_X)/GAUGE_BOOST_W)^2), lit and floor.
+# Raises the gauge flux to what the earlier Gaussian fit gave there; the other parameters were refit so the
+# thermocouple ends stay as fitted (tests/heat_fit fit_c_gb50). 0 = off.
+GAUGE_BOOST = 0.0
+GAUGE_BOOST_X = 0.038            # m
+GAUGE_BOOST_W = 0.016            # m
+# Clamp heat sink (tests/heat_fit): extra convection on the gripped area (x < GRIP_X_START + GRIP_LENGTH),
+# both faces, sink at AMBIENT_TEMP. 0 = off.
+GRIP_FILM_COEFF = 0.0            # W/(m^2 K)
 
 # ABAQUS PARAMETERS
-MESHSIZE   = 0.002 # mesh size in meters
+MESHSIZE   = 0.002 # Note: currently not being used to construct actual mesh (hard coded in the build model function)
 ANALYTIC_FIT_TOLERANCE = 0.05 # if using stp export from Abaqus
 STITCH_TOLERANCE = 0.001 # if using stp export from Abaqus
 BC_EDGE = [(0, 0, 0), (0, 0.015, 0)] # Edge to fix defined by endpoints
-LOAD_EDGE=  [(0.074, 0, 0), (0.074, 0.015, 0)]
+LOAD_EDGE=  [(0.074, 0, 0), (0.074, 0.02, 0)]
 LOAD_POINT= [(0.074, 0.01, 0)]
+# Temperature probes for the twist history (nearest node to each point,
+# undeformed coords). Plotted as T1, T2; Tmax/Tmin stay in the CSVs only.
+TEMP_PROBES = {
+    'T1': (0.004125, 0.01, 0.0),  # just outside the grip (GRIP_LENGTH)
+    'T2': (0.0718, 0.01, 0.0),
+}
 BC_FIXPOINT = tuple((np.array(BC_EDGE[0]) + np.array(BC_EDGE[1])) / 2.0)
-BC_TOLERANCE = 0.005 # Tolerance for finding edges to fix
-INITIAL_TEMP = 293.0  # Kelvin (K)
-AMBIENT_TEMP = 293.0  # Kelvin (K)
+BC_TOLERANCE = 0.002 # Tolerance for finding edges to fix
+AMBIENT_TEMP = 293.15  # Kelvin (K)
+INITIAL_TEMP = 293.15  # Kelvin (K)
+MS = INITIAL_TEMP - 1  # Kelvin (K), SMA martensite start temperature
+MF = MS - 5  # Kelvin (K), SMA martensite finish temperature
+AS = 295.0  # Kelvin (K), SMA austenite start temperature
+AF = 350.0  # Kelvin (K), SMA austenite finish temperature
+FILM_COEFF = 6.30  # W/(m^2 K), convection on both shell faces (SPOS = side 1 and SNEG = side 2)
+EMISSIVITY = 0.9  # radiation to ambient from both shell faces
 RUN_COMPARISON = False  # Set to False to skip the uncoupled comparison runs
+LOADING_TWIST = 1.99  # radians, applied twist in the prep job (Load step), relative to the stress-free shape.
+                      # With PRETWIST_DEG = -28: 2.15 -> ~61.8 deg from flat after unloading, 2.05 -> ~58.3
+                      # (tests/twist_mvf). With PRETWIST_DEG = 0 the old value was 1.67 (-> ~62.7 deg).
+PRETWIST_DEG = -20.0  # deg, free-end twist of the STRESS-FREE austenite shape, measured from flat (0 = flat mesh).
+                      # The mesh is built pre-twisted (node coords rotated about the twist axis, shade included).
+LOAD_BACKOFF = 0.05   # rad; Load reaches LOADING_TWIST at t = 0.9 and turns back by this much by t = 1 (still
+                      # twist controlled), so every point unloads elastically before the release. 0 = off.
+PREP_SOLVER_CONTROLS = False  # True: '*Controls, analysis=discontinuous' + residual tolerance R_n 0.02 in Load and
+                              # Unload. Fallback if the prep job fails with "Too many attempts" (not needed for -28/2.15).
 
 WORKING_DIR = f"{STAR_DIR}/Scenarios/{SCENARIO_NAME}"
 
@@ -100,8 +179,166 @@ WORKING_DIR = f"{STAR_DIR}/Scenarios/{SCENARIO_NAME}"
 #######################################
 #######################################
 
+# Every UPPER_CASE setting defined in the block above (logged at start of run)
+RUN_PARAMETERS = collect_parameters(globals(), _names_before_params)
+
+# Set up the scene objects for ray tracing
+SCENE_OBJECTS = {}
+if INCLUDE_SHADE:
+    SCENE_OBJECTS['shade-1'] = {'material': 'Blocker', 'source': 'abaqus'}
+if INCLUDE_GRIP:
+    _gx0, _gx1 = GRIP_X_START - GRIP_MARGIN, GRIP_X_START + GRIP_LENGTH
+    _gy0, _gy1 = GRIP_Y_RANGE[0] - GRIP_MARGIN, GRIP_Y_RANGE[1] + GRIP_MARGIN
+    SCENE_OBJECTS['grip'] = {'material': 'Blocker', 'source': 'fixed',
+                             'corners': [(_gx0, _gy0, GRIP_HEIGHT), (_gx1, _gy0, GRIP_HEIGHT),
+                                         (_gx1, _gy1, GRIP_HEIGHT), (_gx0, _gy1, GRIP_HEIGHT)]}
+    
 # Derived Parameters
 SUN_DIR = make_sun_dir(zenith_deg=SUN_ZENITH, azimuth_deg=SUN_AZIMUTH) # Direction of sunlight in FreeCAD coords
+
+# ---- Pre-twisted stress-free shape (PRETWIST_DEG) ----
+# Fraction of the free-end twist reached at each x (0 at the fixed end, 1 at
+# the free end): the elastic twist distribution of the flat dogbone (first
+# load increment, tests/twist_mvf/phi_shape.json). Node (x, y, z) is rotated
+# about the twist axis (y = LOAD_POINT y, z = 0) by PRETWIST_DEG * frac(x).
+PRETWIST_AXIS_Y = LOAD_POINT[0][1]
+PRETWIST_PROFILE_X = [
+    0.0, 0.001, 0.002, 0.0025, 0.003, 0.0035, 0.004, 0.0045, 0.005, 0.0055, 0.006, 0.0065, 0.007,
+    0.0075, 0.008, 0.0085, 0.009, 0.0095, 0.01, 0.0105, 0.011, 0.0115, 0.012, 0.0125, 0.013, 0.0135,
+    0.014, 0.0145, 0.015, 0.0155, 0.016, 0.0165, 0.017, 0.0175, 0.018, 0.0185, 0.019, 0.0195, 0.02,
+    0.0205, 0.021, 0.0215, 0.022, 0.0225, 0.023, 0.024, 0.05, 0.051, 0.0515, 0.052, 0.0525, 0.053,
+    0.0535, 0.054, 0.0545, 0.055, 0.0555, 0.056, 0.0565, 0.057, 0.0575, 0.058, 0.0585, 0.059, 0.0595,
+    0.06, 0.0605, 0.061, 0.0615, 0.062, 0.0625, 0.063, 0.0635, 0.064, 0.0645, 0.065, 0.0655, 0.066,
+    0.0665, 0.067, 0.0675, 0.068, 0.0685, 0.069, 0.0695, 0.07, 0.0705, 0.071, 0.072, 0.073, 0.074]
+PRETWIST_PROFILE_FRAC = [
+    0.0, 0.000393, 0.001563, 0.001976, 0.003422, 0.004642, 0.005779, 0.007133, 0.008516, 0.009421,
+    0.011815, 0.013478, 0.015166, 0.016630, 0.019501, 0.021120, 0.023753, 0.024917, 0.028650, 0.031519,
+    0.033290, 0.037125, 0.038165, 0.041822, 0.043678, 0.046959, 0.049913, 0.053502, 0.056866, 0.063235,
+    0.062531, 0.069217, 0.068630, 0.074038, 0.077304, 0.074255, 0.084912, 0.089911, 0.098795, 0.099968,
+    0.108383, 0.116128, 0.120379, 0.132024, 0.133597, 0.149214, 0.852173, 0.867570, 0.872030, 0.880560,
+    0.889775, 0.892300, 0.900759, 0.901394, 0.910602, 0.920382, 0.925273, 0.918659, 0.929098, 0.931498,
+    0.934737, 0.940048, 0.941009, 0.944986, 0.949433, 0.950460, 0.955458, 0.955760, 0.960618, 0.961536,
+    0.965192, 0.966789, 0.969993, 0.971833, 0.975054, 0.977170, 0.980178, 0.980832, 0.983875, 0.985088,
+    0.987818, 0.988366, 0.990777, 0.991784, 0.993833, 0.994474, 0.996346, 0.996856, 0.998471, 0.999599, 1.0]
+
+
+def pretwist_point(x, y, z, frac=None):
+    """(x, y, z) rotated about the twist axis by PRETWIST_DEG * frac(x)."""
+    if frac is None:
+        frac = float(np.interp(x, PRETWIST_PROFILE_X, PRETWIST_PROFILE_FRAC))
+    p = math.radians(PRETWIST_DEG) * frac
+    r = y - PRETWIST_AXIS_Y
+    return (x, PRETWIST_AXIS_Y + r * math.cos(p) - z * math.sin(p), r * math.sin(p) + z * math.cos(p))
+
+
+def write_pretwisted_input(src_inp, dst_inp):
+    """Copy the CAE-written prep input, rotating the node coordinates of part
+    'sma' by PRETWIST_DEG * frac(x) and of part 'shade' by the full
+    PRETWIST_DEG (it is rigidly coupled to the free end). Labels, elements,
+    sets and steps are unchanged, so the restart jobs and every ODB-based
+    export keep working; they just see the pre-twisted reference mesh."""
+    lines = open(src_inp).read().split('\n')
+    out, part, in_nodes, n_rot = [], None, False, 0
+    for ln in lines:
+        key = ln.strip().lower()
+        if key.startswith('*') and not key.startswith('**'):
+            if key.startswith('*part,'):
+                part = ln.split('name=', 1)[1].split(',')[0].strip()
+            elif key.startswith('*end part'):
+                part = None
+            in_nodes = (key == '*node' or key.startswith('*node,')) and part in ('sma', 'shade')
+            out.append(ln)
+            continue
+        if in_nodes and key and not key.startswith('**'):
+            lab, x, y, z = [s.strip() for s in ln.split(',')]
+            x, y, z = pretwist_point(float(x), float(y), float(z), frac=1.0 if part == 'shade' else None)
+            out.append('%7s, %.10g, %.10g, %.10g' % (lab, x, y, z))
+            n_rot += 1
+            continue
+        out.append(ln)
+    open(dst_inp, 'w').write('\n'.join(out))
+    printlog('Pre-twist %.1f deg: rotated %d nodes (parts sma, shade) -> %s' % (PRETWIST_DEG, n_rot, dst_inp))
+    return n_rot
+
+
+def in_tape_strip(x, y):
+    """True if a FLAT (undeformed CAE) point lies on a thermal-tape strip."""
+    return abs(y - TAPE_AXIS_Y) <= TAPE_HALF_WIDTH and (x <= TAPE_HOLE_X[0] or x >= TAPE_HOLE_X[1])
+
+
+def flux_profile(x):
+    """Lamp profile factor at flat x (see FLUX_PROFILE_MODE)."""
+    if FLUX_PROFILE_MODE == 'nearfield':
+        t = math.radians(SUN_ZENITH)
+        s = x - FLUX_PROFILE_CENTER_X
+        dx, dz = -s * math.cos(t), LAMP_HEIGHT - s * math.sin(t)   # point -> lamp, in the tilt plane
+        r = math.hypot(dx, dz)
+        cos_i = (-dx * math.sin(t) + dz * math.cos(t)) / r
+        ang = math.atan2(abs(dx), dz)
+        g = (cos_i / math.cos(t)) * (LAMP_HEIGHT / r) ** 2 * math.exp(-0.5 * (ang / LAMP_BEAM_SIGMA) ** 2)
+        if GAUGE_BOOST:
+            g *= 1.0 + GAUGE_BOOST * math.exp(-0.5 * ((x - GAUGE_BOOST_X) / GAUGE_BOOST_W) ** 2)
+        return g
+    if FLUX_PROFILE_SIGMA:
+        return math.exp(-0.5 * ((x - FLUX_PROFILE_CENTER_X) / FLUX_PROFILE_SIGMA) ** 2)
+    return 1.0
+
+
+def adjust_flux_for_shade_and_tape(elem_fluxes, elem_nodes, flat_centroids):
+    """Return a copy of elem_fluxes (label -> W/m^2) with
+      1) a floor: q >= SHADE_FLUX_FRACTION * irradiance * absorptivity * |cos|,
+         |cos| from the element's DEFORMED normal (elem_nodes) and SUN_DIR,
+         for every element except those under the grip (x < grip end);
+      2) q *= TAPE_FLUX_FACTOR on the tape strips.
+    Regions are picked from the flat CAE centroids (flat_centroids), so they
+    are the same elements whatever the twist or pre-twist."""
+    d = np.asarray(SUN_DIR, dtype=float)
+    d = d / np.linalg.norm(d)
+    q_normal = SOLAR_IRRADIANCE * ABSORPTIVITY_DICT[OBJECT_MATERIAL]
+    grip_x = GRIP_X_START + GRIP_LENGTH if INCLUDE_GRIP else -1.0
+    out = {}
+    p_before = p_after = 0.0
+    n_floor = n_tape = 0
+    for label, (x, y, _) in flat_centroids.items():
+        g = flux_profile(x)
+        q0 = float(elem_fluxes.get(label, 0.0))
+        q = q0 * g
+        P = np.asarray(elem_nodes[label], dtype=float) if label in elem_nodes else None
+        if P is not None and len(P) >= 3:
+            nv = np.cross(P[2] - P[0], P[3] - P[1]) if len(P) >= 4 else np.cross(P[1] - P[0], P[2] - P[0])
+            area = 0.5 * np.linalg.norm(nv)
+            cos_t = abs(float(np.dot(nv, d))) / (2.0 * area) if area > 0 else 0.0
+        else:
+            area, cos_t = 0.0, 0.0
+        if SHADE_FLUX_FRACTION > 0 and x >= grip_x:
+            floor = SHADE_FLUX_FRACTION * q_normal * cos_t * g
+            if q < floor:
+                q = floor
+                n_floor += 1
+        if TAPE_FLUX_FACTOR != 1.0 and in_tape_strip(x, y):
+            q *= TAPE_FLUX_FACTOR
+            n_tape += 1
+        out[label] = q
+        p_before += q0 * area
+        p_after += q * area
+    printlog("Flux adjustment: %d elements raised to %.0f%% of unshaded flux, %d on tape strips (x%.2f); "
+             "absorbed power %.4f W -> %.4f W"
+             % (n_floor, 100 * SHADE_FLUX_FRACTION, n_tape, TAPE_FLUX_FACTOR, p_before, p_after))
+    return out
+
+
+class PretwistEdgeTwistMetric(EdgeTwistMetric):
+    """EdgeTwistMetric for the pre-twisted mesh: tracks the (rotated) free-end
+    edge and reports the twist from FLAT, i.e. PRETWIST_DEG + the rotation
+    since the stress-free shape (the prep job starts at PRETWIST_DEG)."""
+
+    def __init__(self, edge_pts, axis='x'):
+        EdgeTwistMetric.__init__(self, [pretwist_point(*p, frac=1.0) for p in edge_pts], axis=axis)
+
+    def evaluate(self, frame, inst):
+        out = EdgeTwistMetric.evaluate(self, frame, inst)
+        deg = out['twist_deg'] + PRETWIST_DEG
+        return {'twist_deg': deg, 'twist_rad': math.radians(deg)}
 
 IMPORT_OBJECT_FILEPATH = f"{WORKING_DIR}/inputs/{OBJECT_FILE}"
 FCSTD_PATH            = f"{WORKING_DIR}/inputs/{FCSTD_FILE}"
@@ -110,7 +347,8 @@ FLUXDATA_FILEPATH     = f"{WORKING_DIR}/flux_data.csv"
 
 DOCUMENTATION_DIR = f"{WORKING_DIR}/run_documentation/run_{RUN_NO}"
 DEFORMED_DEBUG_DIR = f"{DOCUMENTATION_DIR}/deformed_cad"
-TIP_DATA_FILEPATH   = f"{DOCUMENTATION_DIR}/tip_displacements_{RUN_NO}.csv"
+TWIST_DATA_FILEPATH    = f"{DOCUMENTATION_DIR}/twist_{RUN_NO}.csv"          # one row per job (prep = iteration 0)
+TWIST_HISTORY_FILEPATH = f"{DOCUMENTATION_DIR}/twist_history_{RUN_NO}.csv"  # every saved increment, from Load on
 
 ABAQUS_TO_FREECAD_JSON = f"{WORKING_DIR}/abaqus_to_freecad.json"
 FREECAD_TO_ABAQUS_JSON = f"{WORKING_DIR}/freecad_to_abaqus.json"
@@ -151,31 +389,11 @@ print("\n################")
 printlog(f"RUN NO: {RUN_NO}")
 printlog(f"Date: {datetime.now().date().isoformat()}")
 
-log("\n=== Parameters ===")
-log(f"SCENARIO_NAME = {SCENARIO_NAME}")
-log(f"OBJECT_NAME = {OBJECT_NAME}")
-log(f"DEFORMED_NAME = {DEFORMED_NAME}")
-log(f"JOB_BASENAME = {JOB_BASENAME}")
-log(f"N_ITER = {N_ITER}")
-log(f"CHUNK_TIME = {CHUNK_TIME}")
-log(f"MESHSIZE = {MESHSIZE}")
-log(f"N_RAYS = {N_RAYS}")
-log(f"SUN_ZENITH = {SUN_ZENITH}")
-log(f"SUN_AZIMUTH = {SUN_AZIMUTH}")
-log(f"SUN_DIR = {SUN_DIR}")
-log(f"STITCH_TOLERANCE = {STITCH_TOLERANCE}")
-log(f"ANALYTIC_FIT_TOLERANCE = {ANALYTIC_FIT_TOLERANCE}")
-log(f"BC_EDGE = {BC_EDGE}")
-log(f"BC_FIXPOINT = {BC_FIXPOINT}")
-log(f"BC_TOLERANCE = {BC_TOLERANCE}")
-log(f"INITIAL_TEMP = {INITIAL_TEMP}")
-log(f"AMBIENT_TEMP = {AMBIENT_TEMP}")
-log(f"EMISSIVITY = {EMISSIVITY}")
-log(f"RUN_COMPARISON = {RUN_COMPARISON}")
-log(f"GEOMETRY_IMPORT = {GEOMETRY_IMPORT}")
-log(f"RAY_ENGINE = {RAY_ENGINE}")
-log(f"PREP_DEFORMS_GEOMETRY = {PREP_DEFORMS_GEOMETRY}")
 log("")
+log_parameters(dict((k, globals()[k]) for k in ("STAR_DIR", "FREECAD_CMD", "UMAT_PATH")
+                    if k in globals()), "Paths")
+log_parameters(RUN_PARAMETERS, "Parameters (EDIT PARAMETERS block)")
+log_parameters({"SUN_DIR": SUN_DIR, "DOCUMENTATION_DIR": DOCUMENTATION_DIR}, "Derived")
 
 # --------------------------------------------------
 # Main functions
@@ -188,19 +406,20 @@ def build_model_from_step(model_name, step_name, step_path,
                           prev_temp_data=None,
                           max_num_inc=200, initial_inc=0.1,
                           min_inc=4e-12, max_inc=5.0, deltmx=5.0,
-                          emissivity=0.75,
+                          emissivity=EMISSIVITY, film_coeff=FILM_COEFF,
                           bc_tol=0.1,
                           prep_job_name=PREP_JOB_NAME,
                           export_step_path=None,
                           export_debug_step_path=None,
                           export_debug_obj_path=None,
-                          timer=None):
+                          timer=None,
+                          preview_sun=False):
     """Build a fresh model for one iteration (or a full comparison run),
     importing given STEP. If prev_temp_data is provided, use it as initial
     temperature instead of uniform.
 
     step_time_period: total duration of the CoupledTempDisplacementStep.
-        Pass CHUNK_TIME for a single iteration, or N_ITER * CHUNK_TIME for
+        Pass the iteration's CHUNK_TIMES entry for a single iteration, or math.fsum(CHUNK_TIMES) for
         a comparison run covering the full simulated duration in one step.
 
     export_step_path: if given, the deformed geometry at the end of the
@@ -295,6 +514,37 @@ def build_model_from_step(model_name, step_name, step_path,
     session.viewports['Viewport: 1'].setValues(displayedObject=p)
     del model.sketches['__profile__']
 
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
+    f, e = p.faces, p.edges
+    t = p.MakeSketchTransform(sketchPlane=f.findAt(coordinates=(0.012359, 0.0009, 
+        0.0), normal=(0.0, 0.0, 1.0)), sketchUpEdge=e.findAt(coordinates=(0.07388, 
+        0.015, 0.0)), sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, origin=(
+        0.03694, 0.010002, 0.0))
+    s1 = mdb.models['DogboneScenario1_Model'].ConstrainedSketch(name='__profile__', 
+        sheetSize=0.153, gridSpacing=0.003, transform=t)
+    g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
+    s1.sketchOptions.setValues(decimalPlaces=3)
+    s1.setPrimaryObject(option=SUPERIMPOSE)
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
+    p.projectReferencesOntoSketch(sketch=s1, filter=COPLANAR_EDGES)
+    s1.CircleByCenterPerimeter(center=(-0.02775, 0.0), point1=(-0.0255, -0.0045))
+    s1.DistanceDimension(entity1=g.findAt((-0.03694, -2e-06)), entity2=v.findAt((
+        -0.02775, 0.0)), textPoint=(-0.0287949172580242, -0.00673806548458338), 
+        value=0.0122)
+    s1.RadialDimension(curve=g.findAt((-0.02699, 0.0045)), textPoint=(
+        -0.0140282911980152, 0.00717658016490936), radius=0.00395)
+    s1.linearPattern(geomList=(g.findAt((-0.026506, 0.003533)), ), vertexList=(), 
+        number1=2, spacing1=0.04948, angle1=0.0, number2=1, spacing2=0.0153, 
+        angle2=90.0)
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
+    f1, e1 = p.faces, p.edges
+    p.CutExtrude(sketchPlane=f1.findAt(coordinates=(0.012359, 0.0009, 0.0), 
+        normal=(0.0, 0.0, 1.0)), sketchUpEdge=e1.findAt(coordinates=(0.07388, 
+        0.015, 0.0)), sketchPlaneSide=SIDE1, sketchOrientation=RIGHT, sketch=s1, 
+        flipExtrudeDirection=OFF)
+    s1.unsetPrimaryObject()
+    del mdb.models['DogboneScenario1_Model'].sketches['__profile__']
+
     printlog('Creating materials')
     model.Material(name='Aluminum')
     model.materials['Aluminum'].Elastic(table=((7.0e10, 0.3),))
@@ -322,34 +572,51 @@ def build_model_from_step(model_name, step_name, step_path,
 
     model.materials['SMA'].Depvar(n=100)
     model.materials['SMA'].UserMaterial(mechanicalConstants=(
-        1.0,0.0,1e-08,0.0,0.0,0.15,1.0,0.0,3.5e10,7.0e10,0.33,0.33,0.0,0.0,0.0,0.0,
-        320,300,340,360,7e6,7e6,300e6,0.0,0.0,0.05,0.0,7.52e-9,0.0,0.0,0.0,0.0,
+        1.0,0.0,1e-08,0.0,0.0,0.15,1.0,0.0,3.5e10,7.5e10,0.33,0.33,0.0,0.0,0.0,0.0,
+        MS, MF, AS, AF, 6e6, 7e6, 300e6, 0.0, 0.0, 0.05, 0.0, 7.52e-9, 0.0, 0.0, 0.0, 0.0,
         1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0)) 
-    
+
+
     printlog('partitioning part')
-    p = model.parts['sma']
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
     f = p.faces
-    pickedFaces = f.getSequenceFromMask(mask=('[#1 ]', ), )
-    v2, e1, d2 = p.vertices, p.edges, p.datums
+    pickedFaces = f.findAt(((0.012805, 0.004399, 0.0), ))
+    v1, e, d1 = p.vertices, p.edges, p.datums
     p.PartitionFaceByShortestPath(faces=pickedFaces, point1=p.InterestingPoint(
-        edge=e1[11], rule=MIDDLE), point2=p.InterestingPoint(edge=e1[5], 
+        edge=e.findAt(coordinates=(0.0, 0.005, 0.0)), rule=MIDDLE), 
+        point2=p.InterestingPoint(edge=e.findAt(coordinates=(0.07388, 0.015, 0.0)), 
         rule=MIDDLE))
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
     f = p.faces
-    pickedFaces = f.getSequenceFromMask(mask=('[#3 ]', ), )
-    v1, e, d1 = p.vertices, p.edges, p.datums
-    p.PartitionFaceByShortestPath(point1=v1[5], point2=v1[10], faces=pickedFaces)
-    f = p.faces
-    pickedFaces = f.getSequenceFromMask(mask=('[#a ]', ), )
+    pickedFaces = f.findAt(((0.070931, 0.010451, 0.0), ), ((0.070954, 0.009621, 
+        0.0), ))
     v2, e1, d2 = p.vertices, p.edges, p.datums
-    p.PartitionFaceByShortestPath(point1=v2[9], point2=v2[12], faces=pickedFaces)
+    p.PartitionFaceByShortestPath(point1=v2.findAt(coordinates=(0.0182, 0.02, 
+        0.0)), point2=v2.findAt(coordinates=(0.0182, 0.0, 0.0)), faces=pickedFaces)
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
     f = p.faces
-    pickedFaces = f.getSequenceFromMask(mask=('[#14 ]', ), )
+    pickedFaces = f.findAt(((0.018428, 0.015769, 0.0), ), ((0.018426, 0.004233, 
+        0.0), ))
     v1, e, d1 = p.vertices, p.edges, p.datums
-    p.PartitionFaceByShortestPath(point1=v1[12], point2=v1[10], faces=pickedFaces)
+    p.PartitionFaceByShortestPath(point1=v1.findAt(coordinates=(0.05568, 0.02, 
+        0.0)), point2=v1.findAt(coordinates=(0.05568, 0.0, 0.0)), 
+        faces=pickedFaces)
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
     f = p.faces
-    pickedFaces = f.getSequenceFromMask(mask=('[#88 ]', ), )
+    pickedFaces = f.findAt(((0.055454, 0.004233, 0.0), ), ((0.055452, 0.015769, 
+        0.0), ))
     v2, e1, d2 = p.vertices, p.edges, p.datums
-    p.PartitionFaceByShortestPath(point1=v2[11], point2=v2[15], faces=pickedFaces)
+    p.PartitionFaceByShortestPath(point1=v2.findAt(coordinates=(0.02764, 0.01147, 
+        0.0)), point2=v2.findAt(coordinates=(0.02764, 0.00855, 0.0)), 
+        faces=pickedFaces)
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
+    f = p.faces
+    pickedFaces = f.findAt(((0.03384, 0.01098, 0.0), ), ((0.03384, 0.009033, 0.0), 
+        ), ((0.026723, 0.008897, 0.0), ), ((0.026724, 0.011116, 0.0), ))
+    v1, e, d1 = p.vertices, p.edges, p.datums
+    p.PartitionFaceByShortestPath(point1=v1.findAt(coordinates=(0.04624, 0.01147, 
+        0.0)), point2=v1.findAt(coordinates=(0.04624, 0.00855, 0.0)), 
+        faces=pickedFaces)
 
         
     printlog('Creating shell section')
@@ -384,9 +651,18 @@ def build_model_from_step(model_name, step_name, step_path,
         previous='Unload', deltmx=10.0, timePeriod=1.0, initialInc=.001,
         minInc=1.0e-8, maxInc=1, maxNumInc=10000)
         
-    model.steps['Unload'].Restart(frequency=1, numberIntervals=0, overlay=OFF)
-    model.steps['Load'].Restart(frequency=1, numberIntervals=0, overlay=OFF)
+    model.steps['Unload'].Restart(frequency=1, numberIntervals=0, overlay=ON)  # FIT copy: only temp_step's restart data is needed (was OFF; Load .stt was ~6 GB)
+    model.steps['Load'].Restart(frequency=1, numberIntervals=0, overlay=ON)  # FIT copy (was OFF)
     model.steps['temp_step'].Restart(frequency=1, numberIntervals=0, overlay=OFF)
+
+    if PREP_SOLVER_CONTROLS:
+        # Discontinuous analysis + looser force/moment residual (R_n 0.005 -> 0.02)
+        # for the transformation steps (tests/twist_mvf, tier c1)
+        for _st in ('Load', 'Unload'):
+            model.steps[_st].control.setValues(allowPropagation=OFF, resetDefaultValues=OFF,
+                discontinuous=ON,
+                displacementField=(0.02, 0.02, 0.0, 0.0, 0.02, 1e-05, 0.001, 1e-08, 1.0, 1e-05, 1e-08),
+                rotationField=(0.02, 0.02, 0.0, 0.0, 0.02, 1e-05, 0.001, 1e-08, 1.0, 1e-05, 1e-08))
 
     printlog('Defining initial temperature')
     if prev_temp_data is None:
@@ -399,7 +675,7 @@ def build_model_from_step(model_name, step_name, step_path,
             region=region_T,
             distributionType=UNIFORM,
             crossSectionDistribution=CONSTANT_THROUGH_THICKNESS,
-            magnitudes=(330,)
+            magnitudes=(INITIAL_TEMP,)
         )
         
     else:
@@ -432,43 +708,15 @@ def build_model_from_step(model_name, step_name, step_path,
             # createStepName="Load",
             # variables=('HFL','SDV', 'E', 'PE', 'U', 'CF', 'RM', 'TEMP'),
             # frequency=1)
-    printlog('Defining BC')
-    # Find all edges between the two BC endpoint coordinates and apply
-    # Encastre. Robust against edge fragmentation from CAD import errors.
-    pt1, pt2 = bc_edge[0], bc_edge[1]
-    x1, y1, z1 = pt1
-    x2, y2, z2 = pt2
 
-    fix_edges = a.instances[object_name].edges.getByBoundingBox(
-        xMin=min(x1, x2) - bc_tol,
-        yMin=min(y1, y2) - bc_tol,
-        zMin=min(z1, z2) - bc_tol,
-        xMax=max(x1, x2) + bc_tol,
-        yMax=max(y1, y2) + bc_tol,
-        zMax=max(z1, z2) + bc_tol
-    )
+    printlog('Defining sets')
+    
+    # Fixed set for BC
+    a = mdb.models['DogboneScenario1_Model'].rootAssembly
+    e1 = a.instances['SMADogbone_(Nitinol)'].edges
+    edges1 = e1.findAt(((0.0, 0.0025, 0.0), ), ((0.0, 0.0125, 0.0), ))
+    a.Set(edges=edges1, name='Fixed-Set')
 
-    if len(fix_edges) == 0:
-        raise RuntimeError(
-            "No edges found between pt1=%s and pt2=%s (tol=%.2e). "
-            "Check coordinates or increase bc_tol." % (pt1, pt2, bc_tol)
-        )
-
-    printlog("Fixed BC: found %d edge(s) between %s and %s" % (len(fix_edges), pt1, pt2))
-
-    region_fix = a.Set(edges=fix_edges, name='Fixed-Set')
-    model.EncastreBC(
-        name='FixEdge',
-        createStepName='Initial',
-        region=region_fix,
-        localCsys=None
-    )
-    # model.TemperatureBC(
-        # name='HoldTemp',
-        # createStepName='Load',
-        # region=region_T,
-        # magnitude=initial_temp) 
-    printlog('Defining loads')
     # Find all edges between the two load endpoint coordinates and apply
     # mcp. Robust against edge fragmentation from CAD import errors.
     pt1, pt2 = load_edge[0], load_edge[1]
@@ -498,44 +746,88 @@ def build_model_from_step(model_name, step_name, step_path,
     x1, y1, z1 = pt1
     
     load_vertex = a.instances[object_name].vertices.getByBoundingBox(
-        xMin=x1 - .005,
-        yMin=y1 - .005,
-        zMin=z1 - .005,
-        xMax=x1 + .005,
-        yMax=y1 + .005,
-        zMax=z1 + .005
+        xMin=x1 - bc_tol,
+        yMin=y1 - bc_tol,
+        zMin=z1 - bc_tol,
+        xMax=x1 + bc_tol,
+        yMax=y1 + bc_tol,
+        zMax=z1 + bc_tol
     )
     rp_id= a.ReferencePoint(point=load_vertex[0])
     region1=a.Set(referencePoints=(a.referencePoints[rp_id.id], ), name='rp-load')
+
+    printlog('Defining surfaces')
+    s1 = a.instances[object_name].faces
+    surf_all = a.Surface(side1Faces=s1, name='All-Surfaces')
+    surf_side2 = a.Surface(side2Faces=s1, name='All-Surfaces-Side2')
+
+    printlog('Defining BC')
+    region_fix = a.sets['Fixed-Set']
+    model.EncastreBC(
+        name='FixEdge',
+        createStepName='Initial',
+        region=region_fix,
+        localCsys=None
+    )
+
+    printlog('Defining constraints')
+    region1=a.sets['rp-load']
     region2=a.sets['Loaded-Set']
     model.MultipointConstraint(name='load-rp', 
         controlPoint=region1, surface=region2, mpcType=BEAM_MPC, 
         userMode=DOF_MODE_MPC, userType=0, csys=None)
 
+    printlog('Defining loads')
     region = a.sets['rp-load']
-    model.Moment(name='Twist', createStepName='Load', 
-        region=region, cm1=0.16, distributionType=UNIFORM, field='', 
+    # Back-off: full twist at t = 0.9, then LOAD_BACKOFF back by t = 1 (still
+    # twist controlled) so the release in Unload starts from an elastic state
+    twist_amp = UNSET
+    if LOAD_BACKOFF > 0:
+        model.TabularAmplitude(name='LoadPath', timeSpan=STEP, smooth=SOLVER_DEFAULT,
+            data=((0.0, 0.0), (0.9, 1.0), (1.0, (LOADING_TWIST - LOAD_BACKOFF) / LOADING_TWIST)))
+        twist_amp = 'LoadPath'
+    model.DisplacementBC(name='Twist-BC', createStepName='Load',
+        region=region, u1=UNSET, u2=UNSET, u3=UNSET, ur1=LOADING_TWIST, ur2=UNSET, ur3=UNSET,
+        amplitude=twist_amp, fixed=OFF, distributionType=UNIFORM, fieldName='',
         localCsys=None)
-    model.loads['Twist'].deactivate('Unload')
+    
+    # model.Moment(name='Twist', createStepName='Load', 
+    #     region=region, cm1=0.16, distributionType=UNIFORM, field='', 
+    #     localCsys=None)
+    # model.loads['Twist'].deactivate('Unload')
     
     region = a.sets['rp-load']
-    model.DisplacementBC(name='disp', createStepName='Load', 
+    model.DisplacementBC(name='End-BC', createStepName='Load', 
         region=region, u1=UNSET, u2=0.0, u3=0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET, 
         amplitude=UNSET, fixed=OFF, distributionType=UNIFORM, fieldName='', 
         localCsys=None)
 
+    model.boundaryConditions['Twist-BC'].deactivate('Unload')
 
-
-    printlog('Meshing the strip')
-    p.seedPart(size=0.002, deviationFactor=0.1, minSizeFactor=0.1)
+    printlog('Meshing part')
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
     e = p.edges
-    pickedEdges = e.getSequenceFromMask(mask=('[#45c404 ]', ), )
+    pickedEdges = e.findAt(((0.04624, 0.008912, 0.0), ), ((0.04159, 0.01, 0.0), ), 
+        ((0.02764, 0.008912, 0.0), ), ((0.03229, 0.00855, 0.0), ), ((0.04624, 
+        0.010367, 0.0), ), ((0.03229, 0.01147, 0.0), ), ((0.02764, 0.010367, 0.0), 
+        ))
     p.seedEdgeBySize(edges=pickedEdges, size=0.0005, deviationFactor=0.1, 
-        minSizeFactor=0.1, constraint=FINER)
+        constraint=FINER)
+    p = mdb.models['DogboneScenario1_Model'].parts['sma']
     e = p.edges
-    pickedEdges = e.getSequenceFromMask(mask=('[#23b1b ]', ), )
+    pickedEdges = e.findAt(((0.05332, 0.01, 0.0), ), ((0.05568, 0.0125, 0.0), ), ((
+        0.049648, 0.012103, 0.0), ), ((0.049653, 0.007915, 0.0), ), ((0.05568, 
+        0.0025, 0.0), ), ((0.02528, 0.01, 0.0), ), ((0.0182, 0.0025, 0.0), ), ((
+        0.024227, 0.007915, 0.0), ), ((0.060176, 0.01, 0.0), ), ((0.062831, 
+        0.012794, 0.0), ), ((0.072804, 0.01, 0.0), ), ((0.07388, 0.0175, 0.0), ), (
+        (0.06023, 0.02, 0.0), ), ((0.016701, 0.01, 0.0), ), ((0.01211, 0.009142, 
+        0.0), ), ((0.008761, 0.006085, 0.0), ), ((0.003229, 0.01, 0.0), ), ((0.0, 
+        0.0025, 0.0), ), ((0.00455, 0.0, 0.0), ), ((0.024232, 0.012103, 0.0), ), ((
+        0.0182, 0.0125, 0.0), ), ((0.00455, 0.02, 0.0), ), ((0.0, 0.0125, 0.0), ), 
+        ((0.005461, 0.012794, 0.0), ), ((0.06933, 0.0, 0.0), ), ((0.07388, 0.0075, 
+        0.0), ), ((0.06948, 0.009142, 0.0), ), ((0.066131, 0.006085, 0.0), ))
     p.seedEdgeBySize(edges=pickedEdges, size=0.001, deviationFactor=0.1, 
-        minSizeFactor=0.1, constraint=FINER)
+        constraint=FINER)
 
     elemType1 = mesh.ElemType(elemCode=S4T, elemLibrary=STANDARD, 
         secondOrderAccuracy=OFF)
@@ -546,6 +838,48 @@ def build_model_from_step(model_name, step_name, step_path,
     p.setElementType(regions=pickedRegions, elemTypes=(elemType1, elemType2))
     p.generateMesh()
 
+    #### Add shade (passive, kinematically coupled to the load RP) ####
+    if INCLUDE_SHADE:
+        s = model.ConstrainedSketch(name='__profile__', sheetSize=1.0)
+        s.setPrimaryObject(option=STANDALONE)
+        s.Line(point1=(SHADE_X_RANGE[1] + SHADE_END_EXTENSION, 0.0), point2=(SHADE_X_RANGE[0], 0.0))
+        p = model.Part(name='shade', dimensionality=THREE_D, type=DEFORMABLE_BODY)
+        p.BaseShellExtrude(sketch=s, depth=0.03632)
+        s.unsetPrimaryObject()
+        del model.sketches['__profile__']
+
+        # Dummy material/section (every shade DOF is slaved, so values are irrelevant)
+        model.Material(name='shade_mat')
+        model.materials['shade_mat'].Elastic(table=((1.0e9, 0.3), ))
+        model.HomogeneousShellSection(name='shade_sec', material='shade_mat', thickness=0.0005)
+        p.SectionAssignment(region=regionToolset.Region(faces=p.faces), sectionName='shade_sec')
+
+        # Mechanical-only shell elements (no temperature DOF)
+        p.setElementType(regions=(p.faces,), elemTypes=(
+            mesh.ElemType(elemCode=S4R, elemLibrary=STANDARD),
+            mesh.ElemType(elemCode=S3, elemLibrary=STANDARD)))
+        p.seedPart(size=0.01, deviationFactor=0.1, minSizeFactor=0.1)
+        p.generateMesh()
+
+        a = model.rootAssembly
+        a.Instance(name='shade-1', part=p, dependent=ON)
+        shade_nodes = a.Set(nodes=a.instances['shade-1'].nodes, name='shade_nodes')
+
+        # Same RP that drives the free end; shade nodes follow it kinematically
+        model.Coupling(name='shade-coupling', controlPoint=a.sets['rp-load'],
+                       surface=shade_nodes, influenceRadius=WHOLE_SURFACE,
+                       couplingType=KINEMATIC, u1=ON, u2=ON, u3=ON, ur1=ON, ur2=ON, ur3=ON)
+
+    if preview_sun:
+        # Pops up the preview (dogbone shaded, shade in grey if present);
+        # answering No in the CAE dialog stops the run here
+        preview_sun_direction(model.parts['sma'], SUN_DIR,
+                              f"{DOCUMENTATION_DIR}/plots/sun_preview_{RUN_NO}.png",
+                              title='Zenith %g deg, azimuth %g deg (undeformed part%s)'
+                                    % (SUN_ZENITH, SUN_AZIMUTH,
+                                       ', shade in grey' if INCLUDE_SHADE else ', no shade'),
+                              extra_parts=(model.parts['shade'],) if INCLUDE_SHADE else ())
+
     #making and runing prep job
 
     model.FieldOutputRequest(
@@ -554,7 +888,7 @@ def build_model_from_step(model_name, step_name, step_path,
         variables=('SDV', 'E', 'U', 'RM', 'TEMP'),
         frequency=1
     )
-
+    
     mdb.Job(name=prep_job_name, model=model_name,
         description='Assembly + Add_actuator prep run',
         type=ANALYSIS, memory=90, memoryUnits=PERCENTAGE,
@@ -564,9 +898,24 @@ def build_model_from_step(model_name, step_name, step_path,
         scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
     if os.access(prep_job_name + '.lck', os.F_OK):
         os.remove(prep_job_name + '.lck')
+    if PRETWIST_DEG:
+        # CAE geometry is flat, so write the input, rotate the nodes in the
+        # file and run the prep job from that file. The heating jobs restart
+        # from its .res/.mdl, so they carry the pre-twisted reference mesh.
+        mdb.jobs[prep_job_name].writeInput(consistencyChecking=OFF)
+        pretwist_inp = os.path.abspath(prep_job_name + '_pretwist.inp')
+        if write_pretwisted_input(prep_job_name + '.inp', pretwist_inp) == 0:
+            raise RuntimeError('Pre-twist: no nodes of parts sma/shade found in %s.inp' % prep_job_name)
+        del mdb.jobs[prep_job_name]
+        mdb.JobFromInputFile(name=prep_job_name, inputFileName=pretwist_inp,
+            type=ANALYSIS, memory=90, memoryUnits=PERCENTAGE,
+            getMemoryFromAnalysis=True, explicitPrecision=SINGLE,
+            nodalOutputPrecision=SINGLE, userSubroutine=UMAT_PATH,
+            scratch='', resultsFormat=ODB, numCpus=1, numGPUs=0)
     _prep_t0 = time.perf_counter()
     _prep_start = datetime.now()
     _prep_aborted = True  # stays True if submit/waitForCompletion raises
+
     try:
         mdb.jobs[prep_job_name].submit()
         mdb.jobs[prep_job_name].waitForCompletion()
@@ -591,28 +940,56 @@ def build_model_from_step(model_name, step_name, step_path,
     model.steps[step_name].Restart(frequency=1, numberIntervals=0, overlay=ON)
                                     
                                 
-
     a.regenerate()
-
     
-    printlog('Defining amplitude and radiation')
-    model.TabularAmplitude(name='InstantVacuum', timeSpan=STEP,
+    printlog('Defining interactions')
+    model.TabularAmplitude(name='Instantaneous', timeSpan=STEP,
                            smooth=SOLVER_DEFAULT,
                            data=((0.0, 1.0), (4.0, 1.0)))
+    # Both faces of the shell are in open air, so each side gets its own
+    # radiation and convection interaction (one interaction per surface):
+    #   All-Surfaces       = SPOS (side 1, the sunlit side the flux is applied to)
+    #   All-Surfaces-Side2 = SNEG (side 2, the back side)
+    for suffix, surf_name in (('SPOS', 'All-Surfaces'), ('SNEG', 'All-Surfaces-Side2')):
+        model.RadiationToAmbient(
+            name='Radiation-' + suffix,
+            createStepName=step_name,
+            surface=a.surfaces[surf_name],
+            radiationType=AMBIENT,
+            distributionType=UNIFORM,
+            field='',
+            emissivity=emissivity,
+            ambientTemperature=ambient_temp,
+            ambientTemperatureAmp='Instantaneous',
+        )
+        model.FilmCondition(
+            name='Convection-' + suffix,
+            createStepName=step_name,
+            surface=a.surfaces[surf_name],
+            definition=EMBEDDED_COEFF,
+            filmCoeff=film_coeff,
+            filmCoeffAmplitude='',
+            sinkTemperature=ambient_temp,
+            sinkAmplitude='',
+            sinkDistributionType=UNIFORM,
+            sinkFieldName=''
+        )
 
-    s1 = a.instances[object_name].faces
-    surf_all = a.Surface(side1Faces=s1, name='All-Surfaces')
-    model.RadiationToAmbient(
-        name='ToVacuum',
-        createStepName=step_name,
-        surface=surf_all,
-        radiationType=AMBIENT,
-        distributionType=UNIFORM,
-        field='',
-        emissivity=emissivity,
-        ambientTemperature=ambient_temp,
-        ambientTemperatureAmp='InstantVacuum'
-    )
+    # Clamp heat sink: extra convection on the gripped elements, both faces
+    if GRIP_FILM_COEFF > 0:
+        _gx = GRIP_X_START + GRIP_LENGTH
+        _ge = a.instances[object_name].elements.getByBoundingBox(
+            xMin=GRIP_X_START - 1.0, xMax=_gx + 1e-6, yMin=-1.0, yMax=1.0, zMin=-1.0, zMax=1.0)
+        a.Surface(side1Elements=_ge, name='Grip-Side1')
+        a.Surface(side2Elements=_ge, name='Grip-Side2')
+        for suffix, surf_name in (('SPOS', 'Grip-Side1'), ('SNEG', 'Grip-Side2')):
+            model.FilmCondition(
+                name='GripSink-' + suffix, createStepName=step_name,
+                surface=a.surfaces[surf_name], definition=EMBEDDED_COEFF,
+                filmCoeff=GRIP_FILM_COEFF, filmCoeffAmplitude='', sinkTemperature=ambient_temp,
+                sinkAmplitude='', sinkDistributionType=UNIFORM, sinkFieldName='')
+        printlog('Clamp heat sink: h = %g W/m^2K on %d gripped elements (both faces)' % (GRIP_FILM_COEFF, len(_ge)))
+
     # Request HFL so actual mapped flux can be extracted post-run
     model.FieldOutputRequest(
         name='F-Output-HFL',
@@ -668,7 +1045,7 @@ def run_comparison_model(model_name='Model_Comparison',
                          mesh_size=0.02):
     """
     Runs a single-shot 'comparison' model: no iteration, full time period
-    (N_ITER * CHUNK_TIME) in one step, using the initial (undeformed)
+    (math.fsum(CHUNK_TIMES)) in one step, using the initial (undeformed)
     geometry and the initial flux from FreeCAD.
     """
     _start_time = time.perf_counter()
@@ -711,7 +1088,7 @@ def run_comparison_model(model_name='Model_Comparison',
         load_edge=LOAD_EDGE,
         load_point=LOAD_POINT,
         mesh_size=mesh_size,
-        step_time_period=N_ITER * CHUNK_TIME,
+        step_time_period=math.fsum(CHUNK_TIMES),
         initial_temp=INITIAL_TEMP,
         ambient_temp=AMBIENT_TEMP,
         emissivity=EMISSIVITY,
@@ -798,8 +1175,40 @@ completed_job_names = []   # iteration jobs that finished without aborting
 _postprocess_done = False  # set once post-processing has been attempted
 
 
+def export_scene_objects(job_name, geometry_index, first_frame=False):
+    """Scene-object list for transfer_data_to_freecad(scene_objects=...).
+
+    'abaqus' objects: 4 deformed corners of the instance from job_name's ODB,
+    at the same frame the dogbone geometry is taken from (last frame, or the
+    first frame of the prep job when PREP_DEFORMS_GEOMETRY is False).
+    geometry_index numbers the FreeCAD debug export like the dogbone's
+    <DEFORMED_NAME>_NN.stp (NN = job whose shape is ray-traced).
+    """
+    out = []
+    for name, spec in SCENE_OBJECTS.items():
+        source = spec.get('source', 'abaqus')
+        if source == 'fixed':
+            # Ray-tracing-only object (e.g. the grip): same corners every iteration
+            node_data = {'nodes': dict((i + 1, tuple(c)) for i, c in enumerate(spec['corners'])),
+                         'elements': [list(range(1, len(spec['corners']) + 1))]}
+        elif source == 'abaqus':
+            node_data = export_shell_corners(job_name, name,
+                                             step_index=0 if first_frame else -1,
+                                             frame_index=0 if first_frame else -1)
+        else:
+            raise NotImplementedError(
+                "SCENE_OBJECTS['%s']: source %r is not implemented (use 'abaqus' or 'fixed')" % (name, source))
+        out.append({
+            'name': name,
+            'material': spec['material'],
+            'node_data': node_data,
+            'export_path': os.path.join(DEFORMED_DEBUG_DIR, 'scene',
+                                        f"{name}_%02d_({spec['material']}).stp" % geometry_index),
+        })
+    return out
+
 def postprocess_results(job_names):
-    """Flux plots, HFL plots and tip-displacement CSV for the given
+    """Flux plots, HFL plots and twist CSVs/plot for the given
     (completed) iteration jobs. Called after the loop, or from the finally
     block with the jobs that did complete if the run stopped early."""
     # Plot the mapped flux input (includes the flux computed for an
@@ -808,8 +1217,16 @@ def postprocess_results(job_names):
         plot_mapped_flux_input(elem_fluxes_list, elem_centroids_list,
                                  f"{DOCUMENTATION_DIR}/plots", RUN_NO)
 
+    # Interactive 3D viewer of every ray-tracing pass (HTML, iteration slider).
+    # Rebuild later with: python Abaqus/scripts/raytrace_viewer.py <run folder>
+    with timer.section('raytrace_viewer', phase='post'):
+        html = run_noncritical("3D ray-tracing viewer", write_raytrace_viewer,
+                               DOCUMENTATION_DIR, chunk_times=CHUNK_TIMES)
+        if html:
+            printlog("Saved 3D ray-tracing viewer to %s" % html)
+
     if not job_names:
-        printlog("No completed iteration jobs; skipping HFL plots and tip displacement.")
+        printlog("No completed iteration jobs; skipping HFL plots and twist output.")
         return
 
     # Plot the HFL (Heat Flux) from Abaqus
@@ -819,28 +1236,30 @@ def postprocess_results(job_names):
                                   field_name='HFL',
                                   frame_index=1)
 
-    # Write displacement and temperature data to csv
-    with timer.section('tip_displacement', phase='post'):
-        tip_data = compute_cumulative_node_displacement(
-            job_names, OBJECT_NAME,
-            initial_target=BC_FIXPOINT,
-            initial_selection_mode='farthest'
-        )
-
-    try:
-        with open(TIP_DATA_FILEPATH, 'w') as f:
-            f.write("iteration,ux_cum,uy_cum,uz_cum,u_mag_cum,"
-                    "tip_def_x,tip_def_y,tip_def_z,tip_label,tmax_K,tmin_K\n")
-            for r in tip_data:
-                f.write("%d,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%.6f,%d,%.2f,%.2f\n" % (
-                    r['iterid'], r['ux_cum'], r['uy_cum'], r['uz_cum'], r['u_mag_cum'],
-                    r['def_x'], r['def_y'], r['def_z'], r['node_label'],
-                    r['t_max'] if r['t_max'] is not None else float('nan'),
-                    r['t_min'] if r['t_min'] is not None else float('nan'),
-                ))
-        printlog("Saved cumulative tip displacement to %s" % TIP_DATA_FILEPATH)
-    except Exception as e:
-        printlog("Failed to save cumulative tip displacement to %s: %s" % (TIP_DATA_FILEPATH, e))
+    # Twist of the loaded (free) end edge about X, relative to the flat
+    # undeformed dogbone, plus part-wide Tmax/Tmin and the TEMP_PROBES nodes. The prep job is iteration 0
+    # so both CSVs start at Load; heating_time = 0 at the start of Heat_01.
+    chain = [PREP_JOB_NAME] + list(job_names)
+    # With a pre-twisted mesh, track the rotated free-end edge and report the
+    # twist from flat (the prep job then starts at PRETWIST_DEG)
+    _TwistMetric = PretwistEdgeTwistMetric if PRETWIST_DEG else EdgeTwistMetric
+    with timer.section('twist', phase='post'):
+        run_noncritical("twist per-iteration CSV", write_odb_history_csv,
+                        chain, OBJECT_NAME, TWIST_DATA_FILEPATH,
+                        [_TwistMetric(LOAD_EDGE, axis='x'), TemperatureMetric(),
+                         NodeTemperatureMetric(TEMP_PROBES)],
+                        frames='last', first_iteration=0,
+                        time_zero_step='Heat_01', time_zero_column='heating_time')
+        history = run_noncritical("twist time-history CSV", write_odb_history_csv,
+                        chain, OBJECT_NAME, TWIST_HISTORY_FILEPATH,
+                        [_TwistMetric(LOAD_EDGE, axis='x'), TemperatureMetric(),
+                         NodeTemperatureMetric(TEMP_PROBES)],
+                        frames='all', first_iteration=0,
+                        time_zero_step='Heat_01', time_zero_column='heating_time')
+        if history:
+            run_noncritical("twist history plot", plot_twist_history, history,
+                            f"{DOCUMENTATION_DIR}/plots/twist_history_{RUN_NO}.png",
+                            RUN_NO, time_col='heating_time')
 
 try:
     for it in range(1, N_ITER + 1):
@@ -862,15 +1281,20 @@ try:
                 model = build_model_from_step(
                     MODEL_BASENAME, step_name, IMPORT_OBJECT_FILEPATH,
                     object_name=OBJECT_NAME, bc_edge=BC_EDGE, load_edge=LOAD_EDGE, load_point=LOAD_POINT, mesh_size=MESHSIZE,
-                    step_time_period=CHUNK_TIME, initial_temp=INITIAL_TEMP,
+                    step_time_period=CHUNK_TIMES[0], max_inc=min(MAX_INC, CHUNK_TIMES[0]),
+                    initial_temp=INITIAL_TEMP,
                     ambient_temp=AMBIENT_TEMP, emissivity=EMISSIVITY,
                     bc_tol=BC_TOLERANCE,
                     prep_job_name=PREP_JOB_NAME,
                     export_step_path=EXPORT_OBJECT_FILEPATH,
                     export_debug_step_path=os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}_00_Loaded.stp"),
                     export_debug_obj_path=os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}Mesh_00_Loaded.obj"),
-                    timer=timer
+                    timer=timer,
+                    preview_sun=PREVIEW_SUN
                 )
+                # Materials (incl. UMAT constants), sections, interactions as built
+                run_noncritical("model setup log", log_model_setup, model,
+                                umat_labels={17: 'MS', 18: 'MF', 19: 'AS', 20: 'AF'})
             timer.record('model_build',
                          timer.total(phase='setup', category='setup_total')
                          - timer.total(phase='setup', category='prep_job'),
@@ -900,6 +1324,10 @@ try:
             raise RuntimeError("GEOMETRY_IMPORT='nodes' but no deformed node data was exported")
 
         with timer.section('freecad_io', iteration=iter_id):
+            # Shades etc. from the same ODB/frame as the dogbone geometry
+            scene_objects = export_scene_objects(
+                centroid_source_job, iter_id - 1,
+                first_frame=(iter_id == 1 and not PREP_DEFORMS_GEOMETRY))
             transfer_data_to_freecad(
                 abaqus_to_freecad_json=ABAQUS_TO_FREECAD_JSON,
                 working_dir=WORKING_DIR, fcstd_path=FCSTD_PATH,
@@ -912,7 +1340,8 @@ try:
                 ray_engine=RAY_ENGINE,
                 # _NN = shape after job NN that this iteration ray-traces;
                 # _00 = initial shape (post load/unload, or undeformed)
-                geometry_export_path=os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}_%02d.stp" % (iter_id - 1))
+                geometry_export_path=os.path.join(DEFORMED_DEBUG_DIR, f"{DEFORMED_NAME}_%02d.stp" % (iter_id - 1)),
+                scene_objects=scene_objects
             )
 
         with timer.section('ray_tracing', iteration=iter_id):
@@ -928,24 +1357,44 @@ try:
         # whose end state this step starts from (prep job for iteration 1,
         # previous heating job thereafter).
         with timer.section('flux_mapping', iteration=iter_id):
-            elem_centroids = get_deformed_element_centroids(centroid_source_job, instance_name=OBJECT_NAME)
-            elem_fluxes = map_flux_to_elements(xyz_data, elem_centroids,
-                                       max_distance=1.5 * MESHSIZE)
+            if FLUX_MAPPING == 'coverage':
+                elem_nodes = get_deformed_element_nodes(centroid_source_job, instance_name=OBJECT_NAME)
+                elem_centroids = dict((l, tuple(np.mean(p, axis=0))) for l, p in elem_nodes.items())
+                elem_fluxes = map_flux_to_elements(
+                    xyz_data, elem_centroids, method='coverage', elem_nodes=elem_nodes,
+                    sun_dir=SUN_DIR, irradiance=SOLAR_IRRADIANCE,
+                    absorptivity=ABSORPTIVITY_DICT[OBJECT_MATERIAL],
+                    num_rays=freecad_result.get('NUM_RAYS') or N_RAYS,
+                    sun_window_area=freecad_result.get('SUN_WINDOW_AREA'))
+            else:
+                elem_centroids = get_deformed_element_centroids(centroid_source_job, instance_name=OBJECT_NAME)
+                elem_fluxes = map_flux_to_elements(xyz_data, elem_centroids, method='nearest',
+                                                   max_distance=1.5 * MESHSIZE)
+            # Shade floor (light through/around the shade, shade radiation) and thermal tape
+            if SHADE_FLUX_FRACTION > 0 or TAPE_FLUX_FACTOR != 1.0 or FLUX_PROFILE_SIGMA or FLUX_PROFILE_MODE == 'nearfield':
+                if FLUX_MAPPING != 'coverage':
+                    elem_nodes = get_deformed_element_nodes(centroid_source_job, instance_name=OBJECT_NAME)
+                elem_fluxes = adjust_flux_for_shade_and_tape(
+                    elem_fluxes, elem_nodes, get_undeformed_element_centroids(model, OBJECT_NAME))
 
         with timer.section('model_update', iteration=iter_id):
             if iter_id > 1:
                 create_restart_step(
                     model, prev_job=prev_job, prev_step_name=prev_step_name,
                     step_name=step_name, job_name=job_name,
-                    step_time_period=CHUNK_TIME, initial_inc=0.1, min_inc=4e-5,
-                    max_inc=5.0, deltmx=5.0, max_num_inc=200, restart_freq=1)
+                    step_time_period=CHUNK_TIMES[iter_id - 1], initial_inc=0.1, min_inc=4e-5,
+                    max_inc=min(MAX_INC, CHUNK_TIMES[iter_id - 1]), deltmx=5.0, max_num_inc=200, restart_freq=1)
 
             # Apply per-element flux keyed by UNDEFORMED centroids (required for
             # MappedField on the restart model's reference mesh)
             field_name = 'FluxField_%02d' % iter_id
             apply_mapped_dflux(
                 model, surface_name='All-Surfaces', step_name=step_name,
-                load_name=LOAD_NAME, instance_name=OBJECT_NAME,
+                load_name='%s_%02d' % (LOAD_NAME, iter_id), instance_name=OBJECT_NAME,
+                # one load per step; the previous one is deactivated here so
+                # CAE writes '*Dflux, op=NEW' (otherwise shaded elements keep
+                # their old flux, since zero-flux elements are not written)
+                deactivate_load=('%s_%02d' % (LOAD_NAME, iter_id - 1)) if iter_id > 1 else None,
                 elem_fluxes=elem_fluxes, field_name=field_name)
 
         with timer.section('flux_mapping', iteration=iter_id):
@@ -963,7 +1412,7 @@ try:
         #     print("Load", LOAD_NAME, "created in step:",
         #           load.createStepName if hasattr(load, 'createStepName') else "?")
         # else:
-        #     print("!!! LOAD", LOAD_NAME, "NOT FOUND — this is why flux is lost !!!")
+        #     print("!!! LOAD", LOAD_NAME, "NOT FOUND â€” this is why flux is lost !!!")
         # print("Analytical fields:", list(model.analyticalFields.keys()))
 
         with timer.section('model_update', iteration=iter_id):
@@ -979,9 +1428,15 @@ try:
             if os.access(job_name + '.lck', os.F_OK):
                 os.remove(job_name + '.lck')
 
+            # Write the .inp first and make sure the flux is replaced, not
+            # added to (submit() rewrites the same file from the same model)
+            if iter_id > 1:
+                mdb.jobs[job_name].writeInput(consistencyChecking=OFF)
+                check_dflux_op_new(job_name + '.inp')
+
             # Save the cae file to subdirectory
             os.makedirs(os.path.join(WORKING_DIR, 'cae_saves'), exist_ok=True)
-            mdb.saveAs(pathName=f"{WORKING_DIR}/cae_saves/{job_name}")
+            mdb.saveAs(pathName=os.path.abspath(job_name))  # FIT copy: save in the run folder (cwd)
 
         printlog(f'Running job {job_name}')
         _abq_t0 = time.perf_counter()
@@ -1055,9 +1510,15 @@ try:
 
 
     printlog("\nDONE with all analyses.")
-    _elapsed = time.perf_counter() - _start_time
-    printlog(f"Total script elapsed time: {_elapsed:.3f} seconds\n\n")
 finally:
+    # Total runtime, printed whether the run finished or failed
+    _total_runtime = time.perf_counter() - _start_time
+    _exc = sys.exc_info()[1]
+    if _exc is None:
+        printlog(f"\nTotal runtime: {format_duration(_total_runtime)}\n")
+    else:
+        printlog(f"\nRun FAILED after {format_duration(_total_runtime)}: "
+                 f"{type(_exc).__name__}: {_exc}\n")
     # If the run stopped early (aborted job, FreeCAD failure, ...), still
     # produce the plots/CSV for the iterations that did complete. Errors here
     # are logged but never mask the original exception.
@@ -1077,7 +1538,8 @@ finally:
     # failure here is reported but never masks the original error.
     try:
         timer.write_summary()
-        timer.plot_breakdown(f"{DOCUMENTATION_DIR}/plots")
+        timer.plot_breakdown(f"{DOCUMENTATION_DIR}/plots", total_seconds=_total_runtime,
+                             status=None if _exc is None else "stopped early (%s)" % type(_exc).__name__)
         printlog(f"Runtime report: {RUNTIME_CSV_FILEPATH}")
         printlog(f"Runtime summary: {RUNTIME_SUMMARY_FILEPATH}")
     except Exception as _rt_err:

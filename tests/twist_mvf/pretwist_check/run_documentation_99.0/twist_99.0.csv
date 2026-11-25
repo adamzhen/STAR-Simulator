@@ -1,0 +1,4 @@
+iteration,job,step,increment,step_time,total_time,heating_time,twist_deg,twist_rad,tmax_K,tmin_K,T1_K,T2_K
+0,loading,temp_step,12,1,3,0,61.81149,1.078814,300,300,300,300
+1,SMAHeatTransient_01,Heat_01,15,2,5,2,61.729686,1.0773863,302.38165,300.37219,301.20485,302.32058
+2,SMAHeatTransient_02,Heat_02,15,2,7,4,61.069321,1.0658607,304.66577,301.32907,302.25691,304.59071

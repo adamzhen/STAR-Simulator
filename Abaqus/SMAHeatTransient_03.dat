@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 22:00:56
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:24:02
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -78,7 +78,7 @@
 
 
 
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  11-Nov-2026     TIME  22:00:09
+          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  24-Nov-2026     TIME  23:22:58
   *heading
   *coupledtemperature-displacement, creep=NONE, deltmx=5
 
@@ -95,7 +95,8 @@
   *step, name=Heat_03, nlgeom=YES, inc=200
   *step, name=Heat_03, nlgeom=YES, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=5
-  *dflux
+  *dflux, op=NEW
+  *dflux, op=NEW
   *output, field
   *nodeoutput
   *elementoutput, directions=YES
@@ -118,13 +119,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.30    
+       USER TIME (SEC)      =     0.40    
        SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.40    
+       TOTAL CPU TIME (SEC) =     0.50    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 22:01:00
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:24:06
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Assembly + Add_actuator prep run                                                          STEP    6  INCREMENT    1
@@ -160,7 +161,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.40E+08               27                 97
+     1          7.74E+08               28                131
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -199,12 +200,13 @@
 
                               ANALYSIS COMPLETE
                               WITH      1 WARNING MESSAGES ON THE DAT FILE
-                              AND     212 WARNING MESSAGES ON THE MSG FILE
+                              AND     454 WARNING MESSAGES ON THE MSG FILE
+                                       16 WARNINGS ARE FOR NEGATIVE EIGENVALUES
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      26.    
-       SYSTEM TIME (SEC)    =      1.4    
-       TOTAL CPU TIME (SEC) =      27.    
-       WALLCLOCK TIME (SEC) =           28
+       USER TIME (SEC)      =      47.    
+       SYSTEM TIME (SEC)    =      2.5    
+       TOTAL CPU TIME (SEC) =      49.    
+       WALLCLOCK TIME (SEC) =           49

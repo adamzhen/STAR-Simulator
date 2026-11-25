@@ -1,0 +1,5697 @@
+1
+
+   Abaqus 2025                                  Date 22-Nov-2026   Time 23:00:43
+   For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
+
+ Assembly + Add_actuator prep run                                                
+                                                                                 
+ STEP    1     INCREMENT     1     STEP TIME    0.00    
+
+
+                        S T E P       1     S T A T I C   A N A L Y S I S
+
+
+                                                                                          
+
+     AUTOMATIC TIME CONTROL WITH -
+          A SUGGESTED INITIAL TIME INCREMENT OF                1.000E-02
+          AND A TOTAL TIME PERIOD OF                            1.00    
+          THE MINIMUM TIME INCREMENT ALLOWED IS                1.000E-12
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                 1.00    
+
+     LINEAR EQUATION SOLVER TYPE         DIRECT SPARSE
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR FORCE    
+ *** CRITERION FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM          2.000E-02
+ *** CRITERION FOR DISP.    CORRECTION IN A NONLINEAR PROBLEM          2.000E-02
+     INITIAL VALUE OF TIME AVERAGE FORCE                               1.000E-02
+     AVERAGE FORCE     IS TIME AVERAGE FORCE    
+     ALTERNATE CRIT. FOR RESIDUAL FORCE     FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO FORCE     RELATIVE TO TIME AVRG. FORCE         1.000E-05
+     CRITERION FOR RESIDUAL FORCE     WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR DISP.    CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL FORCE     FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO FORCE     REL. TO TIME AVRG. MAX. FORCE        1.000E-05
+     CRITERION FOR ZERO DISP.    RELATIVE TO CHARACTERISTIC LENGTH     1.000E-08
+
+ CONVERGENCE TOLERANCE PARAMETERS FOR MOMENT   
+ *** CRITERION FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM          2.000E-02
+ *** CRITERION FOR ROTATION CORRECTION IN A NONLINEAR PROBLEM          2.000E-02
+     INITIAL VALUE OF TIME AVERAGE MOMENT                              1.000E-02
+     AVERAGE MOMENT    IS TIME AVERAGE MOMENT   
+     ALTERNATE CRIT. FOR RESIDUAL MOMENT    FOR A NONLINEAR PROBLEM    2.000E-02
+     CRITERION FOR ZERO MOMENT    RELATIVE TO TIME AVRG. MOMENT        1.000E-05
+     CRITERION FOR RESIDUAL MOMENT    WHEN THERE IS ZERO FLUX          1.000E-05
+     CRITERION FOR ROTATION CORRECTION WHEN THERE IS ZERO FLUX         1.000E-03
+     CRITERION FOR RESIDUAL MOMENT    FOR A LINEAR INCREMENT           1.000E-08
+     FIELD CONVERSION RATIO                                             1.00    
+     CRITERION FOR ZERO MOMENT    REL. TO TIME AVRG. MAX. MOMENT       1.000E-05
+
+     VOLUMETRIC STRAIN COMPATIBILITY TOLERANCE FOR HYBRID SOLIDS       1.000E-05
+     AXIAL STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS             1.000E-05
+     TRANS. SHEAR STRAIN COMPATIBILITY TOLERANCE FOR HYBRID BEAMS      1.000E-05
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P>P0          5.000E-03
+     SOFT CONTACT CONSTRAINT COMPATIBILITY TOLERANCE FOR P=0.0         0.100    
+     CONTACT FORCE ERROR TOLERANCE FOR CONVERT SDI=YES                 1.00    
+     DISPLACEMENT COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS           1.000E-05
+     ROTATION COMPATIBILITY TOLERANCE FOR DCOUP ELEMENTS               1.000E-05
+
+ *** INDICATES USE OF NON-DEFAULT CONVERGENCE TOLERANCE PARAMETER
+     SELECTED WITH *CONTROLS
+
+ EQUILIBRIUM WILL BE CHECKED FOR SEVERE DISCONTINUITY ITERATIONS
+
+ TIME INCREMENTATION CONTROL PARAMETERS:
+ *** FIRST EQUILIBRIUM ITERATION FOR CONSECUTIVE DIVERGENCE CHECK              8
+ *** EQUILIBRIUM ITERATION AT WHICH LOG. CONVERGENCE RATE CHECK BEGINS        10
+     EQUILIBRIUM ITERATION AFTER WHICH ALTERNATE RESIDUAL IS USED              9
+     MAXIMUM EQUILIBRIUM ITERATIONS ALLOWED                                   16
+     EQUILIBRIUM ITERATION COUNT FOR CUT-BACK IN NEXT INCREMENT               10
+     MAXIMUM EQUILIB. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      4
+     MAXIMUM ITERATIONS FOR SEVERE DISCONTINUITIES                            50
+     MAXIMUM ATTEMPTS ALLOWED IN AN INCREMENT                                  5
+     MAXIMUM DISCON. ITERS IN TWO INCREMENTS FOR TIME INCREMENT INCREASE      50
+     MAXIMUM CONTACT AUGMENTATIONS FOR *SURFACE BEHAVIOR,AUGMENTED LAGRANGE   50
+     CUT-BACK FACTOR AFTER DIVERGENCE                                 0.2500    
+     CUT-BACK FACTOR FOR TOO SLOW CONVERGENCE                         0.5000    
+     CUT-BACK FACTOR AFTER TOO MANY EQUILIBRIUM ITERATIONS            0.7500    
+     CUT-BACK FACTOR AFTER TOO MANY SEVERE DISCONTINUITY ITERATIONS   0.2500    
+     CUT-BACK FACTOR AFTER PROBLEMS IN ELEMENT ASSEMBLY               0.2500    
+     INCREASE FACTOR AFTER TWO INCREMENTS THAT CONVERGE QUICKLY        1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED                       1.500    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DYNAMICS)            1.250    
+     MAX. TIME INCREMENT INCREASE FACTOR ALLOWED (DIFFUSION)           2.000    
+     MINIMUM TIME INCREMENT RATIO FOR EXTRAPOLATION TO OCCUR          0.1000    
+     MAX. RATIO OF TIME INCREMENT TO STABILITY LIMIT                   1.000    
+     FRACTION OF STABILITY LIMIT FOR NEW TIME INCREMENT               0.9500    
+     TIME INCREMENT INCREASE FACTOR BEFORE A TIME POINT                1.000    
+
+ *** INDICATES USE OF NON-DEFAULT TIME INCREMENTATION CONTROL PARAMETER
+     SELECTED WITH *CONTROLS
+     GLOBAL STABILIZATION CONTROL IS NOT USED
+
+          PRINT OF INCREMENT NUMBER, TIME, ETC., EVERY    1  INCREMENTS
+
+     THE MAXIMUM NUMBER OF INCREMENTS IN THIS STEP IS                 1000000
+
+          LARGE DISPLACEMENT THEORY WILL BE USED
+
+     LINEAR EXTRAPOLATION WILL BE USED
+
+     CHARACTERISTIC ELEMENT LENGTH     1.050E-03
+
+     DETAILS REGARDING ACTUAL SOLUTION WAVEFRONT REQUESTED
+
+     DETAILED OUTPUT OF DIAGNOSTICS TO DATABASE REQUESTED
+
+     PRINT OF INCREMENT NUMBER, TIME, ETC., TO THE MESSAGE FILE EVERY     1  INCREMENTS
+
+     COLLECTING MODEL CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+     COLLECTING STEP CONSTRAINT INFORMATION FOR OVERCONSTRAINT CHECKS
+
+
+  INCREMENT     1 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.000E-02
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       14.6       TIME AVG. FORCE        14.6    
+ LARGEST SCALED RESIDUAL FORCE      1.966E+03   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.966E+03
+ LARGEST INCREMENT OF DISP.        -8.447E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.447E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     8.347E-03   TIME AVG. MOMENT      8.347E-03
+ LARGEST SCALED RESIDUAL MOMENT      1.92       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      1.92    
+ LARGEST INCREMENT OF ROTATION      2.335E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.335E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+
+     NEGATIVE EIGENVALUES MEAN THAT THE SYSTEM MATRIX IS NOT 
+     POSITIVE DEFINITE:
+     FOR EXAMPLE, A BIFURCATION (BUCKLING) LOAD MAY HAVE BEEN EXCEEDED.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.487       TIME AVG. FORCE       0.487    
+ LARGEST SCALED RESIDUAL FORCE       15.8       AT NODE        387   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       15.8    
+ LARGEST INCREMENT OF DISP.        -8.447E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.879E-05   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.267E-04   TIME AVG. MOMENT      3.267E-04
+ LARGEST SCALED RESIDUAL MOMENT     1.400E-02   AT NODE        664   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.400E-02
+ LARGEST INCREMENT OF ROTATION      2.434E-02   AT NODE        386   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.132E-03   AT NODE        387   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      2.598E-02   TIME AVG. FORCE       2.598E-02
+ LARGEST SCALED RESIDUAL FORCE      0.772       AT NODE        387   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.772    
+ LARGEST INCREMENT OF DISP.        -8.447E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.969E-05   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.399E-05   TIME AVG. MOMENT      2.399E-05
+ LARGEST SCALED RESIDUAL MOMENT     3.262E-04   AT NODE        386   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.262E-04
+ LARGEST INCREMENT OF ROTATION      2.335E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.171E-03   AT NODE        387   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      1.692E-02   TIME AVG. FORCE       1.692E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.110E-02   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.110E-02
+ LARGEST INCREMENT OF DISP.        -8.447E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.707E-06   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.010E-05   TIME AVG. MOMENT      2.010E-05
+ LARGEST SCALED RESIDUAL MOMENT    -5.910E-06   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -5.910E-06
+ LARGEST INCREMENT OF ROTATION      2.335E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -5.137E-05   AT NODE        378   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      1.692E-02   TIME AVG. FORCE       1.692E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.122E-06   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.122E-06
+ LARGEST INCREMENT OF DISP.        -8.447E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.037E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     2.010E-05   TIME AVG. MOMENT      2.010E-05
+ LARGEST SCALED RESIDUAL MOMENT    -8.105E-10   AT NODE        581   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -8.105E-10
+ LARGEST INCREMENT OF ROTATION      2.335E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.726E-07   AT NODE        381   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   5 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  5 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.000E-02,  FRACTION OF STEP COMPLETED  1.000E-02
+ STEP TIME COMPLETED       1.000E-02,  TOTAL TIME COMPLETED        1.000E-02
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.000E-02
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       104.       TIME AVG. FORCE        52.2    
+ LARGEST SCALED RESIDUAL FORCE      5.944E+03   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      5.944E+03
+ LARGEST INCREMENT OF DISP.        -2.583E-03   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.340E-03   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     6.080E-02   TIME AVG. MOMENT      3.041E-02
+ LARGEST SCALED RESIDUAL MOMENT      3.92       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      3.92    
+ LARGEST INCREMENT OF ROTATION      9.829E-02   AT NODE        176   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.747E-02   AT NODE        175   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 10 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      6.881E+03   TIME AVG. FORCE       3.441E+03
+ LARGEST SCALED RESIDUAL FORCE      3.746E+05   AT NODE         81   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.746E+05
+ LARGEST INCREMENT OF DISP.        -3.741E-03   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.158E-03   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                      2.65       TIME AVG. MOMENT       1.33    
+ LARGEST SCALED RESIDUAL MOMENT      207.       AT NODE        445   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      207.    
+ LARGEST INCREMENT OF ROTATION     -0.285       AT NODE         78   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -0.337       AT NODE         79   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 339 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      2.423E+03   TIME AVG. FORCE       1.212E+03
+ LARGEST SCALED RESIDUAL FORCE     -6.121E+05   AT NODE        219   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -6.121E+05
+ LARGEST INCREMENT OF DISP.        -3.243E-03   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        9.172E-04   AT NODE         21   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                      1.39       TIME AVG. MOMENT      0.697    
+ LARGEST SCALED RESIDUAL MOMENT     -227.       AT NODE        220   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     -227.    
+ LARGEST INCREMENT OF ROTATION     -0.647       AT NODE        533   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -0.480       AT NODE         88   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 323 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      1.865E+07   TIME AVG. FORCE       9.326E+06
+ LARGEST SCALED RESIDUAL FORCE      5.775E+08   AT NODE        457   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      5.775E+08
+ LARGEST INCREMENT OF DISP.         0.118       AT NODE          1   DOF  1
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        0.120       AT NODE          1   DOF  1
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.904E+04   TIME AVG. MOMENT      1.952E+04
+ LARGEST SCALED RESIDUAL MOMENT    -8.548E+06   AT NODE         77   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -8.548E+06
+ LARGEST INCREMENT OF ROTATION      -6.16       AT NODE        561   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION      161.       AT NODE         76   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 2758 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      2.282E+08   TIME AVG. FORCE       1.141E+08
+ LARGEST SCALED RESIDUAL FORCE      8.344E+09   AT NODE        804   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      8.344E+09
+ LARGEST INCREMENT OF DISP.         0.460       AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO DISP.        0.461       AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     8.102E+06   TIME AVG. MOMENT      4.051E+06
+ LARGEST SCALED RESIDUAL MOMENT    -5.094E+08   AT NODE        560   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -5.094E+08
+ LARGEST INCREMENT OF ROTATION       5.34       AT NODE        227   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     -925.       AT NODE        183   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 2840 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      1.045E+09   TIME AVG. FORCE       5.226E+08
+ LARGEST SCALED RESIDUAL FORCE     -5.100E+10   AT NODE        184   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -5.100E+10
+ LARGEST INCREMENT OF DISP.         -2.40       AT NODE        178   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO DISP.        -2.46       AT NODE        178   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.785E+08   TIME AVG. MOMENT      8.924E+07
+ LARGEST SCALED RESIDUAL MOMENT    -2.539E+10   AT NODE        142   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.539E+10
+ LARGEST INCREMENT OF ROTATION       5.33       AT NODE       1172   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     -146.       AT NODE        947   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 2814 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      2.972E+10   TIME AVG. FORCE       1.486E+10
+ LARGEST SCALED RESIDUAL FORCE      1.006E+12   AT NODE        197   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.006E+12
+ LARGEST INCREMENT OF DISP.          74.8       AT NODE          1   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO DISP.         75.1       AT NODE          1   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.499E+11   TIME AVG. MOMENT      7.494E+10
+ LARGEST SCALED RESIDUAL MOMENT    -1.550E+13   AT NODE        912   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.550E+13
+ LARGEST INCREMENT OF ROTATION       5.19       AT NODE         45   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION      894.       AT NODE        853   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 2844 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      3.308E+11   TIME AVG. FORCE       1.654E+11
+ LARGEST SCALED RESIDUAL FORCE     -1.683E+13   AT NODE        600   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.683E+13
+ LARGEST INCREMENT OF DISP.         -608.       AT NODE        316   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO DISP.        -633.       AT NODE        316   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.274E+13   TIME AVG. MOMENT      1.137E+13
+ LARGEST SCALED RESIDUAL MOMENT     2.629E+15   AT NODE        214   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.629E+15
+ LARGEST INCREMENT OF ROTATION       5.02       AT NODE       1035   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION      216.       AT NODE         68   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT     2 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  2.500E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       2.62       TIME AVG. FORCE        1.32    
+ LARGEST SCALED RESIDUAL FORCE       614.       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       614.    
+ LARGEST INCREMENT OF DISP.        -2.103E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.703E-05   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.426E-03   TIME AVG. MOMENT      7.228E-04
+ LARGEST SCALED RESIDUAL MOMENT     0.598       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     0.598    
+ LARGEST INCREMENT OF ROTATION      5.884E-03   AT NODE        382   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -9.470E-04   AT NODE        384   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.210       TIME AVG. FORCE       0.114    
+ LARGEST SCALED RESIDUAL FORCE      -20.3       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -20.3    
+ LARGEST INCREMENT OF DISP.        -2.234E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.155E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.434E-04   TIME AVG. MOMENT      8.175E-05
+ LARGEST SCALED RESIDUAL MOMENT    -9.801E-03   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -9.801E-03
+ LARGEST INCREMENT OF ROTATION      5.898E-03   AT NODE        386   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.224E-03   AT NODE        252   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.183       TIME AVG. FORCE       0.100    
+ LARGEST SCALED RESIDUAL FORCE      -25.0       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -25.0    
+ LARGEST INCREMENT OF DISP.        -2.103E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.337E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.294E-04   TIME AVG. MOMENT      7.475E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.260E-02   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.260E-02
+ LARGEST INCREMENT OF ROTATION      5.839E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.571E-03   AT NODE        387   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      2.570E-02   TIME AVG. FORCE       2.131E-02
+ LARGEST SCALED RESIDUAL FORCE     -0.602       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -0.602    
+ LARGEST INCREMENT OF DISP.        -2.103E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.063E-05   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.764E-05   TIME AVG. MOMENT      2.387E-05
+ LARGEST SCALED RESIDUAL MOMENT     2.906E-04   AT NODE        747   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.906E-04
+ LARGEST INCREMENT OF ROTATION      5.838E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.950E-04   AT NODE          1   DOF  5
+   INSTANCE: {assembly node}                                                                 
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      2.334E-02   TIME AVG. FORCE       2.013E-02
+ LARGEST SCALED RESIDUAL FORCE     -3.727E-02   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -3.727E-02
+ LARGEST INCREMENT OF DISP.        -2.103E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        5.111E-06   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.673E-05   TIME AVG. MOMENT      2.342E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.883E-05   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.883E-05
+ LARGEST INCREMENT OF ROTATION      5.838E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     9.787E-05   AT NODE          1   DOF  5
+   INSTANCE: {assembly node}                                                                 
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  27ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      2.331E-02   TIME AVG. FORCE       2.012E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.308E-06   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.308E-06
+ LARGEST INCREMENT OF DISP.        -2.103E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.077E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     2.673E-05   TIME AVG. MOMENT      2.342E-05
+ LARGEST SCALED RESIDUAL MOMENT     6.797E-10   AT NODE        143   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     6.797E-10
+ LARGEST INCREMENT OF ROTATION      5.838E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     5.893E-07   AT NODE          1   DOF  5
+   INSTANCE: {assembly node}                                                                 
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   6 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  6 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.500E-03,  FRACTION OF STEP COMPLETED  1.250E-02
+ STEP TIME COMPLETED       1.250E-02,  TOTAL TIME COMPLETED        1.250E-02
+
+
+  INCREMENT     3 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  2.500E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.971       TIME AVG. FORCE       0.337    
+ LARGEST SCALED RESIDUAL FORCE       245.       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       245.    
+ LARGEST INCREMENT OF DISP.        -2.099E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.925E-06   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.218E-04   TIME AVG. MOMENT      1.895E-04
+ LARGEST SCALED RESIDUAL MOMENT     0.239       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     0.239    
+ LARGEST INCREMENT OF ROTATION      5.837E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.456E-05   AT NODE        384   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      3.011E-02   TIME AVG. FORCE       2.345E-02
+ LARGEST SCALED RESIDUAL FORCE     -7.613E-03   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.613E-03
+ LARGEST INCREMENT OF DISP.        -2.099E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        9.066E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.344E-05   TIME AVG. MOMENT      2.676E-05
+ LARGEST SCALED RESIDUAL MOMENT    -6.970E-06   AT NODE       1065   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -6.970E-06
+ LARGEST INCREMENT OF ROTATION      5.840E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.860E-05   AT NODE        384   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      3.010E-02   TIME AVG. FORCE       2.344E-02
+ LARGEST SCALED RESIDUAL FORCE      6.104E-05   AT NODE       1079   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      6.104E-05
+ LARGEST INCREMENT OF DISP.        -2.099E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.065E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     3.344E-05   TIME AVG. MOMENT      2.676E-05
+ LARGEST SCALED RESIDUAL MOMENT    -3.450E-08   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -3.450E-08
+ LARGEST INCREMENT OF ROTATION      5.838E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.991E-06   AT NODE        251   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.500E-03,  FRACTION OF STEP COMPLETED  1.500E-02
+ STEP TIME COMPLETED       1.500E-02,  TOTAL TIME COMPLETED        1.500E-02
+
+
+  INCREMENT     4 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  2.500E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.974       TIME AVG. FORCE       0.261    
+ LARGEST SCALED RESIDUAL FORCE       245.       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       245.    
+ LARGEST INCREMENT OF DISP.        -2.095E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.917E-06   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.252E-04   TIME AVG. MOMENT      1.514E-04
+ LARGEST SCALED RESIDUAL MOMENT     0.239       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     0.239    
+ LARGEST INCREMENT OF ROTATION      5.837E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.431E-05   AT NODE        384   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      3.760E-02   TIME AVG. FORCE       2.698E-02
+ LARGEST SCALED RESIDUAL FORCE     -7.846E-03   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.846E-03
+ LARGEST INCREMENT OF DISP.        -2.095E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        9.189E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.060E-05   TIME AVG. MOMENT      3.022E-05
+ LARGEST SCALED RESIDUAL MOMENT    -7.070E-06   AT NODE       1065   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -7.070E-06
+ LARGEST INCREMENT OF ROTATION      5.840E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.866E-05   AT NODE        384   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      3.759E-02   TIME AVG. FORCE       2.698E-02
+ LARGEST SCALED RESIDUAL FORCE      7.298E-05   AT NODE       1079   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      7.298E-05
+ LARGEST INCREMENT OF DISP.        -2.095E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.247E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     4.060E-05   TIME AVG. MOMENT      3.022E-05
+ LARGEST SCALED RESIDUAL MOMENT    -4.135E-08   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.135E-08
+ LARGEST INCREMENT OF ROTATION      5.838E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.332E-06   AT NODE        251   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    3.750E-03
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.500E-03,  FRACTION OF STEP COMPLETED  1.750E-02
+ STEP TIME COMPLETED       1.750E-02,  TOTAL TIME COMPLETED        1.750E-02
+
+
+  INCREMENT     5 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.750E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       1.86       TIME AVG. FORCE       0.393    
+ LARGEST SCALED RESIDUAL FORCE       461.       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       461.    
+ LARGEST INCREMENT OF DISP.        -3.135E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -7.537E-06   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     9.957E-04   TIME AVG. MOMENT      2.233E-04
+ LARGEST SCALED RESIDUAL MOMENT     0.449       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     0.449    
+ LARGEST INCREMENT OF ROTATION      8.756E-03   AT NODE        386   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.536E-04   AT NODE        384   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      5.536E-02   TIME AVG. FORCE       3.266E-02
+ LARGEST SCALED RESIDUAL FORCE     -0.732       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -0.732    
+ LARGEST INCREMENT OF DISP.        -3.137E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.095E-05   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.449E-05   TIME AVG. MOMENT      3.507E-05
+ LARGEST SCALED RESIDUAL MOMENT    -4.388E-04   AT NODE       1067   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.388E-04
+ LARGEST INCREMENT OF ROTATION      8.767E-03   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     4.372E-04   AT NODE        385   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  25ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      5.118E-02   TIME AVG. FORCE       3.182E-02
+ LARGEST SCALED RESIDUAL FORCE     -0.395       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -0.395    
+ LARGEST INCREMENT OF DISP.        -3.135E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.556E-05   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.238E-05   TIME AVG. MOMENT      3.465E-05
+ LARGEST SCALED RESIDUAL MOMENT    -2.033E-04   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.033E-04
+ LARGEST INCREMENT OF ROTATION      8.757E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.116E-04   AT NODE        251   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      5.015E-02   TIME AVG. FORCE       3.161E-02
+ LARGEST SCALED RESIDUAL FORCE     -3.148E-05   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -3.148E-05
+ LARGEST INCREMENT OF DISP.        -3.135E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.371E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     5.220E-05   TIME AVG. MOMENT      3.461E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.884E-08   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.884E-08
+ LARGEST INCREMENT OF ROTATION      8.757E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.643E-06   AT NODE        251   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    5.625E-03
+
+ ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  4 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  3.750E-03,  FRACTION OF STEP COMPLETED  2.125E-02
+ STEP TIME COMPLETED       2.125E-02,  TOTAL TIME COMPLETED        2.125E-02
+
+
+  INCREMENT     6 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.625E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       4.44       TIME AVG. FORCE       0.766    
+ LARGEST SCALED RESIDUAL FORCE      1.046E+03   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.046E+03
+ LARGEST INCREMENT OF DISP.        -4.686E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        8.707E-06   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.395E-03   TIME AVG. MOMENT      4.280E-04
+ LARGEST SCALED RESIDUAL MOMENT      1.01       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      1.01    
+ LARGEST INCREMENT OF ROTATION      1.334E-02   AT NODE        378   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.144E-04   AT NODE        175   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      8.552E-02   TIME AVG. FORCE       4.060E-02
+ LARGEST SCALED RESIDUAL FORCE      0.650       AT NODE        387   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      0.650    
+ LARGEST INCREMENT OF DISP.        -4.686E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        8.507E-06   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.705E-05   TIME AVG. MOMENT      4.169E-05
+ LARGEST SCALED RESIDUAL MOMENT     6.658E-04   AT NODE        678   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     6.658E-04
+ LARGEST INCREMENT OF ROTATION      1.323E-02   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.292E-04   AT NODE        175   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      7.249E-02   TIME AVG. FORCE       3.843E-02
+ LARGEST SCALED RESIDUAL FORCE     -0.266       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -0.266    
+ LARGEST INCREMENT OF DISP.        -4.686E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -9.236E-06   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.158E-05   TIME AVG. MOMENT      4.077E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.440E-04   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.440E-04
+ LARGEST INCREMENT OF ROTATION      1.313E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.171E-04   AT NODE        251   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      7.196E-02   TIME AVG. FORCE       3.834E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.173E-06   AT NODE          1   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.173E-06
+ LARGEST INCREMENT OF DISP.        -4.686E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        9.428E-09   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     7.150E-05   TIME AVG. MOMENT      4.076E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.512E-09   AT NODE        143   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.512E-09
+ LARGEST INCREMENT OF ROTATION      1.313E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.734E-07   AT NODE        257   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    8.438E-03
+
+ ITERATION SUMMARY FOR THE INCREMENT:   4 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  4 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.625E-03,  FRACTION OF STEP COMPLETED  2.688E-02
+ STEP TIME COMPLETED       2.688E-02,  TOTAL TIME COMPLETED        2.688E-02
+
+
+  INCREMENT     7 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  8.438E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       12.7       TIME AVG. FORCE        1.85    
+ LARGEST SCALED RESIDUAL FORCE      2.399E+03   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.399E+03
+ LARGEST INCREMENT OF DISP.        -6.995E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.435E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.187E-03   TIME AVG. MOMENT      1.062E-03
+ LARGEST SCALED RESIDUAL MOMENT      2.30       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      2.30    
+ LARGEST INCREMENT OF ROTATION      2.641E-02   AT NODE        179   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.916E-03   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.495       TIME AVG. FORCE       0.104    
+ LARGEST SCALED RESIDUAL FORCE      -10.1       AT NODE        232   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -10.1    
+ LARGEST INCREMENT OF DISP.        -6.995E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -6.771E-05   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.345E-04   TIME AVG. MOMENT      8.273E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.222E-02   AT NODE        655   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.222E-02
+ LARGEST INCREMENT OF ROTATION      2.033E-02   AT NODE        386   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.149E-03   AT NODE        177   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.140       TIME AVG. FORCE       5.292E-02
+ LARGEST SCALED RESIDUAL FORCE      -7.74       AT NODE       1079   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -7.74    
+ LARGEST INCREMENT OF DISP.        -6.989E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.357E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.119E-04   TIME AVG. MOMENT      5.092E-05
+ LARGEST SCALED RESIDUAL MOMENT     4.118E-03   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.118E-03
+ LARGEST INCREMENT OF ROTATION      1.970E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.315E-03   AT NODE        387   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.101       TIME AVG. FORCE       4.734E-02
+ LARGEST SCALED RESIDUAL FORCE      1.448E-02   AT NODE       1079   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.448E-02
+ LARGEST INCREMENT OF DISP.        -6.989E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        8.025E-06   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     9.398E-05   TIME AVG. MOMENT      4.837E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.558E-05   AT NODE        659   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.558E-05
+ LARGEST INCREMENT OF ROTATION      1.970E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.741E-04   AT NODE        383   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.101       TIME AVG. FORCE       4.735E-02
+ LARGEST SCALED RESIDUAL FORCE      1.788E-04   AT NODE          5   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.788E-04
+ LARGEST INCREMENT OF DISP.        -6.989E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.067E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     9.404E-05   TIME AVG. MOMENT      4.837E-05
+ LARGEST SCALED RESIDUAL MOMENT    -7.367E-07   AT NODE        170   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -7.367E-07
+ LARGEST INCREMENT OF ROTATION      1.970E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.245E-05   AT NODE         92   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   5 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  5 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  8.438E-03,  FRACTION OF STEP COMPLETED  3.531E-02
+ STEP TIME COMPLETED       3.531E-02,  TOTAL TIME COMPLETED        3.531E-02
+
+
+  INCREMENT     8 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  8.438E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       19.8       TIME AVG. FORCE        2.52    
+ LARGEST SCALED RESIDUAL FORCE      2.926E+03   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.926E+03
+ LARGEST INCREMENT OF DISP.        -6.959E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.027E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.167E-02   TIME AVG. MOMENT      1.501E-03
+ LARGEST SCALED RESIDUAL MOMENT      2.79       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      2.79    
+ LARGEST INCREMENT OF ROTATION      3.713E-02   AT NODE        177   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.867E-02   AT NODE        176   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       1.40       TIME AVG. FORCE       0.216    
+ LARGEST SCALED RESIDUAL FORCE      -32.7       AT NODE        176   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -32.7    
+ LARGEST INCREMENT OF DISP.        -7.358E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.444E-04   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     8.415E-04   TIME AVG. MOMENT      1.475E-04
+ LARGEST SCALED RESIDUAL MOMENT    -3.330E-02   AT NODE        576   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -3.330E-02
+ LARGEST INCREMENT OF ROTATION      2.220E-02   AT NODE        174   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.498E-02   AT NODE        177   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.768       TIME AVG. FORCE       0.137    
+ LARGEST SCALED RESIDUAL FORCE      -75.1       AT NODE       1079   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -75.1    
+ LARGEST INCREMENT OF DISP.        -6.942E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.864E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.871E-04   TIME AVG. MOMENT      1.032E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.313E-02   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.313E-02
+ LARGEST INCREMENT OF ROTATION      1.993E-02   AT NODE        182   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.855E-03   AT NODE        387   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                       1.07       TIME AVG. FORCE       0.176    
+ LARGEST SCALED RESIDUAL FORCE      -145.       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -145.    
+ LARGEST INCREMENT OF DISP.        -6.983E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.407E-04   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.035E-04   TIME AVG. MOMENT      1.303E-04
+ LARGEST SCALED RESIDUAL MOMENT    -7.208E-02   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -7.208E-02
+ LARGEST INCREMENT OF ROTATION      1.972E-02   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     4.753E-03   AT NODE        385   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.184       TIME AVG. FORCE       6.445E-02
+ LARGEST SCALED RESIDUAL FORCE      -4.01       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -4.01    
+ LARGEST INCREMENT OF DISP.        -7.016E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.834E-05   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.437E-04   TIME AVG. MOMENT      6.028E-05
+ LARGEST SCALED RESIDUAL MOMENT    -2.150E-03   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.150E-03
+ LARGEST INCREMENT OF ROTATION      1.972E-02   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.110E-04   AT NODE        218   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.310       TIME AVG. FORCE       8.017E-02
+ LARGEST SCALED RESIDUAL FORCE      -29.1       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -29.1    
+ LARGEST INCREMENT OF DISP.        -6.942E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.259E-04   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.287E-04   TIME AVG. MOMENT      7.091E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.484E-02   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.484E-02
+ LARGEST INCREMENT OF ROTATION      1.970E-02   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.410E-03   AT NODE         14   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.139       TIME AVG. FORCE       5.884E-02
+ LARGEST SCALED RESIDUAL FORCE     -0.103       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -0.103    
+ LARGEST INCREMENT OF DISP.        -6.940E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -5.805E-06   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.228E-04   TIME AVG. MOMENT      5.768E-05
+ LARGEST SCALED RESIDUAL MOMENT    -6.091E-05   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -6.091E-05
+ LARGEST INCREMENT OF ROTATION      1.970E-02   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.245E-04   AT NODE        132   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.139       TIME AVG. FORCE       5.883E-02
+ LARGEST SCALED RESIDUAL FORCE     -2.739E-02   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.739E-02
+ LARGEST INCREMENT OF DISP.        -6.939E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.329E-06   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.228E-04   TIME AVG. MOMENT      5.768E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.408E-05   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.408E-05
+ LARGEST INCREMENT OF ROTATION      1.970E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.374E-05   AT NODE          1   DOF  5
+   INSTANCE: {assembly node}                                                                 
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     9
+
+
+ AVERAGE FORCE                      0.139       TIME AVG. FORCE       5.883E-02
+ LARGEST SCALED RESIDUAL FORCE      1.887E-05   AT NODE        171   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.887E-05
+ LARGEST INCREMENT OF DISP.        -6.939E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.346E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.228E-04   TIME AVG. MOMENT      5.768E-05
+ LARGEST SCALED RESIDUAL MOMENT     2.018E-07   AT NODE        171   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.018E-07
+ LARGEST INCREMENT OF ROTATION      1.970E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.167E-06   AT NODE        114   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   9 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  9 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  8.438E-03,  FRACTION OF STEP COMPLETED  4.375E-02
+ STEP TIME COMPLETED       4.375E-02,  TOTAL TIME COMPLETED        4.375E-02
+
+
+  INCREMENT     9 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  8.438E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  29ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       19.6       TIME AVG. FORCE        2.22    
+ LARGEST SCALED RESIDUAL FORCE      2.951E+03   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.951E+03
+ LARGEST INCREMENT OF DISP.        -6.910E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.009E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.144E-02   TIME AVG. MOMENT      1.322E-03
+ LARGEST SCALED RESIDUAL MOMENT      2.80       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      2.80    
+ LARGEST INCREMENT OF ROTATION      3.667E-02   AT NODE        177   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.844E-02   AT NODE        174   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                       1.28       TIME AVG. FORCE       0.195    
+ LARGEST SCALED RESIDUAL FORCE      -29.9       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -29.9    
+ LARGEST INCREMENT OF DISP.        -7.418E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.348E-04   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.722E-04   TIME AVG. MOMENT      1.371E-04
+ LARGEST SCALED RESIDUAL MOMENT    -2.903E-02   AT NODE        576   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.903E-02
+ LARGEST INCREMENT OF ROTATION      2.318E-02   AT NODE        174   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.397E-02   AT NODE        179   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.741       TIME AVG. FORCE       0.135    
+ LARGEST SCALED RESIDUAL FORCE      -69.3       AT NODE       1079   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -69.3    
+ LARGEST INCREMENT OF DISP.        -6.889E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.896E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     4.665E-04   TIME AVG. MOMENT      1.031E-04
+ LARGEST SCALED RESIDUAL MOMENT     3.936E-02   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.936E-02
+ LARGEST INCREMENT OF ROTATION      2.028E-02   AT NODE        178   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.057E-03   AT NODE        387   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.836       TIME AVG. FORCE       0.145    
+ LARGEST SCALED RESIDUAL FORCE      -107.       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -107.    
+ LARGEST INCREMENT OF DISP.        -6.932E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.975E-04   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.500E-04   TIME AVG. MOMENT      1.124E-04
+ LARGEST SCALED RESIDUAL MOMENT    -5.264E-02   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -5.264E-02
+ LARGEST INCREMENT OF ROTATION      1.972E-02   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.938E-03   AT NODE        385   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.219       TIME AVG. FORCE       7.666E-02
+ LARGEST SCALED RESIDUAL FORCE      -5.51       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -5.51    
+ LARGEST INCREMENT OF DISP.        -6.946E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.749E-05   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.679E-04   TIME AVG. MOMENT      6.993E-05
+ LARGEST SCALED RESIDUAL MOMENT    -2.921E-03   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.921E-03
+ LARGEST INCREMENT OF ROTATION      1.971E-02   AT NODE        252   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.955E-04   AT NODE        218   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  29ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.274       TIME AVG. FORCE       8.272E-02
+ LARGEST SCALED RESIDUAL FORCE      -16.8       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -16.8    
+ LARGEST INCREMENT OF DISP.        -6.889E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.437E-05   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.037E-04   TIME AVG. MOMENT      7.390E-05
+ LARGEST SCALED RESIDUAL MOMENT    -8.615E-03   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -8.615E-03
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.616E-03   AT NODE          1   DOF  5
+   INSTANCE: {assembly node}                                                                 
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       7.180E-02
+ LARGEST SCALED RESIDUAL FORCE     -0.155       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -0.155    
+ LARGEST INCREMENT OF DISP.        -6.887E-04   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -6.629E-06   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.474E-04   TIME AVG. MOMENT      6.765E-05
+ LARGEST SCALED RESIDUAL MOMENT    -8.338E-05   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -8.338E-05
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        251   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.638E-04   AT NODE        135   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       7.179E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.689E-02   AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.689E-02
+ LARGEST INCREMENT OF DISP.        -6.886E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.394E-06   AT NODE         25   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.475E-04   TIME AVG. MOMENT      6.766E-05
+ LARGEST SCALED RESIDUAL MOMENT    -8.673E-06   AT NODE       1079   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -8.673E-06
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.823E-05   AT NODE        114   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     9
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       7.180E-02
+ LARGEST SCALED RESIDUAL FORCE      6.370E-03   AT NODE        109   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      6.370E-03
+ LARGEST INCREMENT OF DISP.        -6.886E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.278E-07   AT NODE        115   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.475E-04   TIME AVG. MOMENT      6.766E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.398E-06   AT NODE        135   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.398E-06
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -4.765E-05   AT NODE        116   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    10
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       7.180E-02
+ LARGEST SCALED RESIDUAL FORCE      4.058E-03   AT NODE        110   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      4.058E-03
+ LARGEST INCREMENT OF DISP.        -6.886E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -6.140E-08   AT NODE        117   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.476E-04   TIME AVG. MOMENT      6.766E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.011E-06   AT NODE        135   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.011E-06
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.619E-05   AT NODE        117   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED BASED ON ALTERNATIVE
+          RESIDUAL CRITERION
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    11
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       7.180E-02
+ LARGEST SCALED RESIDUAL FORCE      2.615E-03   AT NODE        110   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.615E-03
+ LARGEST INCREMENT OF DISP.        -6.886E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.435E-08   AT NODE        118   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.476E-04   TIME AVG. MOMENT      6.767E-05
+ LARGEST SCALED RESIDUAL MOMENT     7.575E-07   AT NODE        134   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     7.575E-07
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.852E-05   AT NODE        118   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED BASED ON ALTERNATIVE
+          RESIDUAL CRITERION
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    12
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       7.180E-02
+ LARGEST SCALED RESIDUAL FORCE      1.695E-03   AT NODE        111   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.695E-03
+ LARGEST INCREMENT OF DISP.        -6.886E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.471E-08   AT NODE        119   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.476E-04   TIME AVG. MOMENT      6.767E-05
+ LARGEST SCALED RESIDUAL MOMENT     5.824E-07   AT NODE        134   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.824E-07
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.285E-05   AT NODE        119   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED BASED ON ALTERNATIVE
+          RESIDUAL CRITERION
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION    13
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       7.180E-02
+ LARGEST SCALED RESIDUAL FORCE      1.105E-03   AT NODE        111   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.105E-03
+ LARGEST INCREMENT OF DISP.        -6.886E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.776E-08   AT NODE        119   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED BASED ON ALTERNATIVE
+          RESIDUAL CRITERION
+
+ AVERAGE MOMENT                     1.476E-04   TIME AVG. MOMENT      6.767E-05
+ LARGEST SCALED RESIDUAL MOMENT     4.526E-07   AT NODE        134   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.526E-07
+ LARGEST INCREMENT OF ROTATION      1.969E-02   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.847E-05   AT NODE        119   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED BASED ON ALTERNATIVE
+          RESIDUAL CRITERION
+
+          BECAUSE TOO MANY EQUILIBRIUM ITERATIONS HAVE BEEN USED
+          THE NEXT TIME INCREMENT WILL BE REDUCED TO    6.328E-03
+
+ ITERATION SUMMARY FOR THE INCREMENT:  13 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND 13 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  8.438E-03,  FRACTION OF STEP COMPLETED  5.219E-02
+ STEP TIME COMPLETED       5.219E-02,  TOTAL TIME COMPLETED        5.219E-02
+
+
+  INCREMENT    10 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  6.328E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       9.42       TIME AVG. FORCE        1.01    
+ LARGEST SCALED RESIDUAL FORCE      1.920E+03   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.920E+03
+ LARGEST INCREMENT OF DISP.        -5.134E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.010E-04   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     5.151E-03   TIME AVG. MOMENT      5.760E-04
+ LARGEST SCALED RESIDUAL MOMENT      1.83       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT      1.83    
+ LARGEST INCREMENT OF ROTATION      2.022E-02   AT NODE        175   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.433E-03   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+ 
+
+ ***WARNING: THE SYSTEM MATRIX HAS 1 NEGATIVE EIGENVALUES.
+             EXPLANATIONS ARE SUGGESTED AFTER THE FIRST OCCURRENCE OF THIS MESSAGE.
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.393       TIME AVG. FORCE       0.104    
+ LARGEST SCALED RESIDUAL FORCE      -5.04       AT NODE        232   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -5.04    
+ LARGEST INCREMENT OF DISP.        -5.134E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.282E-05   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.700E-04   TIME AVG. MOMENT      8.790E-05
+ LARGEST SCALED RESIDUAL MOMENT    -6.172E-03   AT NODE        655   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -6.172E-03
+ LARGEST INCREMENT OF ROTATION      1.556E-02   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -4.886E-03   AT NODE        177   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.206       TIME AVG. FORCE       8.519E-02
+ LARGEST SCALED RESIDUAL FORCE      -3.12       AT NODE        747   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      -3.12    
+ LARGEST INCREMENT OF DISP.        -5.128E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        9.756E-05   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.601E-04   TIME AVG. MOMENT      7.691E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.308E-03   AT NODE        747   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.308E-03
+ LARGEST INCREMENT OF ROTATION      1.516E-02   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.267E-03   AT NODE        387   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       8.438E-02
+ LARGEST SCALED RESIDUAL FORCE      1.079E-02   AT NODE          5   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.079E-02
+ LARGEST INCREMENT OF DISP.        -5.128E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.304E-06   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.569E-04   TIME AVG. MOMENT      7.659E-05
+ LARGEST SCALED RESIDUAL MOMENT     8.427E-06   AT NODE        313   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     8.427E-06
+ LARGEST INCREMENT OF ROTATION      1.508E-02   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -9.918E-05   AT NODE        113   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       8.440E-02
+ LARGEST SCALED RESIDUAL FORCE      4.929E-03   AT NODE          5   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      4.929E-03
+ LARGEST INCREMENT OF DISP.        -5.128E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.553E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.570E-04   TIME AVG. MOMENT      7.660E-05
+ LARGEST SCALED RESIDUAL MOMENT    -3.827E-06   AT NODE        222   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -3.827E-06
+ LARGEST INCREMENT OF ROTATION      1.506E-02   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.724E-05   AT NODE        134   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       8.440E-02
+ LARGEST SCALED RESIDUAL FORCE     -5.100E-03   AT NODE        221   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -5.100E-03
+ LARGEST INCREMENT OF DISP.        -5.128E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -5.530E-08   AT NODE        134   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.570E-04   TIME AVG. MOMENT      7.660E-05
+ LARGEST SCALED RESIDUAL MOMENT    -2.828E-06   AT NODE        221   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.828E-06
+ LARGEST INCREMENT OF ROTATION      1.506E-02   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.941E-05   AT NODE        134   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       8.440E-02
+ LARGEST SCALED RESIDUAL FORCE      1.434E-03   AT NODE        105   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.434E-03
+ LARGEST INCREMENT OF DISP.        -5.128E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.630E-08   AT NODE        134   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.570E-04   TIME AVG. MOMENT      7.660E-05
+ LARGEST SCALED RESIDUAL MOMENT    -4.455E-06   AT NODE        221   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.455E-06
+ LARGEST INCREMENT OF ROTATION      1.506E-02   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.441E-05   AT NODE        134   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       8.440E-02
+ LARGEST SCALED RESIDUAL FORCE      5.982E-03   AT NODE        221   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      5.982E-03
+ LARGEST INCREMENT OF DISP.        -5.128E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.042E-08   AT NODE         70   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.570E-04   TIME AVG. MOMENT      7.660E-05
+ LARGEST SCALED RESIDUAL MOMENT    -2.082E-06   AT NODE        221   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.082E-06
+ LARGEST INCREMENT OF ROTATION      1.506E-02   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.053E-05   AT NODE        134   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    10 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  1.582E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                       1.37       TIME AVG. FORCE       0.202    
+ LARGEST SCALED RESIDUAL FORCE       316.       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       316.    
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.926E-06   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     7.481E-04   TIME AVG. MOMENT      1.357E-04
+ LARGEST SCALED RESIDUAL MOMENT     0.305       AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     0.305    
+ LARGEST INCREMENT OF ROTATION      4.088E-03   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.024E-04   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.177       TIME AVG. FORCE       8.235E-02
+ LARGEST SCALED RESIDUAL FORCE      2.179E-02   AT NODE        387   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.179E-02
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.910E-07   AT NODE         21   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.453E-04   TIME AVG. MOMENT      7.543E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.779E-05   AT NODE        747   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.779E-05
+ LARGEST INCREMENT OF ROTATION      4.375E-03   AT NODE        171   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.426E-04   AT NODE          6   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.177       TIME AVG. FORCE       8.229E-02
+ LARGEST SCALED RESIDUAL FORCE      1.039E-02   AT NODE        596   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.039E-02
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        6.154E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.449E-04   TIME AVG. MOMENT      7.539E-05
+ LARGEST SCALED RESIDUAL MOMENT     4.683E-06   AT NODE        899   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.683E-06
+ LARGEST INCREMENT OF ROTATION      4.494E-03   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.644E-04   AT NODE        137   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       8.226E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.887E-03   AT NODE        899   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.887E-03
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.461E-07   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.446E-04   TIME AVG. MOMENT      7.536E-05
+ LARGEST SCALED RESIDUAL MOMENT     4.295E-06   AT NODE          6   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.295E-06
+ LARGEST INCREMENT OF ROTATION      4.543E-03   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -8.588E-05   AT NODE        136   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       8.225E-02
+ LARGEST SCALED RESIDUAL FORCE      2.599E-03   AT NODE          3   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.599E-03
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -7.221E-08   AT NODE        135   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.445E-04   TIME AVG. MOMENT      7.535E-05
+ LARGEST SCALED RESIDUAL MOMENT     3.030E-06   AT NODE          6   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.030E-06
+ LARGEST INCREMENT OF ROTATION      4.565E-03   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -5.035E-05   AT NODE        135   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       8.225E-02
+ LARGEST SCALED RESIDUAL FORCE     -2.249E-03   AT NODE        193   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.249E-03
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.791E-08   AT NODE        134   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.445E-04   TIME AVG. MOMENT      7.535E-05
+ LARGEST SCALED RESIDUAL MOMENT     2.027E-06   AT NODE          6   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.027E-06
+ LARGEST INCREMENT OF ROTATION      4.574E-03   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.334E-05   AT NODE         69   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       8.225E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.916E-03   AT NODE        899   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.916E-03
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.480E-08   AT NODE        133   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.445E-04   TIME AVG. MOMENT      7.535E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.450E-06   AT NODE          6   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.450E-06
+ LARGEST INCREMENT OF ROTATION      4.579E-03   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.422E-05   AT NODE         70   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.176       TIME AVG. FORCE       8.224E-02
+ LARGEST SCALED RESIDUAL FORCE     -7.893E-04   AT NODE        899   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.893E-04
+ LARGEST INCREMENT OF DISP.        -1.285E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.595E-08   AT NODE        132   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.445E-04   TIME AVG. MOMENT      7.535E-05
+ LARGEST SCALED RESIDUAL MOMENT     8.779E-07   AT NODE          6   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     8.779E-07
+ LARGEST INCREMENT OF ROTATION      4.582E-03   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.803E-05   AT NODE         71   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   8 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  8 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.582E-03,  FRACTION OF STEP COMPLETED  5.377E-02
+ STEP TIME COMPLETED       5.377E-02,  TOTAL TIME COMPLETED        5.377E-02
+
+
+  INCREMENT    11 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.582E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.532       TIME AVG. FORCE       0.123    
+ LARGEST SCALED RESIDUAL FORCE       97.9       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       97.9    
+ LARGEST INCREMENT OF DISP.        -1.283E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.309E-06   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.333E-04   TIME AVG. MOMENT      9.880E-05
+ LARGEST SCALED RESIDUAL MOMENT     9.530E-02   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.530E-02
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION    -1.042E-03   AT NODE          5   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.184       TIME AVG. FORCE       9.153E-02
+ LARGEST SCALED RESIDUAL FORCE     -7.488E-03   AT NODE        171   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.488E-03
+ LARGEST INCREMENT OF DISP.        -1.283E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        9.204E-07   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.502E-04   TIME AVG. MOMENT      8.215E-05
+ LARGEST SCALED RESIDUAL MOMENT    -7.011E-06   AT NODE        655   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -7.011E-06
+ LARGEST INCREMENT OF ROTATION      3.693E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.358E-04   AT NODE        137   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.185       TIME AVG. FORCE       9.156E-02
+ LARGEST SCALED RESIDUAL FORCE     -5.856E-03   AT NODE        596   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -5.856E-03
+ LARGEST INCREMENT OF DISP.        -1.283E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.667E-07   AT NODE         21   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.504E-04   TIME AVG. MOMENT      8.217E-05
+ LARGEST SCALED RESIDUAL MOMENT    -4.412E-06   AT NODE        899   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.412E-06
+ LARGEST INCREMENT OF ROTATION      3.693E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     8.546E-05   AT NODE        135   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.185       TIME AVG. FORCE       9.156E-02
+ LARGEST SCALED RESIDUAL FORCE     -3.590E-03   AT NODE        571   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -3.590E-03
+ LARGEST INCREMENT OF DISP.        -1.283E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        4.343E-08   AT NODE         96   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.504E-04   TIME AVG. MOMENT      8.217E-05
+ LARGEST SCALED RESIDUAL MOMENT    -3.386E-06   AT NODE        551   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -3.386E-06
+ LARGEST INCREMENT OF ROTATION      3.693E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.014E-05   AT NODE         96   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.185       TIME AVG. FORCE       9.156E-02
+ LARGEST SCALED RESIDUAL FORCE     -4.238E-03   AT NODE        141   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -4.238E-03
+ LARGEST INCREMENT OF DISP.        -1.283E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.824E-08   AT NODE        134   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.504E-04   TIME AVG. MOMENT      8.217E-05
+ LARGEST SCALED RESIDUAL MOMENT     2.493E-06   AT NODE        615   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.493E-06
+ LARGEST INCREMENT OF ROTATION      3.693E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.271E-05   AT NODE         69   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.185       TIME AVG. FORCE       9.156E-02
+ LARGEST SCALED RESIDUAL FORCE      4.088E-03   AT NODE        141   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      4.088E-03
+ LARGEST INCREMENT OF DISP.        -1.283E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -9.311E-09   AT NODE        107   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.504E-04   TIME AVG. MOMENT      8.217E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.048E-06   AT NODE        577   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.048E-06
+ LARGEST INCREMENT OF ROTATION      3.693E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.209E-06   AT NODE        107   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.185       TIME AVG. FORCE       9.156E-02
+ LARGEST SCALED RESIDUAL FORCE     -1.499E-04   AT NODE        592   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.499E-04
+ LARGEST INCREMENT OF DISP.        -1.283E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.168E-09   AT NODE        107   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.504E-04   TIME AVG. MOMENT      8.217E-05
+ LARGEST SCALED RESIDUAL MOMENT     9.212E-08   AT NODE          1   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.212E-08
+ LARGEST INCREMENT OF ROTATION      3.693E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.858E-06   AT NODE         96   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   7 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  7 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.582E-03,  FRACTION OF STEP COMPLETED  5.535E-02
+ STEP TIME COMPLETED       5.535E-02,  TOTAL TIME COMPLETED        5.535E-02
+
+
+  INCREMENT    12 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.582E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.539       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE       97.9       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       97.9    
+ LARGEST INCREMENT OF DISP.        -1.281E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -6.491E-07   AT NODE         21   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.396E-04   TIME AVG. MOMENT      1.036E-04
+ LARGEST SCALED RESIDUAL MOMENT     9.527E-02   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.527E-02
+ LARGEST INCREMENT OF ROTATION      3.692E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.510E-04   AT NODE        313   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.192       TIME AVG. FORCE       0.100    
+ LARGEST SCALED RESIDUAL FORCE      1.548E-03   AT NODE        231   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.548E-03
+ LARGEST INCREMENT OF DISP.        -1.281E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.155E-07   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.548E-04   TIME AVG. MOMENT      8.823E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.685E-06   AT NODE        678   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.685E-06
+ LARGEST INCREMENT OF ROTATION      3.692E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.200E-05   AT NODE        106   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  1.582E-03,  FRACTION OF STEP COMPLETED  5.693E-02
+ STEP TIME COMPLETED       5.693E-02,  TOTAL TIME COMPLETED        5.693E-02
+
+
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  1.582E-03
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.546       TIME AVG. FORCE       0.134    
+ LARGEST SCALED RESIDUAL FORCE       97.9       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       97.9    
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.758E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     3.438E-04   TIME AVG. MOMENT      1.079E-04
+ LARGEST SCALED RESIDUAL MOMENT     9.525E-02   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.525E-02
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION    -1.528E-04   AT NODE          3   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.108    
+ LARGEST SCALED RESIDUAL FORCE     -2.046E-03   AT NODE        560   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.046E-03
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.928E-07   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.585E-04   TIME AVG. MOMENT      9.363E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.027E-05   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.027E-05
+ LARGEST INCREMENT OF ROTATION      3.692E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.073E-05   AT NODE        101   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.108    
+ LARGEST SCALED RESIDUAL FORCE      1.009E-02   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.009E-02
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        7.697E-08   AT NODE         11   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      9.362E-05
+ LARGEST SCALED RESIDUAL MOMENT     9.127E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.127E-06
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION    -3.045E-05   AT NODE        138   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.108    
+ LARGEST SCALED RESIDUAL FORCE     -1.985E-03   AT NODE        553   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.985E-03
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.250E-08   AT NODE        100   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      9.362E-05
+ LARGEST SCALED RESIDUAL MOMENT    -9.397E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -9.397E-06
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION     2.980E-05   AT NODE        104   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  15ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.108    
+ LARGEST SCALED RESIDUAL FORCE      1.059E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.059E-02
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.376E-08   AT NODE        137   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      9.362E-05
+ LARGEST SCALED RESIDUAL MOMENT     9.009E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.009E-06
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION    -2.261E-05   AT NODE        137   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.108    
+ LARGEST SCALED RESIDUAL FORCE     -1.054E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.054E-02
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.022E-08   AT NODE        106   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      9.362E-05
+ LARGEST SCALED RESIDUAL MOMENT    -9.063E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -9.063E-06
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION     2.091E-05   AT NODE        104   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.108    
+ LARGEST SCALED RESIDUAL FORCE      1.056E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.056E-02
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.697E-08   AT NODE        136   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      9.361E-05
+ LARGEST SCALED RESIDUAL MOMENT     9.030E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.030E-06
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION    -1.735E-05   AT NODE        137   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.108    
+ LARGEST SCALED RESIDUAL FORCE     -1.056E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.056E-02
+ LARGEST INCREMENT OF DISP.        -1.279E-04   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.805E-08   AT NODE        172   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      9.362E-05
+ LARGEST SCALED RESIDUAL MOMENT    -9.071E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -9.071E-06
+ LARGEST INCREMENT OF ROTATION      3.691E-03   AT NODE          1   DOF  4
+   INSTANCE: {assembly node}                                                                 
+ LARGEST CORRECTION TO ROTATION     1.872E-05   AT NODE        106   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    13 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  3.955E-04
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.247       TIME AVG. FORCE       0.111    
+ LARGEST SCALED RESIDUAL FORCE       15.2       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       15.2    
+ LARGEST INCREMENT OF DISP.        -3.200E-05   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.066E-07   AT NODE         11   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.834E-04   TIME AVG. MOMENT      9.555E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.483E-02   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.483E-02
+ LARGEST INCREMENT OF ROTATION      9.533E-04   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -9.851E-05   AT NODE          3   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.193       TIME AVG. FORCE       0.107    
+ LARGEST SCALED RESIDUAL FORCE      7.294E-04   AT NODE        312   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      7.294E-04
+ LARGEST INCREMENT OF DISP.        -3.200E-05   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.182E-07   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.552E-04   TIME AVG. MOMENT      9.337E-05
+ LARGEST SCALED RESIDUAL MOMENT    -1.571E-06   AT NODE        194   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.571E-06
+ LARGEST INCREMENT OF ROTATION      9.822E-04   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.880E-05   AT NODE          5   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION   -2.036E-07
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    5.933E-04
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  3.955E-04,  FRACTION OF STEP COMPLETED  5.733E-02
+ STEP TIME COMPLETED       5.733E-02,  TOTAL TIME COMPLETED        5.733E-02
+
+
+  INCREMENT    14 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.933E-04
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.236       TIME AVG. FORCE       0.116    
+ LARGEST SCALED RESIDUAL FORCE       11.4       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       11.4    
+ LARGEST INCREMENT OF DISP.        -4.797E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -4.801E-07   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.777E-04   TIME AVG. MOMENT      9.939E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.110E-02   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.110E-02
+ LARGEST INCREMENT OF ROTATION      1.384E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.245E-04   AT NODE        222   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.196       TIME AVG. FORCE       0.113    
+ LARGEST SCALED RESIDUAL FORCE      1.354E-03   AT NODE        102   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.354E-03
+ LARGEST INCREMENT OF DISP.        -4.797E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.273E-07   AT NODE         21   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.569E-04   TIME AVG. MOMENT      9.791E-05
+ LARGEST SCALED RESIDUAL MOMENT     1.136E-06   AT NODE        137   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.136E-06
+ LARGEST INCREMENT OF ROTATION      1.385E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.977E-05   AT NODE        222   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION    2.003E-07
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+          TIME INCREMENT MAY NOW INCREASE TO    8.899E-04
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  5.933E-04,  FRACTION OF STEP COMPLETED  5.792E-02
+ STEP TIME COMPLETED       5.792E-02,  TOTAL TIME COMPLETED        5.792E-02
+
+
+  INCREMENT    15 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  8.899E-04
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.291       TIME AVG. FORCE       0.125    
+ LARGEST SCALED RESIDUAL FORCE       25.6       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       25.6    
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.373E-07   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     2.072E-04   TIME AVG. MOMENT      1.052E-04
+ LARGEST SCALED RESIDUAL MOMENT     2.501E-02   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.501E-02
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     4.413E-05   AT NODE        169   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.200       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE     -3.044E-03   AT NODE        581   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -3.044E-03
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        8.825E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.590E-04   TIME AVG. MOMENT      1.020E-04
+ LARGEST SCALED RESIDUAL MOMENT     9.002E-06   AT NODE        143   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.002E-06
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.669E-05   AT NODE        166   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.200       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE     -1.754E-03   AT NODE        904   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.754E-03
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.761E-08   AT NODE        172   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.590E-04   TIME AVG. MOMENT      1.020E-04
+ LARGEST SCALED RESIDUAL MOMENT    -1.022E-05   AT NODE        143   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.022E-05
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.562E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.200       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE      1.015E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.015E-02
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.618E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.590E-04   TIME AVG. MOMENT      1.020E-04
+ LARGEST SCALED RESIDUAL MOMENT     8.994E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     8.994E-06
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.475E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.200       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE     -1.017E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.017E-02
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.980E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.590E-04   TIME AVG. MOMENT      1.020E-04
+ LARGEST SCALED RESIDUAL MOMENT    -8.743E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -8.743E-06
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.445E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.200       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE      1.014E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.014E-02
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.113E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.590E-04   TIME AVG. MOMENT      1.020E-04
+ LARGEST SCALED RESIDUAL MOMENT     8.778E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     8.778E-06
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.459E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.200       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE     -1.014E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.014E-02
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.131E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.590E-04   TIME AVG. MOMENT      1.020E-04
+ LARGEST SCALED RESIDUAL MOMENT    -8.767E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -8.767E-06
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.453E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.200       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE      1.013E-02   AT NODE        144   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.013E-02
+ LARGEST INCREMENT OF DISP.        -7.190E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.098E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.590E-04   TIME AVG. MOMENT      1.020E-04
+ LARGEST SCALED RESIDUAL MOMENT     8.776E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     8.776E-06
+ LARGEST INCREMENT OF ROTATION      2.077E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.456E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    15 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  2.225E-04
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.209       TIME AVG. FORCE       0.120    
+ LARGEST SCALED RESIDUAL FORCE       3.51       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       3.51    
+ LARGEST INCREMENT OF DISP.        -1.798E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.106E-07   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.633E-04   TIME AVG. MOMENT      1.023E-04
+ LARGEST SCALED RESIDUAL MOMENT     3.432E-03   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.432E-03
+ LARGEST INCREMENT OF ROTATION      5.266E-04   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.211E-05   AT NODE        101   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.197       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE     -2.460E-03   AT NODE        221   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.460E-03
+ LARGEST INCREMENT OF DISP.        -1.798E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        4.303E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.571E-04   TIME AVG. MOMENT      1.019E-04
+ LARGEST SCALED RESIDUAL MOMENT     7.224E-07   AT NODE        603   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     7.224E-07
+ LARGEST INCREMENT OF ROTATION      5.337E-04   AT NODE        169   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.348E-05   AT NODE        138   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION   -1.544E-07
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.197       TIME AVG. FORCE       0.119    
+ LARGEST SCALED RESIDUAL FORCE     -2.197E-04   AT NODE        571   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -2.197E-04
+ LARGEST INCREMENT OF DISP.        -1.798E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.246E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.571E-04   TIME AVG. MOMENT      1.019E-04
+ LARGEST SCALED RESIDUAL MOMENT    -1.249E-06   AT NODE        172   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.249E-06
+ LARGEST INCREMENT OF ROTATION      5.379E-04   AT NODE        171   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.501E-06   AT NODE        137   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    3.337E-04
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  2.225E-04,  FRACTION OF STEP COMPLETED  5.814E-02
+ STEP TIME COMPLETED       5.814E-02,  TOTAL TIME COMPLETED        5.814E-02
+
+
+  INCREMENT    16 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.337E-04
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  25ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.211       TIME AVG. FORCE       0.125    
+ LARGEST SCALED RESIDUAL FORCE       3.59       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       3.59    
+ LARGEST INCREMENT OF DISP.        -2.696E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.072E-07   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.644E-04   TIME AVG. MOMENT      1.058E-04
+ LARGEST SCALED RESIDUAL MOMENT     3.509E-03   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.509E-03
+ LARGEST INCREMENT OF ROTATION      7.788E-04   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.407E-05   AT NODE          1   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  15ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       0.124    
+ LARGEST SCALED RESIDUAL FORCE      1.297E-03   AT NODE        560   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.297E-03
+ LARGEST INCREMENT OF DISP.        -2.696E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -6.784E-08   AT NODE         11   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.054E-04
+ LARGEST SCALED RESIDUAL MOMENT     2.466E-06   AT NODE        194   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.466E-06
+ LARGEST INCREMENT OF ROTATION      7.788E-04   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.704E-05   AT NODE          4   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  26ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.124    
+ LARGEST SCALED RESIDUAL FORCE     -1.332E-03   AT NODE        172   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.332E-03
+ LARGEST INCREMENT OF DISP.        -2.696E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.386E-08   AT NODE         11   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.054E-04
+ LARGEST SCALED RESIDUAL MOMENT     5.960E-07   AT NODE        222   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.960E-07
+ LARGEST INCREMENT OF ROTATION      7.789E-04   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.409E-05   AT NODE        138   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+          TIME INCREMENT MAY NOW INCREASE TO    5.006E-04
+
+ ITERATION SUMMARY FOR THE INCREMENT:   3 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  3 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  3.337E-04,  FRACTION OF STEP COMPLETED  5.848E-02
+ STEP TIME COMPLETED       5.848E-02,  TOTAL TIME COMPLETED        5.848E-02
+
+
+  INCREMENT    17 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  5.006E-04
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.229       TIME AVG. FORCE       0.130    
+ LARGEST SCALED RESIDUAL FORCE       8.08       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       8.08    
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.428E-07   AT NODE         11   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.743E-04   TIME AVG. MOMENT      1.094E-04
+ LARGEST SCALED RESIDUAL MOMENT     7.900E-03   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     7.900E-03
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.393E-05   AT NODE        313   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.201       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE      4.354E-03   AT NODE        581   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      4.354E-03
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.014E-07   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.594E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT     8.855E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     8.855E-06
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.031E-05   AT NODE        166   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.201       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE      1.958E-03   AT NODE        553   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.958E-03
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.853E-08   AT NODE        172   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.594E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT    -9.028E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -9.028E-06
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.589E-05   AT NODE        170   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.201       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE     -1.908E-03   AT NODE        581   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.908E-03
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.993E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.593E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT     9.012E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.012E-06
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.438E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.201       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE      2.023E-03   AT NODE        553   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.023E-03
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.345E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.594E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT    -9.060E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -9.060E-06
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.490E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.201       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE     -1.919E-03   AT NODE        553   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.919E-03
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.579E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.593E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT     9.038E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.038E-06
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.476E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.201       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE      2.025E-03   AT NODE        553   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      2.025E-03
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.511E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.594E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT    -9.060E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -9.060E-06
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.481E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.201       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE     -1.922E-03   AT NODE        553   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -1.922E-03
+ LARGEST INCREMENT OF DISP.        -4.043E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        3.523E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.594E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT     9.040E-06   AT NODE        560   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     9.040E-06
+ LARGEST INCREMENT OF ROTATION      1.168E-03   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -1.481E-05   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    17 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  1.251E-04
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.203       TIME AVG. FORCE       0.129    
+ LARGEST SCALED RESIDUAL FORCE       1.11       AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE       1.11    
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.896E-08   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.602E-04   TIME AVG. MOMENT      1.086E-04
+ LARGEST SCALED RESIDUAL MOMENT     1.085E-03   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.085E-03
+ LARGEST INCREMENT OF ROTATION      3.104E-04   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.921E-05   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      1.445E-03   AT NODE        168   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.445E-03
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        6.697E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.126E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.126E-06
+ LARGEST INCREMENT OF ROTATION      3.100E-04   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.381E-05   AT NODE        166   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      7.038E-04   AT NODE        553   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      7.038E-04
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.084E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.146E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.146E-06
+ LARGEST INCREMENT OF ROTATION      3.149E-04   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.366E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE     -7.785E-03   AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.785E-03
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        2.274E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT    -2.121E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.121E-06
+ LARGEST INCREMENT OF ROTATION      3.112E-04   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -5.294E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      7.785E-03   AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      7.785E-03
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.215E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT     2.125E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.125E-06
+ LARGEST INCREMENT OF ROTATION      3.129E-04   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.838E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE     -7.760E-03   AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.760E-03
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.191E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT    -2.120E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.120E-06
+ LARGEST INCREMENT OF ROTATION      3.113E-04   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.826E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      7.785E-03   AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      7.785E-03
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.195E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT     2.125E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.125E-06
+ LARGEST INCREMENT OF ROTATION      3.129E-04   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     2.834E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE     -7.760E-03   AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.760E-03
+ LARGEST INCREMENT OF DISP.        -1.011E-05   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.195E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT    -2.120E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.120E-06
+ LARGEST INCREMENT OF ROTATION      3.114E-04   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -2.830E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE MOMENT    EQUILIBRIUM EQUATIONS HAVE CONVERGED
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    17 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  3.129E-05
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      1.886E-02   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.886E-02
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT     1.849E-05   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     1.849E-05
+ LARGEST INCREMENT OF ROTATION      7.307E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.307E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      1.894E-03   AT NODE        560   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      1.894E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.214E-07   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF DISP.    CORRECTION   -2.183E-08
+          FORCE     EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ AVERAGE MOMENT                     1.581E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT     8.295E-06   AT NODE        904   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     8.295E-06
+ LARGEST INCREMENT OF ROTATION      8.954E-05   AT NODE        558   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.794E-05   AT NODE        313   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  19ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE     -7.832E-03   AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -7.832E-03
+ LARGEST INCREMENT OF DISP.        -2.528E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        5.767E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.581E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT    -2.127E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -2.127E-06
+ LARGEST INCREMENT OF ROTATION      9.763E-05   AT NODE        172   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.092E-05   AT NODE          1   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      7.814E-03   AT NODE        168   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      7.814E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.367E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.581E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT     2.135E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     2.135E-06
+ LARGEST INCREMENT OF ROTATION      1.017E-04   AT NODE        171   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     5.611E-06   AT NODE          5   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          ROTATION CORRECTION TOO LARGE COMPARED TO ROTATION INCREMENT
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  28ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.198       TIME AVG. FORCE       0.128    
+ LARGEST SCALED RESIDUAL FORCE      4.856E-04   AT NODE        222   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      4.856E-04
+ LARGEST INCREMENT OF DISP.        -2.528E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.328E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.581E-04   TIME AVG. MOMENT      1.085E-04
+ LARGEST SCALED RESIDUAL MOMENT    -1.083E-06   AT NODE        221   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -1.083E-06
+ LARGEST INCREMENT OF ROTATION      1.022E-04   AT NODE        171   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -3.350E-06   AT NODE         66   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION   -1.705E-06
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ ITERATION SUMMARY FOR THE INCREMENT:   5 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  5 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  3.129E-05,  FRACTION OF STEP COMPLETED  5.851E-02
+ STEP TIME COMPLETED       5.851E-02,  TOTAL TIME COMPLETED        5.851E-02
+
+
+  INCREMENT    18 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.129E-05
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.132    
+ LARGEST SCALED RESIDUAL FORCE      3.774E-02   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.774E-02
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.354E-07   AT NODE         11   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.112E-04
+ LARGEST SCALED RESIDUAL MOMENT     3.696E-05   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.696E-05
+ LARGEST INCREMENT OF ROTATION      7.303E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     3.876E-05   AT NODE        312   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.132    
+ LARGEST SCALED RESIDUAL FORCE      9.871E-04   AT NODE        172   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.871E-04
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          1   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.846E-08   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          THE FORCE     EQUILIBRIUM EQUATIONS HAVE CONVERGED
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.112E-04
+ LARGEST SCALED RESIDUAL MOMENT     3.154E-07   AT NODE        172   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.154E-07
+ LARGEST INCREMENT OF ROTATION      7.305E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.199E-06   AT NODE          4   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ ESTIMATE OF ROTATION CORRECTION   -8.505E-07
+          MOMENT    EQUILIB. ACCEPTED BASED ON SMALL RESIDUAL AND ESTIMATED CORRECTION
+
+ ITERATION SUMMARY FOR THE INCREMENT:   2 TOTAL ITERATIONS, OF WHICH
+   0 ARE SEVERE DISCONTINUITY ITERATIONS AND  2 ARE EQUILIBRIUM ITERATIONS.
+
+ TIME INCREMENT COMPLETED  3.129E-05,  FRACTION OF STEP COMPLETED  5.854E-02
+ STEP TIME COMPLETED       5.854E-02,  TOTAL TIME COMPLETED        5.854E-02
+
+
+  INCREMENT    19 STARTS. ATTEMPT NUMBER  1, TIME INCREMENT  3.129E-05
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  26ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      3.774E-02   AT NODE       1079   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      3.774E-02
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.840E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.584E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     3.696E-05   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     3.696E-05
+ LARGEST INCREMENT OF ROTATION      7.327E-05   AT NODE        169   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.289E-05   AT NODE        169   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.739E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.739E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.926E-08   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.147E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.147E-06
+ LARGEST INCREMENT OF ROTATION      7.303E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -9.722E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.730E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.730E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -9.614E-09   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.584E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.192E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.192E-06
+ LARGEST INCREMENT OF ROTATION      7.304E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.911E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.738E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.738E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.992E-09   AT NODE        169   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.145E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.145E-06
+ LARGEST INCREMENT OF ROTATION      7.303E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.029E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.729E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.729E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.999E-09   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.584E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.190E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.190E-06
+ LARGEST INCREMENT OF ROTATION      7.304E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.011E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.738E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.738E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.952E-09   AT NODE        169   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.145E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.145E-06
+ LARGEST INCREMENT OF ROTATION      7.303E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.015E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.729E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.729E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.962E-09   AT NODE          8   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.584E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.190E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.190E-06
+ LARGEST INCREMENT OF ROTATION      7.304E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.014E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.738E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.738E-03
+ LARGEST INCREMENT OF DISP.        -2.527E-06   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -8.951E-09   AT NODE        169   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.145E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.145E-06
+ LARGEST INCREMENT OF ROTATION      7.303E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -7.015E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    19 STARTS. ATTEMPT NUMBER  2, TIME INCREMENT  7.821E-06
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.756E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.756E-03
+ LARGEST INCREMENT OF DISP.        -6.319E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.063E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     5.775E-06   AT NODE       1079   DOF  6
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     5.775E-06
+ LARGEST INCREMENT OF ROTATION      2.274E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.138E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  20ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.778E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.778E-03
+ LARGEST INCREMENT OF DISP.        -6.318E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.455E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.167E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.167E-06
+ LARGEST INCREMENT OF ROTATION      1.825E-05   AT NODE        387   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.463E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.770E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.770E-03
+ LARGEST INCREMENT OF DISP.        -6.320E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.728E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.212E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.212E-06
+ LARGEST INCREMENT OF ROTATION      2.297E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.476E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.778E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.778E-03
+ LARGEST INCREMENT OF DISP.        -6.318E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.746E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.167E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.167E-06
+ LARGEST INCREMENT OF ROTATION      1.833E-05   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.462E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.770E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.770E-03
+ LARGEST INCREMENT OF DISP.        -6.320E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.739E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.212E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.212E-06
+ LARGEST INCREMENT OF ROTATION      2.298E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.467E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.778E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.778E-03
+ LARGEST INCREMENT OF DISP.        -6.318E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.740E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.167E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.167E-06
+ LARGEST INCREMENT OF ROTATION      1.834E-05   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.465E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.770E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.770E-03
+ LARGEST INCREMENT OF DISP.        -6.320E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.740E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.212E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.212E-06
+ LARGEST INCREMENT OF ROTATION      2.298E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.466E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.778E-03   AT NODE        603   DOF  1
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.778E-03
+ LARGEST INCREMENT OF DISP.        -6.318E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.740E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.167E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.167E-06
+ LARGEST INCREMENT OF ROTATION      1.834E-05   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.466E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    19 STARTS. ATTEMPT NUMBER  3, TIME INCREMENT  1.955E-06
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  21ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.894E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.894E-03
+ LARGEST INCREMENT OF DISP.        -1.581E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.581E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.583E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.192E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.192E-06
+ LARGEST INCREMENT OF ROTATION      1.048E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     1.048E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -1.580E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.725E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.171E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.171E-06
+ LARGEST INCREMENT OF ROTATION      5.340E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.429E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -1.581E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.017E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.198E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.198E-06
+ LARGEST INCREMENT OF ROTATION      1.093E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.477E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -1.580E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.747E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.170E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.170E-06
+ LARGEST INCREMENT OF ROTATION      6.178E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.540E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  15ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -1.581E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.737E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.197E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.197E-06
+ LARGEST INCREMENT OF ROTATION      1.091E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.535E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  17ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.880E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.880E-03
+ LARGEST INCREMENT OF DISP.        -1.580E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.742E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.170E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.170E-06
+ LARGEST INCREMENT OF ROTATION      6.179E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.533E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -1.581E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.741E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.197E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.197E-06
+ LARGEST INCREMENT OF ROTATION      1.091E-05   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.534E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.880E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.880E-03
+ LARGEST INCREMENT OF DISP.        -1.580E-07   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.741E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.170E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.170E-06
+ LARGEST INCREMENT OF ROTATION      6.179E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.534E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    19 STARTS. ATTEMPT NUMBER  4, TIME INCREMENT  4.888E-07
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.895E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.895E-03
+ LARGEST INCREMENT OF DISP.        -3.962E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -3.962E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.193E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.193E-06
+ LARGEST INCREMENT OF ROTATION      7.596E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     7.596E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -3.950E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.730E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.172E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.172E-06
+ LARGEST INCREMENT OF ROTATION      2.340E-06   AT NODE        169   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.456E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -3.964E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.030E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.199E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.199E-06
+ LARGEST INCREMENT OF ROTATION      7.882E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.473E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -3.951E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.764E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.172E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.172E-06
+ LARGEST INCREMENT OF ROTATION      3.150E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.540E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  15ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -3.964E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.733E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.198E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.198E-06
+ LARGEST INCREMENT OF ROTATION      7.878E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.535E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -3.951E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.748E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.172E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.172E-06
+ LARGEST INCREMENT OF ROTATION      3.144E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.532E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  15ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -3.964E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.743E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.198E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.198E-06
+ LARGEST INCREMENT OF ROTATION      7.877E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.534E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  16ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -3.951E-08   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.743E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.172E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.172E-06
+ LARGEST INCREMENT OF ROTATION      3.145E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.534E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+
+
+  INCREMENT    19 STARTS. ATTEMPT NUMBER  5, TIME INCREMENT  1.222E-07
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  18ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     1
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.895E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.895E-03
+ LARGEST INCREMENT OF DISP.        -2.391E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.391E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.193E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.193E-06
+ LARGEST INCREMENT OF ROTATION      6.885E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.885E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     2
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -9.882E-09   AT NODE          6   DOF  2
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.        1.735E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.173E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.173E-06
+ LARGEST INCREMENT OF ROTATION     -1.762E-06   AT NODE        128   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.463E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     3
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -2.693E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -2.037E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.200E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.200E-06
+ LARGEST INCREMENT OF ROTATION      7.128E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.472E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     4
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -9.979E-09   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO DISP.        1.771E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.172E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.172E-06
+ LARGEST INCREMENT OF ROTATION      2.391E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.539E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     5
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -2.661E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.739E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.199E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.199E-06
+ LARGEST INCREMENT OF ROTATION      7.124E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.541E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  23ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     6
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -9.935E-09   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO DISP.        1.748E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.172E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.172E-06
+ LARGEST INCREMENT OF ROTATION      2.389E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.539E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  24ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     7
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE     -9.893E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE     -9.893E-03
+ LARGEST INCREMENT OF DISP.        -2.661E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+ LARGEST CORRECTION TO DISP.       -1.747E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT     4.199E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT     4.199E-06
+ LARGEST INCREMENT OF ROTATION      7.125E-06   AT NODE        168   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION     6.540E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+	SYMMETRIC PURE THREAD-BASED DIRECT SPARSE SOLVER RUNNING ON
+ 	1 HOST x 1 MPI RANK PER HOST x 1 THREAD PER RANK
+        NUMBER OF EQUATIONS:  7116
+        NUMBER OF RHS:        1
+        NUMBER OF FLOPS:      6.422e+07
+        SOLVER ELAPSED TIME:  22ms
+
+               CONVERGENCE CHECKS FOR EQUILIBRIUM ITERATION     8
+
+
+ AVERAGE FORCE                      0.199       TIME AVG. FORCE       0.136    
+ LARGEST SCALED RESIDUAL FORCE      9.879E-03   AT NODE        219   DOF  2
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL FORCE      9.879E-03
+ LARGEST INCREMENT OF DISP.        -9.936E-09   AT NODE          9   DOF  3
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO DISP.        1.747E-08   AT NODE          1   DOF  3
+   INSTANCE: SHADE-1                                                                         
+          FORCE     EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+
+ AVERAGE MOMENT                     1.582E-04   TIME AVG. MOMENT      1.137E-04
+ LARGEST SCALED RESIDUAL MOMENT    -4.172E-06   AT NODE        167   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+  CORRESPONDING RESIDUAL MOMENT    -4.172E-06
+ LARGEST INCREMENT OF ROTATION      2.389E-06   AT NODE        173   DOF  4
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+ LARGEST CORRECTION TO ROTATION    -6.540E-06   AT NODE        167   DOF  5
+   INSTANCE: SMADOGBONE_(NITINOL)                                                            
+          MOMENT    EQUILIBRIUM NOT ACHIEVED WITHIN TOLERANCE.
+ 
+
+ ***NOTE: THE SOLUTION APPEARS TO BE DIVERGING. CONVERGENCE IS JUDGED UNLIKELY.
+ 
+
+ ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+
+ ***ERROR: THE ANALYSIS HAS BEEN TERMINATED DUE TO PREVIOUS ERRORS. ALL OUTPUT 
+           REQUESTS HAVE BEEN WRITTEN FOR THE LAST CONVERGED INCREMENT.
+
+
+
+     ANALYSIS SUMMARY:
+     TOTAL OF         19  INCREMENTS
+                      11  CUTBACKS IN AUTOMATIC INCREMENTATION
+                     174  ITERATIONS INCLUDING CONTACT ITERATIONS IF PRESENT
+                     174  PASSES THROUGH THE EQUATION SOLVER OF WHICH 
+                     174  INVOLVE MATRIX DECOMPOSITION, INCLUDING
+                       0  DECOMPOSITION(S) OF THE MASS MATRIX
+                       1  REORDERING OF EQUATIONS TO MINIMIZE WAVEFRONT
+                       0  ADDITIONAL RESIDUAL EVALUATIONS FOR LINE SEARCHES
+                       0  ADDITIONAL OPERATOR EVALUATIONS FOR LINE SEARCHES
+                       2  WARNING MESSAGES DURING USER INPUT PROCESSING
+                      20  WARNING MESSAGES DURING ANALYSIS
+                       0  ANALYSIS WARNINGS ARE NUMERICAL PROBLEM MESSAGES
+                      20  ANALYSIS WARNINGS ARE NEGATIVE EIGENVALUE MESSAGES
+                       2  ERROR MESSAGES
+
+
+
+     JOB TIME SUMMARY
+       USER TIME (SEC)      =      39.    
+       SYSTEM TIME (SEC)    =      2.1    
+       TOTAL CPU TIME (SEC) =      41.    
+       WALLCLOCK TIME (SEC) =           41
+       MEMORY PEAK (GB)     =            0

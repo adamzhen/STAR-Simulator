@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 21:51:52
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:17:03
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -98,10 +98,34 @@
  ***NOTE: ELEMENT TYPES S3T AND S3RT ARE IDENTICAL. ELEMENT TYPE S3T WILL BE 
           REFERRED TO AS S3RT FROM HERE ON
   *Element, type=S4T
+  *Element, type=S3T
+
+ ***NOTE: ELEMENT TYPES S3T AND S3RT ARE IDENTICAL. ELEMENT TYPE S3T WILL BE 
+          REFERRED TO AS S3RT FROM HERE ON
+  *Element, type=S4T
+  *Element, type=S3T
+
+ ***NOTE: ELEMENT TYPES S3T AND S3RT ARE IDENTICAL. ELEMENT TYPE S3T WILL BE 
+          REFERRED TO AS S3RT FROM HERE ON
+  *Element, type=S4T
+  *Element, type=S3T
+
+ ***NOTE: ELEMENT TYPES S3T AND S3RT ARE IDENTICAL. ELEMENT TYPE S3T WILL BE 
+          REFERRED TO AS S3RT FROM HERE ON
+  *Element, type=S4T
+  *Element, type=S3T
+
+ ***NOTE: ELEMENT TYPES S3T AND S3RT ARE IDENTICAL. ELEMENT TYPE S3T WILL BE 
+          REFERRED TO AS S3RT FROM HERE ON
+  *Element, type=S4T
   *Elset, elset=ASSEMBLY_SMADOGBONE_(NITINOL)_WHOLE-SMA
+  *Element, type=S4R
+  *Elset, elset=ASSEMBLY_SHADE-1__PICKEDSET2
   *Elset, elset=ASSEMBLY_FIXED-SET
   *Elset, elset=ASSEMBLY_LOADED-SET
   *Elset, elset=ASSEMBLY_SET-TEMP
+  *Elset, elset=ASSEMBLY__ALL-SURFACES-SIDE2_SNEG
+  *Elset, elset=ASSEMBLY__ALL-SURFACES_SPOS
   *physicalconstants, absolutezero=0, stefanboltzmann=5.67e-08
   *heading
           Assembly + Add_actuator prep run                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
@@ -114,19 +138,48 @@
   *depvar
   *specificheat
   *usermaterial, constants=40
+  *material, name=SHADE_MAT
+  *elastic
   *initialconditions, type=TEMPERATURE
   *shellsection, elset=ASSEMBLY_SMADOGBONE_(NITINOL)_WHOLE-SMA, material=SMA
+  *shellsection, elset=ASSEMBLY_SHADE-1__PICKEDSET2, material=SHADE_MAT
   *shellsection, elset=ASSEMBLY_SMADOGBONE_(NITINOL)_WHOLE-SMA, material=SMA
   *transverseshearstiffness
+  *shellsection, elset=ASSEMBLY_SHADE-1__PICKEDSET2, material=SHADE_MAT
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES-SIDE2
   *surface, type=NODE, name=ASSEMBLY_LOADED-SET_CNS_
+  *surface, type=NODE, name=ASSEMBLY_SHADE_NODES_CNS_
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES-SIDE2
   *surface, type=NODE, name=ASSEMBLY_LOADED-SET_CNS_
+  *surface, type=NODE, name=ASSEMBLY_SHADE_NODES_CNS_
+  *coupling, constraintname=ASSEMBLY_SHADE-COUPLING, refnode=ASSEMBLY_RP-LOAD, surface=ASSEMBLY_SHADE_NO
+  *coupling, constraintname=ASSEMBLY_SHADE-COUPLING, refnode=ASSEMBLY_RP-LOAD, surface=ASSEMBLY_SHADE_NO
+  *coupling, constraintname=ASSEMBLY_SHADE-COUPLING, refnode=ASSEMBLY_RP-LOAD, surface=ASSEMBLY_SHADE_NO
+  *kinematic
+
+ ***NOTE: WHENEVER A TRANSLATION (ROTATION) DOF AT A NODE IS CONSTRAINED BY A 
+          KINEMATIC COUPLING DEFINITION THE TRANSLATION (ROTATION) DOFS FOR 
+          THAT NODE CANNOT BE INCLUDED IN ANY OTHER CONSTRAINT INCLUDING MPCS, 
+          RIGID BODIES, ETC.
+  *coupling, constraintname=ASSEMBLY_SHADE-COUPLING, refnode=ASSEMBLY_RP-LOAD, surface=ASSEMBLY_SHADE_NO
+  *coupling, constraintname=ASSEMBLY_SHADE-COUPLING, refnode=ASSEMBLY_RP-LOAD, surface=ASSEMBLY_SHADE_NO
   *initialconditions, type=TEMPERATURE
   *boundary
   *boundary
+  *boundary, amplitude=LOADPATH
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW
   *boundary
   *boundary
+  *boundary, amplitude=LOADPATH
   *mpc
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES
+  *surface, type=ELEMENT, name=ASSEMBLY_ALL-SURFACES-SIDE2
   *surface, type=NODE, name=ASSEMBLY_LOADED-SET_CNS_
+  *surface, type=NODE, name=ASSEMBLY_SHADE_NODES_CNS_
   *output, field
   *output, field, variable=PRESELECT
   *output, history, variable=PRESELECT
@@ -209,12 +262,12 @@
   
             Element              Min/max angle   Adjusted nodes 
  ------------------------------ ---------------- -------------- 
-       SMADOGBONE_(NITINOL).584           8.6763       NO       
-       SMADOGBONE_(NITINOL).591          43.0715       NO       
-       SMADOGBONE_(NITINOL).626          8.80513       NO       
-       SMADOGBONE_(NITINOL).628          43.0796       NO       
-       SMADOGBONE_(NITINOL).664           8.6764       NO       
-       SMADOGBONE_(NITINOL).703          8.80523       NO       
+       SMADOGBONE_(NITINOL).223          8.81272       NO       
+       SMADOGBONE_(NITINOL).262          8.68367       NO       
+       SMADOGBONE_(NITINOL).292          43.0685       NO       
+       SMADOGBONE_(NITINOL).304          8.67797       NO       
+       SMADOGBONE_(NITINOL).688          8.80672       NO       
+       SMADOGBONE_(NITINOL).721          43.2132       NO       
   
   
   *step, name=Load, nlgeom=YES, inc=1000000
@@ -238,6 +291,7 @@
   *step, name=Load, nlgeom=YES, inc=1000000
   *static
   *boundary
+  *boundary, amplitude=LOADPATH
   *output, field
   *nodeoutput
   *elementoutput, directions=YES
@@ -246,6 +300,9 @@
   *endstep
   *step, name=Unload, nlgeom=YES, inc=1000000
   *static
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW
   *output, field
   *nodeoutput
   *elementoutput, directions=YES
@@ -264,29 +321,27 @@
   *step, name=Load, nlgeom=YES, inc=1000000
   *static
   *boundary
-  *cload
+  *boundary, amplitude=LOADPATH
   *endstep
   *step, name=Unload, nlgeom=YES, inc=1000000
   *static
-  *cload, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW
+  *boundary, op=NEW
   *endstep
   *step, name=temp_step, nlgeom=YES, inc=10000
   *coupledtemperature-displacement, creep=NONE, deltmx=10
   *endstep
-
- ***WARNING: THE BEAM MPC HAS A ZERO LENGTH BETWEEN NODES 3 INSTANCE 
-             SMADOGBONE_(NITINOL) AND 1 (ASSEMBLY).  IT WILL BE REPLACED WITH A 
-             TIE MPC
 
 
 
                             P R O B L E M   S I Z E
 
 
-          NUMBER OF ELEMENTS IS                                   741
-          NUMBER OF NODES IS                                      842
-          NUMBER OF NODES DEFINED BY THE USER                     842
-          TOTAL NUMBER OF VARIABLES IN THE MODEL                 9257
+          NUMBER OF ELEMENTS IS                                  1098
+          NUMBER OF NODES IS                                     1242
+          NUMBER OF NODES DEFINED BY THE USER                    1242
+          TOTAL NUMBER OF VARIABLES IN THE MODEL                13482
           (DEGREES OF FREEDOM PLUS MAX NO. OF ANY LAGRANGE MULTIPLIER
            VARIABLES. INCLUDE *PRINT,SOLVE=YES TO GET THE ACTUAL NUMBER.)
 
@@ -297,13 +352,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.40    
-       SYSTEM TIME (SEC)    =     0.30    
-       TOTAL CPU TIME (SEC) =     0.70    
+       USER TIME (SEC)      =     0.50    
+       SYSTEM TIME (SEC)    =     0.10    
+       TOTAL CPU TIME (SEC) =     0.60    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 21:51:57
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:17:08
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Assembly + Add_actuator prep run                                                          STEP    1  INCREMENT    1
@@ -331,7 +386,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          8.84E+07               21                 62
+     1          1.28E+08               22                 81
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -364,7 +419,7 @@
       (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 21:57:35
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:20:31
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Assembly + Add_actuator prep run                                                          STEP    2  INCREMENT    1
@@ -392,7 +447,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          8.84E+07               21                 62
+     1          1.28E+08               22                 81
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -425,7 +480,7 @@
       (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 21:58:55
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:21:20
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Assembly + Add_actuator prep run                                                          STEP    3  INCREMENT    1
@@ -461,7 +516,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.40E+08               21                 89
+     1          7.28E+08               22                118
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -499,14 +554,15 @@
 
 
                               ANALYSIS COMPLETE
-                              WITH      2 WARNING MESSAGES ON THE DAT FILE
-                              AND     212 WARNING MESSAGES ON THE MSG FILE
-                                      202 WARNINGS ARE FOR NEGATIVE EIGENVALUES
+                              WITH      1 WARNING MESSAGES ON THE DAT FILE
+                              AND     438 WARNING MESSAGES ON THE MSG FILE
+                                        1 WARNINGS ARE FOR NUMERICAL PROBLEMS
+                                      365 WARNINGS ARE FOR NEGATIVE EIGENVALUES
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     3.97E+02
-       SYSTEM TIME (SEC)    =      28.    
-       TOTAL CPU TIME (SEC) =     4.24E+02
-       WALLCLOCK TIME (SEC) =          421
+       USER TIME (SEC)      =     2.45E+02
+       SYSTEM TIME (SEC)    =      17.    
+       TOTAL CPU TIME (SEC) =     2.62E+02
+       WALLCLOCK TIME (SEC) =          260

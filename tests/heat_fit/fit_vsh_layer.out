@@ -1,0 +1,9 @@
+flux maps 0 s
+  it 0 best 2.791 K
+  it 50 best 1.732 K
+  it 100 best 1.677 K
+BEST vsh_layer (layer True) shaded rms 1.666 {'I': 6197.006, 'xc': 0.049, 'sig': 0.0361, 'h': 6.3, 'eps': 0.9, 'floor': 0.2876, 'tape': 0.3853, 'hg': 0.0} mid 341.9 ends 8.3/4.3 lamp 51 W
+sh_TC1 rms 1.52
+sh_TC2 rms 1.24
+un_TC1 rms 4.41
+un_TC2 rms 6.91

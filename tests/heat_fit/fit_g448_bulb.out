@@ -1,0 +1,8 @@
+flux maps 0 s
+  it 0 best 4.606 K
+  it 50 best 3.175 K
+BEST g448_bulb rms 3.172 {'I': 7168.6669, 'xc': 0.0476, 'sig': 0.0293, 'h': 6.2971, 'eps': 0.9342, 'floor': 0.1553, 'tape': 0.4161, 'hg': 0.0} mid 339.5 ends [np.float64(7.1), np.float64(1.2)] gauge@20s 336.4 lamp 39 W
+sh_TC1 rms 1.77
+sh_TC2 rms 1.59
+un_TC1 rms 3.31
+un_TC2 rms 5.84

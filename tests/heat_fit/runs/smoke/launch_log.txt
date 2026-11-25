@@ -1,0 +1,4 @@
+2026-11-24 01:24:03 start smoke {"RUN_NO": "90.0", "CHUNK_SCHEDULE": "[(2, 2.0)]", "INCLUDE_SHADE": "False", "FLUX_PROFILE_SIGMA": "0.03", "GRIP_FILM_COEFF": "50.0", "AMBIENT_TEMP": "300.0"}
+2026-11-24 01:46:24 abaqus/cae finished after 1341 s
+copied C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/smoke/scen/run_documentation/run_90.0 -> C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_90.0
+2026-11-24 01:46:34 cleaned 1.6 GB

@@ -1,0 +1,168 @@
+# -*- coding: mbcs -*-
+#
+# Abaqus/CAE Release 2025 replay file
+# Internal Version: 2024_09_20-08.00.46 RELr427 198590
+# Run by adzheng on Wed Nov 25 01:25:36 2026
+#
+
+# from driverUtils import executeOnCaeGraphicsStartup
+# executeOnCaeGraphicsStartup()
+#: Executing "onCaeGraphicsStartup()" in the site directory ...
+from abaqus import *
+from abaqusConstants import *
+session.Viewport(name='Viewport: 1', origin=(1.32552, 1.32407), width=195.117, 
+    height=131.348)
+session.viewports['Viewport: 1'].makeCurrent()
+from driverUtils import executeOnCaeStartup
+executeOnCaeStartup()
+execfile('run_script.py', __main__.__dict__)
+#: 
+#: ################
+#: [2026-11-25 01:25:37] RUN NO: 1.03_uncoupled
+#: [2026-11-25 01:25:37] Date: 2026-11-25
+#: [2026-11-25 01:25:37] 
+#: === Starting iterative loop with restart-based steps ===
+#: A new model database has been created.
+#: The model "Model-1" has been created.
+session.viewports['Viewport: 1'].setValues(displayedObject=None)
+#: [2026-11-25 01:25:37] 
+#: ========================================
+#: [2026-11-25 01:25:37]  Iteration 1 of 1 (job SMAHeatTransient_01)
+#: [2026-11-25 01:25:37] ========================================
+#: The model "DogboneScenario1_Model" has been created.
+#: [2026-11-25 01:25:37] Creating materials
+#: [2026-11-25 01:25:37] partitioning part
+#: [2026-11-25 01:25:37] Creating shell section
+#: [2026-11-25 01:25:37] Creating assembly
+#: [2026-11-25 01:25:37] Defining step
+#: [2026-11-25 01:25:37] Defining initial temperature
+#: [2026-11-25 01:25:37] Defining uniform initial temperature
+#: [2026-11-25 01:25:37] Defining sets
+#: [2026-11-25 01:25:37] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.02, 0)
+#: [2026-11-25 01:25:37] Defining surfaces
+#: [2026-11-25 01:25:37] Defining BC
+#: [2026-11-25 01:25:37] Defining constraints
+#: [2026-11-25 01:25:37] Defining loads
+#: [2026-11-25 01:25:37] Meshing part
+#: Warning: findAt could not find a geometric entity at (0.060176, 0.01, 0.0)
+#: Warning: findAt could not find a geometric entity at (0.062831, 0.012794, 0.0)
+#: Warning: findAt could not find a geometric entity at (0.01211, 0.009142, 0.0)
+#: Warning: findAt could not find a geometric entity at (0.008761, 0.006085, 0.0)
+#: Warning: findAt could not find a geometric entity at (0.005461, 0.012794, 0.0)
+#: Warning: findAt could not find a geometric entity at (0.06948, 0.009142, 0.0)
+#: Warning: findAt could not find a geometric entity at (0.066131, 0.006085, 0.0)
+#: [2026-11-25 01:25:37] Pre-twist -20.0 deg: rotated 1241 nodes (parts sma, shade) -> C:\Users\adzheng\STAR-Simulator\tests\heat_fit\runs\r1_03_uncoupled\loading_pretwist.inp
+#: [2026-11-25 01:31:14] Defining interactions
+#: The interaction "Radiation-SPOS" has been created.
+#: The interaction "Convection-SPOS" has been created.
+#: The interaction "Radiation-SNEG" has been created.
+#: The interaction "Convection-SNEG" has been created.
+#: [2026-11-25 01:31:14] Exporting deformed geometry from prep job loading
+#: [2026-11-25 01:31:14] Exporting OBJ from ODB: loading.odb
+#: Model: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/loading.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       6
+#: Number of Node Sets:          8
+#: Number of Steps:              3
+#: [2026-11-25 01:31:14] Restricted display group to instance: SMADOGBONE_(NITINOL)
+#: [2026-11-25 01:31:14] Set to step 'temp_step' (position index 2, global step number 3), frame 12
+#: [2026-11-25 01:31:14] Set uniformScaleFactor=1.0 (true deformation scale)
+#: [2026-11-25 01:31:15] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/run_documentation/run_1.03_uncoupled/deformed_cad\SMADogboneDeformedMesh_00_Loaded.obj (instance: SMADOGBONE_(NITINOL))
+#: [2026-11-25 01:31:15] Waiting for ODB to be released: loading.odb
+#: [2026-11-25 01:31:15] Exporting deformed geometry from loading.odb
+#: [2026-11-25 01:31:15] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.906e-05
+#: [2026-11-25 01:31:15] Model setup time: 338.6 s (prep job 336.7 s)
+#: Model: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/loading.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       6
+#: Number of Node Sets:          8
+#: Number of Steps:              3
+#: [2026-11-25 01:31:17] Exported 4 corners of shade-1 from loading (nodes [35, 29, 1, 7])
+#: [2026-11-25 01:31:17] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/abaqus_to_freecad.json
+#: [2026-11-25 01:31:17] Running FreeCAD macro...
+#: [2026-11-25 01:31:29] FreeCAD macro finished in 12.2 s
+#: [2026-11-25 01:31:29] FreeCAD ray tracing succeeded: 2128 faces, flux data at C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/flux_data.csv
+#: [2026-11-25 01:31:29]   ray engine FastRay, ray tracing 5.59 s
+#: [2026-11-25 01:31:29] Loaded 2133 flux points from C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/flux_data.csv
+#: Model: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/loading.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       6
+#: Number of Node Sets:          8
+#: Number of Steps:              3
+#: [2026-11-25 01:31:31] map_flux_to_elements (coverage, k=8.0): 2133 hits (0 isolated, discarded); rho median 0.89 mm; elements 40 dark / 31 partial / 1003 full; power applied 4.2540 W vs ray estimate 4.0959 W
+#: [2026-11-25 01:31:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+#: [2026-11-25 01:31:31] Flux adjustment: 0 elements raised to 15% of unshaded flux, 144 on tape strips (x0.42); absorbed power 4.2540 W -> 2.8433 W
+#: [2026-11-25 01:31:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+#: [2026-11-25 01:31:31] Redefined SurfaceHeatFlux 'SolarFlux_01' (field=FluxField_01) for step Heat_01
+#: [2026-11-25 01:31:31] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+#: [2026-11-25 01:31:31] Creating job SMAHeatTransient_01
+#: The model database has been saved to "C:\Users\adzheng\STAR-Simulator\tests\heat_fit\runs\r1_03_uncoupled\SMAHeatTransient_01.cae".
+#: [2026-11-25 01:31:31] Running job SMAHeatTransient_01
+#: [2026-11-25 01:57:31] Completed job SMAHeatTransient_01
+#: [2026-11-25 01:57:31] Exporting OBJ from ODB: SMAHeatTransient_01.odb
+#: Model: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       6
+#: Number of Node Sets:          8
+#: Number of Steps:              1
+#: [2026-11-25 01:57:36] Restricted display group to instance: SMADOGBONE_(NITINOL)
+#: [2026-11-25 01:57:36] Set to step 'Heat_01' (position index 0, global step number 4), frame 1087
+#: [2026-11-25 01:57:36] Set uniformScaleFactor=1.0 (true deformation scale)
+#: [2026-11-25 01:57:36] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/run_documentation/run_1.03_uncoupled/deformed_cad\SMADogboneDeformedMesh_01.obj (instance: SMADOGBONE_(NITINOL))
+#: [2026-11-25 01:57:36] Waiting for ODB to be released: SMAHeatTransient_01.odb
+#: [2026-11-25 01:57:36] Exporting deformed geometry from SMAHeatTransient_01.odb
+#: [2026-11-25 01:57:37] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 1.774e-05
+#: [2026-11-25 01:57:37] Iteration 1 elapsed time: 1581.655 seconds
+#: [2026-11-25 01:57:37] 
+#: DONE with all iterations.
+#: [2026-11-25 01:57:37] Total iterative analysis time: 1920.280 seconds
+#: [2026-11-25 01:57:37] Read 1074 mapped flux input values for iteration 1
+#: [2026-11-25 01:57:37] Mapped flux input colorscale: 0 to 6364.1 (95th pct)
+#: [2026-11-25 01:57:37] Saved: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/run_documentation/run_1.03_uncoupled/plots\solar_flux_mapped_input_1.03_uncoupled.png
+#: [2026-11-25 01:57:37] Saved 3D ray-tracing viewer to C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/run_documentation/run_1.03_uncoupled\raytrace_viewer_1.03_uncoupled.html
+#: Model: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       6
+#: Number of Node Sets:          8
+#: Number of Steps:              1
+#: [2026-11-25 01:57:43] Read 8448 HFL values for SMAHeatTransient_01
+#: [2026-11-25 01:57:43] HFL colorscale: 0 to 6148.6 (95th pct)
+#: [2026-11-25 01:57:44] Saved: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/run_documentation/run_1.03_uncoupled/plots\hfl_field_output_1.03_uncoupled.png
+#: [2026-11-25 01:57:44] EdgeTwistMetric: tracking nodes 23 and 15 (1.20e-04 m and 1.20e-04 m from the given edge points)
+#: [2026-11-25 01:57:44] NodeTemperatureMetric: T1 at (0.004125, 0.01, 0.0) -> node 282 (4.96e-10 m away)
+#: [2026-11-25 01:57:44] NodeTemperatureMetric: T2 at (0.0718, 0.01, 0.0) -> node 240 (1.75e-05 m away)
+#: [2026-11-25 01:57:46] Wrote 2 row(s) to C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/scen/run_documentation/run_1.03_uncoupled/twist_1.03_uncoupled.csv
+#: Model: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/loading.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       6
+#: Number of Node Sets:          8
+#: Number of Steps:              3
+#: [2026-11-25 01:57:47] EdgeTwistMetric: tracking nodes 23 and 15 (1.20e-04 m and 1.20e-04 m from the given edge points)
+#: [2026-11-25 01:57:47] NodeTemperatureMetric: T1 at (0.004125, 0.01, 0.0) -> node 282 (4.96e-10 m away)
+#: [2026-11-25 01:57:47] NodeTemperatureMetric: T2 at (0.0718, 0.01, 0.0) -> node 240 (1.75e-05 m away)
+#: Model: C:/Users/adzheng/STAR-Simulator/tests/heat_fit/runs/r1_03_uncoupled/SMAHeatTransient_01.odb
+#: Number of Assemblies:         1
+#: Number of Assembly instances: 0
+#: Number of Part instances:     2
+#: Number of Meshes:             3
+#: Number of Element Sets:       6
+#: Number of Node Sets:          8
+#: Number of Steps:              1

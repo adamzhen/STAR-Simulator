@@ -1,0 +1,9 @@
+flux maps 0 s
+  it 0 best 3.985 K
+  it 50 best 3.105 K
+  it 100 best 3.088 K
+BEST g448_free rms 3.088 {'I': 6350.5895, 'xc': 0.0516, 'sig': 0.035, 'h': 6.1005, 'eps': 0.9222, 'floor': 0.1601, 'tape': 0.4236, 'hg': 0.0} mid 338.4 ends [np.float64(7.1), np.float64(0.0)] gauge@20s 331.5 lamp 49 W
+sh_TC1 rms 1.77
+sh_TC2 rms 1.57
+un_TC1 rms 3.08
+un_TC2 rms 5.61

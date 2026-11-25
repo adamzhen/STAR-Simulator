@@ -1,0 +1,5 @@
+flux maps 0 s
+  it 0 best 3.114 K
+  it 50 best 2.993 K
+  it 100 best 2.824 K
+BEST c_nf rms 2.661 {'I': 5590.4062, 'xc': 0.038, 'sig': 0.1692, 'h': 6.4802, 'eps': 0.95, 'floor': 0.2612, 'tape': 0.4435, 'hg': 0.0, 'nf': 1.0} profile [4.737202796223698, 2.7014412741405636, 0.0546311103] mid_peak_K 336.9 lamp_W 32

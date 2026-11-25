@@ -1,0 +1,19 @@
+combo,job_name,T0_K,Ms_K,Mf_K,As_K,Af_K,status,runtime_s,last_attempted_step,last_step,last_inc,last_step_time,last_total_time,n_cutbacks,sta_result,error_message,edge_nodes,twist_Load_deg,twist_Unload_deg,twist_temp_step_deg,angle3d_Load_deg,angle3d_Unload_deg,angle3d_temp_step_deg
+1,prep_T295_As340_Af360,295.0,290.0,280.0,340.0,360.0,aborted,81.1,Load,Load,52,0.0804,0.0804,9,not completed,***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT,21,17.0777,,,17.0777,,
+2,prep_T300_As340_Af360,300.0,290.0,280.0,340.0,360.0,aborted,96.2,Load,Load,79,0.124,0.124,9,not completed,***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT,21,25.4163,,,25.4163,,
+3,prep_T305_As340_Af360,305.0,290.0,280.0,340.0,360.0,completed,411.7,temp_step,temp_step,12,1.00,3.00,17,completed,,21,127.7962,62.0203,62.0203,127.7962,62.0203,62.0203
+4,prep_T310_As340_Af360,310.0,290.0,280.0,340.0,360.0,completed,396.8,temp_step,temp_step,12,1.00,3.00,17,completed,,21,125.4681,57.5152,57.5152,125.4681,57.5152,57.5152
+5,prep_T315_As340_Af360,315.0,290.0,280.0,340.0,360.0,completed,386.6,temp_step,temp_step,12,1.00,3.00,17,completed,,21,123.4398,53.3759,53.3754,123.4398,53.3759,53.3754
+6,prep_T320_As340_Af360,320.0,290.0,280.0,340.0,360.0,completed,386.6,temp_step,temp_step,12,1.00,3.00,20,completed,,21,121.5653,49.3630,49.3630,121.5653,49.3630,49.3630
+7,prep_T295_As330_Af350,295.0,290.0,280.0,330.0,350.0,aborted,76.2,Load,Load,52,0.0804,0.0804,9,not completed,***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT,21,17.0777,,,17.0777,,
+8,prep_T300_As330_Af350,300.0,290.0,280.0,330.0,350.0,aborted,96.1,Load,Load,79,0.124,0.124,9,not completed,***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT,21,25.4163,,,25.4163,,
+9,prep_T305_As330_Af350,305.0,290.0,280.0,330.0,350.0,completed,406.7,temp_step,temp_step,12,1.00,3.00,17,completed,,21,127.7962,62.0203,62.0203,127.7962,62.0203,62.0203
+10,prep_T310_As330_Af350,310.0,290.0,280.0,330.0,350.0,completed,396.7,temp_step,temp_step,12,1.00,3.00,17,completed,,21,125.4681,57.5152,57.5152,125.4681,57.5152,57.5152
+11,prep_T315_As330_Af350,315.0,290.0,280.0,330.0,350.0,completed,386.8,temp_step,temp_step,12,1.00,3.00,17,completed,,21,123.4398,53.3759,53.3754,123.4398,53.3759,53.3754
+12,prep_T320_As330_Af350,320.0,290.0,280.0,330.0,350.0,completed,401.7,temp_step,temp_step,11,1.00,3.00,21,completed,,21,121.5653,49.3543,49.3531,121.5653,49.3543,49.3531
+13,prep_T295_As320_Af340,295.0,290.0,280.0,320.0,340.0,aborted,76.2,Load,Load,52,0.0804,0.0804,9,not completed,***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT,21,17.0777,,,17.0777,,
+14,prep_T300_As320_Af340,300.0,290.0,280.0,320.0,340.0,aborted,96.2,Load,Load,79,0.124,0.124,9,not completed,***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT,21,25.4163,,,25.4163,,
+15,prep_T305_As320_Af340,305.0,290.0,280.0,320.0,340.0,completed,406.7,temp_step,temp_step,12,1.00,3.00,17,completed,,21,127.7962,62.0203,62.0203,127.7962,62.0203,62.0203
+16,prep_T310_As320_Af340,310.0,290.0,280.0,320.0,340.0,completed,396.8,temp_step,temp_step,10,1.00,3.00,17,completed,,21,125.4681,57.4685,57.4685,125.4681,57.4685,57.4685
+17,prep_T315_As320_Af340,315.0,290.0,280.0,320.0,340.0,completed,398.1,temp_step,temp_step,12,1.00,3.00,19,completed,,21,123.4398,52.2666,52.2668,123.4398,52.2666,52.2668
+18,prep_T320_As320_Af340,320.0,290.0,280.0,320.0,340.0,completed,401.8,temp_step,temp_step,12,1.00,3.00,19,completed,,21,121.5653,46.9223,46.9234,121.5653,46.9223,46.9234

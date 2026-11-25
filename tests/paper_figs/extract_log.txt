@@ -1,0 +1,4 @@
+[2026-11-25 00:13:59] map_flux_to_elements (coverage, k=8.0): 2251 hits (0 isolated, discarded); rho median 0.89 mm; elements 37 dark / 32 partial / 1005 full; power applied 4.2740 W vs ray estimate 4.3224 W
+[2026-11-25 00:14:00] map_flux_to_elements (coverage, k=8.0): 1414 hits (0 isolated, discarded); rho median 0.91 mm; elements 305 dark / 113 partial / 656 full; power applied 2.8844 W vs ray estimate 2.6993 W
+[2026-11-25 00:14:01] map_flux_to_elements (coverage, k=8.0): 1080 hits (0 isolated, discarded); rho median 0.90 mm; elements 582 dark / 64 partial / 428 full; power applied 2.1241 W vs ray estimate 2.0111 W
+[2026-11-25 00:14:02] map_flux_to_elements (coverage, k=8.0): 701 hits (0 isolated, discarded); rho median 0.89 mm; elements 701 dark / 77 partial / 296 full; power applied 1.4681 W vs ray estimate 1.2437 W

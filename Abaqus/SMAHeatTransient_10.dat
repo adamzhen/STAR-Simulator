@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 22:11:13
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:30:34
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -78,11 +78,11 @@
 
 
 
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  11-Nov-2026     TIME  22:10:36
+          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  24-Nov-2026     TIME  23:29:37
   *heading
   *coupledtemperature-displacement, creep=NONE, deltmx=5
 
-          STEP   12  INCREMENT   14  HAS BEEN FOUND ON THE RESTART FILE
+          STEP   12  INCREMENT   10  HAS BEEN FOUND ON THE RESTART FILE
 
  ***NOTE: RESTART IS BEING MADE FROM THE END OF A STEP.  THE ENDSTEP PARAMETER 
           IS NOW SET. THE USE OF THE ENDSTEP PARAMETER REQUIRES FURTHER STEP 
@@ -95,7 +95,8 @@
   *step, name=Heat_10, nlgeom=YES, inc=200
   *step, name=Heat_10, nlgeom=YES, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=5
-  *dflux
+  *dflux, op=NEW
+  *dflux, op=NEW
   *output, field
   *nodeoutput
   *elementoutput, directions=YES
@@ -118,13 +119,13 @@
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =     0.30    
+       USER TIME (SEC)      =     0.40    
        SYSTEM TIME (SEC)    =     0.10    
-       TOTAL CPU TIME (SEC) =     0.40    
+       TOTAL CPU TIME (SEC) =     0.50    
        WALLCLOCK TIME (SEC) =            1
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 22:11:17
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:30:38
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Assembly + Add_actuator prep run                                                          STEP   13  INCREMENT    1
@@ -138,9 +139,9 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            5.00    
+          AND A TOTAL TIME PERIOD OF                            1.00    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
-          THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                 1.00    
 
           CREEP AND SWELLING EFFECTS ARE OMITTED IN THIS STEP
 
@@ -160,7 +161,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.40E+08               27                 97
+     1          7.74E+08               28                131
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -193,20 +194,19 @@
       (6) USING "*RESTART, WRITE" CAN GENERATE A LARGE AMOUNT OF DATA WRITTEN IN THE WORK DIRECTORY.
 
 
-          THE ANALYSIS IS ENDED BECAUSE OF THE PROBLEMS ENCOUNTERED
-          LOOK AT THE MSG FILE FOR THE CAUSE OF THE TERMINATION
+          THE ANALYSIS HAS BEEN COMPLETED
 
 
 
-                              ANALYSIS IS ENDED
-                              WITH      1 ERROR MESSAGES ON THE MSG FILE
-                              AND       1 WARNING MESSAGES ON THE DAT FILE
-                              AND     308 WARNING MESSAGES ON THE MSG FILE
+                              ANALYSIS COMPLETE
+                              WITH      1 WARNING MESSAGES ON THE DAT FILE
+                              AND     528 WARNING MESSAGES ON THE MSG FILE
+                                        4 WARNINGS ARE FOR NEGATIVE EIGENVALUES
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      4.6    
-       SYSTEM TIME (SEC)    =     0.30    
-       TOTAL CPU TIME (SEC) =      4.9    
-       WALLCLOCK TIME (SEC) =            5
+       USER TIME (SEC)      =      16.    
+       SYSTEM TIME (SEC)    =     0.70    
+       TOTAL CPU TIME (SEC) =      17.    
+       WALLCLOCK TIME (SEC) =           18

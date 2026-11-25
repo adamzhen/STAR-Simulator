@@ -1,0 +1,5 @@
+flux maps 0 s
+  it 0 best 6.949 K
+  it 50 best 4.150 K
+  it 100 best 3.879 K
+BEST c_xc43 rms 3.797 {'I': 10403.1571, 'xc': 0.043, 'sig': 0.022, 'h': 6.2608, 'eps': 0.921, 'floor': 0.2157, 'tape': 0.4394, 'hg': 0.0} profile [4.488558841559438, 11.224461573271697, 0.0427210815] mid_peak_K 343.4 lamp_W 32

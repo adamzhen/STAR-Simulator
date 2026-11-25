@@ -1,0 +1,37 @@
+STAR Simulator runtime summary -- run 0.5
+Started: 2026-11-17 21:23:49   Updated: 2026-11-17 21:40:14   Elapsed: 985.3 s
+!! 1 section(s) ended in error; last: abaqus_analysis (iteration 10)
+
+== MODEL SETUP ==
+  prep_job                      278.7 s
+  model_build                     2.0 s
+  setup_total                   280.7 s
+
+== POST-PROCESSING ==
+  plot_mapped_flux                2.1 s
+  plot_hfl                       11.0 s
+  twist                          80.1 s
+
+== ITERATIONS (seconds) ==
+iter         freecad_io      ray_tracing     flux_mapping     model_update  abaqus_analysis  geometry_export  iteration_total
+1                   0.0              8.1              1.8              0.2             20.3              0.7             31.1
+2                   0.0              6.4              0.8              0.2             38.2              0.8             46.5
+3                   0.0              6.5              0.8              0.2             40.2              0.8             48.6
+4                   0.0              6.4              0.9              0.3             54.3              0.9             62.7
+5                   0.0              6.5              0.8              0.3            100.5              1.0            109.1
+6                   0.0              7.2              1.2              0.3             76.4              0.9             86.0
+7                   0.0              7.0              0.9              0.3             68.3              0.9             77.5
+8                   0.0              7.1              0.9              0.3             54.3              0.8             63.4
+9                   0.0              7.0              0.8              0.3             52.3              0.9             61.4
+10                  0.0              7.0              0.8              0.3             16.9              0.0              0.0
+total               0.4             69.2              9.7              2.8            521.7              7.7            586.3
+mean                0.0              6.9              1.0              0.3             52.2              0.8             58.6
+
+Share of timed iteration work:
+  freecad_io                      0.4 s    0.1%
+  ray_tracing                    69.2 s   11.3%
+  flux_mapping                    9.7 s    1.6%
+  model_update                    2.8 s    0.5%
+  abaqus_analysis               521.7 s   85.3%
+  geometry_export                 7.7 s    1.3%
+

@@ -28,7 +28,7 @@ import Mesh
 # ---------------------------------------------------------------- settings
 STAR_DIR = "C:/Users/adzheng/STAR-Simulator"
 SCENARIO_NAME = "DogboneScenario1"
-RUN_NO = "0.4"                                # string, as in the folder name run_<RUN_NO>
+RUN_NO = "1.03_uncoupled"                                # string, as in the folder name run_<RUN_NO>
 DEFORMED_NAME = "SMADogboneDeformed"          # DEFORMED_NAME in starsimUMATtwist.py
 OBJECT_FILE = "SMADogbone_(Nitinol).stp"      # undeformed input part (inputs/)
 SHOW_ONLY_LATEST = True                       # hide all but the initial part and the last ray-traced shape

@@ -1,0 +1,24 @@
+run,pretwist_deg,UR1_rad,peak_loaded_angle_deg,unloaded_angle_from_flat_deg,unloaded_twist_rel_to_stressfree_deg,gauge_MVF_mean,gauge_MVF_max,fillet_MVF_mean,predicted_reverse_start_K,note
+P_t120_c0,-28.0,1.2,40.7,24.98,52.98,0.5466,0.565,0.1722,313.57,pre-twist -28 sweep [default controls]
+P_t150_c0,-28.0,1.5,57.87,36.63,64.63,0.619,0.6265,0.2505,311.32,pre-twist -28 sweep [default controls]
+P_t180_c0,-28.0,1.8,75.13,48.36,76.36,0.6947,0.7055,0.3101,309.01,pre-twist -28 sweep [default controls]
+B1_t205_c0,-28.0,2.05,89.46,58.34,86.34,0.7616,0.7817,0.3559,306.97,case B1 pre-twist -28 [default controls]
+bo_B1_t215_c0,-28.0,2.15,95.15,61.79,89.79,0.7835,0.8092,0.3731,306.3,back-off check vs B1_t215_c0 [default controls]
+B1_t215_c0,-28.0,2.15,95.19,61.81,89.81,0.7826,0.809,0.3732,306.33,case B1 pre-twist -28 [default controls]
+B1_t222_c1,-28.0,2.22,99.2,64.75,92.75,0.799,0.8313,0.3887,305.83,case B1 pre-twist -28 [disc + R_n 0.02]
+g7_p28_r02_t230,-28.0,2.3,103.8,68.13,96.13,0.8127,0.8447,0.4083,305.42,"pre-twist -28, disc + R_n 0.02"
+t060,0.0,0.6,34.38,23.21,23.21,0.3116,0.3165,0.0644,320.56,flat sweep
+t090,0.0,0.9,51.57,34.95,34.95,0.424,0.4327,0.1248,317.12,flat sweep
+t120,0.0,1.2,68.75,45.8,45.8,0.5225,0.5348,0.1874,314.13,flat sweep
+t145,0.0,1.45,83.08,54.49,54.49,0.5972,0.6123,0.2391,311.86,flat sweep
+A_t158_c0,0.0,1.58,90.53,59.57,59.57,0.6371,0.6695,0.271,310.65,case A flat ~60 unloaded [default controls]
+A_t162_c0,0.0,1.62,92.82,60.56,60.56,0.643,0.6794,0.2772,310.47,case A flat ~60 unloaded [default controls]
+t167,0.0,1.67,95.69,62.72,62.72,0.653,0.6952,0.291,310.17,baseline = run 0.85 prep job
+bo_t167_c2,0.0,1.67,95.69,62.8,62.8,0.6539,0.6959,0.2915,310.14,back-off check vs t167 [R_n 0.02]
+g5_r02_t167,0.0,1.67,95.69,63.73,63.73,0.6555,0.7031,0.2986,310.14,accuracy check vs t167: disc + R_n 0.02
+t185,0.0,1.85,106.04,71.17,71.17,0.6822,0.7484,0.353,309.32,flat sweep
+B2_t205_c1,0.0,2.05,117.58,80.9,80.9,0.7109,0.9926,0.4352,309.03,case B2 / flat sweep [disc + R_n 0.02]
+hB2_t220_c5,0.0,2.2,126.21,87.6,87.6,0.7425,1.0,0.4794,308.48,B2: c4 + Unload stabilize 2e-4 (temp_step re-equilibrates undamped)
+v_B2_t220_c5_keep,0.0,2.2,126.21,87.6,87.6,0.7425,1.0,0.4794,308.48,"B2 repeat, keep odb for maps"
+hB2_t224_c5,0.0,2.24,128.51,89.17,89.17,0.7539,1.0,0.4914,308.29,B2: c4 + Unload stabilize 2e-4 (temp_step re-equilibrates undamped)
+hB2_t226_c5,0.0,2.26,129.68,90.12,90.12,0.759,1.0,0.498,308.21,B2: c4 + Unload stabilize 2e-4 (temp_step re-equilibrates undamped)

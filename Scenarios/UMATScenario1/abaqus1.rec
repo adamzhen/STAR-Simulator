@@ -1,0 +1,395 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='DogboneScenario1_Model')
+del mdb.models['Model-1']
+mdb.models['DogboneScenario1_Model'].setValues(absoluteZero=0.0, 
+    stefanBoltzmann=5.67e-08)
+mdb.models['DogboneScenario1_Model'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.0), point2=(0.0, 0.193224683403969))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.193224683403969), point2=(0.155075997114182, 0.193224683403969))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.077537998557091, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.077537998557091, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.0), point2=(0.152335405349731, 0.0))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0761677026748655, 0.0), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0761677026748655, 0.0), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(-0.0292295515537262, 0.0939513891935349), value=0.02, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.0), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0660063922405243, 0.221979722380638), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.193224683403969), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.155075997114182, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0570994317531586, 0.126814261078835), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.173224683403969), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.152335405349731, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0300150439143181, 0.188589945435524), point2=(0.0675337612628937, 
+    0.188589945435524))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0487744025886059, 0.188589945435524), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0359990410506725, 0.184413731098175), point2=(0.0671538263559341, 
+    0.184413731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0515764337033033, 0.184413731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0441676713526249, 0.193335622549057), value=0.0186, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0300150439143181, 0.188589945435524), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0675337612628937, 0.188589945435524), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.045402467250824, 0.179668053984642), value=0.0186, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0359990410506725, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0671538263559341, 0.184413731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].DistanceDimension(
+    entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0582337612628937, 0.188589945435524), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0578538263559341, 0.184413731098175), ), textPoint=(0.0806317999958992, 
+    0.186493337154388), value=0.00292)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.0350101664662361, 0.157073989510536), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0485538263559341, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.0222361087799072, 0.205944165587425), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0280199349069596, 0.187333731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalDimension(
+    textPoint=(-0.0126796439290047, 0.178348317742348), value=0.00855, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.02764, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.187333731098175), ), point1=(0.02764, 0.187333731098175), 
+    point2=(0.0182, 0.195863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.184413731098175), ), point1=(0.02764, 0.184413731098175), 
+    point2=(0.0182, 0.175863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0509473234415054, 0.197920694947243), point2=(0.0676144286990166, 
+    0.197920694947243))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.059280876070261, 0.197920694947243), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0676144286990166, 0.197920694947243), point2=(0.0676144286990166, 
+    0.175673827528954))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.059280876070261, 0.197920694947243), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0676144286990166, 0.175673827528954), point2=(0.050095722079277, 
+    0.175673827528954))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0588550753891468, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0588550753891468, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0761304646730423, 0.185399234294891), value=0.02, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.197920694947243), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0597066804766655, 0.202053993940353), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0509473234415054, 0.195673827528954), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.195673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0605582818388939, 0.169595450162888), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.175673827528954), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.050095722079277, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalDimension(
+    textPoint=(0.0910943672060966, 0.179442420601845), value=0.00855, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.04624, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0494144286990166, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.047784224152565, 0.154277935624123), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.04624, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0494144286990166, 0.175863731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.187333731098175), ), point1=(0.04624, 0.187333731098175), 
+    point2=(0.05568, 0.195863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.184413731098175), ), point1=(0.04624, 0.184413731098175), 
+    point2=(0.05568, 0.175863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].move(objectList=(
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.185863731098175), ), ), vector=(0.0, -0.175863731098175))
+mdb.models['DogboneScenario1_Model'].Part(dimensionality=THREE_D, name='sma', 
+    type=DEFORMABLE_BODY)
+mdb.models['DogboneScenario1_Model'].parts['sma'].BaseShell(sketch=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'])
+del mdb.models['DogboneScenario1_Model'].sketches['__profile__']
+mdb.models['DogboneScenario1_Model'].Material(name='Aluminum')
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Elastic(table=((
+    70000000000.0, 0.3), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Conductivity(table=(
+    (100.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].SpecificHeat(table=(
+    (900.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Density(table=((
+    2300.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Expansion(table=((
+    0.0, ), ))
+mdb.models['DogboneScenario1_Model'].Material(name='FakeSMA')
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Elastic(table=((
+    90000000000.0, 0.3), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Conductivity(table=((
+    50.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].SpecificHeat(table=((
+    800.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Density(table=((
+    6450.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Expansion(table=((
+    -0.0025, 0.0, 0.0), ), type=ORTHOTROPIC)
+mdb.models['DogboneScenario1_Model'].Material(name='SMA')
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Conductivity(table=((
+    18.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].SpecificHeat(table=((
+    837.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Density(table=((6450.0, 
+    ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Depvar(n=100)
+mdb.models['DogboneScenario1_Model'].materials['SMA'].UserMaterial(
+    mechanicalConstants=(1.0, 0.0, 1e-08, 0.0, 0.0, 0.15, 1.0, 0.0, 
+    35000000000.0, 75000000000.0, 0.33, 0.33, 0.0, 0.0, 0.0, 0.0, 293, 283, 
+    320, 340, 7000000.0, 7000000.0, 300000000.0, 0.0, 0.0, 0.05, 0.0, 7.52e-09, 
+    0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.012359, 0.0009, 0.0), (0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].InterestingPoint(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt((0.0, 0.005, 
+    0.0), ), MIDDLE), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].InterestingPoint(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt((0.07388, 
+    0.015, 0.0), ), MIDDLE))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.05637, 0.011116, 0.0), (0.0, 0.0, 1.0)), ((0.017509, 0.008897, 0.0), (
+    0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.02764, 
+    0.01147, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.02764, 
+    0.00855, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.03384, 0.01098, 0.0), (0.0, 0.0, 1.0)), ((0.03384, 0.009033, 0.0), (0.0, 
+    0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.04624, 
+    0.01147, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.04624, 
+    0.00855, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.026723, 0.008897, 0.0), (0.0, 0.0, 1.0)), ((0.026724, 0.011116, 0.0), (
+    0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.0182, 
+    0.02, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.0182, 
+    0.0, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.047156, 0.011116, 0.0), (0.0, 0.0, 1.0)), ((0.047157, 0.008897, 0.0), (
+    0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.05568, 
+    0.02, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.05568, 
+    0.0, 0.0), ))
+mdb.models['DogboneScenario1_Model'].HomogeneousShellSection(idealization=
+    NO_IDEALIZATION, integrationRule=SIMPSON, material='SMA', name='sma', 
+    nodalThicknessField='', numIntPts=5, poissonDefinition=DEFAULT, 
+    preIntegrate=OFF, temperature=GRADIENT, thickness=0.00041, thicknessField=
+    '', thicknessModulus=None, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['DogboneScenario1_Model'].sections['sma'].TransverseShearShell(k11=
+    25000000000.0, k12=12000000000.0, k22=25000000000.0)
+mdb.models['DogboneScenario1_Model'].parts['sma'].Set(faces=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].faces, name='whole-sma')
+mdb.models['DogboneScenario1_Model'].parts['sma'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].sets['whole-sma'], 
+    sectionName='sma', thicknessAssignment=FROM_SECTION)
+mdb.models['DogboneScenario1_Model'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Instance(dependent=ON, name=
+    'SMADogbone_(Nitinol)', part=
+    mdb.models['DogboneScenario1_Model'].parts['sma'])
+mdb.models['DogboneScenario1_Model'].StaticStep(initialInc=0.01, maxInc=1.0, 
+    maxNumInc=1000000, minInc=1e-12, name='Load', nlgeom=ON, previous='Initial'
+    , timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].StaticStep(initialInc=0.01, maxInc=1.0, 
+    maxNumInc=1000000, minInc=1e-12, name='Unload', nlgeom=ON, previous='Load', 
+    timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].CoupledTempDisplacementStep(deltmx=10.0, 
+    initialInc=0.001, maxInc=1, maxNumInc=10000, minInc=1e-08, name='temp_step'
+    , previous='Unload', timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].steps['Unload'].Restart(frequency=1, 
+    numberIntervals=0, overlay=OFF)
+mdb.models['DogboneScenario1_Model'].steps['Load'].Restart(frequency=1, 
+    numberIntervals=0, overlay=OFF)
+mdb.models['DogboneScenario1_Model'].steps['temp_step'].Restart(frequency=1, 
+    numberIntervals=0, overlay=OFF)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(faces=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].faces.findAt(
+    ((0.055454, 0.004233, 0.0), (0.0, 0.0, 1.0)), ((0.061747, 0.013333, 0.0), (
+    0.0, 0.0, 1.0)), ((0.018428, 0.015769, 0.0), (0.0, 0.0, 1.0)), ((0.018426, 
+    0.004233, 0.0), (0.0, 0.0, 1.0)), ((0.04004, 0.009517, 0.0), (0.0, 0.0, 
+    1.0)), ((0.055452, 0.015769, 0.0), (0.0, 0.0, 1.0)), ((0.012133, 0.006667, 
+    0.0), (0.0, 0.0, 1.0)), ((0.04004, 0.01098, 0.0), (0.0, 0.0, 1.0)), ((
+    0.012133, 0.016667, 0.0), (0.0, 0.0, 1.0)), ((0.061747, 0.003333, 0.0), (
+    0.0, 0.0, 1.0)), ), name='Set-Temp')
+mdb.models['DogboneScenario1_Model'].Temperature(createStepName='Initial', 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, distributionType=
+    UNIFORM, magnitudes=(294.0, ), name='Temp0', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Set-Temp'])
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(edges=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].edges.findAt(
+    ((0.0, 0.0025, 0.0), ), ((0.0, 0.0125, 0.0), ), ), name='Fixed-Set')
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(edges=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].edges.findAt(
+    ((0.07388, 0.0175, 0.0), ), ((0.07388, 0.0075, 0.0), ), ), name=
+    'Loaded-Set')
+mdb.models['DogboneScenario1_Model'].rootAssembly.ReferencePoint(point=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].vertices.findAt(
+    (0.07388, 0.01, 0.0), ))
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(name='rp-load', 
+    referencePoints=(
+    mdb.models['DogboneScenario1_Model'].rootAssembly.referencePoints[7], ))
+mdb.models['DogboneScenario1_Model'].EncastreBC(createStepName='Initial', 
+    localCsys=None, name='FixEdge', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Fixed-Set'])
+mdb.models['DogboneScenario1_Model'].MultipointConstraint(controlPoint=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], csys=
+    None, mpcType=BEAM_MPC, name='load-rp', surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Loaded-Set'], 
+    userMode=DOF_MODE_MPC, userType=0)
+mdb.models['DogboneScenario1_Model'].DisplacementBC(amplitude=UNSET, 
+    createStepName='Load', distributionType=UNIFORM, fieldName='', fixed=OFF, 
+    localCsys=None, name='Twist-BC', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], u1=UNSET
+    , u2=UNSET, u3=UNSET, ur1=2.2, ur2=UNSET, ur3=UNSET)
+mdb.models['DogboneScenario1_Model'].DisplacementBC(amplitude=UNSET, 
+    createStepName='Load', distributionType=UNIFORM, fieldName='', fixed=OFF, 
+    localCsys=None, name='End-BC', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], u1=UNSET
+    , u2=0.0, u3=0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['DogboneScenario1_Model'].boundaryConditions['Twist-BC'].deactivate(
+    'Unload')
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=0.002)
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedEdgeBySize(constraint=
+    FINER, deviationFactor=0.1, edges=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt(((0.04624, 
+    0.008912, 0.0), ), ((0.02764, 0.010367, 0.0), ), ((0.02764, 0.008912, 0.0), 
+    ), ((0.04159, 0.01, 0.0), ), ((0.03229, 0.00855, 0.0), ), ((0.04624, 
+    0.010367, 0.0), ), ((0.03229, 0.01147, 0.0), ), ), minSizeFactor=0.1, size=
+    0.0005)
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedEdgeBySize(constraint=
+    FINER, deviationFactor=0.1, edges=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt(((0.05568, 
+    0.0025, 0.0), ), ((0.05332, 0.01, 0.0), ), ((0.049653, 0.007915, 0.0), ), (
+    (0.05568, 0.0125, 0.0), ), ((0.0182, 0.0125, 0.0), ), ((0.02528, 0.01, 
+    0.0), ), ((0.024232, 0.012103, 0.0), ), ((0.0182, 0.0025, 0.0), ), ((
+    0.024227, 0.007915, 0.0), ), ((0.049648, 0.012103, 0.0), ), ), 
+    minSizeFactor=0.1, size=0.001)
+mdb.models['DogboneScenario1_Model'].parts['sma'].setElementType(elemTypes=(
+    ElemType(elemCode=S4T, elemLibrary=STANDARD, secondOrderAccuracy=OFF), 
+    ElemType(elemCode=S3T, elemLibrary=STANDARD)), regions=(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].faces, ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].generateMesh()
+mdb.models['DogboneScenario1_Model'].FieldOutputRequest(createStepName='Load', 
+    frequency=1, name='F-Output', variables=('SDV', 'E', 'U', 'RM', 'TEMP'))
+mdb.Job(contactPrint=OFF, description='Assembly + Add_actuator prep run', 
+    echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model=
+    'DogboneScenario1_Model', modelPrint=OFF, name='loading', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, resultsFormat=ODB, 
+    scratch='', type=ANALYSIS, userSubroutine=
+    'C:\\Users\\adzheng\\STAR-Simulator\\Scenarios\\DogboneScenario1\\Hartl_UMAT_Hacked.for')

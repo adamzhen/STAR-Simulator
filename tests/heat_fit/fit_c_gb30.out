@@ -1,0 +1,8 @@
+flux maps 0 s
+  it 0 best 3.450 K
+  it 50 best 2.642 K
+BEST c_gb30 rms 2.642 {'I': 4818.3272, 'xc': 0.0448, 'sig': 0.2994, 'h': 6.4397, 'eps': 0.936, 'floor': 0.2642, 'tape': 0.4265, 'hg': 0.0, 'nf': 1.0, 'gb': 0.3, 'gbx': 0.038, 'gbw': 0.016, 'H': 0.2187} mid 336.8 ends [np.float64(4.0), np.float64(2.5)] gauge@20s 331.0
+sh_TC1 rms 2.50
+sh_TC2 rms 0.89
+un_TC1 rms 2.65
+un_TC2 rms 4.51

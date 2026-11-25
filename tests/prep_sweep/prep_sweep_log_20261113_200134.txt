@@ -1,0 +1,274 @@
+[2026-11-13 20:01:34] Prep sweep: 18 combinations, Ms=290.0 Mf=280.0, timeout 1800 s per job
+[2026-11-13 20:01:34] Output folder: C:/Users/adzheng/STAR-Simulator/tests/prep_sweep
+[2026-11-13 20:01:34] 
+[2026-11-13 20:01:34] === [1/18] prep_T295_As340_Af360: T0=295.0  Ms=290.0  Mf=280.0  As=340.0  Af=360.0 ===
+[2026-11-13 20:01:34] Creating materials
+[2026-11-13 20:01:34] partitioning part
+[2026-11-13 20:01:34] Creating shell section
+[2026-11-13 20:01:34] Creating assembly
+[2026-11-13 20:01:34] Defining step
+[2026-11-13 20:01:34] Defining uniform initial temperature: 295.0 K
+[2026-11-13 20:01:34] Defining BC
+[2026-11-13 20:01:34] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:01:34] Defining loads
+[2026-11-13 20:01:34] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:01:34] Meshing the strip
+[2026-11-13 20:02:56] Could not compute loaded-edge twist for prep_T295_As340_Af360: 3
+[2026-11-13 20:02:56] Result: aborted (81 s); last attempted step Load; last converged: step Load inc 52; twist Load/Unload/temp_step = - / - / - deg; ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+[2026-11-13 20:02:56] 
+[2026-11-13 20:02:56] === [2/18] prep_T300_As340_Af360: T0=300.0  Ms=290.0  Mf=280.0  As=340.0  Af=360.0 ===
+[2026-11-13 20:02:56] Creating materials
+[2026-11-13 20:02:56] partitioning part
+[2026-11-13 20:02:56] Creating shell section
+[2026-11-13 20:02:56] Creating assembly
+[2026-11-13 20:02:56] Defining step
+[2026-11-13 20:02:56] Defining uniform initial temperature: 300.0 K
+[2026-11-13 20:02:56] Defining BC
+[2026-11-13 20:02:56] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:02:56] Defining loads
+[2026-11-13 20:02:56] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:02:56] Meshing the strip
+[2026-11-13 20:04:32] Could not compute loaded-edge twist for prep_T300_As340_Af360: 3
+[2026-11-13 20:04:32] Result: aborted (96 s); last attempted step Load; last converged: step Load inc 79; twist Load/Unload/temp_step = - / - / - deg; ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+[2026-11-13 20:04:32] 
+[2026-11-13 20:04:32] === [3/18] prep_T305_As340_Af360: T0=305.0  Ms=290.0  Mf=280.0  As=340.0  Af=360.0 ===
+[2026-11-13 20:04:33] Creating materials
+[2026-11-13 20:04:33] partitioning part
+[2026-11-13 20:04:33] Creating shell section
+[2026-11-13 20:04:33] Creating assembly
+[2026-11-13 20:04:33] Defining step
+[2026-11-13 20:04:33] Defining uniform initial temperature: 305.0 K
+[2026-11-13 20:04:33] Defining BC
+[2026-11-13 20:04:33] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:04:33] Defining loads
+[2026-11-13 20:04:33] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:04:33] Meshing the strip
+[2026-11-13 20:11:26] Could not compute loaded-edge twist for prep_T305_As340_Af360: 3
+[2026-11-13 20:11:26] Result: completed (412 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 20:11:26] 
+[2026-11-13 20:11:26] === [4/18] prep_T310_As340_Af360: T0=310.0  Ms=290.0  Mf=280.0  As=340.0  Af=360.0 ===
+[2026-11-13 20:11:26] Creating materials
+[2026-11-13 20:11:26] partitioning part
+[2026-11-13 20:11:26] Creating shell section
+[2026-11-13 20:11:26] Creating assembly
+[2026-11-13 20:11:26] Defining step
+[2026-11-13 20:11:26] Defining uniform initial temperature: 310.0 K
+[2026-11-13 20:11:26] Defining BC
+[2026-11-13 20:11:26] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:11:26] Defining loads
+[2026-11-13 20:11:26] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:11:26] Meshing the strip
+[2026-11-13 20:18:04] Could not compute loaded-edge twist for prep_T310_As340_Af360: 3
+[2026-11-13 20:18:04] Result: completed (397 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 20:18:04] 
+[2026-11-13 20:18:04] === [5/18] prep_T315_As340_Af360: T0=315.0  Ms=290.0  Mf=280.0  As=340.0  Af=360.0 ===
+[2026-11-13 20:18:05] Creating materials
+[2026-11-13 20:18:05] partitioning part
+[2026-11-13 20:18:05] Creating shell section
+[2026-11-13 20:18:05] Creating assembly
+[2026-11-13 20:18:05] Defining step
+[2026-11-13 20:18:05] Defining uniform initial temperature: 315.0 K
+[2026-11-13 20:18:05] Defining BC
+[2026-11-13 20:18:05] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:18:05] Defining loads
+[2026-11-13 20:18:05] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:18:05] Meshing the strip
+[2026-11-13 20:24:33] Could not compute loaded-edge twist for prep_T315_As340_Af360: 3
+[2026-11-13 20:24:33] Result: completed (387 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 20:24:33] 
+[2026-11-13 20:24:33] === [6/18] prep_T320_As340_Af360: T0=320.0  Ms=290.0  Mf=280.0  As=340.0  Af=360.0 ===
+[2026-11-13 20:24:33] Creating materials
+[2026-11-13 20:24:33] partitioning part
+[2026-11-13 20:24:33] Creating shell section
+[2026-11-13 20:24:33] Creating assembly
+[2026-11-13 20:24:33] Defining step
+[2026-11-13 20:24:33] Defining uniform initial temperature: 320.0 K
+[2026-11-13 20:24:33] Defining BC
+[2026-11-13 20:24:33] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:24:33] Defining loads
+[2026-11-13 20:24:33] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:24:33] Meshing the strip
+[2026-11-13 20:31:01] Could not compute loaded-edge twist for prep_T320_As340_Af360: 3
+[2026-11-13 20:31:01] Result: completed (387 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 20:31:01] 
+[2026-11-13 20:31:01] === [7/18] prep_T295_As330_Af350: T0=295.0  Ms=290.0  Mf=280.0  As=330.0  Af=350.0 ===
+[2026-11-13 20:31:01] Creating materials
+[2026-11-13 20:31:01] partitioning part
+[2026-11-13 20:31:01] Creating shell section
+[2026-11-13 20:31:01] Creating assembly
+[2026-11-13 20:31:01] Defining step
+[2026-11-13 20:31:01] Defining uniform initial temperature: 295.0 K
+[2026-11-13 20:31:01] Defining BC
+[2026-11-13 20:31:01] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:31:01] Defining loads
+[2026-11-13 20:31:01] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:31:01] Meshing the strip
+[2026-11-13 20:32:18] Could not compute loaded-edge twist for prep_T295_As330_Af350: 3
+[2026-11-13 20:32:18] Result: aborted (76 s); last attempted step Load; last converged: step Load inc 52; twist Load/Unload/temp_step = - / - / - deg; ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+[2026-11-13 20:32:18] 
+[2026-11-13 20:32:18] === [8/18] prep_T300_As330_Af350: T0=300.0  Ms=290.0  Mf=280.0  As=330.0  Af=350.0 ===
+[2026-11-13 20:32:18] Creating materials
+[2026-11-13 20:32:18] partitioning part
+[2026-11-13 20:32:18] Creating shell section
+[2026-11-13 20:32:18] Creating assembly
+[2026-11-13 20:32:18] Defining step
+[2026-11-13 20:32:18] Defining uniform initial temperature: 300.0 K
+[2026-11-13 20:32:18] Defining BC
+[2026-11-13 20:32:18] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:32:18] Defining loads
+[2026-11-13 20:32:18] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:32:18] Meshing the strip
+[2026-11-13 20:33:54] Could not compute loaded-edge twist for prep_T300_As330_Af350: 3
+[2026-11-13 20:33:54] Result: aborted (96 s); last attempted step Load; last converged: step Load inc 79; twist Load/Unload/temp_step = - / - / - deg; ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+[2026-11-13 20:33:54] 
+[2026-11-13 20:33:54] === [9/18] prep_T305_As330_Af350: T0=305.0  Ms=290.0  Mf=280.0  As=330.0  Af=350.0 ===
+[2026-11-13 20:33:55] Creating materials
+[2026-11-13 20:33:55] partitioning part
+[2026-11-13 20:33:55] Creating shell section
+[2026-11-13 20:33:55] Creating assembly
+[2026-11-13 20:33:55] Defining step
+[2026-11-13 20:33:55] Defining uniform initial temperature: 305.0 K
+[2026-11-13 20:33:55] Defining BC
+[2026-11-13 20:33:55] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:33:55] Defining loads
+[2026-11-13 20:33:55] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:33:55] Meshing the strip
+[2026-11-13 20:40:43] Could not compute loaded-edge twist for prep_T305_As330_Af350: 3
+[2026-11-13 20:40:43] Result: completed (407 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 20:40:43] 
+[2026-11-13 20:40:43] === [10/18] prep_T310_As330_Af350: T0=310.0  Ms=290.0  Mf=280.0  As=330.0  Af=350.0 ===
+[2026-11-13 20:40:43] Creating materials
+[2026-11-13 20:40:43] partitioning part
+[2026-11-13 20:40:43] Creating shell section
+[2026-11-13 20:40:43] Creating assembly
+[2026-11-13 20:40:43] Defining step
+[2026-11-13 20:40:43] Defining uniform initial temperature: 310.0 K
+[2026-11-13 20:40:43] Defining BC
+[2026-11-13 20:40:43] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:40:43] Defining loads
+[2026-11-13 20:40:43] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:40:43] Meshing the strip
+[2026-11-13 20:47:22] Could not compute loaded-edge twist for prep_T310_As330_Af350: 3
+[2026-11-13 20:47:22] Result: completed (397 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 20:47:22] 
+[2026-11-13 20:47:22] === [11/18] prep_T315_As330_Af350: T0=315.0  Ms=290.0  Mf=280.0  As=330.0  Af=350.0 ===
+[2026-11-13 20:47:22] Creating materials
+[2026-11-13 20:47:22] partitioning part
+[2026-11-13 20:47:22] Creating shell section
+[2026-11-13 20:47:22] Creating assembly
+[2026-11-13 20:47:22] Defining step
+[2026-11-13 20:47:22] Defining uniform initial temperature: 315.0 K
+[2026-11-13 20:47:22] Defining BC
+[2026-11-13 20:47:22] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:47:22] Defining loads
+[2026-11-13 20:47:22] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:47:22] Meshing the strip
+[2026-11-13 20:53:50] Could not compute loaded-edge twist for prep_T315_As330_Af350: 3
+[2026-11-13 20:53:50] Result: completed (387 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 20:53:50] 
+[2026-11-13 20:53:50] === [12/18] prep_T320_As330_Af350: T0=320.0  Ms=290.0  Mf=280.0  As=330.0  Af=350.0 ===
+[2026-11-13 20:53:51] Creating materials
+[2026-11-13 20:53:51] partitioning part
+[2026-11-13 20:53:51] Creating shell section
+[2026-11-13 20:53:51] Creating assembly
+[2026-11-13 20:53:51] Defining step
+[2026-11-13 20:53:51] Defining uniform initial temperature: 320.0 K
+[2026-11-13 20:53:51] Defining BC
+[2026-11-13 20:53:51] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 20:53:51] Defining loads
+[2026-11-13 20:53:51] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 20:53:51] Meshing the strip
+[2026-11-13 21:00:34] Could not compute loaded-edge twist for prep_T320_As330_Af350: 3
+[2026-11-13 21:00:34] Result: completed (402 s); last attempted step temp_step; last converged: step temp_step inc 11; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 21:00:34] 
+[2026-11-13 21:00:34] === [13/18] prep_T295_As320_Af340: T0=295.0  Ms=290.0  Mf=280.0  As=320.0  Af=340.0 ===
+[2026-11-13 21:00:34] Creating materials
+[2026-11-13 21:00:34] partitioning part
+[2026-11-13 21:00:34] Creating shell section
+[2026-11-13 21:00:34] Creating assembly
+[2026-11-13 21:00:34] Defining step
+[2026-11-13 21:00:34] Defining uniform initial temperature: 295.0 K
+[2026-11-13 21:00:34] Defining BC
+[2026-11-13 21:00:34] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 21:00:34] Defining loads
+[2026-11-13 21:00:34] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 21:00:34] Meshing the strip
+[2026-11-13 21:01:50] Could not compute loaded-edge twist for prep_T295_As320_Af340: 3
+[2026-11-13 21:01:50] Result: aborted (76 s); last attempted step Load; last converged: step Load inc 52; twist Load/Unload/temp_step = - / - / - deg; ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+[2026-11-13 21:01:50] 
+[2026-11-13 21:01:50] === [14/18] prep_T300_As320_Af340: T0=300.0  Ms=290.0  Mf=280.0  As=320.0  Af=340.0 ===
+[2026-11-13 21:01:51] Creating materials
+[2026-11-13 21:01:51] partitioning part
+[2026-11-13 21:01:51] Creating shell section
+[2026-11-13 21:01:51] Creating assembly
+[2026-11-13 21:01:51] Defining step
+[2026-11-13 21:01:51] Defining uniform initial temperature: 300.0 K
+[2026-11-13 21:01:51] Defining BC
+[2026-11-13 21:01:51] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 21:01:51] Defining loads
+[2026-11-13 21:01:51] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 21:01:51] Meshing the strip
+[2026-11-13 21:03:27] Could not compute loaded-edge twist for prep_T300_As320_Af340: 3
+[2026-11-13 21:03:27] Result: aborted (96 s); last attempted step Load; last converged: step Load inc 79; twist Load/Unload/temp_step = - / - / - deg; ***ERROR: TOO MANY ATTEMPTS MADE FOR THIS INCREMENT
+[2026-11-13 21:03:27] 
+[2026-11-13 21:03:27] === [15/18] prep_T305_As320_Af340: T0=305.0  Ms=290.0  Mf=280.0  As=320.0  Af=340.0 ===
+[2026-11-13 21:03:27] Creating materials
+[2026-11-13 21:03:27] partitioning part
+[2026-11-13 21:03:27] Creating shell section
+[2026-11-13 21:03:27] Creating assembly
+[2026-11-13 21:03:27] Defining step
+[2026-11-13 21:03:27] Defining uniform initial temperature: 305.0 K
+[2026-11-13 21:03:27] Defining BC
+[2026-11-13 21:03:27] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 21:03:27] Defining loads
+[2026-11-13 21:03:27] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 21:03:27] Meshing the strip
+[2026-11-13 21:10:16] Could not compute loaded-edge twist for prep_T305_As320_Af340: 3
+[2026-11-13 21:10:16] Result: completed (407 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 21:10:16] 
+[2026-11-13 21:10:16] === [16/18] prep_T310_As320_Af340: T0=310.0  Ms=290.0  Mf=280.0  As=320.0  Af=340.0 ===
+[2026-11-13 21:10:16] Creating materials
+[2026-11-13 21:10:16] partitioning part
+[2026-11-13 21:10:16] Creating shell section
+[2026-11-13 21:10:16] Creating assembly
+[2026-11-13 21:10:16] Defining step
+[2026-11-13 21:10:16] Defining uniform initial temperature: 310.0 K
+[2026-11-13 21:10:16] Defining BC
+[2026-11-13 21:10:16] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 21:10:16] Defining loads
+[2026-11-13 21:10:16] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 21:10:16] Meshing the strip
+[2026-11-13 21:16:54] Could not compute loaded-edge twist for prep_T310_As320_Af340: 3
+[2026-11-13 21:16:54] Result: completed (397 s); last attempted step temp_step; last converged: step temp_step inc 10; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 21:16:54] 
+[2026-11-13 21:16:54] === [17/18] prep_T315_As320_Af340: T0=315.0  Ms=290.0  Mf=280.0  As=320.0  Af=340.0 ===
+[2026-11-13 21:16:54] Creating materials
+[2026-11-13 21:16:54] partitioning part
+[2026-11-13 21:16:54] Creating shell section
+[2026-11-13 21:16:54] Creating assembly
+[2026-11-13 21:16:54] Defining step
+[2026-11-13 21:16:54] Defining uniform initial temperature: 315.0 K
+[2026-11-13 21:16:54] Defining BC
+[2026-11-13 21:16:54] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 21:16:54] Defining loads
+[2026-11-13 21:16:54] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 21:16:54] Meshing the strip
+[2026-11-13 21:23:34] Could not compute loaded-edge twist for prep_T315_As320_Af340: 3
+[2026-11-13 21:23:34] Result: completed (398 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 21:23:34] 
+[2026-11-13 21:23:34] === [18/18] prep_T320_As320_Af340: T0=320.0  Ms=290.0  Mf=280.0  As=320.0  Af=340.0 ===
+[2026-11-13 21:23:34] Creating materials
+[2026-11-13 21:23:34] partitioning part
+[2026-11-13 21:23:34] Creating shell section
+[2026-11-13 21:23:34] Creating assembly
+[2026-11-13 21:23:34] Defining step
+[2026-11-13 21:23:34] Defining uniform initial temperature: 320.0 K
+[2026-11-13 21:23:34] Defining BC
+[2026-11-13 21:23:34] Fixed BC: found 2 edge(s) between (0, 0, 0) and (0, 0.015, 0)
+[2026-11-13 21:23:34] Defining loads
+[2026-11-13 21:23:34] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.015, 0)
+[2026-11-13 21:23:34] Meshing the strip
+[2026-11-13 21:30:18] Could not compute loaded-edge twist for prep_T320_As320_Af340: 3
+[2026-11-13 21:30:18] Result: completed (402 s); last attempted step temp_step; last converged: step temp_step inc 12; twist Load/Unload/temp_step = - / - / - deg; 
+[2026-11-13 21:30:18] 
+[2026-11-13 21:30:18] Sweep finished in 88.7 min. Summary: C:/Users/adzheng/STAR-Simulator/tests/prep_sweep/prep_sweep_summary_20261113_200134.csv

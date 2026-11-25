@@ -35,8 +35,16 @@ import numpy as np
 
 #sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(f"{STAR_DIR}/Abaqus/scripts")
+# Abaqus/CAE keeps imported modules for the whole session, so a second run
+# in the same CAE window would reuse an old starlib. Reload so edits apply.
+import importlib
+import raytrace_viewer, starlib
+importlib.reload(raytrace_viewer)
+importlib.reload(starlib)
 from starlib import *
     
+_names_before_params = begin_parameters()  # for logging every parameter below
+
 #######################################
 ########### EDIT PARAMETERS ###########
 #######################################
@@ -52,7 +60,7 @@ OBJECT_NAME   = 'SMAStrip_(Nitinol)'  # ENFORCE NO SPACES
 OBJECT_FILE   = 'SMAStrip_(Nitinol).stp'
 FCSTD_FILE    = 'SMAScenario1.FCStd'
 DEFORMED_NAME = 'SMAStripDeformed'
-LOAD_NAME = 'SolarFlux' 
+LOAD_NAME = 'SolarFlux'  # base name; each iteration's load is SolarFlux_NN
 JOB_BASENAME  = 'SMAHeatTransient'
 MODEL_BASENAME = f"{SCENARIO_NAME}_Model"
 
@@ -83,6 +91,9 @@ WORKING_DIR = f"{STAR_DIR}/Scenarios/{SCENARIO_NAME}"
 #######################################
 #######################################
 #######################################
+
+# Every UPPER_CASE setting defined in the block above (logged at start of run)
+RUN_PARAMETERS = collect_parameters(globals(), _names_before_params)
 
 # Derived Parameters
 SUN_DIR = make_sun_dir(zenith_deg=SUN_ZENITH, azimuth_deg=SUN_AZIMUTH) # Direction of sunlight in FreeCAD coords
@@ -132,28 +143,11 @@ print("\n################")
 printlog(f"RUN NO: {RUN_NO}")
 printlog(f"Date: {datetime.now().date().isoformat()}")
 
-log("\n=== Parameters ===")
-log(f"SCENARIO_NAME = {SCENARIO_NAME}")
-log(f"OBJECT_NAME = {OBJECT_NAME}")
-log(f"DEFORMED_NAME = {DEFORMED_NAME}")
-log(f"JOB_BASENAME = {JOB_BASENAME}")
-log(f"N_ITER = {N_ITER}")
-log(f"CHUNK_TIME = {CHUNK_TIME}")
-log(f"MESHSIZE = {MESHSIZE}")
-log(f"N_RAYS = {N_RAYS}")
-log(f"SUN_ZENITH = {SUN_ZENITH}")
-log(f"SUN_AZIMUTH = {SUN_AZIMUTH}")
-log(f"SUN_DIR = {SUN_DIR}")
-log(f"STITCH_TOLERANCE = {STITCH_TOLERANCE}")
-log(f"ANALYTIC_FIT_TOLERANCE = {ANALYTIC_FIT_TOLERANCE}")
-log(f"BC_EDGE = {BC_EDGE}")
-log(f"BC_FIXPOINT = {BC_FIXPOINT}")
-log(f"BC_TOLERANCE = {BC_TOLERANCE}")
-log(f"INITIAL_TEMP = {INITIAL_TEMP}")
-log(f"AMBIENT_TEMP = {AMBIENT_TEMP}")
-log(f"EMISSIVITY = {EMISSIVITY}")
-log(f"RUN_COMPARISON = {RUN_COMPARISON}")
 log("")
+log_parameters(dict((k, globals()[k]) for k in ("STAR_DIR", "FREECAD_CMD", "UMAT_PATH")
+                    if k in globals()), "Paths")
+log_parameters(RUN_PARAMETERS, "Parameters (EDIT PARAMETERS block)")
+log_parameters({"SUN_DIR": SUN_DIR, "DOCUMENTATION_DIR": DOCUMENTATION_DIR}, "Derived")
 
 # --------------------------------------------------
 # Main functions
@@ -521,12 +515,14 @@ for it in range(1, N_ITER + 1):
             bc_tol=BC_TOLERANCE
         )
         model.steps[step_name].Restart(frequency=1, numberIntervals=0, overlay=ON)
+        # Materials, sections, interactions as built
+        run_noncritical("model setup log", log_model_setup, model)
 
         field_name = 'FluxField_%02d' % iter_id
         update_flux_field(model, xyz_data, field_name=field_name)
         apply_surface_heat_flux(model, surface_name='All-Surfaces',
                                  step_name=step_name,
-                                 load_name=LOAD_NAME,
+                                 load_name='%s_%02d' % (LOAD_NAME, iter_id),
                                  field_name=field_name)
 
         # Record the equivalent per-element mapped flux for plotting only --
@@ -563,7 +559,11 @@ for it in range(1, N_ITER + 1):
         field_name = 'FluxField_%02d' % iter_id
         apply_mapped_dflux(
             model, surface_name='All-Surfaces', step_name=step_name,
-            load_name=LOAD_NAME, instance_name=OBJECT_NAME,
+            load_name='%s_%02d' % (LOAD_NAME, iter_id), instance_name=OBJECT_NAME,
+            # one load per step; the previous one is deactivated here so CAE
+            # writes '*Dflux, op=NEW' (otherwise shaded elements keep their old
+            # flux, since zero-flux elements are not written)
+            deactivate_load='%s_%02d' % (LOAD_NAME, iter_id - 1),
             elem_fluxes=elem_fluxes, field_name=field_name)
         elem_fluxes_list.append(elem_fluxes)
         elem_centroids_list.append(get_undeformed_element_centroids(model, OBJECT_NAME))
@@ -578,6 +578,12 @@ for it in range(1, N_ITER + 1):
 
     if os.access(job_name + '.lck', os.F_OK):
         os.remove(job_name + '.lck')
+
+    # Write the .inp first and make sure the flux is replaced, not added to
+    # (submit() rewrites the same file from the same model)
+    if iter_id > 1:
+        mdb.jobs[job_name].writeInput(consistencyChecking=OFF)
+        check_dflux_op_new(job_name + '.inp')
 
     printlog(f'Running job {job_name}')
     mdb.jobs[job_name].submit()

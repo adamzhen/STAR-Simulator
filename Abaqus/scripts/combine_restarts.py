@@ -1,6 +1,10 @@
 import os
 import subprocess
 
+### MANUAL COMMAND: abaqus restartjoin -originalodb [original_odb] -restartodb [restart_odb] -copyoriginal -history
+### SAVES TO: Restart_[original_odb].odb
+
+
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
@@ -8,17 +12,18 @@ import subprocess
 ABAQUS_CMD = r'C:\SIMULIA\Commands\abaqus.bat'
 
 WORKING_DIR = r'C:\Users\adzheng\STAR-Simulator\Abaqus'
+#WORKING_DIR = r'C:\Users\adzheng\STAR-Simulator\tests\heat_fit\runs\r1_02_sh'
 
 # Base name of restart jobs, such as SMAHeatTransient_01.odb,
-# SMAHeatTransient_02.odb, ...
+# SMAHeatTransient_02.odb, ... 
 JOB_NAME = 'SMAHeatTransient'
  
 # Run number appended to the desired final output name.
 # Example: JOB_NAME='SMAHeatTransient', RUN_NO='0.1' creates:
 # SMAHeatTransientCombined0.1.odb
-RUN_NO = 0.13
+RUN_NO = 1.03
 
-N_RESTARTS = 20
+N_RESTARTS = 31
 JOB_NAME_DIGITS = 2
 
 # Optional: copy history-output data as well as field-output data.

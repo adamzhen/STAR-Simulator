@@ -1,0 +1,22 @@
+flux maps 0 s
+  it 0 best 11.572 K
+  it 50 best 3.198 K
+  it 100 best 3.099 K
+  it 150 best 3.051 K
+  it 200 best 2.940 K
+  it 250 best 2.800 K
+  it 300 best 2.715 K
+  it 0 best 2.712 K
+  it 50 best 2.711 K
+  it 100 best 2.698 K
+  it 150 best 2.649 K
+  it 200 best 2.632 K
+start -> 2.629 K {'I': np.float64(6337.846), 'xc': np.float64(0.07), 'sig': np.float64(0.0549), 'h': np.float64(6.4955), 'eps': np.float64(0.95), 'floor': np.float64(0.2673), 'tape': np.float64(0.4443), 'hg': 0.0}
+  it 0 best 6.474 K
+  it 50 best 3.079 K
+  it 100 best 2.806 K
+  it 150 best 2.679 K
+  it 200 best 2.661 K
+  it 0 best 2.658 K
+  it 50 best 2.641 K
+  it 100 best 2.634 K

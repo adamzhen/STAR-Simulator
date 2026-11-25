@@ -1,0 +1,229 @@
+[2026-11-23 14:18:55] RUN NO: 99.1
+[2026-11-23 14:18:55] Date: 2026-11-23
+[2026-11-23 14:18:55] 
+[2026-11-23 14:18:55] === Paths ===
+[2026-11-23 14:18:55] STAR_DIR = 'C:/Users/adzheng/STAR-Simulator'
+[2026-11-23 14:18:55] FREECAD_CMD = 'C:/Users/adzheng/AppData/Local/Programs/FreeCAD 1.1/bin/FreeCADCmd.exe'
+[2026-11-23 14:18:55] UMAT_PATH = 'C:\\Users\\adzheng\\STAR-Simulator\\Scenarios\\DogboneScenario1\\Hartl_UMAT_Hacked.for'
+[2026-11-23 14:18:55] 
+[2026-11-23 14:18:55] === Parameters (EDIT PARAMETERS block) ===
+[2026-11-23 14:18:55] RUN_NO = 99.1
+[2026-11-23 14:18:55] CHUNK_SCHEDULE = [(2, 2.0)]
+[2026-11-23 14:18:55] CHUNK_TIMES = [2.0, 2.0]
+[2026-11-23 14:18:55] N_ITER = 2
+[2026-11-23 14:18:55] MAX_INC = 5.0
+[2026-11-23 14:18:55] SCENARIO_NAME = 'DogboneScenario1'
+[2026-11-23 14:18:55] OBJECT_NAME = 'SMADogbone_(Nitinol)'
+[2026-11-23 14:18:55] OBJECT_FILE = 'SMADogbone_(Nitinol).stp'
+[2026-11-23 14:18:55] FCSTD_FILE = 'SMAScenario4.FCStd'
+[2026-11-23 14:18:55] DEFORMED_NAME = 'SMADogboneDeformed'
+[2026-11-23 14:18:55] LOAD_NAME = 'SolarFlux'
+[2026-11-23 14:18:55] JOB_BASENAME = 'SMAHeatTransient'
+[2026-11-23 14:18:55] PREP_JOB_NAME = 'loading'
+[2026-11-23 14:18:55] PREP_DEFORMS_GEOMETRY = True
+[2026-11-23 14:18:55] MODEL_BASENAME = 'DogboneScenario1_Model'
+[2026-11-23 14:18:55] N_RAYS = 7000
+[2026-11-23 14:18:55] SOLAR_IRRADIANCE = 3000.0
+[2026-11-23 14:18:55] OBJECT_MATERIAL = 'Nitinol'
+[2026-11-23 14:18:55] ABSORPTION_ONLY = True
+[2026-11-23 14:18:55] ABSORPTIVITY_DICT = {'Nitinol': 0.9, 'Aluminum': 0.2, 'Blocker': 1.0}
+[2026-11-23 14:18:55] SUN_ZENITH = 50
+[2026-11-23 14:18:55] SUN_AZIMUTH = 90
+[2026-11-23 14:18:55] PREVIEW_SUN = False
+[2026-11-23 14:18:55] INCLUDE_SHADE = True
+[2026-11-23 14:18:55] SHADE_X_RANGE = (0.02166, 0.07388)
+[2026-11-23 14:18:55] SHADE_END_EXTENSION = 0.0025
+[2026-11-23 14:18:55] INCLUDE_GRIP = True
+[2026-11-23 14:18:55] GRIP_LENGTH = 0.003
+[2026-11-23 14:18:55] GRIP_X_START = 0.0
+[2026-11-23 14:18:55] GRIP_Y_RANGE = (-0.002, 0.022)
+[2026-11-23 14:18:55] GRIP_HEIGHT = 0.0005
+[2026-11-23 14:18:55] GRIP_MARGIN = 0.002
+[2026-11-23 14:18:55] FREECAD_TIMEOUT = 600
+[2026-11-23 14:18:55] GEOMETRY_IMPORT = 'nodes'
+[2026-11-23 14:18:55] RAY_ENGINE = 'FastRay'
+[2026-11-23 14:18:55] FLUX_MAPPING = 'coverage'
+[2026-11-23 14:18:55] SHADE_FLUX_FRACTION = 0.3
+[2026-11-23 14:18:55] TAPE_FLUX_FACTOR = 0.2
+[2026-11-23 14:18:55] TAPE_HOLE_X = (0.0122, 0.06168)
+[2026-11-23 14:18:55] TAPE_HALF_WIDTH = 0.00395
+[2026-11-23 14:18:55] TAPE_AXIS_Y = 0.01
+[2026-11-23 14:18:55] MESHSIZE = 0.002
+[2026-11-23 14:18:55] ANALYTIC_FIT_TOLERANCE = 0.05
+[2026-11-23 14:18:55] STITCH_TOLERANCE = 0.001
+[2026-11-23 14:18:55] BC_EDGE = [(0, 0, 0), (0, 0.015, 0)]
+[2026-11-23 14:18:55] LOAD_EDGE = [(0.074, 0, 0), (0.074, 0.02, 0)]
+[2026-11-23 14:18:55] LOAD_POINT = [(0.074, 0.01, 0)]
+[2026-11-23 14:18:55] TEMP_PROBES = {'T1': (0.004125, 0.01, 0.0), 'T2': (0.0718, 0.01, 0.0)}
+[2026-11-23 14:18:55] BC_FIXPOINT = (0.0, 0.0075, 0.0)
+[2026-11-23 14:18:55] BC_TOLERANCE = 0.002
+[2026-11-23 14:18:55] AMBIENT_TEMP = 298.0
+[2026-11-23 14:18:55] INITIAL_TEMP = 300.0
+[2026-11-23 14:18:55] MS = 299.0
+[2026-11-23 14:18:55] MF = 294.0
+[2026-11-23 14:18:55] AS = 300.0
+[2026-11-23 14:18:55] AF = 330.0
+[2026-11-23 14:18:55] FILM_COEFF = 6.2
+[2026-11-23 14:18:55] EMISSIVITY = 0.9
+[2026-11-23 14:18:55] RUN_COMPARISON = False
+[2026-11-23 14:18:55] LOADING_TWIST = 2.15
+[2026-11-23 14:18:55] PRETWIST_DEG = -28.0
+[2026-11-23 14:18:55] LOAD_BACKOFF = 0.05
+[2026-11-23 14:18:55] PREP_SOLVER_CONTROLS = False
+[2026-11-23 14:18:55] WORKING_DIR = 'C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1'
+[2026-11-23 14:18:55] 
+[2026-11-23 14:18:55] === Derived ===
+[2026-11-23 14:18:55] SUN_DIR = (4.69066937635137e-17, 0.766044443118978, -0.642787609686539)
+[2026-11-23 14:18:55] DOCUMENTATION_DIR = 'C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1'
+[2026-11-23 14:18:55] 
+[2026-11-23 14:18:55] 
+=== Starting iterative loop with restart-based steps ===
+[2026-11-23 14:18:55] 
+========================================
+[2026-11-23 14:18:55]  Iteration 1 of 2 (job SMAHeatTransient_01)
+[2026-11-23 14:18:55] ========================================
+[2026-11-23 14:18:55] Creating materials
+[2026-11-23 14:18:55] partitioning part
+[2026-11-23 14:18:55] Creating shell section
+[2026-11-23 14:18:55] Creating assembly
+[2026-11-23 14:18:55] Defining step
+[2026-11-23 14:18:55] Defining initial temperature
+[2026-11-23 14:18:55] Defining uniform initial temperature
+[2026-11-23 14:18:55] Defining sets
+[2026-11-23 14:18:55] Load: found 2 edge(s) between (0.074, 0, 0) and (0.074, 0.02, 0)
+[2026-11-23 14:18:55] Defining surfaces
+[2026-11-23 14:18:55] Defining BC
+[2026-11-23 14:18:55] Defining constraints
+[2026-11-23 14:18:55] Defining loads
+[2026-11-23 14:18:55] Meshing part
+[2026-11-23 14:18:55] Pre-twist -28.0 deg: rotated 1236 nodes (parts sma, shade) -> C:\Users\adzheng\STAR-Simulator\tests\twist_mvf\flux_adjust_check\loading_pretwist.inp
+[2026-11-23 14:23:52] Defining interactions
+[2026-11-23 14:23:52] Exporting deformed geometry from prep job loading
+[2026-11-23 14:23:52] Exporting OBJ from ODB: loading.odb
+[2026-11-23 14:23:53] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-23 14:23:53] Set to step 'temp_step' (position index 2, global step number 3), frame 12
+[2026-11-23 14:23:53] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-23 14:23:53] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/deformed_cad\SMADogboneDeformedMesh_00_Loaded.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-23 14:23:53] Waiting for ODB to be released: loading.odb
+[2026-11-23 14:23:53] Exporting deformed geometry from loading.odb
+[2026-11-23 14:23:53] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.959e-05
+[2026-11-23 14:23:53] === Abaqus model as built: DogboneScenario1_Model ===
+[2026-11-23 14:23:53] absoluteZero = 0.0, stefanBoltzmann = 5.67e-08
+[2026-11-23 14:23:53] Material 'Aluminum':
+[2026-11-23 14:23:53]   density = ((2300.0,),)
+[2026-11-23 14:23:53]   conductivity = ((100.0,),)
+[2026-11-23 14:23:53]   specificHeat = ((900.0,),)
+[2026-11-23 14:23:53]   elastic = ((70000000000.0, 0.3),)
+[2026-11-23 14:23:53]   expansion = ((0.0,),)
+[2026-11-23 14:23:53] Material 'FakeSMA':
+[2026-11-23 14:23:53]   density = ((6450.0,),)
+[2026-11-23 14:23:53]   conductivity = ((50.0,),)
+[2026-11-23 14:23:53]   specificHeat = ((800.0,),)
+[2026-11-23 14:23:53]   elastic = ((90000000000.0, 0.3),)
+[2026-11-23 14:23:53]   expansion = ((-0.0025, 0.0, 0.0),)
+[2026-11-23 14:23:53] Material 'SMA':
+[2026-11-23 14:23:53]   density = ((6450.0,),)
+[2026-11-23 14:23:53]   conductivity = ((18.0,),)
+[2026-11-23 14:23:53]   specificHeat = ((837.0,),)
+[2026-11-23 14:23:53]   depvar n = 100
+[2026-11-23 14:23:53]   UMAT mechanicalConstants (40 values, 1-based index):
+[2026-11-23 14:23:53]     [1] 1.0, [2] 0.0, [3] 1e-08, [4] 0.0, [5] 0.0, [6] 0.15, [7] 1.0, [8] 0.0
+[2026-11-23 14:23:53]     [9] 35000000000.0, [10] 75000000000.0, [11] 0.33, [12] 0.33, [13] 0.0, [14] 0.0, [15] 0.0, [16] 0.0
+[2026-11-23 14:23:53]     [17] MS 299.0, [18] MF 294.0, [19] AS 300.0, [20] AF 330.0, [21] 6000000.0, [22] 7000000.0, [23] 300000000.0, [24] 0.0
+[2026-11-23 14:23:53]     [25] 0.0, [26] 0.05, [27] 0.0, [28] 7.52e-09, [29] 0.0, [30] 0.0, [31] 0.0, [32] 0.0
+[2026-11-23 14:23:53]     [33] 1.0, [34] 1.0, [35] 1.0, [36] 1.0, [37] 0.0, [38] 0.0, [39] 0.0, [40] 0.0
+[2026-11-23 14:23:53]   UMAT MS = 299.0, MF = 294.0, AS = 300.0, AF = 330.0
+[2026-11-23 14:23:53] Material 'shade_mat':
+[2026-11-23 14:23:53]   elastic = ((1000000000.0, 0.3),)
+[2026-11-23 14:23:53] Section 'shade_sec': material='shade_mat', thickness=0.0005, numIntPts=5, integrationRule=SIMPSON, temperature=GRADIENT
+[2026-11-23 14:23:53] Section 'sma': material='SMA', thickness=0.00041, numIntPts=5, integrationRule=SIMPSON, temperature=GRADIENT
+[2026-11-23 14:23:53] Interaction 'Convection-SNEG' (FilmCondition) created in step Heat_01: filmCoeff=6.2, sinkTemperature=298.0, surface='All-Surfaces-Side2'
+[2026-11-23 14:23:53] Interaction 'Convection-SPOS' (FilmCondition) created in step Heat_01: filmCoeff=6.2, sinkTemperature=298.0, surface='All-Surfaces'
+[2026-11-23 14:23:53] Interaction 'Radiation-SNEG' (RadiationToAmbient) created in step Heat_01: emissivity=0.9, ambientTemperature=298.0, surface='All-Surfaces-Side2'
+[2026-11-23 14:23:53] Interaction 'Radiation-SPOS' (RadiationToAmbient) created in step Heat_01: emissivity=0.9, ambientTemperature=298.0, surface='All-Surfaces'
+[2026-11-23 14:23:53] 
+[2026-11-23 14:23:53] Model setup time: 298.3 s (prep job 296.5 s)
+[2026-11-23 14:23:55] Exported 4 corners of shade-1 from loading (nodes [6, 1, 25, 30])
+[2026-11-23 14:23:55] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/abaqus_to_freecad.json
+[2026-11-23 14:23:55] Running FreeCAD macro...
+[2026-11-23 14:24:07] FreeCAD macro finished in 12.3 s
+[2026-11-23 14:24:07] FreeCAD ray tracing succeeded: 2128 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/flux_data.csv
+[2026-11-23 14:24:07]   ray engine FastRay, ray tracing 5.02 s
+[2026-11-23 14:24:07] Loaded 2057 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/flux_data.csv
+[2026-11-23 14:24:09] map_flux_to_elements (coverage, k=8.0): 2057 hits (0 isolated, discarded); rho median 0.90 mm; elements 38 dark / 30 partial / 1006 full; power applied 1.7432 W vs ray estimate 1.6787 W
+[2026-11-23 14:24:09] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-23 14:24:09] Flux adjustment: 0 elements raised to 30% of unshaded flux, 144 on tape strips (x0.20); absorbed power 1.7432 W -> 1.5174 W
+[2026-11-23 14:24:09] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-23 14:24:09] Redefined SurfaceHeatFlux 'SolarFlux_01' (field=FluxField_01) for step Heat_01
+[2026-11-23 14:24:09] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-23 14:24:09] Creating job SMAHeatTransient_01
+[2026-11-23 14:24:09] Running job SMAHeatTransient_01
+[2026-11-23 14:24:37] Completed job SMAHeatTransient_01
+[2026-11-23 14:24:37] Exporting OBJ from ODB: SMAHeatTransient_01.odb
+[2026-11-23 14:24:37] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-23 14:24:37] Set to step 'Heat_01' (position index 0, global step number 4), frame 15
+[2026-11-23 14:24:37] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-23 14:24:37] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/deformed_cad\SMADogboneDeformedMesh_01.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-23 14:24:37] Waiting for ODB to be released: SMAHeatTransient_01.odb
+[2026-11-23 14:24:37] Exporting deformed geometry from SMAHeatTransient_01.odb
+[2026-11-23 14:24:38] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.959e-05
+[2026-11-23 14:24:38] Iteration 1 elapsed time: 44.619 seconds
+[2026-11-23 14:24:38] 
+========================================
+[2026-11-23 14:24:38]  Iteration 2 of 2 (job SMAHeatTransient_02)
+[2026-11-23 14:24:38] ========================================
+[2026-11-23 14:24:38] Exported 4 corners of shade-1 from SMAHeatTransient_01 (nodes [6, 1, 25, 30])
+[2026-11-23 14:24:38] Wrote FreeCAD input file: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/abaqus_to_freecad.json
+[2026-11-23 14:24:38] Running FreeCAD macro...
+[2026-11-23 14:24:50] FreeCAD macro finished in 11.6 s
+[2026-11-23 14:24:50] FreeCAD ray tracing succeeded: 2128 faces, flux data at C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/flux_data.csv
+[2026-11-23 14:24:50]   ray engine FastRay, ray tracing 5.29 s
+[2026-11-23 14:24:50] Loaded 2062 flux points from C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/flux_data.csv
+[2026-11-23 14:24:51] map_flux_to_elements (coverage, k=8.0): 2062 hits (0 isolated, discarded); rho median 0.90 mm; elements 39 dark / 36 partial / 999 full; power applied 1.7376 W vs ray estimate 1.6832 W
+[2026-11-23 14:24:51] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-23 14:24:51] Flux adjustment: 2 elements raised to 30% of unshaded flux, 144 on tape strips (x0.20); absorbed power 1.7376 W -> 1.5140 W
+[2026-11-23 14:24:51] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-23 14:24:51] Created SurfaceHeatFlux 'SolarFlux_02' (field=FluxField_02) in step Heat_02; deactivated 'SolarFlux_01' there
+[2026-11-23 14:24:52] Computed 1074 undeformed element centroids for instance SMADogbone_(Nitinol)
+[2026-11-23 14:24:52] Creating job SMAHeatTransient_02
+[2026-11-23 14:24:52] Checked SMAHeatTransient_02.inp: 2 *Dflux block(s), all op=NEW
+[2026-11-23 14:24:52] Running job SMAHeatTransient_02
+[2026-11-23 14:25:17] Completed job SMAHeatTransient_02
+[2026-11-23 14:25:17] Exporting OBJ from ODB: SMAHeatTransient_02.odb
+[2026-11-23 14:25:17] Restricted display group to instance: SMADOGBONE_(NITINOL)
+[2026-11-23 14:25:17] Set to step 'Heat_02' (position index 0, global step number 5), frame 15
+[2026-11-23 14:25:17] Set uniformScaleFactor=1.0 (true deformation scale)
+[2026-11-23 14:25:17] Wrote OBJ to: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/deformed_cad\SMADogboneDeformedMesh_02.obj (instance: SMADOGBONE_(NITINOL))
+[2026-11-23 14:25:17] Waiting for ODB to be released: SMAHeatTransient_02.odb
+[2026-11-23 14:25:17] Exporting deformed geometry from SMAHeatTransient_02.odb
+[2026-11-23 14:25:18] Extracted 1206 deformed nodes and 1074 shell elements (24 tri, 1050 quad) from instance SMADOGBONE_(NITINOL) -> 2124 triangles; max quad warp 2.959e-05
+[2026-11-23 14:25:18] Iteration 2 elapsed time: 40.137 seconds
+[2026-11-23 14:25:18] 
+DONE with all iterations.
+[2026-11-23 14:25:18] Total iterative analysis time: 383.040 seconds
+[2026-11-23 14:25:18] Read 1074 mapped flux input values for iteration 1
+[2026-11-23 14:25:18] Read 1074 mapped flux input values for iteration 2
+[2026-11-23 14:25:18] Mapped flux input colorscale: 0 to 2683.6 (95th pct)
+[2026-11-23 14:25:19] Saved: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/plots\solar_flux_mapped_input_99.1.png
+[2026-11-23 14:25:19] Saved 3D ray-tracing viewer to C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1\raytrace_viewer_99.1.html
+[2026-11-23 14:25:20] Read 8448 HFL values for SMAHeatTransient_01
+[2026-11-23 14:25:21] Read 8448 HFL values for SMAHeatTransient_02
+[2026-11-23 14:25:21] HFL colorscale: 0 to 4053.4 (95th pct)
+[2026-11-23 14:25:22] Saved: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/plots\hfl_field_output_99.1.png
+[2026-11-23 14:25:22] EdgeTwistMetric: tracking nodes 23 and 15 (1.20e-04 m and 1.20e-04 m from the given edge points)
+[2026-11-23 14:25:22] NodeTemperatureMetric: T1 at (0.004125, 0.01, 0.0) -> node 282 (4.96e-10 m away)
+[2026-11-23 14:25:22] NodeTemperatureMetric: T2 at (0.0718, 0.01, 0.0) -> node 240 (1.75e-05 m away)
+[2026-11-23 14:25:23] Wrote 3 row(s) to C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/twist_99.1.csv
+[2026-11-23 14:25:24] EdgeTwistMetric: tracking nodes 23 and 15 (1.20e-04 m and 1.20e-04 m from the given edge points)
+[2026-11-23 14:25:24] NodeTemperatureMetric: T1 at (0.004125, 0.01, 0.0) -> node 282 (4.96e-10 m away)
+[2026-11-23 14:25:24] NodeTemperatureMetric: T2 at (0.0718, 0.01, 0.0) -> node 240 (1.75e-05 m away)
+[2026-11-23 14:26:18] Wrote 276 row(s) to C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/twist_history_99.1.csv
+[2026-11-23 14:26:18] Saved twist plot to C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/plots/twist_history_99.1.png
+[2026-11-23 14:26:18] 
+DONE with all analyses.
+[2026-11-23 14:26:18] 
+Total runtime: 7 min 23 s (443 s)
+
+[2026-11-23 14:26:18] Saved runtime breakdown plot: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/plots\runtime_breakdown_99.1.png
+[2026-11-23 14:26:18] Runtime report: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/runtime_report_99.1.csv
+[2026-11-23 14:26:18] Runtime summary: C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/run_documentation/run_99.1/runtime_summary_99.1.txt

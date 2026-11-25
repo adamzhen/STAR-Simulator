@@ -1,0 +1,25 @@
+2026-11-25 00:51:01 === phase 1: A (1.03 uncoupled) and B (1.03u) in parallel; 28.6 GB free ===
+2026-11-25 00:51:01 r1_03_uncoupled: started (pid 34288) {"RUN_NO": "\"1.03_uncoupled\"", "CHUNK_SCHEDULE": "[(1, 150.0)]"}
+2026-11-25 00:51:21 r1_03u_L199: started (pid 33372) {"RUN_NO": "\"1.03u\"", "INCLUDE_SHADE": "False", "LOADING_TWIST": "1.99"}
+2026-11-25 00:55:26 r1_03v1: started (pid 37168) {"_src": "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwistFITVIS.py", "_delete_odb": true, "RUN_NO": "\"1.03v1\"", "SOLAR_IRRADIANCE": "6197.0", "FLUX_PROFILE_CENTER_X": "0.0490", "FLUX_PROFILE_SIGMA": "0.0361", "SHADE_FLUX_FRACTION": "0.288", "TAPE_FLUX_FACTOR": "0.385"}
+2026-11-25 00:55:56 r1_03v2: started (pid 32256) {"_src": "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwistFITVIS.py", "_delete_odb": true, "RUN_NO": "\"1.03v2\""}
+2026-11-25 00:57:21 r1_03u_L199: finished: prep_failed after 6 min (0/31 heating jobs complete, failed: loading.sta)
+2026-11-25 00:57:21 1.03u: prep failed at LOADING_TWIST 1.99 -> trying 1.98
+2026-11-25 00:57:21 r1_03u_L198: started (pid 30272) {"RUN_NO": "\"1.03u\"", "INCLUDE_SHADE": "False", "LOADING_TWIST": "1.98"}
+2026-11-25 01:02:22 r1_03u_L198: finished: prep_failed after 5 min (0/31 heating jobs complete, failed: loading.sta)
+2026-11-25 01:02:22 1.03u: prep failed at LOADING_TWIST 1.98 -> trying 1.97
+2026-11-25 01:02:22 r1_03u_L197: started (pid 25252) {"RUN_NO": "\"1.03u\"", "INCLUDE_SHADE": "False", "LOADING_TWIST": "1.97"}
+2026-11-25 01:07:22 r1_03u_L197: finished: prep_failed after 5 min (0/31 heating jobs complete, failed: loading.sta)
+2026-11-25 01:07:22 1.03u: prep failed at LOADING_TWIST 1.97 -> trying 1.96
+2026-11-25 01:07:22 r1_03u_L196: started (pid 37024) {"RUN_NO": "\"1.03u\"", "INCLUDE_SHADE": "False", "LOADING_TWIST": "1.96"}
+2026-11-25 01:08:02 r1_03_uncoupled: finished: job_failed after 17 min (0/1 heating jobs complete, failed: SMAHeatTransient_01.sta)
+2026-11-25 01:21:22 r1_03u_L196: disk (no file change for 0 min, 0.2 h elapsed, 2.0 GB free) -> killing
+2026-11-25 01:21:22 r1_03u_L196: finished: disk after 14 min (7/31 heating jobs complete)
+2026-11-25 01:21:22 === phase 1 done ===
+2026-11-25 01:21:27 r1_03v1: disk (no file change for 0 min, 0.4 h elapsed, 2.0 GB free) -> killing
+2026-11-25 01:21:27 r1_03v1: finished: disk after 26 min (21/31 heating jobs complete)
+2026-11-25 01:21:57 r1_03v2: disk (no file change for 0 min, 0.4 h elapsed, 1.8 GB free) -> killing
+2026-11-25 01:21:57 r1_03v2: finished: disk after 26 min (20/31 heating jobs complete)
+2026-11-25 01:25:33 === phase 2: A (uncoupled, FITUNC) + B (1.03u from 1.96), then C1/C2 visibility reruns; 25.5 GB free ===
+2026-11-25 01:25:33 r1_03_uncoupled: started (pid 32384) {"_src": "C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwistFITUNC.py", "RUN_NO": "\"1.03_uncoupled\"", "CHUNK_SCHEDULE": "[(1, 150.0)]"}
+2026-11-25 01:25:53 r1_03u_L196: started (pid 23900) {"RUN_NO": "\"1.03u\"", "INCLUDE_SHADE": "False", "LOADING_TWIST": "1.96"}

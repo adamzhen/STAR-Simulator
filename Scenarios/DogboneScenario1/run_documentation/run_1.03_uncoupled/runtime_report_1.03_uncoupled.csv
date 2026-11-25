@@ -1,0 +1,17 @@
+run_no,phase,iteration,category,start_time,seconds,status
+1.03_uncoupled,setup,,prep_job,2026-11-25 01:25:37,336.658,ok
+1.03_uncoupled,setup,,setup_total,2026-11-25 01:25:37,338.611,ok
+1.03_uncoupled,setup,,model_build,2026-11-25 01:31:15,1.953,ok
+1.03_uncoupled,iteration,1,freecad_io,2026-11-25 01:31:15,1.695,ok
+1.03_uncoupled,iteration,1,ray_tracing,2026-11-25 01:31:17,12.183,ok
+1.03_uncoupled,iteration,1,freecad_io,2026-11-25 01:31:29,0.005,ok
+1.03_uncoupled,iteration,1,flux_mapping,2026-11-25 01:31:29,1.825,ok
+1.03_uncoupled,iteration,1,model_update,2026-11-25 01:31:31,0.192,ok
+1.03_uncoupled,iteration,1,flux_mapping,2026-11-25 01:31:31,0.173,ok
+1.03_uncoupled,iteration,1,model_update,2026-11-25 01:31:31,0.050,ok
+1.03_uncoupled,iteration,1,abaqus_analysis,2026-11-25 01:31:31,1559.829,ok
+1.03_uncoupled,iteration,1,geometry_export,2026-11-25 01:57:31,5.697,ok
+1.03_uncoupled,iteration,1,iteration_total,2026-11-25 01:57:37,1581.655,ok
+1.03_uncoupled,post,,plot_mapped_flux,2026-11-25 01:57:37,0.521,ok
+1.03_uncoupled,post,,raytrace_viewer,2026-11-25 01:57:37,0.027,ok
+1.03_uncoupled,post,,plot_hfl,2026-11-25 01:57:37,6.570,ok

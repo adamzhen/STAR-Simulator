@@ -1,0 +1,44 @@
+flux maps 145 s
+  it 0 best 13.028 K
+  it 50 best 3.234 K
+  it 100 best 3.047 K
+  it 150 best 2.843 K
+  it 200 best 2.581 K
+  it 250 best 2.563 K
+  it 300 best 2.557 K
+  it 0 best 2.557 K
+  it 50 best 2.557 K
+start -> 2.557 K {'I': np.float64(7624.0175), 'xc': np.float64(0.045), 'sig': np.float64(0.0262), 'h': np.float64(12.3294), 'eps': np.float64(0.5001), 'floor': np.float64(0.3056), 'tape': np.float64(0.9998), 'hg': np.float64(5.8479)}
+  it 0 best 10.742 K
+  it 50 best 3.400 K
+  it 100 best 2.711 K
+  it 150 best 2.670 K
+  it 200 best 2.667 K
+  it 0 best 2.667 K
+  it 50 best 2.667 K
+  it 100 best 2.664 K
+  it 150 best 2.654 K
+  it 200 best 2.652 K
+  it 250 best 2.646 K
+  it 300 best 2.638 K
+  it 350 best 2.617 K
+  it 400 best 2.610 K
+  it 450 best 2.608 K
+  it 500 best 2.595 K
+  it 550 best 2.583 K
+  it 600 best 2.566 K
+  it 650 best 2.563 K
+start -> 2.563 K {'I': np.float64(7702.0168), 'xc': np.float64(0.0452), 'sig': np.float64(0.0258), 'h': np.float64(12.6743), 'eps': np.float64(0.5), 'floor': np.float64(0.307), 'tape': np.float64(1.0), 'hg': np.float64(0.0042)}
+  it 0 best 7.220 K
+  it 50 best 3.493 K
+  it 100 best 3.129 K
+  it 150 best 2.680 K
+  it 200 best 2.665 K
+  it 0 best 2.664 K
+  it 50 best 2.663 K
+start -> 2.662 K {'I': np.float64(5553.005), 'xc': np.float64(0.0664), 'sig': np.float64(0.0521), 'h': np.float64(10.5112), 'eps': np.float64(0.5091), 'floor': np.float64(0.303), 'tape': np.float64(0.8252), 'hg': np.float64(4.1126)}
+Traceback (most recent call last):
+  File "C:\Users\adzheng\STAR-Simulator\tests\heat_fit\fit.py", line 160, in <module>
+    'series': {k: [list(map(float, a)), list(map(float, b))] for k, (a, b) in info.items() if k != 'profile'}}
+                                                                    ^^^^^^
+ValueError: too many values to unpack (expected 2, got 3)

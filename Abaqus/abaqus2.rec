@@ -1,0 +1,3162 @@
+# -*- coding: mbcs -*-
+from part import *
+from material import *
+from section import *
+from assembly import *
+from step import *
+from interaction import *
+from load import *
+from mesh import *
+from optimization import *
+from job import *
+from sketch import *
+from visualization import *
+from connectorBehavior import *
+mdb.Model(name='DogboneScenario1_Model')
+del mdb.models['Model-1']
+mdb.models['DogboneScenario1_Model'].setValues(absoluteZero=0.0, 
+    stefanBoltzmann=5.67e-08)
+mdb.models['DogboneScenario1_Model'].ConstrainedSketch(name='__profile__', 
+    sheetSize=200.0)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.0), point2=(0.0, 0.193224683403969))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.193224683403969), point2=(0.155075997114182, 0.193224683403969))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.077537998557091, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.077537998557091, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(0.0, 
+    0.0), point2=(0.152335405349731, 0.0))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0761677026748655, 0.0), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.0966123417019845), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0761677026748655, 0.0), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(-0.0292295515537262, 0.0939513891935349), value=0.02, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.0), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0660063922405243, 0.221979722380638), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.193224683403969), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.155075997114182, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0570994317531586, 0.126814261078835), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0, 0.173224683403969), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.152335405349731, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0300150439143181, 0.188589945435524), point2=(0.0675337612628937, 
+    0.188589945435524))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0487744025886059, 0.188589945435524), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0359990410506725, 0.184413731098175), point2=(0.0671538263559341, 
+    0.184413731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0515764337033033, 0.184413731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0441676713526249, 0.193335622549057), value=0.0186, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0300150439143181, 0.188589945435524), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0675337612628937, 0.188589945435524), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.045402467250824, 0.179668053984642), value=0.0186, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0359990410506725, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0671538263559341, 0.184413731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].DistanceDimension(
+    entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0582337612628937, 0.188589945435524), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0578538263559341, 0.184413731098175), ), textPoint=(0.0806317999958992, 
+    0.186493337154388), value=0.00292)
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.0350101664662361, 0.157073989510536), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0485538263559341, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.0222361087799072, 0.205944165587425), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0280199349069596, 0.187333731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.193224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalDimension(
+    textPoint=(-0.0126796439290047, 0.178348317742348), value=0.00855, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.02764, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0182, 0.173224683403969), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.187333731098175), ), point1=(0.02764, 0.187333731098175), 
+    point2=(0.0182, 0.195863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.184413731098175), ), point1=(0.02764, 0.184413731098175), 
+    point2=(0.0182, 0.175863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0509473234415054, 0.197920694947243), point2=(0.0676144286990166, 
+    0.197920694947243))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.059280876070261, 0.197920694947243), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0676144286990166, 0.197920694947243), point2=(0.0676144286990166, 
+    0.175673827528954))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.059280876070261, 0.197920694947243), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].Line(point1=(
+    0.0676144286990166, 0.175673827528954), point2=(0.050095722079277, 
+    0.175673827528954))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalConstraint(
+    addUndoState=False, entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0588550753891468, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].PerpendicularConstraint(
+    addUndoState=False, entity1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0676144286990166, 0.186797261238098), ), entity2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0588550753891468, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0761304646730423, 0.185399234294891), value=0.02, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.197920694947243), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0597066804766655, 0.202053993940353), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0509473234415054, 0.195673827528954), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.195673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ObliqueDimension(
+    textPoint=(0.0605582818388939, 0.169595450162888), value=0.0182, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0676144286990166, 0.175673827528954), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.050095722079277, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].VerticalDimension(
+    textPoint=(0.0910943672060966, 0.179442420601845), value=0.00855, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.04624, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0494144286990166, 0.175673827528954), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].HorizontalDimension(
+    textPoint=(0.047784224152565, 0.154277935624123), value=0.00944, vertex1=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.04624, 0.184413731098175), ), vertex2=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].vertices.findAt(
+    (0.0494144286990166, 0.175863731098175), ))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.187333731098175), ), point1=(0.04624, 0.187333731098175), 
+    point2=(0.05568, 0.195863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].ArcByStartEndTangent(
+    entity=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.03694, 0.184413731098175), ), point1=(0.04624, 0.184413731098175), 
+    point2=(0.05568, 0.175863731098175))
+mdb.models['DogboneScenario1_Model'].sketches['__profile__'].move(objectList=(
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'].geometry.findAt(
+    (0.0, 0.185863731098175), ), ), vector=(0.0, -0.175863731098175))
+mdb.models['DogboneScenario1_Model'].Part(dimensionality=THREE_D, name='sma', 
+    type=DEFORMABLE_BODY)
+mdb.models['DogboneScenario1_Model'].parts['sma'].BaseShell(sketch=
+    mdb.models['DogboneScenario1_Model'].sketches['__profile__'])
+del mdb.models['DogboneScenario1_Model'].sketches['__profile__']
+mdb.models['DogboneScenario1_Model'].Material(name='Aluminum')
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Elastic(table=((
+    70000000000.0, 0.3), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Conductivity(table=(
+    (100.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].SpecificHeat(table=(
+    (900.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Density(table=((
+    2300.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['Aluminum'].Expansion(table=((
+    0.0, ), ))
+mdb.models['DogboneScenario1_Model'].Material(name='FakeSMA')
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Elastic(table=((
+    90000000000.0, 0.3), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Conductivity(table=((
+    50.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].SpecificHeat(table=((
+    800.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Density(table=((
+    6450.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['FakeSMA'].Expansion(table=((
+    -0.0025, 0.0, 0.0), ), type=ORTHOTROPIC)
+mdb.models['DogboneScenario1_Model'].Material(name='SMA')
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Conductivity(table=((
+    18.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].SpecificHeat(table=((
+    837.0, ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Density(table=((6450.0, 
+    ), ))
+mdb.models['DogboneScenario1_Model'].materials['SMA'].Depvar(n=100)
+mdb.models['DogboneScenario1_Model'].materials['SMA'].UserMaterial(
+    mechanicalConstants=(1.0, 0.0, 1e-08, 0.0, 0.0, 0.15, 1.0, 0.0, 
+    35000000000.0, 75000000000.0, 0.33, 0.33, 0.0, 0.0, 0.0, 0.0, 293, 283, 
+    320, 340, 7000000.0, 7000000.0, 300000000.0, 0.0, 0.0, 0.05, 0.0, 7.52e-09, 
+    0.0, 0.0, 0.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.012359, 0.0009, 0.0), (0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].InterestingPoint(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt((0.0, 0.005, 
+    0.0), ), MIDDLE), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].InterestingPoint(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt((0.07388, 
+    0.015, 0.0), ), MIDDLE))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.05637, 0.011116, 0.0), (0.0, 0.0, 1.0)), ((0.017509, 0.008897, 0.0), (
+    0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.02764, 
+    0.01147, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.02764, 
+    0.00855, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.03384, 0.01098, 0.0), (0.0, 0.0, 1.0)), ((0.03384, 0.009033, 0.0), (0.0, 
+    0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.04624, 
+    0.01147, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.04624, 
+    0.00855, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.026723, 0.008897, 0.0), (0.0, 0.0, 1.0)), ((0.026724, 0.011116, 0.0), (
+    0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.0182, 
+    0.02, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.0182, 
+    0.0, 0.0), ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].PartitionFaceByShortestPath(
+    faces=mdb.models['DogboneScenario1_Model'].parts['sma'].faces.findAt(((
+    0.047156, 0.011116, 0.0), (0.0, 0.0, 1.0)), ((0.047157, 0.008897, 0.0), (
+    0.0, 0.0, 1.0)), ), point1=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.05568, 
+    0.02, 0.0), ), point2=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].vertices.findAt((0.05568, 
+    0.0, 0.0), ))
+mdb.models['DogboneScenario1_Model'].HomogeneousShellSection(idealization=
+    NO_IDEALIZATION, integrationRule=SIMPSON, material='SMA', name='sma', 
+    nodalThicknessField='', numIntPts=5, poissonDefinition=DEFAULT, 
+    preIntegrate=OFF, temperature=GRADIENT, thickness=0.00041, thicknessField=
+    '', thicknessModulus=None, thicknessType=UNIFORM, useDensity=OFF)
+mdb.models['DogboneScenario1_Model'].sections['sma'].TransverseShearShell(k11=
+    25000000000.0, k12=12000000000.0, k22=25000000000.0)
+mdb.models['DogboneScenario1_Model'].parts['sma'].Set(faces=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].faces, name='whole-sma')
+mdb.models['DogboneScenario1_Model'].parts['sma'].SectionAssignment(offset=0.0, 
+    offsetField='', offsetType=MIDDLE_SURFACE, region=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].sets['whole-sma'], 
+    sectionName='sma', thicknessAssignment=FROM_SECTION)
+mdb.models['DogboneScenario1_Model'].rootAssembly.DatumCsysByDefault(CARTESIAN)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Instance(dependent=ON, name=
+    'SMADogbone_(Nitinol)', part=
+    mdb.models['DogboneScenario1_Model'].parts['sma'])
+mdb.models['DogboneScenario1_Model'].StaticStep(initialInc=0.01, maxInc=1.0, 
+    maxNumInc=1000000, minInc=1e-12, name='Load', nlgeom=ON, previous='Initial'
+    , timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].StaticStep(initialInc=0.01, maxInc=1.0, 
+    maxNumInc=1000000, minInc=1e-12, name='Unload', nlgeom=ON, previous='Load', 
+    timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].CoupledTempDisplacementStep(deltmx=10.0, 
+    initialInc=0.001, maxInc=1, maxNumInc=10000, minInc=1e-08, name='temp_step'
+    , previous='Unload', timePeriod=1.0)
+mdb.models['DogboneScenario1_Model'].steps['Unload'].Restart(frequency=1, 
+    numberIntervals=0, overlay=OFF)
+mdb.models['DogboneScenario1_Model'].steps['Load'].Restart(frequency=1, 
+    numberIntervals=0, overlay=OFF)
+mdb.models['DogboneScenario1_Model'].steps['temp_step'].Restart(frequency=1, 
+    numberIntervals=0, overlay=OFF)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(faces=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].faces.findAt(
+    ((0.055454, 0.004233, 0.0), (0.0, 0.0, 1.0)), ((0.061747, 0.013333, 0.0), (
+    0.0, 0.0, 1.0)), ((0.018428, 0.015769, 0.0), (0.0, 0.0, 1.0)), ((0.018426, 
+    0.004233, 0.0), (0.0, 0.0, 1.0)), ((0.04004, 0.009517, 0.0), (0.0, 0.0, 
+    1.0)), ((0.055452, 0.015769, 0.0), (0.0, 0.0, 1.0)), ((0.012133, 0.006667, 
+    0.0), (0.0, 0.0, 1.0)), ((0.04004, 0.01098, 0.0), (0.0, 0.0, 1.0)), ((
+    0.012133, 0.016667, 0.0), (0.0, 0.0, 1.0)), ((0.061747, 0.003333, 0.0), (
+    0.0, 0.0, 1.0)), ), name='Set-Temp')
+mdb.models['DogboneScenario1_Model'].Temperature(createStepName='Initial', 
+    crossSectionDistribution=CONSTANT_THROUGH_THICKNESS, distributionType=
+    UNIFORM, magnitudes=(294.0, ), name='Temp0', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Set-Temp'])
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(edges=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].edges.findAt(
+    ((0.0, 0.0025, 0.0), ), ((0.0, 0.0125, 0.0), ), ), name='Fixed-Set')
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(edges=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].edges.findAt(
+    ((0.07388, 0.0175, 0.0), ), ((0.07388, 0.0075, 0.0), ), ), name=
+    'Loaded-Set')
+mdb.models['DogboneScenario1_Model'].rootAssembly.ReferencePoint(point=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].vertices.findAt(
+    (0.07388, 0.01, 0.0), ))
+mdb.models['DogboneScenario1_Model'].rootAssembly.Set(name='rp-load', 
+    referencePoints=(
+    mdb.models['DogboneScenario1_Model'].rootAssembly.referencePoints[7], ))
+mdb.models['DogboneScenario1_Model'].rootAssembly.Surface(name='All-Surfaces', 
+    side1Faces=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].faces)
+mdb.models['DogboneScenario1_Model'].rootAssembly.Surface(name=
+    'All-Surfaces-Side2', side2Faces=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.instances['SMADogbone_(Nitinol)'].faces)
+mdb.models['DogboneScenario1_Model'].EncastreBC(createStepName='Initial', 
+    localCsys=None, name='FixEdge', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Fixed-Set'])
+mdb.models['DogboneScenario1_Model'].MultipointConstraint(controlPoint=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], csys=
+    None, mpcType=BEAM_MPC, name='load-rp', surface=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['Loaded-Set'], 
+    userMode=DOF_MODE_MPC, userType=0)
+mdb.models['DogboneScenario1_Model'].DisplacementBC(amplitude=UNSET, 
+    createStepName='Load', distributionType=UNIFORM, fieldName='', fixed=OFF, 
+    localCsys=None, name='Twist-BC', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], u1=UNSET
+    , u2=UNSET, u3=UNSET, ur1=2.2, ur2=UNSET, ur3=UNSET)
+mdb.models['DogboneScenario1_Model'].DisplacementBC(amplitude=UNSET, 
+    createStepName='Load', distributionType=UNIFORM, fieldName='', fixed=OFF, 
+    localCsys=None, name='End-BC', region=
+    mdb.models['DogboneScenario1_Model'].rootAssembly.sets['rp-load'], u1=UNSET
+    , u2=0.0, u3=0.0, ur1=UNSET, ur2=UNSET, ur3=UNSET)
+mdb.models['DogboneScenario1_Model'].boundaryConditions['Twist-BC'].deactivate(
+    'Unload')
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedPart(deviationFactor=0.1, 
+    minSizeFactor=0.1, size=0.002)
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedEdgeBySize(constraint=
+    FINER, deviationFactor=0.1, edges=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt(((0.04624, 
+    0.008912, 0.0), ), ((0.02764, 0.010367, 0.0), ), ((0.02764, 0.008912, 0.0), 
+    ), ((0.04159, 0.01, 0.0), ), ((0.03229, 0.00855, 0.0), ), ((0.04624, 
+    0.010367, 0.0), ), ((0.03229, 0.01147, 0.0), ), ), minSizeFactor=0.1, size=
+    0.0005)
+mdb.models['DogboneScenario1_Model'].parts['sma'].seedEdgeBySize(constraint=
+    FINER, deviationFactor=0.1, edges=
+    mdb.models['DogboneScenario1_Model'].parts['sma'].edges.findAt(((0.05568, 
+    0.0025, 0.0), ), ((0.05332, 0.01, 0.0), ), ((0.049653, 0.007915, 0.0), ), (
+    (0.05568, 0.0125, 0.0), ), ((0.0182, 0.0125, 0.0), ), ((0.02528, 0.01, 
+    0.0), ), ((0.024232, 0.012103, 0.0), ), ((0.0182, 0.0025, 0.0), ), ((
+    0.024227, 0.007915, 0.0), ), ((0.049648, 0.012103, 0.0), ), ), 
+    minSizeFactor=0.1, size=0.001)
+mdb.models['DogboneScenario1_Model'].parts['sma'].setElementType(elemTypes=(
+    ElemType(elemCode=S4T, elemLibrary=STANDARD, secondOrderAccuracy=OFF), 
+    ElemType(elemCode=S3T, elemLibrary=STANDARD)), regions=(
+    mdb.models['DogboneScenario1_Model'].parts['sma'].faces, ))
+mdb.models['DogboneScenario1_Model'].parts['sma'].generateMesh()
+mdb.models['DogboneScenario1_Model'].FieldOutputRequest(createStepName='Load', 
+    frequency=1, name='F-Output', variables=('SDV', 'E', 'U', 'RM', 'TEMP'))
+mdb.Job(contactPrint=OFF, description='Assembly + Add_actuator prep run', 
+    echoPrint=OFF, explicitPrecision=SINGLE, getMemoryFromAnalysis=True, 
+    historyPrint=OFF, memory=90, memoryUnits=PERCENTAGE, model=
+    'DogboneScenario1_Model', modelPrint=OFF, name='loading', 
+    nodalOutputPrecision=SINGLE, numCpus=1, numGPUs=0, resultsFormat=ODB, 
+    scratch='', type=ANALYSIS, userSubroutine=
+    'C:\\Users\\adzheng\\STAR-Simulator\\Scenarios\\DogboneScenario1\\Hartl_UMAT_Hacked.for')
+mdb.jobs['loading'].submit()
+mdb.jobs['loading'].waitForCompletion()
+#* ipc_TOO_LITTLE_SENT
+mdb.jobs['loading']._Message(STARTED, {'phase': BATCHPRE_PHASE, 
+    'jobName': 'loading', 'clientHost': 'AERO-MJ0JAKC7', 'handle': 0})
+mdb.jobs['loading']._Message(HEADING, {
+    'heading': 'Assembly + Add_actuator prep run', 'phase': BATCHPRE_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': '6 elements are distorted. Either the isoparametric angles are out of the suggested limits or the triangular or tetrahedral quality measure is bad. The elements have been identified in element set WarnElemDistorted.', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'THE BEAM MPC HAS A ZERO LENGTH BETWEEN NODES 3 INSTANCE SMADOGBONE_(NITINOL) AND 1 (ASSEMBLY).  IT WILL BE REPLACED WITH A TIE MPC', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FILE, {
+    'file': 'C:\\Users\\adzheng\\STAR-Simulator\\Abaqus\\loading.odb', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': BATCHPRE_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STARTED, {'phase': STANDARD_PHASE, 
+    'jobName': 'loading', 'clientHost': 'AERO-MJ0JAKC7', 'handle': 20040})
+mdb.jobs['loading']._Message(STEP, {'stepId': 1, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(MEMORY_ESTIMATE, {'memory': 62.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(PHYSICAL_MEMORY, {'physical_memory': 32622.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(MINIMUM_MEMORY, {'minimum_memory': 21.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 1, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 0.01, 
+    'stepTime': 0.01, 'timeIncrement': 0.01, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 2, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 2, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 9, 'iterations': 9, 'totalTime': 0.02, 
+    'stepTime': 0.02, 'timeIncrement': 0.01, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 15 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 3, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.02, 'stepTime': 0.02, 'timeIncrement': 0.01, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 3, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 3, 'attempts': 2, 
+    'severe': 0, 'equilibrium': 4, 'iterations': 4, 'totalTime': 0.0225, 
+    'stepTime': 0.0225, 'timeIncrement': 0.0025, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 4, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 4, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 3, 'iterations': 3, 'totalTime': 0.025, 
+    'stepTime': 0.025, 'timeIncrement': 0.0025, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 5, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 5, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 4, 'iterations': 4, 'totalTime': 0.02875, 
+    'stepTime': 0.02875, 'timeIncrement': 0.00375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 6, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 6, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 0.034375, 
+    'stepTime': 0.034375, 'timeIncrement': 0.005625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 7, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 7, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 4, 'iterations': 4, 'totalTime': 0.04, 
+    'stepTime': 0.04, 'timeIncrement': 0.005625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 8, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 8, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 4, 'iterations': 4, 'totalTime': 0.045625, 
+    'stepTime': 0.045625, 'timeIncrement': 0.005625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 9, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 9, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 0.0540625, 
+    'stepTime': 0.0540625, 'timeIncrement': 0.0084375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 10, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 10, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.0625, 'stepTime': 0.0625, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'MOMENT equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 11, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 11, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.0709375, 'stepTime': 0.0709375, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'MOMENT equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 12, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 12, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.079375, 'stepTime': 0.079375, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'MOMENT equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 13, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 13, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.0878125, 'stepTime': 0.0878125, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'MOMENT equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 14, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 14, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.09625, 'stepTime': 0.09625, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'MOMENT equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 15, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 15, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.1046875, 'stepTime': 0.1046875, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'MOMENT equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 16, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 16, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.113125, 'stepTime': 0.113125, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'MOMENT equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 17, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 17, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.1215625, 'stepTime': 0.1215625, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 18, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 18, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.13, 'stepTime': 0.13, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 19, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 19, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.1384375, 'stepTime': 0.1384375, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 20, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 20, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.146875, 'stepTime': 0.146875, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 21, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 21, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.1553125, 'stepTime': 0.1553125, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'FORCE equilibrium accepted using the alternate tolerance.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 22, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 22, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.16375, 'stepTime': 0.16375, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 23, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.16375, 'stepTime': 0.16375, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 23, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 23, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.165859375, 'stepTime': 0.165859375, 
+    'timeIncrement': 0.002109375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 24, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 24, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.16796875, 'stepTime': 0.16796875, 
+    'timeIncrement': 0.002109375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 25, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 25, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.1711328125, 'stepTime': 0.1711328125, 
+    'timeIncrement': 0.0031640625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'Solver problem. Numerical singularity when processing node SMADOGBONE_(NITINOL).577 D.O.F. 3 ratio = 1.E+09     .', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 26, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 26, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.17587890625, 'stepTime': 0.17587890625, 
+    'timeIncrement': 0.00474609375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 2 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 27, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.17587890625, 'stepTime': 0.17587890625, 
+    'timeIncrement': 0.00474609375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 27, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 27, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.1770654296875, 'stepTime': 0.1770654296875, 
+    'timeIncrement': 0.0011865234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 28, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 28, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 2, 'iterations': 2, 
+    'totalTime': 0.178251953125, 'stepTime': 0.178251953125, 
+    'timeIncrement': 0.0011865234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 29, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 29, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.18003173828125, 'stepTime': 0.18003173828125, 
+    'timeIncrement': 0.00177978515625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 30, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 30, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.182701416015625, 'stepTime': 0.182701416015625, 
+    'timeIncrement': 0.002669677734375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 31, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 31, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.186705932617187, 'stepTime': 0.186705932617187, 
+    'timeIncrement': 0.0040045166015625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 32, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 32, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.192712707519531, 'stepTime': 0.192712707519531, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 33, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 33, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.198719482421875, 'stepTime': 0.198719482421875, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 34, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 34, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.204726257324219, 'stepTime': 0.204726257324219, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 35, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 35, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.210733032226562, 'stepTime': 0.210733032226562, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 36, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 36, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.216739807128906, 'stepTime': 0.216739807128906, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 37, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 37, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.22274658203125, 'stepTime': 0.22274658203125, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 38, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 38, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.228753356933594, 'stepTime': 0.228753356933594, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 39, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 39, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.234760131835937, 'stepTime': 0.234760131835937, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 40, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 40, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.240766906738281, 'stepTime': 0.240766906738281, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 41, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 41, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.246773681640625, 'stepTime': 0.246773681640625, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 42, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 42, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.252780456542969, 'stepTime': 0.252780456542969, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 43, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 43, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.258787231445312, 'stepTime': 0.258787231445312, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 44, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 44, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.264794006347656, 'stepTime': 0.264794006347656, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 45, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 45, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.27080078125, 'stepTime': 0.27080078125, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 46, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 46, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.276807556152344, 'stepTime': 0.276807556152344, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 47, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 47, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.282814331054687, 'stepTime': 0.282814331054687, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 48, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 48, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.288821105957031, 'stepTime': 0.288821105957031, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 49, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 49, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.294827880859375, 'stepTime': 0.294827880859375, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 50, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 50, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.300834655761719, 'stepTime': 0.300834655761719, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 51, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 51, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.306841430664062, 'stepTime': 0.306841430664062, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 52, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 52, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.312848205566406, 'stepTime': 0.312848205566406, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 53, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 53, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.31885498046875, 'stepTime': 0.31885498046875, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 54, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 54, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.324861755371094, 'stepTime': 0.324861755371094, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 55, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 55, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.330868530273437, 'stepTime': 0.330868530273437, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 56, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 56, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.336875305175781, 'stepTime': 0.336875305175781, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 57, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 57, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.342882080078125, 'stepTime': 0.342882080078125, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 58, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 58, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.348888854980469, 'stepTime': 0.348888854980469, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 59, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 59, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.354895629882812, 'stepTime': 0.354895629882812, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 60, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 60, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.360902404785156, 'stepTime': 0.360902404785156, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 61, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 61, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.3669091796875, 'stepTime': 0.3669091796875, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 62, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 62, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.372915954589844, 'stepTime': 0.372915954589844, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 63, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 63, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.378922729492187, 'stepTime': 0.378922729492187, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 64, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 64, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.384929504394531, 'stepTime': 0.384929504394531, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 65, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 65, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.390936279296875, 'stepTime': 0.390936279296875, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 66, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 66, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.396943054199219, 'stepTime': 0.396943054199219, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 67, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 67, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.402949829101562, 'stepTime': 0.402949829101562, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 68, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 68, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.408956604003906, 'stepTime': 0.408956604003906, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 69, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 69, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.41496337890625, 'stepTime': 0.41496337890625, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 70, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 70, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.420970153808594, 'stepTime': 0.420970153808594, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 71, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 71, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.426976928710937, 'stepTime': 0.426976928710937, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 72, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 72, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.432983703613281, 'stepTime': 0.432983703613281, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 73, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 73, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.438990478515625, 'stepTime': 0.438990478515625, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 74, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 74, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.444997253417969, 'stepTime': 0.444997253417969, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 75, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 75, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.451004028320312, 'stepTime': 0.451004028320312, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 76, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 76, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.457010803222656, 'stepTime': 0.457010803222656, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 77, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 77, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.463017578125, 'stepTime': 0.463017578125, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 78, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 78, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.469024353027344, 'stepTime': 0.469024353027344, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 79, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 79, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.475031127929687, 'stepTime': 0.475031127929687, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 80, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 80, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.481037902832031, 'stepTime': 0.481037902832031, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 81, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 81, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.487044677734375, 'stepTime': 0.487044677734375, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 82, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 82, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.493051452636719, 'stepTime': 0.493051452636719, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 83, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 83, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.499058227539062, 'stepTime': 0.499058227539062, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 84, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 84, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.505065002441406, 'stepTime': 0.505065002441406, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 85, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 85, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.51107177734375, 'stepTime': 0.51107177734375, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 86, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 86, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.517078552246094, 'stepTime': 0.517078552246094, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 87, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 87, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.523085327148438, 'stepTime': 0.523085327148438, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 88, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 88, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.529092102050781, 'stepTime': 0.529092102050781, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 89, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 89, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.535098876953125, 'stepTime': 0.535098876953125, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 90, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.535098876953125, 'stepTime': 0.535098876953125, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 90, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 90, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.536600570678711, 'stepTime': 0.536600570678711, 
+    'timeIncrement': 0.00150169372558594, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 91, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 91, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.538102264404297, 'stepTime': 0.538102264404297, 
+    'timeIncrement': 0.00150169372558594, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 92, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 92, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.540354804992676, 'stepTime': 0.540354804992676, 
+    'timeIncrement': 0.00225254058837891, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 93, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 93, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.543733615875244, 'stepTime': 0.543733615875244, 
+    'timeIncrement': 0.00337881088256836, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 94, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 94, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.548801832199097, 'stepTime': 0.548801832199097, 
+    'timeIncrement': 0.00506821632385254, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 95, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.548801832199097, 'stepTime': 0.548801832199097, 
+    'timeIncrement': 0.00506821632385254, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 95, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 95, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.55006888628006, 'stepTime': 0.55006888628006, 
+    'timeIncrement': 0.00126705408096313, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 96, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 96, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.551335940361023, 'stepTime': 0.551335940361023, 
+    'timeIncrement': 0.00126705408096313, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 97, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 97, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.553236521482468, 'stepTime': 0.553236521482468, 
+    'timeIncrement': 0.0019005811214447, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 98, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 98, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.556087393164635, 'stepTime': 0.556087393164635, 
+    'timeIncrement': 0.00285087168216705, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 99, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 99, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.560363700687886, 'stepTime': 0.560363700687886, 
+    'timeIncrement': 0.00427630752325058, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 100, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.560363700687886, 'stepTime': 0.560363700687886, 
+    'timeIncrement': 0.00641446128487587, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 100, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 100, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.561967316009105, 'stepTime': 0.561967316009105, 
+    'timeIncrement': 0.00160361532121897, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 101, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 101, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.564372738990933, 'stepTime': 0.564372738990933, 
+    'timeIncrement': 0.00240542298182845, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 102, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 102, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.567980873463676, 'stepTime': 0.567980873463676, 
+    'timeIncrement': 0.00360813447274268, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 44 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 516 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 949 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 103, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.567980873463676, 'stepTime': 0.567980873463676, 
+    'timeIncrement': 0.00541220170911402, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 103, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 103, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.569333923890954, 'stepTime': 0.569333923890954, 
+    'timeIncrement': 0.0013530504272785, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 104, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 104, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.571363499531872, 'stepTime': 0.571363499531872, 
+    'timeIncrement': 0.00202957564091776, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 105, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 105, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.574407862993249, 'stepTime': 0.574407862993249, 
+    'timeIncrement': 0.00304436346137663, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 106, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 106, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.578974408185313, 'stepTime': 0.578974408185313, 
+    'timeIncrement': 0.00456654519206495, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(WARNING, {
+    'message': 'The system matrix has 1 negative eigenvalues.', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 107, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.578974408185313, 'stepTime': 0.578974408185313, 
+    'timeIncrement': 0.00684981778809743, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 107, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 107, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.580686862632338, 'stepTime': 0.580686862632338, 
+    'timeIncrement': 0.00171245444702436, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 108, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 108, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.583255544302874, 'stepTime': 0.583255544302874, 
+    'timeIncrement': 0.00256868167053653, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 109, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 109, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.587108566808679, 'stepTime': 0.587108566808679, 
+    'timeIncrement': 0.0038530225058048, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 110, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 110, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 10, 'iterations': 10, 
+    'totalTime': 0.592888100567386, 'stepTime': 0.592888100567386, 
+    'timeIncrement': 0.0057795337587072, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 111, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.592888100567386, 'stepTime': 0.592888100567386, 
+    'timeIncrement': 0.0057795337587072, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 111, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 111, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.594332984007063, 'stepTime': 0.594332984007063, 
+    'timeIncrement': 0.0014448834396768, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 112, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 112, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.59577786744674, 'stepTime': 0.59577786744674, 
+    'timeIncrement': 0.0014448834396768, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 113, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 113, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.597945192606255, 'stepTime': 0.597945192606255, 
+    'timeIncrement': 0.0021673251595152, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 114, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 114, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.601196180345528, 'stepTime': 0.601196180345528, 
+    'timeIncrement': 0.0032509877392728, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 115, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 115, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.606072661954437, 'stepTime': 0.606072661954437, 
+    'timeIncrement': 0.0048764816089092, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 116, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.606072661954437, 'stepTime': 0.606072661954437, 
+    'timeIncrement': 0.0073147224133638, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 116, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 116, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.607901342557778, 'stepTime': 0.607901342557778, 
+    'timeIncrement': 0.00182868060334095, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 117, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 117, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.610644363462789, 'stepTime': 0.610644363462789, 
+    'timeIncrement': 0.00274302090501143, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 118, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 118, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.614758894820307, 'stepTime': 0.614758894820307, 
+    'timeIncrement': 0.00411453135751714, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 119, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.614758894820307, 'stepTime': 0.614758894820307, 
+    'timeIncrement': 0.00617179703627571, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 119, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 119, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.616301844079376, 'stepTime': 0.616301844079376, 
+    'timeIncrement': 0.00154294925906893, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 120, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 120, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.618616267967979, 'stepTime': 0.618616267967979, 
+    'timeIncrement': 0.00231442388860339, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 121, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 121, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.622087903800884, 'stepTime': 0.622087903800884, 
+    'timeIncrement': 0.00347163583290509, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 122, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.622087903800884, 'stepTime': 0.622087903800884, 
+    'timeIncrement': 0.00520745374935763, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 122, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 122, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.623389767238223, 'stepTime': 0.623389767238223, 
+    'timeIncrement': 0.00130186343733941, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 123, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 123, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.625342562394233, 'stepTime': 0.625342562394233, 
+    'timeIncrement': 0.00195279515600911, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 124, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 124, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.628271755128246, 'stepTime': 0.628271755128246, 
+    'timeIncrement': 0.00292919273401367, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 125, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 125, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.632665544229267, 'stepTime': 0.632665544229267, 
+    'timeIncrement': 0.0043937891010205, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 126, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 126, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.639256227880798, 'stepTime': 0.639256227880798, 
+    'timeIncrement': 0.00659068365153075, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 127, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.639256227880798, 'stepTime': 0.639256227880798, 
+    'timeIncrement': 0.00659068365153075, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 127, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 127, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.64090389879368, 'stepTime': 0.64090389879368, 
+    'timeIncrement': 0.00164767091288269, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 128, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 128, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.642551569706563, 'stepTime': 0.642551569706563, 
+    'timeIncrement': 0.00164767091288269, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 129, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 129, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.645023076075887, 'stepTime': 0.645023076075887, 
+    'timeIncrement': 0.00247150636932403, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 130, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 130, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.648730335629873, 'stepTime': 0.648730335629873, 
+    'timeIncrement': 0.00370725955398605, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 131, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 131, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 0.654291224960852, 'stepTime': 0.654291224960852, 
+    'timeIncrement': 0.00556088933097907, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 132, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.654291224960852, 'stepTime': 0.654291224960852, 
+    'timeIncrement': 0.00556088933097907, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 132, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 132, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.655681447293597, 'stepTime': 0.655681447293597, 
+    'timeIncrement': 0.00139022233274477, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 133, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 133, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.657071669626342, 'stepTime': 0.657071669626342, 
+    'timeIncrement': 0.00139022233274477, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 134, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 134, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.659157003125459, 'stepTime': 0.659157003125459, 
+    'timeIncrement': 0.00208533349911715, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 135, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 135, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.662285003374134, 'stepTime': 0.662285003374134, 
+    'timeIncrement': 0.00312800024867573, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 136, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 136, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.666977003747148, 'stepTime': 0.666977003747148, 
+    'timeIncrement': 0.00469200037301359, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 137, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.666977003747148, 'stepTime': 0.666977003747148, 
+    'timeIncrement': 0.00703800055952039, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 137, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 137, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.668736503887028, 'stepTime': 0.668736503887028, 
+    'timeIncrement': 0.0017595001398801, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 138, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 138, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.671375754096848, 'stepTime': 0.671375754096848, 
+    'timeIncrement': 0.00263925020982015, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 139, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 139, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.675334629411579, 'stepTime': 0.675334629411579, 
+    'timeIncrement': 0.00395887531473022, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 140, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 140, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.681272942383674, 'stepTime': 0.681272942383674, 
+    'timeIncrement': 0.00593831297209533, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 141, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.681272942383674, 'stepTime': 0.681272942383674, 
+    'timeIncrement': 0.00593831297209533, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 141, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 141, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.682757520626698, 'stepTime': 0.682757520626698, 
+    'timeIncrement': 0.00148457824302383, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 142, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 142, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.684242098869722, 'stepTime': 0.684242098869722, 
+    'timeIncrement': 0.00148457824302383, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 143, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 143, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.686468966234257, 'stepTime': 0.686468966234257, 
+    'timeIncrement': 0.00222686736453575, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 144, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 144, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.689809267281061, 'stepTime': 0.689809267281061, 
+    'timeIncrement': 0.00334030104680362, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 145, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 145, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 0.694819718851266, 'stepTime': 0.694819718851266, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 146, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 146, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 0.699830170421472, 'stepTime': 0.699830170421472, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 147, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 147, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 0.704840621991677, 'stepTime': 0.704840621991677, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 148, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 148, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 0.709851073561882, 'stepTime': 0.709851073561882, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 149, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 149, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 0.714861525132088, 'stepTime': 0.714861525132088, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 150, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 150, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 0.719871976702293, 'stepTime': 0.719871976702293, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 151, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 151, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.724882428272499, 'stepTime': 0.724882428272499, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 152, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 152, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.729892879842704, 'stepTime': 0.729892879842704, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 153, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 153, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.73490333141291, 'stepTime': 0.73490333141291, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 154, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 154, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.739913782983115, 'stepTime': 0.739913782983115, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 155, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 155, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.74492423455332, 'stepTime': 0.74492423455332, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 156, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 156, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.749934686123526, 'stepTime': 0.749934686123526, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 157, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 157, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.754945137693731, 'stepTime': 0.754945137693731, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 158, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 158, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.759955589263937, 'stepTime': 0.759955589263937, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 159, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 159, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.764966040834142, 'stepTime': 0.764966040834142, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 160, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 160, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.769976492404347, 'stepTime': 0.769976492404347, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 161, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 161, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.774986943974553, 'stepTime': 0.774986943974553, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 162, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 162, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.779997395544758, 'stepTime': 0.779997395544758, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 163, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 163, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.785007847114964, 'stepTime': 0.785007847114964, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 164, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 164, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.790018298685169, 'stepTime': 0.790018298685169, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 165, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 165, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.795028750255374, 'stepTime': 0.795028750255374, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 166, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 166, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.80003920182558, 'stepTime': 0.80003920182558, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 167, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 167, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.805049653395785, 'stepTime': 0.805049653395785, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 168, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 168, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.810060104965991, 'stepTime': 0.810060104965991, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 169, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 169, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.815070556536196, 'stepTime': 0.815070556536196, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 170, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 170, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.820081008106401, 'stepTime': 0.820081008106401, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 171, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 171, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.825091459676607, 'stepTime': 0.825091459676607, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 172, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 172, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.830101911246812, 'stepTime': 0.830101911246812, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 173, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 173, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.835112362817018, 'stepTime': 0.835112362817018, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 174, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 174, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.840122814387223, 'stepTime': 0.840122814387223, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 175, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 175, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.845133265957429, 'stepTime': 0.845133265957429, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 176, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 176, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.850143717527634, 'stepTime': 0.850143717527634, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 177, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 177, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.855154169097839, 'stepTime': 0.855154169097839, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 178, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 178, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.860164620668045, 'stepTime': 0.860164620668045, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 179, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 179, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.86517507223825, 'stepTime': 0.86517507223825, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 180, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 180, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.870185523808456, 'stepTime': 0.870185523808456, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 181, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 181, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.875195975378661, 'stepTime': 0.875195975378661, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 182, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 182, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.880206426948866, 'stepTime': 0.880206426948866, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 183, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 183, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.885216878519072, 'stepTime': 0.885216878519072, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 184, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 184, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.890227330089277, 'stepTime': 0.890227330089277, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 185, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 185, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.895237781659483, 'stepTime': 0.895237781659483, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 186, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 186, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.900248233229688, 'stepTime': 0.900248233229688, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 187, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 187, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.905258684799893, 'stepTime': 0.905258684799893, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 188, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 188, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.910269136370099, 'stepTime': 0.910269136370099, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 189, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 189, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.915279587940304, 'stepTime': 0.915279587940304, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 190, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.915279587940304, 'stepTime': 0.915279587940304, 
+    'timeIncrement': 0.00501045157020543, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 190, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 190, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.916532200832856, 'stepTime': 0.916532200832856, 
+    'timeIncrement': 0.00125261289255136, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 191, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 191, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 0.917784813725407, 'stepTime': 0.917784813725407, 
+    'timeIncrement': 0.00125261289255136, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 192, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 192, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.919663733064234, 'stepTime': 0.919663733064234, 
+    'timeIncrement': 0.00187891933882704, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 193, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 193, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.922482112072475, 'stepTime': 0.922482112072475, 
+    'timeIncrement': 0.00281837900824056, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 194, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 194, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.926709680584835, 'stepTime': 0.926709680584835, 
+    'timeIncrement': 0.00422756851236083, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 195, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.926709680584835, 'stepTime': 0.926709680584835, 
+    'timeIncrement': 0.00634135276854125, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 195, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 195, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.928295018776971, 'stepTime': 0.928295018776971, 
+    'timeIncrement': 0.00158533819213531, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 196, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 196, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.930673026065174, 'stepTime': 0.930673026065174, 
+    'timeIncrement': 0.00237800728820297, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 197, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 197, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 0.934240036997478, 'stepTime': 0.934240036997478, 
+    'timeIncrement': 0.00356701093230445, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 198, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 198, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 0.939590553395935, 'stepTime': 0.939590553395935, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 199, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 199, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.944941069794392, 'stepTime': 0.944941069794392, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 200, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 200, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.950291586192848, 'stepTime': 0.950291586192848, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 201, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 201, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.955642102591305, 'stepTime': 0.955642102591305, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 202, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 202, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.960992618989761, 'stepTime': 0.960992618989761, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 203, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 203, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.966343135388218, 'stepTime': 0.966343135388218, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 204, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 204, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.971693651786675, 'stepTime': 0.971693651786675, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 205, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 205, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.977044168185131, 'stepTime': 0.977044168185131, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 206, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 206, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 0.982394684583588, 'stepTime': 0.982394684583588, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 207, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 207, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 7, 'iterations': 7, 
+    'totalTime': 0.987745200982045, 'stepTime': 0.987745200982045, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 208, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 208, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.993095717380501, 'stepTime': 0.993095717380501, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 209, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 209, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 0.998446233778958, 'stepTime': 0.998446233778958, 
+    'timeIncrement': 0.00535051639845668, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 0, 'frame': 210, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 1, 'increment': 210, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.0, 'stepTime': 1.0, 'timeIncrement': 0.00155376622104214, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(END_STEP, {'stepId': 1, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STEP, {'stepId': 2, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(MEMORY_ESTIMATE, {'memory': 62.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(PHYSICAL_MEMORY, {'physical_memory': 32622.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(MINIMUM_MEMORY, {'minimum_memory': 21.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 1, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 3, 'iterations': 3, 'totalTime': 1.01, 
+    'stepTime': 0.01, 'timeIncrement': 0.01, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 2, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 2, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 4, 'iterations': 4, 'totalTime': 1.02, 
+    'stepTime': 0.02, 'timeIncrement': 0.01, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 3, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 3, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 4, 'iterations': 4, 'totalTime': 1.035, 
+    'stepTime': 0.035, 'timeIncrement': 0.015, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 4, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 4, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 1.0575, 
+    'stepTime': 0.0575, 'timeIncrement': 0.0225, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 5, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 5, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 1.08, 
+    'stepTime': 0.08, 'timeIncrement': 0.0225, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 6, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 6, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 1.1025, 
+    'stepTime': 0.1025, 'timeIncrement': 0.0225, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 7, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 7, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 1.125, 
+    'stepTime': 0.125, 'timeIncrement': 0.0225, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 8, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 8, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 1.1475, 
+    'stepTime': 0.1475, 'timeIncrement': 0.0225, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 9, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 9, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 5, 'iterations': 5, 'totalTime': 1.17, 
+    'stepTime': 0.17, 'timeIncrement': 0.0225, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 10, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 10, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.1925, 'stepTime': 0.1925, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 11, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 11, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.215, 'stepTime': 0.215, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 12, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 12, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.2375, 'stepTime': 0.2375, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 13, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 13, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.26, 'stepTime': 0.26, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 14, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 14, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.2825, 'stepTime': 0.2825, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 15, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 15, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.305, 'stepTime': 0.305, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 16, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 16, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.3275, 'stepTime': 0.3275, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 17, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 17, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.35, 'stepTime': 0.35, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 18, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 18, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.3725, 'stepTime': 0.3725, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 19, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 19, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.395, 'stepTime': 0.395, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 20, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 20, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.4175, 'stepTime': 0.4175, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 21, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 21, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.44, 'stepTime': 0.44, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 22, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 22, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.4625, 'stepTime': 0.4625, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 23, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 23, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 1.485, 'stepTime': 0.485, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 24, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 24, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 1.5075, 'stepTime': 0.5075, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 25, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.5075, 'stepTime': 0.5075, 'timeIncrement': 0.0225, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 25, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 25, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.513125, 'stepTime': 0.513125, 'timeIncrement': 0.005625, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 26, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 26, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 1.51875, 'stepTime': 0.51875, 'timeIncrement': 0.005625, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 27, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 27, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 1.524375, 'stepTime': 0.524375, 'timeIncrement': 0.005625, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 28, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 28, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.5328125, 'stepTime': 0.5328125, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 29, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 29, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.54125, 'stepTime': 0.54125, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 30, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 30, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.5496875, 'stepTime': 0.5496875, 'timeIncrement': 0.0084375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 31, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 31, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.56234375, 'stepTime': 0.56234375, 
+    'timeIncrement': 0.01265625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 32, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 32, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.581328125, 'stepTime': 0.581328125, 
+    'timeIncrement': 0.018984375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 33, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 33, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.6003125, 'stepTime': 0.6003125, 
+    'timeIncrement': 0.018984375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 34, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 34, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.619296875, 'stepTime': 0.619296875, 
+    'timeIncrement': 0.018984375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 35, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 35, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.63828125, 'stepTime': 0.63828125, 
+    'timeIncrement': 0.018984375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 36, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 36, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 1.657265625, 'stepTime': 0.657265625, 
+    'timeIncrement': 0.018984375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 37, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 37, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 8, 'iterations': 8, 
+    'totalTime': 1.67625, 'stepTime': 0.67625, 'timeIncrement': 0.018984375, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 38, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 38, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 9, 'iterations': 9, 
+    'totalTime': 1.695234375, 'stepTime': 0.695234375000001, 
+    'timeIncrement': 0.018984375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 39, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.695234375, 'stepTime': 0.695234375000001, 
+    'timeIncrement': 0.018984375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 39, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 39, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.69998046875, 'stepTime': 0.699980468750001, 
+    'timeIncrement': 0.00474609375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 40, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 40, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 1.7047265625, 'stepTime': 0.704726562500001, 
+    'timeIncrement': 0.00474609375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 41, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 41, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.711845703125, 'stepTime': 0.711845703125001, 
+    'timeIncrement': 0.007119140625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 42, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 42, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.7225244140625, 'stepTime': 0.7225244140625, 
+    'timeIncrement': 0.0106787109375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 43, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 43, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.733203125, 'stepTime': 0.733203125, 
+    'timeIncrement': 0.0106787109375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 44, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 44, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.7438818359375, 'stepTime': 0.7438818359375, 
+    'timeIncrement': 0.0106787109375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 45, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 45, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.75989990234375, 'stepTime': 0.75989990234375, 
+    'timeIncrement': 0.01601806640625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 46, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 46, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.77591796875, 'stepTime': 0.77591796875, 
+    'timeIncrement': 0.01601806640625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 47, 
+    'attempts': ' 1U', 'severe': 0, 'equilibrium': 6, 'iterations': 6, 
+    'totalTime': 1.77591796875, 'stepTime': 0.77591796875, 
+    'timeIncrement': 0.01601806640625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 47, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 47, 
+    'attempts': 2, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.77992248535156, 'stepTime': 0.779922485351563, 
+    'timeIncrement': 0.0040045166015625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 48, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 48, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 3, 'iterations': 3, 
+    'totalTime': 1.78392700195312, 'stepTime': 0.783927001953125, 
+    'timeIncrement': 0.0040045166015625, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 49, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 49, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 1.78993377685547, 'stepTime': 0.789933776855469, 
+    'timeIncrement': 0.00600677490234375, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 50, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 50, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.79894393920898, 'stepTime': 0.798943939208985, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 51, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 51, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.8079541015625, 'stepTime': 0.8079541015625, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 52, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 52, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.81696426391602, 'stepTime': 0.816964263916016, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 53, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 53, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.82597442626953, 'stepTime': 0.825974426269532, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 54, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 54, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.83498458862305, 'stepTime': 0.834984588623047, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 55, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 55, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.84399475097656, 'stepTime': 0.843994750976563, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 56, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 56, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.85300491333008, 'stepTime': 0.853004913330078, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 57, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 57, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.86201507568359, 'stepTime': 0.862015075683594, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 58, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 58, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.87102523803711, 'stepTime': 0.87102523803711, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 59, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 59, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.88003540039063, 'stepTime': 0.880035400390625, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 60, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 60, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.88904556274414, 'stepTime': 0.889045562744141, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 61, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 61, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.89805572509766, 'stepTime': 0.898055725097656, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 62, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 62, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.90706588745117, 'stepTime': 0.907065887451172, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 63, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 63, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.91607604980469, 'stepTime': 0.916076049804688, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 64, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 64, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.9250862121582, 'stepTime': 0.925086212158203, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 65, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 65, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.93409637451172, 'stepTime': 0.934096374511719, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 66, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 66, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.94310653686524, 'stepTime': 0.943106536865234, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 67, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 67, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.95211669921875, 'stepTime': 0.95211669921875, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 68, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 68, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.96112686157227, 'stepTime': 0.961126861572266, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 69, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 69, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.97013702392578, 'stepTime': 0.970137023925781, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 70, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 70, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.9791471862793, 'stepTime': 0.979147186279297, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 71, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 71, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.98815734863281, 'stepTime': 0.988157348632812, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 72, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 72, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 5, 'iterations': 5, 
+    'totalTime': 1.99716751098633, 'stepTime': 0.997167510986328, 
+    'timeIncrement': 0.00901016235351563, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 1, 'frame': 73, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 2, 'increment': 73, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 4, 'iterations': 4, 
+    'totalTime': 2.0, 'stepTime': 1.0, 'timeIncrement': 0.00283248901367202, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(END_STEP, {'stepId': 2, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(STEP, {'stepId': 3, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(MEMORY_ESTIMATE, {'memory': 89.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(PHYSICAL_MEMORY, {'physical_memory': 32622.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(MINIMUM_MEMORY, {'minimum_memory': 21.0, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 1, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 1, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.001, 
+    'stepTime': 0.001, 'timeIncrement': 0.001, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 2, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 2, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.002, 
+    'stepTime': 0.002, 'timeIncrement': 0.001, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 3, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 3, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.003, 
+    'stepTime': 0.003, 'timeIncrement': 0.001, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 4, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 4, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.005, 
+    'stepTime': 0.005, 'timeIncrement': 0.002, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 5, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 5, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.009, 
+    'stepTime': 0.009, 'timeIncrement': 0.004, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 6, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 6, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.017, 
+    'stepTime': 0.017, 'timeIncrement': 0.008, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 7, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 7, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.033, 
+    'stepTime': 0.033, 'timeIncrement': 0.016, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 8, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 8, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.065, 
+    'stepTime': 0.065, 'timeIncrement': 0.032, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 9, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 9, 'attempts': 1, 
+    'severe': 0, 'equilibrium': 1, 'iterations': 1, 'totalTime': 2.129, 
+    'stepTime': 0.129, 'timeIncrement': 0.064, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 10, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 10, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.257, 'stepTime': 0.257, 'timeIncrement': 0.128, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 11, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 11, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 2.513, 'stepTime': 0.513, 'timeIncrement': 0.256, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(ODB_FRAME, {'step': 2, 'frame': 12, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(STATUS, {'step': 3, 'increment': 12, 
+    'attempts': 1, 'severe': 0, 'equilibrium': 1, 'iterations': 1, 
+    'totalTime': 3.0, 'stepTime': 1.0, 'timeIncrement': 0.487, 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(END_STEP, {'stepId': 3, 'phase': STANDARD_PHASE, 
+    'jobName': 'loading'})
+mdb.jobs['loading']._Message(COMPLETED, {'message': 'Analysis phase complete', 
+    'phase': STANDARD_PHASE, 'jobName': 'loading'})
+mdb.jobs['loading']._Message(JOB_COMPLETED, {
+    'time': 'Tue Nov 17 16:20:58 2026', 'jobName': 'loading'})

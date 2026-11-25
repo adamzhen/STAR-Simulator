@@ -1,0 +1,107 @@
+ISO-10303-21;
+HEADER;
+FILE_DESCRIPTION(('FreeCAD Model'),'2;1');
+FILE_NAME('Open CASCADE Shape Model','2026-11-24T21:17:29',('FreeCAD'),(
+    'FreeCAD'),'Open CASCADE STEP processor 7.8','FreeCAD','Unknown');
+FILE_SCHEMA(('AUTOMOTIVE_DESIGN { 1 0 10303 214 1 1 1 1 }'));
+ENDSEC;
+DATA;
+#1 = APPLICATION_PROTOCOL_DEFINITION('international standard',
+  'automotive_design',2000,#2);
+#2 = APPLICATION_CONTEXT(
+  'core data for automotive mechanical design processes');
+#3 = SHAPE_DEFINITION_REPRESENTATION(#4,#10);
+#4 = PRODUCT_DEFINITION_SHAPE('','',#5);
+#5 = PRODUCT_DEFINITION('design','',#6,#9);
+#6 = PRODUCT_DEFINITION_FORMATION('','',#7);
+#7 = PRODUCT('Open CASCADE STEP translator 7.8 2',
+  'Open CASCADE STEP translator 7.8 2','',(#8));
+#8 = PRODUCT_CONTEXT('',#2,'mechanical');
+#9 = PRODUCT_DEFINITION_CONTEXT('part definition',#2,'design');
+#10 = SHAPE_REPRESENTATION('',(#11,#15,#49),#83);
+#11 = AXIS2_PLACEMENT_3D('',#12,#13,#14);
+#12 = CARTESIAN_POINT('',(0.,0.,0.));
+#13 = DIRECTION('',(0.,0.,1.));
+#14 = DIRECTION('',(1.,0.,-0.));
+#15 = SHELL_BASED_SURFACE_MODEL('',(#16));
+#16 = OPEN_SHELL('',(#17));
+#17 = ADVANCED_FACE('',(#18),#44,.T.);
+#18 = FACE_BOUND('',#19,.T.);
+#19 = EDGE_LOOP('',(#20,#30,#38));
+#20 = ORIENTED_EDGE('',*,*,#21,.T.);
+#21 = EDGE_CURVE('',#22,#24,#26,.T.);
+#22 = VERTEX_POINT('',#23);
+#23 = CARTESIAN_POINT('',(-2.E-03,-4.E-03,5.E-04));
+#24 = VERTEX_POINT('',#25);
+#25 = CARTESIAN_POINT('',(3.E-03,-4.E-03,5.E-04));
+#26 = LINE('',#27,#28);
+#27 = CARTESIAN_POINT('',(-2.E-03,-4.E-03,5.E-04));
+#28 = VECTOR('',#29,1.);
+#29 = DIRECTION('',(1.,0.,0.));
+#30 = ORIENTED_EDGE('',*,*,#31,.T.);
+#31 = EDGE_CURVE('',#24,#32,#34,.T.);
+#32 = VERTEX_POINT('',#33);
+#33 = CARTESIAN_POINT('',(3.E-03,2.4E-02,5.E-04));
+#34 = LINE('',#35,#36);
+#35 = CARTESIAN_POINT('',(3.E-03,-4.E-03,5.E-04));
+#36 = VECTOR('',#37,1.);
+#37 = DIRECTION('',(0.,1.,0.));
+#38 = ORIENTED_EDGE('',*,*,#39,.T.);
+#39 = EDGE_CURVE('',#32,#22,#40,.T.);
+#40 = LINE('',#41,#42);
+#41 = CARTESIAN_POINT('',(3.E-03,2.4E-02,5.E-04));
+#42 = VECTOR('',#43,1.);
+#43 = DIRECTION('',(-0.175790638484,-0.984427575508,0.));
+#44 = PLANE('',#45);
+#45 = AXIS2_PLACEMENT_3D('',#46,#47,#48);
+#46 = CARTESIAN_POINT('',(1.639268673336E-03,8.860731326664E-03,5.E-04)
+  );
+#47 = DIRECTION('',(0.,0.,1.));
+#48 = DIRECTION('',(1.,0.,0.));
+#49 = SHELL_BASED_SURFACE_MODEL('',(#50));
+#50 = OPEN_SHELL('',(#51));
+#51 = ADVANCED_FACE('',(#52),#78,.T.);
+#52 = FACE_BOUND('',#53,.T.);
+#53 = EDGE_LOOP('',(#54,#64,#72));
+#54 = ORIENTED_EDGE('',*,*,#55,.T.);
+#55 = EDGE_CURVE('',#56,#58,#60,.T.);
+#56 = VERTEX_POINT('',#57);
+#57 = CARTESIAN_POINT('',(-2.E-03,-4.E-03,5.E-04));
+#58 = VERTEX_POINT('',#59);
+#59 = CARTESIAN_POINT('',(3.E-03,2.4E-02,5.E-04));
+#60 = LINE('',#61,#62);
+#61 = CARTESIAN_POINT('',(-2.E-03,-4.E-03,5.E-04));
+#62 = VECTOR('',#63,1.);
+#63 = DIRECTION('',(0.175790638484,0.984427575508,0.));
+#64 = ORIENTED_EDGE('',*,*,#65,.T.);
+#65 = EDGE_CURVE('',#58,#66,#68,.T.);
+#66 = VERTEX_POINT('',#67);
+#67 = CARTESIAN_POINT('',(-2.E-03,2.4E-02,5.E-04));
+#68 = LINE('',#69,#70);
+#69 = CARTESIAN_POINT('',(3.E-03,2.4E-02,5.E-04));
+#70 = VECTOR('',#71,1.);
+#71 = DIRECTION('',(-1.,0.,0.));
+#72 = ORIENTED_EDGE('',*,*,#73,.T.);
+#73 = EDGE_CURVE('',#66,#56,#74,.T.);
+#74 = LINE('',#75,#76);
+#75 = CARTESIAN_POINT('',(-2.E-03,2.4E-02,5.E-04));
+#76 = VECTOR('',#77,1.);
+#77 = DIRECTION('',(0.,-1.,0.));
+#78 = PLANE('',#79);
+#79 = AXIS2_PLACEMENT_3D('',#80,#81,#82);
+#80 = CARTESIAN_POINT('',(-6.392686733361E-04,1.113926867334E-02,5.E-04)
+  );
+#81 = DIRECTION('',(0.,0.,1.));
+#82 = DIRECTION('',(1.,0.,0.));
+#83 = ( GEOMETRIC_REPRESENTATION_CONTEXT(3) 
+GLOBAL_UNCERTAINTY_ASSIGNED_CONTEXT((#87)) GLOBAL_UNIT_ASSIGNED_CONTEXT(
+(#84,#85,#86)) REPRESENTATION_CONTEXT('Context #1',
+  '3D Context with UNIT and UNCERTAINTY') );
+#84 = ( LENGTH_UNIT() NAMED_UNIT(*) SI_UNIT(.MILLI.,.METRE.) );
+#85 = ( NAMED_UNIT(*) PLANE_ANGLE_UNIT() SI_UNIT($,.RADIAN.) );
+#86 = ( NAMED_UNIT(*) SI_UNIT($,.STERADIAN.) SOLID_ANGLE_UNIT() );
+#87 = UNCERTAINTY_MEASURE_WITH_UNIT(LENGTH_MEASURE(1.E-07),#84,
+  'distance_accuracy_value','confusion accuracy');
+#88 = PRODUCT_RELATED_PRODUCT_CATEGORY('part',$,(#7));
+ENDSEC;
+END-ISO-10303-21;

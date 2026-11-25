@@ -1,0 +1,8 @@
+flux maps 0 s
+  it 0 best 3.581 K
+  it 50 best 2.603 K
+BEST c_nf2 rms 2.601 {'I': 5147.8143, 'xc': 0.0444, 'sig': 0.3171, 'h': 6.4338, 'eps': 0.9335, 'floor': 0.2688, 'tape': 0.425, 'hg': 0.0, 'nf': 1.0, 'H': 0.2204} profile [3.5602741128427624, 1.0975081469559314, 0.0546311103] mid_peak_K 335.3 lamp_W 158
+sh_TC1 rms 2.42 max 5.10
+sh_TC2 rms 0.96 max 2.30
+un_TC1 rms 2.54 max 4.94
+un_TC2 rms 4.39 max 9.83

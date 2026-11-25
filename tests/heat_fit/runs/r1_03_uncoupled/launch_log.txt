@@ -1,0 +1,1 @@
+2026-11-25 01:25:33 start r1_03_uncoupled {"RUN_NO": "\"1.03_uncoupled\"", "CHUNK_SCHEDULE": "[(1, 150.0)]"} src=C:/Users/adzheng/STAR-Simulator/Scenarios/DogboneScenario1/scripts/starsimUMATtwistFITUNC.py

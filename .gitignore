@@ -4,6 +4,12 @@
 *.mdl
 *.sim
 *.FCBak
+*.env
+*.com
+*.prt
+*.res
+*.sta
+*.json
 
 # User scenario folders
 /Scenarios/TestScenario/

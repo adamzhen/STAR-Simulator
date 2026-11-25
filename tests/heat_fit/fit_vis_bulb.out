@@ -1,0 +1,8 @@
+flux maps 0 s
+  it 0 best 4.344 K
+  it 50 best 3.562 K
+BEST vis_bulb rms 3.556 {'I': 7834.7867, 'xc': 0.0454, 'sig': 0.0269, 'h': 6.1932, 'eps': 0.9234, 'floor': 0.2267, 'tape': 0.4206, 'hg': 0.0} mid 341.9 ends [np.float64(9.1), np.float64(5.3)] lamp 35 W
+sh_TC1 rms 1.50
+sh_TC2 rms 2.07
+un_TC1 rms 4.25
+un_TC2 rms 6.07

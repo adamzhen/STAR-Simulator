@@ -1,0 +1,7 @@
+STAR Simulator runtime summary -- run 0.41
+Started: 2026-11-17 15:36:37   Updated: 2026-11-17 15:36:37   Elapsed: 0.2 s
+!! 1 section(s) ended in error; last: setup_total (iteration None)
+
+== MODEL SETUP ==
+  setup_total                     0.2 s
+

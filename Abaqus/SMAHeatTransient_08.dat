@@ -1,6 +1,6 @@
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 22:09:10
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:28:38
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
 
@@ -78,11 +78,11 @@
 
 
 
-          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  11-Nov-2026     TIME  22:07:24
+          READING RESTART DATA GENERATED ON RELEASE  6.25-1       DATE  24-Nov-2026     TIME  23:27:45
   *heading
   *coupledtemperature-displacement, creep=NONE, deltmx=5
 
-          STEP   10  INCREMENT   48  HAS BEEN FOUND ON THE RESTART FILE
+          STEP   10  INCREMENT   10  HAS BEEN FOUND ON THE RESTART FILE
 
  ***NOTE: RESTART IS BEING MADE FROM THE END OF A STEP.  THE ENDSTEP PARAMETER 
           IS NOW SET. THE USE OF THE ENDSTEP PARAMETER REQUIRES FURTHER STEP 
@@ -95,7 +95,8 @@
   *step, name=Heat_08, nlgeom=YES, inc=200
   *step, name=Heat_08, nlgeom=YES, inc=200
   *coupledtemperature-displacement, creep=NONE, deltmx=5
-  *dflux
+  *dflux, op=NEW
+  *dflux, op=NEW
   *output, field
   *nodeoutput
   *elementoutput, directions=YES
@@ -121,10 +122,10 @@
        USER TIME (SEC)      =     0.30    
        SYSTEM TIME (SEC)    =     0.10    
        TOTAL CPU TIME (SEC) =     0.40    
-       WALLCLOCK TIME (SEC) =            1
+       WALLCLOCK TIME (SEC) =            0
 1
 
-   Abaqus 2025                                  Date 11-Nov-2026   Time 22:09:14
+   Abaqus 2025                                  Date 24-Nov-2026   Time 23:28:42
    For use by TEXAS A_M UNIVERSITY SYSTEM under license from Dassault Systemes or its subsidiary.
 
      Assembly + Add_actuator prep run                                                          STEP   11  INCREMENT    1
@@ -138,9 +139,9 @@
 
      AUTOMATIC TIME CONTROL WITH -
           A SUGGESTED INITIAL TIME INCREMENT OF                0.100    
-          AND A TOTAL TIME PERIOD OF                            5.00    
+          AND A TOTAL TIME PERIOD OF                            1.00    
           THE MINIMUM TIME INCREMENT ALLOWED IS                4.000E-05
-          THE MAXIMUM TIME INCREMENT ALLOWED IS                 5.00    
+          THE MAXIMUM TIME INCREMENT ALLOWED IS                 1.00    
 
           CREEP AND SWELLING EFFECTS ARE OMITTED IN THIS STEP
 
@@ -160,7 +161,7 @@
               OPERATIONS           REQUIRED          MINIMIZE I/O
              PER ITERATION           (MB)               (MB)
   
-     1          5.40E+08               27                 97
+     1          7.74E+08               28                131
   
  NOTE:
       (1) SINCE ABAQUS DOES NOT PRE-ALLOCATE MEMORY AND ONLY ALLOCATES MEMORY AS NEEDED DURING THE ANALYSIS,
@@ -199,12 +200,13 @@
 
                               ANALYSIS COMPLETE
                               WITH      1 WARNING MESSAGES ON THE DAT FILE
-                              AND     308 WARNING MESSAGES ON THE MSG FILE
+                              AND     515 WARNING MESSAGES ON THE MSG FILE
+                                       20 WARNINGS ARE FOR NEGATIVE EIGENVALUES
 
 
 
      JOB TIME SUMMARY
-       USER TIME (SEC)      =      58.    
-       SYSTEM TIME (SEC)    =      1.9    
-       TOTAL CPU TIME (SEC) =      60.    
-       WALLCLOCK TIME (SEC) =           60
+       USER TIME (SEC)      =      26.    
+       SYSTEM TIME (SEC)    =      1.4    
+       TOTAL CPU TIME (SEC) =      28.    
+       WALLCLOCK TIME (SEC) =           27
